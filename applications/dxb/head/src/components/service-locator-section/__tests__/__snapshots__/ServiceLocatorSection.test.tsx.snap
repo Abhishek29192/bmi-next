@@ -463,13 +463,13 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -911,13 +911,13 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -1059,13 +1059,13 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -1294,13 +1294,13 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -1774,13 +1774,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -1942,13 +1942,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -2110,13 +2110,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -2278,13 +2278,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -2446,13 +2446,13 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -2893,13 +2893,13 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -3041,13 +3041,13 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -3471,13 +3471,13 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -3794,6 +3794,24 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                                   </dd>
                                 </div>
                                 <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
+                                  </dd>
+                                </div>
+                                <div
                                   class="row, row--cta"
                                 >
                                   <button
@@ -3929,6 +3947,24 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                                     <b>
                                       fax 1
                                     </b>
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -5000,13 +5036,13 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -5168,13 +5204,13 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -5336,13 +5372,13 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -5891,6 +5927,24 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                                   </dd>
                                 </div>
                                 <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
+                                  </dd>
+                                </div>
+                                <div
                                   class="row, row--cta"
                                 >
                                   <button
@@ -6026,6 +6080,24 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                                     <b>
                                       fax 1
                                     </b>
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -6307,6 +6379,24 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                                   </dd>
                                 </div>
                                 <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
+                                  </dd>
+                                </div>
+                                <div
                                   class="row, row--cta"
                                 >
                                   <button
@@ -6442,6 +6532,24 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                                     <b>
                                       fax 1
                                     </b>
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.website
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -8670,13 +8778,13 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -8838,13 +8946,13 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -9285,13 +9393,13 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -9433,13 +9541,13 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -9937,13 +10045,13 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -10105,13 +10213,13 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -10552,13 +10660,13 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -10720,13 +10828,13 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -11167,13 +11275,13 @@ exports[`ServiceLocatorSection component renders single service with No service 
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -11594,13 +11702,13 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -12068,13 +12176,13 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -12515,13 +12623,13 @@ exports[`ServiceLocatorSection component renders single service with single serv
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div
@@ -12963,13 +13071,13 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -13394,13 +13502,13 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -13542,13 +13650,13 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -13999,13 +14107,13 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -14426,13 +14534,13 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                               </dl>
@@ -14633,13 +14741,13 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   <span
                                     class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    MC: global.website
                                   </span>
                                 </dt>
                                 <dd
                                   class="description"
                                 >
-                                  MC: findARoofer.websiteLabel
+                                  www.test.com
                                 </dd>
                               </div>
                             </dl>
@@ -15045,13 +15153,13 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        MC: findARoofer.websiteLabel
+                                        MC: global.website
                                       </span>
                                     </dt>
                                     <dd
                                       class="description"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      www.test.com
                                     </dd>
                                   </div>
                                 </dl>
@@ -15863,7 +15971,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                   <dd
                                     class="description"
                                   >
-                                    https://www.fkbygg.no
+                                    www.fkbygg.no
                                   </dd>
                                 </div>
                                 <div
@@ -15997,7 +16105,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                   <dd
                                     class="description"
                                   >
-                                    https://www.glbygg.no
+                                    www.glbygg.no
                                   </dd>
                                 </div>
                                 <div
@@ -16892,13 +17000,13 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div

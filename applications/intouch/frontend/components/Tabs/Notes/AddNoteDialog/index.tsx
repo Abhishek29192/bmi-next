@@ -19,6 +19,7 @@ type AddNoteDialogProps = {
   onCloseClick: () => any;
 };
 
+export const CHARACTER_LIMIT = 510;
 export const AddNoteDialog = ({
   isOpen,
   accountId,
@@ -26,7 +27,6 @@ export const AddNoteDialog = ({
   onCloseClick
 }: AddNoteDialogProps) => {
   const { t } = useTranslation(["common", "project-page"]);
-  const CHARACTER_LIMIT = 255;
 
   const [body, setBody] = useState<string>("");
 
@@ -97,13 +97,18 @@ export const AddNoteDialog = ({
               }}
               helperText={`${body.length}/${CHARACTER_LIMIT}`}
               isRequired
+              data-testid={"note-textfield"}
             />
           </Form.Row>
           <Form.ButtonWrapper>
             <Form.Button onClick={onCloseClick} variant="outlined">
               {t("project-page:noteTab.addNoteDialog.cancel")}
             </Form.Button>
-            <Form.SubmitButton key="btn-send" disabled={loading}>
+            <Form.SubmitButton
+              key="btn-send"
+              disabled={loading}
+              data-testid={"note-submit-button"}
+            >
               {t("project-page:noteTab.addNoteDialog.send")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

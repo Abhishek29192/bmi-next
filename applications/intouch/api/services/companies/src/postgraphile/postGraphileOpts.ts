@@ -19,6 +19,7 @@ type Props = {
 };
 
 const availableRoles: Role[] = [
+  "AUDITOR",
   "INSTALLER",
   "COMPANY_ADMIN",
   "MARKET_ADMIN",

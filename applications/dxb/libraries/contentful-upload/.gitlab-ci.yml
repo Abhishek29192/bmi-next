@@ -1,5 +1,17 @@
 test_contentful-upload:
   extends: .test_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
   variables:
     WORKSPACE: "@bmi/contentful-upload"
     ROOT_DIR: "applications/dxb/libraries/contentful-upload"

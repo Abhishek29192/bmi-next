@@ -1,31 +1,29 @@
 test_gcp-upload-file:
-  extends: .test_yarn_workspace
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
     ROOT_DIR: "applications/functions/gcp-upload-file"
 
 build_gcp-upload-file:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 package_gcp-upload-file:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_gcp-upload-file
-  dependencies:
-    - build_gcp-upload-file
+    - job: build_gcp-upload-file
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 deploy_gcp-upload-file:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_gcp-upload-file
-  dependencies:
-    - package_gcp-upload-file
+    - job: package_gcp-upload-file
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"

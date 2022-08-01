@@ -7,4 +7,6 @@ export type Media = {
   caption?: string;
   altText?: string;
   isVideo?: boolean;
+  visualiserParameters?: Record<string, string | number>;
+  openVisualiser?: (params?: Record<string, unknown>) => void;
 };

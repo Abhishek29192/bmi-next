@@ -132,3 +132,14 @@ export type ResultsRow = {
 export type ResultsObject = {
   [category in ProductCategory]: ResultsRow[];
 };
+
+export enum CalculatorSteps {
+  SelectRoof = "select-roof",
+  EnterDimensions = "enter-dimensions",
+  SelectTile = "select-tile",
+  SelectVariant = "select-variant",
+  TileOptions = "tile-options",
+  SelectUnderlay = "select-underlay",
+  Guttering = "guttering",
+  YourSolutionContains = "your-solution-contains"
+}

@@ -11,7 +11,7 @@
           "submit": "Gem og luk"
         },
         "fields": {
-          "description": "Projektbeskrivelse (valgfri)",
+          "description": "Projektbeskrivelse",
           "endDate": "Slutdato (forventet)",
           "name": "Projektnavn",
           "roofArea": "Samlet tagareal (m2)",
@@ -19,8 +19,8 @@
             "country": "Land",
             "firstLine": "Adresselinje 1",
             "postcode": "Postnummer",
-            "region": "Region (valgfri)",
-            "secondLine": "Adresselinje 2 (valgfri)",
+            "region": "Region",
+            "secondLine": "Adresselinje 2",
             "town": "By"
           },
           "startDate": "Hvornår",
@@ -53,6 +53,10 @@
       "title": "Opret projekt"
     }
   },
+  "bool": {
+    "False": "Nej",
+    "True": "Ja"
+  },
   "buildingOwnerDetails": {
     "address": "Adresse",
     "company": "Virksomhed",
@@ -67,11 +71,11 @@
             "country": "Land",
             "firstLine": "Adresselinje 1",
             "postcode": "Postnummer",
-            "region": "Region (valgfri)",
-            "secondLine": "Adresselinje 2 (valgfri)",
+            "region": "Region",
+            "secondLine": "Adresselinje 2",
             "town": "By"
           },
-          "buildingOwnerCompany": "Virksomhedsnavn (valgfri)",
+          "buildingOwnerCompany": "Virksomhedsnavn",
           "buildingOwnerFirstname": "Fornavn",
           "buildingOwnerLastname": "Efternavn",
           "buildingOwnerMail": "E-mail"
@@ -97,6 +101,11 @@
     "contact_detail": "Bygningsejerens navn",
     "email": "E-mail til bygningsejer",
     "title": "Ejeroplysninger"
+  },
+  "copyDialog": {
+    "content": "Vil du kopiere dette projekt (projektdetaljer og bygningsejeroplysninger) for at oprette et nyt?",
+    "copyOf": "Kopi af {{name}}",
+    "title": "Kopier dette projekt"
   },
   "filters": {
     "labels": {
@@ -141,6 +150,24 @@
     },
     "title": "Du kan ikke søge om garanti endnu"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "Du er ved at godkende en anmodning om løsningsgaranti. Garantidokumentationen vil nu blive genereret og automatisk udstedt til bygningsejeren via e-mail. Installationsprogrammet vil blive underrettet, men du kan også tilføje en note til dette projekt.",
+      "title": "Er du sikker?"
+    },
+    "reject": {
+      "description": "Du er ved at afvise en anmodning om løsningsgaranti. Installatøren vil blive underrettet. Tilføj en note til dette projekt for at bekræfte over for installatøren, hvad der kræves.",
+      "title": "Er du sikker?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "Garantien knyttet til dette projekt er genstartet, så der kan rekvireres en ny garanti"
+  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Ejeroplysninger ufuldstændige",
@@ -153,16 +180,6 @@
       "tier": "Du er ikke på et niveau, der understøtter garantier"
     },
     "title": "Du kan ikke søge om garanti endnu"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "title": "Er du sikker?",
-      "description": "Du er ved at godkende en anmodning om løsningsgaranti. Garantidokumentationen vil nu blive genereret og automatisk udstedt til bygningsejeren via e-mail. Installationsprogrammet vil blive underrettet, men du kan også tilføje en note til dette projekt."
-    },
-    "reject": {
-      "title": "Er du sikker?",
-      "description": "Du er ved at afvise en anmodning om løsningsgaranti. Installatøren vil blive underrettet. Tilføj en note til dette projekt for at bekræfte over for installatøren, hvad der kræves."
-    }
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -258,8 +275,8 @@
     "title": "Ingen projekter at vise"
   },
   "noProjects": {
-    "body1": "Du har ikke oprettet nogen nye projekter endnu!",
-    "body2": "Vælg knappen \"Opret projekt\" nedenfor for at komme i gang.",
+    "body1": "Skift filteret for at se forskellige typer projekter",
+    "body2": "Vælg et andet filter, eller opret et projekt for at komme i gang",
     "title": "Ingen projekter at vise"
   },
   "noteTab": {
@@ -270,7 +287,7 @@
       "title": "Tilføj note"
     },
     "header": "Tilføj note",
-    "noContent": "Ingen uploads endnu",
+    "noContent": "Der er ikke tilføjet noter til dette projekt",
     "table": {
       "author": "Forfatter",
       "date": "Dato",
@@ -285,15 +302,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Godkend garanti",
-      "confirm": "Bekræft",
-      "cancel": "Annullér",
       "archive": "Arkivprojekt",
+      "cancel": "Annullér",
+      "confirm": "Bekræf",
       "requestInformation": "Spørg for mere information",
       "unarchive": "Off-arkiv projekt"
     },
     "heading": "Projekthandlinger"
   },
   "projectDetails": {
+    "archived": "Arkiveret?",
     "buildingAddress": "Projektadresse",
     "code": "Projektkode",
     "cta": {
@@ -301,8 +319,8 @@
       "NOT_ASSIGNABLE": "Ikke delelig",
       "REASSIGN_SOLUTION": "Tildel til meg",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
-      "edit": "Redigere",
-      "copy": "Copy?"
+      "copy": "Kopi?",
+      "edit": "Redigere"
     },
     "description": "Projektbeskrivelse",
     "endDate": "Slutdato",
@@ -318,8 +336,9 @@
     "status": "Projektstatus"
   },
   "report": {
-    "guarantee": "Download garantirapport",
-    "project": "Download projektrapport"
+    "guarantee": "Garantirapport",
+    "project": "Projektrapport",
+    "projectUpload": "Uploads rapport"
   },
   "responsible_installer": {
     "address": "Ansvarlig medlems adresse",
@@ -365,31 +384,18 @@
       "confirm_label": "Upload filer",
       "evidence_category": "Bevis kategori",
       "file_validation_message": "Du kan ikke uploade filer større end",
-      "total_files_size": "Den samlede filstørrelse er overskredet - {{totalSize}}",
       "instruction": "Du kan tilføje filer",
       "microcopy": {
         "browse": "Gennemse",
         "drop": "Annullér"
       },
-      "title": "Tilføj dokumentation"
+      "title": "Tilføj dokumentation",
+      "total_files_size": "Den samlede filstørrelse er overskredet - {{totalSize}}"
     },
     "header": "Upload fil",
-    "noContent": "Ingen upload endnu",
+    "noContent": "Ingen uploads endnu",
     "requirementModal": {
       "title": "Hvad kræves der?"
     }
-  },
-  "guaranteeRestart": {
-    "note": "Garantien knyttet til dette projekt er genstartet, så der kan rekvireres en ny garanti",
-    "buttonLabel": "Restart guarantee",
-    "confirm": {
-      "title": "Restart Guarantee?",
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
-    }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
   }
 }

@@ -230,7 +230,40 @@ describe("ImportAccount Component", () => {
       </ApolloProvider>
     );
 
-    mockImport.mockRejectedValueOnce(mockImportOnError({ message: "error" }));
+    mockImport.mockRejectedValueOnce(
+      mockImportOnError({
+        graphQLErrors: [
+          {
+            message: "error",
+            extensions: {
+              exception: {
+                detail: "Key (email)=(name@mail.me) already exists."
+              }
+            }
+          }
+        ]
+      })
+    );
+    expect(mockImportOnError).toBeCalledTimes(1);
+  });
+  it("error on execution with empty details", async () => {
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper>
+          <ImportAccount />
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+
+    mockImport.mockRejectedValueOnce(
+      mockImportOnError({
+        graphQLErrors: [
+          {
+            message: "error"
+          }
+        ]
+      })
+    );
     expect(mockImportOnError).toBeCalledTimes(1);
   });
 });

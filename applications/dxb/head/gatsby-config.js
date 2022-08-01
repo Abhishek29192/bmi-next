@@ -1,9 +1,13 @@
 "use strict";
 
-const path = require("path");
 const fs = require("fs");
+const path = require("path");
 const dotenv = require("dotenv");
 const getCredentialData = require("./src/utils/get-credentials-data");
+
+/**
+ * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig
+ */
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -84,7 +88,6 @@ const queries = [
             node.path.endsWith("/") ? "" : "/"
           }`;
           const dataJSONPath = path.resolve(
-            __dirname,
             `public/page-data/${contentNodeFolderName}page-data.json`
           );
 
@@ -197,7 +200,7 @@ const elasticSearchPlugin =
               password: process.env.ES_ADMIN_PASSWORD
             },
             queries,
-            chunkSize: 100
+            chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
           }
         }
       ];
@@ -224,7 +227,10 @@ const googleTagManagerPlugin =
       ]
     : [];
 
-module.exports = {
+/**
+ * @type {GatsbyConfig}
+ */
+const config = {
   siteMetadata: {
     title: `BMI dxb`,
     description: ``,
@@ -253,14 +259,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
+        path: path.resolve(`src/images`)
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `region`,
-        path: `${__dirname}/src/countries`
+        path: path.resolve(`src/countries`)
       }
     },
     `gatsby-transformer-sharp`,
@@ -428,7 +434,7 @@ module.exports = {
               // TODO: Can we type these better?
               types: [
                 {
-                  type: "Products",
+                  type: "Product",
                   collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
                   map: (doc) => ({
                     // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
@@ -437,7 +443,7 @@ module.exports = {
                   })
                 },
                 {
-                  type: "Systems",
+                  type: "System",
                   collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
                   map: (doc) => {
                     return {
@@ -469,7 +475,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        devMode: process.env.NODE_ENV === "development"
+        devMode: true,
+        disable: process.env.CI === "true"
       }
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
@@ -590,6 +597,26 @@ module.exports = {
         generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
       }
     },
+    ...(process.env.PERFORMANCE_ANALYTICS === "true" &&
+    process.env.CI !== "true"
+      ? [`gatsby-plugin-perf-budgets`]
+      : []),
+    ...(process.env.PERFORMANCE_ANALYTICS === "true"
+      ? [
+          {
+            resolve: "gatsby-build-newrelic",
+            options: {
+              NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
+              NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
+              SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
+              collectTraces: true,
+              collectLogs: true,
+              collectMetrics: true,
+              customTags: {}
+            }
+          }
+        ]
+      : []),
     // Avoid extra memory consumption as these shouldn't be needed on prod
     {
       resolve: "gatsby-plugin-no-sourcemaps"
@@ -604,3 +631,5 @@ module.exports = {
     PARALLEL_QUERY_RUNNING: true
   }
 };
+
+module.exports = config;

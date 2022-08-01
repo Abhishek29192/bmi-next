@@ -1,13 +1,8 @@
-import React, { useReducer, useEffect, useContext } from "react";
-import {
-  Classification,
-  Product,
-  VariantOption
-} from "../components/types/pim";
-import { combineVariantClassifications } from "../utils/filters";
-import { findMasterImageUrl } from "../utils/product-details-transforms";
+import React, { useContext, useEffect, useReducer } from "react";
+import { Product } from "../types/pim";
 import { local } from "../utils/storage";
 import { useSiteContext } from "../components/Site";
+
 //action type
 export enum ACTION_TYPES {
   BASKET_ADD,
@@ -16,11 +11,13 @@ export enum ACTION_TYPES {
 }
 
 export interface Sample {
-  name: string;
-  code: string;
-  path: string;
-  classifications: Classification[];
-  image: string;
+  name: Product["name"];
+  code: Product["code"];
+  path: Product["path"];
+  colour: Product["colour"];
+  textureFamily: Product["textureFamily"];
+  measurements: Product["measurements"]["label"] | null;
+  image?: string;
 }
 
 export interface SampleOrderElement {
@@ -31,15 +28,14 @@ export interface SampleOrderElement {
   texture: string;
 }
 
-export const createSample = (
-  product: Product,
-  variant: VariantOption
-): Sample => ({
+export const createSample = (product: Product): Sample => ({
   name: product.name,
-  code: variant.code,
-  path: variant.path,
-  image: findMasterImageUrl([...(variant?.images || [])]),
-  classifications: combineVariantClassifications(product, variant)
+  code: product.code,
+  path: product.path,
+  colour: product.colour,
+  textureFamily: product.textureFamily,
+  measurements: product.measurements?.label,
+  image: product.masterImages.find((image) => !!image.mainSource)?.mainSource
 });
 
 export interface BasketAction {
@@ -47,19 +43,19 @@ export interface BasketAction {
   payload?: Sample;
 }
 
-export interface IBasketState {
+export interface BasketState {
   products: Sample[];
 }
 
 //initial state
-export const initialBasketState: IBasketState = {
+export const initialBasketState: BasketState = {
   products: []
 };
 
 export const basketReducer = (
-  state: IBasketState,
+  state: BasketState,
   action: BasketAction
-): IBasketState => {
+): BasketState => {
   const { type, payload } = action;
   switch (type) {
     case ACTION_TYPES.BASKET_ADD: {
@@ -88,7 +84,7 @@ export const basketReducer = (
 };
 
 export interface BasketContextProps {
-  basketState: IBasketState;
+  basketState: BasketState;
   basketDispatch: React.Dispatch<BasketAction>;
 }
 

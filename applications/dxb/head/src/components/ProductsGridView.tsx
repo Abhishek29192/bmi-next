@@ -5,26 +5,23 @@ import {
   OverviewCardProps,
   Typography
 } from "@bmi/components";
+import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
+import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
-import {
-  findMasterImageUrl,
-  findUniqueVariantClassifications,
-  getProductUrl,
-  mapClassificationValues
-} from "../utils/product-details-transforms";
+import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
-// TODO: This is the transformed indexed data
-type ESProductResult = any;
-
-type Props = {
-  products: ReadonlyArray<ESProductResult>;
-  pageContext: any; // TODO:
+export type Props = {
+  products: ReadonlyArray<ESProduct>;
+  pageContext: {
+    countryCode: string;
+    variantCodeToPathMap?: Record<string, string>;
+  }; // TODO: properly type
   isLoading?: boolean;
 };
 
@@ -57,19 +54,14 @@ const ProductsGridView = ({
         const brandLogoCode = variant.brandCode;
         // eslint-disable-next-line security/detect-object-injection
         const brandLogo = iconMap[brandLogoCode];
-        const mainImage = findMasterImageUrl(variant.images);
+        const mainImage = variant.mainImage;
         const product = variant.baseProduct;
-        const productUrl = `${getProductUrl(
+        const productUrl = `${getPathWithCountryCode(
           pageContext.countryCode,
-          variantCodeToPathMap[variant.code]
+          variantCodeToPathMap?.[variant.code] || variant.path
         )}${searchParams}`;
 
-        const uniqueClassifications = mapClassificationValues(
-          findUniqueVariantClassifications(
-            { ...variant, _product: product },
-            pageContext.pimClassificationCatalogueNamespace
-          )
-        );
+        const uniqueClassifications = variant.subTitle || "";
 
         return (
           <Grid
@@ -85,10 +77,14 @@ const ProductsGridView = ({
               subtitle={uniqueClassifications}
               subtitleVariant="h6"
               media={
-                <img
-                  src={mainImage}
-                  alt={`${uniqueClassifications} ${product.name}`}
-                />
+                mainImage ? (
+                  <img
+                    src={mainImage}
+                    alt={`${uniqueClassifications} ${product.name}`}
+                  />
+                ) : (
+                  <DefaultImage />
+                )
               }
               imageSize="contain"
               brandImageSource={brandLogo}

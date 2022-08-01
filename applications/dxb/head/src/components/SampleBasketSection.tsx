@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
 import { Button, Section } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import React, { useEffect, useState } from "react";
+import { microCopy } from "../constants/microCopies";
 import {
   ACTION_TYPES,
   SampleOrderElement,
@@ -10,40 +10,13 @@ import {
 } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
-import { microCopy } from "../constants/microCopies";
-import RichText, { RichTextData } from "./RichText";
+import FormSection from "./FormSection";
+import { getCTA } from "./Link";
+import RichText from "./RichText";
+import { Data } from "./SampleBasketBase";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
-import FormSection, { Data as FormData } from "./FormSection";
 import styles from "./styles/SampleBasketSection.module.scss";
-import { ClassificationCodeEnum, FeatureCodeEnum } from "./types/pim";
-import { Data as PageInfoData } from "./PageInfo";
-import { getCTA } from "./Link";
-
-const classificationConfig = {
-  [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-    { attrName: FeatureCodeEnum.COLOUR },
-    {
-      attrName: FeatureCodeEnum.TEXTURE_FAMILY,
-      separator: " | ",
-      fromStart: true
-    }
-  ],
-  [ClassificationCodeEnum.MEASUREMENTS]: [
-    { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
-    { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
-    { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
-  ]
-};
-
-export type Data = {
-  __typename: "SampleBasketSection";
-  description: RichTextData | null;
-  checkoutFormSection: FormData | null;
-  emptyBasketMessage: RichTextData | null;
-  browseProductsCTALabel: string | null;
-  browseProductsCTA: PageInfoData | null;
-};
 
 const formatSamples = (samples: SampleOrderElement[]) =>
   samples
@@ -82,70 +55,11 @@ const SampleBasketSection = ({
 
   const actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
-    const { classifications } = sample;
-
-    let color: string | undefined;
-    let texture: string | undefined;
-    let width: string | undefined;
-    let length: string | undefined;
-    let height: string | undefined;
-    let unit: string | undefined;
-    classifications
-      .filter(
-        (classification) =>
-          classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE ||
-          classification.code === ClassificationCodeEnum.MEASUREMENTS
-      )
-      .forEach((classification) =>
-        classification.features.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop();
-          if (
-            featureCode ===
-            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`
-          ) {
-            color = feature.featureValues[0]?.value;
-            return;
-          }
-          if (
-            featureCode ===
-            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`
-          ) {
-            texture = feature.featureValues[0]?.value;
-            return;
-          }
-          if (
-            featureCode ===
-            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`
-          ) {
-            width = feature.featureValues[0]?.value;
-            unit = feature.featureUnit?.symbol;
-            return;
-          }
-          if (
-            featureCode ===
-            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`
-          ) {
-            length = feature.featureValues[0]?.value;
-            unit = feature.featureUnit?.symbol;
-            return;
-          }
-          if (
-            featureCode ===
-            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`
-          ) {
-            height = feature.featureValues[0]?.value;
-            unit = feature.featureUnit?.symbol;
-            return;
-          }
-        })
-      );
-
-    const measurements = [width, length, height].filter(Boolean).join("x");
-
     const actionLabel = createActionLabel(
       sample.name,
-      classifications,
-      classificationConfig
+      sample.colour,
+      sample.textureFamily,
+      sample.measurements
     );
     actionLabels.push(actionLabel);
     return {
@@ -155,11 +69,9 @@ const SampleBasketSection = ({
         countryCode,
         sample.path
       )}`,
-      color,
-      texture,
-      measurements: measurements
-        ? `${measurements}${unit ? ` ${unit}` : ""}`
-        : undefined
+      color: sample.colour,
+      texture: sample.textureFamily,
+      measurements: sample.measurements
     };
   });
 
@@ -216,26 +128,3 @@ const SampleBasketSection = ({
 };
 
 export default SampleBasketSection;
-
-export const query = graphql`
-  fragment SampleBasketSectionFragment on ContentfulSampleBasketSection {
-    description {
-      ...RichTextFragment
-    }
-    checkoutFormSection {
-      ...FormSectionFragment
-    }
-    emptyBasketMessage {
-      ...RichTextFragment
-    }
-    browseProductsCTALabel
-    browseProductsCTA {
-      ... on ContentfulHomePage {
-        path
-      }
-      ... on ContentfulPage {
-        path
-      }
-    }
-  }
-`;

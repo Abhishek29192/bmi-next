@@ -12,11 +12,17 @@ export const stringifyAddress = (address: Partial<Address>, separator = " ") =>
     .join(separator);
 
 export const copyOfSiteAddress = (address: Partial<Address>) => {
+  if (!address) {
+    return null;
+  }
   const { id, __typename, ...parentSiteAddress } = address;
   return parentSiteAddress;
 };
 
 export const copyOfBuildingOwnerAddress = (address: Partial<Address>) => {
+  if (!address) {
+    return null;
+  }
   const { id, __typename, ...parentBuildingOwnerAddress } = address;
   return parentBuildingOwnerAddress;
 };

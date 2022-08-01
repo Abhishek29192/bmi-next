@@ -4,6 +4,7 @@ services:
 test_intouch_companies:
   stage: test
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
@@ -29,8 +30,26 @@ test_intouch_companies:
         - applications/intouch/api/services/companies/junit.xml
 
 build_intouch_api_companies:
-  stage: build
-  needs: []
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-api-service-companies"
+    ROOT_DIR: "applications/intouch/api/services/companies"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/services/companies/dist
+
+package_intouch_api_companies:
+  stage: package
+  needs:
+    - build_intouch_api_companies
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -40,6 +59,7 @@ build_intouch_api_companies:
       alias: docker
   cache: {}
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
@@ -60,7 +80,7 @@ deploy_intouch_companies_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   needs:
-    - build_intouch_api_companies
+    - package_intouch_api_companies
     - test_intouch_companies
     - job: migrate_companies_db_bmi
       optional: true
@@ -74,14 +94,14 @@ deploy_intouch_companies_to_cloudrun_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts.
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-service-companies:latest
 
-# Run only on release branch!
+# Run only on release branch!!
 release_intouch_companies_to_cloudrun_bmi:
   stage: deploy
   cache: {}

@@ -13,11 +13,6 @@
     padding: 2px;
   }
 
-  .input:focus + .card {
-    padding: 1px;
-    border: 1px solid $color-theme-accent;
-  }
-
   .input:checked + .card {
     padding: 0px;
     border: 2px solid $color-theme-accent;

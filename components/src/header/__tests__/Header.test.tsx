@@ -1,7 +1,7 @@
+import { render, waitFor } from "@testing-library/react";
 import React from "react";
-import { render } from "@testing-library/react";
-import { Arrow } from "../../icon";
 import Clickable from "../../clickable/Clickable";
+import { Arrow } from "../../icon";
 import languages from "../../language-selection/languages";
 import Header from "../Header";
 
@@ -258,5 +258,45 @@ describe("Header component", () => {
     );
 
     expect(findByText("EN")).not.toBeNull();
+  });
+  it("show basket icon if basket is not empty", () => {
+    const { queryByRole } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[0]}
+        languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
+        basketLabel={"basketLabel"}
+        isBasketEmpty={false}
+      />
+    );
+
+    expect(queryByRole("button", { name: "basketLabel" })).toBeInTheDocument();
+  });
+  it("toggle sample basket dialog", async () => {
+    const { getByRole, queryByText } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[0]}
+        languages={languages}
+        languageLabel={languageLabel}
+        basketLabel={"basketLabel"}
+        languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
+        isBasketEmpty={false}
+        SampleBasketDialog={(props) => <div {...props}>renders cart</div>}
+      />
+    );
+
+    const basketButton = getByRole("button", { name: "basketLabel" });
+    expect(queryByText("renders cart")).not.toBeVisible();
+    basketButton.click();
+    expect(queryByText("renders cart")).toBeVisible();
+    basketButton.click();
+    await waitFor(() => expect(queryByText("renders cart")).not.toBeVisible());
   });
 });

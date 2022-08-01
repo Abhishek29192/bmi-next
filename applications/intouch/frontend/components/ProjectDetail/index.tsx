@@ -85,10 +85,10 @@ const ProjectDetail = ({
   });
   const [createGuaranteePdfMutation] = useCreateGuaranteePdfMutation();
 
-  // NOTE: if has multiple guarantees they must ALL be PRODUCT, so ok look at first one
+  // NOTE: if it has multiple guarantees they must ALL be PRODUCT, so ok look at first one.
   const getProjectGuaranteeType = useCallback(
     (project: GetProjectQuery["project"]) => {
-      const coverage = project?.guarantees?.nodes?.[0]?.coverage;
+      const coverage = project.guarantees.nodes[0]?.coverage;
       return coverage
         ? t(`guarantee.type.${coverage}`)
         : t("guarantee.notRequested");
@@ -97,7 +97,7 @@ const ProjectDetail = ({
   );
 
   const guaranteeUpdateHandler = (guaranteeEventType: GuaranteeEventType) => {
-    const id = project?.guarantees?.nodes?.[0]?.id;
+    const id = project.guarantees.nodes[0].id;
     updateGuarantee({
       variables: {
         input: {
@@ -124,6 +124,20 @@ const ProjectDetail = ({
     );
   }
 
+  const startPollingPdf = (interval = 5000) => {
+    if (!isPolling && startPolling) {
+      startPolling(interval);
+      setIsPolling(true);
+    }
+  };
+
+  const stopPollingPdf = () => {
+    if (isPolling && stopPolling) {
+      stopPolling();
+      setIsPolling(false);
+    }
+  };
+
   const {
     data: { project } = {},
     loading,
@@ -133,7 +147,7 @@ const ProjectDetail = ({
   } = useGetProjectQuery({
     notifyOnNetworkStatusChange: true,
     onCompleted: ({ project }) => {
-      const isMissingPdf = project?.guarantees?.nodes?.some(
+      const isMissingPdf = project.guarantees.nodes.some(
         (guarantee) =>
           !guarantee.signedFileStorageUrl &&
           !["FLAT_SOLUTION", "PITCHED_SOLUTION"].includes(
@@ -181,20 +195,6 @@ const ProjectDetail = ({
     );
   };
 
-  const startPollingPdf = (interval = 5000) => {
-    if (!isPolling) {
-      startPolling(interval);
-      setIsPolling(true);
-    }
-  };
-
-  const stopPollingPdf = () => {
-    if (isPolling) {
-      stopPolling();
-      setIsPolling(false);
-    }
-  };
-
   return (
     <>
       <Grid item xs={12} md={8}>
@@ -220,6 +220,7 @@ const ProjectDetail = ({
           )}
           guaranteeEventHandler={guaranteeUpdateHandler}
           renderActions={() => <ProjectEditAction project={project} />}
+          hidden={project.hidden}
         />
 
         <BuildingOwnerDetails
@@ -250,7 +251,7 @@ const ProjectDetail = ({
             <TabCard>
               <TeamTab
                 projectId={projectId}
-                teams={project.projectMembers?.nodes as ProjectMember[]}
+                teams={project.projectMembers.nodes as ProjectMember[]}
                 canNominateProjectResponsible={canNominateResponsibleInstaller()}
               />
             </TabCard>
@@ -274,7 +275,7 @@ const ProjectDetail = ({
               <NoteTab
                 accountId={account.id}
                 projectId={project.id}
-                notes={project.notes?.nodes}
+                notes={project.notes.nodes}
               />
             </TabCard>
           </Tabs.TabPanel>

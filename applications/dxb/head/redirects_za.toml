@@ -277,13 +277,21 @@
  force=true
 
 
+[[redirects]]
+ from="/za/products/pitched-roofs/products/coverland"
+ to="/za/about-us/bmi-coverland/"
+ force=true
 
 [[redirects]]
-  from = "/za/sxa/file/download*"
-  to = "/za/downloads/"
-  status = 301
-  force = true
+ from="/za/products/flat-roofs/products"
+ to="/za/products-and-solutions/flat-roofs/"
+ force=true
 
+
+[[redirects]]
+ from="/za/sxa/file/*"
+ to="/za/product-catalogues-brochures-folders/"
+ force=true
 
 # Redirect root to /za.
 [[redirects]]

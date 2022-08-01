@@ -1,5 +1,5 @@
-import { Context, Node, ResolveArgs } from "./types";
-import { resolvePath, getUrlFromPath } from "./utils/path";
+import { Context, Node, ResolveArgs } from "./types/Gatsby";
+import { getUrlFromPath, resolvePath } from "./utils/path";
 
 const pages = [
   "ContentfulSimplePage",

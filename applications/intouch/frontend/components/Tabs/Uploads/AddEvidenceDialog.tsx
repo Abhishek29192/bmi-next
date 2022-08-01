@@ -91,6 +91,7 @@ export const AddEvidenceDialog = ({
               onChange={onSelectChangeHandler}
               value={evidenceCategoryKey}
               fullWidth={true}
+              data-testid="evidence-categories-list"
             >
               <SelectMenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
@@ -110,10 +111,8 @@ export const AddEvidenceDialog = ({
           buttonLabel={t("upload_tab.add_evidence_modal.button_label")}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={t("upload_tab.add_evidence_modal.instruction")}
-          mapValue={() => {
-            // no-op
-          }}
-          mapBody={(file) => ({ file })}
+          mapValue={null}
+          mapBody={null}
           microcopyProvider={{
             "upload.instructions.drop": t(
               "upload_tab.add_evidence_modal.microcopy.drop"
@@ -151,6 +150,7 @@ export const AddEvidenceDialog = ({
         }
         cancelLabel={t("upload_tab.add_evidence_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
+        data-testid="add-evidence-actions"
       />
     </Dialog>
   );

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
-    "@bmi-digital/functions-secret-client": "1.1.1",
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/storage": "^5.7.0",
     "joi": "^17.4.0",

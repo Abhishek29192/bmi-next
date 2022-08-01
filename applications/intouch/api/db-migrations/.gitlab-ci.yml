@@ -1,5 +1,19 @@
 build_intouch_migration_db_service:
-  stage: build
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/db-migrations/**/*
+  variables:
+    WORKSPACE: "@bmi/intouch-api-migration-scripts"
+    ROOT_DIR: "applications/intouch/api/db-migrations"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/db-migrations/dist
+
+package_intouch_migration_db_service:
+  stage: package
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -8,6 +22,8 @@ build_intouch_migration_db_service:
     - name: docker:20-dind
       alias: docker
   cache: {}
+  needs:
+    - build_intouch_migration_db_service
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -27,7 +43,7 @@ deploy_intouch_migration_to_cloudrun_bmi:
   stage: pre deploy
   cache: {}
   needs:
-    - build_intouch_migration_db_service
+    - package_intouch_migration_db_service
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -38,13 +54,13 @@ deploy_intouch_migration_to_cloudrun_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts.
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/db-migrations:$CI_COMMIT_SHORT_SHA --region=europe-west3
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/db-migrations:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/db-migrations:latest
 
-# Run only on release branch
+# Run only on release branch!!
 release_intouch_migration_to_cloudrun_bmi:
   stage: pre deploy
   cache: {}

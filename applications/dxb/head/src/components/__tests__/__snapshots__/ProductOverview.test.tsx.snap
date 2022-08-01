@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductOverview component renders correctly with Recapcha 1`] = `
+exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
 <div>
   <div
     class="ProductOverview"
@@ -184,7 +184,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
 </div>
 `;
 
-exports[`ProductOverview component renders correctly without Recapcha 1`] = `
+exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
 <div>
   <div
     class="ProductOverview"
@@ -335,6 +335,83 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
             text
           </p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductOverview component renders with default image if there are no images, videos nor visualiser media 1`] = `
+<div>
+  <div
+    class="ProductOverview"
+  >
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+      >
+        <div
+          class="MediaGallery"
+        >
+          <div
+            class="image-wrapper"
+          >
+            <svg
+              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+      >
+        <div
+          class="ProductOverview"
+        >
+          <h1
+            class="MuiTypography-root heading Typography MuiTypography-h3"
+          >
+            name
+          </h1>
+          <ul
+            class="attributes"
+          />
+          <div>
+            block
+          </div>
+          <p>
+            text
+          </p>
+        </div>
+        <p
+          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
+        >
+          This site is protected by reCAPTCHA and the Google 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/privacy"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Privacy Policy
+            </span>
+          </a>
+           and 
+          <a
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            href="https://policies.google.com/terms"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <span>
+              Terms of Service
+            </span>
+          </a>
+           apply.
+        </p>
       </div>
     </div>
   </div>

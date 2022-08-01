@@ -53,6 +53,10 @@
       "title": "criar projeto"
     }
   },
+  "bool": {
+    "False": "Falso",
+    "True": "Verdade"
+  },
   "buildingOwnerDetails": {
     "address": "Endereço do proprietário do edifício",
     "company": "Empresa",
@@ -97,6 +101,11 @@
     "contact_detail": "Dados de contacto do proprietário do edifício",
     "email": "Correio eletronico do proprietário do edificio",
     "title": "Detalhes do proprietário"
+  },
+  "copyDialog": {
+    "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
+    "copyOf": "Cópia de {{name}}",
+    "title": "Copie este projeto"
   },
   "filters": {
     "labels": {
@@ -266,8 +275,8 @@
     "title": "Não há projetos para mostrar"
   },
   "noProjects": {
-    "body1": "Você ainda não criou nenhum projeto",
-    "body2": "Selecione o botão \"Criar projeto\" abaixo para começar",
+    "body1": "Altere o filtro para visualizar diferentes tipos de projeto",
+    "body2": "Selecione um filtro diferente ou crie um projeto para começar",
     "title": "Não há projetos para mostrar"
   },
   "noteTab": {
@@ -293,15 +302,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "aprovar garantia",
-      "confirm": "confirme",
-      "cancel": "Cancelar",
       "archive": "Arquivar projeto",
+      "cancel": "Cancelar",
+      "confirm": "confirme",
       "requestInformation": "Solicite mais informações",
       "unarchive": "Desarquivar projeto"
     },
     "heading": "ações do projeto"
   },
   "projectDetails": {
+    "archived": "Arquivado?",
     "buildingAddress": "endereço do prédio",
     "code": "Código do projeto",
     "cta": {
@@ -309,8 +319,8 @@
       "NOT_ASSIGNABLE": "não atribuível",
       "REASSIGN_SOLUTION": "Reatribuido a mim",
       "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
-      "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "Cópia de?",
+      "edit": "Editar"
     },
     "description": "Descrição do projeto",
     "endDate": "Data de conclusão do projeto",
@@ -326,8 +336,9 @@
     "status": "Estado do projeto"
   },
   "report": {
-    "guarantee": "Descarregar relatório de garantia",
-    "project": "Descarregar o relatório do projeto"
+    "guarantee": "Relatório de garantias",
+    "project": "Relatório de Projetos",
+    "projectUpload": "Relatório de uploads"
   },
   "responsible_installer": {
     "address": "Endereço do instalador responsável",
@@ -386,10 +397,5 @@
     "requirementModal": {
       "title": "O que é necessario?"
     }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
   }
 }

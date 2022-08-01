@@ -7,12 +7,8 @@ import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
-import createImage from "../../__tests__/ImageHelper";
-import createClassification, {
-  createFeature
-} from "../../__tests__/ClassificationHelper";
+import createImage from "../../__tests__/helpers/ImageHelper";
 import { SiteContextProvider } from "../Site";
-import { ClassificationCodeEnum } from "../types/pim";
 
 const getSiteContext = () => ({
   countryCode: "en",
@@ -27,40 +23,32 @@ const samples: Sample[] = [
   {
     name: "sample-1",
     code: "sample-1",
-    image: createImage().url,
     path: "sample-1-details",
-    classifications: [
-      createClassification({
-        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
-      })
-    ]
+    colour: null,
+    textureFamily: null,
+    measurements: null,
+    image: createImage().mainSource
   },
   {
     name: "sample-2",
     code: "sample-2",
     path: "sample-2-details",
-    image: createImage().url,
-    classifications: [
-      createClassification({
-        code: ClassificationCodeEnum.MEASUREMENTS,
-        features: [
-          createFeature({
-            featureValues: [{ value: "10" }],
-            featureUnit: { symbol: "mm", name: "mm", unitType: "size" }
-          }),
-          createFeature({ featureValues: [{ value: "20" }] })
-        ]
-      })
-    ]
+    colour: "Red",
+    textureFamily: "Matte",
+    measurements: "10x20x30 mm",
+    image: createImage().mainSource
   },
   {
     name: "sample-3",
     code: "sample-3",
     path: "sample-3-details",
-    image: createImage().url,
-    classifications: []
+    colour: "Black",
+    textureFamily: null,
+    measurements: null,
+    image: createImage().mainSource
   }
 ];
+
 describe("SampleBasketSectionProducts component", () => {
   beforeAll(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));

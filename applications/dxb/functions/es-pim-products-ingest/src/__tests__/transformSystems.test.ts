@@ -1,14 +1,29 @@
 import { Category, createSystem } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
 
+const generateHashFromString = jest.fn();
+const generateUrl = jest.fn();
+jest.mock("@bmi/utils", () => ({
+  generateHashFromString: (str: string, useDate: boolean) =>
+    generateHashFromString(str, useDate),
+  generateUrl: (parts: string[]) => generateUrl(parts)
+}));
+
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
+
 describe("transformSystem", () => {
   it("should transform system to object", () => {
     const system = createSystem();
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
-    const brand = system.categories.find(
+    const brand = system.categories!.find(
       ({ categoryType }) => categoryType === "Brand"
     )?.code;
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
 
     expect(transformSystem(system)).toStrictEqual({
       brand,
@@ -17,14 +32,20 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
-  it("should transform system to object without brand", () => {
-    const system = createSystem({ categories: [] });
+  it("should transform system to object without categories", () => {
+    const system = createSystem({ categories: undefined });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: undefined,
@@ -33,8 +54,34 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object without brand", () => {
+    const system = createSystem({ categories: [] });
+    const { approvalStatus, type, images, code, name, shortDescription } =
+      system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
+
+    expect(transformSystem(system)).toStrictEqual({
+      brand: undefined,
+      approvalStatus,
+      type,
+      images,
+      code,
+      name,
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
+    });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
   it("should find brand Category by categoryType", () => {
@@ -48,6 +95,8 @@ describe("transformSystem", () => {
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: brandCategory.code,
@@ -56,8 +105,12 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
   it("should not find brand Category if no brand categoryType", () => {
@@ -71,6 +124,8 @@ describe("transformSystem", () => {
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: undefined,
@@ -79,7 +134,11 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 });

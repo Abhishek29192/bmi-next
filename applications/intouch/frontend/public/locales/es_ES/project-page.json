@@ -53,6 +53,10 @@
       "title": "Crear proyecto"
     }
   },
+  "bool": {
+    "False": "Falso",
+    "True": "Verdadero"
+  },
   "buildingOwnerDetails": {
     "address": "Dirección del propietario del edificio",
     "company": "Empresa",
@@ -98,6 +102,11 @@
     "email": "Correo electrónico del propietario del edificio",
     "title": "Datos del propietario"
   },
+  "copyDialog": {
+    "content": "¿Le gustaría copiar este proyecto (detalles del proyecto y detalles del propietario del edificio) para crear uno nuevo?",
+    "copyOf": "Copia de {{name}}",
+    "title": "Copia este proyecto"
+  },
   "filters": {
     "labels": {
       "ALL": "Todos",
@@ -141,6 +150,24 @@
     },
     "title": "No puede solicitar una garantía todavía"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto.",
+      "title": "¿Está seguro?"
+    },
+    "reject": {
+      "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere.",
+      "title": "¿Está seguro?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "Se ha reiniciado la garantía asociada a este proyecto, por lo que se puede solicitar una nueva garantía"
+  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Los datos del propietario del edificio no están completos",
@@ -153,16 +180,6 @@
       "tier": "No está en un nivel que admita Garantías"
     },
     "title": "No puede solicitar una garantía todavía"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto.",
-      "title": "¿Está seguro?"
-    },
-    "reject": {
-      "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere.",
-      "title": "¿Está seguro?"
-    }
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -258,8 +275,8 @@
     "title": "No hay proyectos para mostrar"
   },
   "noProjects": {
-    "body1": "Aún no ha creado ningún proyecto",
-    "body2": "Seleccione el botón \"Crear proyecto\" a continuación para comenzar",
+    "body1": "Cambia el filtro para ver diferentes tipos de proyectos",
+    "body2": "Seleccione un filtro diferente o cree un proyecto para comenzar",
     "title": "No hay proyectos para mostrar"
   },
   "noteTab": {
@@ -285,15 +302,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Aprobar garantía",
-      "confirm": "Confirmar",
-      "cancel": "Cancelar",
       "archive": "Archivar  proyecto",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar",
       "requestInformation": "Pedir mas información",
       "unarchive": "Desarchivar proyecto"
     },
     "heading": "Acciones del proyecto"
   },
   "projectDetails": {
+    "archived": "¿Archivado?",
     "buildingAddress": "Dirección del edificio",
     "code": "Código de proyecto",
     "cta": {
@@ -301,8 +319,8 @@
       "NOT_ASSIGNABLE": "No asignable",
       "REASSIGN_SOLUTION": "Reasignarme",
       "UNASSIGN_SOLUTION": "Desasignar de mí",
-      "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "¿Copiar?",
+      "edit": "Editar"
     },
     "description": "Descripción del proyecto",
     "endDate": "Fecha de finalización del proyecto",
@@ -318,8 +336,9 @@
     "status": "Estado del proyecto"
   },
   "report": {
-    "guarantee": "Descargar informe de garantías",
-    "project": "Descargar informe de proyectos"
+    "guarantee": "Informe de garantías",
+    "project": "Informe de proyectos",
+    "projectUpload": "Informe de subidas"
   },
   "responsible_installer": {
     "address": "Dirección del instalador responsable",
@@ -365,31 +384,18 @@
       "confirm_label": "Añadir archivos",
       "evidence_category": "Categoría de evidencia",
       "file_validation_message": "No puede añadir archivos de más de",
-      "total_files_size": "Tamaño total de archivos excedido - {{totalSize}}",
       "instruction": "Puedes añadir archivos",
       "microcopy": {
         "browse": "Navegar",
         "drop": "Abandonar"
       },
-      "title": "Añadir evidencia"
+      "title": "Añadir evidencia",
+      "total_files_size": "Tamaño total de archivos excedido - {{totalSize}}"
     },
     "header": "Añadir archivo",
     "noContent": "Aún no hay documentación aportada",
     "requirementModal": {
       "title": "¿Qué se requiere?"
     }
-  },
-  "guaranteeRestart": {
-    "note": "Se ha reiniciado la garantía asociada a este proyecto, por lo que se puede solicitar una nueva garantía",
-    "buttonLabel": "Restart Guarantee?",
-    "confirm": {
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
-      "title": "Restart Guarantee?"
-    }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
   }
 }

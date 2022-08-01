@@ -1500,12 +1500,19 @@ export type GetGuaranteesReportQuery = {
       startDate?: any | null;
       expiryDate?: any | null;
       signedFileStorageUrl?: string | null;
+      fileStorageId?: string | null;
       project?: {
         __typename?: "Project";
         name: string;
         technology: SchemaTypes.Technology;
         roofArea: number;
+        hidden?: boolean | null;
         company?: { __typename?: "Company"; name?: string | null } | null;
+      } | null;
+      requestorAccount?: {
+        __typename?: "Account";
+        firstName?: string | null;
+        lastName?: string | null;
       } | null;
       guaranteeType?: {
         __typename?: "ContentfulGuaranteeType";
@@ -1558,6 +1565,7 @@ export type GetProjectsReportQuery = {
       roofArea: number;
       buildingOwnerFirstname?: string | null;
       buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
       startDate: any;
       endDate: any;
       hidden?: boolean | null;
@@ -1587,6 +1595,10 @@ export type GetProjectsReportQuery = {
           coverage?: SchemaTypes.GuaranteeCoverage | null;
           languageCode?: SchemaTypes.Language | null;
           guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
+          guaranteeType?: {
+            __typename?: "ContentfulGuaranteeType";
+            name?: string | null;
+          } | null;
           guaranteeTypes?: {
             __typename?: "ContentfulGuaranteeTypeCollection";
             items?: Array<{
@@ -1670,6 +1682,44 @@ export type GetTeamsReportQuery = {
           } | null;
         }>;
       };
+    }>;
+  } | null;
+};
+
+export type GetEvidenceItemsReportQueryVariables = SchemaTypes.Exact<{
+  market: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetEvidenceItemsReportQuery = {
+  __typename?: "Query";
+  evidenceItemsByMarket?: {
+    __typename?: "EvidenceItemsConnection";
+    nodes: Array<{
+      __typename?: "EvidenceItem";
+      evidenceCategoryType?: SchemaTypes.EvidenceCategoryType | null;
+      name: string;
+      uploaderAccountId?: number | null;
+      createdAt: any;
+      project?: {
+        __typename?: "Project";
+        name: string;
+        roofArea: number;
+        company?: {
+          __typename?: "Company";
+          name?: string | null;
+          tier?: SchemaTypes.Tier | null;
+        } | null;
+      } | null;
+      guarantee?: {
+        __typename?: "Guarantee";
+        coverage?: SchemaTypes.GuaranteeCoverage | null;
+      } | null;
+      uploaderAccount?: {
+        __typename?: "Account";
+        lastName?: string | null;
+        firstName?: string | null;
+        email: string;
+      } | null;
     }>;
   } | null;
 };
@@ -3159,6 +3209,10 @@ export type GetProjectsQuery = {
       technology: SchemaTypes.Technology;
       startDate: any;
       endDate: any;
+      buildingOwnerFirstname?: string | null;
+      buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
+      buildingOwnerMail?: string | null;
       siteAddress?: {
         __typename?: "Address";
         town?: string | null;

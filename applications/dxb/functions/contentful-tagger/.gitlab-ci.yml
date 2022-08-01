@@ -1,7 +1,14 @@
 test_contentful-tagger:
-  extends: .test_yarn_workspace
+  extends: .test_function
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
@@ -10,56 +17,63 @@ test_contentful-tagger:
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/functions/contentful-tagger"
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 build_contentful-tagger:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
-      changes:
-        - $ROOT_DIR/**/*
-        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 package_contentful-tagger:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_contentful-tagger
-  dependencies:
-    - build_contentful-tagger
+    - job: build_contentful-tagger
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     FUNCTION_NAME: "contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
 deploy_contentful-tagger:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_contentful-tagger
-  dependencies:
-    - package_contentful-tagger
+    - job: package_contentful-tagger
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/contentful-tag-utility/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
     FUNCTION_NAME: "contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"

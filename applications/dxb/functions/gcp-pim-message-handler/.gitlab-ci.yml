@@ -1,46 +1,85 @@
 test_gcp-pim-message-handler:
-  extends: .test_yarn_workspace
+  extends: .test_function
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 build_gcp-pim-message-handler:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - yarn.lock
+        - applications/dxb/libraries/pim-api/**/*
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 package_gcp-pim-message-handler:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_gcp-pim-message-handler
-  dependencies:
-    - build_gcp-pim-message-handler
+    - job: build_gcp-pim-message-handler
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
   script:
+    - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
     - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-message-handler:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_gcp-pim-message-handler
-  dependencies:
-    - package_gcp-pim-message-handler
+    - job: package_gcp-pim-message-handler
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"

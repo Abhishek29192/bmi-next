@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
 import classnames from "classnames";
+import React, { useMemo, useState } from "react";
 import CardInput, { Props as CardInputProps } from "../card-input/CardInput";
 import withFormControl from "../form/withFormControl";
 import Grid from "../grid/Grid";
@@ -40,11 +40,9 @@ const CardCheckboxGroup = ({
   children,
   noneLabel
 }: Props) => {
-  const [selected, setSelected] = useState<Record<string, boolean> | null>(() =>
-    defaultValue ? toBooleanObject(defaultValue) : null
+  const [selected, setSelected] = useState<Record<string, boolean>>(() =>
+    defaultValue ? toBooleanObject(defaultValue) : {}
   );
-
-  const selectedMap = selected || {}; // Ensure we are always setting an object
 
   const options = useMemo(
     () =>
@@ -72,18 +70,18 @@ const CardCheckboxGroup = ({
           const handleOnChange = () => {
             const newSelected = options.filter((option) =>
               // eslint-disable-next-line security/detect-object-injection
-              value === option ? !selectedMap[option] : selectedMap[option]
+              value === option ? !selected[option] : selected[option]
             );
             const newValue = newSelected.length ? newSelected : null;
 
-            setSelected(newValue ? toBooleanObject(newValue) : null);
+            setSelected(newValue ? toBooleanObject(newValue) : {});
             onChange && onChange(newValue);
           };
 
           result = React.cloneElement(child, {
             name,
             // eslint-disable-next-line security/detect-object-injection
-            checked: selectedMap[value],
+            checked: Boolean(selected[value]),
             onChange: handleOnChange,
             className: classnames(styles["item"], className)
           });
@@ -95,7 +93,7 @@ const CardCheckboxGroup = ({
           </Grid>
         );
       }),
-    [children, name, selectedMap, onChange]
+    [children, name, selected, onChange]
   );
 
   return (
@@ -107,11 +105,12 @@ const CardCheckboxGroup = ({
             <CardCheckboxInput
               value="none"
               title={noneLabel}
-              checked={!!selected && !Object.keys(selected).length}
-              onClick={() => {
-                setSelected({});
+              checked={Boolean(selected.none)}
+              onChange={(e) => {
+                setSelected({ none: e.target.checked });
 
-                onChange && onChange([]);
+                const newValue = e.target.checked ? ["none"] : null;
+                onChange && onChange(newValue);
               }}
             />
           </Grid>

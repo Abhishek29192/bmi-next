@@ -1,12 +1,14 @@
 import {
   createProduct as createPimProduct,
-  createSystem
+  createSystem,
+  createVariantOption,
+  Product,
+  System
 } from "@bmi/pim-types";
+import { ItemType } from "@bmi/pub-sub-types";
 import { RequestParams } from "@elastic/elasticsearch";
-import { ItemType } from "@bmi/gcp-pim-message-handler";
-import { Product, System, createVariantOption } from "@bmi/pim-types";
-import { buildEsProducts, buildEsSystems } from "../index";
 import { updateElasticSearch } from "../elasticsearch";
+import { buildEsProducts, buildEsSystems } from "../index";
 
 const { ES_INDEX_PREFIX } = process.env;
 
@@ -18,10 +20,10 @@ jest.mock("@bmi/functions-es-client", () => {
 });
 
 const getEsTransformedProductDocumentsMock = (product?: Partial<Product>) =>
-  buildEsProducts([createPimProduct(product)]);
+  buildEsProducts(createPimProduct(product));
 
 const getEsTransformedSystemDocumentsMock = (system?: Partial<System>) =>
-  buildEsSystems([createSystem(system)]);
+  buildEsSystems(createSystem(system));
 
 beforeEach(() => {
   jest.clearAllMocks();

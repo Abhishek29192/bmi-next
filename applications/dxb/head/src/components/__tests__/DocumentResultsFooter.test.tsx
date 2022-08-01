@@ -1,16 +1,15 @@
-import React from "react";
-import axios from "axios";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import MockDate from "mockdate";
 import { DownloadListContext } from "@bmi/components";
+import { fireEvent, render, waitFor } from "@testing-library/react";
+import axios from "axios";
+import MockDate from "mockdate";
+import React from "react";
+import * as ClientDownloadUtils from "../../utils/client-download";
+import { devLog } from "../../utils/devLog";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
-import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
-import createPimDocument from "../../__tests__/PimDocumentHelper";
-import createSdpDocument from "../../__tests__/SdpDocumentHelper";
-import * as ClientDownloadUtils from "../../utils/client-download";
-import { devLog } from "../../utils/devLog";
 
 jest.mock("axios");
 jest.mock("../../utils/devLog");
@@ -38,7 +37,7 @@ const resetList = jest.fn();
 const list = {
   name1: createContentfulDocument(),
   name2: createPimDocument(),
-  name3: createSdpDocument()
+  name3: createPimDocument()
 };
 const token = "token";
 const ENV = process.env;
@@ -81,7 +80,7 @@ describe("DocumentResultsFooter component", () => {
     const handlePageChange = jest.fn();
     const customList = {
       name1: [createPimDocument()],
-      name2: [createSdpDocument()]
+      name2: [createPimDocument({ id: "pim-document-id" })]
     };
     const { container } = render(
       <DownloadListContext.Provider
@@ -203,12 +202,12 @@ describe("DocumentResultsFooter component", () => {
               name: "contentful-document-title.fileName"
             },
             {
-              href: "http://localhost/pim-document-id",
-              name: "pim-document-title.pdf"
+              href: "http://pimDocument",
+              name: "Pim Document-1.pdf"
             },
             {
-              href: "http://localhost:8000/sdp-document-file-name.pdf",
-              name: "sdp-document-file-name.pdf"
+              href: "http://pimDocument",
+              name: "Pim Document-2.pdf"
             }
           ]
         },

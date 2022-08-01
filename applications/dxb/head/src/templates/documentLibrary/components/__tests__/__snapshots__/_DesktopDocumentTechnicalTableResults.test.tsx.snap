@@ -1,0 +1,580 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DesktopDocumentTechnicalTableResults component Renders correctly when multiple documents are present for asset types 1`] = `
+<body>
+  <div>
+    <div
+      class="table-div"
+    >
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-no-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root header-row MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                MC: documentLibrary.headers.product
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                scope="col"
+              >
+                asset-code
+                <div
+                  class="Tooltip"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-42-59 iconButtonStyles-text-62"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root tooltip-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                scope="col"
+              >
+                <span
+                  class="all-files-header-wrapper"
+                >
+                  <svg
+                    class="all-files-icon"
+                  />
+                  <span>
+                    MC: documentLibrary.headers.allFiles
+                  </span>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product-name
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <button
+                  aria-label="Download"
+                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      class="format-icon"
+                    />
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <span
+                  class=""
+                >
+                  <div
+                    class="MuiFormControl-root Checkbox"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-69 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            aria-label="MC: documentLibrary.download product1"
+                            class="PrivateSwitchBase-input-72"
+                            data-indeterminate="false"
+                            name="product-base-code-0"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                      />
+                    </label>
+                  </div>
+                </span>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product3
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <svg
+                  class="no-document-icon"
+                />
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`DesktopDocumentTechnicalTableResults component Renders correctly when not all products have all asset types 1`] = `
+<body>
+  <div>
+    <div
+      class="table-div"
+    >
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-no-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root header-row MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                MC: documentLibrary.headers.product
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                scope="col"
+              >
+                asset-code
+                <div
+                  class="Tooltip"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root tooltip-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                scope="col"
+              >
+                asset-code
+                <div
+                  class="Tooltip"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root tooltip-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                scope="col"
+              >
+                <span
+                  class="all-files-header-wrapper"
+                >
+                  <svg
+                    class="all-files-icon"
+                  />
+                  <span>
+                    MC: documentLibrary.headers.allFiles
+                  </span>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product-name
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <a
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  download="Pim Document"
+                  href="http://pimDocument"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <svg
+                    class="format-icon"
+                  />
+                </a>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <svg
+                  class="no-document-icon"
+                />
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <span
+                  class=""
+                >
+                  <div
+                    class="MuiFormControl-root Checkbox"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-45 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            aria-label="MC: documentLibrary.download product1"
+                            class="PrivateSwitchBase-input-48"
+                            data-indeterminate="false"
+                            name="product-base-code-0"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                      />
+                    </label>
+                  </div>
+                </span>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product3
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <svg
+                  class="no-document-icon"
+                />
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <svg
+                  class="no-document-icon"
+                />
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`DesktopDocumentTechnicalTableResults component Renders correctly when only single documents are present for asset types 1`] = `
+<body>
+  <div>
+    <div
+      class="table-div"
+    >
+      <div>
+        <table
+          class="MuiTable-root Table Table--row-no-color"
+        >
+          <thead
+            class="MuiTableHead-root ColorPair ColorPair--pearl"
+          >
+            <tr
+              class="MuiTableRow-root header-row MuiTableRow-head"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head"
+                scope="col"
+              >
+                MC: documentLibrary.headers.product
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                scope="col"
+              >
+                asset-code
+                <div
+                  class="Tooltip"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-42-11 iconButtonStyles-text-14"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root tooltip-icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </th>
+              <th
+                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                scope="col"
+              >
+                <span
+                  class="all-files-header-wrapper"
+                >
+                  <svg
+                    class="all-files-icon"
+                  />
+                  <span>
+                    MC: documentLibrary.headers.allFiles
+                  </span>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product-name
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <a
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  download="Pim Document"
+                  href="http://pimDocument"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <svg
+                    class="format-icon"
+                  />
+                </a>
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <span
+                  class=""
+                >
+                  <div
+                    class="MuiFormControl-root Checkbox"
+                  >
+                    <label
+                      class="MuiFormControlLabel-root"
+                    >
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      >
+                        <span
+                          class="MuiIconButton-label"
+                        >
+                          <input
+                            aria-label="MC: documentLibrary.download product1"
+                            class="PrivateSwitchBase-input-24"
+                            data-indeterminate="false"
+                            name="product-base-code-0"
+                            type="checkbox"
+                            value=""
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                      <span
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                      />
+                    </label>
+                  </div>
+                </span>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root row"
+            >
+              <td
+                class="MuiTableCell-root MuiTableCell-body"
+              >
+                product3
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              >
+                <svg
+                  class="no-document-icon"
+                />
+              </td>
+              <td
+                class="MuiTableCell-root MuiTableCell-body align-center"
+              />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+`;

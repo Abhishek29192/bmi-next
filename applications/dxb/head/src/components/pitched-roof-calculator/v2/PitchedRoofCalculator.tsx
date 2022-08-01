@@ -1,8 +1,9 @@
-import { ContainerDialog } from "@bmi/components";
+import { BMI as brandLogo, ContainerDialog, Icon } from "@bmi/components";
+import { LinearProgress } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import React, { Suspense, useCallback, useEffect, useState } from "react";
+import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
-import { Data } from "../types";
+import { CalculatorSteps, Data } from "../types";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(
@@ -15,6 +16,17 @@ export type PitchedRoofCalculatorProps = {
   isDebugging?: boolean;
   data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
+};
+
+const stepProgress: { [key in CalculatorSteps]: number } = {
+  [CalculatorSteps.SelectRoof]: 14.28,
+  [CalculatorSteps.EnterDimensions]: 14.28,
+  [CalculatorSteps.SelectTile]: 28.56,
+  [CalculatorSteps.SelectVariant]: 42.84,
+  [CalculatorSteps.TileOptions]: 57.12,
+  [CalculatorSteps.SelectUnderlay]: 71.4,
+  [CalculatorSteps.Guttering]: 85.68,
+  [CalculatorSteps.YourSolutionContains]: 100
 };
 
 const PitchedRoofCalculator = ({
@@ -38,23 +50,12 @@ const PitchedRoofCalculator = ({
     [onAnalyticsEvent]
   );
 
-  const [selected, setSelected] = useState<
-    | "select-roof"
-    | "enter-dimensions"
-    | "select-tile"
-    | "select-variant"
-    | "tile-options"
-    | "select-underlay"
-    | "guttering"
-    | "your-solution-contains"
-  >("select-roof");
+  const [selected, setSelected] = useState<CalculatorSteps>(
+    CalculatorSteps.SelectRoof
+  );
 
-  useEffect(() => {
-    if (!isOpen && selected !== "select-roof") {
-      setSelected("select-roof");
-    }
-  }, [isOpen]);
-
+  // eslint-disable-next-line security/detect-object-injection
+  const progress = stepProgress[selected];
   const isSSR = typeof window === "undefined";
 
   const loading = (
@@ -66,7 +67,9 @@ const PitchedRoofCalculator = ({
   return (
     <AnalyticsContext.Provider value={pushEvent}>
       <ContainerDialog
-        color={selected === "your-solution-contains" ? "white" : "pearl"}
+        color={
+          selected === CalculatorSteps.YourSolutionContains ? "white" : "pearl"
+        }
         open={isOpen}
         onCloseClick={() => {
           pushEvent({
@@ -83,6 +86,14 @@ const PitchedRoofCalculator = ({
           // Disabling close on backdrop click
         }}
       >
+        <ContainerDialog.Header className={styles["ModalHeader"]}>
+          <Icon source={brandLogo} className={styles["logo"]} />
+          <LinearProgress
+            value={progress}
+            variant="determinate"
+            className={styles["progressBar"]}
+          />
+        </ContainerDialog.Header>
         <div className={styles["PitchedRoofCalculator"]}>
           {!isSSR ? (
             <Suspense fallback={loading}>

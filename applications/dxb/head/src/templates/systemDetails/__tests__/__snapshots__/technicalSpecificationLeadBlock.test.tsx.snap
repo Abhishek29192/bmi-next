@@ -95,7 +95,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 in
+                                  200
                                 </td>
                               </tr>
                               <tr
@@ -109,7 +109,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 in
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -199,7 +199,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 in
+                                  200
                                 </td>
                               </tr>
                               <tr
@@ -213,7 +213,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 in
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -328,7 +328,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -418,7 +418,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -488,7 +488,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                   >
-                    200 in
+                    200
                   </td>
                 </tr>
               </tbody>
@@ -551,7 +551,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                   >
-                    200 
+                    200
                   </td>
                 </tr>
               </tbody>
@@ -675,7 +675,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -765,7 +765,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -880,7 +880,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -970,7 +970,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
                                 >
-                                  200 
+                                  200
                                 </td>
                               </tr>
                             </tbody>
@@ -1022,7 +1022,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-43 MuiButton-contained buttonStyles-contained-45 MuiButton-containedPrimary"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"ImALink\\",\\"action\\":\\"https://www.external.co.uk\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"specification notes title - ImALink\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >

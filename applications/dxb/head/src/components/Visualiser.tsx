@@ -6,7 +6,7 @@ import queryString from "query-string";
 import React, { createContext, Suspense, useState } from "react";
 import { devLog } from "../utils/devLog";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
-import { getProductUrl } from "../utils/product-details-transforms";
+import { getPathWithCountryCode } from "../utils/path";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
@@ -106,6 +106,11 @@ const VisualiserProvider = ({
     setIsOpen(true);
   };
 
+  const handleOnClose = () => {
+    setIsOpen(false);
+    handleOnChange({});
+  };
+
   const handleOnChange = ({
     isOpen,
     ...params
@@ -118,7 +123,10 @@ const VisualiserProvider = ({
   const handleOnClick = ({ type, label, data, ...params }) => {
     const productPath =
       data && data.variantCode
-        ? getProductUrl(countryCode, variantCodeToPathMap[data.variantCode])
+        ? getPathWithCountryCode(
+            countryCode,
+            variantCodeToPathMap[data.variantCode]
+          )
         : undefined;
 
     pushToDataLayer({
@@ -160,7 +168,7 @@ const VisualiserProvider = ({
       open={isOpen}
       contentSource={contentSource}
       onChange={(params) => handleOnChange(params)}
-      onClose={() => setIsOpen(false)}
+      onClose={handleOnClose}
       tiles={tilesSetData.tiles as Tile[]}
       sidings={sidingsSetData.sidings}
       {...parsedQueryParameters}
@@ -180,7 +188,7 @@ const VisualiserProvider = ({
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
           {process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true" ? (
-            { VisualizerComponent }
+            VisualizerComponent
           ) : (
             <MicroCopy.Provider values={no}>
               {VisualizerComponent}

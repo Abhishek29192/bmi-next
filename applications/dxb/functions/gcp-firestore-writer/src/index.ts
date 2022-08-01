@@ -1,10 +1,13 @@
 import logger from "@bmi-digital/functions-logger";
-import { VariantOption, SystemLayer } from "@bmi/pim-types";
+import { Product, System } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
-import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
+import { SystemLayer } from "@bmi/pim-types";
+import { DeleteItem, Message, ObjType } from "@bmi/pub-sub-types";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { transformProduct } from "./productTransformer";
+import { transformSystem } from "./systemTransformer";
 
-const { FIRESTORE_ROOT_COLLECTION } = process.env;
+const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
 const db = getFirestore();
 
 // TODO: I think these should start with "/", but was easier for them not to
@@ -25,147 +28,90 @@ export const CODE_TYPES = {
 };
 
 const updateDocument = (
-  updatedItem: any,
+  updatedItem: System | Product,
   docPath: string,
   batch: FirebaseFirestore.WriteBatch
 ) => {
   const docRef = db.doc(docPath);
-
   batch.set(docRef, updatedItem);
   logger.info({
     message: `Updated by path: ${docPath}`
   });
 };
 
-const deleteBaseEntity = (
-  item: DeleteItemType,
-  batch: FirebaseFirestore.WriteBatch,
-  path: string
-) => {
+const deleteDocument = (batch: FirebaseFirestore.WriteBatch, path: string) => {
   const docRef = db.doc(path);
-
-  if (docRef) {
-    batch.delete(docRef);
-    logger.info({
-      message: `Deleted by path: ${path}`
-    });
-  } else {
-    logger.info({
-      message: `Deleted ${item.objType} did not found in firestore`
-    });
-  }
+  batch.delete(docRef);
+  logger.info({
+    message: `Deleted document ${path} from Firestore`
+  });
 };
 
-const deleteNestedEntity = async (
-  item: DeleteItemType,
-  collectionPath: string,
+const deleteByBaseCode = async (
+  productBaseCode: string,
   batch: FirebaseFirestore.WriteBatch
 ) => {
-  const key =
-    item.objType === ObjType.Variant
-      ? CODE_TYPES.VARIANT_CODES
-      : CODE_TYPES.LAYER_CODES;
-
-  const basePath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`;
+  const basePath = `${FIRESTORE_ROOT_COLLECTION}/${COLLECTIONS["PRODUCTS"]}`;
 
   const documents = await db
     .collection(basePath)
-    .where(key, "array-contains", item.code)
+    .where("baseCode", "==", productBaseCode)
+    .get();
+  documents.docs
+    .filter((doc) => doc.exists)
+    .forEach((doc) => batch.delete(doc.ref));
+  logger.info({
+    message: `Deleted all documents for base product ${productBaseCode}`
+  });
+};
+
+const deleteSystemLayer = async (
+  systemLayerCode: string,
+  batch: FirebaseFirestore.WriteBatch
+) => {
+  const basePath = `${FIRESTORE_ROOT_COLLECTION}/${COLLECTIONS["SYSTEMS"]}`;
+
+  const documents = await db
+    .collection(basePath)
+    .where(CODE_TYPES.LAYER_CODES, "array-contains", systemLayerCode)
     .get();
 
   const document = documents.docs[0]?.data();
-
-  if (document) {
-    const objType =
-      item.objType === ObjType.Variant
-        ? OBJECT_TYPES.VARIANT_OPTIONS
-        : OBJECT_TYPES.SYSTEM_LAYERS;
-
+  if (!document) {
     logger.info({
-      message: `Deleted document data: ${JSON.stringify(document)}`
+      message: `Unable to find system document to delete with layer ${systemLayerCode}`
     });
-
-    const updatedDocumentEntities = document[`${objType}`].filter(
-      (obj: VariantOption | SystemLayer) => obj.code !== item.code
-    );
-    logger.info({
-      message: `All updated document entities: ${updatedDocumentEntities}`
-    });
-
-    const docPath = `${basePath}/${document.code}`;
-
-    logger.info({
-      message: `Deleted from docPath: ${docPath}`
-    });
-
-    if (updatedDocumentEntities.length || item.objType === ObjType.Layer) {
-      const updatedDocument = {
-        ...document,
-        [objType]: updatedDocumentEntities,
-        [key]: updatedDocumentEntities.map(
-          (obj: VariantOption | SystemLayer) => obj.code
-        )
-      };
-
-      logger.info({
-        message: `Deleted updated document data: ${JSON.stringify(
-          updatedDocument
-        )}`
-      });
-
-      updateDocument(updatedDocument, docPath, batch);
-    } else {
-      deleteBaseEntity(item, batch, docPath);
-    }
-
-    logger.info({ message: `Delete ${docPath}` });
-  } else {
-    logger.info({
-      message: `Deleted ${item.objType} did not found in firestore`
-    });
+    return;
   }
+
+  const docPath = `${basePath}/${document.code}`;
+  const updatedDocumentEntities = document["systemLayers"].filter(
+    (obj: SystemLayer) => obj.code !== systemLayerCode
+  );
+
+  const updatedDocument = {
+    ...document,
+    systemLayers: updatedDocumentEntities,
+    layerCodes: updatedDocumentEntities.map((obj: SystemLayer) => obj.code)
+  } as System;
+
+  logger.info({
+    message: `Removed just the system layer ${systemLayerCode} from the document.`
+  });
+
+  updateDocument(updatedDocument, docPath, batch);
 };
 
-const getUpdatedItem = (item: any, collectionPath: string) => {
-  if (collectionPath === COLLECTIONS.CATEGORIES) {
-    logger.info({ message: `collection path is the same as in category` });
-    return item;
-  } else {
-    const key =
-      collectionPath === COLLECTIONS.PRODUCTS
-        ? CODE_TYPES.VARIANT_CODES
-        : CODE_TYPES.LAYER_CODES;
-    const objType =
-      collectionPath === COLLECTIONS.PRODUCTS
-        ? OBJECT_TYPES.VARIANT_OPTIONS
-        : OBJECT_TYPES.SYSTEM_LAYERS;
-
-    if (item[`${objType}`] && item[`${objType}`].length) {
-      const updatedItem = {
-        ...item,
-        [key]: item[`${objType}`].map(
-          (obj: VariantOption | SystemLayer) => obj.code
-        )
-      };
-      logger.info({ message: `updatedItem with new ${key}:  ${updatedItem}` });
-      return updatedItem;
-    } else {
-      return item;
-    }
-  }
-};
-
-// TODO: This is batched, functions can be consolidated
-const setItemsInFirestore = async (collectionPath: string, items: any) => {
+const setItemsInFirestore = async (
+  collectionPath: string,
+  items: (System | Product)[]
+) => {
   const batch = db.batch();
 
-  items.forEach((item: any) => {
+  items.forEach((item) => {
     // Doing it this way to be able to set the ID, otherwise collection.add() creates ID automatically
     const docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
-    const updatedItem = getUpdatedItem(item, collectionPath);
-
-    updateDocument(updatedItem, docPath, batch);
-
+    updateDocument(item, docPath, batch);
     logger.info({ message: `Set ${docPath}` });
   });
 
@@ -174,39 +120,36 @@ const setItemsInFirestore = async (collectionPath: string, items: any) => {
 
 const deleteItemsFromFirestore = async (
   collectionPath: string,
-  items: DeleteItemType[]
+  item: DeleteItem
 ) => {
   const batch = db.batch();
 
-  await Promise.all(
-    items.map(async (item: DeleteItemType) => {
-      if (
-        item.objType === ObjType.Base_product ||
-        item.objType === ObjType.System
-      ) {
-        const docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
-        deleteBaseEntity(item, batch, docPath);
-      } else {
-        deleteNestedEntity(item, collectionPath, batch);
-      }
-    })
-  );
+  if (item.objType === ObjType.Variant || item.objType === ObjType.System) {
+    deleteDocument(
+      batch,
+      `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`
+    );
+  } else if (item.objType === ObjType.Base_product) {
+    await deleteByBaseCode(item.code, batch);
+  } else {
+    await deleteSystemLayer(item.code, batch);
+  }
 
   await batch.commit();
 };
 
 export const handleMessage: EventFunction = async ({ data }: any) => {
-  const message: { type: string; itemType: string; items: any } = data
+  const message: Message = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
   logger.info({
-    message: `WRITE: Received message [${message.type}][${message.itemType}]: ${
-      (message.items || []).length
-    }`
+    message: `WRITE: Received message [${message.type}][${
+      message.itemType
+    }]: ${JSON.stringify(message.item)}`
   });
 
-  const { type, itemType, items } = message;
+  const { type, itemType, item } = message;
 
   const collectionPath =
     itemType in COLLECTIONS &&
@@ -216,12 +159,28 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     throw new Error(`Unrecognised itemType [${itemType}]`);
   }
 
+  if (itemType === "CATEGORIES") {
+    logger.error({ message: "CATEGORIES are not currently handled" });
+    return;
+  }
+
+  logger.info({
+    message: `process.env.ENABLE_SAMPLE_ORDERING: ${ENABLE_SAMPLE_ORDERING}`
+  });
+
   switch (type) {
-    case "UPDATED":
-      await setItemsInFirestore(collectionPath, items);
+    case "UPDATED": {
+      let transformedItems;
+      if (itemType === "PRODUCTS") {
+        transformedItems = transformProduct(item);
+      } else {
+        transformedItems = transformSystem(item);
+      }
+      await setItemsInFirestore(collectionPath, transformedItems);
       break;
+    }
     case "DELETED":
-      await deleteItemsFromFirestore(collectionPath, items);
+      await deleteItemsFromFirestore(collectionPath, item);
       break;
     default:
       throw new Error(`Unrecognised message type [${type}]`);

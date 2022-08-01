@@ -1,20 +1,24 @@
+import {
+  Accordion,
+  AnchorLink,
+  AnchorLinkProps,
+  Grid,
+  Typography
+} from "@bmi/components";
 import React from "react";
-import { Grid } from "@bmi/components";
-import { Accordion } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
-import { Product, SystemLayer } from "../../components/types/pim";
 import { useSiteContext } from "../../components/Site";
-import withGTM from "../../utils/google-tag-manager";
 import { microCopy } from "../../constants/microCopies";
+import { Product, SystemLayer } from "../../types/pim";
+import withGTM from "../../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../../utils/path";
 
 type Props = {
-  systemLayers: SystemLayer[];
+  systemLayers: readonly SystemLayer[];
 };
 
 const createLinkAction = (product: Product, countryCode: string) => ({
   model: "htmlLink",
-  href: "/" + countryCode + "/" + product.variantOptions[0].path
+  href: getPathWithCountryCode(countryCode, product.path)
 });
 
 const SystemLayersSection = ({ systemLayers }: Props) => {
@@ -24,7 +28,11 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
     <Accordion>
       {systemLayers &&
         systemLayers
-          .filter((layer) => layer.approvalStatus === "approved")
+          .filter(
+            (layer) =>
+              layer.relatedProducts.length > 0 ||
+              layer.relatedOptionalProducts.length > 0
+          )
           .map((layer, index) => {
             const relatedProduct = layer.relatedProducts?.[0];
             const productLinkAction =
@@ -37,6 +45,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
             const GTMAccordionSummary = withGTM(Accordion.Summary);
 
             const layerLabel = layer.type ? ` ${layer.type}:` : "";
+
+            const optionalRelatedProducts = (
+              layer.relatedOptionalProducts || []
+            ).filter((optProduct) => optProduct.name !== relatedProduct?.name);
 
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
@@ -77,7 +89,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Typography>
                     </Grid>
 
-                    {layer.relatedOptionalProducts?.length > 0 && (
+                    {optionalRelatedProducts.length > 0 && (
                       <Grid item xs={12} md={12} lg={12}>
                         <Typography variant="h5">
                           {getMicroCopy(microCopy.SDP_OPTIONAL_PRODUCTS_TITLE)}
@@ -85,7 +97,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    {layer.relatedOptionalProducts?.map((product, id) => {
+                    {optionalRelatedProducts.map((product, id) => {
                       const productLinkAction = createLinkAction(
                         product,
                         countryCode

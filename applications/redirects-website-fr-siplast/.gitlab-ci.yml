@@ -1,16 +1,10 @@
 build_redirects_website_fr_siplast:
-  stage: build
+  extends: .build_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - applications/redirects-website-fr-siplast/**/*
-        - yarn.lock
-  needs:
-    - job: install_yarn
-      optional: true
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/redirects-website-fr-siplast build
+    ROOT_DIR: applications/redirects-webiste-fr-siplast
+    WORKSPACE: "@bmi/redirects-website-fr-siplast"

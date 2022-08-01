@@ -36,6 +36,7 @@
   "tileOptions.ridge.title": "Velg ønsket mønestein",
   "tileOptions.ridge.help": "Ved vinkel over 20 grader ser det best ut med buet - velg ellers rett mønekappe",
   "tileOptions.ventilationHood.title": "Velg ønsket ventilasjon",
+  "tileOptions.ventilationHood.help": "Velg ønsket help",
   "tileOptions.ventilationHood.noneLabel": "Nei",
   "underlaySelection.title": "Velg undertak",
   "underlaySelection.subtitle": "Her finner du undertak som er kompatible med ditt tak og ditt produktvalg. Husk å velg rett løsning om du har et diffusjonsåpent eller diffusjonstett undertak. Du kan velge vekk undertak senere, om ønskelig",

@@ -143,6 +143,7 @@ const VentilationHoodOptions = ({
   return (
     <FieldContainer
       title={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_TITLE)}
+      help={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_HELP)}
     >
       <CardCheckboxGroup
         name="ventilation"
@@ -183,7 +184,7 @@ const VentilationHoodOptions = ({
   );
 };
 
-export type TileOptionsSeletions = {
+export type TileOptionsSelections = {
   verge?: string;
   ridge?: string;
   ventilation?: string[];
@@ -191,22 +192,22 @@ export type TileOptionsSeletions = {
 
 export type TileOptionsProps = {
   variant: MainTileVariant;
-  selections: TileOptionsSeletions;
+  selections?: TileOptionsSelections;
 };
 
 const TileOptions = ({ variant, selections }: TileOptionsProps) => {
   return (
     <div>
       <VergeOptions
-        selected={selections.verge}
+        selected={selections?.verge}
         options={variant.vergeOptions}
       />
       <RidgeOptions
-        selected={selections.ridge}
+        selected={selections?.ridge}
         options={variant.ridgeOptions}
       />
       <VentilationHoodOptions
-        selected={selections.ventilation}
+        selected={selections?.ventilation}
         options={variant.ventilationHoodOptions || []}
       />
     </div>

@@ -1,29 +1,27 @@
-import React from "react";
+import { Hero, HeroItem, Section, Typography } from "@bmi/components";
 import { graphql } from "gatsby";
-import { Typography } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Hero, HeroItem } from "@bmi/components";
+import React from "react";
+import BackToResults from "../components/BackToResults";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
-import { Data as SiteData } from "../components/Site";
-import Page, { Data as PageData } from "../components/Page";
-import Sections, { Data as SectionsData } from "../components/Sections";
-import IframeSection, {
-  Data as IframeSectionData
-} from "../components/IframeSection";
-import NextBestActions, {
-  Data as NextBestActionsData
-} from "../components/NextBestActions";
-import { Data as PageInfoData } from "../components/PageInfo";
 import ContactTopics, {
   Data as ContactTopicsData
 } from "../components/ContactTopics";
-import Locations, { Data as LocationsData } from "../components/Locations";
-import { renderVideo } from "../components/Video";
+import IframeSection, {
+  Data as IframeSectionData
+} from "../components/IframeSection";
 import { renderImage } from "../components/Image";
+import Locations, { Data as LocationsData } from "../components/Locations";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../components/NextBestActions";
+import Page, { Data as PageData } from "../components/Page";
+import { Data as PageInfoData } from "../components/PageInfo";
+import Sections, { Data as SectionsData } from "../components/Sections";
+import { Data as SiteData } from "../components/Site";
+import { renderVideo } from "../components/Video";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
-import BackToResults from "../components/BackToResults";
 
 export type Data = PageInfoData &
   PageData & {
@@ -46,7 +44,7 @@ type Props = {
     contentfulSite: SiteData;
   };
   pageContext: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

@@ -27,7 +27,14 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
 
   return (
     <FieldContainer title={getMicroCopy(microCopy.GUTTERING_GUTTER_TITLE)}>
-      <CardRadioGroup name="guttering" defaultValue={selected} isRequired>
+      <CardRadioGroup
+        name="guttering"
+        defaultValue={selected}
+        isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
+      >
         {options.map(({ name, image }) => (
           <CardRadioGroup.Item
             key={name}
@@ -74,6 +81,9 @@ const GutteringVariantSelection = ({
         name="gutteringVariant"
         defaultValue={selected}
         isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
       >
         {options.map(({ name, image, externalProductCode }) => (
           <CardRadioGroup.Item
@@ -122,7 +132,14 @@ const GutteringHookSelection = ({
 
   return (
     <FieldContainer title={getMicroCopy(microCopy.GUTTERING_GUTTER_HOOK_TITLE)}>
-      <CardRadioGroup name="gutteringHook" defaultValue={selected} isRequired>
+      <CardRadioGroup
+        name="gutteringHook"
+        defaultValue={selected}
+        isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
+      >
         {options.map(({ name, image, externalProductCode }) => (
           <CardRadioGroup.Item
             key={externalProductCode}
@@ -171,6 +188,7 @@ const DownPipeSelection = ({
             <NumericInput
               name="downPipes"
               defaultValue={downPipes}
+              min={0}
               onChange={(value) => {
                 pushEvent({
                   event: "dxb.button_click",
@@ -191,6 +209,7 @@ const DownPipeSelection = ({
             <NumericInput
               name="downPipeConnectors"
               defaultValue={downPipeConnectors}
+              min={0}
               onChange={(value) => {
                 pushEvent({
                   event: "dxb.button_click",
@@ -218,7 +237,7 @@ export type GutteringSelections = {
 };
 
 export type GutteringProps = {
-  selections: GutteringSelections;
+  selections?: GutteringSelections;
   gutters: GutteringType[];
   gutterHooks: LengthBasedProduct[];
 };
@@ -232,22 +251,22 @@ const Guttering = ({ selections, gutters, gutterHooks }: GutteringProps) => {
   ).variants;
   return (
     <div>
-      <GutteringSelection selected={selections.guttering} options={gutters} />
+      <GutteringSelection selected={selections?.guttering} options={gutters} />
       {values["guttering"] ? (
         <GutteringVariantSelection
-          selected={selections.gutteringVariant}
+          selected={selections?.gutteringVariant}
           options={variants}
         />
       ) : null}
       {values["gutteringVariant"] ? (
         <>
           <GutteringHookSelection
-            selected={selections.gutteringHook}
+            selected={selections?.gutteringHook}
             options={gutterHooks}
           />
           <DownPipeSelection
-            downPipes={selections.downPipes}
-            downPipeConnectors={selections.downPipeConnectors}
+            downPipes={selections?.downPipes}
+            downPipeConnectors={selections?.downPipeConnectors}
           />
         </>
       ) : null}

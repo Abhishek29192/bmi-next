@@ -1,31 +1,29 @@
 test_gatsby-cloud-build-proxy:
-  extends: .test_yarn_workspace
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
 
 build_gatsby-cloud-build-proxy:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
 
 package_gatsby-cloud-build-proxy:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_gatsby-cloud-build-proxy
-  dependencies:
-    - build_gatsby-cloud-build-proxy
+    - job: build_gatsby-cloud-build-proxy
+      artifacts: true
   variables:
     FUNCTION_NAME: "gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
 
 deploy_gatsby-cloud-build-proxy:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_gatsby-cloud-build-proxy
-  dependencies:
-    - package_gatsby-cloud-build-proxy
+    - job: package_gatsby-cloud-build-proxy
+      artifacts: true
   variables:
     FUNCTION_NAME: "gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"

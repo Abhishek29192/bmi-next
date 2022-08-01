@@ -1,7 +1,13 @@
 test_gatsby-plugin-elasticsearch:
   extends: .test_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/libraries/gatsby-plugin-elasticsearch/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/libraries/gatsby-plugin-elasticsearch/**/*
         - jest/**/*

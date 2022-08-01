@@ -1,7 +1,12 @@
-import { BMI as brandLogo, Icon } from "@bmi/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../Site";
-import { Data, MainTile, MainTileVariant, Underlay } from "../types";
+import {
+  CalculatorSteps,
+  Data,
+  MainTile,
+  MainTileVariant,
+  Underlay
+} from "../types";
 import {
   DimensionsValues,
   LinesMap,
@@ -21,26 +26,16 @@ import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import Results from "./_Results";
 import RoofDimensions from "./_RoofDimensions";
 import RoofSelection from "./_RoofSelection";
-import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
+import TileOptions, { TileOptionsSelections } from "./_TileOptions";
 import TileSelection from "./_TileSelection";
 import UnderlaySelection from "./_UnderlaySelection";
 import VariantSelection from "./_VariantSelection";
 
-export type Step =
-  | "select-roof"
-  | "enter-dimensions"
-  | "select-tile"
-  | "select-variant"
-  | "tile-options"
-  | "select-underlay"
-  | "guttering"
-  | "your-solution-contains";
-
 export type PitchedRoofCalculatorStepsProps = {
   data: Data;
   isDebugging?: boolean;
-  selected: Step;
-  setSelected: (value: Step) => void;
+  selected: CalculatorSteps;
+  setSelected: (value: CalculatorSteps) => void;
 };
 
 const PitchedRoofCalculatorSteps = ({
@@ -59,15 +54,25 @@ const PitchedRoofCalculatorSteps = ({
     undefined
   );
   const [tileOptions, setTileOptions] = useState<
-    TileOptionsSeletions | undefined
+    TileOptionsSelections | undefined
   >(undefined);
   const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
   const [guttering, setGuttering] = useState<GutteringSelections | undefined>(
     undefined
   );
 
+  const resetData = () => {
+    setRoof(undefined);
+    setDimensions(undefined);
+    setTile(undefined);
+    setVariant(undefined);
+    setTileOptions(undefined);
+    setUnderlay(undefined);
+    setGuttering(undefined);
+  };
+
   const selectRoof = (newRoof: Roof) => {
-    setSelected("enter-dimensions");
+    setSelected(CalculatorSteps.EnterDimensions);
     if (newRoof === roof) return;
     setRoof(newRoof);
     setDimensions({});
@@ -89,18 +94,18 @@ const PitchedRoofCalculatorSteps = ({
     // Nice to have: check if the dimensions are different before resetting
     setDimensions(values as DimensionsValues);
     setTile(undefined);
-    setSelected("select-tile");
+    setSelected(CalculatorSteps.SelectTile);
   };
 
   const selectTile = (newTile: MainTile) => {
-    setSelected("select-variant");
+    setSelected(CalculatorSteps.SelectVariant);
     if (newTile === tile) return;
     setTile(newTile);
     setVariant(undefined);
   };
 
   const selectVariant = (newVariant: MainTileVariant) => {
-    setSelected("tile-options");
+    setSelected(CalculatorSteps.TileOptions);
     if (newVariant === variant) return;
     setVariant(newVariant);
     setTileOptions(undefined);
@@ -111,7 +116,7 @@ const PitchedRoofCalculatorSteps = ({
     e: React.FormEvent<Element>,
     values: T,
     set: React.Dispatch<React.SetStateAction<T | undefined>>,
-    next: Step
+    next: CalculatorSteps
   ) => {
     e.preventDefault();
     set(values);
@@ -153,6 +158,11 @@ const PitchedRoofCalculatorSteps = ({
 
   const formattedArea = ((measurements?.area || 0) / 10000).toFixed(2);
 
+  const getUnderlayByProductCode = (externalProductCode: string): Underlay =>
+    data.underlays.find(
+      (underlay) => underlay.externalProductCode === externalProductCode
+    );
+
   useEffect(() => {
     if (selected === "your-solution-contains") {
       pushEvent({
@@ -166,10 +176,9 @@ const PitchedRoofCalculatorSteps = ({
 
   return (
     <div className={styles["PitchedRoofCalculatorSteps"]}>
-      <Icon source={brandLogo} className={styles["logo"]} />
       <CalculatorStepper selected={selected}>
         <CalculatorStepper.Step
-          key="select-roof"
+          key={CalculatorSteps.SelectRoof}
           title={getMicroCopy(microCopy.ROOF_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.ROOF_SELECTION_SUBTITLE)}
         >
@@ -180,7 +189,7 @@ const PitchedRoofCalculatorSteps = ({
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="enter-dimensions"
+          key={CalculatorSteps.EnterDimensions}
           title={getMicroCopy(microCopy.ROOF_DIMENSIONS_TITLE)}
           subtitle={getMicroCopy(microCopy.ROOF_DIMENSIONS_SUBTITLE)}
           nextLabel={getMicroCopy(microCopy.ROOF_DIMENSIONS_NEXT_LABEL)}
@@ -193,13 +202,13 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.ROOF_DIMENSIONS_BACK_LABEL),
               action: "selected"
             });
-            setSelected("select-roof");
+            setSelected(CalculatorSteps.SelectRoof);
           }}
         >
           {roof ? <RoofDimensions roof={roof} dimensions={dimensions} /> : null}
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="select-tile"
+          key={CalculatorSteps.SelectTile}
           title={getMicroCopy(microCopy.TILE_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.TILE_SELECTION_SUBTITLE)}
           backLabel={getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL)}
@@ -210,7 +219,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL),
               action: "selected"
             });
-            setSelected("enter-dimensions");
+            setSelected(CalculatorSteps.EnterDimensions);
           }}
         >
           <TileSelection
@@ -221,7 +230,7 @@ const PitchedRoofCalculatorSteps = ({
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="select-variant"
+          key={CalculatorSteps.SelectVariant}
           title={getMicroCopy(microCopy.VARIANT_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.VARIANT_SELECTION_SUBTITLE)}
           backLabel={getMicroCopy(microCopy.VARIANT_SELECTION_BACK_LABEL)}
@@ -232,7 +241,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.VARIANT_SELECTION_BACK_LABEL),
               action: "selected"
             });
-            setSelected("select-tile");
+            setSelected(CalculatorSteps.SelectTile);
           }}
         >
           {tile ? (
@@ -245,7 +254,7 @@ const PitchedRoofCalculatorSteps = ({
           ) : null}
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="tile-options"
+          key={CalculatorSteps.TileOptions}
           title={getMicroCopy(microCopy.TILE_OPTIONS_TITLE)}
           subtitle={getMicroCopy(microCopy.TILE_OPTIONS_SUBTITLE)}
           nextLabel={getMicroCopy(microCopy.TILE_OPTIONS_NEXT_LABEL)}
@@ -256,7 +265,12 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.TILE_OPTIONS_NEXT_LABEL),
               action: "selected"
             });
-            saveAndMove(e, values, setTileOptions, "select-underlay");
+            saveAndMove(
+              e,
+              values,
+              setTileOptions,
+              CalculatorSteps.SelectUnderlay
+            );
           }}
           backLabel={getMicroCopy(microCopy.TILE_OPTIONS_BACK_LABEL)}
           backButtonOnClick={() => {
@@ -266,15 +280,15 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.TILE_OPTIONS_BACK_LABEL),
               action: "selected"
             });
-            setSelected("select-variant");
+            setSelected(CalculatorSteps.SelectVariant);
           }}
         >
-          {variant && tileOptions ? (
+          {variant ? (
             <TileOptions variant={variant} selections={tileOptions} />
           ) : null}
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="select-underlay"
+          key={CalculatorSteps.SelectUnderlay}
           title={getMicroCopy(microCopy.UNDERLAY_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.UNDERLAY_SELECTION_SUBTITLE)}
           nextLabel={getMicroCopy(microCopy.UNDERLAY_SELECTION_NEXT_LABEL)}
@@ -285,7 +299,12 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.UNDERLAY_SELECTION_NEXT_LABEL),
               action: "selected"
             });
-            saveAndMove(e, values as Underlay, setUnderlay, "guttering");
+            saveAndMove(
+              e,
+              getUnderlayByProductCode(String(values.underlay)),
+              setUnderlay,
+              CalculatorSteps.Guttering
+            );
           }}
           backLabel={getMicroCopy(microCopy.UNDERLAY_SELECTION_BACK_LABEL)}
           backButtonOnClick={() => {
@@ -295,7 +314,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.UNDERLAY_SELECTION_BACK_LABEL),
               action: "selected"
             });
-            setSelected("tile-options");
+            setSelected(CalculatorSteps.TileOptions);
           }}
         >
           <UnderlaySelection
@@ -305,8 +324,8 @@ const PitchedRoofCalculatorSteps = ({
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
-          key="guttering"
-          title={getMicroCopy(microCopy.GUTTERING_GUTTER_TITLE)}
+          key={CalculatorSteps.Guttering}
+          title={getMicroCopy(microCopy.GUTTERING_TITLE)}
           subtitle={getMicroCopy(microCopy.GUTTERING_SUBTITLE)}
           nextLabel={getMicroCopy(microCopy.GUTTERING_NEXT_LABEL)}
           nextButtonOnClick={(e, values) => {
@@ -316,7 +335,12 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.GUTTERING_NEXT_LABEL),
               action: "selected"
             });
-            saveAndMove(e, values, setGuttering, "your-solution-contains");
+            saveAndMove(
+              e,
+              values,
+              setGuttering,
+              CalculatorSteps.YourSolutionContains
+            );
           }}
           backLabel={getMicroCopy(microCopy.GUTTERING_BACK_LABEL)}
           backButtonOnClick={() => {
@@ -326,7 +350,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.GUTTERING_BACK_LABEL),
               action: "selected"
             });
-            setSelected("select-underlay");
+            setSelected(CalculatorSteps.SelectUnderlay);
           }}
           linkLabel={getMicroCopy(microCopy.GUTTERING_SKIP_LABEL)}
           linkOnClick={() => {
@@ -336,20 +360,18 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.GUTTERING_SKIP_LABEL),
               action: "selected"
             });
-            setSelected("your-solution-contains");
+            setSelected(CalculatorSteps.YourSolutionContains);
           }}
         >
-          {guttering ? (
-            <Guttering
-              selections={guttering}
-              gutters={data.gutters}
-              gutterHooks={data.gutterHooks}
-            />
-          ) : null}
+          <Guttering
+            selections={guttering}
+            gutters={data.gutters}
+            gutterHooks={data.gutterHooks}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           isForm={false}
-          key="your-solution-contains"
+          key={CalculatorSteps.YourSolutionContains}
           title={getMicroCopy(microCopy.RESULTS_TITLE)}
           subtitle={getMicroCopy(microCopy.RESULTS_SUBTITLE, {
             contingency: CONTINGENCY_PERCENTAGE_TEXT
@@ -370,7 +392,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.RESULTS_BACK_LABEL),
               action: "selected"
             });
-            setSelected("guttering");
+            setSelected(CalculatorSteps.Guttering);
           }}
           linkLabel={getMicroCopy(microCopy.RESULTS_START_OVER_LABEL)}
           linkOnClick={() => {
@@ -380,11 +402,11 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.RESULTS_START_OVER_LABEL),
               action: "selected"
             });
-            setSelected("select-roof");
-            setRoof(undefined);
+            setSelected(CalculatorSteps.SelectRoof);
+            resetData();
           }}
         >
-          {measurements && variant && tileOptions && underlay && guttering && (
+          {measurements && variant && tileOptions && underlay && (
             <Results
               underlays={data.underlays}
               gutters={data.gutters}

@@ -1,10 +1,6 @@
 /* eslint-disable security/detect-object-injection */
-import {
-  Category,
-  Classification,
-  Product,
-  TwoOneIgnoreDictionary
-} from "@bmi/pim-types";
+import { Category, Classification, Image, Product } from "@bmi/pim-types";
+import { TwoOneIgnoreDictionary } from "./transformProducts";
 
 export type ProductCategoryTree = {
   [category: string]: {
@@ -17,17 +13,66 @@ export const findProductBrandLogoCode = (product: Product) =>
   product.categories?.find((category) => category.categoryType === "Brand")
     ?.code;
 
-// product-details-page.tsx
-export type ClassificationFeatureValue = {
-  value: string;
-  code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
+export const findMainImage = (images: Image[]) => {
+  const groupedImages = groupImages(images);
+  const imageSources = mapImages(groupedImages, "MASTER_IMAGE");
+  //take the first of master images
+  if (imageSources.length && imageSources[0].mainSource) {
+    return imageSources[0].mainSource;
+  }
+  return "";
 };
 
-type TransformedClassificationValue = {
-  name: string;
-  value: ClassificationFeatureValue | "n/a";
-  thumbnailUrl?: string;
+const groupImages = (images: readonly Image[]): Image[][] =>
+  Object.values(groupByContainerId(images));
+
+const groupByContainerId = (
+  arr: readonly Image[]
+): { [key: string]: Image[] } => {
+  return arr.reduce((acc: { [key: string]: Image[] }, currentValue: Image) => {
+    if (!acc[currentValue["containerId"]]) {
+      acc[currentValue["containerId"]] = [];
+    }
+    acc[currentValue["containerId"]].push(currentValue);
+    return acc;
+  }, {});
 };
+
+const mapImages = (
+  groupedImages: readonly Image[][],
+  assetType: ImageAssetType
+): ImageSources[] => {
+  return groupedImages
+    .map((images) => {
+      const masterImages = images.filter(
+        (image) =>
+          image.assetType === assetType &&
+          (image.format === "Product-Hero-Small-Desktop-Tablet" ||
+            image.format === "Product-Color-Selector-Mobile")
+      );
+      return {
+        mainSource: masterImages.find(
+          (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
+        )?.url,
+        thumbnail: masterImages.find(
+          (image) => image.format === "Product-Color-Selector-Mobile"
+        )?.url,
+        altText: images.find(
+          (image) => image.assetType === assetType && !image.format
+        )?.name
+      };
+    })
+    .filter((image) => image.mainSource || image.thumbnail);
+};
+
+export type ImageAssetType = "TECHNICAL_DRAWINGS" | "MASTER_IMAGE" | "GALLERY";
+
+export type ImageSources = {
+  mainSource?: string;
+  thumbnail?: string;
+  altText?: string;
+};
+
 export type TransformedMeasurementValue = {
   [dimensionName: string]: {
     name: string;
@@ -40,9 +85,7 @@ export type TransformedMeasurementValue = {
   };
 };
 export type TransformedClassificationsMap = {
-  [classificationName: string]:
-    | TransformedClassificationValue
-    | TransformedMeasurementValue;
+  [classificationName: string]: TransformedMeasurementValue;
 };
 export type ClassificationsPerProductMap = {
   [productCode: string]: TransformedClassificationsMap;
@@ -104,6 +147,7 @@ export const mapProductClassifications = (
                 ...productObject,
                 measurements: {
                   ...measurements,
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                   [code.split(".").pop()!]: {
                     name,
                     value: {
@@ -122,6 +166,53 @@ export const mapProductClassifications = (
     },
     {}
   );
+};
+
+export const generateSubtitleValues = (classifications: Classification[]) => {
+  const subtitleFeatureMap: { [key: string]: string[] } = {
+    appearanceAttributes: ["colour", "textureFamily"]
+  };
+
+  // TODO: check if this needs to be made up of more attibutes??
+  // const subtitleFeatureMap: { [key: string]: string[] } = {
+  //   appearanceAttributes: [
+  //     "colour",
+  //     "textureFamily",
+  //     "colourFamily",
+  //     "variantAttribute"
+  //   ],
+  //   generalInformation: ["materials"]
+  // };
+
+  let allFetureValues: string[] = [];
+  Object.keys(subtitleFeatureMap).forEach((classificationCode) => {
+    const allClassificationAttributes = classifications.find(
+      ({ code }) => code === classificationCode
+    );
+    const eligibleFeatures: string[] = subtitleFeatureMap[
+      classificationCode
+    ] as string[];
+
+    if (
+      allClassificationAttributes &&
+      eligibleFeatures &&
+      eligibleFeatures.length
+    ) {
+      eligibleFeatures.forEach((eligibleFeatureCode) => {
+        const featureValues = (
+          allClassificationAttributes?.features?.find((feature) =>
+            // TODO: Remove lower caseing as part of DXB-3449
+            feature.code
+              .toLowerCase()
+              .endsWith(eligibleFeatureCode.toLowerCase())
+          )?.featureValues || []
+        ).flatMap((featureValue) => featureValue?.value || "");
+        allFetureValues = [...allFetureValues, ...featureValues];
+      });
+    }
+  });
+
+  return allFetureValues.filter((value) => value.trim().length > 0).join(", ");
 };
 
 // From applications/dxb/head/src/utils/product-details-transforms.ts
@@ -151,6 +242,7 @@ export type ESIndexObject = {
   name: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IndexedItem<T = any> {
   [key: string]: T;
 }
@@ -163,7 +255,7 @@ export const groupBy = <T extends IndexedItem>(
   array: readonly T[],
   key: keyof T
 ): IndexedItemGroup<T> => {
-  return (array || []).reduce<IndexedItemGroup<T>>((map, item) => {
+  return array.reduce<IndexedItemGroup<T>>((map, item) => {
     const itemKey = item[key];
     map[itemKey] = map[itemKey] || [];
     map[itemKey].push(item);

@@ -1,4 +1,4 @@
-import { PIMDocumentData } from "./types/PIMDocumentBase";
+import { ProductDocument, SystemDocument } from "../types/pim";
 
 export interface AssetUniqueFileCountMap {
   uniqueFileMap: { [fileName: string]: number };
@@ -6,13 +6,13 @@ export interface AssetUniqueFileCountMap {
 }
 
 const createAssetFileCountMap = (
-  assets: PIMDocumentData[]
+  assets: (ProductDocument | SystemDocument)[]
 ): AssetUniqueFileCountMap => {
   const uniqueFileMap = {};
   const fileIndexCount = assets.map((asset) => {
-    const fName =
-      asset.realFileName ||
-      `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`;
+    const fName = asset.title
+      ? `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`
+      : asset.realFileName;
     // eslint-disable-next-line security/detect-object-injection
     return (uniqueFileMap[fName] =
       // eslint-disable-next-line security/detect-object-injection
@@ -41,7 +41,7 @@ export const generateFileNamebyTitle = (
 
 export const generateFilenameByRealFileName = (
   assetFileCountMap: AssetUniqueFileCountMap,
-  asset: PIMDocumentData,
+  asset: ProductDocument | SystemDocument,
   index: number
 ): string => {
   if (!assetFileCountMap.uniqueFileMap[asset.realFileName]) {

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { fireEvent } from "@testing-library/react";
+import { RouterContext } from "next/dist/next-server/lib/router-context";
 import { ProjectSidePanel } from "..";
 import {
   render,
   renderWithUserProvider,
-  screen
+  screen,
+  createMockRouter
 } from "../../../lib/tests/utils";
 import I18nProvider from "../../../lib/tests/fixtures/i18n";
 import AccountContextWrapper from "../../../lib/tests/fixtures/account";
@@ -14,7 +16,10 @@ import { GetProjectsQuery } from "../../../graphql/generated/operations";
 import { generateAccount } from "../../../lib/tests/factories/account";
 import { generateMarketContext } from "../../../lib/tests/factories/market";
 import { generateGuarantee } from "../../../lib/tests/factories/guarantee";
-import { generateProject } from "../../../lib/tests/factories/project";
+import {
+  generateProject,
+  projectFactory
+} from "../../../lib/tests/factories/project";
 
 describe("ProjectSidePanel component", () => {
   it("renders correctly", () => {
@@ -40,7 +45,12 @@ describe("ProjectSidePanel component", () => {
     const { container } = render(
       <I18nProvider>
         <AccountContextWrapper>
-          <ProjectSidePanel projects={projects} />
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => ({})}
+              projects={projects}
+            />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </I18nProvider>
     );
@@ -94,7 +104,12 @@ describe("ProjectSidePanel component", () => {
     const { container } = render(
       <I18nProvider>
         <AccountContextWrapper>
-          <ProjectSidePanel projects={projects} />
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => ({})}
+              projects={projects}
+            />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </I18nProvider>
     );
@@ -123,10 +138,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel
-              onProjectSelected={() => ({})}
-              projects={[project]}
-            />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -165,7 +182,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[project]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -200,7 +222,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[project]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -208,18 +235,6 @@ describe("ProjectSidePanel component", () => {
     const filterListButtons = container.querySelectorAll(".filterButton .Chip");
     fireEvent.click(filterListButtons[5]);
     expect(screen.queryByText("fallback.noResults")).toBeFalsy();
-  });
-  it("should show project side panel footer if user company admin", () => {
-    renderWithUserProvider(
-      <ApolloProvider>
-        <AccountContextWrapper
-          account={generateAccount({ role: "COMPANY_ADMIN", hasCompany: true })}
-        >
-          <ProjectSidePanel projects={[]} />
-        </AccountContextWrapper>
-      </ApolloProvider>
-    );
-    expect(screen.getByTestId("project-side-panel-footer-button")).toBeTruthy();
   });
   it("should show project side panel if user MARKET_ADMIN", () => {
     const { container } = renderWithUserProvider(
@@ -231,7 +246,9 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -248,6 +265,45 @@ describe("ProjectSidePanel component", () => {
     fireEvent.click(filterListButtons[1]);
     expect(screen.queryByText("fallback.noResults")).toBeTruthy();
   });
+  it("should show project side panel if user COMPANY_ADMIN", () => {
+    const guarantee = generateGuarantee({
+      coverage: "PRODUCT",
+      reviewerAccountId: null,
+      status: "SUBMITTED"
+    });
+    const project = generateProject({
+      guarantees: {
+        nodes: [guarantee]
+      },
+      company: null
+    });
+
+    // Mocking the date, should be sufficient for the purpose of this test
+    Date.now = jest.fn(() => Date.parse("2022-01-01"));
+    const { container } = renderWithUserProvider(
+      <ApolloProvider>
+        <MarketProvider market={generateMarketContext({ id: 1 })}>
+          <AccountContextWrapper
+            account={generateAccount({
+              role: "COMPANY_ADMIN",
+              hasCompany: true
+            })}
+          >
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </MarketProvider>
+      </ApolloProvider>
+    );
+
+    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    fireEvent.click(filterListButtons[2]);
+    expect(screen.queryByText("fallback.noResults")).toBeFalsy();
+  });
   it("check case with company record missing", () => {
     const account = generateAccount({
       role: "MARKET_ADMIN",
@@ -257,7 +313,9 @@ describe("ProjectSidePanel component", () => {
       <ApolloProvider>
         <MarketProvider market={generateMarketContext({ id: 1 })}>
           <AccountContextWrapper account={account}>
-            <ProjectSidePanel projects={[]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -267,18 +325,507 @@ describe("ProjectSidePanel component", () => {
     );
     expect(createProject).toBeFalsy();
   });
-  it("should not show project side panel footer if the user installer", () => {
+
+  describe("should route to first available project", () => {
+    it("has available project", () => {
+      const onProjectSelectedSpy = jest.fn();
+      const projects = [projectFactory(), projectFactory({ id: 2 })];
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+          >
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={onProjectSelectedSpy}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      expect(onProjectSelectedSpy).toHaveBeenCalledWith(1);
+    });
+
+    it("no available project", () => {
+      const onProjectSelectedSpy = jest.fn();
+      const projects = [];
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+          >
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={onProjectSelectedSpy}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      expect(onProjectSelectedSpy).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  it("reset to default filter selected when no project query and filter selected is not equal the default", () => {
+    const account = generateAccount({ role: "INSTALLER", hasCompany: true });
+    const setFilterSelectionSpy = jest.fn();
+    jest
+      .spyOn(React, "useState")
+      .mockImplementationOnce(((call) => [call, jest.fn()]) as () => [
+        unknown,
+        Dispatch<unknown>
+      ])
+      .mockImplementationOnce(((call) => [call, jest.fn()]) as () => [
+        unknown,
+        Dispatch<unknown>
+      ])
+      .mockImplementationOnce(() => [(context) => context, jest.fn()])
+      .mockImplementationOnce(() => ["UNASSIGNED", setFilterSelectionSpy]);
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper account={account}>
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => {}}
+              projects={[projectFactory()]}
+            />
+          </RouterContext.Provider>
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+
+    expect(setFilterSelectionSpy).toHaveBeenCalledWith("ALL");
+  });
+
+  it("when router.query contains project value", () => {
+    const onProjectSelectedSpy = jest.fn();
     renderWithUserProvider(
       <ApolloProvider>
         <AccountContextWrapper
           account={generateAccount({ role: "INSTALLER", hasCompany: true })}
         >
-          <ProjectSidePanel projects={[]} />
+          <RouterContext.Provider
+            value={createMockRouter({ query: { project: "1" } })}
+          >
+            <ProjectSidePanel
+              onProjectSelected={onProjectSelectedSpy}
+              projects={[projectFactory()]}
+            />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    expect(
-      screen.queryByTestId("project-side-panel-footer-button")
-    ).toBeFalsy();
+
+    expect(onProjectSelectedSpy).toHaveBeenCalledTimes(0);
+  });
+
+  describe("Search Criteria", () => {
+    const projectName = "test";
+
+    describe("Super Admin and Market Admin", () => {
+      it("project name", () => {
+        const projects = [
+          projectFactory(),
+          projectFactory({ name: projectName })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "MARKET_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: "test" }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("company name", () => {
+        const companyName = "test company name";
+        const projects = [
+          projectFactory(),
+          projectFactory({ name: projectName, company: { name: companyName } })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "MARKET_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: companyName }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+    });
+
+    describe("Other Users", () => {
+      const projectName = "test";
+
+      it("project name", () => {
+        const projects = [
+          projectFactory(),
+          projectFactory({ name: projectName })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: "test" }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("town", () => {
+        const town = "town name";
+        const projects = [
+          projectFactory(),
+          projectFactory({
+            name: projectName,
+            siteAddress: {
+              town
+            }
+          })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: town }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      describe("postcode", () => {
+        it("with space", () => {
+          const postcode = "WC2A 1PR";
+          const projects = [
+            projectFactory(),
+            projectFactory({
+              name: projectName,
+              siteAddress: {
+                postcode
+              }
+            })
+          ];
+
+          const { container } = renderWithUserProvider(
+            <ApolloProvider>
+              <MarketProvider market={generateMarketContext({ id: 1 })}>
+                <AccountContextWrapper
+                  account={generateAccount({
+                    role: "COMPANY_ADMIN",
+                    hasCompany: true
+                  })}
+                >
+                  <RouterContext.Provider value={createMockRouter({})}>
+                    <ProjectSidePanel
+                      onProjectSelected={() => ({})}
+                      projects={projects}
+                    />
+                  </RouterContext.Provider>
+                </AccountContextWrapper>
+              </MarketProvider>
+            </ApolloProvider>
+          );
+          fireEvent.click(screen.getByText("filters.labels.ALL"));
+          expect(screen.getAllByTestId("projectCard").length).toBe(2);
+          fireEvent.change(container.querySelector("#filter"), {
+            target: { value: postcode }
+          });
+
+          const filteredList = screen.getAllByTestId("projectCard");
+          expect(filteredList.length).toBe(1);
+          expect(filteredList[0]).toHaveTextContent(projectName);
+        });
+
+        it("without space", () => {
+          const postcode = "WC2A 1PR";
+          const projects = [
+            projectFactory(),
+            projectFactory({
+              name: projectName,
+              siteAddress: {
+                postcode
+              }
+            })
+          ];
+
+          const { container } = renderWithUserProvider(
+            <ApolloProvider>
+              <MarketProvider market={generateMarketContext({ id: 1 })}>
+                <AccountContextWrapper
+                  account={generateAccount({
+                    role: "COMPANY_ADMIN",
+                    hasCompany: true
+                  })}
+                >
+                  <RouterContext.Provider value={createMockRouter({})}>
+                    <ProjectSidePanel
+                      onProjectSelected={() => ({})}
+                      projects={projects}
+                    />
+                  </RouterContext.Provider>
+                </AccountContextWrapper>
+              </MarketProvider>
+            </ApolloProvider>
+          );
+          fireEvent.click(screen.getByText("filters.labels.ALL"));
+          expect(screen.getAllByTestId("projectCard").length).toBe(2);
+          fireEvent.change(container.querySelector("#filter"), {
+            target: { value: postcode.replace(" ", "") }
+          });
+
+          const filteredList = screen.getAllByTestId("projectCard");
+          expect(filteredList.length).toBe(1);
+          expect(filteredList[0]).toHaveTextContent(projectName);
+        });
+      });
+
+      it("buildingOwnerFirstname", () => {
+        const buildingOwnerFirstname = "building Owner Firstname";
+
+        const projects = [
+          projectFactory(),
+          projectFactory({
+            name: projectName,
+            buildingOwnerFirstname
+          })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: buildingOwnerFirstname }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("buildingOwnerLastName", () => {
+        const buildingOwnerLastname = "building Owner Lastname";
+        const projects = [
+          projectFactory(),
+          projectFactory({
+            name: projectName,
+            buildingOwnerLastname
+          })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: buildingOwnerLastname }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("buildingOwnerCompany", () => {
+        const buildingOwnerCompany = "building Owner Company Name";
+        const projects = [
+          projectFactory(),
+          projectFactory({
+            name: projectName,
+            buildingOwnerCompany
+          })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: buildingOwnerCompany }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("buildingOwnerMail", () => {
+        const buildingOwnerMail = "building Owner Mail";
+        const projects = [
+          projectFactory(),
+          projectFactory({
+            name: projectName,
+            buildingOwnerMail
+          })
+        ];
+
+        const { container } = renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "COMPANY_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ALL"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
+        fireEvent.change(container.querySelector("#filter"), {
+          target: { value: buildingOwnerMail }
+        });
+
+        const filteredList = screen.getAllByTestId("projectCard");
+        expect(filteredList.length).toBe(1);
+        expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+    });
   });
 });

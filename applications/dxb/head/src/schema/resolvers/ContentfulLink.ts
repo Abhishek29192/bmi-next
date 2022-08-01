@@ -1,5 +1,5 @@
-import { generateDigestFromData } from "../../utils/encryption";
-import { Context, Node, ResolveArgs } from "./types";
+import { generateDigestFromData } from "../../../../libraries/utils/src/encryption";
+import { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 interface FieldData {
   id: string;

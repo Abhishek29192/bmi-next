@@ -1,11 +1,11 @@
 test_gcp-cron-auto-archive-project:
-  extends: .test_yarn_workspace
+  extends: .test_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-auto-archive-project"
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
 
 build_gcp-cron-auto-archive-project:
-  extends: .build_function_yarn_workspace
+  extends: .build_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-auto-archive-project"
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
@@ -13,9 +13,8 @@ build_gcp-cron-auto-archive-project:
 package_gcp-cron-auto-archive-project:
   extends: .package_intouch_function
   needs:
-    - build_gcp-cron-auto-archive-project
-  dependencies:
-    - build_gcp-cron-auto-archive-project
+    - job: build_gcp-cron-auto-archive-project
+      artifacts: true
   variables:
     FUNCTION_NAME: pubsub-cron-auto-archive-project
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
@@ -27,6 +26,5 @@ deploy_gcp-cron-auto-archive-project_bmi:
     FUNCTION_NAME: pubsub-cron-auto-archive-project
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
   needs:
-    - package_gcp-cron-auto-archive-project
-  dependencies:
-    - package_gcp-cron-auto-archive-project
+    - job: package_gcp-cron-auto-archive-project
+      artifacts: true

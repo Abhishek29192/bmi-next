@@ -1,7 +1,7 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import MockLogo from "path-to-logo.svg";
+import { fireEvent, render } from "@testing-library/react";
 import mockImage from "path-to-image.png";
+import MockLogo from "path-to-logo.svg";
+import React from "react";
 import ProductOverviewPane, { Props } from "../ProductOverviewPane";
 
 const attributes: Props["attributes"] = [
@@ -155,7 +155,7 @@ describe("ProductOverviewPane component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly if attributes === undefined", () => {
+  it("renders correctly if attributesis empty array", () => {
     const component = () => <div>thumbnail</div>;
     const { container } = render(
       <ProductOverviewPane
@@ -164,6 +164,7 @@ describe("ProductOverviewPane component", () => {
         nobb={null}
         nobbLabel="label"
         thumbnailComponent={component}
+        attributes={[]}
       />
     );
     expect(container).toMatchSnapshot();

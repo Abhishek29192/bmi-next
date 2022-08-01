@@ -752,5 +752,6 @@ exports[`Page component renders correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;

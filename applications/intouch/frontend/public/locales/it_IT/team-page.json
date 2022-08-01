@@ -55,6 +55,8 @@
     "role_dialog": {
       "text": "Vuoi cambiare il ruolo?",
       "title": "Cambia ruolo"
-    }
+    },
+    "remove_auditor": "Rimuovere come revisore dei conti",
+    "add_auditor": "Assegnare come revisore dei conti"
   }
 }

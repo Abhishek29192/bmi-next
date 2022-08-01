@@ -1,6 +1,6 @@
-import fetchMockJest, { mockClear } from "fetch-mock-jest";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import { Node } from "../types";
+import fetchMockJest, { mockClear } from "fetch-mock-jest";
+import { Node } from "../types/Gatsby";
 
 const source: Node = {
   id: "source",
@@ -12,27 +12,12 @@ const source: Node = {
 
 jest.mock("dotenv");
 
+const youtubeList = jest.fn();
 jest.mock("googleapis", () => ({
   google: {
     youtube: jest.fn().mockReturnValue({
       videos: {
-        list: jest.fn().mockImplementation(({ id: [youtubeId] }) => {
-          if (!youtubeId) {
-            return { data: null };
-          }
-          return {
-            data: {
-              items: [
-                {
-                  player: {
-                    embedHeight: "20.4",
-                    embedWidth: "16.8"
-                  }
-                }
-              ]
-            }
-          };
-        })
+        list: youtubeList
       }
     })
   }
@@ -75,28 +60,52 @@ describe("ContentfulVideo", () => {
     });
     it("should resolve null if youtube.videos.list data is null", async () => {
       process.env.GOOGLE_YOUTUBE_API_KEY = "GOOGLE_YOUTUBE_API_KEY";
-      expect(
-        await videoRatioResolve({ ...source, youtubeId: null })
-      ).toBeNull();
+
+      youtubeList.mockResolvedValueOnce({ data: null });
+
+      expect(await videoRatioResolve(source)).toBeNull();
+
+      expect(youtubeList).toHaveBeenCalledWith({
+        part: ["player"],
+        id: [source.youtubeId],
+        maxHeight: 9999
+      });
     });
 
     it("should resolve video ratio if no ENABLE_YOUTUBE_CACHE provided", async () => {
       process.env.GOOGLE_YOUTUBE_API_KEY = "GOOGLE_YOUTUBE_API_KEY";
+      youtubeList.mockResolvedValueOnce({
+        data: {
+          items: [
+            {
+              player: {
+                embedHeight: "20.4",
+                embedWidth: "16.8"
+              }
+            }
+          ]
+        }
+      });
       expect(await videoRatioResolve(source)).toEqual({
         height: 20.4,
         width: 16.8
       });
+      expect(youtubeList).toHaveBeenCalledWith({
+        part: ["player"],
+        id: [source.youtubeId],
+        maxHeight: 9999
+      });
     });
 
     it("should throw error if no YOUTUBE_CACHE_API_URL provided", async () => {
-      process.env.ENABLE_YOUTUBE_CACHE = "ENABLE_YOUTUBE_CACHE";
+      process.env.ENABLE_YOUTUBE_CACHE = "true";
       await expect(videoRatioResolve(source)).rejects.toThrow(
         "resolvers.ContentfulVideo: YOUTUBE_CACHE_API_URL is missing."
       );
     });
 
     it("should throw error if no YOUTUBE_CACHE_BEARER_TOKEN_SECRET provided", async () => {
-      process.env.ENABLE_YOUTUBE_CACHE = "ENABLE_YOUTUBE_CACHE";
+      process.env.ENABLE_YOUTUBE_CACHE = "true";
       process.env.YOUTUBE_CACHE_API_URL = "https://youtube_cache_api_url";
       await expect(videoRatioResolve(source)).rejects.toThrow(
         "resolvers.ContentfulVideo: YOUTUBE_CACHE_BEARER_TOKEN_SECRET is missing."
@@ -104,7 +113,7 @@ describe("ContentfulVideo", () => {
     });
 
     it("should resolve video ratio", async () => {
-      process.env.ENABLE_YOUTUBE_CACHE = "ENABLE_YOUTUBE_CACHE";
+      process.env.ENABLE_YOUTUBE_CACHE = "true";
       process.env.YOUTUBE_CACHE_API_URL = "https://youtube_cache_api_url";
       process.env.YOUTUBE_CACHE_BEARER_TOKEN_SECRET =
         "YOUTUBE_CACHE_BEARER_TOKEN_SECRET";
@@ -140,7 +149,7 @@ describe("ContentfulVideo", () => {
     });
 
     it("should retry up to 5 times to resolve video ratio if 429 returned", async () => {
-      process.env.ENABLE_YOUTUBE_CACHE = "ENABLE_YOUTUBE_CACHE";
+      process.env.ENABLE_YOUTUBE_CACHE = "true";
       process.env.YOUTUBE_CACHE_API_URL = "https://youtube_cache_api_url";
       process.env.YOUTUBE_CACHE_BEARER_TOKEN_SECRET =
         "YOUTUBE_CACHE_BEARER_TOKEN_SECRET";
@@ -171,7 +180,7 @@ describe("ContentfulVideo", () => {
     });
 
     it("should error straight away if resolve video ratio returns error status", async () => {
-      process.env.ENABLE_YOUTUBE_CACHE = "ENABLE_YOUTUBE_CACHE";
+      process.env.ENABLE_YOUTUBE_CACHE = "true";
       process.env.YOUTUBE_CACHE_API_URL = "https://youtube_cache_api_url";
       process.env.YOUTUBE_CACHE_BEARER_TOKEN_SECRET =
         "YOUTUBE_CACHE_BEARER_TOKEN_SECRET";

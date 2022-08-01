@@ -714,6 +714,7 @@ exports[`General Error render correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -1447,5 +1448,6 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;

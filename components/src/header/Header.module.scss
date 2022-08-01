@@ -65,7 +65,7 @@ $chevron-margin-left-lg: 3px;
       min-width: auto;
       padding: 6px $button-padding-sides;
       transition: color $transition-timing, background-color $transition-timing,
-        box-shadow $transition-timing, border $transition-timing;
+      box-shadow $transition-timing, border $transition-timing;
       text-decoration: none;
       color: $color-slate;
       font-size: 16px;
@@ -157,6 +157,9 @@ $chevron-margin-left-lg: 3px;
 
   .backdrop {
     z-index: 12;
+    @media (min-width: $breakpoint-md) {
+      z-index: 11;
+    }
   }
 
   .drawer {
@@ -182,6 +185,18 @@ $chevron-margin-left-lg: 3px;
     margin: auto;
     max-width: $breakpoint-xl;
     z-index: 12;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  .cart-drawer-container {
+    @extend .search-drawer-container;
+    @media (min-width: $breakpoint-md) {
+      top: auto;
+      z-index: 11;
+    }
 
     &--hidden {
       display: none;
@@ -295,7 +310,7 @@ $chevron-margin-left-lg: 3px;
 
     .language-selection-button {
       transition: border $transition-timing, padding-bottom $transition-timing,
-        margin-bottom $transition-timing;
+      margin-bottom $transition-timing;
       border: 1px solid transparent;
 
       &--active {
@@ -362,6 +377,7 @@ $chevron-margin-left-lg: 3px;
       width: $logo-width;
       height: $logo-width;
     }
+
     .search-button {
       color: $color-white;
     }
@@ -440,6 +456,7 @@ $chevron-margin-left-lg: 3px;
     .language-drawer {
       height: calc(100vh - 56px); // Nav height lg
     }
+
     .search-drawer {
       position: inherit;
       right: 20px;

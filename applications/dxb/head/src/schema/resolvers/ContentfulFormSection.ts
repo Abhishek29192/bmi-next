@@ -1,9 +1,15 @@
 import { config } from "dotenv";
 import {
-  generateIdFromString,
-  generateDigestFromData
-} from "../../utils/encryption";
-import { Context, LegalConsent, MetaData, Node, ResolveArgs } from "./types";
+  generateDigestFromData,
+  generateHashFromString
+} from "../../../../libraries/utils/src/encryption";
+import {
+  Context,
+  LegalConsent,
+  MetaData,
+  Node,
+  ResolveArgs
+} from "./types/Gatsby";
 
 interface FieldData {
   id: string;
@@ -133,7 +139,10 @@ export default {
           .map((input) =>
             getNodeData(source.id, {
               // TODO: I only support basic hubspot form layout (one field per row)
-              id: generateIdFromString(source.id + input.fields[0].name, true),
+              id: generateHashFromString(
+                source.id + input.fields[0].name,
+                true
+              ),
               name: input.fields[0].name,
               label: input.fields[0].label,
               type: mapFields(input.fields[0].fieldType, input.fields[0].name),

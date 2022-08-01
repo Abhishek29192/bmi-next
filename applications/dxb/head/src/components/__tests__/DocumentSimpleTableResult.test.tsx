@@ -1,14 +1,14 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
 import { useMediaQuery } from "@material-ui/core";
+import { render, screen } from "@testing-library/react";
+import React from "react";
+import { ProductDocument as PIMDocument } from "../../types/pim";
+import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument, {
+  createPseudoZipDocument
+} from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentSimpleTableResults, {
   Props
 } from "../DocumentSimpleTableResults";
-import {
-  PIMDocumentBase,
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../types/PIMDocumentBase";
 
 jest.mock("@material-ui/core", () => ({
   ...(jest.requireActual("@material-ui/core") as any),
@@ -19,37 +19,15 @@ jest.mock("../DocumentSimpleTableResultsMobile", () => ({
   DocumentSimpleTableResultsMobile: () => <div>Mobile Results</div>
 }));
 
-const defaultDocument: PIMDocumentBase = {
-  id: "hash1",
-  title: "document",
-  product: { code: "1", name: "some-product" },
-  url: "http://somelink.com",
-  assetType: {
-    __typename: "ContentfulAssetType",
-    id: "asset-id",
-    name: "asset",
-    code: "asset-code",
-    description: null,
-    pimCode: null
-  }
-};
+const pimLinkDocument: PIMDocument = createPimDocument({
+  isLinkDocument: true
+});
 
-const pimLinkDocument: PIMLinkDocumentData = {
-  ...defaultDocument,
-  isLinkDocument: true,
-  __typename: "PIMLinkDocument"
-};
-
-const pimDocument: PIMDocumentData = {
-  ...defaultDocument,
-  fileSize: 10,
-  format: "image/jpeg",
-  extension: "extension",
-  realFileName: "document.jpeg",
-  isLinkDocument: false,
-  __typename: "PIMDocument"
-};
-
+const pimDocument: PIMDocument = createPimDocument({ isLinkDocument: false });
+const pseudoZipAssetTypeName = "pseudo-zip-asset-type";
+const pseudoZipPIMDocument = createPseudoZipDocument({
+  assetType: createAssetType({ name: pseudoZipAssetTypeName })
+});
 const mockUseMediaQuery = useMediaQuery as jest.Mock<
   ReturnType<typeof useMediaQuery>
 >;
@@ -87,9 +65,57 @@ describe("DocumentSimpleTableResult", () => {
         renderDocumentResults({ documents: [pimDocument] });
         expect(
           screen.getByRole("checkbox", {
-            name: "MC: documentLibrary.download document"
+            name: "MC: documentLibrary.download Pim Document"
           })
         ).toBeInTheDocument();
+      });
+    });
+
+    describe("when all headers are present", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [pimDocument],
+          headers: ["typeCode", "type", "name", "title", "download", "add"]
+        });
+        expect(
+          screen.getByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          })
+        ).toBeInTheDocument();
+      });
+    });
+
+    describe("when multiple types of documents are present", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [pimDocument, pseudoZipPIMDocument],
+          headers: ["typeCode", "type", "name", "title", "download", "add"]
+        });
+        expect(
+          screen.getByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          })
+        ).toBeInTheDocument();
+        expect(
+          screen.getByRole("checkbox", {
+            name: `MC: documentLibrary.download ${pseudoZipAssetTypeName}`
+          })
+        ).toBeInTheDocument();
+      });
+    });
+
+    describe("when multiple types of documents are present with pagination", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [null],
+          headers: ["typeCode", "type", "name", "title", "download", "add"],
+          documentsPerPage: 1
+        });
+        expect(
+          screen.queryAllByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          }).length
+        ).toEqual(0);
       });
     });
   });

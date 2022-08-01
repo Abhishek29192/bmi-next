@@ -9,7 +9,7 @@ import {
 import { generateAccount } from "../../lib/tests/factories/account";
 import { ErrorStatusCode } from "../../lib/error";
 import { getServerSideProps } from "../../pages/projects/[[...project]]";
-import { generateProject } from "../../lib/tests/factories/project";
+import { projectFactory } from "../../lib/tests/factories/project";
 import { ROLES } from "../../lib/constants";
 import ProjectPage from "../../pages/projects/[[...project]]";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
@@ -39,7 +39,7 @@ jest.mock("../../components/ProjectDetail", () => ({
   })
 }));
 
-const project = generateProject({ name: "Project 1" });
+const project = projectFactory({ name: "Project 1" });
 const useLazyQueryOnCompleteCallback = jest.fn().mockReturnValue({
   projectsByMarket: {
     nodes: [project]
@@ -88,11 +88,12 @@ describe("Projects Page", () => {
       params: {},
       market: { id: 1 }
     };
+    const projectsByMarket = { projectsByMarket: { nodes: projects } };
     mockGetServerPageGetProjects.mockImplementation(() => {
       return {
         props: {
           data: {
-            projectsByMarket: { nodes: projects }
+            projectsByMarket
           }
         }
       };
@@ -100,9 +101,9 @@ describe("Projects Page", () => {
 
     const result = await getServerSideProps(context);
     expect(result).toEqual({
-      redirect: {
-        destination: "/projects/1",
-        permanent: false
+      props: {
+        projects: projectsByMarket,
+        isPowerfulUser: true
       }
     });
   });
@@ -230,11 +231,12 @@ describe("Projects Page", () => {
       params: {},
       market: { id: 1 }
     };
+    const projectsByMarket = { projectsByMarket: { nodes: projects } };
     mockGetServerPageGetProjects.mockImplementation(() => {
       return {
         props: {
           data: {
-            projectsByMarket: { nodes: projects }
+            projectsByMarket
           }
         }
       };
@@ -242,9 +244,9 @@ describe("Projects Page", () => {
 
     const result = await getServerSideProps(context);
     expect(result).toEqual({
-      redirect: {
-        destination: "/projects/1",
-        permanent: false
+      props: {
+        projects: projectsByMarket,
+        isPowerfulUser: false
       }
     });
   });
@@ -323,6 +325,7 @@ describe("Projects Page", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("should show No results found", async () => {
     const projectCollection: GetProjectsQuery["projectsByMarket"] = {
       __typename: "ProjectsConnection",
@@ -345,6 +348,7 @@ describe("Projects Page", () => {
     );
     expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
   });
+
   it("check onclick behavior", async () => {
     const router = createMockRouter({ query: { project: "1" } });
 
@@ -373,6 +377,7 @@ describe("Projects Page", () => {
     projectDetailProps.onUpdateGuarantee();
     expect(screen.getByText("Project 1")).toBeTruthy();
   });
+
   it("check for empty nodes array", async () => {
     const projectCollection: GetProjectsQuery["projectsByMarket"] = {
       __typename: "ProjectsConnection",
@@ -395,17 +400,13 @@ describe("Projects Page", () => {
     );
     expect(screen.getByText("fallback.noResults")).toBeInTheDocument();
   });
+
   it("check sorting of project name is missing", async () => {
+    const project2 = projectFactory({ id: 2 });
+    delete project2.name;
     const projectCollection: GetProjectsQuery["projectsByMarket"] = {
       __typename: "ProjectsConnection",
-      nodes: [
-        project,
-        {
-          ...project,
-          id: 2,
-          name: null
-        }
-      ]
+      nodes: [project, project2]
     };
     const { container } = renderWithAllProviders(
       <RouterContext.Provider value={createMockRouter({})}>
@@ -415,6 +416,26 @@ describe("Projects Page", () => {
           isPowerfulUser={true}
           globalPageData={globalPageData}
           account={account}
+          market={undefined}
+        />
+      </RouterContext.Provider>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("sort project with non super admin", async () => {
+    const projectCollection: GetProjectsQuery["projectsByMarket"] = {
+      __typename: "ProjectsConnection",
+      nodes: [project, projectFactory({ id: 2 })]
+    };
+    const { container } = renderWithAllProviders(
+      <RouterContext.Provider value={createMockRouter({})}>
+        <ProjectPage
+          _pageError={null}
+          projects={projectCollection}
+          isPowerfulUser={false}
+          globalPageData={globalPageData}
+          account={generateAccount({ role: ROLES.INSTALLER })}
           market={undefined}
         />
       </RouterContext.Provider>

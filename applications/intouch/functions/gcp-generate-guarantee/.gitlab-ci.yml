@@ -1,5 +1,5 @@
 build_gcp-intouch-generate-guarantee:
-  extends: .build_function_yarn_workspace
+  extends: .build_intouch_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
     WORKSPACE: "@bmi/gcp-intouch-generate-guarantee"
@@ -10,9 +10,8 @@ package_gcp-intouch-generate-guarantee:
     FUNCTION_NAME: pubsub-generate-guarantee
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
   needs:
-    - build_gcp-intouch-generate-guarantee
-  dependencies:
-    - build_gcp-intouch-generate-guarantee
+    - job: build_gcp-intouch-generate-guarantee
+      artifacts: true
 
 # Deploy to BMI environments
 deploy_gcp-intouch-generate-guarantee_bmi:
@@ -21,6 +20,5 @@ deploy_gcp-intouch-generate-guarantee_bmi:
     FUNCTION_NAME: pubsub-generate-guarantee
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
   needs:
-    - package_gcp-intouch-generate-guarantee
-  dependencies:
-    - package_gcp-intouch-generate-guarantee
+    - job: package_gcp-intouch-generate-guarantee
+      artifacts: true

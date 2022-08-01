@@ -60,8 +60,10 @@
     "older": "Eldre enn 2 måneder",
     "today": "I dag"
   },
+  "requiredInformation": "nødvendig informasjon",
   "results available": "resultater tilgjengelig",
   "roles": {
+    "AUDITOR": "Prosjektrevisor",
     "COMPANY_ADMIN": "Bedriftsadministrator",
     "INSTALLER": "Medlem",
     "MARKET_ADMIN": "Markedsadministrator",
@@ -85,6 +87,5 @@
   "button": {
     "more": "Vis mer",
     "less": "Vis mindre"
-  },
-  "requiredInformation": "nødvendig informasjon"
+  }
 }

@@ -1,40 +1,19 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import { DocumentSimpleTableResultsMobile } from "../DocumentSimpleTableResultsMobile";
-import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
-import { FileContentTypeEnum } from "../types/pim";
-import { PIMDocumentData } from "../types/PIMDocumentBase";
 
 describe("DocumentSimpleTableResultsMobile component", () => {
-  const pimDocument: PIMDocumentData = {
-    __typename: "PIMDocument",
-    fileSize: 234,
-    extension: "jpg",
-    format: "image/jpg",
-    id: "dummy-id",
-    url: "https://doesnt-exist.com",
-    title: "dummy-title",
-    realFileName: null,
-    product: {
-      name: "dummy-product",
-      code: "dummy-code"
-    },
-    assetType: {
-      __typename: "ContentfulAssetType",
-      id: "some-asset-id",
-      name: "Technical Approvals",
-      code: "TALS",
-      description: null,
-      pimCode: "TECHNICAL_APPROVALS"
-    }
-  };
+  const pimDocument = createPimDocument();
+
   it("renders correctly", () => {
     const document = createContentfulDocument({
       asset: {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test.pdf",
-          contentType: FileContentTypeEnum.APPLICATION_PDF,
+          contentType: "application/pdf",
           details: {
             size: 89898
           }
@@ -55,7 +34,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test.onlv",
-          contentType: "image/jpg" as FileContentTypeEnum,
+          contentType: "image/jpg",
           details: {
             size: 89898
           }
@@ -73,22 +52,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
   });
   it("renders pim documents correctly", () => {
     const { container, findByText } = render(
-      <DocumentSimpleTableResultsMobile
-        documents={[pimDocument]}
-        documentsByAssetType={[
-          [
-            pimDocument.assetType.code,
-            [
-              pimDocument,
-              {
-                ...pimDocument,
-                __typename: "PIMLinkDocument",
-                title: "link-title"
-              }
-            ]
-          ]
-        ]}
-      />
+      <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
     );
 
     expect(container).toMatchSnapshot();
@@ -97,33 +61,11 @@ describe("DocumentSimpleTableResultsMobile component", () => {
   });
   it("renders multiple documents of same asset type as zip file", () => {
     const { container, queryAllByText } = render(
-      <DocumentSimpleTableResultsMobile
-        documents={[pimDocument]}
-        documentsByAssetType={[
-          [
-            pimDocument.assetType.code,
-            [
-              pimDocument,
-              { ...pimDocument, fileSize: 123 },
-              {
-                ...pimDocument,
-                __typename: "PIMLinkDocument",
-                title: "link-title"
-              },
-              {
-                ...pimDocument,
-                title: "zip-tile",
-                extension: "zip",
-                format: "application/zip"
-              }
-            ]
-          ]
-        ]}
-      />
+      <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
     );
 
     expect(container).toMatchSnapshot();
-    expect(queryAllByText("dummy-title").length).toBe(1);
+    expect(queryAllByText(pimDocument.title).length).toBe(1);
     expect(container.innerHTML).toContain('<svg class="download-icon"></svg>');
   });
 
@@ -133,7 +75,7 @@ describe("DocumentSimpleTableResultsMobile component", () => {
         file: {
           url: "http://doesnot-exist.com/fileName",
           fileName: "test.onlv",
-          contentType: "invalidType" as FileContentTypeEnum,
+          contentType: "invalidType",
           details: {
             size: 89898
           }

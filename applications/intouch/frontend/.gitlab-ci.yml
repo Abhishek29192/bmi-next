@@ -1,6 +1,22 @@
 test_intouch_frontend:
   extends: .test_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/frontend/**/*
+        - components/**/*
+        - libraries/**/*
+        - jest/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-frontend"
+    ROOT_DIR: "applications/intouch/frontend"
+
+build_intouch_frontend_dev:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
@@ -10,19 +26,27 @@ test_intouch_frontend:
   variables:
     WORKSPACE: "@bmi/intouch-frontend"
     ROOT_DIR: "applications/intouch/frontend"
+    AUTH0_COOKIE_DOMAIN: "intouch.bmigroup.com"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/frontend/.next
 
-build_intouch_frontend_dev:
-  needs: []
+package_intouch_frontend_dev:
+  needs:
+    - job: build_intouch_frontend_dev
+      artifacts: false
   cache: {}
-  image: google/cloud-sdk
+  image: google/cloud-sdk:alpine
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
   services:
     - name: docker:20-dind
       alias: docker
-  stage: build
+  stage: package
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
@@ -44,7 +68,7 @@ deploy_intouch_frontend_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   needs:
-    - build_intouch_frontend_dev
+    - package_intouch_frontend_dev
     - test_intouch_frontend
   image: google/cloud-sdk
   rules:
@@ -56,13 +80,13 @@ deploy_intouch_frontend_to_cloudrun_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts.
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-frontend:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-frontend:latest
 
-# Run only on release branch!
+# Run only on release branch!!
 release_intouch_frontend_to_cloudrun_bmi:
   stage: deploy
   cache: {}

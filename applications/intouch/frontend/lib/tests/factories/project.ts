@@ -1,14 +1,28 @@
 import merge from "lodash/merge";
 import { Project } from "@bmi/intouch-api-types";
-import { GetProjectQuery } from "../../../graphql/generated/operations";
+import {
+  GetProjectQuery,
+  GetProjectsQuery
+} from "../../../graphql/generated/operations";
 import { DeepPartial } from "../../utils/types";
 import { generateGuarantee } from "./guarantee";
+
+export type MockProject = Partial<
+  | GetProjectQuery["project"]
+  | {
+      company?: Partial<GetProjectQuery["project"]["company"]>;
+      guarantees?: Partial<GetProjectQuery["project"]["guarantees"]>;
+      siteAddress?: Partial<GetProjectQuery["project"]["siteAddress"]>;
+      buildingOwnerAddress?: Partial<
+        GetProjectQuery["project"]["buildingOwnerAddress"]
+      >;
+    }
+>;
 
 const emptyNodes = {
   nodes: []
 };
 
-const defaultGuarantee = generateGuarantee();
 const defaultProject: GetProjectQuery["project"] = {
   __typename: "Project",
   id: 1,
@@ -19,11 +33,12 @@ const defaultProject: GetProjectQuery["project"] = {
   roofArea: 0,
   technology: "PITCHED",
   guarantees: {
-    nodes: [defaultGuarantee]
+    nodes: [generateGuarantee()]
   },
   company: {
     id: 1,
-    tier: "T1"
+    tier: "T1",
+    name: "company 1"
   },
   siteAddress: {
     id: 1,
@@ -43,3 +58,45 @@ const defaultProject: GetProjectQuery["project"] = {
 export const generateProject = (
   project: DeepPartial<Project> = {}
 ): GetProjectQuery["project"] => merge(defaultProject, project);
+
+export const projectFactory = (
+  project: MockProject = {}
+): GetProjectQuery["project"] => {
+  const {
+    company,
+    guarantees,
+    siteAddress,
+    buildingOwnerAddress,
+    ...restProject
+  } = project;
+  const {
+    company: defaultCompany,
+    guarantees: { nodes: defaultGuarantees },
+    siteAddress: defaultSiteAddress,
+    buildingOwnerAddress: defaultBuildingOwnerAddress,
+    ...rest
+  } = defaultProject;
+  return {
+    ...rest,
+    ...restProject,
+    company: { ...defaultProject.company, ...company },
+    guarantees: {
+      nodes: [...defaultGuarantees, ...(guarantees?.nodes || [])]
+    },
+    siteAddress: {
+      ...defaultSiteAddress,
+      ...siteAddress
+    },
+    buildingOwnerAddress: {
+      ...defaultBuildingOwnerAddress,
+      ...buildingOwnerAddress
+    }
+  };
+};
+
+export const ssrProjectFactory = (project: MockProject = {}) => {
+  return {
+    __typename: "ProjectsConnection",
+    nodes: [{ ...projectFactory(project) }]
+  } as GetProjectsQuery["projectsByMarket"];
+};

@@ -1,22 +1,22 @@
-import React from "react";
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import { ErrorBoundary } from "react-error-boundary";
-import mockConsole from "jest-mock-console";
-import axios from "axios";
 import * as ReactRoter from "@reach/router";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import axios from "axios";
+import mockConsole from "jest-mock-console";
+import React from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import * as elasticSearch from "../../utils/elasticSearch";
+import * as GTM from "../../utils/google-tag-manager";
+import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
   QuestionData
 } from "../SystemConfiguratorSection";
-import * as elasticSearch from "../../utils/elasticSearch";
-import { ImageAssetTypesEnum } from "../types/pim";
-import * as GTM from "../../utils/google-tag-manager";
 
 jest.mock("react-google-recaptcha-v3", () => {
   return {
@@ -173,10 +173,12 @@ const pimSystem = {
   _source: {
     code: "efgh",
     name: "efgh name",
+    hashedCode: "efgh",
     shortDescription: "efgh description",
+    path: "/s/efgh-name-efgh",
     images: [
       {
-        assetType: ImageAssetTypesEnum.MASTER_IMAGE,
+        assetType: "MASTER_IMAGE",
         format: "Product-Listing-Card-Large-Desktop",
         url: "product-listing-card-large-desktop-url",
         allowedToDownload: true,
@@ -683,11 +685,14 @@ describe("SystemConfiguratorSection component", () => {
     mockQueryES.mockResolvedValueOnce({
       hits: {
         hits: [
-          pimSystem,
           {
             _source: {
-              code: "ijkl",
-              name: "ijkl name"
+              ...createRelatedSystem({ code: "efgh", name: "efgh name" })
+            }
+          },
+          {
+            _source: {
+              ...createRelatedSystem({ code: "ijkl", name: "ijkl name" })
             }
           }
         ],
@@ -716,8 +721,6 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
     await findByText("Result Title");
-    await findByText(pimSystem._source.name);
-    await findByText(pimSystem._source.shortDescription);
     await findByText("ijkl name");
 
     expect(container).toMatchSnapshot();
@@ -743,32 +746,27 @@ describe("SystemConfiguratorSection component", () => {
         hits: [
           {
             _source: {
-              code: "abcd",
-              name: "abcd name"
+              ...createRelatedSystem({ code: "abcd", name: "abcd name" })
             }
           },
           {
             _source: {
-              code: "efgh",
-              name: "efgh name"
+              ...createRelatedSystem({ code: "efgh", name: "efgh name" })
             }
           },
           {
             _source: {
-              code: "ijkl",
-              name: "ijkl name"
+              ...createRelatedSystem({ code: "ijkl", name: "ijkl name" })
             }
           },
           {
             _source: {
-              code: "mnop",
-              name: "mnop name"
+              ...createRelatedSystem({ code: "mnop", name: "mnop name" })
             }
           },
           {
             _source: {
-              code: "qrst",
-              name: "qrst name"
+              ...createRelatedSystem({ code: "qrst", name: "qrst name" })
             }
           }
         ],
@@ -842,6 +840,6 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(redirection).toHaveBeenCalledWith("/404");
+    expect(redirection).toHaveBeenCalledWith("/no/422/");
   });
 });

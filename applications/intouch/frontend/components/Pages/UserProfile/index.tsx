@@ -4,6 +4,7 @@ import { GetUserProfileQuery } from "../../../graphql/generated/operations";
 import { findAccountCompanyFromAccountQuery } from "../../../lib/account";
 import { TableContainer } from "../../../components/TableContainer";
 import { CompanyDetails } from "../Company/Details";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { RegisterCompanyCard } from "./RegisterCompany/Card";
 import { UserProfileCard } from "./ProfileCard";
 import { UserCertifications } from "./UserCertifications";
@@ -36,28 +37,30 @@ export const UserProfilePageContent = ({
           />
         </TableContainer>
 
-        {currentCompany ? (
-          <div className={styles.companyDetailsContainer}>
-            <CompanyDetails
-              company={currentCompany}
-              actions={
-                account.role === "INSTALLER" ? (
-                  <div className={styles.leaveButtonContainer}>
-                    <LeaveCompanyButton
-                      onLeaveCurrentCompanySuccess={setAccount}
-                    />
-                  </div>
-                ) : null
-              }
-              showName
-              showBusinessType={false}
-              showAboutUs={false}
-              showCompanyOwner={false}
-            />
-          </div>
-        ) : (
-          <RegisterCompanyCard mapsApiKey={mapsApiKey} />
-        )}
+        <AccessControl dataModel="company" action="register">
+          {currentCompany ? (
+            <div className={styles.companyDetailsContainer}>
+              <CompanyDetails
+                company={currentCompany}
+                actions={
+                  account.role === "INSTALLER" ? (
+                    <div className={styles.leaveButtonContainer}>
+                      <LeaveCompanyButton
+                        onLeaveCurrentCompanySuccess={setAccount}
+                      />
+                    </div>
+                  ) : null
+                }
+                showName
+                showBusinessType={false}
+                showAboutUs={false}
+                showCompanyOwner={false}
+              />
+            </div>
+          ) : (
+            <RegisterCompanyCard mapsApiKey={mapsApiKey} />
+          )}
+        </AccessControl>
       </div>
       <div>
         <UserProfileCard

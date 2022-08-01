@@ -1,12 +1,25 @@
-import { ObjType } from "@bmi/gcp-pim-message-handler";
 import {
   CollectionReference,
   DocumentReference,
   Firestore
 } from "@bmi/functions-firestore";
+import { createFullyPopulatedProduct, createSystem } from "@bmi/pim-types";
+import {
+  createDeleteProductItem,
+  createDeleteProductMessage,
+  createDeleteSystemItem,
+  createDeleteSystemMessage,
+  createUpdateCategoryMessage,
+  createUpdateProductMessage,
+  createUpdateSystemMessage,
+  Message,
+  ObjType
+} from "@bmi/pub-sub-types";
 import { CODE_TYPES, handleMessage, OBJECT_TYPES } from "../";
 
-const createEvent = (message = {}) => {
+jest.mock("@bmi-digital/functions-logger");
+
+const createEvent = (message?: Message) => {
   if (!message) {
     return { data: "" };
   }
@@ -53,81 +66,88 @@ jest.mock("@bmi/functions-firestore", () => ({
   }))
 }));
 
-describe("handleMessage", () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-  it("should execute correctly if type is UPDATED and itemType is PRODUCTS", async () => {
-    const item = {
-      name: "Test Product 1",
-      code: "BaseProduct",
-      variantOptions: [{ code: "VariantOption" }]
-    };
-    const data = createEvent({
-      type: "UPDATED",
-      itemType: "PRODUCTS",
-      items: [item]
-    });
+const transformProduct = jest.fn();
+jest.mock("../productTransformer", () => ({
+  transformProduct: () => transformProduct()
+}));
 
-    const updatedItem = {
-      ...item,
-      [CODE_TYPES.VARIANT_CODES]: item.variantOptions.map(
-        (obj: any) => obj.code
-      )
+const transformSystem = jest.fn();
+jest.mock("../systemTransformer", () => ({
+  transformSystem: () => transformSystem()
+}));
+
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
+
+describe("handleMessage", () => {
+  it("should execute correctly if type is UPDATED and itemType is PRODUCTS", async () => {
+    const product = createFullyPopulatedProduct();
+    const data = createEvent(
+      createUpdateProductMessage({
+        item: product
+      })
+    );
+
+    const transformedProduct = {
+      baseCode: product.code,
+      code: product.variantOptions![0].code
     };
+    transformProduct.mockReturnValue([transformedProduct]);
 
     doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
-    expect(set).toBeCalledWith(documentRef, updatedItem);
+    expect(set).toBeCalledWith(documentRef, transformedProduct);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and itemType is SYSTEMS", async () => {
-    const item = {
-      name: "Test System 1",
-      code: "System",
-      systemLayers: [{ code: "SystemLayer" }]
-    };
-    const data = createEvent({
-      type: "UPDATED",
-      itemType: "SYSTEMS",
-      items: [item]
-    });
+    const item = createSystem();
+    const data = createEvent(
+      createUpdateSystemMessage({
+        item
+      })
+    );
 
-    const updatedItem = {
+    const transformedSystem = {
       ...item,
-      [CODE_TYPES.LAYER_CODES]: item.systemLayers.map((obj: any) => obj.code)
+      layerCodes: item.systemLayers!.map((layer) => layer.code)
     };
+    transformSystem.mockReturnValue([transformedSystem]);
 
     doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
-    expect(set).toBeCalledWith(documentRef, updatedItem);
+    expect(set).toBeCalledWith(documentRef, transformedSystem);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should execute correctly if type is UPDATED and system do not have layers", async () => {
-    const item = {
-      name: "Test System 1",
-      code: "System"
+    const item = createSystem({ systemLayers: undefined });
+    const data = createEvent(
+      createUpdateSystemMessage({
+        item
+      })
+    );
+
+    const transformedSystem = {
+      ...item,
+      layerCodes: []
     };
-    const data = createEvent({
-      type: "UPDATED",
-      itemType: "SYSTEMS",
-      items: [item]
-    });
+    transformSystem.mockReturnValue([transformedSystem]);
 
     doc.mockReturnValue(documentRef);
 
     await handleMessage(data, {});
 
     expect(set).toBeCalledTimes(1);
-    expect(set).toBeCalledWith(documentRef, item);
+    expect(set).toBeCalledWith(documentRef, transformedSystem);
     expect(commit).toBeCalledTimes(1);
   });
 
@@ -135,54 +155,68 @@ describe("handleMessage", () => {
     const item = {
       name: "Test Category 1"
     };
-    const data = createEvent({
-      type: "UPDATED",
-      itemType: "CATEGORIES",
-      items: [item]
-    });
+    const data = createEvent(
+      createUpdateCategoryMessage({
+        item
+      })
+    );
 
     await handleMessage(data, {});
 
-    doc.mockReturnValue(documentRef);
-
-    expect(set).toBeCalledTimes(1);
-    expect(set).toBeCalledWith(documentRef, item);
-    expect(commit).toBeCalledTimes(1);
+    expect(set).not.toHaveBeenCalled();
+    expect(commit).not.toHaveBeenCalled();
   });
-  it("should execute correctly if type is DELETED and objType is 'base_product'", async () => {
-    const docRef1 = { ...documentRef, id: "docId1" };
-    const docRef2 = { ...documentRef, id: "docId2" };
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "DELETED",
-      items: [
-        { code: "BP1", objType: ObjType.Base_product },
-        { code: "BP2", objType: ObjType.Base_product }
-      ]
-    });
 
-    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(docRef2);
+  it("should execute correctly if type is DELETED and objType is 'base_product'", async () => {
+    const doc1 = { exists: true, ref: { ...documentRef, id: "docId1" } };
+    const data = createEvent(
+      createDeleteProductMessage({
+        item: createDeleteProductItem({
+          code: "BP1",
+          objType: ObjType.Base_product
+        })
+      })
+    );
+
+    get.mockResolvedValueOnce({ docs: [doc1] });
 
     await handleMessage(data, {});
 
-    expect(deleteFunc).toBeCalledTimes(2);
-    expect(deleteFunc).toHaveBeenNthCalledWith(1, docRef1);
-    expect(deleteFunc).toHaveBeenNthCalledWith(2, docRef2);
+    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledWith(doc1.ref);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should NOT delete 'base_product' if it is not exists in firestore", async () => {
-    const docRef1 = { ...documentRef, id: "docId1" };
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "DELETED",
-      items: [
-        { code: "BP1", objType: ObjType.Base_product },
-        { code: "BP2", objType: ObjType.Base_product }
-      ]
-    });
+    const doc1 = { exists: false, ref: { ...documentRef, id: "docId1" } };
+    const data = createEvent(
+      createDeleteProductMessage({
+        item: createDeleteProductItem({
+          code: "BP1",
+          objType: ObjType.Base_product
+        })
+      })
+    );
 
-    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(undefined);
+    get.mockResolvedValueOnce({ docs: [doc1] });
+
+    await handleMessage(data, {});
+
+    expect(deleteFunc).toBeCalledTimes(0);
+    expect(commit).toBeCalledTimes(1);
+  });
+
+  it("should execute correctly if type is DELETED and objType is 'system'", async () => {
+    const docRef1 = { ...documentRef, id: "docId1" };
+    const data = createEvent(
+      createDeleteSystemMessage({
+        itemType: "SYSTEMS",
+        type: "DELETED",
+        item: createDeleteSystemItem({ code: "BS1", objType: ObjType.System })
+      })
+    );
+
+    doc.mockReturnValueOnce(docRef1);
 
     await handleMessage(data, {});
 
@@ -191,79 +225,35 @@ describe("handleMessage", () => {
     expect(commit).toBeCalledTimes(1);
   });
 
-  it("should execute correctly if type is DELETED and objType is 'system'", async () => {
-    const docRef1 = { ...documentRef, id: "docId1" };
-    const docRef2 = { ...documentRef, id: "docId2" };
-    const data = createEvent({
-      itemType: "SYSTEMS",
-      type: "DELETED",
-      items: [
-        { code: "BS1", objType: ObjType.System },
-        { code: "BS2", objType: ObjType.System }
-      ]
-    });
-
-    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(docRef2);
-
-    await handleMessage(data, {});
-
-    expect(deleteFunc).toBeCalledTimes(2);
-    expect(deleteFunc).toHaveBeenNthCalledWith(1, docRef1);
-    expect(deleteFunc).toHaveBeenNthCalledWith(2, docRef2);
-    expect(commit).toBeCalledTimes(1);
-  });
-
   it("should delete variant if objType is 'variant'", async () => {
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "DELETED",
-      items: [{ code: "Test_Variant_1", objType: ObjType.Variant }]
-    });
+    const data = createEvent(
+      createDeleteProductMessage({
+        item: createDeleteProductItem({
+          code: "Test_Variant_1",
+          objType: ObjType.Variant
+        })
+      })
+    );
+    const docRef1 = { ...documentRef, id: "docId1" };
 
-    const mockedRosolvedValue = {
-      code: "Base_Product_code",
-      variantOptions: [
-        { code: "Test_Variant_1" },
-        { code: "Test_Variant_3" },
-        { code: "Test_Variant_4" }
-      ],
-      variantCodes: ["Test_Variant_1", "Test_Variant_3", "Test_Variant_4"]
-    };
-
-    get.mockResolvedValue({
-      docs: [
-        {
-          data: () => mockedRosolvedValue
-        }
-      ]
-    });
-
-    doc.mockReturnValue(documentRef);
-
-    const updatedObjType = [
-      { code: "Test_Variant_3" },
-      { code: "Test_Variant_4" }
-    ];
-
-    const updatedDocument = {
-      ...mockedRosolvedValue,
-      [OBJECT_TYPES.VARIANT_OPTIONS]: updatedObjType,
-      [CODE_TYPES.VARIANT_CODES]: updatedObjType.map((obj: any) => obj.code)
-    };
+    doc.mockReturnValue(docRef1);
 
     await handleMessage(data, {});
 
-    expect(set).toBeCalledTimes(1);
-    expect(set).toBeCalledWith(documentRef, updatedDocument);
+    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toBeCalledWith(docRef1);
     expect(commit).toBeCalledTimes(1);
   });
 
   it("should delete system layer if objType is 'layer'", async () => {
-    const data = createEvent({
-      itemType: "SYSTEMS",
-      type: "DELETED",
-      items: [{ code: "Test_Layer_1", objType: ObjType.Layer }]
-    });
+    const data = createEvent(
+      createDeleteSystemMessage({
+        item: createDeleteSystemItem({
+          code: "Test_Layer_1",
+          objType: ObjType.Layer
+        })
+      })
+    );
 
     const mockedRosolvedValue = {
       code: "System_code",
@@ -301,11 +291,14 @@ describe("handleMessage", () => {
   });
 
   it("should delete base product if only one variant is present", async () => {
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "DELETED",
-      items: [{ code: "Test_Variant_1", objType: ObjType.Variant }]
-    });
+    const data = createEvent(
+      createDeleteProductMessage({
+        item: createDeleteProductItem({
+          code: "Test_Variant_1",
+          objType: ObjType.Variant
+        })
+      })
+    );
 
     get.mockResolvedValue({
       docs: [
@@ -327,31 +320,15 @@ describe("handleMessage", () => {
     expect(commit).toBeCalledTimes(1);
   });
 
-  it("should NOT delete variant if it is not exists in firestore", async () => {
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "DELETED",
-      items: [{ code: "Test_Variant_1", objType: ObjType.Variant }]
-    });
-
-    get.mockResolvedValue({
-      docs: []
-    });
-
-    doc.mockReturnValue(documentRef);
-
-    await handleMessage(data, {});
-
-    expect(deleteFunc).toBeCalledTimes(0);
-    expect(commit).toBeCalledTimes(1);
-  });
-
   it("should NOT delete system if only one layer is present", async () => {
-    const data = createEvent({
-      itemType: "SYSTEMS",
-      type: "DELETED",
-      items: [{ code: "Test_Layer_1", objType: ObjType.Layer }]
-    });
+    const data = createEvent(
+      createDeleteSystemMessage({
+        item: createDeleteSystemItem({
+          code: "Test_Layer_1",
+          objType: ObjType.Layer
+        })
+      })
+    );
 
     get.mockResolvedValue({
       docs: [
@@ -379,15 +356,35 @@ describe("handleMessage", () => {
     expect(commit).toBeCalledTimes(1);
   });
 
-  it("should throw error if type is unrecognised", async () => {
-    const data = createEvent({
-      itemType: "PRODUCTS",
-      type: "TEST",
-      items: [
-        { code: "BP1", objType: ObjType.Base_product },
-        { code: "BP2", objType: ObjType.Base_product }
-      ]
+  it("should NOT update system if only data layer to delete does not exist", async () => {
+    const data = createEvent(
+      createDeleteSystemMessage({
+        item: createDeleteSystemItem({
+          code: "Test_Layer_1",
+          objType: ObjType.Layer
+        })
+      })
+    );
+
+    get.mockResolvedValue({
+      docs: []
     });
+
+    doc.mockReturnValue(documentRef);
+
+    await handleMessage(data, {});
+
+    expect(deleteFunc).toBeCalledTimes(0);
+    expect(set).toBeCalledTimes(0);
+    expect(commit).toBeCalledTimes(1);
+  });
+
+  it("should throw error if type is unrecognised", async () => {
+    const data = createEvent(
+      createUpdateProductMessage({
+        type: "TEST" as any
+      })
+    );
 
     let actualErrorMsg;
     try {
@@ -400,14 +397,11 @@ describe("handleMessage", () => {
   });
 
   it("should throw error if itemType is unrecognised", async () => {
-    const data = createEvent({
-      itemType: "TEST",
-      type: "DELETED",
-      items: [
-        { code: "BP1", objType: ObjType.Base_product },
-        { code: "BP2", objType: ObjType.Base_product }
-      ]
-    });
+    const data = createEvent(
+      createUpdateProductMessage({
+        itemType: "TEST" as any
+      })
+    );
 
     let actualErrorMsg;
     try {

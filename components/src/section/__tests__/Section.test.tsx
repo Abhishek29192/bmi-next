@@ -1,5 +1,5 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 import Section from "../Section";
 
 describe("Section component", () => {
@@ -82,5 +82,11 @@ describe("Section component", () => {
       <Section hasNoPadding={true}>Hey, I like to over flow.</Section>
     );
     expect(container).toMatchSnapshot();
+  });
+  it("renders correctly if rendered as dialog", () => {
+    const { container } = render(
+      <Section isDialog>Not a section class applied</Section>
+    );
+    expect(container.querySelector(".Section")).toBeNull();
   });
 });

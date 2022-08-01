@@ -11,7 +11,7 @@
           "submit": "Save & Close"
         },
         "fields": {
-          "description": "Project description (optional)",
+          "description": "Project description",
           "endDate": "Project end date",
           "name": "Project name",
           "roofArea": "Total roof measurement (m2)",
@@ -19,8 +19,8 @@
             "country": "Country",
             "firstLine": "Address Line 1",
             "postcode": "Post Code / ZIP",
-            "region": "Region (optional)",
-            "secondLine": "Address Line 2 (optional)",
+            "region": "Region",
+            "secondLine": "Address Line 2",
             "town": "Town / City"
           },
           "startDate": "Project start date",
@@ -53,6 +53,10 @@
       "title": "Add a project"
     }
   },
+  "bool": {
+    "False": "Falsch",
+    "True": "Stimmt"
+  },
   "buildingOwnerDetails": {
     "address": "Building Owner address",
     "company": "Company",
@@ -67,11 +71,11 @@
             "country": "Country",
             "firstLine": "Address Line 1",
             "postcode": "Post Code / ZIP",
-            "region": "Region (optional)",
-            "secondLine": "Address Line 2 (optional)",
+            "region": "Region",
+            "secondLine": "Address Line 2",
             "town": "Town / City"
           },
-          "buildingOwnerCompany": "Company name (optional)",
+          "buildingOwnerCompany": "Company name",
           "buildingOwnerFirstname": "First name",
           "buildingOwnerLastname": "Last name",
           "buildingOwnerMail": "Email address"
@@ -97,6 +101,11 @@
     "contact_detail": "Building contact details",
     "email": "Building owner email",
     "title": "Building Owner Details"
+  },
+  "copyDialog": {
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}",
+    "title": "Copy this project"
   },
   "filters": {
     "labels": {
@@ -141,6 +150,24 @@
     },
     "title": "You cannot apply for a guarantee yet"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project.",
+      "title": "Are you sure?"
+    },
+    "reject": {
+      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required.",
+      "title": "Are you sure?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "The guarantee associated with this project has been restarted, so a new guarantee can be requested"
+  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Building owner details incomplete",
@@ -153,16 +180,6 @@
       "tier": "You are not in a Tier that supports Guarantees"
     },
     "title": "You cannot submit for a guarantee yet"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "title": "Are you sure?",
-      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project."
-    },
-    "reject": {
-      "title": "Are you sure?",
-      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required."
-    }
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -223,7 +240,7 @@
         },
         "step2": {
           "inputLabel": "Select language",
-          "subTitle": "Select the preferrred language for the guarantee documentation",
+          "subTitle": "Select the preferred language for the guarantee documentation",
           "title": "Register for a guarantee"
         },
         "step3": {
@@ -258,8 +275,8 @@
     "title": "No projects to display"
   },
   "noProjects": {
-    "body1": "You have not added any new projects yet!",
-    "body2": "Select the \"Add new project\" button below to get started.",
+    "body1": "Change the filter to view different types of project",
+    "body2": "Select a different filter or create a project to get started",
     "title": "No projects to display"
   },
   "noteTab": {
@@ -285,15 +302,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Approve guarantee",
-      "confirm": "Bestätigen",
-      "cancel": "Abbrechen",
       "archive": "Archive project",
+      "cancel": "Abbrechen",
+      "confirm": "Bestätigen",
       "requestInformation": "Request more information",
       "unarchive": "Un-archive project"
     },
     "heading": "Project Actions"
   },
   "projectDetails": {
+    "archived": "Archived?",
     "buildingAddress": "Building address",
     "code": "Project code",
     "cta": {
@@ -301,8 +319,8 @@
       "NOT_ASSIGNABLE": "Not Assignable",
       "REASSIGN_SOLUTION": "Reassign to me",
       "UNASSIGN_SOLUTION": "Unassign from me",
-      "edit": "Edit",
-      "copy": "Copy?"
+      "copy": "Copy?",
+      "edit": "Edit"
     },
     "description": "Project description",
     "endDate": "Project end date",
@@ -318,8 +336,9 @@
     "status": "Project status"
   },
   "report": {
-    "guarantee": "Download guarantee report",
-    "project": "Download projects report"
+    "guarantee": "Guarantees Report",
+    "project": "Projects Report",
+    "projectUpload": "Uploads Report"
   },
   "responsible_installer": {
     "address": "Responsible Installer address",
@@ -365,30 +384,18 @@
       "confirm_label": "Upload files",
       "evidence_category": "Evidence Category",
       "file_validation_message": "You cannot upload  files larger than",
-      "total_files_size": "Gesamtgröße der Dateien überschritten - {{totalSize}}",
       "instruction": "You can add files",
       "microcopy": {
         "browse": "Browse",
         "drop": "Drop"
       },
-      "title": "Evidence Upload"
+      "title": "Evidence Upload",
+      "total_files_size": "Gesamtgröße der Dateien überschritten - {{totalSize}}"
     },
     "header": "Upload file(s)",
     "noContent": "No uploads yet",
     "requirementModal": {
       "title": "What's required?"
     }
-  },
-  "guaranteeRestart": {
-    "note": "The guarantee associated with this project has been restarted, so a new guarantee can be requested",
-    "buttonLabel": "Restart guarantee",
-    "confirm": {
-      "title": "Restart Guarantee?",
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
-    }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?"
   }
 }

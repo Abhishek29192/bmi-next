@@ -1,111 +1,65 @@
-import React, { useMemo, useRef, useState } from "react";
-import { LeadBlock, MediaData, MediaGallery } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { DownloadList } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  DownloadList,
+  Icon,
+  IconList,
+  LeadBlock,
+  MediaGallery,
+  Tabs,
+  Typography
+} from "@bmi/components";
+import Tab, { TabProps } from "@material-ui/core/Tab";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
-import Tab, { TabProps } from "@material-ui/core/Tab";
-import withGTM from "../utils/google-tag-manager";
+import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import RichText, { RichTextData } from "./RichText";
-import styles from "./styles/ProductLeadBlock.module.scss";
-import { useSiteContext } from "./Site";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
+import { Product } from "../types/pim";
+import withGTM from "../utils/google-tag-manager";
+import { transformImages } from "../utils/product-details-transforms";
+import AssetsIframe from "./AssetsIframe";
 import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Asset, Classification } from "./types/pim";
-import ProductTechnicalSpec from "./ProductTechnicalSpec";
-import AssetsIframe from "./AssetsIframe";
 import { getClickableActionFromUrl, isExternalUrl } from "./Link";
-import { All_FORMATS, NO_DOCUMENT_FORMAT } from "./types";
-import { groupDocuments } from "./DocumentTechnicalTableResults";
+import ProductTechnicalSpec from "./ProductTechnicalSpec";
 import { DocumentDisplayFormatType } from "./Resources";
+import RichText, { RichTextData } from "./RichText";
+import { useSiteContext } from "./Site";
+import styles from "./styles/ProductLeadBlock.module.scss";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
 );
 type Props = {
-  bimIframeUrl?: string;
-  description?: string;
-  keyFeatures?: readonly string[];
+  product: Product;
   sidebarItems?: {
     title: React.ReactNode;
     content: RichTextData;
   }[];
-  guaranteesAndWarranties?: Asset[];
-  awardsAndCertificates?: Asset[];
-  documents: (PIMDocumentData | PIMLinkDocumentData)[];
-  validClassifications: Classification[];
-  classificationNamespace: string;
-  techDrawings: readonly MediaData[];
-  fixingToolIframeUrl?: string;
   pdpFixingToolTitle?: string | null;
   pdpFixingToolDescription?: RichTextData | null;
-  specificationIframeUrl?: string;
   pdpSpecificationTitle?: string | null;
   pdpSpecificationDescription?: RichTextData | null;
-  isSingleVariant?: boolean;
   documentDisplayFormat?: DocumentDisplayFormatType;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
 
-export const getCountsOfDocuments = (
-  documentsByAssetType: [string, (PIMDocumentData | PIMLinkDocumentData)[]][]
-): number => {
-  let count = 0;
-  documentsByAssetType.forEach((groupedDocs) => {
-    if (groupedDocs[1].length === 1) {
-      count++;
-    } else {
-      //zip files and PiMLinkDocument will have its separate row
-      // eslint-disable-next-line security/detect-object-injection
-      groupedDocs[1].forEach((x) => {
-        if (
-          x.__typename === "PIMLinkDocument" ||
-          (x.__typename === "PIMDocument" && x.extension === "zip")
-        ) {
-          count++;
-        }
-      });
-      //files to be zipped will have a single count of 1
-      if (
-        // eslint-disable-next-line security/detect-object-injection
-        groupedDocs[1].filter(
-          (x) => x.__typename === "PIMDocument" && x.extension !== "zip"
-        ).length > 0
-      ) {
-        count++;
-      }
-    }
-  });
-  return count;
-};
+const GTMTab = withGTM<TabProps>(Tab, {
+  label: "label"
+});
+
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const ProductLeadBlock = ({
-  bimIframeUrl,
-  description,
-  keyFeatures,
+  product,
   sidebarItems,
-  guaranteesAndWarranties,
-  awardsAndCertificates,
-  documents,
-  validClassifications,
-  classificationNamespace,
-  techDrawings,
-  fixingToolIframeUrl,
   pdpFixingToolTitle,
   pdpFixingToolDescription,
-  specificationIframeUrl,
   pdpSpecificationTitle,
   pdpSpecificationDescription,
-  isSingleVariant,
   documentDisplayFormat
 }: Props) => {
   const {
@@ -115,68 +69,7 @@ const ProductLeadBlock = ({
   const [page, setPage] = useState(1);
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const filteredDocuments = useMemo(
-    () =>
-      documents.filter((document) => {
-        if (
-          document.__typename === "PIMDocument" &&
-          (document.assetType.name === "Warranties" ||
-            document.assetType.name === "Guaranties")
-        ) {
-          return All_FORMATS.includes(document.format);
-        }
-        return !NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode);
-      }),
-    [documents]
-  );
-  //group documents by assetType
-  const documentsByAssetType = useMemo(
-    () =>
-      groupDocuments(filteredDocuments, true).slice(
-        (page - 1) * DOCUMENTS_PER_PAGE,
-        page * DOCUMENTS_PER_PAGE
-      ),
-    [filteredDocuments]
-  );
-  const displayDocumentsByName =
-    documentDisplayFormat && documentDisplayFormat === "Asset name";
-  const count = displayDocumentsByName
-    ? Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE)
-    : Math.ceil(
-        getCountsOfDocuments(documentsByAssetType) / DOCUMENTS_PER_PAGE
-      );
-
-  const isImageAsset = (asset: Asset) => {
-    return (
-      asset.realFileName?.search(/.jpg/i) > -1 ||
-      asset.realFileName?.search(/.png/i) > -1
-    );
-  };
-
-  const isPDFAsset = (asset: Asset) => {
-    return (
-      asset.url?.indexOf(".pdf") > -1 ||
-      asset.realFileName?.indexOf(".pdf") > -1
-    );
-  };
-  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
-    (item) => !item.realFileName && item.url
-  );
-  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
-    isImageAsset(item)
-  );
-
-  const awardsDocs = (awardsAndCertificates || []).filter((item) =>
-    isPDFAsset(item)
-  );
-  const awardsImages = (awardsAndCertificates || []).filter(
-    (item) => !isPDFAsset(item)
-  );
-
-  const GTMTab = withGTM<TabProps>(Tab, {
-    label: "label"
-  });
-
+  const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_, page) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
@@ -184,8 +77,7 @@ const ProductLeadBlock = ({
     window.scrollTo(0, scrollY);
     setPage(page);
   };
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-
+  const displayBy = documentDisplayFormat === "Asset name" ? "title" : "type";
   return (
     <div className={styles["ProductLeadBlock"]}>
       <Tabs
@@ -200,107 +92,114 @@ const ProductLeadBlock = ({
         <Tabs.TabPanel
           heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_ABOUT)}
           index="one"
+          data-testid="aboutTab"
         >
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
                 <Typography
                   component="div"
-                  dangerouslySetInnerHTML={{ __html: description }}
+                  dangerouslySetInnerHTML={{ __html: product.description }}
                 />
               </LeadBlock.Content.Section>
 
-              {guaranteesAndWarranties?.length > 0 && (
+              {(product.guaranteesAndWarrantiesImages.length > 0 ||
+                product.guaranteesAndWarrantiesLinks.length > 0) && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
-                  {guaranteesImages?.length ||
-                  guaranteesAndWarrantiesLinks?.length ? (
-                    <LeadBlock.Content.Heading>
-                      {getMicroCopy(
-                        microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
-                      )}
-                    </LeadBlock.Content.Heading>
-                  ) : null}
-
-                  {guaranteesImages?.map((item, i) => (
-                    <img
-                      key={`guarentee-img-${i}`}
-                      src={item.url}
-                      alt={item.name}
-                      className={styles["image"]}
-                    />
-                  ))}
-                  {guaranteesAndWarrantiesLinks?.map((item, i) => (
-                    <div key={`link-${i}`}>
-                      <GTMAnchorLink
-                        action={getClickableActionFromUrl(
-                          null,
-                          item.url,
-                          countryCode,
-                          null,
-                          item.name
-                        )}
-                        gtm={{
-                          id: "cta-click1",
-                          label: item.name,
-                          action: item.url
-                        }}
-                        iconEnd
-                        isExternal={isExternalUrl(item.url)}
-                        className={styles["inline-link"]}
-                      >
-                        {item.name}
-                      </GTMAnchorLink>
-                    </div>
-                  ))}
+                  <LeadBlock.Content.Heading>
+                    {getMicroCopy(
+                      microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
+                    )}
+                  </LeadBlock.Content.Heading>
+                  {product.guaranteesAndWarrantiesImages.length > 0 &&
+                    product.guaranteesAndWarrantiesImages.map((item, i) => (
+                      <img
+                        key={`guarentee-img-${i}`}
+                        src={item.url}
+                        alt={item.name}
+                        className={styles["image"]}
+                      />
+                    ))}
+                  {product.guaranteesAndWarrantiesLinks.length > 0 &&
+                    product.guaranteesAndWarrantiesLinks.map((item, i) => (
+                      <div key={`link-${i}`}>
+                        <GTMAnchorLink
+                          action={getClickableActionFromUrl(
+                            null,
+                            item.url,
+                            countryCode,
+                            null,
+                            item.name
+                          )}
+                          gtm={{
+                            id: "cta-click1",
+                            label: item.name,
+                            action: item.url
+                          }}
+                          iconEnd
+                          isExternal={isExternalUrl(item.url)}
+                          className={styles["inline-link"]}
+                        >
+                          {item.name}
+                        </GTMAnchorLink>
+                      </div>
+                    ))}
                 </LeadBlock.Content.Section>
               )}
-              {awardsAndCertificates?.length > 0 && (
+              {(product.awardsAndCertificateDocuments.length > 0 ||
+                product.awardsAndCertificateImages.length > 0) && (
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
-                  {awardsImages?.map((item, i) => (
-                    <img
-                      key={`award-img-${i}`}
-                      src={item.url}
-                      alt={item.name}
-                      className={styles["image"]}
-                    />
-                  ))}
-                  {awardsImages.length > 0 && awardsDocs.length > 0 && <br />}
-                  {awardsDocs.map((item, i) => (
-                    <span className={styles["document"]} key={`award-doc-${i}`}>
-                      <Button
-                        variant="outlined"
-                        action={{
-                          model: "htmlLink",
-                          href: item.url,
-                          target: "_blank",
-                          rel: "noopener noreferrer"
-                        }}
-                        endIcon={<Launch />}
+                  {product.awardsAndCertificateImages.length > 0 &&
+                    product.awardsAndCertificateImages.map((item, i) => (
+                      <img
+                        key={`award-img-${i}`}
+                        src={item.url}
+                        alt={item.name}
+                        className={styles["image"]}
+                      />
+                    ))}
+                  {product.awardsAndCertificateImages.length > 0 &&
+                    product.awardsAndCertificateDocuments.length > 0 && <br />}
+                  {product.awardsAndCertificateDocuments.length > 0 &&
+                    product.awardsAndCertificateDocuments.map((item, i) => (
+                      <span
+                        className={styles["document"]}
+                        key={`award-doc-${i}`}
                       >
-                        {item.name}
-                      </Button>
-                    </span>
-                  ))}
+                        <Button
+                          variant="outlined"
+                          action={{
+                            model: "htmlLink",
+                            href: item.url,
+                            target: "_blank",
+                            rel: "noopener noreferrer"
+                          }}
+                          endIcon={<Launch />}
+                        >
+                          {item.name}
+                        </Button>
+                      </span>
+                    ))}
                 </LeadBlock.Content.Section>
               )}
             </LeadBlock.Content>
-            {(keyFeatures || sidebarItems?.length) && (
+            {(product.productBenefits || sidebarItems?.length) && (
               <LeadBlock.Card theme="blue-900">
-                {keyFeatures ? (
+                {product.productBenefits ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
                       {getMicroCopy(microCopy.PDP_LEAD_BLOCK_KEY_FEATURES)}
                     </LeadBlock.Card.Heading>
                     <LeadBlock.Card.Content>
                       <IconList>
-                        {keyFeatures.map((feature, index) => (
+                        {product.productBenefits.map((feature, index) => (
                           <IconList.Item
                             key={index}
                             icon={BlueCheckIcon}
@@ -323,7 +222,7 @@ const ProductLeadBlock = ({
                         theme="secondary"
                         backgroundTheme="dark"
                         gtmLabel={
-                          (keyFeatures
+                          (product.productBenefits
                             ? `${getMicroCopy(
                                 microCopy.PDP_LEAD_BLOCK_KEY_FEATURES
                               )} - `
@@ -342,14 +241,11 @@ const ProductLeadBlock = ({
             microCopy.PDP_LEAD_BLOCK_TECHNICAL_SPECIFICATIONS
           )}
           index="two"
+          data-testid="technicalSpecificationsTab"
         >
           <LeadBlock>
             <LeadBlock.Content>
-              <ProductTechnicalSpec
-                classificationNamespace={classificationNamespace}
-                classifications={validClassifications}
-                isSingleVariant={isSingleVariant}
-              />
+              <ProductTechnicalSpec product={product} />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
               <LeadBlock.Card theme="blue-900">
@@ -375,21 +271,15 @@ const ProductLeadBlock = ({
         <Tabs.TabPanel
           heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
           index="three"
+          data-testid="documentsTab"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
             <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
               <DocumentSimpleTableResults
-                documents={filteredDocuments}
+                documents={product.productDocuments}
                 page={page}
                 documentsPerPage={DOCUMENTS_PER_PAGE}
-                headers={[
-                  displayDocumentsByName ? "name" : "type",
-                  "download",
-                  "add"
-                ]}
-                documentsByAssetType={
-                  displayDocumentsByName ? null : documentsByAssetType
-                }
+                headers={[displayBy, "download", "add"]}
               />
               <DocumentResultsFooter
                 page={page}
@@ -399,30 +289,30 @@ const ProductLeadBlock = ({
             </DownloadList>
           </div>
         </Tabs.TabPanel>
-        {Boolean(bimIframeUrl) && (
+        {Boolean(product.bimIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
           >
-            <AssetsIframe url={bimIframeUrl} />
+            <AssetsIframe url={product.bimIframeUrl} />
           </Tabs.TabPanel>
         )}
-        {techDrawings.length > 0 && (
+        {product.techDrawings.length > 0 && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_TECHNICAL_DRAWINGS)}
             index="five"
             data-testid="technicalDrawings"
           >
-            <LeadBlock justify="center">
+            <LeadBlock justifyContent="center">
               <LeadBlock.Content>
                 <LeadBlock.Content.Section>
-                  <MediaGallery media={techDrawings} />
+                  <MediaGallery media={transformImages(product.techDrawings)} />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>
           </Tabs.TabPanel>
         )}
-        {Boolean(specificationIframeUrl) && (
+        {Boolean(product.specificationIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
             index="seven"
@@ -438,12 +328,12 @@ const ProductLeadBlock = ({
               <RichText document={pdpSpecificationDescription} />
             )}
             <AssetsIframe
-              url={specificationIframeUrl}
+              url={product.specificationIframeUrl}
               className={styles["specification-tab-iframe"]}
             />
           </Tabs.TabPanel>
         )}
-        {Boolean(fixingToolIframeUrl) && (
+        {Boolean(product.fixingToolIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
             index="six"
@@ -459,7 +349,7 @@ const ProductLeadBlock = ({
               <RichText document={pdpFixingToolDescription} />
             )}
             <AssetsIframe
-              url={fixingToolIframeUrl}
+              url={product.fixingToolIframeUrl}
               className={styles["fixing-tool-iframe"]}
             />
           </Tabs.TabPanel>

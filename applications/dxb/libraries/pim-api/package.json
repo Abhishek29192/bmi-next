@@ -1,7 +1,7 @@
 {
   "name": "@bmi/pim-api",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "private": true,
   "main": "./src/index",
   "scripts": {
@@ -11,7 +11,6 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi-digital/functions-secret-client": "1.1.1",
     "@bmi/pim-types": "0.0.0",
     "node-fetch": "^2.6.1"
   },

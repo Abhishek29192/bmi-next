@@ -1,25 +1,21 @@
-import type { System } from "@bmi/pim-types";
 import logger from "@bmi-digital/functions-logger";
+import type { System as EsSystem } from "@bmi/elasticsearch-types";
+import type { System as PimSystem } from "@bmi/pim-types";
+import { generateHashFromString, generateUrl } from "@bmi/utils";
 
-export type EsSystem = {
-  approvalStatus: System["approvalStatus"];
-  brand?: string;
-  type: System["type"];
-  images: System["images"];
-  code: System["code"];
-  name: System["name"];
-  shortDescription: System["shortDescription"];
-};
-
-const getBrandCode = (categories: System["categories"]): string | undefined => {
-  return categories.find(({ categoryType }) => {
+const getBrandCode = (
+  categories: PimSystem["categories"]
+): string | undefined => {
+  return categories?.find(({ categoryType }) => {
     return categoryType === "Brand";
   })?.code;
 };
 
-export const transformSystem = (system: System): EsSystem => {
+export const transformSystem = (system: PimSystem): EsSystem => {
   const { approvalStatus, type, images, code, name, shortDescription } = system;
   const brand = getBrandCode(system.categories);
+  const hashedCode = generateHashFromString(code);
+  const path = `/s/${generateUrl([name, hashedCode])}`;
   logger.info({
     message: `System brand: ${brand}`
   });
@@ -30,6 +26,8 @@ export const transformSystem = (system: System): EsSystem => {
     images,
     name,
     shortDescription,
-    type
+    type,
+    hashedCode,
+    path
   };
 };

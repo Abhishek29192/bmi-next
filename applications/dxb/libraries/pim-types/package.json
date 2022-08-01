@@ -1,13 +1,14 @@
 {
   "name": "@bmi/pim-types",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "private": true,
-  "main": "./src/index",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "compile": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   }
 }

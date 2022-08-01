@@ -2557,7 +2557,7 @@
 
 
 [[redirects]]
- from="/no/sxa/file/download*"
+ from="/no/sxa/file/*"
  to="/no/dokumentasjon"
  force=true
 

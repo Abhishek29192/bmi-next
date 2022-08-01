@@ -39,8 +39,23 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       tabindex="-1"
     >
       <div
-        class="header"
+        class="header ModalHeader"
       >
+        <svg
+          class="logo"
+        />
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="14"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary progressBar MuiLinearProgress-determinate"
+          role="progressbar"
+        >
+          <div
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate"
+            style="transform: translateX(-85.72%);"
+          />
+        </div>
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
@@ -111,8 +126,23 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       tabindex="-1"
     >
       <div
-        class="header"
+        class="header ModalHeader"
       >
+        <svg
+          class="logo"
+        />
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="14"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary progressBar MuiLinearProgress-determinate"
+          role="progressbar"
+        >
+          <div
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate"
+            style="transform: translateX(-85.72%);"
+          />
+        </div>
         <button
           aria-label="Close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"

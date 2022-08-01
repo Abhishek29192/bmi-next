@@ -1387,7 +1387,7 @@
 
 
 [[redirects]]
- from="/it/sxa/file/download*"
+ from="/it/sxa/file/*"
  to="/it/download"
  force=true
 

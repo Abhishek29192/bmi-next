@@ -1,54 +1,33 @@
-import React from "react";
+import { Container, CTACard, Grid, GridSize, Section } from "@bmi/components";
+import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
-import {
-  Container,
-  CTACard,
-  Grid,
-  GridSize,
-  MediaData,
-  Section
-} from "@bmi/components";
+import React, { useMemo } from "react";
+import BackToResults from "../components/BackToResults";
+import Breadcrumbs from "../components/Breadcrumbs";
+import ExploreBar from "../components/ExploreBar";
+import { renderImage } from "../components/Image";
+import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
+import { getCTA } from "../components/Link";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData } from "../components/Site";
+import ProductLeadBlock from "../components/ProductLeadBlock";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
-import ProductLeadBlock from "../components/ProductLeadBlock";
+import RelatedProducts from "../components/RelatedProducts";
+import SampleOrderSection from "../components/SampleOrderSection";
 import ShareWidgetSection from "../components/ShareWidgetSection";
+import { Data as SiteData } from "../components/Site";
+import { renderVideo } from "../components/Video";
+import { microCopy } from "../constants/microCopies";
+import { Product } from "../types/pim";
+import { createActionLabel } from "../utils/createActionLabelForAnalytics";
+import { transformMediaSrc } from "../utils/media";
 import {
-  convertImageSetToMediaFormat,
-  getMergedClassifications,
   getProductAttributes,
-  groupImage,
-  mapGalleryImages,
-  mapProductClassifications,
   transformImages,
   UnavailableMicroCopies,
-  UnavailableMicroCopiesEnum,
-  VariantCodeToPathMap
+  UnavailableMicroCopiesEnum
 } from "../utils/product-details-transforms";
-import RelatedProducts from "../components/RelatedProducts";
-import { getCTA } from "../components/Link";
-import ExploreBar from "../components/ExploreBar";
-import Breadcrumbs from "../components/Breadcrumbs";
-import { renderVideo } from "../components/Video";
-import { renderImage } from "../components/Image";
-import {
-  ClassificationCodeEnum,
-  FeatureCodeEnum,
-  Image,
-  ImageAssetTypesEnum,
-  Product
-} from "../components/types/pim";
-import SampleOrderSection from "../components/SampleOrderSection";
-import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
-import { getAssetsIframeUrl } from "../components/AssetsIframe";
-import { createActionLabel } from "../utils/createActionLabelForAnalytics";
-import { combineVariantClassifications } from "../utils/filters";
-import { useConfig } from "../contexts/ConfigProvider";
-import { microCopy } from "../constants/microCopies";
-import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
-import BackToResults from "../components/BackToResults";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -56,93 +35,25 @@ export type Data = PageData & {
 
 type Props = {
   pageContext: {
-    productId: string;
-    variantCode: string;
+    productCode: string;
     siteId: string;
     countryCode: string;
-    relatedProductCodes: ReadonlyArray<string>;
-    pimClassificationCatalogueNamespace: string;
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
   data: {
     product: Product;
-    relatedProducts: {
-      nodes: ReadonlyArray<Product>; // TODO: match type correctly
-    };
     contentfulSite: SiteData;
   };
 };
 
-const getDescription = (product: Product, variantCode?: string): string => {
-  if (!variantCode) return product.description;
-
-  const variantProduct = getVariant(product, variantCode);
-
-  if (variantProduct) return variantProduct.longDescription;
-  return product.description;
-};
-
-const getKeyBenefits = (
-  product: Product,
-  variantCode?: string
-): readonly string[] => {
-  const variantProduct = getVariant(product, variantCode);
-
-  //found variant and it has `productBenefits` populated!
-  if (variantProduct && variantProduct.productBenefits?.length) {
-    return variantProduct.productBenefits;
-  }
-
-  return product.productBenefits?.length ? product.productBenefits : null;
-};
-
-const getVariant = (product: Product, variantCode: string) => {
-  const variantProduct = product.variantOptions.find(
-    ({ code }) => code === variantCode
-  );
-  return variantProduct;
-};
-
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
-  const { product, relatedProducts, contentfulSite } = data;
-  const {
-    config: { isSampleOrderingEnabled }
-  } = useConfig();
-
-  // Which variant (including base) are we looking at
-  // TODO: Merge data here!
-  const selfProduct = product.variantOptions.find(
-    ({ code }) => code === pageContext.variantCode
-  );
-
-  if (!selfProduct) {
-    throw new Error("Could not find product");
-  }
-  // TODO: NO BMI BRAND LOGO??
-  const brandCode = (
-    (product.categories || []).find(({ categoryType }) => {
-      return categoryType === "Brand";
-    }) || {}
-  ).code;
-
-  const productClassifications = mapProductClassifications(
-    product,
-    pageContext.pimClassificationCatalogueNamespace
-  );
-
-  const validClassifications = getMergedClassifications(
-    pageContext.pimClassificationCatalogueNamespace,
-    selfProduct,
-    product
-  );
-
+  const { product, contentfulSite } = data;
   const { resources, countryCode } = contentfulSite;
-  const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
-    breadcrumbs,
+    breadcrumbs: product.breadcrumbs,
     signupBlock: resources.pdpSignupBlock,
     seo: null,
-    path: null // won't work with PDPs currently
+    path: product.path
   };
   const {
     maximumSamples,
@@ -150,101 +61,24 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpFixingToolDescription,
     pdpFixingToolTitle,
     pdpSpecificationTitle,
-    pdpSpecificationDescription,
-    documentDisplayFormat
+    pdpSpecificationDescription
   } = resources;
-  const bimIframeUrl = getAssetsIframeUrl(product.assets, "BIM");
-  const fixingToolIframeUrl = getAssetsIframeUrl(product.assets, "FIXING_TOOL");
-  const specificationIframeUrl = getAssetsIframeUrl(
-    product.assets,
-    "SPECIFICATION"
-  );
 
-  const videos = filterAndTransformVideoData(product.assets);
-
-  const getVariantCodePath = (path: string) => {
-    const isSSR = typeof window === "undefined";
-
-    if (isSSR) {
-      return path;
-    }
-
-    return `${path}${window.location.search ?? ""}`;
-  };
-
-  const variantCodeToPathMap: VariantCodeToPathMap =
-    product.variantOptions.reduce(
-      (carry, { code, path }) => ({
-        ...carry,
-        [code]: getVariantCodePath(path)
-      }),
-      {}
-    );
-
-  const getSampleOrderAllowed = () => {
-    if (isSampleOrderingEnabled) {
-      return (
-        selfProduct.isSampleOrderAllowed ??
-        product.isSampleOrderAllowed ??
-        false
-      );
-    }
-    return false;
-  };
-
-  const getTechDrawings = (
-    images: readonly Image[],
-    selfProdImages: readonly Image[]
-  ): readonly MediaData[] => {
-    const imagesByFormat: Image[][] = Object.values(
-      groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
-    );
-    const techDrawings: Image[][] = imagesByFormat.filter((images) => {
-      return images.some(
-        (image) =>
-          image.assetType === ImageAssetTypesEnum.TECHNICAL_DRAWINGS &&
-          !!image.format
-      );
-    });
-
-    if (!techDrawings.length) {
-      return [];
-    }
-    return transformImages(convertImageSetToMediaFormat(techDrawings));
-  };
-
-  const classificationConfig = {
-    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-      { attrName: FeatureCodeEnum.COLOUR },
-      {
-        attrName: FeatureCodeEnum.TEXTURE_FAMILY,
-        separator: " | ",
-        fromStart: true
-      }
-    ],
-    [ClassificationCodeEnum.MEASUREMENTS]: [
-      { attrName: FeatureCodeEnum.LENGTH, separator: "x" },
-      { attrName: FeatureCodeEnum.WIDTH, separator: "x" },
-      { attrName: FeatureCodeEnum.HEIGHT, separator: "x" }
-    ]
-  };
-
-  const filtredKeyAssetsDocuments = product.documents.filter((document) =>
-    resources.keyAssetTypes?.includes(document.assetType.pimCode)
-  );
-
-  const hasFiltredKeyAssetsDocuments = !!filtredKeyAssetsDocuments.length;
+  const location = useLocation();
+  const isSSR = typeof window === "undefined";
+  const queryParams = useMemo<string>(() => {
+    return isSSR ? "" : window.location.search;
+  }, [location]);
 
   return (
     <Page
-      brand={brandCode}
+      brand={product.brand?.code}
       title={product.name}
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={selfProduct?.images?.[0].url}
-      baseproduct={product}
-      variantProduct={selfProduct}
+      ogImageUrl={product.masterImages[0]?.mainSource}
+      variantProduct={product}
     >
       {({ siteContext: { getMicroCopy } }) => {
         const attributeUnavailableMicroCopy: UnavailableMicroCopies = [
@@ -262,59 +96,57 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
         return (
           <>
-            {breadcrumbs && (
+            {product.breadcrumbs.length > 0 && (
               <Section backgroundColor="pearl" isSlim>
                 <BackToResults>
-                  <Breadcrumbs data={breadcrumbs} />
+                  <Breadcrumbs data={product.breadcrumbs} />
                 </BackToResults>
               </Section>
             )}
-
             <Container>
               <ProductOverview
                 data={{
                   name: product.name,
-                  brandName: brandCode || "",
-                  nobb: selfProduct.externalProductCode || null,
-                  images: transformImages(
-                    mapGalleryImages([
-                      ...(selfProduct.images || []),
-                      ...(product.images || [])
-                    ])
-                  ),
-                  videos: transformMediaSrc(videos),
+                  brandCode: product.brand?.code,
+                  nobb: product.externalProductCode,
+                  images: transformImages([
+                    ...product.masterImages,
+                    ...product.galleryImages
+                  ]),
+                  videos: transformMediaSrc(product.videos),
                   attributes: getProductAttributes(
-                    productClassifications,
-                    selfProduct,
+                    product,
                     pageContext.countryCode,
                     {
                       size: getMicroCopy(microCopy.PDP_OVERVIEW_SIZE),
-                      variantattribute: getMicroCopy(
+                      variantAttribute: getMicroCopy(
                         microCopy.PDP_OVERVIEW_VARIANT_ATTRIBUTE
                       )
                     },
-                    variantCodeToPathMap,
-                    attributeUnavailableMicroCopy
+                    attributeUnavailableMicroCopy,
+                    queryParams,
+                    pageContext?.variantCodeToPathMap
                   ),
-                  isRecapchaShown: hasFiltredKeyAssetsDocuments
+                  variantCode: pageContext.productCode,
+                  isRecaptchaShown:
+                    Object.keys(product.keyAssetDocuments).length > 0
                 }}
               >
                 <SampleOrderSection
-                  isSampleOrderAllowed={getSampleOrderAllowed()}
+                  isSampleOrderAllowed={product.isSampleOrderAllowed}
                   product={product}
-                  variant={getVariant(product, pageContext.variantCode)}
                   maximumSamples={maximumSamples}
                   sampleBasketLinkInfo={sampleBasketLink}
                   actionLabel={createActionLabel(
                     product.name,
-                    combineVariantClassifications(product, selfProduct),
-                    classificationConfig
+                    product.colour,
+                    product.textureFamily,
+                    product.measurements?.label
                   )}
                 />
-                {hasFiltredKeyAssetsDocuments && (
+                {Object.keys(product.keyAssetDocuments).length > 0 && (
                   <KeyAssetTypesDownloadSection
-                    assetTypes={resources.keyAssetTypes}
-                    documents={filtredKeyAssetsDocuments}
+                    keyAssetDocuments={product.keyAssetDocuments}
                   />
                 )}
                 {resources?.pdpShareWidget && (
@@ -327,45 +159,18 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
             </Container>
             <Section backgroundColor="white">
               <ProductLeadBlock
-                description={getDescription(product, pageContext.variantCode)}
-                keyFeatures={getKeyBenefits(product, pageContext.variantCode)}
+                product={product}
                 sidebarItems={resources?.pdpSidebarItems}
-                guaranteesAndWarranties={product.assets?.filter(
-                  (asset) =>
-                    asset.assetType === "GUARANTIES" ||
-                    asset.assetType === "WARRANTIES"
-                )}
-                awardsAndCertificates={product.assets?.filter(
-                  (asset) =>
-                    asset.assetType === "AWARDS" ||
-                    asset.assetType === "CERTIFICATES"
-                )}
-                documents={product.documents}
-                validClassifications={validClassifications}
-                classificationNamespace={
-                  pageContext.pimClassificationCatalogueNamespace
-                }
-                bimIframeUrl={bimIframeUrl}
-                techDrawings={getTechDrawings(
-                  product.images,
-                  selfProduct.images
-                )}
-                fixingToolIframeUrl={fixingToolIframeUrl}
                 pdpFixingToolDescription={pdpFixingToolDescription}
                 pdpFixingToolTitle={pdpFixingToolTitle}
-                specificationIframeUrl={specificationIframeUrl}
                 pdpSpecificationTitle={pdpSpecificationTitle}
                 pdpSpecificationDescription={pdpSpecificationDescription}
-                isSingleVariant={product.variantOptions.length === 1}
-                documentDisplayFormat={documentDisplayFormat}
+                documentDisplayFormat={resources?.documentDisplayFormat}
               />
             </Section>
             <RelatedProducts
               countryCode={pageContext.countryCode}
-              classificationNamespace={
-                pageContext.pimClassificationCatalogueNamespace
-              }
-              products={relatedProducts.nodes}
+              products={product.relatedProducts}
             />
             {resources?.pdpCardsTitle && resources.pdpCards && (
               <Section backgroundColor="alabaster">
@@ -409,9 +214,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 <ExploreBar data={resources.pdpExploreBar} />
               </Section>
             )}
-            {breadcrumbs && (
+            {product.breadcrumbs && (
               <Section backgroundColor="pearl" isSlim>
-                <Breadcrumbs data={breadcrumbs} />
+                <Breadcrumbs data={product.breadcrumbs} />
               </Section>
             )}
           </>
@@ -424,107 +229,109 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 export default ProductDetailsPage;
 
 export const pageQuery = graphql`
-  query ProductDetailsPage(
-    $productId: String!
-    $siteId: String!
-    $relatedProductCodes: [String]
-  ) {
-    product: products(id: { eq: $productId }) {
-      code
-      externalProductCode
-      name
-      approvalStatus
-      description
-      isSampleOrderAllowed
-      images {
-        allowedToDownload
-        assetType
-        fileSize
-        name
-        url
-        containerId
-        mime
-        realFileName
-        format
+  query ProductDetailsPage($productCode: String!, $siteId: String!) {
+    product(code: { eq: $productCode }) {
+      awardsAndCertificateDocuments {
+        ...PIMAssetFragment
       }
-      assets {
-        name
-        url
-        assetType
-        realFileName
+      awardsAndCertificateImages {
+        ...PIMAssetFragment
+      }
+      baseCode
+      baseScoringWeight
+      bimIframeUrl
+      brand {
+        ...PIMBrandFragment
+      }
+      breadcrumbs {
+        id
+        label
+        slug
       }
       categories {
-        name
-        categoryType
-        code
-        parentCategoryCode
-        image {
-          url
-        }
+        ...CategoryFragment
       }
       classifications {
-        name
-        code
-        features {
-          name
-          code
-          featureValues {
-            value
-            code
-          }
-          featureUnit {
-            symbol
-          }
+        ...ClassificationFragment
+      }
+      code
+      colour
+      colourMicrocopy
+      path
+      colourFamily
+      description
+      productDocuments {
+        ...PIMDocumentCommonFragment
+      }
+      externalProductCode
+      fixingToolIframeUrl
+      galleryImages {
+        ...PIMImageFragment
+      }
+      guaranteesAndWarrantiesImages {
+        ...PIMAssetFragment
+      }
+      guaranteesAndWarrantiesLinks {
+        ...PIMAssetFragment
+      }
+      keyAssetDocuments {
+        assetType
+        documents {
+          ...PIMDocumentFragment
         }
       }
+      masterImages {
+        ...PIMImageFragment
+      }
+      isSampleOrderAllowed
+      materials
+      measurements {
+        ...MeasurementsFragment
+      }
+      name
       productBenefits
-      variantOptions {
-        path
-        breadcrumbs
-        isSampleOrderAllowed
+      relatedProducts {
+        ...RelatedProductFragment
+      }
+      relatedVariants {
         code
-        externalProductCode
-        approvalStatus
-        shortDescription
-        longDescription
-        productBenefits
-        images {
-          realFileName
-          assetType
-          mime
-          url
-          allowedToDownload
-          containerId
-          fileSize
-          name
-          format
+        thumbnail
+        colour
+        colourFamily
+        textureFamily
+        materials
+        measurements {
+          ...MeasurementsFragment
         }
-        classifications {
-          name
-          code
-          features {
-            name
-            code
-            featureValues {
-              value
-              code
-            }
-            featureUnit {
-              symbol
-            }
-          }
+        variantAttribute
+        path
+      }
+      specificationIframeUrl
+      techDrawings {
+        ...PIMImageFragment
+      }
+      textureFamily
+      textureFamilyMicrocopy
+      variantAttribute
+      videos {
+        ...PIMVideoFragment
+      }
+      weight {
+        grossWeight {
+          ...UnitValueFragment
         }
-      }
-      documents {
-        ...PIMDocumentFragment
-        ...PIMLinkDocumentFragment
-      }
-    }
-    relatedProducts: allProducts(
-      filter: { code: { in: $relatedProductCodes } }
-    ) {
-      nodes {
-        ...RelatedProductsFragment
+        netWeight {
+          ...UnitValueFragment
+        }
+        weightPerPallet {
+          ...UnitValueFragment
+        }
+        weightPerPiece {
+          ...UnitValueFragment
+        }
+        weightPerSqm {
+          ...UnitValueFragment
+        }
       }
     }
     contentfulSite(id: { eq: $siteId }) {

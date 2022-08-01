@@ -12,10 +12,16 @@ type FilterOption = {
 };
 
 export type Filter = {
+  filterCode: string;
   label: string;
   name: string;
   value?: ReadonlyArray<string>;
   options: ReadonlyArray<FilterOption>;
+};
+
+export type PLPFilterResponse = {
+  filters: ReadonlyArray<Filter>;
+  allowFilterBy: string[] | undefined;
 };
 
 export type Props = {
@@ -53,13 +59,10 @@ const Filters = ({
             }
           );
 
-          const summaryLabel = getMicroCopy(
-            copy,
-            filter.label || filter.name,
-            {},
-            !filter.label
-          );
-
+          let summaryLabel = filter.label;
+          if (summaryLabel.startsWith("filterLabels.")) {
+            summaryLabel = getMicroCopy(copy, filter.label);
+          }
           return (
             <Accordion.Item key={filter.name}>
               <AccordionSummary aria-label={summaryLabel}>

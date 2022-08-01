@@ -1,7 +1,7 @@
-import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { PimTypes } from "@bmi/pim-types";
+import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
@@ -10,11 +10,6 @@ import {
 const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
 const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved`;
 const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved`;
-
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -68,49 +63,30 @@ describe("fetchData", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledTimes(0);
     expect(fetchMock).not.toHaveBeenCalled();
 
     process.env.PIM_CLIENT_ID = originalPimClientId;
   });
 
-  it("should error if PIM_CLIENT_SECRET is not set", async () => {
-    const originalPimClientSecret = process.env.PIM_CLIENT_SECRET;
-    delete process.env.PIM_CLIENT_SECRET;
+  it("should error if PIM_OAUTH_CLIENT_SECRET is not set", async () => {
+    const originalPimClientSecret = process.env.PIM_OAUTH_CLIENT_SECRET;
+    delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
       await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
-        "PIM_CLIENT_SECRET has not been set."
+        "PIM_OAUTH_CLIENT_SECRET has not been set."
       );
     }
 
-    expect(getSecret).toHaveBeenCalledTimes(0);
     expect(fetchMock).not.toHaveBeenCalled();
 
-    process.env.PIM_CLIENT_SECRET = originalPimClientSecret;
-  });
-
-  it("should error if getting getSecret throws error", async () => {
-    getSecret.mockRejectedValue(Error("Expected error"));
-
-    try {
-      await fetchData(PimTypes.Products);
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toEqual("Expected error");
-    }
-
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
-    expect(fetchMock).not.toHaveBeenCalled();
+    process.env.PIM_OAUTH_CLIENT_SECRET = originalPimClientSecret;
   });
 
   it("should error if getting auth token throws error", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(fetchMock, {
       url: pimAuthTokenUrl,
       method: "POST",
@@ -124,11 +100,13 @@ describe("fetchData", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -141,9 +119,6 @@ describe("fetchData", () => {
   });
 
   it("should error if getting auth token returns error code", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(fetchMock, {
       url: pimAuthTokenUrl,
       method: "POST",
@@ -159,11 +134,13 @@ describe("fetchData", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -176,9 +153,6 @@ describe("fetchData", () => {
   });
 
   it("should error if getting response JSON throws error", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(fetchMock, {
       url: pimAuthTokenUrl,
       method: "POST",
@@ -194,11 +168,13 @@ describe("fetchData", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -211,9 +187,6 @@ describe("fetchData", () => {
   });
 
   it("should error if getting data throws error", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -241,11 +214,13 @@ describe("fetchData", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -264,9 +239,6 @@ describe("fetchData", () => {
   });
 
   it("should error if getting data returns error code", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -302,11 +274,13 @@ describe("fetchData", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -325,9 +299,6 @@ describe("fetchData", () => {
   });
 
   it("should error with all errors if getting data returns bad request error code", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -363,11 +334,13 @@ describe("fetchData", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -386,9 +359,6 @@ describe("fetchData", () => {
   });
 
   it("should return products data", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     const apiResponse = createProductsApiResponse();
     mockResponses(
       fetchMock,
@@ -412,11 +382,13 @@ describe("fetchData", () => {
 
     const response = await fetchData(PimTypes.Products);
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -436,9 +408,6 @@ describe("fetchData", () => {
   });
 
   it("should return systems data", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     const apiResponse = createSystemsApiResponse();
     mockResponses(
       fetchMock,
@@ -462,11 +431,13 @@ describe("fetchData", () => {
 
     const response = await fetchData(PimTypes.Systems);
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -486,9 +457,6 @@ describe("fetchData", () => {
   });
 
   it("should return provided current pages data", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
-
     const apiResponse = createProductsApiResponse();
     mockResponses(
       fetchMock,
@@ -512,11 +480,13 @@ describe("fetchData", () => {
 
     const response = await fetchData(PimTypes.Products, 18);
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", pimClientSecret);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -553,48 +523,26 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(getSecret).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveFetched();
-
     process.env.PIM_CLIENT_ID = originalPimClientId;
   });
 
-  it("should error if PIM_CLIENT_SECRET has not been set", async () => {
-    const originalPimClientSecret = process.env.PIM_CLIENT_SECRET;
-    delete process.env.PIM_CLIENT_SECRET;
+  it("should error if PIM_OAUTH_CLIENT_SECRET has not been set", async () => {
+    const originalPimClientSecret = process.env.PIM_OAUTH_CLIENT_SECRET;
+    delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
       await getProductsByMessageId("message-id", "token", 1);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
-        "PIM_CLIENT_SECRET has not been set."
+        "PIM_OAUTH_CLIENT_SECRET has not been set."
       );
     }
 
-    expect(getSecret).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveFetched();
-
-    process.env.PIM_CLIENT_SECRET = originalPimClientSecret;
-  });
-
-  it("should error if getting getSecret throws error", async () => {
-    getSecret.mockRejectedValue(Error("Expected error"));
-
-    try {
-      await getProductsByMessageId("message-id", "token", 1);
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toStrictEqual("Expected error");
-    }
-
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
-    expect(fetchMock).not.toHaveFetched();
+    process.env.PIM_OAUTH_CLIENT_SECRET = originalPimClientSecret;
   });
 
   it("should error if authorization request returns a non-ok response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     mockResponses(fetchMock, {
       method: "POST",
       url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -610,7 +558,6 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
       {
@@ -625,14 +572,12 @@ describe("getProductsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
   });
 
   it("should error if product request returns a non-ok response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -669,10 +614,9 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const urlencoded = new URLSearchParams();
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    urlencoded.append("client_secret", pimClientSecret);
+    urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -688,7 +632,7 @@ describe("getProductsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
@@ -704,8 +648,6 @@ describe("getProductsByMessageId", () => {
   });
 
   it("should return all errors if product request returns a bad request response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -742,10 +684,9 @@ describe("getProductsByMessageId", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const urlencoded = new URLSearchParams();
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    urlencoded.append("client_secret", pimClientSecret);
+    urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -761,7 +702,7 @@ describe("getProductsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
@@ -777,8 +718,6 @@ describe("getProductsByMessageId", () => {
   });
 
   it("should return products from API", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -808,7 +747,6 @@ describe("getProductsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
       {
@@ -823,7 +761,7 @@ describe("getProductsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
@@ -841,8 +779,6 @@ describe("getProductsByMessageId", () => {
 
 describe("getSystemsByMessageId", () => {
   it("should error if authorization request returns a non-ok response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     mockResponses(fetchMock, {
       method: "POST",
       url: `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -860,8 +796,6 @@ describe("getSystemsByMessageId", () => {
   });
 
   it("should error if system request returns a non-ok response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -898,10 +832,9 @@ describe("getSystemsByMessageId", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const urlencoded = new URLSearchParams();
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    urlencoded.append("client_secret", pimClientSecret);
+    urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -917,7 +850,7 @@ describe("getSystemsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
@@ -933,8 +866,6 @@ describe("getSystemsByMessageId", () => {
   });
 
   it("should return all errors if system request returns a bad request response", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -971,10 +902,9 @@ describe("getSystemsByMessageId", () => {
       );
     }
 
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     const urlencoded = new URLSearchParams();
     urlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    urlencoded.append("client_secret", pimClientSecret);
+    urlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     urlencoded.append("grant_type", "client_credentials");
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
@@ -990,7 +920,7 @@ describe("getSystemsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
@@ -1006,8 +936,6 @@ describe("getSystemsByMessageId", () => {
   });
 
   it("should return systems from API", async () => {
-    const pimClientSecret = "secret";
-    getSecret.mockResolvedValue(pimClientSecret);
     const accessToken = "access-token";
     const messageId = "message-id";
     const token = "token";
@@ -1037,7 +965,6 @@ describe("getSystemsByMessageId", () => {
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
-    expect(getSecret).toHaveBeenCalledWith(process.env.PIM_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(
       `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
       {
@@ -1052,7 +979,7 @@ describe("getSystemsByMessageId", () => {
     )!.body;
     const expectedBody = new URLSearchParams();
     expectedBody.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedBody.append("client_secret", pimClientSecret);
+    expectedBody.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(

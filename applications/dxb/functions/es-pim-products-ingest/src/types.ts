@@ -1,33 +1,11 @@
-import { Product as PIMProduct, System } from "@bmi/pim-types";
-import { DeleteItemType, MessageType } from "@bmi/gcp-pim-message-handler";
-
-type Message = {
-  type: MessageType;
-  itemType: "CATEGORIES" | "PRODUCTS" | "SYSTEMS";
-};
-
-export type DeleteMessage = {
-  items: ReadonlyArray<DeleteItemType>;
-} & Message;
-
-export type ProductMessage = {
-  itemType: "PRODUCTS";
-  items: ReadonlyArray<PIMProduct>;
-} & Message;
-
-export type SystemMessage = {
-  itemType: "SYSTEMS";
-  items: ReadonlyArray<System>;
-} & Message;
+import { Message } from "@bmi/pub-sub-types";
 
 // This type is speculative at best
 export type MessageFunction = (
-  data:
-    | { data: string }
-    | { data: ProductMessage | SystemMessage | DeleteMessage },
+  data: { data: string } | { data: Message },
   context: {
     message: {
-      data: ProductMessage | SystemMessage | DeleteMessage;
+      data: Message;
     };
   }
 ) => Promise<any>;

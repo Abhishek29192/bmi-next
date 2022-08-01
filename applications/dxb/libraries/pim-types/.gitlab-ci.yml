@@ -1,11 +1,9 @@
-test_pim-types:
-  extends: .test_yarn_workspace
-  variables:
-    WORKSPACE: "@bmi/pim-types"
-    ROOT_DIR: "applications/dxb/libraries/pim-types"
-
 build_pim-types:
   extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     WORKSPACE: "@bmi/pim-types"
     ROOT_DIR: "applications/dxb/libraries/pim-types"

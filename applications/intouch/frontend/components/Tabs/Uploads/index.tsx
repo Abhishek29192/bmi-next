@@ -32,6 +32,7 @@ import {
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { DeepPartial } from "../../../lib/utils/types";
 import { getMappedEvidenceCategory } from "../../../lib/utils/uploads";
+import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog } from "./AddEvidenceDialog";
 import RequirementDialog from "./RequirementDialog";
@@ -152,6 +153,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
     project as DeepPartial<Project>
   );
   const customEvidenceAvailable = isCustomEvidenceAvailable(currentGuarantee);
+  const { account } = useAccountContext();
 
   const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);
   const [isRequirementOpen, setRequirementOpen] = useState(false);
@@ -210,7 +212,8 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
         evidenceCategoryType,
         // NOTE: mandatory in DB but resolver updates it with cloud URL
         attachment: "",
-        name: attachmentUpload.name
+        name: attachmentUpload.name,
+        uploaderAccountId: account.id
       }));
       await addEvidences({
         variables: {
@@ -292,12 +295,15 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       />
       <div className={styles.main}>
         <div className={styles.header}>
-          <Button
-            variant="outlined"
-            onClick={() => setEvidenceDialogOpen(true)}
-          >
-            {t("upload_tab.header")}
-          </Button>
+          <AccessControl dataModel="project" action="addEvidence">
+            <Button
+              variant="outlined"
+              onClick={() => setEvidenceDialogOpen(true)}
+              data-testid="add-evidence-button"
+            >
+              {t("upload_tab.header")}
+            </Button>
+          </AccessControl>
         </div>
         <div className={styles.body}>
           <Accordion noInnerPadding={true}>

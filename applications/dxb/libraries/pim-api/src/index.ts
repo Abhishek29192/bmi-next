@@ -1,6 +1,4 @@
 import { URLSearchParams } from "url";
-import { getSecret } from "@bmi-digital/functions-secret-client";
-import fetch, { RequestRedirect } from "node-fetch";
 import {
   AuthResponse,
   ErrorResponse,
@@ -8,8 +6,9 @@ import {
   ProductsApiResponse,
   SystemsApiResponse
 } from "@bmi/pim-types";
+import fetch, { RequestRedirect } from "node-fetch";
 
-const { PIM_CLIENT_ID, PIM_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
+const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
   process.env;
 
 // TODO: NOPE HACK!
@@ -20,17 +19,13 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     throw Error("PIM_CLIENT_ID has not been set.");
   }
 
-  if (!PIM_CLIENT_SECRET) {
-    throw Error("PIM_CLIENT_SECRET has not been set.");
+  if (!PIM_OAUTH_CLIENT_SECRET) {
+    throw Error("PIM_OAUTH_CLIENT_SECRET has not been set.");
   }
-
-  // get PIM secret from Secret Manager
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used as part of an optional chain
-  const pimClientSecret = await getSecret(PIM_CLIENT_SECRET);
 
   const urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
-  urlencoded.append("client_secret", pimClientSecret);
+  urlencoded.append("client_secret", PIM_OAUTH_CLIENT_SECRET);
   urlencoded.append("grant_type", "client_credentials");
 
   const redirect: RequestRedirect = "follow";
@@ -59,7 +54,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as AuthResponse;
 
   return data;
 };
@@ -89,7 +84,7 @@ export const fetchData = async (
 
   if (!response.ok) {
     if (response.status === 400) {
-      const body: ErrorResponse = await response.json();
+      const body = (await response.json()) as ErrorResponse;
       const errorMessage = [
         "[PIM] Error getting catalogue:",
         ...body.errors.map(({ type, message }) => `${type}: ${message}`)
@@ -107,7 +102,9 @@ export const fetchData = async (
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as
+    | ProductsApiResponse
+    | SystemsApiResponse;
 
   return data;
 };
@@ -139,7 +136,7 @@ const fetchDataByMessageId = async (
 
   if (!response.ok) {
     if (response.status === 400) {
-      const body: ErrorResponse = await response.json();
+      const body = (await response.json()) as ErrorResponse;
       const errorMessage = [
         "[PIM] Error getting catalogue:",
         ...body.errors.map(({ type, message }) => `${type}: ${message}`)
@@ -157,7 +154,9 @@ const fetchDataByMessageId = async (
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as
+    | ProductsApiResponse
+    | SystemsApiResponse;
 
   return data;
 };

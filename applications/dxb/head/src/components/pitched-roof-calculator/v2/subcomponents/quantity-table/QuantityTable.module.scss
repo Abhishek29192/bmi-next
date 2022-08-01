@@ -2,7 +2,7 @@
 
 .QuantityTable {
   .displayIfSmall {
-    display: block;
+    display: table;
 
     @media (min-width: $breakpoint-sm) {
       display: none;
@@ -11,9 +11,18 @@
 
   .displayIfMedium {
     display: none;
+    height: 100%;
 
-    @media (min-width: $breakpoint-sm) {
-      display: block;
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg) {
+      display: table;
+    }
+  }
+
+  .displayIfLarge {
+    display: none;
+
+    @media (min-width: $breakpoint-lg + 1px) {
+      display: table;
     }
   }
 
@@ -21,7 +30,7 @@
     width: 10%;
   }
 
-  .mediumCell {
+  .largeCell {
     text-align: center;
     width: 17.5%;
   }
@@ -31,8 +40,22 @@
     text-align: center;
   }
 
-  .firstHeader {
-    min-width: 100px;
+  .largeHeaderFirstCell {
+    min-width: 220px;
+  }
+
+  .mediumHeaderFirstCell {
+    min-width: 204px;
+  }
+
+  .mediumHeaderCell {
+    width: 138px;
+    text-align: center;
+  }
+
+  .mediumCell {
+    margin-left: 10px;
+    text-align: center;
   }
 
   .greyBack {
@@ -40,7 +63,9 @@
   }
 
   .smallDescription {
+    word-break: break-all;
     margin: 10px;
+    word-break: break-all;
   }
 
   .packSizes {
@@ -60,9 +85,23 @@
     margin-bottom: 10px;
   }
 
-  .firstDescription {
+  .mediumTableRow {
+    vertical-align: top;
+
+    &,
+    td {
+      height: 100%;
+    }
+
+    & > td:not(:first-child) {
+      padding: 45px 0 32px;
+    }
+  }
+
+  .largeDescription {
     margin-left: 10px;
     align-self: center;
+    word-break: break-all;
   }
 
   .cellRowLast {
@@ -87,11 +126,34 @@
     font-weight: bold;
   }
 
-  .iteratorCellSmall {
+  .iteratorCellSmall,
+  .iteratorCellMedium {
     max-width: 170px;
+
+    input {
+      padding: 18px 12px;
+      text-align: center;
+    }
   }
 
   .iteratorCellMedium {
+    margin-top: 22px;
+  }
+
+  .iteratorCellLarge {
     min-width: 170px;
+
+    input {
+      padding: 18px 12px;
+      text-align: center;
+    }
+  }
+
+  .mediumCellBasketIconWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }

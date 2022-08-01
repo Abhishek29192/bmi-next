@@ -3625,6 +3625,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -7014,6 +7015,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -10622,6 +10624,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -14204,6 +14207,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -17810,6 +17814,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -21393,6 +21398,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -25004,6 +25010,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -28612,6 +28619,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -32235,5 +32243,6 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
       />
     </button>
   </div>
+   
 </div>
 `;

@@ -68,7 +68,7 @@ describe("ProjectActionsCard", () => {
     expect(useProjectPageContextSpy).toHaveBeenCalledTimes(1);
   });
 
-  it("render unarchived text correctly", () => {
+  it("don't render archive action button when a project is archived", () => {
     useMutationImplementation();
     renderWithUserProvider(
       <AccountProvider account={generateAccount()}>
@@ -76,7 +76,7 @@ describe("ProjectActionsCard", () => {
       </AccountProvider>
     );
 
-    expect(screen.getByText("projectActions.cta.unarchive")).toBeTruthy();
+    expect(screen.queryByText("projectActions.cta.archive")).toBeFalsy();
   });
 
   it("hide button when no guaranteeEventHandler", () => {

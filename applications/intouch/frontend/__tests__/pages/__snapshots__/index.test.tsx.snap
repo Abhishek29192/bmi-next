@@ -136,6 +136,7 @@ exports[`homepage render correctly 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"

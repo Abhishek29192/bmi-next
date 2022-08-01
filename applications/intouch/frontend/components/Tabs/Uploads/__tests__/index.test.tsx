@@ -19,8 +19,9 @@ jest.mock("@bmi-digital/use-dimensions", () => ({
   default: () => [useRef(), jest.fn()]
 }));
 
+const addEvidencesSpy = jest.fn();
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useAddEvidencesMutation: () => [jest.fn(), { loading: false }],
+  useAddEvidencesMutation: () => [addEvidencesSpy, { loading: false }],
   useContentfulEvidenceCategoriesLazyQuery: () => [
     jest.fn(),
     { loading: false }
@@ -29,16 +30,29 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 }));
 
 describe("Uploads Components", () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   it("render no uploads", () => {
     const project = generateProject();
-    renderWithI18NProvider(<UploadsTab project={project} />);
+    renderWithI18NProvider(
+      <AccountContextWrapper>
+        <UploadsTab project={project} />
+      </AccountContextWrapper>
+    );
     expect(screen.queryByTestId("uploads-item")).toBeFalsy();
     expect(screen.findByLabelText("upload_tab.noContent")).toBeTruthy();
   });
   describe("render correct categories", () => {
     it("MISCELLANEOUS category", () => {
       const project = generateProject();
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       expect(screen.getByTestId("uploads-category")).toHaveTextContent(
         "MISCELLANEOUS"
       );
@@ -71,7 +85,11 @@ describe("Uploads Components", () => {
         }
       });
 
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       const allCategories = screen
         .getAllByTestId("uploads-category")
         .map((category) => category.textContent);
@@ -114,13 +132,21 @@ describe("Uploads Components", () => {
         endDate: "12/12/2022"
       };
 
-      renderWithI18NProvider(<UploadsTab project={defaultProject} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={defaultProject} />
+        </AccountContextWrapper>
+      );
     });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
       const project = generateProject();
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       expect(screen.queryByTestId("uploads-item")).toBeNull();
     });
 
@@ -382,6 +408,24 @@ describe("Uploads Components", () => {
       );
       confirmButton.click();
       expect(addEvidence).toBeTruthy();
+      expect(addEvidencesSpy).toHaveBeenCalledWith({
+        variables: {
+          input: {
+            evidences: [
+              {
+                attachment: "",
+                attachmentUpload: expect.any(File),
+                customEvidenceCategoryKey: null,
+                evidenceCategoryType,
+                guaranteeId: 1,
+                projectId: 1,
+                name: "name1",
+                uploaderAccountId: 1
+              }
+            ]
+          }
+        }
+      });
     });
     it("should open evidence modal with missing current guaranty", () => {
       const project = generateProject({
@@ -437,6 +481,18 @@ describe("Uploads Components", () => {
       expect(
         screen.getByText("upload_tab.add_evidence_modal.confirm_label")
       ).not.toBeVisible();
+    });
+    it("should hide upload button when role is auditor", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper account={generateAccount({ role: "AUDITOR" })}>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      expect(screen.queryByText("upload_tab.header")).toBeFalsy();
     });
   });
 });

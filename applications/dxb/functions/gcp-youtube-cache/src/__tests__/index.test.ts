@@ -1,17 +1,13 @@
-import { Method, Status } from "simple-http-status";
+import { mockResponse } from "@bmi-digital/fetch-mocks";
+import { Request, Response } from "express";
+import fetchMockJest from "fetch-mock-jest";
 import { youtube_v3 } from "googleapis";
 import mockConsole from "jest-mock-console";
-import fetchMockJest from "fetch-mock-jest";
-import { Request, Response } from "express";
-import { mockResponse } from "@bmi-digital/fetch-mocks";
-import { getById, saveById, getYoutubeDetails } from "../db";
+import { Method, Status } from "simple-http-status";
+import { getById, getYoutubeDetails, saveById } from "../db";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
 jest.mock("../db");
 
 const youtubeCache = async (
@@ -86,7 +82,6 @@ describe("youtubeCache", function () {
     expect(res.sendStatus).toBeCalledWith(
       Status.HTTP_500_INTERNAL_SERVER_ERROR
     );
-    expect(getSecret).not.toHaveBeenCalled();
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
@@ -94,101 +89,75 @@ describe("youtubeCache", function () {
     process.env.FIRESTORE_ROOT_COLLECTION = firestoreRootCollection;
   });
 
-  test("should return 500 if BEARER_TOKEN_SECRET is not set", async () => {
-    const bearerTokenSecret = process.env.BEARER_TOKEN_SECRET;
-    delete process.env.BEARER_TOKEN_SECRET;
+  test("should return 500 if BEARER_TOKEN is not set", async () => {
+    const bearerTokenSecret = process.env.BEARER_TOKEN;
+    delete process.env.BEARER_TOKEN;
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
     expect(res.sendStatus).toBeCalledWith(
       Status.HTTP_500_INTERNAL_SERVER_ERROR
     );
-    expect(getSecret).not.toHaveBeenCalled();
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
 
-    process.env.BEARER_TOKEN_SECRET = bearerTokenSecret;
+    process.env.BEARER_TOKEN = bearerTokenSecret;
   });
 
-  test("should return 500 if GOOGLE_YOUTUBE_API_KEY_SECRET is not set", async () => {
-    const googleYoutubeApiKeySecret = process.env.GOOGLE_YOUTUBE_API_KEY_SECRET;
-    delete process.env.GOOGLE_YOUTUBE_API_KEY_SECRET;
+  test("should return 500 if GOOGLE_YOUTUBE_API_KEY is not set", async () => {
+    const googleYoutubeApiKeySecret = process.env.GOOGLE_YOUTUBE_API_KEY;
+    delete process.env.GOOGLE_YOUTUBE_API_KEY;
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
     expect(res.sendStatus).toBeCalledWith(
       Status.HTTP_500_INTERNAL_SERVER_ERROR
     );
-    expect(getSecret).not.toHaveBeenCalled();
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
 
-    process.env.GOOGLE_YOUTUBE_API_KEY_SECRET = googleYoutubeApiKeySecret;
+    process.env.GOOGLE_YOUTUBE_API_KEY = googleYoutubeApiKeySecret;
   });
 
   test("should ask for a defaultYoutubeId", async () => {
-    getSecret.mockResolvedValue(bearerToken);
-
     const { res } = await createRequest(undefined, bearerToken);
 
     expect(res.status).toBeCalledWith(Status.HTTP_400_BAD_REQUEST);
     expect(res.send).toBeCalledWith({
       message: "youtubeId query param is required."
     });
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
-    expect(getById).toHaveBeenCalledTimes(0);
-    expect(saveById).toHaveBeenCalledTimes(0);
-    expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
-  });
-
-  test("should return 500 when getSecret throws error", async () => {
-    getSecret.mockRejectedValue(new Error("Expected error"));
-
-    const { res } = await createRequest(youtubeId, "invalid-token");
-
-    expect(res.status).toBeCalledWith(Status.HTTP_500_INTERNAL_SERVER_ERROR);
-    expect(res.send).toBeCalledWith({
-      message: "Something went wrong, try again later."
-    });
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
   test("should ask for a valid token", async () => {
-    getSecret.mockResolvedValue(bearerToken);
-
     const { res } = await createRequest(youtubeId, "invalid-token");
 
     expect(res.status).toBeCalledWith(Status.HTTP_401_UNAUTHORIZED);
     expect(res.send).toBeCalledWith({
       message: "Please provide a valid access token."
     });
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
   test("should return the cached youtube details", async () => {
-    getSecret.mockResolvedValue(bearerToken);
     (getById as jest.Mock).mockImplementation(async () => mockYoutubeDetails);
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
     expect(res.status).toBeCalledWith(Status.HTTP_200_OK);
     expect(res.send).toBeCalledWith(mockYoutubeDetails);
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
   test("should cache and then return the details", async () => {
-    getSecret.mockResolvedValue(bearerToken);
     (getById as jest.Mock).mockImplementation(async () => undefined);
     (getYoutubeDetails as jest.Mock).mockImplementation(
       async () => mockYoutubeDetails
@@ -198,14 +167,12 @@ describe("youtubeCache", function () {
 
     expect(res.status).toBeCalledWith(Status.HTTP_201_CREATED);
     expect(res.send).toBeCalledWith(mockYoutubeDetails);
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(1);
   });
 
   test("should not find the youtube video details", async () => {
-    getSecret.mockResolvedValue(bearerToken);
     (getYoutubeDetails as jest.Mock).mockImplementation(async () => ({
       ...mockYoutubeDetails,
       items: []
@@ -217,14 +184,12 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: 'Youtube video with id: "foo" not found.'
     });
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
   });
 
   test("should return 500 error", async () => {
-    getSecret.mockResolvedValue(bearerToken);
     (getById as jest.Mock).mockImplementation(async () => {
       throw new Error("random error");
     });
@@ -235,7 +200,6 @@ describe("youtubeCache", function () {
     expect(res.send).toBeCalledWith({
       message: "Something went wrong, try again later."
     });
-    expect(getSecret).toHaveBeenCalledWith(process.env.BEARER_TOKEN_SECRET);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
     expect(saveById).toHaveBeenCalledTimes(0);

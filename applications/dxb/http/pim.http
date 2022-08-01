@@ -35,7 +35,7 @@ Authorization: Bearer {{pimToken}}
 # @name Get systems
 # @noRejectUnauthorized
 
-GET {{pimHost}}/bmiwebservices/v2/{{pimCatalogName}}/export/systems
+GET {{pimHost}}/bmiwebservices/v2/germanyBmi/export/systems?currentPage=19&approvalStatus=APPROVED
 Content-Type: application/json
 Authorization: Bearer {{pimToken}}
 

@@ -92,14 +92,19 @@ export const microCopy = {
   PDP_RELATED_PRODUCTS_SHOW_MORE: "pdp.relatedProducts.showMore",
   PDP_RELATED_PRODUCTS_TITLE: "pdp.relatedProducts.title",
   PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER: "pdp.overview.completeSampleOrder",
+  PDP_OVERVIEW_CONTINUE_BROWSING: "pdp.overview.continueBrowsing",
   PDP_OVERVIEW_REMOVE_SAMPLE: "pdp.overview.removeSample",
   PDP_OVERVIEW_ADD_SAMPLE: "pdp.overview.addSample",
   PDP_OVERVIEW_SAMPLE_LIMIT_REACHED_MESSAGE:
     "pdp.overview.sampleLimitReachedMessage",
+  PDP_OVERVIEW_SAMPLE_DIALOG_MESSAGE: "pdp.overview.sampleDialogMessage",
+  PDP_OVERVIEW_SAMPLE_DELIVERY_DIALOG_MESSAGE:
+    "pdp.overview.sampleDeliveryDialogMessage",
   PDP_OVERVIEW_CAN_ADD_MORE_MESSAGE: "pdp.overview.canAddMoreMessage",
   PDP_OVERVIEW_CAN_ADD_OTHER_MESSAGE: "pdp.overview.canAddOtherMessage",
   PDP_OVERVIEW_VARIANT_ATTRIBUTE: "pdp.overview.variantattribute",
   PDP_OVERVIEW_SIZE: "pdp.overview.size",
+  PDP_VISUALISER_SLIDE_CAPTION: "pdp.visualiserSlideCaption",
 
   SDP_SYSTEM_READ_MORE: "sdp.system.readMore",
   SDP_RECOMMENDED_SYSTEMS_TITLE: "sdp.recommendedSystemsTitle",

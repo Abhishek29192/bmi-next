@@ -170,6 +170,52 @@ type Account implements Node {
   email: String!
 
   """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItemsByUploaderAccountId(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `EvidenceItem`.
+    """
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): EvidenceItemsConnection!
+
+  """
   First name
   """
   firstName: String
@@ -615,6 +661,7 @@ input AccountInput {
   The email address associated with the account
   """
   email: String!
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -1112,6 +1159,66 @@ input AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyUpdate 
 """
 The globally unique `ID` look up for the row to update.
 """
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `evidenceItem` being updated.
+  """
+  patch: EvidenceItemPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate {
+  """
+  The email address associated with the account
+  """
+  email: String!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
 input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `guarantee` to be connected.
@@ -1496,6 +1603,7 @@ input AccountPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -9357,6 +9465,11 @@ type CreateEvidenceItemPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """
+  Reads a single `Account` that is related to this `EvidenceItem`.
+  """
+  uploaderAccount: Account
 }
 
 """
@@ -11176,6 +11289,11 @@ type DeleteEvidenceItemPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """
+  Reads a single `Account` that is related to this `EvidenceItem`.
+  """
+  uploaderAccount: Account
 }
 
 """
@@ -12228,6 +12346,12 @@ type EvidenceItem implements Node {
   projectId: Int!
   signedUrl: String
   updatedAt: Datetime!
+
+  """
+  Reads a single `Account` that is related to this `EvidenceItem`.
+  """
+  uploaderAccount: Account
+  uploaderAccountId: Int
 }
 
 """
@@ -12249,6 +12373,11 @@ input EvidenceItemCondition {
   Checks for equality with the object’s `projectId` field.
   """
   projectId: Int
+
+  """
+  Checks for equality with the object’s `uploaderAccountId` field.
+  """
+  uploaderAccountId: Int
 }
 
 """
@@ -12304,12 +12433,19 @@ input EvidenceItemFilter {
   Filter by the object’s `projectId` field.
   """
   projectId: IntFilter
+
+  """
+  Filter by the object’s `uploaderAccountId` field.
+  """
+  uploaderAccountId: IntFilter
 }
 
 """
 The `evidenceItem` to be created by this mutation.
 """
 input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -12344,6 +12480,7 @@ input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   projectId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
+  uploaderAccountId: Int
 }
 
 """
@@ -12535,6 +12672,8 @@ input EvidenceItemGuaranteeIdFkeyInverseInput {
 An input for mutations affecting `EvidenceItem`
 """
 input EvidenceItemInput {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -12574,6 +12713,7 @@ input EvidenceItemInput {
   projectId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
+  uploaderAccountId: Int
 }
 
 """
@@ -12657,9 +12797,41 @@ input EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPke
 }
 
 """
+The globally unique `ID` look up for the row to update.
+"""
+input EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `account` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: AccountPatch!
+}
+
+"""
+The fields on `evidenceItem` to look up the row to update.
+"""
+input EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `evidenceItem` being updated.
+  """
+  patch: updateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
+}
+
+"""
 Represents an update to a `EvidenceItem`. Fields that are set will be updated.
 """
 input EvidenceItemPatch {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -12698,12 +12870,15 @@ input EvidenceItemPatch {
   projectId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
+  uploaderAccountId: Int
 }
 
 """
 The `evidenceItem` to be created by this mutation.
 """
 input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -12738,6 +12913,7 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   name: String!
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
+  uploaderAccountId: Int
 }
 
 """
@@ -12917,6 +13093,163 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
 }
 
 """
+The `evidenceItem` to be created by this mutation.
+"""
+input EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
+  """
+  File reference or the file itself. Photo of the evidence
+  """
+  attachment: String!
+  attachmentUpload: Upload
+  createdAt: Datetime
+
+  """
+  ek
+  """
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
+
+  """
+  fk
+  """
+  guaranteeId: Int
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  Short name for the item of evidence
+  """
+  name: String!
+
+  """
+  fk
+  """
+  projectId: Int
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `account` in the `EvidenceItemInput` mutation.
+"""
+input EvidenceItemUploaderAccountIdFkeyInput {
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByEmail: AccountAccountEmailKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectById: AccountAccountPkeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByNodeId: AccountNodeIdConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByEmail: AccountAccountEmailKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteById: AccountAccountPkeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByNodeId: AccountNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByDoceboUserId: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByEmail: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateById: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `evidenceItem` in the `AccountInput` mutation.
+"""
+input EvidenceItemUploaderAccountIdFkeyInverseInput {
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  connectById: [EvidenceItemEvidenceItemPkeyConnect!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  connectByNodeId: [EvidenceItemNodeIdConnect!]
+
+  """
+  A `EvidenceItemInput` object that will be created and connected to this object.
+  """
+  create: [EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  deleteById: [EvidenceItemEvidenceItemPkeyDelete!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  deleteByNodeId: [EvidenceItemNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `evidenceItem` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
+  """
+  updateById: [EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
+  """
+  updateByNodeId: [AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate!]
+}
+
+"""
 All input for the `evidenceItemsAdd` mutation.
 """
 input EvidenceItemsAddInput {
@@ -12998,6 +13331,8 @@ enum EvidenceItemsOrderBy {
   PRIMARY_KEY_DESC
   PROJECT_ID_ASC
   PROJECT_ID_DESC
+  UPLOADER_ACCOUNT_ID_ASC
+  UPLOADER_ACCOUNT_ID_DESC
 }
 
 type FindIncompleteCompanyProfile {
@@ -25175,6 +25510,43 @@ type Query implements Node {
   ): EvidenceItemsConnection
 
   """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItemsByMarket(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+    market: Int!
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+  ): EvidenceItemsConnection
+
+  """
   Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
   """
   findIncompleteCompanyProfiles(
@@ -26177,6 +26549,7 @@ enum RequestStatus {
 }
 
 enum Role {
+  AUDITOR
   COMPANY_ADMIN
   INSTALLER
   MARKET_ADMIN
@@ -30059,6 +30432,11 @@ type UpdateEvidenceItemPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """
+  Reads a single `Account` that is related to this `EvidenceItem`.
+  """
+  uploaderAccount: Account
 }
 
 """
@@ -31251,6 +31629,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31331,6 +31710,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31421,6 +31801,98 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
+
+  """
+  First name
+  """
+  firstName: String
+  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
+  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
+
+  """
+  Primary key
+  """
+  id: Int
+  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
+
+  """
+  Last name
+  """
+  lastName: String
+
+  """
+  fk
+  """
+  marketId: Int
+  marketToMarketId: AccountMarketIdFkeyInput
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+  notesUsingId: NoteAuthorIdFkeyInverseInput
+  notificationsUsingId: NotificationAccountIdFkeyInverseInput
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """
+  File reference. A profile picture of the user
+  """
+  photo: String
+  photoUpload: Upload
+  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+
+  """
+  ek
+  """
+  role: Role
+  shouldRemovePhoto: Boolean
+
+  """
+  ek
+  """
+  status: AccountStatus
+  termsCondition: Boolean
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `account` being updated.
+"""
+input updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch {
+  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+
+  """
+  When the account was created
+  """
+  created: Datetime
+  createdAt: Datetime
+
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int
+
+  """
+  Username in Docebo.  Needed to generate the SSO link
+  """
+  doceboUsername: String
+
+  """
+  The email address associated with the account
+  """
+  email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31511,6 +31983,7 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31601,6 +32074,7 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31691,6 +32165,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31781,6 +32256,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31871,6 +32347,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -31961,6 +32438,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   The email address associated with the account
   """
   email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
 
   """
   First name
@@ -33520,6 +33998,8 @@ input updateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatc
 An object where the defined keys will be set on the `evidenceItem` being updated.
 """
 input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -33553,12 +34033,15 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   projectId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
+  uploaderAccountId: Int
 }
 
 """
 An object where the defined keys will be set on the `evidenceItem` being updated.
 """
 input updateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
   """
   File reference or the file itself. Photo of the evidence
   """
@@ -33590,6 +34073,53 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   Short name for the item of evidence
   """
   name: String
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  updatedAt: Datetime
+  uploaderAccountId: Int
+}
+
+"""
+An object where the defined keys will be set on the `evidenceItem` being updated.
+"""
+input updateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch {
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+
+  """
+  File reference or the file itself. Photo of the evidence
+  """
+  attachment: String
+  createdAt: Datetime
+
+  """
+  ek
+  """
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
+
+  """
+  fk
+  """
+  guaranteeId: Int
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  Short name for the item of evidence
+  """
+  name: String
+
+  """
+  fk
+  """
+  projectId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   updatedAt: Datetime
 }

@@ -1,74 +1,68 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { graphql } from "gatsby";
 import {
   AnchorLink,
   AnchorLinkProps,
-  Filter,
   Grid,
   HeroItem,
   IconList,
   LeadBlock,
+  PLPFilterResponse,
   Section,
   Typography
 } from "@bmi/components";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import CheckIcon from "@material-ui/icons/Check";
-import queryString from "query-string";
 import { useLocation } from "@reach/router";
+import { graphql } from "gatsby";
+import queryString from "query-string";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../../../components/Breadcrumbs";
+import FiltersSidebar from "../../../components/FiltersSidebar";
+import {
+  Data as LinkData,
+  getClickableActionFromUrl
+} from "../../../components/Link";
+import Page, { Data as PageData } from "../../../components/Page";
+import { Data as PageInfoData } from "../../../components/PageInfo";
+import ProgressIndicator from "../../../components/ProgressIndicator";
 import ResultsPagination from "../../../components/ResultsPagination";
+import RichText, { RichTextData } from "../../../components/RichText";
+import Scrim from "../../../components/Scrim";
+import { Data as SiteData } from "../../../components/Site";
+import { microCopy } from "../../../constants/microCopies";
+import { useConfig } from "../../../contexts/ConfigProvider";
+import { ProductFilter } from "../../../types/pim";
+import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
+import { devLog } from "../../../utils/devLog";
+import {
+  compileElasticSearchQuery,
+  disableFiltersFromAggregations,
+  queryElasticSearch
+} from "../../../utils/elasticSearch";
+import { xferFilterValue } from "../../../utils/elasticSearchPLP";
 import {
   clearFilterValues,
   convertToURLFilters,
   updateFilterValue,
   URLProductFilter
 } from "../../../utils/filters";
-import Scrim from "../../../components/Scrim";
-import ProgressIndicator from "../../../components/ProgressIndicator";
-import RichText, { RichTextData } from "../../../components/RichText";
-import { Data as PageInfoData } from "../../../components/PageInfo";
-import {
-  Data as LinkData,
-  getClickableActionFromUrl
-} from "../../../components/Link";
-import { Data as SiteData } from "../../../components/Site";
-import Page, { Data as PageData } from "../../../components/Page";
-import Breadcrumbs, {
-  Data as BreadcrumbsData
-} from "../../../components/Breadcrumbs";
-import {
-  compileElasticSearchQuery,
-  disableFiltersFromAggregations,
-  queryElasticSearch
-} from "../../../utils/elasticSearch";
-import {
-  compileESQueryPLP,
-  disableFiltersFromAggregationsPLP,
-  xferFilterValue
-} from "../../../utils/elasticSearchPLP";
-
-import { devLog } from "../../../utils/devLog";
-import FiltersSidebar from "../../../components/FiltersSidebar";
-import {
-  ProductFilter,
-  removePLPFilterPrefix
-} from "../../../utils/product-filters";
-import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
+import withGTM from "../../../utils/google-tag-manager";
 import {
   generateHeroLevel,
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
+import { renderHero } from "../../../utils/heroTypesUI";
+import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import {
   renderProducts,
   resolveFilters
 } from "../utils/productListerPageUtils";
-import { renderHero } from "../../../utils/heroTypesUI";
-import { microCopy } from "../../../constants/microCopies";
-import withGTM from "../../../utils/google-tag-manager";
-import { useConfig } from "../../../contexts/ConfigProvider";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
-type Data = PageInfoData &
+export type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
     allowFilterBy: string[] | null;
@@ -97,18 +91,16 @@ export type PageContextType = {
   countryCode: string;
   categoryCodes: string[];
   allowFilterBy: string[];
-  pimClassificationCatalogueNamespace: string;
-  variantCodeToPathMap: Record<string, string>;
+  variantCodeToPathMap?: Record<string, string>;
 };
 
-type Props = {
+export type Props = {
   pageContext: PageContextType;
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
-    productFilters: ReadonlyArray<Filter>;
-    plpFilters: ReadonlyArray<Filter>;
-    initialProducts?: any[];
+    plpFilters: PLPFilterResponse;
+    initialProducts?: ESProduct[];
   };
 };
 
@@ -120,7 +112,6 @@ const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
-    allowFilterBy,
     brandLogo,
     title,
     subtitle,
@@ -141,8 +132,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     breadcrumbTitle
   );
   const initialProducts = data.initialProducts || [];
+
   const {
-    config: { isLegacyFiltersUsing, isPreviewMode, isBrandProviderEnabled }
+    config: { isPreviewMode, isBrandProviderEnabled }
   } = useConfig();
 
   const heroProps: HeroItem = generateHeroProps(
@@ -171,24 +163,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     };
   }, [location]);
 
-  const resolvedNewPLPFilters = useMemo(
-    () => resolveFilters(data.plpFilters),
-    [data.plpFilters]
-  );
+  const resolvedFilters = useMemo(() => {
+    return resolveFilters(data.plpFilters?.filters);
+  }, [data.plpFilters]);
 
-  const resolvedFilters = useMemo(
-    () => resolveFilters(data.productFilters),
-    [data.productFilters]
-  );
-
-  //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
-  // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-  const getResolvedFilters = () => {
-    return isLegacyFiltersUsing ? resolvedFilters : resolvedNewPLPFilters;
-  };
-
-  const [filters, setFilters] = useState(getResolvedFilters());
-
+  const [filters, setFilters] = useState(resolvedFilters);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
@@ -220,15 +199,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     if (result && result.aggregations) {
       setFilters(
-        isLegacyFiltersUsing
-          ? xferFilterValue(
-              newFilters,
-              disableFiltersFromAggregations(filters, result.aggregations)
-            )
-          : xferFilterValue(
-              newFilters,
-              disableFiltersFromAggregationsPLP(filters, result.aggregations)
-            )
+        xferFilterValue(
+          newFilters,
+          disableFiltersFromAggregations(filters, result.aggregations)
+        )
       );
 
       return;
@@ -277,17 +251,14 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     setIsLoading(true);
 
-    //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
-    // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-    const query = isLegacyFiltersUsing
-      ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
-      : compileESQueryPLP({
-          filters, //these are updated filters with user's selection from UI!
-          allowFilterBy,
-          categoryCodes,
-          page,
-          pageSize
-        });
+    const query = compileElasticSearchQuery({
+      allowFilterBy: data.plpFilters.allowFilterBy,
+      categoryCodes,
+      filters, //these are updated filters with user's selection from UI!
+      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
+      page,
+      pageSize
+    });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -318,9 +289,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.aggregations) {
       // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters = isLegacyFiltersUsing
-        ? disableFiltersFromAggregations(filters, results.aggregations)
-        : disableFiltersFromAggregationsPLP(filters, results.aggregations);
+      const newFilters = disableFiltersFromAggregations(
+        filters,
+        results.aggregations
+      );
 
       setFilters(newFilters);
     }
@@ -350,23 +322,22 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setFilters(updatedFilters);
       fetchProducts(updatedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
     } else {
-      // Default search (no filters)
-      setFilters(getResolvedFilters());
-      fetchProducts(
-        getResolvedFilters(),
-        pageContext.categoryCodes,
-        0,
-        PAGE_SIZE
-      );
+      //wait for allow filter by to be resolved before starting a seach
+      if (data.plpFilters && data.plpFilters.allowFilterBy) {
+        // Default search (no filters)
+        setFilters(resolvedFilters);
+        fetchProducts(resolvedFilters, pageContext.categoryCodes, 0, PAGE_SIZE);
+      } else {
+        devLog("could not resolve 'data.plpFilters'");
+      }
     }
   }, [location.search]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
   // maybe pointless for this value to rely on it as more will break.
-  const categoryName = initialProducts[0]?.categories.find(
+  const pageTitle = products[0]?.categories?.find(
     ({ code }) => code === pageContext.categoryCodes[0]
   )?.name;
-
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     signupBlock,
@@ -459,8 +430,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             </LeadBlock>
           </Section>
           <Section backgroundColor="pearl" overflowVisible>
-            {categoryName && (
-              <Section.Title hasUnderline>{categoryName}</Section.Title>
+            {pageTitle && (
+              <Section.Title hasUnderline>{pageTitle}</Section.Title>
             )}
             <Grid container spacing={3}>
               {filters && filters.length ? (
@@ -518,7 +489,6 @@ export const pageQuery = graphql`
     $pageId: String!
     $siteId: String!
     $categoryCodes: [String!]
-    $pimClassificationCatalogueNamespace: String!
     $allowFilterBy: [String!]
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
@@ -541,28 +511,17 @@ export const pageQuery = graphql`
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
-    productFilters(
-      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
-      categoryCodes: $categoryCodes
-    ) {
-      label
-      name
-      options {
+    plpFilters(categoryCodes: $categoryCodes, allowFilterBy: $allowFilterBy) {
+      filters {
+        filterCode
         label
-        value
+        name
+        options {
+          label
+          value
+        }
       }
-    }
-    plpFilters(
-      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
-      categoryCodes: $categoryCodes
-      allowFilterBy: $allowFilterBy
-    ) {
-      label
-      name
-      options {
-        label
-        value
-      }
+      allowFilterBy
     }
   }
 `;

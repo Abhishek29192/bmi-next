@@ -1,30 +1,35 @@
+test_gcp-build-trigger:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
+
 build_gcp-build-trigger:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
 
 package_gcp-build-trigger:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_gcp-build-trigger
-  dependencies:
-    - build_gcp-build-trigger
+    - job: build_gcp-build-trigger
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
   script:
+    - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
     - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-build-trigger:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_gcp-build-trigger
-  dependencies:
-    - package_gcp-build-trigger
+    - job: package_gcp-build-trigger
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"

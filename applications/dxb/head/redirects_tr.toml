@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 [[redirects]]
  from="/tr/urunler-ve-cozumler/products/icopal/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1"
  to="/tr/p/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1-likit-uygulama-2346815889/"
@@ -486,8 +481,74 @@
  force=true
 
 
+ [[redirects]]
+ from="/tr/urunler-ve-cozumler/products/icopal/adesolo-g"
+ to="/tr/p/adesolo-g-bit%C3%BCm-3084010199/"
+ force=true
+
 [[redirects]]
-  from = "/tr/sxa/file/download*"
+ from="/tr/profesyoneller/mimar/roportajlar/nazer-country-balaban-mimarlik"
+ to="/tr/ilham-veren-fikirler/mimarlara-sorduk/nazer-insaat/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-c"
+ to="/tr/p/euro-r%C3%BCzgar-klipsi-c-455561885/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-everguard"
+ to="/tr/bmi-everguard/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-v"
+ to="/tr/p/euro-r%C3%BCzgar-klipsi-v-2403186646/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/braas/kanatlı-oluk-vario-s"
+ to="/tr/p/kanatl%C4%B1-oluk-vario-s-g%C3%BCl-kurusu-antrasit-746923759/"
+ force=true
+
+[[redirects]]
+ from="/tr/p/braas-cati-sistemleri/isi-ve-su-yalitimi/thermomanto-roof-300-40-mm/3659263375/"
+ to="/tr/p/thermomanto-roof-300-40-mm-xps-3659263375/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-icopal"
+ to="/tr/bmi-icopal/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-kaplı-metal-levha"
+ to="/tr/p/everguard-tpo-kapl%C4%B1-metal-levha-tpo-20150165/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi"
+ to="/tr/p/euro-r%C3%BCzgar-klipsi-880007769/"
+ force=true
+
+[[redirects]]
+ from="/tr/p/thermomanto-roof-300-60-mm-1814329784/"
+ to="/tr/p/thermomanto-roof-300-60-mm-xps-1814329784/"
+ force=true
+
+[[redirects]]
+ from="/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-yürüme-yolu"
+ to="/tr/p/everguard-tpo-y%C3%BCr%C3%BCme-yolu-tpo-3401349293/"
+ force=true
+
+[[redirects]]
+ from="/tr/braas-catı-sistemleri/"
+ to="/tr/braas-cati-sistemleri/"
+ force=true
+
+
+[[redirects]]
+  from = "/tr/sxa/file/*"
   to = "/tr/downloads/"
   status = 301
   force = true

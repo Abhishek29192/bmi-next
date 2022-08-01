@@ -1,10 +1,10 @@
-import React from "react";
-import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
+import React from "react";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
-} from "../../../components/LeadBlockSection";
+} from "../components/LeadBlockSection";
 
 const leadBlockSectionData: LeadBlockSectionProps = {
   __typename: "ContentfulLeadBlockSection",

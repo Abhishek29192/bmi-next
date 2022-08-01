@@ -54,6 +54,8 @@
     "role_dialog": {
       "text": "Deseja alterar a função do usuário?",
       "title": "Alterar função do usuário"
-    }
+    },
+    "remove_auditor": "Remover como auditor",
+    "add_auditor": "Atribuir como auditor"
   }
 }

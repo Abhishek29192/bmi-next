@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from "react";
 import {
   AnchorLink,
   Button,
@@ -8,35 +7,45 @@ import {
   Section,
   Tabs
 } from "@bmi/components";
-import { graphql, Link } from "gatsby";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import AddIcon from "@material-ui/icons/Add";
-import withGTM from "../utils/google-tag-manager";
+import { graphql, Link } from "gatsby";
+import React, { useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
-import {
-  findMasterImageUrl,
-  findProductBrandLogoCode,
-  findUniqueVariantClassifications,
-  getProductUrl,
-  groupProductsByCategory,
-  mapClassificationValues
-} from "../utils/product-details-transforms";
+import DefaultImage from "../images/DefaultImage.svg";
+import { RelatedProduct } from "../types/pim";
+import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
+import { mapClassificationValues } from "../utils/product-details-transforms";
 import { renderMedia } from "../utils/renderMedia";
-import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
-import styles from "./styles/RelatedProducts.module.scss";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
+import styles from "./styles/RelatedProducts.module.scss";
+
+/**
+ * Groups resolved product category paths by the 2nd last category in the path
+ */
+const groupProductsByGroup = (
+  products: readonly RelatedProduct[]
+): Record<string, RelatedProduct[]> =>
+  products.reduce((tabs, product) => {
+    product.groups.forEach((tabCategory) => {
+      // eslint-disable-next-line security/detect-object-injection
+      tabs[tabCategory.label] = [...(tabs[tabCategory.label] || []), product];
+    });
+    return tabs;
+  }, {});
+
+const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
 const ProductListing = ({
   countryCode,
-  classificationNamespace,
   products,
   initialNumberShown = 8,
   pageSize = 8
 }: {
   countryCode: string;
-  classificationNamespace: string;
-  products: ReadonlyArray<Product>;
+  products: readonly RelatedProduct[];
   initialNumberShown?: number;
   pageSize?: number;
 }) => {
@@ -47,76 +56,20 @@ const ProductListing = ({
     setNumberShown((numberShown) => numberShown + pageSize);
   };
 
-  const allVariants = useMemo(
-    () =>
-      products
-        .reduce<Product[]>((products, product) => {
-          products.find((prod) => prod.name === product.name) ||
-            products.push(product);
-          return products;
-        }, [])
-        .sort((a, b) => {
-          // NOTE: Sort only by base product scoring weight
-          const getWeightValue = (product) =>
-            (product.classifications || []).find(
-              ({ code }) => code === "scoringWeightAttributes"
-            )?.features[0]?.featureValues[0]?.value || 0;
-
-          const weightA = getWeightValue(a);
-          const weightB = getWeightValue(b);
-
-          // If product scoringWeight is equal, compare names
-          if (weightB === weightA) {
-            if (a.name < b.name) {
-              return -1;
-            }
-            if (a.name > b.name) {
-              return 1;
-            }
-          }
-
-          return weightB - weightA;
-        })
-        .reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
-          (variants, product) => [
-            ...variants,
-            ...(product.variantOptions || []).map((variantOption) => ({
-              _product: product,
-              ...variantOption
-            }))
-          ],
-          []
-        ),
-    [products]
-  );
-
-  if (!allVariants.length) {
+  if (!products.length) {
+    // TODO: I don't think this can ever be hit
     return null;
   }
-
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
     <>
       <Grid container spacing={3}>
-        {allVariants.slice(0, numberShown).map((variant) => {
-          const { _product: product } = variant;
-          const brandLogoCode = findProductBrandLogoCode(product);
+        {products.slice(0, numberShown).map((product) => {
           // eslint-disable-next-line security/detect-object-injection
-          const brandLogo = iconMap[brandLogoCode];
-          const productUrl = getProductUrl(countryCode, variant.path);
+          const brandLogo = iconMap[product.brand?.code];
+          const productUrl = getPathWithCountryCode(countryCode, product.path);
 
-          // Find variant classifications that don't exist in the base product
-          // TODO: May not be performant
-          const uniqueClassifications = mapClassificationValues(
-            findUniqueVariantClassifications(variant, classificationNamespace)
-          );
-
-          const mainImage = findMasterImageUrl([
-            ...(variant.images || []),
-            ...(product.images || [])
-          ]);
-
+          const uniqueClassifications = mapClassificationValues(product);
           const altText = `${uniqueClassifications} ${product.name}`;
 
           const gtmLabel = `${product.name}${
@@ -126,7 +79,7 @@ const ProductListing = ({
           return (
             <Grid
               item
-              key={`${product.code}-${variant.code}`}
+              key={`${product.baseCode}-${product.code}`}
               xs={12}
               md={6}
               lg={3}
@@ -137,7 +90,11 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                media={renderMedia(mainImage, altText)}
+                media={
+                  renderMedia(product.masterImages[0]?.mainSource, altText) || (
+                    <DefaultImage />
+                  )
+                }
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",
@@ -155,11 +112,11 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                {variant.externalProductCode !== null &&
-                variant.externalProductCode !== "" ? (
+                {product.externalProductCode !== null &&
+                product.externalProductCode !== "" ? (
                   <>
                     {getMicroCopy(microCopy.PDP_NOBB_LABEL)}:{" "}
-                    <b>{variant.externalProductCode}</b>
+                    <b>{product.externalProductCode}</b>
                   </>
                 ) : (
                   ""
@@ -169,7 +126,7 @@ const ProductListing = ({
           );
         })}
       </Grid>
-      {numberShown < allVariants.length ? (
+      {numberShown < products.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
             {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
@@ -182,31 +139,25 @@ const ProductListing = ({
 
 type Props = {
   countryCode: string;
-  classificationNamespace: string;
-  products: ReadonlyArray<Product>;
+  products: readonly RelatedProduct[];
 };
 
+const GTMTab = withGTM<TabProps>(Tab, {
+  label: "label"
+});
+
 // TODO: Do a context for countryCode and classificationNamespace
-const RelatedProducts = ({
-  countryCode,
-  classificationNamespace,
-  products
-}: Props) => {
+const RelatedProducts = ({ countryCode, products }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
-  if (Object.entries(products).length === 0) {
-    return null;
-  }
-
-  const productGroups = groupProductsByCategory(products);
+  const productGroups = useMemo(
+    () => groupProductsByGroup(products),
+    [products]
+  );
 
   if (!Object.keys(productGroups).length) {
     return null;
   }
-
-  const GTMTab = withGTM<TabProps>(Tab, {
-    label: "label"
-  });
 
   return (
     <Section backgroundColor="alabaster">
@@ -227,25 +178,13 @@ const RelatedProducts = ({
             />
           )}
         >
-          {Object.entries(productGroups)
-            .filter(([_, products]) =>
-              products.some((product) => product.variantOptions)
-            )
-            .map(([category, products]) => {
-              return (
-                <Tabs.TabPanel
-                  heading={category}
-                  index={category}
-                  key={category}
-                >
-                  <ProductListing
-                    classificationNamespace={classificationNamespace}
-                    countryCode={countryCode}
-                    products={products}
-                  />
-                </Tabs.TabPanel>
-              );
-            })}
+          {Object.entries(productGroups).map(([category, products]) => {
+            return (
+              <Tabs.TabPanel heading={category} index={category} key={category}>
+                <ProductListing countryCode={countryCode} products={products} />
+              </Tabs.TabPanel>
+            );
+          })}
         </Tabs>
       </div>
     </Section>
@@ -255,73 +194,27 @@ const RelatedProducts = ({
 export default RelatedProducts;
 
 export const query = graphql`
-  fragment RelatedProductsFragment on Products {
+  fragment RelatedProductFragment on Product {
+    baseCode
+    baseScoringWeight
+    brand {
+      ...PIMBrandFragment
+    }
     code
+    colour
+    colourFamily
     externalProductCode
+    masterImages {
+      ...PIMImageFragment
+    }
+    measurements {
+      ...MeasurementsFragment
+    }
     name
-    images {
-      allowedToDownload
-      assetType
-      fileSize
-      name
-      url
-      containerId
-      mime
-      realFileName
-      format
-    }
-    classifications {
-      name
+    path
+    groups {
+      label
       code
-      features {
-        name
-        code
-        featureValues {
-          value
-          code
-        }
-        featureUnit {
-          symbol
-        }
-      }
-    }
-    categories {
-      categoryType
-      code
-      name
-      parentCategoryCode
-    }
-    variantOptions {
-      path
-      code
-      externalProductCode
-      shortDescription
-      images {
-        allowedToDownload
-        assetType
-        fileSize
-        name
-        url
-        containerId
-        mime
-        realFileName
-        format
-      }
-      classifications {
-        name
-        code
-        features {
-          name
-          code
-          featureValues {
-            value
-            code
-          }
-          featureUnit {
-            symbol
-          }
-        }
-      }
     }
   }
 `;

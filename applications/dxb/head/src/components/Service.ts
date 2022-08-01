@@ -28,6 +28,7 @@ export type Data = {
   phone: string | null;
   email: string | null;
   website: string | null;
+  websiteLinkAsLabel: boolean | null;
   fax: string | null;
   serviceTypes: ServiceType[] | null;
   certification: RoofProLevel | null;
@@ -48,6 +49,7 @@ export const query = graphql`
     phone
     email
     website
+    websiteLinkAsLabel
     fax
     serviceTypes {
       ...ServiceTypeFragment

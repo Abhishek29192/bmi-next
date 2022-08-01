@@ -11,7 +11,7 @@
           "submit": "Salva e chiudi"
         },
         "fields": {
-          "description": "Descrizione progetto (opzionale)",
+          "description": "Descrizione progetto",
           "endDate": "Data finale progetto",
           "name": "Nome del progetto",
           "roofArea": "Superficie di copertura (m2)",
@@ -20,7 +20,7 @@
             "firstLine": "Riga 1 indirizzo",
             "postcode": "Codice postale / CAP",
             "region": "Provincia / Regione",
-            "secondLine": "Riga 2 indirizzo (opzionale)",
+            "secondLine": "Riga 2 indirizzo",
             "town": "Città"
           },
           "startDate": "Data di inizio progetto",
@@ -53,6 +53,10 @@
       "title": "Crea progetto"
     }
   },
+  "bool": {
+    "False": "Falso",
+    "True": "Vero"
+  },
   "buildingOwnerDetails": {
     "address": "Indirizzo proprietario edificio",
     "company": "Azienda",
@@ -68,10 +72,10 @@
             "firstLine": "Riga 1 indirizzo",
             "postcode": "Codice postale / CAP",
             "region": "Provincia / Regione",
-            "secondLine": "Riga 2 indirizzo (opzionale)",
+            "secondLine": "Riga 2 indirizzo",
             "town": "Città"
           },
-          "buildingOwnerCompany": "Nome azienda (opzionale)",
+          "buildingOwnerCompany": "Nome azienda",
           "buildingOwnerFirstname": "Nome",
           "buildingOwnerLastname": "Cognome",
           "buildingOwnerMail": "Email"
@@ -97,6 +101,11 @@
     "contact_detail": "Nome del proprietario",
     "email": "Email del proprietario",
     "title": "Dettagli del propriatario dell'immobile"
+  },
+  "copyDialog": {
+    "content": "Vuoi copiare questo progetto (dettagli del progetto e dettagli del proprietario dell'edificio) per crearne uno nuovo?",
+    "copyOf": "Copia di {{name}}",
+    "title": "Copia questo progetto"
   },
   "filters": {
     "labels": {
@@ -141,6 +150,24 @@
     },
     "title": "Non puoi ancora richiedere una garanzia"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "Stai per approvare una richiesta di garanzia della soluzione. La documentazione di garanzia verrà ora generata e rilasciata automaticamente al proprietario dell'edificio tramite e-mail. L'installatore riceverà una notifica, ma puoi anche aggiungere una nota a questo progetto.",
+      "title": "Sei sicuro?"
+    },
+    "reject": {
+      "description": "Stai per rifiutare una richiesta di garanzia della soluzione. L'installatore verrà avvisato. Aggiungi una nota a questo progetto per confermare all'installatore ciò che è richiesto.",
+      "title": "Sei sicuro?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "La garanzia legata a questo progetto è stata riavviata, quindi può essere richiesta una nuova garanzia"
+  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Dettagli del proprietario dell'edificio incompleti",
@@ -153,16 +180,6 @@
       "tier": "Non sei in un Tier che supporta le Garanzie"
     },
     "title": "Non puoi ancora presentare una garanzia"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "title": "Sei sicuro?",
-      "description": "Stai per approvare una richiesta di garanzia della soluzione. La documentazione di garanzia verrà ora generata e rilasciata automaticamente al proprietario dell'edificio tramite e-mail. L'installatore riceverà una notifica, ma puoi anche aggiungere una nota a questo progetto."
-    },
-    "reject": {
-      "title": "Sei sicuro?",
-      "description": "Stai per rifiutare una richiesta di garanzia della soluzione. L'installatore verrà avvisato. Aggiungi una nota a questo progetto per confermare all'installatore ciò che è richiesto."
-    }
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -258,9 +275,9 @@
     "title": "Nessun progetto ancora creato"
   },
   "noProjects": {
-    "body1": "Non hai ancora aggiunto nuovi progetti!",
-    "body2": "Seleziona il pulsante \"Crea progetto\" qui sotto per iniziare.",
-    "title": "Nessun progetto ancora creato"
+    "body1": "Modifica il filtro per visualizzare diversi tipi di progetto",
+    "body2": "Seleziona un filtro diverso o aggiungi un nuovo progetto per iniziare",
+    "title": "Nessun progetto da visualizzare"
   },
   "noteTab": {
     "addNoteDialog": {
@@ -285,15 +302,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Approva la garanzia",
-      "confirm": "Conferma",
-      "cancel": "Annulla",
       "archive": "Archivia il progetto",
+      "cancel": "Annulla",
+      "confirm": "Conferma",
       "requestInformation": "Richiedi maggiore informazione",
       "unarchive": "Disarchivia il progetto"
     },
     "heading": "Azioni Progetto"
   },
   "projectDetails": {
+    "archived": "Archiviato?",
     "buildingAddress": "Indirizzo del sito",
     "code": "Codice progetto",
     "cta": {
@@ -301,8 +319,8 @@
       "NOT_ASSIGNABLE": "Non assegnabile",
       "REASSIGN_SOLUTION": "Riassegnami",
       "UNASSIGN_SOLUTION": "Non assegna",
-      "edit": "Modifica",
-      "copy": "Copy?"
+      "copy": "Copia?",
+      "edit": "Modifica"
     },
     "description": "Descrizione progetto",
     "endDate": "Data finale progetto",
@@ -318,8 +336,9 @@
     "status": "Stato progetto"
   },
   "report": {
-    "guarantee": "Scarica il report di garanzia",
-    "project": "Scarica il report di progetti"
+    "guarantee": "Rapporto sulle garanzie",
+    "project": "Rapporto sui progetti",
+    "projectUpload": "Rapporto sui caricamenti"
   },
   "responsible_installer": {
     "address": "Indirizzo dell'installatore responsabile",
@@ -365,31 +384,18 @@
       "confirm_label": "Carica file",
       "evidence_category": "Categoria di riscontro",
       "file_validation_message": "Non puoi caricare file maggiori di",
-      "total_files_size": "La dimensione totale dei file è stata superata - {{totalSize}}",
       "instruction": "Pui aggiungere file",
       "microcopy": {
         "browse": "Scorrere",
         "drop": "Rilascia"
       },
-      "title": "Carica riscontro"
+      "title": "Carica riscontro",
+      "total_files_size": "La dimensione totale dei file è stata superata - {{totalSize}}}"
     },
     "header": "Carica file",
     "noContent": "Nessun file caricato",
     "requirementModal": {
       "title": "Cosa è richiesto?"
     }
-  },
-  "guaranteeRestart": {
-    "note": "La garanzia legata a questo progetto è stata riavviata, quindi può essere richiesta una nuova garanzia",
-    "buttonLabel": "Restart guarantee",
-    "confirm": {
-      "title": "Restart Guarantee?",
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
-    }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
   }
 }

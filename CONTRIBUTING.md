@@ -55,7 +55,7 @@ Each component will have its own test file within the `__tests__` folder and wit
 test, run this command in the root of the project:
 
 ```shell
-yarn coverage:jest
+yarn test
 ```
 
 When creating tests use `it()` blocks with the name of the code and its code. Wrap in a `describe` block for grouping

@@ -1,3 +1,7 @@
+import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import { navigate, useLocation } from "@reach/router";
+import axios, { AxiosResponse } from "axios";
+import { graphql } from "gatsby";
 import React, {
   ChangeEvent,
   createContext,
@@ -7,26 +11,21 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
-import { graphql } from "gatsby";
-import axios, { AxiosResponse } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
-import { navigate, useLocation } from "@reach/router";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
+import { useConfig } from "../contexts/ConfigProvider";
+import { RelatedSystem } from "../types/pim";
+import { devLog } from "../utils/devLog";
+import { queryElasticSearch } from "../utils/elasticSearch";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import { queryElasticSearch } from "../utils/elasticSearch";
-import { generateSystemPath } from "../utils/systems";
-import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
-import { devLog } from "../utils/devLog";
-import { System } from "./types/pim";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
-import { SystemCard } from "./RelatedSystems";
 import ProgressIndicator from "./ProgressIndicator";
-import Scrim from "./Scrim";
+import { SystemCard } from "./RelatedSystems";
 import RichText, { RichTextData } from "./RichText";
+import Scrim from "./Scrim";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
@@ -113,9 +112,10 @@ type SystemConfiguratorQuestionData = {
   isReload: boolean;
   stateSoFar?: string[];
 };
+
 const SystemConfiguratorQuestion = ({
   index,
-  id,
+  id, // TODO: Is this still needed? I have a feeling it has some odd reason to exist
   question,
   storedAnswers,
   isReload,
@@ -317,7 +317,7 @@ const SystemConfiguratorResult = ({
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
-    useState<Partial<System>[]>([]);
+    useState<RelatedSystem[]>([]);
   const {
     config: { esIndexNameSystem }
   } = useConfig();
@@ -334,10 +334,9 @@ const SystemConfiguratorResult = ({
       try {
         const response = await queryElasticSearch(query, esIndexNameSystem);
         if (response.hits?.total.value > 0) {
-          const pimObject = response.hits?.hits.map(({ _source }) => {
+          const pimObject = response.hits!.hits.map(({ _source }) => {
             return {
-              ..._source,
-              path: generateSystemPath(_source)
+              ..._source
             };
           });
           setRecommendedSystemPimObjects(
@@ -350,11 +349,11 @@ const SystemConfiguratorResult = ({
               .slice(0, maxDisplay)
           );
         } else {
-          navigate("/404");
+          navigate(getPathWithCountryCode(countryCode, "422"));
         }
       } catch (error) {
         devLog(error);
-        navigate("/404");
+        navigate(getPathWithCountryCode(countryCode, "422"));
       }
     };
 

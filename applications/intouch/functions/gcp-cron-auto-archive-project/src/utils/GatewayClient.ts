@@ -1,7 +1,7 @@
 import fetch, { Request } from "node-fetch";
 import { getSecret } from "@bmi-digital/functions-secret-client";
 
-const { GATEWAY_API_URL } = process.env;
+const { FRONTEND_API_URL } = process.env;
 export type MarketDetails = {
   data: {
     markets: { nodes: Market[] };
@@ -19,7 +19,7 @@ export default class GatewayClient {
       sub: ""
     });
     const userinfo = Buffer.from(raw).toString("base64");
-    this.request = new Request(GATEWAY_API_URL!, {
+    this.request = new Request(FRONTEND_API_URL!, {
       headers: {
         "Content-Type": "application/json",
         authorization: "bearer undefined",

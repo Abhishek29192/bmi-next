@@ -1,5 +1,5 @@
 build_gcp-intouch-cron-training:
-  extends: .build_function_yarn_workspace
+  extends: .build_intouch_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-cron-training
     WORKSPACE: "@bmi/gcp-intouch-cron-training"
@@ -10,9 +10,8 @@ package_gcp-intouch-cron-training:
     FUNCTION_NAME: pubsub-cron-training
     ROOT_DIR: applications/intouch/functions/gcp-cron-training
   needs:
-    - build_gcp-intouch-cron-training
-  dependencies:
-    - build_gcp-intouch-cron-training
+    - job: build_gcp-intouch-cron-training
+      artifacts: true
 
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-training_bmi:
@@ -21,6 +20,5 @@ deploy_gcp-intouch-cron-training_bmi:
     FUNCTION_NAME: pubsub-cron-training
     ROOT_DIR: applications/intouch/functions/gcp-cron-training
   needs:
-    - package_gcp-intouch-cron-training
-  dependencies:
-    - package_gcp-intouch-cron-training
+    - job: package_gcp-intouch-cron-training
+      artifacts: true

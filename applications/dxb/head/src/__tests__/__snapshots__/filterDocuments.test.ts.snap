@@ -2,195 +2,12 @@
 
 exports[`clearFilterValues tests When clearFilterValues is requested Then: returns correct results 1`] = `Array []`;
 
-exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments are requested Then: returns correct results 1`] = `Array []`;
-
-exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments with CMS doc requested Then: returns correct results 1`] = `
-Array [
-  Object {
-    "__typename": "ContentfulDocument",
-    "asset": Object {
-      "file": Object {
-        "contentType": "",
-        "details": Object {
-          "size": 89898,
-        },
-        "fileName": "fileName",
-        "url": "http://doesnot-exist.com/fileName",
-      },
-    },
-    "assetType": Object {
-      "__typename": "ContentfulAssetType",
-      "code": "asset-code",
-      "description": Object {
-        "raw": "rich-text-raw",
-        "references": Array [
-          Object {
-            "__typename": "paragraph",
-            "contentful_id": "rich-text-reference-contentful-id",
-          },
-        ],
-      },
-      "id": "asset-id",
-      "name": "asset-name",
-      "pimCode": "asset-pim-code",
-    },
-    "brand": null,
-    "description": null,
-    "featuredMedia": Object {
-      "__typename": "ContentfulImage",
-      "altText": "alt text",
-      "caption": null,
-      "focalPoint": Object {
-        "x": 0,
-        "y": 0,
-      },
-      "image": Object {
-        "file": Object {
-          "fileName": "image.jpg",
-          "url": "http://doesnot-exist.com/image.jpg",
-        },
-        "gatsbyImageData": Object {
-          "backgroundColor": "#f8f8f8",
-          "height": 3456,
-          "images": Object {
-            "fallback": Object {
-              "sizes": "(min-width: 5184px) 5184px, 100vw",
-              "src": "//doesnot-exist.com/image.jpg?w=1296&h=864&fl=progressive&q=50&fm=jpg",
-              "srcSet": "//doesnot-exist.com/image.jpg?w=1296&h=864&fl=progressive&q=50&fm=jpg 1296w,
-//doesnot-exist.com/image.jpg?w=2592&h=1728&fl=progressive&q=50&fm=jpg 2592w,
-//doesnot-exist.com/image.jpg?w=4000&h=2666&fl=progressive&q=50&fm=jpg 4000w",
-            },
-            "sources": Array [
-              Object {
-                "sizes": "(min-width: 5184px) 5184px, 100vw",
-                "srcSet": "//doesnot-exist.com/image.jpg?w=1296&h=864&q=50&fm=webp 1296w,
-//doesnot-exist.com/image.jpg?w=2592&h=1728&q=50&fm=webp 2592w,
-//doesnot-exist.com/image.jpg?w=4000&h=2666&q=50&fm=webp 4000w",
-                "type": "image/webp",
-              },
-            ],
-          },
-          "layout": "constrained",
-          "width": 5184,
-        },
-      },
-      "type": "Decorative",
-    },
-    "id": "contentful-doc-id",
-    "noIndex": false,
-    "title": "contentful-document-title",
-  },
-]
-`;
-
-exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments with PIM doc requested Then: returns correct results 1`] = `
-Array [
-  Object {
-    "__typename": "PIMDocument",
-    "assetType": Object {
-      "__typename": "ContentfulAssetType",
-      "code": "asset-code",
-      "description": Object {
-        "raw": "rich-text-raw",
-        "references": Array [
-          Object {
-            "__typename": "paragraph",
-            "contentful_id": "rich-text-reference-contentful-id",
-          },
-        ],
-      },
-      "id": "asset-id",
-      "name": "asset-name",
-      "pimCode": "asset-pim-code",
-    },
-    "extension": "pdf",
-    "fileSize": 1,
-    "format": "application/pdf",
-    "id": "pim-document-id",
-    "product": Object {
-      "categories": Array [
-        Object {
-          "categoryType": "category-category-type",
-          "code": "category-code",
-          "name": "category-name",
-          "parentCategoryCode": "category-parent-category-code",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "classification-feature-feature-unit-name",
-                "symbol": "classification-feature-feature-unit-symbol",
-                "unitType": "classification-feature-feature-unit-unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "classification-feature-feature-value-code",
-                  "value": "classification-feature-feature-value-value",
-                },
-              ],
-              "name": "classification-feature-name",
-            },
-          ],
-          "name": "appearanceAttributes",
-        },
-      ],
-      "code": "product-code",
-      "name": "product-name",
-    },
-    "realFileName": "pim-document-id.pdf",
-    "relatedProducts": Array [
-      Object {
-        "categories": Array [
-          Object {
-            "categoryType": "category-category-type",
-            "code": "category-code",
-            "name": "category-name",
-            "parentCategoryCode": "category-parent-category-code",
-          },
-        ],
-        "classifications": Array [
-          Object {
-            "code": "appearanceAttributes",
-            "features": Array [
-              Object {
-                "code": "classification-feature-code",
-                "featureUnit": Object {
-                  "name": "classification-feature-feature-unit-name",
-                  "symbol": "classification-feature-feature-unit-symbol",
-                  "unitType": "classification-feature-feature-unit-unit-type",
-                },
-                "featureValues": Array [
-                  Object {
-                    "code": "classification-feature-feature-value-code",
-                    "value": "classification-feature-feature-value-value",
-                  },
-                ],
-                "name": "classification-feature-name",
-              },
-            ],
-            "name": "appearanceAttributes",
-          },
-        ],
-        "code": "product-code",
-        "name": "product-name",
-      },
-    ],
-    "title": "pim-document-title",
-    "url": "http://localhost/pim-document-id",
-  },
-]
-`;
-
 exports[`updateFilterValue tests When non checked updateFilterValue is requested Then: returns updated filters 1`] = `
 Array [
   Object {
-    "label": "filterLabels.brand",
-    "name": "brand",
+    "filterCode": "Brand",
+    "label": "Brand",
+    "name": "Brand",
     "options": Array [
       Object {
         "label": "AeroDek",
@@ -206,7 +23,6 @@ Array [
       },
     ],
     "value": Array [
-      "AeroDek",
       "AeroDek",
     ],
   },
@@ -216,8 +32,9 @@ Array [
 exports[`updateFilterValue tests When updateFilterValue is requested Then: returns updated filters 1`] = `
 Array [
   Object {
-    "label": "filterLabels.brand",
-    "name": "brand",
+    "filterCode": "Brand",
+    "label": "Brand",
+    "name": "Brand",
     "options": Array [
       Object {
         "label": "AeroDek",
@@ -234,7 +51,6 @@ Array [
     ],
     "value": Array [
       "AeroDek",
-      "Icopal",
     ],
   },
 ]

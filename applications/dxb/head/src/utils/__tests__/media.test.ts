@@ -1,10 +1,4 @@
-import {
-  filterAndTransformVideoData,
-  getJpgImage,
-  transformMediaSrc,
-  GallerySectionMedias
-} from "../media";
-import createAsset from "../../__tests__/AssetHelper";
+import { GallerySectionMedias, getJpgImage, transformMediaSrc } from "../media";
 
 jest.mock("../../components/Video", () => ({
   ...(jest.requireActual("../../components/Video") as any),
@@ -94,7 +88,7 @@ describe("transformMediaSrc function", () => {
 
       {
         __typename: "PimVideo",
-        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI%22",
+        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI",
         title: "PimVideoTitle",
         label: "PimVideoLabel",
         subtitle: "subtitle",
@@ -122,7 +116,7 @@ describe("transformMediaSrc function", () => {
     );
     expect(expectResult[2]).toEqual(
       expect.objectContaining({
-        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI%22/maxresdefault.jpg",
+        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg",
         isVideo: true,
         caption: "PimVideoTitle"
       })
@@ -295,66 +289,5 @@ describe("transformMediaSrc function", () => {
     const expectResult = transformMediaSrc();
 
     expect(expectResult).toEqual([]);
-  });
-});
-
-describe("filterAndTransformVideoData", () => {
-  it("should return only PIM videos transformed to VideoData", () => {
-    const expectedVideo = createAsset({
-      assetType: "VIDEO",
-      mime: "application/octet-stream",
-      name: "testVideo",
-      url: "https://www.youtube.com/watch?v=PLLgrNGa4D4"
-    });
-    const mockMedia = [
-      createAsset({ assetType: "CERTIFICATES" }),
-      expectedVideo
-    ];
-
-    const expectResult = filterAndTransformVideoData(mockMedia);
-
-    expect(expectResult).toStrictEqual([
-      {
-        __typename: "PimVideo",
-        label: expectedVideo.name,
-        title: "",
-        previewMedia: null,
-        subtitle: null,
-        videoRatio: null,
-        videoUrl: "https://www.youtube.com/watch?v=PLLgrNGa4D4"
-      }
-    ]);
-  });
-
-  it("should not error if PIM Video URL is null", () => {
-    const expectedVideo = createAsset({
-      assetType: "VIDEO",
-      mime: "application/octet-stream",
-      name: "testVideo",
-      url: null
-    });
-    const mockMedia = [
-      createAsset({ assetType: "CERTIFICATES" }),
-      expectedVideo
-    ];
-
-    const expectResult = filterAndTransformVideoData(mockMedia);
-
-    expect(expectResult).toStrictEqual([
-      {
-        __typename: "PimVideo",
-        label: expectedVideo.name,
-        title: "",
-        previewMedia: null,
-        subtitle: null,
-        videoRatio: null,
-        videoUrl: ""
-      }
-    ]);
-  });
-  it("should return an empty array if null is passed", () => {
-    const expectResult = filterAndTransformVideoData(null);
-
-    expect(expectResult).toStrictEqual([]);
   });
 });

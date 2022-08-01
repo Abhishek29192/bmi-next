@@ -1,7 +1,4 @@
-import {
-  HubspotProvider,
-  useHubspotForm
-} from "@aaronhayes/react-use-hubspot-form";
+import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
 import {
   AnchorLink,
   Button,
@@ -22,6 +19,7 @@ import {
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
+import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -331,8 +329,10 @@ const HubspotForm = ({
   title,
   description,
   onSuccess,
+  onFormReady,
   additionalValues,
-  className
+  className,
+  isDialog = false
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -341,8 +341,10 @@ const HubspotForm = ({
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
+  onFormReady: FormSectionProps["onFormReady"];
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
+  isDialog?: boolean;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -362,10 +364,16 @@ const HubspotForm = ({
     const handleMessage = (event: MessageEvent) => {
       if (
         event.data.type === "hsFormCallback" &&
-        event.data.eventName === "onFormReady" &&
-        additionalValues
+        event.data.eventName === "onFormReady"
       ) {
-        if (additionalValues["samples"]) {
+        const iframeElement = document.querySelector<HTMLIFrameElement>(
+          `#${hubSpotFormID} iframe`
+        );
+        const hubspotform = document.querySelector<HTMLFormElement>(
+          `#${hubSpotFormID} form`
+        );
+
+        if (additionalValues && additionalValues["samples"]) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
             'input[name="sample_ids"]'
           );
@@ -373,15 +381,17 @@ const HubspotForm = ({
           if (sampleIdsInput) {
             sampleIdsInput.value = additionalValues["samples"];
           } else {
-            const iframeElement = document.querySelector<HTMLIFrameElement>(
-              `#${hubSpotFormID} iframe`
-            );
             const hiddenInput =
               iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
                 'input[name="sample_ids"]'
               );
             hiddenInput && (hiddenInput.value = additionalValues["samples"]);
           }
+        }
+        if (isDialog) {
+          onFormReady?.(event, hubspotform);
+        } else {
+          onFormReady?.(event, iframeElement);
         }
       }
 
@@ -400,7 +410,11 @@ const HubspotForm = ({
   }, [additionalValues, onSuccess]);
 
   return (
-    <Section backgroundColor={backgroundColor} className={className}>
+    <Section
+      backgroundColor={backgroundColor}
+      className={className}
+      isDialog={isDialog}
+    >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
         <>
@@ -411,7 +425,13 @@ const HubspotForm = ({
           )}
         </>
       )}
-      <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
+      <div
+        id={hubSpotFormID}
+        className={classNames(
+          styles["Form--hubSpot"],
+          isDialog && styles["Form--dialog"]
+        )}
+      />
     </Section>
   );
 };
@@ -425,7 +445,12 @@ type FormSectionProps = {
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
+  onFormReady?: (
+    event: MessageEvent,
+    hsForm: HTMLIFrameElement | HTMLFormElement
+  ) => void;
   className?: string;
+  isDialog?: boolean;
 };
 
 const FormSection = ({
@@ -447,7 +472,9 @@ const FormSection = ({
   isSubmitDisabled,
   gtmOverride,
   onSuccess,
-  className
+  onFormReady,
+  className,
+  isDialog = false
 }: FormSectionProps) => {
   const {
     config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
@@ -625,19 +652,19 @@ const FormSection = ({
 
   if (source === SourceType.HubSpot && hubSpotFormGuid) {
     return (
-      <HubspotProvider async={false} addToHead={true}>
-        <HubspotForm
-          id={id}
-          hubSpotFormGuid={hubSpotFormGuid}
-          backgroundColor={backgroundColor}
-          showTitle={showTitle}
-          title={title}
-          description={description}
-          onSuccess={onSuccess}
-          additionalValues={additionalValues}
-          className={className}
-        />
-      </HubspotProvider>
+      <HubspotForm
+        id={id}
+        hubSpotFormGuid={hubSpotFormGuid}
+        backgroundColor={backgroundColor}
+        showTitle={showTitle && !isDialog}
+        title={title}
+        description={description}
+        onSuccess={onSuccess}
+        onFormReady={onFormReady}
+        additionalValues={additionalValues}
+        className={className}
+        isDialog={isDialog}
+      />
     );
   }
   return (

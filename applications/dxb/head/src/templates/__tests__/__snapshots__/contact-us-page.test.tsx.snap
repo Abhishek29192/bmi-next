@@ -3992,78 +3992,78 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-212 MuiButton-contained buttonStyles-contained-214 buttonStyles-containedDarkBg-221 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-212 MuiButton-contained buttonStyles-contained-214 buttonStyles-containedDarkBg-221 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-215"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-215"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -4454,6 +4454,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -8449,78 +8450,78 @@ exports[`Contact us page render Sections correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-contained buttonStyles-contained-120 buttonStyles-containedDarkBg-127 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-contained buttonStyles-contained-120 buttonStyles-containedDarkBg-127 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-121"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-121"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -8911,6 +8912,7 @@ exports[`Contact us page render Sections correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -12903,78 +12905,78 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-259 MuiButton-contained buttonStyles-contained-261 buttonStyles-containedDarkBg-268 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-259 MuiButton-contained buttonStyles-contained-261 buttonStyles-containedDarkBg-268 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-262"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-262"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -13365,6 +13367,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -17360,78 +17363,78 @@ exports[`Contact us page render iframe correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-71 MuiButton-contained buttonStyles-contained-73 buttonStyles-containedDarkBg-80 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-71 MuiButton-contained buttonStyles-contained-73 buttonStyles-containedDarkBg-80 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-74"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-74"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -17822,6 +17825,7 @@ exports[`Contact us page render iframe correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -21817,78 +21821,78 @@ exports[`Contact us page render location correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-165 MuiButton-contained buttonStyles-contained-167 buttonStyles-containedDarkBg-174 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-165 MuiButton-contained buttonStyles-contained-167 buttonStyles-containedDarkBg-174 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-168"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-168"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -22279,6 +22283,7 @@ exports[`Contact us page render location correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;
 
@@ -26274,78 +26279,78 @@ exports[`Contact us page renders correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="SignupBlock"
+  >
     <div
-      class="SignupBlock"
+      class="ColorPair ColorPair--blue-800"
     >
       <div
-        class="ColorPair ColorPair--blue-800"
+        class="SignupBlock"
       >
         <div
-          class="SignupBlock"
+          class="Container"
         >
           <div
-            class="Container"
+            class="MuiContainer-root MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthXl"
+              class="wrapper"
             >
               <div
-                class="wrapper"
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
                 >
-                  <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  <h3
+                    class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
                   >
-                    <h3
-                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                    >
-                      Sign up for our newsletter
-                    </h3>
-                  </div>
-                  <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                    Sign up for our newsletter
+                  </h3>
+                </div>
+                <div
+                  class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root Typography MuiTypography-body2"
-                    >
-                      Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                    Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox.
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-24 MuiButton-contained buttonStyles-contained-26 buttonStyles-containedDarkBg-33 signupLabel MuiButton-containedPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
+                    tabindex="0"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-24 MuiButton-contained buttonStyles-contained-26 buttonStyles-containedDarkBg-33 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
-                      tabindex="0"
-                      type="button"
+                    <span
+                      class="MuiButton-label buttonStyles-label-27"
                     >
+                      Sign up
                       <span
-                        class="MuiButton-label buttonStyles-label-27"
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
                       >
-                        Sign up
-                        <span
-                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                          />
+                        </svg>
                       </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -26736,5 +26741,6 @@ exports[`Contact us page renders correctly 1`] = `
       />
     </button>
   </div>
+   
 </div>
 `;

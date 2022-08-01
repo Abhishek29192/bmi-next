@@ -1,5 +1,9 @@
-import { RequestParams } from "@elastic/elasticsearch";
-import mockConsole from "jest-mock-console";
+import {
+  createProduct as createEsProduct,
+  createSystem as createEsSystem,
+  Product as EsProduct,
+  System as EsSystem
+} from "@bmi/elasticsearch-types";
 import {
   createProduct as createPimProduct,
   createSystem as createPimSystem,
@@ -7,20 +11,18 @@ import {
   System
 } from "@bmi/pim-types";
 import {
-  DeleteItemType,
+  createDeleteProductMessage,
+  createUpdateProductMessage,
+  createUpdateSystemMessage,
+  DeleteItem,
   ItemType,
-  ObjType
-} from "@bmi/gcp-pim-message-handler";
-import { ProductVariant } from "../es-model";
-import { DeleteMessage, ProductMessage, SystemMessage } from "../types";
-import { EsSystem } from "../transformSystems";
+  Message
+} from "@bmi/pub-sub-types";
+import { RequestParams } from "@elastic/elasticsearch";
+import mockConsole from "jest-mock-console";
 import { buildEsProducts, buildEsSystems } from "../index";
-import createProductVariant from "./helpers/ProductVariantHelper";
-import { createEsSystem } from "./helpers/EsSystemHelper";
 
-const createEvent = (
-  message?: ProductMessage | SystemMessage | DeleteMessage
-): { data: string } => {
+const createEvent = (message?: Message): { data: string } => {
   if (!message) {
     return { data: "" };
   }
@@ -29,9 +31,9 @@ const createEvent = (
   return { data: objJsonB64 };
 };
 const createContext = (): {
-  message: { data: ProductMessage | SystemMessage };
+  message: { data: Message };
 } => ({
-  message: { data: {} as ProductMessage }
+  message: { data: {} as Message }
 });
 
 const getEsClient = jest.fn();
@@ -44,8 +46,7 @@ jest.mock("@bmi/functions-es-client", () => {
 
 const transformProduct = jest.fn();
 jest.mock("../transformProducts", () => ({
-  transformProduct: (product: Product): ProductVariant[] =>
-    transformProduct(product)
+  transformProduct: (product: Product): EsProduct[] => transformProduct(product)
 }));
 
 const transformSystem = jest.fn();
@@ -55,14 +56,14 @@ jest.mock("../transformSystems", () => ({
 
 const deleteESItemByCode = jest.fn();
 jest.mock("../deleteESItemByCode", () => ({
-  deleteESItemByCode: (items: DeleteItemType[], type: string) =>
+  deleteESItemByCode: (items: DeleteItem[], type: string) =>
     deleteESItemByCode(items, type)
 }));
 const updateElasticSearch = jest.fn();
 jest.mock("../elasticsearch", () => ({
   updateElasticSearch: (
     itemType: ItemType,
-    esProducts: readonly (ProductVariant | EsSystem)[]
+    esProducts: readonly (EsProduct | EsSystem)[]
   ) => updateElasticSearch(itemType, esProducts)
 }));
 
@@ -85,7 +86,7 @@ const handleMessage = async (
   event: { data: string },
   context: {
     message: {
-      data: ProductMessage | SystemMessage | DeleteMessage;
+      data: Message;
     };
   }
 ): Promise<any> => (await import("../index")).handleMessage(event, context);
@@ -145,16 +146,12 @@ describe("handleMessage", () => {
     });
     transformProduct.mockReturnValue([]);
 
-    const message: ProductMessage = {
-      type: "UPDATED",
-      itemType: "PRODUCTS",
-      items: [createPimProduct()]
-    };
+    const message = createUpdateProductMessage();
     await handleMessage(createEvent(message), createContext());
 
     expect(getEsClient).toBeCalled();
     expect(ping).toBeCalled();
-    expect(transformProduct).toBeCalledWith(message.items[0]);
+    expect(transformProduct).toBeCalledWith(message.item);
     expect(transformSystem).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
@@ -164,16 +161,12 @@ describe("handleMessage", () => {
     ping.mockImplementation((args) => {
       args();
     });
-    transformProduct.mockReturnValue([createProductVariant()]);
+    transformProduct.mockReturnValue([createEsProduct()]);
 
-    const message: ProductMessage = {
-      type: "UPDATED",
-      itemType: "PRODUCTS",
-      items: [createPimProduct()]
-    };
+    const message = createUpdateProductMessage();
     await handleMessage(createEvent(message), createContext());
 
-    const expectedVariant = buildEsProducts([createPimProduct()]);
+    const expectedVariant = buildEsProducts(createPimProduct());
 
     expect(updateElasticSearch).toBeCalledWith("PRODUCTS", expectedVariant);
   });
@@ -184,44 +177,33 @@ describe("handleMessage", () => {
     });
     transformProduct.mockReturnValue([createEsSystem()]);
 
-    const message: SystemMessage = {
-      type: "UPDATED",
-      itemType: "SYSTEMS",
-      items: [createPimSystem()]
-    };
+    const message: Message = createUpdateSystemMessage();
     await handleMessage(createEvent(message), createContext());
 
-    const expectedVariant = buildEsSystems([createPimSystem()]);
+    const expectedVariant = buildEsSystems(createPimSystem());
 
     expect(updateElasticSearch).toBeCalledWith("SYSTEMS", expectedVariant);
   });
 
   describe("delete operation", () => {
     const createContext = (): {
-      message: { data: DeleteMessage };
+      message: { data: Message };
     } => ({
-      message: { data: {} as DeleteMessage }
+      message: { data: {} as Message }
     });
     it("should perform delete operation if item's code provided on delete message ", async () => {
       ping.mockImplementation((args) => {
         args();
       });
-      const deleteItem: DeleteItemType = {
-        code: "test",
-        objType: ObjType.Base_product
-      };
-      const message: DeleteMessage = {
-        type: "DELETED",
-        itemType: "PRODUCTS",
-        items: [deleteItem]
-      };
+
+      const message = createDeleteProductMessage();
 
       await handleMessage(createEvent(message), createContext());
 
       expect(getEsClient).toBeCalled();
       expect(ping).toBeCalled();
 
-      expect(deleteESItemByCode).toBeCalledWith([deleteItem], "PRODUCTS");
+      expect(deleteESItemByCode).toBeCalledWith(message.item, "PRODUCTS");
     });
   });
 });

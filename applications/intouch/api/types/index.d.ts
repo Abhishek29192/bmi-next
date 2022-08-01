@@ -72,6 +72,8 @@ export type Account = Node & {
   doceboUsername?: Maybe<Scalars["String"]>;
   /** The email address associated with the account */
   email: Scalars["String"];
+  /** Reads and enables pagination through a set of `EvidenceItem`. */
+  evidenceItemsByUploaderAccountId: EvidenceItemsConnection;
   /** First name */
   firstName?: Maybe<Scalars["String"]>;
   formattedRole?: Maybe<Scalars["String"]>;
@@ -145,6 +147,18 @@ export type AccountCompanyMembersArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<CompanyMembersOrderBy>>;
+};
+
+/** An InTouch account */
+export type AccountEvidenceItemsByUploaderAccountIdArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<EvidenceItemCondition>;
+  filter?: InputMaybe<EvidenceItemFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<EvidenceItemsOrderBy>>;
 };
 
 /** An InTouch account */
@@ -286,6 +300,7 @@ export type AccountInput = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email: Scalars["String"];
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -550,6 +565,42 @@ export type AccountOnCompanyMemberForCompanyMemberAccountIdFkeyUsingAccountPkeyU
   };
 
 /** The globally unique `ID` look up for the row to update. */
+export type AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `evidenceItem` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: EvidenceItemPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** The email address associated with the account */
+    email: Scalars["String"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
 export type AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
   nodeId: Scalars["ID"];
@@ -770,6 +821,7 @@ export type AccountPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -5541,6 +5593,8 @@ export type CreateEvidenceItemPayload = {
   project?: Maybe<Project>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Account` that is related to this `EvidenceItem`. */
+  uploaderAccount?: Maybe<Account>;
 };
 
 /** The output of our create `EvidenceItem` mutation. */
@@ -6716,6 +6770,8 @@ export type DeleteEvidenceItemPayload = {
   project?: Maybe<Project>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Account` that is related to this `EvidenceItem`. */
+  uploaderAccount?: Maybe<Account>;
 };
 
 /** The output of our delete `EvidenceItem` mutation. */
@@ -7474,6 +7530,9 @@ export type EvidenceItem = Node & {
   projectId: Scalars["Int"];
   signedUrl?: Maybe<Scalars["String"]>;
   updatedAt: Scalars["Datetime"];
+  /** Reads a single `Account` that is related to this `EvidenceItem`. */
+  uploaderAccount?: Maybe<Account>;
+  uploaderAccountId?: Maybe<Scalars["Int"]>;
 };
 
 /**
@@ -7487,6 +7546,8 @@ export type EvidenceItemCondition = {
   id?: InputMaybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `uploaderAccountId` field. */
+  uploaderAccountId?: InputMaybe<Scalars["Int"]>;
 };
 
 /** The fields on `evidenceItem` to look up the row to connect. */
@@ -7515,10 +7576,13 @@ export type EvidenceItemFilter = {
   or?: InputMaybe<Array<EvidenceItemFilter>>;
   /** Filter by the object’s `projectId` field. */
   projectId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `uploaderAccountId` field. */
+  uploaderAccountId?: InputMaybe<IntFilter>;
 };
 
 /** The `evidenceItem` to be created by this mutation. */
 export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
+  accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
   /** File reference or the file itself. Photo of the evidence */
   attachment: Scalars["String"];
   attachmentUpload?: InputMaybe<Scalars["Upload"]>;
@@ -7536,6 +7600,7 @@ export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
   projectId?: InputMaybe<Scalars["Int"]>;
   projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  uploaderAccountId?: InputMaybe<Scalars["Int"]>;
 };
 
 /** The `guarantee` to be created by this mutation. */
@@ -7633,6 +7698,7 @@ export type EvidenceItemGuaranteeIdFkeyInverseInput = {
 
 /** An input for mutations affecting `EvidenceItem` */
 export type EvidenceItemInput = {
+  accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
   /** File reference or the file itself. Photo of the evidence */
   attachment: Scalars["String"];
   attachmentUpload?: InputMaybe<Scalars["Upload"]>;
@@ -7652,6 +7718,7 @@ export type EvidenceItemInput = {
   projectId?: InputMaybe<Scalars["Int"]>;
   projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  uploaderAccountId?: InputMaybe<Scalars["Int"]>;
 };
 
 /** The globally unique `ID` look up for the row to connect. */
@@ -7702,8 +7769,27 @@ export type EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceI
     patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch;
   };
 
+/** The globally unique `ID` look up for the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `evidenceItem` to look up the row to update. */
+export type EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `evidenceItem` being updated. */
+    patch: UpdateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch;
+  };
+
 /** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
 export type EvidenceItemPatch = {
+  accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
   /** File reference or the file itself. Photo of the evidence */
   attachment?: InputMaybe<Scalars["String"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
@@ -7722,10 +7808,12 @@ export type EvidenceItemPatch = {
   projectId?: InputMaybe<Scalars["Int"]>;
   projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  uploaderAccountId?: InputMaybe<Scalars["Int"]>;
 };
 
 /** The `evidenceItem` to be created by this mutation. */
 export type EvidenceItemProjectIdFkeyEvidenceItemCreateInput = {
+  accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
   /** File reference or the file itself. Photo of the evidence */
   attachment: Scalars["String"];
   attachmentUpload?: InputMaybe<Scalars["Upload"]>;
@@ -7743,6 +7831,7 @@ export type EvidenceItemProjectIdFkeyEvidenceItemCreateInput = {
   name: Scalars["String"];
   projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  uploaderAccountId?: InputMaybe<Scalars["Int"]>;
 };
 
 /** Input for the nested mutation of `project` in the `EvidenceItemInput` mutation. */
@@ -7831,6 +7920,84 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
 };
 
+/** The `evidenceItem` to be created by this mutation. */
+export type EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput = {
+  accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
+  /** File reference or the file itself. Photo of the evidence */
+  attachment: Scalars["String"];
+  attachmentUpload?: InputMaybe<Scalars["Upload"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** ek */
+  customEvidenceCategoryKey?: InputMaybe<CustomEvidenceCategoryKey>;
+  /** ek */
+  evidenceCategoryType?: InputMaybe<EvidenceCategoryType>;
+  /** fk */
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  guaranteeToGuaranteeId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInput>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Short name for the item of evidence */
+  name: Scalars["String"];
+  /** fk */
+  projectId?: InputMaybe<Scalars["Int"]>;
+  projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `account` in the `EvidenceItemInput` mutation. */
+export type EvidenceItemUploaderAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: InputMaybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: InputMaybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: InputMaybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: InputMaybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: InputMaybe<AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: InputMaybe<AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: InputMaybe<AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `evidenceItem` in the `AccountInput` mutation. */
+export type EvidenceItemUploaderAccountIdFkeyInverseInput = {
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<EvidenceItemEvidenceItemPkeyConnect>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<EvidenceItemNodeIdConnect>>;
+  /** A `EvidenceItemInput` object that will be created and connected to this object. */
+  create?: InputMaybe<
+    Array<EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput>
+  >;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<EvidenceItemEvidenceItemPkeyDelete>>;
+  /** The primary key(s) for `evidenceItem` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<EvidenceItemNodeIdDelete>>;
+  /** Flag indicating whether all other `evidenceItem` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `evidenceItem` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate>
+  >;
+};
+
 /** All input for the `evidenceItemsAdd` mutation. */
 export type EvidenceItemsAddInput = {
   /**
@@ -7886,7 +8053,9 @@ export type EvidenceItemsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC"
   | "PROJECT_ID_ASC"
-  | "PROJECT_ID_DESC";
+  | "PROJECT_ID_DESC"
+  | "UPLOADER_ACCOUNT_ID_ASC"
+  | "UPLOADER_ACCOUNT_ID_DESC";
 
 export type FindIncompleteCompanyProfile = {
   __typename?: "FindIncompleteCompanyProfile";
@@ -15192,6 +15361,8 @@ export type Query = Node & {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems?: Maybe<EvidenceItemsConnection>;
+  /** Reads and enables pagination through a set of `EvidenceItem`. */
+  evidenceItemsByMarket?: Maybe<EvidenceItemsConnection>;
   /** Reads and enables pagination through a set of `FindIncompleteCompanyProfile`. */
   findIncompleteCompanyProfiles?: Maybe<FindIncompleteCompanyProfilesConnection>;
   /** Reads and enables pagination through a set of `FindRoofer`. */
@@ -15794,6 +15965,17 @@ export type QueryEvidenceItemsArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryEvidenceItemsByMarketArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  filter?: InputMaybe<EvidenceItemFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  market: Scalars["Int"];
+  offset?: InputMaybe<Scalars["Int"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryFindIncompleteCompanyProfilesArgs = {
   after?: InputMaybe<Scalars["Cursor"]>;
   before?: InputMaybe<Scalars["Cursor"]>;
@@ -16324,6 +16506,7 @@ export type RequestStatus =
   | "SUBMITTED";
 
 export type Role =
+  | "AUDITOR"
   | "COMPANY_ADMIN"
   | "INSTALLER"
   | "MARKET_ADMIN"
@@ -18748,6 +18931,8 @@ export type UpdateEvidenceItemPayload = {
   project?: Maybe<Project>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Account` that is related to this `EvidenceItem`. */
+  uploaderAccount?: Maybe<Account>;
 };
 
 /** The output of our update `EvidenceItem` mutation. */
@@ -19546,6 +19731,7 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19589,6 +19775,7 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     doceboUsername?: InputMaybe<Scalars["String"]>;
     /** The email address associated with the account */
     email?: InputMaybe<Scalars["String"]>;
+    evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
     /** First name */
     firstName?: InputMaybe<Scalars["String"]>;
     guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19635,6 +19822,7 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19669,6 +19857,54 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
 };
 
 /** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch =
+  {
+    certificationsUsingDoceboUserId?: InputMaybe<CertificationDoceboUserIdFkeyInverseInput>;
+    companyMembersUsingId?: InputMaybe<CompanyMemberAccountIdFkeyInverseInput>;
+    /** When the account was created */
+    created?: InputMaybe<Scalars["Datetime"]>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    /** User account in Docebo */
+    doceboUserId?: InputMaybe<Scalars["Int"]>;
+    /** Username in Docebo.  Needed to generate the SSO link */
+    doceboUsername?: InputMaybe<Scalars["String"]>;
+    /** The email address associated with the account */
+    email?: InputMaybe<Scalars["String"]>;
+    evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
+    /** First name */
+    firstName?: InputMaybe<Scalars["String"]>;
+    guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+    guaranteesToReviewerAccountIdUsingId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+    /** Primary key */
+    id?: InputMaybe<Scalars["Int"]>;
+    invitationsUsingId?: InputMaybe<InvitationSenderAccountIdFkeyInverseInput>;
+    /** Last name */
+    lastName?: InputMaybe<Scalars["String"]>;
+    /** fk */
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<AccountMarketIdFkeyInput>;
+    /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+    migratedToAuth0?: InputMaybe<Scalars["Boolean"]>;
+    /** Used for reference when importing data from the legacy system */
+    migrationId?: InputMaybe<Scalars["String"]>;
+    notesUsingId?: InputMaybe<NoteAuthorIdFkeyInverseInput>;
+    notificationsUsingId?: InputMaybe<NotificationAccountIdFkeyInverseInput>;
+    /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+    phone?: InputMaybe<Scalars["String"]>;
+    /** File reference. A profile picture of the user */
+    photo?: InputMaybe<Scalars["String"]>;
+    photoUpload?: InputMaybe<Scalars["Upload"]>;
+    projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+    /** ek */
+    role?: InputMaybe<Role>;
+    shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
+    /** ek */
+    status?: InputMaybe<AccountStatus>;
+    termsCondition?: InputMaybe<Scalars["Boolean"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `account` being updated. */
 export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   certificationsUsingDoceboUserId?: InputMaybe<CertificationDoceboUserIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberAccountIdFkeyInverseInput>;
@@ -19681,6 +19917,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19727,6 +19964,7 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19773,6 +20011,7 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19819,6 +20058,7 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19865,6 +20105,7 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -19911,6 +20152,7 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   doceboUsername?: InputMaybe<Scalars["String"]>;
   /** The email address associated with the account */
   email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
   /** First name */
   firstName?: InputMaybe<Scalars["String"]>;
   guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
@@ -20671,6 +20913,7 @@ export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFk
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
 export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch =
   {
+    accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
     /** File reference or the file itself. Photo of the evidence */
     attachment?: InputMaybe<Scalars["String"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
@@ -20687,11 +20930,13 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch 
     projectId?: InputMaybe<Scalars["Int"]>;
     projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
     updatedAt?: InputMaybe<Scalars["Datetime"]>;
+    uploaderAccountId?: InputMaybe<Scalars["Int"]>;
   };
 
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
 export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch =
   {
+    accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
     /** File reference or the file itself. Photo of the evidence */
     attachment?: InputMaybe<Scalars["String"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
@@ -20706,6 +20951,31 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch =
     id?: InputMaybe<Scalars["Int"]>;
     /** Short name for the item of evidence */
     name?: InputMaybe<Scalars["String"]>;
+    projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+    uploaderAccountId?: InputMaybe<Scalars["Int"]>;
+  };
+
+/** An object where the defined keys will be set on the `evidenceItem` being updated. */
+export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch =
+  {
+    accountToUploaderAccountId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInput>;
+    /** File reference or the file itself. Photo of the evidence */
+    attachment?: InputMaybe<Scalars["String"]>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    /** ek */
+    customEvidenceCategoryKey?: InputMaybe<CustomEvidenceCategoryKey>;
+    /** ek */
+    evidenceCategoryType?: InputMaybe<EvidenceCategoryType>;
+    /** fk */
+    guaranteeId?: InputMaybe<Scalars["Int"]>;
+    guaranteeToGuaranteeId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInput>;
+    /** Primary key */
+    id?: InputMaybe<Scalars["Int"]>;
+    /** Short name for the item of evidence */
+    name?: InputMaybe<Scalars["String"]>;
+    /** fk */
+    projectId?: InputMaybe<Scalars["Int"]>;
     projectToProjectId?: InputMaybe<EvidenceItemProjectIdFkeyInput>;
     updatedAt?: InputMaybe<Scalars["Datetime"]>;
   };

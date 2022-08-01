@@ -54,41 +54,81 @@ describe("getPathWithCountryCode", () => {
     expect(pathWithCountryCode).toStrictEqual("/no/some/page/");
   });
 
-  it("should return the root path if path is not provided and GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
-    process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
-    const countryCode = "no";
+  describe("when GATSBY_DONT_USE_COUNTRY_CODE is true", () => {
+    it("should return the root path if path is not provided", async () => {
+      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      const countryCode = "no";
 
-    const pathWithCountryCode = await getPathWithCountryCode(countryCode);
+      const pathWithCountryCode = await getPathWithCountryCode(countryCode);
 
-    expect(pathWithCountryCode).toStrictEqual("/");
-  });
+      expect(pathWithCountryCode).toStrictEqual("/");
+    });
 
-  it("should return the root path if path is null and GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
-    process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
-    const countryCode = "no";
+    it("should return the root path if path is null", async () => {
+      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      const countryCode = "no";
 
-    const pathWithCountryCode = await getPathWithCountryCode(countryCode, null);
+      const pathWithCountryCode = await getPathWithCountryCode(
+        countryCode,
+        null
+      );
 
-    expect(pathWithCountryCode).toStrictEqual("/");
-  });
+      expect(pathWithCountryCode).toStrictEqual("/");
+    });
 
-  it("should not prepend the path with the provided country code if GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
-    process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
-    const countryCode = "no";
-    const path = "/some/page/";
+    it("should not prepend the path with the provided country code", async () => {
+      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      const countryCode = "no";
+      const path = "/some/page/";
 
-    const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
+      const pathWithCountryCode = await getPathWithCountryCode(
+        countryCode,
+        path
+      );
 
-    expect(pathWithCountryCode).toStrictEqual("/some/page/");
-  });
+      expect(pathWithCountryCode).toStrictEqual("/some/page/");
+    });
 
-  it("should not prepend the relative path with the provided country code if GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
-    process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
-    const countryCode = "no";
-    const path = "/some/page/";
+    it("should not prepend the relative path with the provided country code", async () => {
+      process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+      const countryCode = "no";
+      const path = "/some/page/";
 
-    const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
+      const pathWithCountryCode = await getPathWithCountryCode(
+        countryCode,
+        path
+      );
 
-    expect(pathWithCountryCode).toStrictEqual("/some/page/");
+      expect(pathWithCountryCode).toStrictEqual("/some/page/");
+    });
+
+    describe("when path does not end with /", () => {
+      it("should append final path with trailing /", async () => {
+        process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+        const countryCode = "no";
+        const path = "/some/page";
+
+        const pathWithCountryCode = await getPathWithCountryCode(
+          countryCode,
+          path
+        );
+
+        expect(pathWithCountryCode).toStrictEqual("/some/page/");
+      });
+    });
+    describe("when path has query", () => {
+      it("should return query in the final path", async () => {
+        process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
+        const countryCode = "no";
+        const path = "/some/page?q=someValue";
+
+        const pathWithCountryCode = await getPathWithCountryCode(
+          countryCode,
+          path
+        );
+
+        expect(pathWithCountryCode).toStrictEqual("/some/page/?q=someValue");
+      });
+    });
   });
 });

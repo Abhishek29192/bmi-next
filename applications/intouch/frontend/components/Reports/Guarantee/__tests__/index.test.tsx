@@ -2,10 +2,64 @@ import React from "react";
 import { renderAsReal, screen } from "../../../../lib/tests/utils";
 import GuaranteeReport from "..";
 
-const mockgetGuarantesReport = jest.fn();
+const mockGetGuaranteesReport = jest.fn();
+const mockOnCompleted = jest.fn();
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useGetGuaranteesReportLazyQuery: () => [mockgetGuarantesReport]
+  __esModule: true,
+  useGetGuaranteesReportLazyQuery: ({ onCompleted }) => {
+    mockOnCompleted.mockImplementation((data) => onCompleted(data));
+    return [mockGetGuaranteesReport, { loading: false }];
+  }
 }));
+
+const exportCsvSpy = jest.fn();
+jest.mock("../../../../lib/utils/report", () => ({
+  exportCsv: () => exportCsvSpy()
+}));
+
+const defaultGuarantee = {
+  id: 1,
+  guaranteeReferenceCode: "PITCHED_SOLUTION",
+  coverage: "SOLUTION",
+  status: "NEW",
+  guaranteeType: {
+    sys: {
+      id: "sys_id"
+    },
+    name: "Test"
+  },
+  project: {
+    name: "test",
+    company: {
+      name: "Company 1"
+    }
+  },
+  productByProductBmiRef: {
+    name: "productTest"
+  },
+  systemBySystemBmiRef: {
+    name: "systemTest"
+  },
+  requestorAccount: {
+    firstName: "firstName",
+    lastName: "lastName"
+  }
+};
+
+const defaultGuarantee2 = {
+  id: 1,
+  guaranteeReferenceCode: "PITCHED_SOLUTION",
+  coverage: null,
+  status: null,
+  project: {
+    name: null,
+    company: {
+      name: null
+    }
+  }
+};
+
+const guarantees = [defaultGuarantee, defaultGuarantee2];
 
 describe("GuaranteeReport Component", () => {
   afterEach(() => {
@@ -14,18 +68,23 @@ describe("GuaranteeReport Component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = renderAsReal({ account: { role: "SUPER_ADMIN " } })(
+    const { container } = renderAsReal({ account: { role: "SUPER_ADMIN" } })(
       <GuaranteeReport />
     );
 
     expect(container).toMatchSnapshot();
   });
   it("should export button click", () => {
-    renderAsReal({ account: { role: "SUPER_ADMIN " } })(<GuaranteeReport />);
+    renderAsReal({ account: { role: "SUPER_ADMIN" } })(<GuaranteeReport />);
 
-    const exportButton = screen.getByTestId("export-button");
+    mockGetGuaranteesReport.mockReturnValueOnce(
+      mockOnCompleted({ guaranteesByMarket: { nodes: guarantees } })
+    );
+
+    const exportButton = screen.getByTestId("export-guarantee-report-button");
     exportButton.click();
 
-    expect(mockgetGuarantesReport).toHaveBeenCalled();
+    expect(mockGetGuaranteesReport).toHaveBeenCalled();
+    expect(exportCsvSpy).toHaveBeenCalled();
   });
 });

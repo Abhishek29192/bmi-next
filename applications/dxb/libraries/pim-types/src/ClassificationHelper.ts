@@ -1,11 +1,4 @@
-import {
-  Classification,
-  Feature,
-  FeatureUnit,
-  FeatureValue,
-  TwoOneClassToIgnore,
-  TwoOneIgnoreDictionary
-} from "./types";
+import { Classification, Feature, FeatureUnit, FeatureValue } from "./types";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
@@ -20,7 +13,7 @@ export const createFeatureValue = (
 export const createFeatureUnit = (
   featureUnit?: Partial<FeatureUnit>
 ): FeatureUnit => ({
-  name: "name",
+  name: "unit-name",
   symbol: "symbol",
   unitType: "unit-type",
   ...featureUnit
@@ -29,11 +22,7 @@ export const createFeatureUnit = (
 export const createFeature = (feature?: Partial<Feature>): Feature => ({
   code: "classification-feature-code",
   featureValues: [createFeatureValue()],
-  featureUnit: {
-    name: "unit-name",
-    symbol: "symbol",
-    unitType: "unit-type"
-  },
+  featureUnit: createFeatureUnit(),
   name: "name",
   ...feature
 });
@@ -112,73 +101,20 @@ export const createMeasurementsClassification = (
           symbol: "mm",
           unitType: "space"
         })
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.thickness`,
+        featureValues: [createFeatureValue({ value: "40" })],
+        featureUnit: createFeatureUnit({
+          name: "millimeter",
+          symbol: "mm",
+          unitType: "space"
+        })
       })
     ],
     ...classification,
     code: "measurements"
   });
-
-export const createTwoOneClassifications = (
-  pimClassificationNamepspace:
-    | string
-    | undefined = PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
-): Classification[] => {
-  return Object.keys(TwoOneIgnoreDictionary).map((classificationKey) => {
-    const classification: Classification = {
-      code: classificationKey,
-      name: classificationKey
-    };
-    // eslint-disable-next-line security/detect-object-injection
-    const featuresToIgnore = TwoOneIgnoreDictionary[classificationKey].map(
-      (attributeKey) => {
-        return createFeature({
-          code: `${pimClassificationNamepspace}/${classificationKey}.${attributeKey}`,
-          featureValues: [
-            createFeatureValue({ value: `${attributeKey}-value` })
-          ],
-          featureUnit: createFeatureUnit({
-            name: "featureUnit",
-            symbol: "N",
-            unitType: "Newton"
-          })
-        });
-      }
-    );
-    classification.features = featuresToIgnore;
-
-    return classification;
-  });
-};
-
-export const createTwoOneClassification = (
-  pimClassificationNamepspace:
-    | string
-    | undefined = PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-  twoOneClassificationKey: TwoOneClassToIgnore
-): Classification => {
-  // eslint-disable-next-line security/detect-object-injection
-  const twoOneClassResult = TwoOneIgnoreDictionary[twoOneClassificationKey];
-  if (twoOneClassResult) {
-    const classification: Classification = {
-      code: twoOneClassificationKey,
-      name: twoOneClassificationKey
-    };
-    const featuresToIgnore = twoOneClassResult.map((attributeKey) => {
-      return createFeature({
-        code: `${pimClassificationNamepspace}/${twoOneClassificationKey}.${attributeKey}`,
-        featureValues: [createFeatureValue({ value: `${attributeKey}-value` })],
-        featureUnit: createFeatureUnit({
-          name: "featureUnit",
-          symbol: "N",
-          unitType: "Newton"
-        })
-      });
-    });
-    classification.features = featuresToIgnore;
-    return classification;
-  }
-  return createClassification();
-};
 
 const createClassification = (
   classification?: Partial<Classification>

@@ -1,23 +1,13 @@
 import { Filter } from "@bmi/components";
+import { isDefined } from "@bmi/utils";
 import { devLog } from "../utils/devLog";
 import {
-  getUniqueBaseProductCount,
-  getVariantsByBaseProductCodeQuery
+  generateAllowFiltersAggs,
+  generateUserSelectedFilterTerms,
+  getCollapseVariantsByBaseProductCodeQuery,
+  getUniqueBaseProductCount
 } from "./elasticSearchCommonQuery";
-
-const ES_AGGREGATION_NAMES = {
-  // TODO: Rename filter.name to colourfamily
-  colour: "colourfamily",
-  materials: "materials",
-  texturefamily: "texturefamily",
-  productFamily: "allCategories",
-  productLine: "allCategories",
-  brand: "allCategories",
-  // Search page - Pages tab
-  "page-type-tag": "tags",
-  // Search page - Documents tab
-  "document-asset-type": "assetTypes"
-};
+import { removePLPFilterPrefix } from "./product-filters";
 
 export type Aggregations = Record<
   string,
@@ -27,43 +17,52 @@ export type Aggregations = Record<
 export const removeIrrelevantFilters = (
   filters: Filter[],
   aggregations: Aggregations
-): Filter[] =>
-  filters
-    .map((filter) => {
-      return {
-        ...filter,
-        options: filter.options.filter((option) => {
-          // NOTE: all other filters are assumed to be categories
-          const aggregationName =
-            ES_AGGREGATION_NAMES[filter.name] || "allCategories";
-          // eslint-disable-next-line security/detect-object-injection
-          const buckets = aggregations[aggregationName]?.buckets;
+): Filter[] => {
+  return (
+    filters
+      .map((filter) => {
+        return {
+          ...filter,
+          options: filter.options.filter((option) => {
+            // TODO: DXB-3449 - remove toUpperCase when case agnostic to be reverted!
+            // eslint-disable-next-line security/detect-object-injection
+            const buckets = (
+              aggregations[filter.name] ||
+              aggregations[filter.name.toUpperCase()]
+            )?.buckets;
 
-          const aggregate = (buckets || []).find(
-            ({ key }) => key === option.value
-          );
+            const aggregate = (buckets || []).find(
+              ({ key }) => key === option.value
+            );
 
-          return aggregate && aggregate.doc_count > 0;
-        })
-      };
-    })
-    // Return only filters with options
-    .filter(({ options }) => options.length);
+            return aggregate && aggregate.doc_count > 0;
+          })
+        };
+      })
+      // Return only filters with options
+      .filter(({ options }) => options.length)
+  );
+};
 
 export const disableFiltersFromAggregations = (
   filters: Filter[],
   aggregations: Aggregations
-): Filter[] =>
-  filters.map((filter) => {
+): Filter[] => {
+  const aggregationsCopy: Aggregations = {};
+  Object.keys(aggregations).forEach((key) => {
+    // TODO: Remove lower caseing as part of DXB-3449
+    // eslint-disable-next-line security/detect-object-injection
+    aggregationsCopy[key.toLowerCase()] = aggregations[key];
+  });
+  return filters.map((filter) => {
+    const buckets =
+      // TODO: Remove lower caseing as part of DXB-3449
+      aggregationsCopy[removePLPFilterPrefix(filter.filterCode.toLowerCase())]
+        ?.buckets;
+
     return {
       ...filter,
       options: filter.options.map((option) => {
-        // NOTE: all other filters are assumed to be categories
-        const aggregationName =
-          ES_AGGREGATION_NAMES[filter.name] || "allCategories";
-        // eslint-disable-next-line security/detect-object-injection
-        const buckets = aggregations[aggregationName]?.buckets;
-
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
         );
@@ -75,64 +74,30 @@ export const disableFiltersFromAggregations = (
       })
     };
   });
+};
 
-// Filter.name => ES index mapping
-const searchTerms = {
-  // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-  colour: "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-  materials: "GENERALINFORMATION.MATERIALS.code.keyword",
-  texturefamily: "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-  allCategories: "allCategories.code.keyword"
+type Props = {
+  allowFilterBy: string[];
+  categoryCodes?: string[];
+  filters: Filter[];
+  groupByVariant: boolean;
+  page: number;
+  pageSize: number;
+  searchQuery?: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const compileElasticSearchQuery = (
-  filters: Filter[],
-  // TODO: Handle this being optional differently
-  categoryCodes: string[],
-  page: number,
-  pageSize: number,
-  searchQuery?: string
-) => {
-  const categoryFilters = [];
+export const compileElasticSearchQuery = ({
+  allowFilterBy,
+  categoryCodes,
+  filters,
+  groupByVariant,
+  page,
+  pageSize,
+  searchQuery
+}: Props) => {
+  const userSelectedFilterTerms = generateUserSelectedFilterTerms(filters);
 
-  filters.forEach((filter) => {
-    // If no values chosen, ignore it
-    if (!(filter.value || []).length) {
-      return;
-    }
-
-    // Handle these specific filters or fallback to "category".
-    const searchTerm = [
-      "colour",
-      "materials",
-      "texturefamily",
-      "productFamily",
-      "productLine",
-      "brand"
-    ].includes(filter.name)
-      ? searchTerms[filter.name] || searchTerms.allCategories
-      : searchTerms.allCategories;
-
-    const termQuery = (value) => ({
-      term: {
-        [searchTerm]: value
-      }
-    });
-    const query =
-      filter.value.length === 1
-        ? termQuery(filter.value[0])
-        : {
-            bool: {
-              should: filter.value.map(termQuery)
-            }
-          };
-
-    categoryFilters.push(query);
-  });
-
-  // NOTE: ES Doesn't like an empty query object
-  const queryString = `*${searchQuery?.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ")}*`;
   return {
     size: pageSize,
     from: page * pageSize,
@@ -144,46 +109,16 @@ export const compileElasticSearchQuery = (
       { "name.keyword": "asc" }
     ],
     aggs: {
-      allCategories: {
-        terms: {
-          // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-          // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-          size: "100",
-          field: "allCategories.code.keyword"
-        }
-      },
-      materials: {
-        terms: {
-          size: "100",
-          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-          field: "GENERALINFORMATION.MATERIALS.code.keyword"
-        }
-      },
-      texturefamily: {
-        terms: {
-          size: "100",
-          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-          field: "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword"
-        }
-      },
-      colourfamily: {
-        terms: {
-          size: "100",
-          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-          field: "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword"
-        }
-      },
-      ...getUniqueBaseProductCount()
+      ...generateAllowFiltersAggs(allowFilterBy),
+      ...getUniqueBaseProductCount(groupByVariant)
     },
-    // TODO: Join in a bool if multiple categories with multiple values
-    // TODO: Still not sure how to handle this exactly
     query: {
       bool: {
         must: [
           searchQuery
             ? {
                 query_string: {
-                  query: queryString,
+                  query: `*${sanitiseQueryString(searchQuery)}*`,
                   // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
                   // https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2512847139/Tuning+Search+Relevance
                   type: "cross_fields",
@@ -205,19 +140,19 @@ export const compileElasticSearchQuery = (
                   escape: true
                 }
               }
-            : null,
+            : undefined,
           categoryCodes
             ? {
                 terms: {
-                  [searchTerms.allCategories]: categoryCodes
+                  ["allCategories.code.keyword"]: categoryCodes
                 }
               }
-            : null,
-          ...categoryFilters
-        ].filter(Boolean)
+            : undefined,
+          ...userSelectedFilterTerms
+        ].filter(isDefined)
       }
     },
-    ...getVariantsByBaseProductCodeQuery()
+    ...getCollapseVariantsByBaseProductCodeQuery(groupByVariant)
   };
 };
 
@@ -307,6 +242,70 @@ export const getDocumentQueryObject = (
   };
 };
 
+export const getPageQueryObject = (
+  filters: Filter[],
+  page: number,
+  pageSize: number,
+  searchQuery: string
+) => {
+  // Filters in the query
+  // TODO: this acts like it handles many filters but actually handles one. refactor
+  const filtersQuery = filters
+    .filter(({ value }) => value.length)
+    .map((filter) => {
+      const termQuery = (value) => ({
+        term: {
+          ["tags.title.keyword"]: value
+        }
+      });
+      const query =
+        filter.value.length === 1
+          ? termQuery(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(termQuery)
+              }
+            };
+
+      return query;
+    });
+
+  const queryElements = [
+    {
+      query_string: {
+        query: `*${sanitiseQueryString(searchQuery)}*`,
+        type: "cross_fields",
+        fields: ["pageData"]
+      }
+    },
+    ...filtersQuery
+  ];
+
+  return {
+    size: pageSize,
+    from: page * pageSize,
+    _source: {
+      excludes: ["pageData"]
+    },
+    aggs: {
+      tags: {
+        terms: {
+          size: "100",
+          field: "tags.title.keyword"
+        }
+      }
+    },
+    query:
+      queryElements.length === 1
+        ? queryElements[0]
+        : {
+            bool: {
+              must: queryElements
+            }
+          }
+  };
+};
+
 export const queryElasticSearch = async (query = {}, indexName: string) => {
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
@@ -337,3 +336,5 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
     devLog("NO fetch");
   }
 };
+const sanitiseQueryString = (queryString: string) =>
+  queryString.replace(/[^.,\s\p{L}\p{Nd}-]/gu, " ");

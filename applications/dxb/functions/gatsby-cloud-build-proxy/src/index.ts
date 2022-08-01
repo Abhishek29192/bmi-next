@@ -1,7 +1,6 @@
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { getSecret } from "@bmi-digital/functions-secret-client";
-import fetch from "node-fetch";
 import logger from "@bmi-digital/functions-logger";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import fetch from "node-fetch";
 import { FindBuildWebhook } from "./find";
 
 const SECRET_MIN_LENGTH = 10;
@@ -18,7 +17,7 @@ export const build: HttpFunction = async (request, response) => {
     logger.error({ message: "Build webhooks are not set." });
     return response.sendStatus(500);
   }
-  if (!process.env.BUILD_REQUEST_SECRET) {
+  if (!process.env.BUILD_REQUEST) {
     logger.error({ message: "Request secret is not set." });
     return response.sendStatus(500);
   }
@@ -41,7 +40,7 @@ export const build: HttpFunction = async (request, response) => {
     logger.debug({ message: "Called from contentful sidebar." });
     return response.status(204).send("");
   }
-  const reqSecret = await getSecret(process.env.BUILD_REQUEST_SECRET!);
+  const reqSecret = process.env.BUILD_REQUEST;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||
     request.headers.authorization?.substring("Bearer ".length) !== reqSecret

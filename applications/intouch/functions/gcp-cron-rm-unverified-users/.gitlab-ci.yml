@@ -1,11 +1,11 @@
 test_gcp-intouch-remove-unverified-users:
-  extends: .test_yarn_workspace
+  extends: .test_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 build_gcp-intouch-remove-unverified-users:
-  extends: .build_function_yarn_workspace
+  extends: .build_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
@@ -13,9 +13,8 @@ build_gcp-intouch-remove-unverified-users:
 package_gcp-intouch-remove-unverified-users:
   extends: .package_intouch_function
   needs:
-    - build_gcp-intouch-remove-unverified-users
-  dependencies:
-    - build_gcp-intouch-remove-unverified-users
+    - job: build_gcp-intouch-remove-unverified-users
+      artifacts: true
   variables:
     FUNCTION_NAME: pubsub-cron-rm-unverified-users
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
@@ -27,6 +26,5 @@ deploy_gcp-intouch-cron-rm-unverified-users_bmi:
     FUNCTION_NAME: pubsub-cron-rm-unverified-users
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
   needs:
-    - package_gcp-intouch-remove-unverified-users
-  dependencies:
-    - package_gcp-intouch-remove-unverified-users
+    - job: package_gcp-intouch-remove-unverified-users
+      artifacts: true

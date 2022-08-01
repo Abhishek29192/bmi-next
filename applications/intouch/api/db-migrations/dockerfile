@@ -1,17 +1,11 @@
 FROM node:14-alpine
 
-# Directory --> monorepo directory
 WORKDIR /usr/src/app
-
-# Copy workspace source files
 COPY ./applications/intouch/api/db-migrations ./applications/intouch/api/db-migrations
 
 WORKDIR /usr/src/app/applications/intouch/api/db-migrations
 
 RUN yarn install
 RUN yarn run build
-
 EXPOSE 8080
-
-# Start
 CMD [ "yarn", "start" ]

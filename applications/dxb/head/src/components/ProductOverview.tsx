@@ -1,57 +1,107 @@
-import React from "react";
-import { Grid } from "@bmi/components";
-import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
-import { Thumbnail, ThumbnailProps } from "@bmi/components";
-import { MediaGallery, MediaData } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
+import {
+  Grid,
+  MediaData,
+  MediaGallery,
+  ProductOverviewPane,
+  ProductOverviewPaneProps,
+  Thumbnail,
+  ThumbnailProps
+} from "@bmi/components";
+import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
-import styles from "./styles/ProductOverview.module.scss";
+import DefaultImage from "../images/DefaultImage.svg";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
+import { useSiteContext } from "./Site";
+import styles from "./styles/ProductOverview.module.scss";
+import { VisualiserContext } from "./Visualiser";
+import tilesSetData from "./visualiser/data/tiles.json";
 
 export type Data = {
   name: string;
-  brandName: string;
+  brandCode: string;
   nobb: string | null;
   images: readonly MediaData[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
-  isRecapchaShown?: boolean;
+  variantCode: string;
+  isRecaptchaShown?: boolean;
   videos?: MediaData[];
 };
+
+type Props = {
+  data: Data;
+  children?: React.ReactNode;
+};
+
+const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+  action: "imageSource",
+  label: "altText"
+});
+
+const GTMMediaThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+  label: "media",
+  action: "media"
+});
 
 const ProductOverview = ({
   data: {
     name,
-    brandName,
+    brandCode,
     nobb,
     images,
     attributes,
-    isRecapchaShown,
-    videos = []
+    isRecaptchaShown,
+    videos = [],
+    variantCode
   },
   children
-}: {
-  data: Data;
-  children?: React.ReactNode;
-}) => {
+}: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const { open: openVisualiser } = useContext(VisualiserContext);
 
-  const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
-    action: "imageSource",
-    label: "altText"
-  });
+  const getVisualiserMedia = () => {
+    for (let index = 0; index < tilesSetData.tiles.length; index++) {
+      const tile = tilesSetData.tiles[Number(index)];
+      const tileColor = tile.colours.find(
+        (color) => color.variantCode === variantCode
+      );
 
-  const GTMMediaThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
-    label: "media",
-    action: "media"
-  });
+      if (tileColor) {
+        return {
+          visualiserParameters: {
+            colourId: tileColor.id,
+            sidingId: 1,
+            tileId: tile.id,
+            viewMode: "roof",
+            caption: getMicroCopy(microCopy.PDP_VISUALISER_SLIDE_CAPTION)
+          },
+          openVisualiser
+        };
+      }
+    }
+  };
+
+  const visualiserMedia = getVisualiserMedia();
+  const media: MediaData[] = [...images, ...videos];
+
+  if (visualiserMedia) {
+    media.push({
+      ...visualiserMedia,
+      ...images[0]
+    });
+  }
+
+  if (media.length === 0) {
+    media.push({ media: <DefaultImage /> });
+  }
+
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={8}>
           <MediaGallery
-            media={[...images, ...videos]}
+            media={media}
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMMediaThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
@@ -61,18 +111,18 @@ const ProductOverview = ({
         <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane
             // eslint-disable-next-line security/detect-object-injection
-            brandLogo={iconMap[brandName]}
+            brandLogo={iconMap[brandCode]}
             name={name}
             nobb={nobb}
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
             )}
             nobbLabel={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
-            attributes={attributes || undefined}
+            attributes={attributes}
           >
             {children}
           </ProductOverviewPane>
-          {isRecapchaShown && (
+          {isRecaptchaShown && (
             <RecaptchaPrivacyLinks
               className={styles["keyAssetTypesDownload"]}
             />

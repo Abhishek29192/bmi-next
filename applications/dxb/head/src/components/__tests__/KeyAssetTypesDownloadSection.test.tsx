@@ -1,218 +1,321 @@
-import React from "react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import MockDate from "mockdate";
-import { render } from "@testing-library/react";
-import KeyAssetTypesDownloadSection, {
-  handleDownloadClick,
-  mapAssetToCommonData
-} from "../KeyAssetTypesDownloadSection";
+import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
-import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
-import createPimDocument from "../../__tests__/PimDocumentHelper";
-import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
-import createAssetType from "../../__tests__/AssetTypeHelper";
-import { FileContentTypeEnum } from "../types/pim";
+import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
+import KeyAssetTypesDownloadSection from "../KeyAssetTypesDownloadSection";
 
 jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 // Needed to mock only one method of module
 jest.spyOn(ClientDownloadUtils, "downloadAs").mockImplementation();
 
+jest.spyOn(window, "alert").mockImplementation();
+
 jest.spyOn(Date.prototype, "getDate").mockReturnValue(0);
-
 const TEST_DATE = new Date(0);
-
 MockDate.set(TEST_DATE);
 
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+const executeRecaptcha = jest.fn();
+jest.mock("react-google-recaptcha-v3", () => ({
+  useGoogleReCaptcha: () => ({
+    executeRecaptcha: () => executeRecaptcha()
+  })
+}));
+
+let isPreviewMode;
+let documentDownloadEndpoint;
+jest.mock("../../contexts/ConfigProvider", () => ({
+  useConfig: () => ({
+    config: {
+      isPreviewMode,
+      documentDownloadEndpoint
+    }
+  })
+}));
+
+const devLog = jest.fn();
+jest.mock("../../utils/devLog", () => ({
+  devLog: (...args) => devLog(...args)
+}));
+
+beforeEach(() => {
+  jest.resetModules();
+  jest.resetAllMocks();
+  isPreviewMode = false;
+  documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT";
+});
 
 describe("KeyAssetTypesDownloadSection component", () => {
-  const asset = {
-    asset: {
-      file: {
-        url: "http://doesnot-exist.com/fileName",
-        fileName: `fileName.pdf`,
-        contentType: "" as FileContentTypeEnum,
-        details: {
-          size: 89898
-        }
-      }
-    }
-  };
-
   it("renders correctly", () => {
-    const document1 = createContentfulDocument({
-      assetType: createAssetType({
-        pimCode: "SAT",
-        name: "Some Asset Type"
-      }),
-      asset: {
-        file: {
-          url: "http://doesnot-exist.com/fileName",
-          fileName: "test.pdf",
-          contentType: FileContentTypeEnum.APPLICATION_PDF,
-          details: {
-            size: 89898
-          }
-        }
-      }
+    const document1 = createPimDocument({
+      assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+    });
+    const document2 = createPimDocument({
+      assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+    });
+    const document3 = createPimDocument({
+      assetType: createAssetType({ pimCode: "AAT", name: "Another Asset Type" })
     });
 
-    const document2 = createContentfulDocument({
-      assetType: createAssetType({
-        pimCode: "SAT",
-        name: "Some Asset Type"
-      }),
-      asset: {
-        file: {
-          url: "http://doesnot-exist.com/fileName",
-          fileName: "test1.pdf",
-          contentType: FileContentTypeEnum.APPLICATION_PDF,
-          details: {
-            size: 89897
-          }
-        }
+    const assetDocuments = [
+      {
+        assetType: "SAT",
+        documents: [document1, document2]
+      },
+      {
+        assetType: "AAT",
+        documents: [document3]
       }
-    });
-
-    const document3 = createContentfulDocument({
-      assetType: createAssetType({
-        pimCode: "AAT",
-        name: "Another Asset Type"
-      }),
-      asset: {
-        file: {
-          url: "http://doesnot-exist.com/fileName",
-          fileName: "test2.pdf",
-          contentType: FileContentTypeEnum.APPLICATION_PDF,
-          details: {
-            size: 89896
-          }
-        }
-      }
-    });
-
-    const assetTypes = ["SAT", "AAT"];
-
+    ];
     const { container } = render(
-      <KeyAssetTypesDownloadSection
-        documents={[document1, document2, document3]}
-        assetTypes={assetTypes}
-      />
+      <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
     );
 
     expect(container).toMatchSnapshot();
   });
 
   describe("handleDownloadClick function", () => {
-    const document1 = createContentfulDocument(asset);
+    it("should render link for single document", async () => {
+      const document = createPimDocument({
+        url: "http://localhost:8000/document.pdf"
+      });
+      document.assetType = {
+        code: "AAT",
+        pimCode: "AAT",
+        name: "AAT",
+        id: "AAT"
+      };
+      const assetDocuments = [
+        {
+          assetType: document.assetType.pimCode,
+          documents: [document]
+        }
+      ];
 
-    const document2 = createContentfulDocument(asset);
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
 
-    const list = [
-      mapAssetToCommonData(document1),
-      mapAssetToCommonData(document2)
-    ];
+      const downloadButton = getByTestId(
+        `${document.assetType.pimCode}Download`
+      );
 
-    const mockConfig = (
-      isPreviewMode = false,
-      documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
-    ) => ({
-      isPreviewMode,
-      documentDownloadEndpoint
+      expect((downloadButton as HTMLAnchorElement).href).toEqual(document.url);
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).not.toHaveBeenCalled();
     });
 
-    const token = "token";
+    it("should render link with https prefix for single document without protocol", async () => {
+      const document = createPimDocument({
+        url: "localhost:8000/document.pdf"
+      });
+      document.assetType = {
+        code: "AAT",
+        pimCode: "AAT",
+        name: "AAT",
+        id: "AAT"
+      };
+      const assetDocuments = [
+        {
+          assetType: document.assetType.pimCode,
+          documents: [document]
+        }
+      ];
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
 
-    beforeEach(() => {
-      jest.resetModules();
-      jest.resetAllMocks();
+      const downloadButton = getByTestId(
+        `${document.assetType.pimCode}Download`
+      );
+
+      expect((downloadButton as HTMLAnchorElement).href).toEqual(
+        `https://${document.url}`
+      );
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).not.toHaveBeenCalled();
     });
 
-    it("should download files", async () => {
+    it("should download multiple documents of the same asset type as a zip file", async () => {
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+
+      executeRecaptcha.mockResolvedValueOnce("token");
       mockedAxios.post.mockResolvedValueOnce({ data: { url: "url" } });
 
-      await handleDownloadClick(list, token, mockConfig());
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
 
-      expect(mockedAxios.post).toHaveBeenLastCalledWith(
-        "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
-        {
-          documents: [
-            {
-              href: "http://doesnot-exist.com/fileName",
-              name: "contentful-document-title.pdf"
-            },
-            {
-              href: "http://doesnot-exist.com/fileName",
-              name: "contentful-document-title.pdf"
-            }
-          ]
-        },
-        { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).toHaveBeenCalled();
+      await waitFor(() =>
+        expect(mockedAxios.post).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            documents: [
+              {
+                href: document1.url,
+                name: document1.title
+              },
+              {
+                href: document2.url,
+                name: document2.title
+              }
+            ]
+          },
+          { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+        )
       );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
         "url",
         "BMI_19700101000000.zip"
       );
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).not.toHaveBeenCalled();
     });
 
-    it("should not download empty list", async () => {
-      await handleDownloadClick([], token, mockConfig());
-      expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
-    });
-
-    it("should prevent download on GATSBY_PREVIEW", async () => {
-      jest.spyOn(window, "alert").mockImplementation();
-
-      await handleDownloadClick(list, token, mockConfig(true));
-
-      expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
-      expect(window.alert).toHaveBeenCalledWith(
-        "You cannot download documents on the preview enviornment."
-      );
-    });
-  });
-
-  describe("mapAssetToCommonData function", () => {
-    it("if Pim Document", () => {
-      const pimDocument = createPimDocument();
-      const expectedObj = {
-        href: "http://localhost/pim-document-id",
-        name: "pim-document-title.pdf",
-        assetType: "asset-name"
-      };
-
-      const data = mapAssetToCommonData(pimDocument);
-
-      expect(data).toMatchObject(expectedObj);
-    });
-
-    it("if Pim Link Document", () => {
-      const pimLinkDocument = createPimLinkDocument({
-        url: "http://localhost/pim-link-document-id.pdf"
+    it("should prevent download on preview mode", async () => {
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
       });
-      const expectedObj = {
-        href: "http://localhost/pim-link-document-id.pdf",
-        name: "pim-link-document-title.pdf",
-        assetType: "asset-name"
-      };
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
 
-      const data = mapAssetToCommonData(pimLinkDocument);
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+      isPreviewMode = true;
 
-      expect(data).toMatchObject(expectedObj);
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
+
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).toHaveBeenCalledWith(
+        "You cannot download documents on the preview environment."
+      );
+      expect(devLog).not.toHaveBeenCalled();
     });
 
-    it("if Contentful Document", () => {
-      const contentfulDocument = createContentfulDocument(asset);
-      const expectedObj = {
-        href: "http://doesnot-exist.com/fileName",
-        name: "contentful-document-title.pdf",
-        assetType: "asset-name"
-      };
+    it("should prevent download when endpoint not provided", async () => {
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
 
-      const data = mapAssetToCommonData(contentfulDocument);
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+      documentDownloadEndpoint = undefined;
 
-      expect(data).toMatchObject(expectedObj);
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
+
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).not.toHaveBeenCalled();
+      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).not.toHaveBeenCalled();
+    });
+
+    it("should log error if download fails", async () => {
+      const document1 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const document2 = createPimDocument({
+        assetType: createAssetType({ pimCode: "SAT", name: "Some Asset Type" })
+      });
+      const assetDocuments = [
+        {
+          assetType: document1.assetType.pimCode,
+          documents: [document1, document2]
+        }
+      ];
+      executeRecaptcha.mockResolvedValueOnce("token");
+      mockedAxios.post.mockRejectedValue(Error("Expected Error"));
+
+      const { getByTestId } = render(
+        <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
+      );
+
+      const downloadButton = getByTestId(
+        `${document1.assetType.pimCode}Download`
+      );
+      fireEvent.click(downloadButton);
+
+      expect(executeRecaptcha).toHaveBeenCalled();
+      await waitFor(() =>
+        expect(mockedAxios.post).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            documents: [
+              {
+                href: document1.url,
+                name: document1.title
+              },
+              {
+                href: document2.url,
+                name: document2.title
+              }
+            ]
+          },
+          { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+        )
+      );
+      expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
+      expect(window.alert).not.toHaveBeenCalled();
+      expect(devLog).toHaveBeenCalledWith(
+        "KeyAssetTypesDownloadSection",
+        Error("Expected Error")
+      );
     });
   });
 });

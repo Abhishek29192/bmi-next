@@ -1,0 +1,34 @@
+{
+  "name": "@bmi/gcp-functions-deployer",
+  "private": true,
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "compile": "tsc",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=deploy --port=9054 --signature-type=event",
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=deploy --port=9054 --signature-type=event",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "@bmi-digital/functions-logger": "1.2.0",
+    "@google-cloud/functions-framework": "^3.0.0",
+    "@google-cloud/storage": "^5.7.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/jest-when": "^2.7.3",
+    "env-cmd": "^10.1.0",
+    "inspectpack": "^4.7.1",
+    "jest-when": "^3.2.0",
+    "js-yaml": "^4.0.0",
+    "process-top": "^1.2.0",
+    "webpack": "^5.70.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

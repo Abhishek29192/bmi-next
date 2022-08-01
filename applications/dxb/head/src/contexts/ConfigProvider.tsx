@@ -26,7 +26,6 @@ export interface EnvConfig {
     esIndexNameSystem?: string;
     isDevMode?: boolean;
     gcpSystemConfiguratorEndpoint?: string;
-    isSampleOrderingEnabled?: boolean;
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
     isV2WebToolsCalculatorEnabled?: boolean;
@@ -72,13 +71,7 @@ export const envConfig: EnvConfig = {
     esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
     isDevMode: process.env.NODE_ENV === "development",
     gcpSystemConfiguratorEndpoint:
-      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
-    isSampleOrderingEnabled: convertStrToBool(
-      process.env.GATSBY_ENABLE_SAMPLE_ORDERING
-    ),
-    isLegacyFiltersUsing: convertStrToBool(
-      process.env.GATSBY_USE_LEGACY_FILTERS
-    )
+      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT
   }
 };
 

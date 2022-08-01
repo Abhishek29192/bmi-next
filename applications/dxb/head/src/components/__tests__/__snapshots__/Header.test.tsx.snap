@@ -1881,8 +1881,6 @@ exports[`Header component shows sample basket icon 1`] = `
                 aria-disabled="false"
                 aria-label="MC: basket.label"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 basket-button"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
-                href="/gb/sample-basket/"
                 role="button"
                 tabindex="0"
               >
@@ -2288,6 +2286,166 @@ exports[`Header component shows sample basket icon 1`] = `
         >
           MC: search.title
         </h4>
+      </div>
+    </div>
+    <div
+      class="cart-drawer-container"
+      style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
+    >
+      <div
+        class="cart-drawer"
+      >
+        <div
+          class="cart-drawer--pad pad-b-24"
+        >
+          <button
+            aria-label="MC: dialog.close"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <h3
+            class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
+          >
+            Basket title
+          </h3>
+          <div
+            class="cart-info"
+          >
+            <p>
+              MC: pdp.overview.sampleLimitReachedMessage
+            </p>
+            <p>
+              MC: pdp.overview.sampleDeliveryDialogMessage
+            </p>
+          </div>
+        </div>
+        <div
+          class="product-list"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="image-container"
+            >
+              <img
+                class="cart-image"
+                src="S"
+              />
+            </div>
+            <div
+              class="info-container"
+            >
+              <h6
+                class="MuiTypography-root product-title Typography MuiTypography-h6"
+              >
+                test product
+              </h6>
+              <h6
+                class="MuiTypography-root product-color Typography MuiTypography-h6"
+              />
+              <p
+                class="MuiTypography-root product-size Typography MuiTypography-body1"
+              />
+            </div>
+            <div
+              class="button-container"
+            >
+              <button
+                aria-label="MC: pdp.overview.removeSample"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-text-95"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="cart-actions cart-drawer--pad"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-contained buttonStyles-contained-84 MuiButton-containedPrimary"
+            data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
+            href="/gb/sample-basket/"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-85"
+            >
+              MC: pdp.overview.completeSampleOrder
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-outlined MuiButton-outlinedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-85"
+            >
+              MC: pdp.overview.continueBrowsing
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </header>

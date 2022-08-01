@@ -1,34 +1,34 @@
-import React from "react";
-import { render, RenderResult } from "@testing-library/react";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import SimplePage, { Data, Props } from "../components/simple-page";
-import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
-import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
-import { Data as SectionsData } from "../../../components/Sections";
-import { Data as NextBestActionsData } from "../../../components/NextBestActions";
+import { render, RenderResult } from "@testing-library/react";
+import React from "react";
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
-import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as LinkData } from "../../../components/Link";
+import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
+import { Data as NextBestActionsData } from "../../../components/NextBestActions";
+import { Data as SectionsData } from "../../../components/Sections";
+import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
+import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
+import { createMockSiteData } from "../../../test/mockSiteData";
+import { Data as LeadBlockSectionData } from "../components/LeadBlockSection";
+import SimplePage, { Data, Props } from "../components/simple-page";
 import {
   cta,
   exploreBarData,
   featuredMedia,
-  signupBlock,
   leadBlockData,
   linkColumnsData,
   nextBestActions,
   pageContext,
   sections,
-  shareWidgetData
+  shareWidgetData,
+  signupBlock
 } from "../__mocks__/simplePage";
-import { createMockSiteData } from "../../../test/mockSiteData";
-import { ConfigProvider } from "../../../contexts/ConfigProvider";
-import { Data as SiteData } from "../../../components/Site";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));

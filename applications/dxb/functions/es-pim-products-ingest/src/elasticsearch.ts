@@ -1,14 +1,11 @@
-import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
 import logger from "@bmi-digital/functions-logger";
-import { Operation, ProductVariant } from "./es-model";
-import { EsSystem } from "./transformSystems";
+import { Operation, Product, System } from "@bmi/elasticsearch-types";
+import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
 import { DeleteOperation, IndexOperation } from "./types";
 
 const { ES_INDEX_PREFIX, BATCH_SIZE = "300" } = process.env;
 
-const getChunks = <T extends ProductVariant | EsSystem>(
-  items: readonly T[]
-): T[][] => {
+const getChunks = <T extends Product | System>(items: readonly T[]): T[][] => {
   const chunkSize = parseInt(BATCH_SIZE);
   logger.info({ message: `Chunk size: ${chunkSize}` });
 
@@ -18,11 +15,11 @@ const getChunks = <T extends ProductVariant | EsSystem>(
     const chunk = items.slice(i, i + chunkSize);
     chunksArray.push(chunk);
   }
-  logger.info({ message: `Chunk array: ${chunksArray}` });
+  logger.info({ message: `Chunk array: ${JSON.stringify(chunksArray)}` });
   return chunksArray;
 };
 
-const getIndexOperation = <T extends ProductVariant | EsSystem>(
+const getIndexOperation = <T extends Product | System>(
   indexName: string,
   document: T
 ): [IndexOperation, T] => {
@@ -34,7 +31,7 @@ const getIndexOperation = <T extends ProductVariant | EsSystem>(
   ];
 };
 
-const getDeleteOperation = <T extends ProductVariant | EsSystem>(
+const getDeleteOperation = <T extends Product | System>(
   indexName: string,
   document: T
 ): [DeleteOperation] => {
@@ -45,7 +42,7 @@ const getDeleteOperation = <T extends ProductVariant | EsSystem>(
   ];
 };
 
-const getBulkOperations = <T extends ProductVariant | EsSystem>(
+const getBulkOperations = <T extends Product | System>(
   indexName: string,
   documents: readonly T[],
   action?: Operation
@@ -72,9 +69,10 @@ const getBulkOperations = <T extends ProductVariant | EsSystem>(
 
 export const updateElasticSearch = async (
   itemType: string,
-  esProducts: readonly (ProductVariant | EsSystem)[],
+  esProducts: readonly (Product | System)[],
   action?: Operation
 ) => {
+  // TODO: Remove lower caseing as part of DXB-3449
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   logger.info({ message: `update ElasticSearch by index: ${index}` });
   const client = await getEsClient();
@@ -82,7 +80,9 @@ export const updateElasticSearch = async (
   const bulkOperations = getChunks(esProducts).map((c) =>
     getBulkOperations(index, c, action)
   );
-  logger.info({ message: `all bulkOperations: ${bulkOperations}` });
+  logger.info({
+    message: `all bulkOperations: ${JSON.stringify(bulkOperations)}`
+  });
   // Having to do this synchronously as we are seeing errors and ES dropping
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
@@ -109,7 +109,9 @@ export const updateElasticSearch = async (
         });
     }
     logger.info({
-      message: `bulk response body items: ${response.body.items}`
+      message: `bulk response body items: ${JSON.stringify(
+        response.body.items
+      )}`
     });
   }
 

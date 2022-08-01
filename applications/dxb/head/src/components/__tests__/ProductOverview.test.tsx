@@ -1,12 +1,12 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import { YoutubeVideo } from "@bmi/components";
+import { render } from "@testing-library/react";
+import React from "react";
 import ProductOverview from "../ProductOverview";
 
 describe("ProductOverview component", () => {
   const data = {
     name: "name",
-    brandName: "brandName",
+    brandCode: "brandName",
     nobb: null,
     images: [
       {
@@ -46,9 +46,23 @@ describe("ProductOverview component", () => {
       }
     ],
     attributes: null,
-    isRecapchaShown: true
+    isRecaptchaShown: true,
+    variantCode: "variant1"
   };
-  it("renders correctly with Recapcha", () => {
+
+  it("renders with default image if there are no images, videos nor visualiser media", () => {
+    const localData = { ...data, images: [], videos: [] };
+    const { container } = render(
+      <ProductOverview data={localData}>
+        <div>block</div>
+        <p>text</p>
+      </ProductOverview>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with Recaptcha", () => {
     const { container } = render(
       <ProductOverview data={data}>
         <div>block</div>
@@ -59,8 +73,8 @@ describe("ProductOverview component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly without Recapcha", () => {
-    const localData = { ...data, isRecapchaShown: false };
+  it("renders correctly without Recaptcha", () => {
+    const localData = { ...data, isRecaptchaShown: false };
     const { container } = render(
       <ProductOverview data={localData}>
         <div>block</div>

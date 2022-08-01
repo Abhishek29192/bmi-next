@@ -1,4 +1,4 @@
-process.env.GATEWAY_API_URL = "http://localhost/";
+process.env.FRONTEND_API_URL = "http://localhost/";
 
 import GatewayClient from "../GatewayClient";
 
@@ -8,7 +8,7 @@ jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
     __esModule: true,
-    ...original(),
+    ...original,
     default: (...options: any[]) => fetchSpy(options),
     Request: jest.fn((...options: any[]) => requestSpy(options))
   };
@@ -64,7 +64,7 @@ describe("GatewayClient", () => {
 
       expect(requestSpy).toHaveBeenLastCalledWith([
         {
-          url: process.env.GATEWAY_API_URL,
+          url: process.env.FRONTEND_API_URL,
           headers: {
             "Content-Type": "application/json",
             authorization: "bearer undefined",

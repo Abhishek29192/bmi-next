@@ -1,22 +1,18 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
 import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
+import { useRouter } from "next/router";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
-import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
 import { useAccountContext } from "../../context/AccountContext";
-import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
+import { isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
-import AccessControl from "../../lib/permissions/AccessControl";
-import { GuaranteeReport, ProjectReport } from "../Reports";
 import styles from "./styles.module.scss";
+import SidePanelFooter from "./SidePanelFooter";
 
-// filter `attr` value
-const INITIAL_FILTER_SELECTION = "ALL";
 const getProjectFilters = (t, isPowerfulUser: boolean) => {
   const technologyFilters = [
     { label: t("filters.labels.FLAT"), attr: "FLAT" },
@@ -62,81 +58,25 @@ const technologyIcon: {
   PITCHED: PitchedRoof
 };
 
-const ProjectSidePanelFooter = () => {
-  const { t } = useTranslation("project-page");
-  const [isNewProjectDialogOpen, setIsNewProjectDialogOpen] = useState(false);
-  const { account } = useAccountContext();
-  const currentCompany = useMemo(() => findAccountCompany(account), [account]);
-
-  const handleOnNewProject = () => {
-    setIsNewProjectDialogOpen(true);
-  };
-
-  const handleOnDialogClose = () => {
-    setIsNewProjectDialogOpen(false);
-  };
-
-  if (!currentCompany) {
-    return null;
-  }
-
-  return (
-    <>
-      <Button
-        variant="outlined"
-        onClick={handleOnNewProject}
-        className={styles.footerActionButton}
-        data-testid="project-side-panel-footer-button"
-      >
-        {t("addProject.cta")}
-      </Button>
-      <NewProjectDialog
-        companyId={currentCompany.id}
-        isOpen={isNewProjectDialogOpen}
-        onCloseClick={handleOnDialogClose}
-        onCompleted={handleOnDialogClose}
-      />
-    </>
-  );
-};
-
-const SidePanelFooter = ({
-  projectLength,
-  guaranteeLength
-}: {
-  projectLength: number;
-  guaranteeLength: number;
-}) => {
-  return (
-    <div>
-      <AccessControl dataModel="project" action="addProject">
-        <ProjectSidePanelFooter />
-      </AccessControl>
-      <AccessControl dataModel="project" action="downloadReport">
-        <ProjectReport disabled={projectLength === 0} />
-        <GuaranteeReport disabled={guaranteeLength === 0} />
-      </AccessControl>
-    </div>
-  );
-};
-
 type ProjectSidePanelProps = {
   projects: GetProjectsQuery["projectsByMarket"]["nodes"];
   onProjectSelected?: (projectId: number) => void;
   selectedProjectId?: number;
 };
+
 export const ProjectSidePanel = ({
   projects,
   onProjectSelected,
   selectedProjectId
 }: ProjectSidePanelProps) => {
+  const router = useRouter();
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
 
   const isPowerfulUser = isSuperOrMarketAdmin(account);
-
+  const defaultFilterSelection = isPowerfulUser ? "UNASSIGNED" : "ALL";
   const [filterSelection, setFilterSelection] = useState<string>(
-    isPowerfulUser ? "UNASSIGNED" : INITIAL_FILTER_SELECTION
+    defaultFilterSelection
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -200,12 +140,15 @@ export const ProjectSidePanel = ({
         startDate,
         endDate,
         company,
-        guarantees
+        guarantees,
+        buildingOwnerFirstname,
+        buildingOwnerLastname,
+        buildingOwnerCompany,
+        buildingOwnerMail
       }) => {
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
         );
-
         const matchesFilter =
           filterSelection === "ALL" ||
           (knownStatuses.includes(filterSelection)
@@ -221,7 +164,11 @@ export const ProjectSidePanel = ({
               siteAddress?.town,
               // NOTE: Postcode can match with or without space
               siteAddress?.postcode,
-              siteAddress?.postcode.replace(/\s*/g, "")
+              siteAddress?.postcode.replace(/\s*/g, ""),
+              buildingOwnerFirstname,
+              buildingOwnerLastname,
+              buildingOwnerCompany,
+              buildingOwnerMail
             ];
 
         const query = searchQuery.toLowerCase().trim();
@@ -242,6 +189,24 @@ export const ProjectSidePanel = ({
       0
     );
   }, [projects]);
+
+  useEffect(() => {
+    if (!router.query.project) {
+      if (filterSelection !== defaultFilterSelection) {
+        setFilterSelection(defaultFilterSelection);
+      }
+    }
+  }, [router.query]);
+
+  useEffect(() => {
+    if (
+      !router.query.project &&
+      filteredProjects.length &&
+      filterSelection === defaultFilterSelection
+    ) {
+      onProjectSelected(filteredProjects[0].id);
+    }
+  }, [router.query, filterSelection]);
 
   return (
     <SidePanel

@@ -62,7 +62,7 @@ const ProjectCopyAction = ({ parentProject }: ProjectCopyActionButtonProps) => {
 
     const addressToBuildingOwnerAddressId: ProjectSiteAddressIdFkeyInput = {
       // Creates the BuildingOwner address and links it to the project.
-      create: copyOfBuildingOwnerAddress(parentProject.siteAddress)
+      create: copyOfBuildingOwnerAddress(parentProject.buildingOwnerAddress)
     };
     const today = new Date(new Date().setUTCHours(0, 0, 0, 0));
     const {
@@ -98,7 +98,7 @@ const ProjectCopyAction = ({ parentProject }: ProjectCopyActionButtonProps) => {
         }
       }
     });
-  }, []);
+  }, [parentProject]);
 
   return (
     <AccessControl dataModel="project" action="copy">

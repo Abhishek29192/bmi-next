@@ -4,7 +4,7 @@ import { DocumentContext } from "next/dist/next-server/lib/utils";
 export const formatDate = (date: string) =>
   new Intl.DateTimeFormat("en-GB", {
     dateStyle: "medium"
-  } as any).format(new Date(date?.substring(0, 10)));
+  } as any).format(new Date(date.substring(0, 10)));
 
 type MarketEnvProps = {
   currentHost: string;
@@ -42,4 +42,15 @@ export const getMarketAndEnvFromReq = ({
 
 export const sortArrayByField = (nodes: any[], field: string) =>
   // eslint-disable-next-line security/detect-object-injection
-  nodes?.sort((a, b) => a?.[field]?.localeCompare(b?.[field]));
+  nodes?.sort((a, b) => a[field]?.localeCompare(b[field]));
+
+export const getFileExtension = (
+  filename: string
+): { name: string; extension: string } => ({
+  name: filename.substring(
+    0,
+    (filename.lastIndexOf(".") > -1 && filename.lastIndexOf(".")) ||
+      filename.length
+  ),
+  extension: filename.substring(filename.lastIndexOf(".") + 1, filename.length)
+});

@@ -1,9 +1,7 @@
-import React from "react";
-import classnames from "classnames";
-import { Icon } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import { Icon, Table, Typography } from "@bmi/components";
 import { Delete } from "@material-ui/icons";
+import classnames from "classnames";
+import React from "react";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import styles from "./QuantityTable.module.scss";
 
@@ -59,12 +57,30 @@ const SmallHeader = ({ title }: SmallHeaderProps) => (
 const MediumHeader = ({
   title,
   packSize,
+  externalProductCode
+}: Omit<HeaderProps, "remove" | "quantity">) => (
+  <Table.Row>
+    <Table.Cell className={styles.mediumHeaderFirstCell}>
+      <Typography variant="h6">{title}</Typography>
+    </Table.Cell>
+    <Table.Cell className={styles.mediumHeaderCell}>
+      <Typography variant="h6">{packSize}</Typography>
+    </Table.Cell>
+    <Table.Cell className={styles.mediumHeaderCell}>
+      <Typography variant="h6">{externalProductCode}</Typography>
+    </Table.Cell>
+  </Table.Row>
+);
+
+const LargeHeader = ({
+  title,
+  packSize,
   externalProductCode,
   quantity,
   remove
 }: HeaderProps) => (
   <Table.Row>
-    <Table.Cell className={styles.firstHeader}>
+    <Table.Cell className={styles.largeHeaderFirstCell}>
       <Typography variant="h6">{title}</Typography>
     </Table.Cell>
     <Table.Cell className={styles.header}>
@@ -82,7 +98,7 @@ const MediumHeader = ({
   </Table.Row>
 );
 
-const BuildSmallViewRows = ({
+export const BuildSmallViewRows = ({
   onDelete,
   onChangeQuantity,
   rows,
@@ -93,7 +109,7 @@ const BuildSmallViewRows = ({
     <>
       {rows.map((row, iterator) => (
         <Table.Row
-          key={row.externalProductCode}
+          key={`small-row-${row.externalProductCode}`}
           className={classnames(iterator % 2 !== 0 && styles.greyBack)}
         >
           <Table.Cell className={styles.smallCell}>
@@ -130,6 +146,8 @@ const BuildSmallViewRows = ({
                   />
                 </div>
                 <Icon
+                  aria-label={`Remove ${row.description}`}
+                  role="button"
                   className={styles.icon}
                   source={Delete}
                   onClick={() => onDelete(row.externalProductCode)}
@@ -143,7 +161,57 @@ const BuildSmallViewRows = ({
   );
 };
 
-const BuildMediumViewRows = ({
+export const BuildMediumViewRows = ({
+  onDelete,
+  rows,
+  onChangeQuantity
+}: BuildRowProps) => (
+  <>
+    {rows.map((row, index) => (
+      <Table.Row
+        key={`medium-row-${row.externalProductCode}`}
+        className={classnames(
+          index % 2 !== 0 && styles.greyBack,
+          styles.mediumTableRow
+        )}
+      >
+        <Table.Cell>
+          <div className={styles.cellRow}>
+            <img src={row.image} className={styles.picture} />
+            <Typography className={styles.largeDescription}>
+              {row.description}
+            </Typography>
+          </div>
+          <div className={styles.iteratorCellMedium}>
+            <UpDownSimpleNumericInput
+              name={row.externalProductCode.toString()}
+              min={0}
+              defaultValue={row.quantity}
+              onChange={(value) =>
+                onChangeQuantity(row.externalProductCode, value)
+              }
+            />
+          </div>
+        </Table.Cell>
+        <Table.Cell className={styles.mediumCell}>{row.packSize}</Table.Cell>
+        <Table.Cell className={styles.mediumCell}>
+          <div className={styles.mediumCellBasketIconWrapper}>
+            <Typography>{row.externalProductCode}</Typography>
+            <Icon
+              aria-label={`Remove ${row.description}`}
+              role="button"
+              className={styles.icon}
+              source={Delete}
+              onClick={() => onDelete(row.externalProductCode)}
+            />
+          </div>
+        </Table.Cell>
+      </Table.Row>
+    ))}
+  </>
+);
+
+export const BuildLargeViewRows = ({
   onDelete,
   onChangeQuantity,
   rows
@@ -152,27 +220,27 @@ const BuildMediumViewRows = ({
     <>
       {rows.map((row, iterator) => (
         <Table.Row
-          key={row.externalProductCode}
+          key={`large-row-${row.externalProductCode}`}
           className={classnames(iterator % 2 !== 0 && styles.greyBack)}
         >
           <Table.Cell>
             <div className={styles.cellRow}>
               <img src={row.image} className={styles.picture} />
-              <Typography className={styles.firstDescription}>
+              <Typography className={styles.largeDescription}>
                 {row.description}
               </Typography>
             </div>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={styles.largeCell}>
             <Typography>{row.packSize}</Typography>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={styles.largeCell}>
             <Typography>{row.externalProductCode}</Typography>
           </Table.Cell>
           <Table.Cell
-            className={classnames(styles.mediumCell, styles.iteratorCellMedium)}
+            className={classnames(styles.largeCell, styles.iteratorCellLarge)}
           >
-            <div className={styles.iteratorCellMedium}>
+            <div className={styles.iteratorCellLarge}>
               <UpDownSimpleNumericInput
                 name={row.externalProductCode.toString()}
                 min={0}
@@ -183,8 +251,10 @@ const BuildMediumViewRows = ({
               />
             </div>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={styles.largeCell}>
             <Icon
+              aria-label={`Remove ${row.description}`}
+              role="button"
               className={styles.icon}
               source={Delete}
               onClick={() => onDelete(row.externalProductCode)}
@@ -230,12 +300,28 @@ const QuantityTable = ({
             title={title}
             packSize={packSize}
             externalProductCode={externalProductCode}
+          />
+        </Table.Head>
+        <Table.Body>
+          <BuildMediumViewRows
+            onDelete={onDelete}
+            onChangeQuantity={onChangeQuantity}
+            rows={rows}
+          />
+        </Table.Body>
+      </Table>
+      <Table className={styles.displayIfLarge}>
+        <Table.Head>
+          <LargeHeader
+            title={title}
+            packSize={packSize}
+            externalProductCode={externalProductCode}
             quantity={quantity}
             remove={remove}
           />
         </Table.Head>
         <Table.Body>
-          <BuildMediumViewRows
+          <BuildLargeViewRows
             onDelete={onDelete}
             onChangeQuantity={onChangeQuantity}
             rows={rows}

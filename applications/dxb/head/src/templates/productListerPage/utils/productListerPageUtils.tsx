@@ -1,26 +1,27 @@
-import { Link as GatsbyLink } from "gatsby";
-import { Filter } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
-import React from "react";
-import { OverviewCard, OverviewCardProps } from "@bmi/components";
-import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
-import { iconMap } from "../../../components/Icon";
 import {
-  findMasterImageUrl,
-  findUniqueVariantClassifications,
-  getProductUrl,
-  mapClassificationValues
-} from "../../../utils/product-details-transforms";
-import { Product } from "../../../components/types/pim";
-import withGTM from "../../../utils/google-tag-manager";
+  AnchorLink,
+  Filter,
+  Grid,
+  OverviewCard,
+  OverviewCardProps
+} from "@bmi/components";
+import type { Product as EsProduct } from "@bmi/elasticsearch-types";
+import { Link as GatsbyLink } from "gatsby";
+import React from "react";
+import { iconMap } from "../../../components/Icon";
+import type { Context as SiteContext } from "../../../components/Site";
+import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
+import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
+import withGTM from "../../../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../../../utils/path";
+import type { PageContextType } from "../components/product-lister-page";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
 export const resolveFilters = (filters: readonly Filter[]) => {
   return (filters || [])
-    .filter((filter) => filter.options.length > 0)
+    .filter((filter) => filter?.options.length > 0)
     .map((filter) => {
       const filterName = filter.name.trim().toLowerCase();
       if (filterName === "colour" || filterName.endsWith("colourfamily")) {
@@ -31,30 +32,26 @@ export const resolveFilters = (filters: readonly Filter[]) => {
     });
 };
 
+const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+
 export const renderProducts = (
-  products,
-  pageContext,
-  countryCode,
-  getMicroCopy,
-  filters
-) => {
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
-  return products.flatMap((variant) => {
+  products: EsProduct[],
+  pageContext: PageContextType,
+  countryCode: string,
+  getMicroCopy: SiteContext["getMicroCopy"],
+  filters: Filter[]
+) =>
+  products.flatMap((variant) => {
     const brandLogoCode = variant.brandCode;
     // eslint-disable-next-line security/detect-object-injection
     const brandLogo = iconMap[brandLogoCode];
-    const mainImage = findMasterImageUrl(variant.images);
-    const product: Product = variant.baseProduct;
-    const productUrl = `${getProductUrl(
+    const mainImage = variant.mainImage;
+    const product = variant.baseProduct;
+    const productUrl = `${getPathWithCountryCode(
       countryCode,
-      pageContext.variantCodeToPathMap[variant.code]
+      pageContext.variantCodeToPathMap?.[variant.code] || variant.path
     )}${getSearchParams()}`;
-    const uniqueClassifications = mapClassificationValues(
-      findUniqueVariantClassifications(
-        { ...variant, _product: product },
-        pageContext.pimClassificationCatalogueNamespace
-      )
-    );
+    const subTitle = variant.subTitle || "";
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&
       getMicroCopy("plp.product.moreOptionsAvailable");
@@ -70,13 +67,14 @@ export const renderProducts = (
         <GTMOverviewCard
           title={product.name}
           titleVariant="h5"
-          subtitle={uniqueClassifications}
+          subtitle={subTitle}
           subtitleVariant="h6"
           media={
-            <img
-              src={mainImage}
-              alt={`${uniqueClassifications} ${product.name}`}
-            />
+            mainImage ? (
+              <img src={mainImage} alt={`${subTitle} ${product.name}`} />
+            ) : (
+              <DefaultImage />
+            )
           }
           imageSize="contain"
           brandImageSource={brandLogo}
@@ -102,4 +100,3 @@ export const renderProducts = (
       </Grid>
     );
   });
-};
