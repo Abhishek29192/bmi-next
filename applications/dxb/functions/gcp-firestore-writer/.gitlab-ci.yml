@@ -59,12 +59,6 @@ package_gcp-firestore-writer:
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
-  script:
-    - mkdir -p dist/functions
-    - cd $ROOT_DIR/dist
-    - mv dist/function/package.json package.json
-    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
-    - cd $CI_PROJECT_DIR
 
 deploy_gcp-firestore-writer:
   extends: .deploy_function
