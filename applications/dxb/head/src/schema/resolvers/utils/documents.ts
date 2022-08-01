@@ -4,6 +4,7 @@ import {
   generateDigestFromData,
   isDefined
 } from "../../../../../libraries/utils/src";
+import { microCopy } from "../../../constants/microCopies";
 import { ProductFilter } from "../../../types/pim";
 import { ContentfulAssetType, ContentfulDocument } from "../types/Contentful";
 import {
@@ -292,7 +293,7 @@ const generateAssetTypeFilterFromDocuments = async (
   documents: ContentfulDocument[],
   context: Context
 ): Promise<ProductFilter> => {
-  const microCopyKey = "filterLabels.AssetType";
+  const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
   const { entries: resourceEntries } =
     await context.nodeModel.findAll<MicroCopy>(
       {
