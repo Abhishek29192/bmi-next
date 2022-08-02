@@ -175,7 +175,9 @@ const ProjectDetail = ({
       message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
     });
     return (
-      <div style={{ minHeight: "100vh" }}>{t("projectDetails.error")}</div>
+      <div data-testid="project-error" style={{ minHeight: "100vh" }}>
+        {t("projectDetails.error")}
+      </div>
     );
   }
 
