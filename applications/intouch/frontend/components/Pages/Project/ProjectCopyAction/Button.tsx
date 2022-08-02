@@ -101,7 +101,11 @@ const ProjectCopyAction = ({ parentProject }: ProjectCopyActionButtonProps) => {
   }, [parentProject]);
 
   return (
-    <AccessControl dataModel="project" action="copy">
+    <AccessControl
+      dataModel="project"
+      action="copy"
+      extraData={{ isArchived: parentProject.hidden }}
+    >
       <Button variant="text" onClick={() => setDialogOpen(true)}>
         {t(`projectDetails.cta.copy`)}
       </Button>

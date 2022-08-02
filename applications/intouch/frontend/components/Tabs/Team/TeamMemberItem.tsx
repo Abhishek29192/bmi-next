@@ -8,10 +8,12 @@ import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBox from "@material-ui/icons/CheckBox";
 import classnames from "classnames";
 import AccessControl from "../../../lib/permissions/AccessControl";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
 import TeamMemberCertification from "./TeamMemberCertifications";
 import styles from "./styles.module.scss";
 
 type TeamMemberItemProps = {
+  project: GetProjectQuery["project"];
   member: ProjectMember;
   loading: boolean;
   onDeleteClick?: () => void;
@@ -21,6 +23,7 @@ type TeamMemberItemProps = {
 };
 
 export const TeamMemberItem = ({
+  project,
   member,
   onDeleteClick,
   canNominateProjectResponsible,
@@ -70,7 +73,11 @@ export const TeamMemberItem = ({
           )}
         />
       </Table.Cell>
-      <AccessControl dataModel="project" action="removeTeamMember">
+      <AccessControl
+        dataModel="project"
+        action="removeTeamMember"
+        extraData={{ isArchived: project.hidden }}
+      >
         <Table.Cell>
           <Button
             key={`delete-btn-member-${member.accountId}`}

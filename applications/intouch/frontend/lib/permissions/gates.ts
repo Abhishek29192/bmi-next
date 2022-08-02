@@ -61,6 +61,17 @@ export const canSeePartnerBrandsCarousel = (account) => {
   return findAccountTier(account) !== "T1" || isSuperOrMarketAdmin(account);
 };
 
+export const canActForArhivedProject = (
+  account,
+  extraData: { isArchived: boolean }
+) => {
+  return !extraData.isArchived;
+};
+
+export const archivedProjectRestriction = (permission) => {
+  return permission ? canActForArhivedProject : permission;
+};
+
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 export const gates = {
   company: {
@@ -152,60 +163,67 @@ export const gates = {
   },
   project: {
     submitSolutionGuarantee: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      INSTALLER: false,
-      COMPANY_ADMIN: true,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      AUDITOR: archivedProjectRestriction(false)
     },
     restartSolutionGuarantee: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: false,
-      INSTALLER: false,
-      COMPANY_ADMIN: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(false),
+      INSTALLER: archivedProjectRestriction(false),
+      COMPANY_ADMIN: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
+    },
+    approveAndRejectSolutionGuarantee: {
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      AUDITOR: archivedProjectRestriction(false)
     },
     adminActions: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: false,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(false),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     addNote: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     edit: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     nominateResponsible: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: false,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(false),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     addEvidence: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: true,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(true),
+      AUDITOR: archivedProjectRestriction(false)
     },
     deleteEvidence: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     addProject: {
       SUPER_ADMIN: true,
@@ -236,32 +254,32 @@ export const gates = {
       AUDITOR: true
     },
     addTeamMember: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     removeTeamMember: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     copy: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: true,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(true),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     },
     inspection: {
-      SUPER_ADMIN: true,
-      MARKET_ADMIN: true,
-      COMPANY_ADMIN: false,
-      INSTALLER: false,
-      AUDITOR: false
+      SUPER_ADMIN: archivedProjectRestriction(true),
+      MARKET_ADMIN: archivedProjectRestriction(true),
+      COMPANY_ADMIN: archivedProjectRestriction(false),
+      INSTALLER: archivedProjectRestriction(false),
+      AUDITOR: archivedProjectRestriction(false)
     }
   },
   page: {

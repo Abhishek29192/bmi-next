@@ -190,7 +190,7 @@ describe("ProjectActionsCard", () => {
     it("when click on reject button", async () => {
       useMutationImplementation();
       renderWithUserProvider(
-        <AccountProvider account={generateAccount()}>
+        <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
           <ProjectActionsCard {...initialProps()} />
         </AccountProvider>
       );
@@ -220,7 +220,7 @@ describe("ProjectActionsCard", () => {
     it("when click on confirm button", async () => {
       useMutationImplementation();
       renderWithUserProvider(
-        <AccountProvider account={generateAccount()}>
+        <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
           <ProjectActionsCard {...initialProps()} />
         </AccountProvider>
       );

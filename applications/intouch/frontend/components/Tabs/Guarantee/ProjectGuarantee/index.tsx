@@ -74,6 +74,7 @@ export const ProjectGuarantee = ({
           <SystemGuarantee guarantee={guarantee} />
         ) : (
           <SolutionGuarantee
+            project={project}
             guarantee={guarantee}
             onReviewClick={onReviewClick}
             canGuaranteeBeSubmitted={guaranteeSubmitValidateResult.isValid}

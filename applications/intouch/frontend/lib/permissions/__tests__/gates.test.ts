@@ -3,7 +3,9 @@ import gates, {
   canSeeProjects,
   canSeeTeam,
   canSeeMediaLibrary,
-  canSeePartnerBrandsCarousel
+  canSeePartnerBrandsCarousel,
+  canActForArhivedProject,
+  archivedProjectRestriction
 } from "../gates";
 import { generateAccount } from "../../../lib/tests/factories/account";
 import { ROLES } from "../../../lib/constants";
@@ -255,6 +257,26 @@ describe("permissions/gates", () => {
       const account = generateAccount({ role: ROLES.INSTALLER });
 
       expect(canSeePartnerBrandsCarousel(account)).toBe(false);
+    });
+  });
+
+  describe("canActForArhivedProject", () => {
+    it("pass in extra data true and return false", () => {
+      expect(canActForArhivedProject(null, { isArchived: true })).toBe(false);
+    });
+
+    it("pass in extra data false and return true", () => {
+      expect(canActForArhivedProject(null, { isArchived: false })).toBe(true);
+    });
+  });
+
+  describe("archivedProjectRestriction", () => {
+    it("pass in true and return canActForArhivedProject", () => {
+      expect(archivedProjectRestriction(true)).toBe(canActForArhivedProject);
+    });
+
+    it("pass in false and return param that passed in", () => {
+      expect(archivedProjectRestriction(false)).toBe(false);
     });
   });
 
@@ -529,15 +551,19 @@ describe("permissions/gates", () => {
   describe("gates.project", () => {
     describe("submitSolutionGuarantee", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.submitSolutionGuarantee[ROLES.SUPER_ADMIN]).toBe(
-          true
-        );
+        expect(
+          gates.project.submitSolutionGuarantee[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.submitSolutionGuarantee[ROLES.MARKET_ADMIN]).toBe(
-          true
-        );
+        expect(
+          gates.project.submitSolutionGuarantee[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
@@ -547,9 +573,11 @@ describe("permissions/gates", () => {
       });
 
       it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.submitSolutionGuarantee[ROLES.COMPANY_ADMIN]).toBe(
-          true
-        );
+        expect(
+          gates.project.submitSolutionGuarantee[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -561,9 +589,11 @@ describe("permissions/gates", () => {
 
     describe("restartSolutionGuarantee", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.restartSolutionGuarantee[ROLES.SUPER_ADMIN]).toBe(
-          true
-        );
+        expect(
+          gates.project.restartSolutionGuarantee[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
@@ -591,21 +621,76 @@ describe("permissions/gates", () => {
       });
     });
 
-    describe("adminActions", () => {
+    describe("approveAndRejectSolutionGuarantee", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.adminActions[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.approveAndRejectSolutionGuarantee[ROLES.SUPER_ADMIN](
+            null,
+            {
+              isArchived: false
+            }
+          )
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.adminActions[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.approveAndRejectSolutionGuarantee[ROLES.MARKET_ADMIN](
+            null,
+            {
+              isArchived: false
+            }
+          )
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
-        expect(gates.project.adminActions[ROLES.INSTALLER]).toBe(false);
+        expect(
+          gates.project.approveAndRejectSolutionGuarantee[ROLES.INSTALLER]
+        ).toBe(false);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.approveAndRejectSolutionGuarantee[ROLES.COMPANY_ADMIN](
+            null,
+            {
+              isArchived: false
+            }
+          )
+        ).toBe(true);
+      });
+
+      it("role is AUDITOR ", () => {
+        expect(
+          gates.project.approveAndRejectSolutionGuarantee[ROLES.AUDITOR]
+        ).toBe(false);
+      });
+    });
+
+    describe("adminActions", () => {
+      it("role is SUPER_ADMIN", () => {
+        expect(
+          gates.project.adminActions[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is MARKET_ADMIN ", () => {
+        expect(
+          gates.project.adminActions[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is COMPANY_ADMIN ", () => {
         expect(gates.project.adminActions[ROLES.COMPANY_ADMIN]).toBe(false);
+      });
+
+      it("role is INSTALLER ", () => {
+        expect(gates.project.adminActions[ROLES.INSTALLER]).toBe(false);
       });
 
       it("role is AUDITOR ", () => {
@@ -615,19 +700,31 @@ describe("permissions/gates", () => {
 
     describe("addNote", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.addNote[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.addNote[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.addNote[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.addNote[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.addNote[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.addNote[ROLES.INSTALLER]).toBe(false);
-      });
-
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.addNote[ROLES.COMPANY_ADMIN]).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -637,19 +734,31 @@ describe("permissions/gates", () => {
 
     describe("edit", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.edit[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.edit[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.edit[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.edit[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.edit[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.edit[ROLES.INSTALLER]).toBe(false);
-      });
-
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.edit[ROLES.COMPANY_ADMIN]).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -659,7 +768,11 @@ describe("permissions/gates", () => {
 
     describe("nominateResponsible", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.nominateResponsible[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.nominateResponsible[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
@@ -668,14 +781,16 @@ describe("permissions/gates", () => {
         );
       });
 
-      it("role is INSTALLER ", () => {
-        expect(gates.project.nominateResponsible[ROLES.INSTALLER]).toBe(false);
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.nominateResponsible[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.nominateResponsible[ROLES.COMPANY_ADMIN]).toBe(
-          true
-        );
+      it("role is INSTALLER ", () => {
+        expect(gates.project.nominateResponsible[ROLES.INSTALLER]).toBe(false);
       });
 
       it("role is AUDITOR ", () => {
@@ -685,19 +800,35 @@ describe("permissions/gates", () => {
 
     describe("addEvidence", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.addEvidence[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.addEvidence[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.addEvidence[ROLES.MARKET_ADMIN]).toBe(true);
-      });
-
-      it("role is INSTALLER ", () => {
-        expect(gates.project.addEvidence[ROLES.INSTALLER]).toBe(true);
+        expect(
+          gates.project.addEvidence[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.addEvidence[ROLES.COMPANY_ADMIN]).toBe(true);
+        expect(
+          gates.project.addEvidence[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is INSTALLER ", () => {
+        expect(
+          gates.project.addEvidence[ROLES.INSTALLER](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -707,19 +838,31 @@ describe("permissions/gates", () => {
 
     describe("deleteEvidence", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.deleteEvidence[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.deleteEvidence[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.deleteEvidence[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.deleteEvidence[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.deleteEvidence[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.deleteEvidence[ROLES.INSTALLER]).toBe(false);
-      });
-
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.deleteEvidence[ROLES.COMPANY_ADMIN]).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -835,19 +978,31 @@ describe("permissions/gates", () => {
 
     describe("addTeamMember", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.addTeamMember[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.addTeamMember[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.addTeamMember[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.addTeamMember[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.addTeamMember[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.addTeamMember[ROLES.INSTALLER]).toBe(false);
-      });
-
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.addTeamMember[ROLES.COMPANY_ADMIN]).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -857,19 +1012,31 @@ describe("permissions/gates", () => {
 
     describe("removeTeamMember", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.removeTeamMember[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.removeTeamMember[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.removeTeamMember[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.removeTeamMember[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.removeTeamMember[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.removeTeamMember[ROLES.INSTALLER]).toBe(false);
-      });
-
-      it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.removeTeamMember[ROLES.COMPANY_ADMIN]).toBe(true);
       });
 
       it("role is AUDITOR ", () => {
@@ -879,23 +1046,65 @@ describe("permissions/gates", () => {
 
     describe("copy", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(gates.project.copy[ROLES.SUPER_ADMIN]).toBe(true);
+        expect(
+          gates.project.copy[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(gates.project.copy[ROLES.MARKET_ADMIN]).toBe(true);
+        expect(
+          gates.project.copy[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.copy[ROLES.COMPANY_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
       });
 
       it("role is INSTALLER ", () => {
         expect(gates.project.copy[ROLES.INSTALLER]).toBe(false);
       });
 
+      it("role is AUDITOR ", () => {
+        expect(gates.project.copy[ROLES.AUDITOR]).toBe(false);
+      });
+    });
+
+    describe("inspection", () => {
+      it("role is SUPER_ADMIN", () => {
+        expect(
+          gates.project.inspection[ROLES.SUPER_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
+      it("role is MARKET_ADMIN ", () => {
+        expect(
+          gates.project.inspection[ROLES.MARKET_ADMIN](null, {
+            isArchived: false
+          })
+        ).toBe(true);
+      });
+
       it("role is COMPANY_ADMIN ", () => {
-        expect(gates.project.copy[ROLES.COMPANY_ADMIN]).toBe(true);
+        expect(gates.project.inspection[ROLES.COMPANY_ADMIN]).toBe(false);
+      });
+
+      it("role is INSTALLER ", () => {
+        expect(gates.project.inspection[ROLES.INSTALLER]).toBe(false);
       });
 
       it("role is AUDITOR ", () => {
-        expect(gates.project.copy[ROLES.AUDITOR]).toBe(false);
+        expect(gates.project.inspection[ROLES.AUDITOR]).toBe(false);
       });
     });
   });

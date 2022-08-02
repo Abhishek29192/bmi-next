@@ -261,14 +261,16 @@ describe("SetCompanyDetailsDialog component", () => {
           }
         );
       });
-      await new Promise((r) => setTimeout(r, 1000));
-      fireEvent.submit(screen.getByTestId("company-details-form"));
+      fireEvent.submit(await screen.findByTestId("company-details-form"));
       expect(onSubmitSpy.mock.calls[0][0].logoUpload).toBe(file);
     });
 
     it("file exceeded limit", async () => {
-      const file = new File(["(⌐□_□)".repeat(1024 * 1024)], "chucknorris.png", {
+      const file = new File(["(⌐□_□)"], "chucknorris.png", {
         type: "image/png"
+      });
+      Object.defineProperty(file, "size", {
+        value: MAX_FILE_SIZE * 1024 * 1024 + 1
       });
       const { baseElement } = renderWithUserProvider(
         <MarketContextWrapper>
@@ -297,13 +299,12 @@ describe("SetCompanyDetailsDialog component", () => {
           }
         );
       });
-      await new Promise((r) => setTimeout(r, 1000));
-      fireEvent.submit(screen.getByTestId("company-details-form"));
+      fireEvent.submit(await screen.findByTestId("company-details-form"));
       expect(
         screen.queryByText(
           `edit_dialog.form.fields.logo.fileSizeValidationMessage ${MAX_FILE_SIZE}MB`
         )
       ).toBeTruthy();
-    });
+    }, 10000);
   });
 });
