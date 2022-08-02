@@ -49,7 +49,7 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
       <div className={styles["ProductTechnicalSpec"]}>
         <Accordion noInnerPadding>
           {[...classifications]
-            .sort((a, b) => (a.name > b.name ? -1 : 1))
+            .sort((a, b) => (a.name > b.name ? 1 : -1))
             .map((classification) => {
               return (
                 <Accordion.Item

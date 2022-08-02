@@ -329,7 +329,7 @@ const generateAssetTypeFilterFromDocuments = async (
     filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
     microCopyKey;
   return {
-    filterCode: microCopyKey,
+    filterCode: "AssetType",
     label: filterLabel,
     name: microCopyKey,
     value: [],

@@ -1088,9 +1088,9 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           label: "filter1",
           filterCode: "filter-code-1",
           options: [
+            { label: "option1", value: "value1" },
             { label: "option2", value: "value2" },
-            { label: "option3", value: "value3" },
-            { label: "option1", value: "value1" }
+            { label: "option3", value: "value3" }
           ]
         },
         {
@@ -1392,9 +1392,9 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           label: "filter1",
           filterCode: "filter-code-1",
           options: [
+            { label: "option1", value: "value1" },
             { label: "option2", value: "value2" },
-            { label: "option3", value: "value3" },
-            { label: "option1", value: "value1" }
+            { label: "option3", value: "value3" }
           ]
         },
         {
@@ -1690,9 +1690,9 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           label: "filter1",
           filterCode: "filter-code-1",
           options: [
+            { label: "option1", value: "value1" },
             { label: "option2", value: "value2" },
-            { label: "option3", value: "value3" },
-            { label: "option1", value: "value1" }
+            { label: "option3", value: "value3" }
           ]
         },
         {

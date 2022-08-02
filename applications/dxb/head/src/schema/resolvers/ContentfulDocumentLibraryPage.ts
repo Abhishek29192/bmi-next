@@ -76,16 +76,11 @@ const getContentfulDocuments = async (
       default:
         allowFilterBy = ["Brand"];
     }
-    const cmsDocuments = await resolveDocumentsFromContentful(
+    return await resolveDocumentsFromContentful(
       assetTypes,
       { source, context },
       allowFilterBy
     );
-
-    return {
-      filters: cmsDocuments.filters,
-      documents: cmsDocuments.documents
-    };
   }
   return {
     filters: [],
@@ -133,8 +128,8 @@ const getDocumentsWithFilters = async (
     ...pimDocumentsWithFilters.filters,
     ...cmsDocumentsWithFilters.filters
   ];
-  const mergedFilters = allFilters.reduce<ProductFilter[]>(
-    (allFilters, currFilter) => {
+  const mergedFilters = allFilters
+    .reduce<ProductFilter[]>((allFilters, currFilter) => {
       const existingFilter = allFilters.find(
         (filter) => filter.filterCode === currFilter.filterCode
       );
@@ -153,9 +148,11 @@ const getDocumentsWithFilters = async (
         allFilters.push(currFilter);
       }
       return allFilters;
-    },
-    [] as ProductFilter[]
-  );
+    }, [] as ProductFilter[])
+    .map((filter) => ({
+      ...filter,
+      options: filter.options.sort((a, b) => (a.label > b.label ? 1 : -1))
+    }));
   return {
     filters: mergedFilters,
     documents: sortAllDocuments(allDocs, assetTypes)
