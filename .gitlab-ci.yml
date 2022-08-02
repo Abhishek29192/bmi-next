@@ -47,11 +47,41 @@ install_yarn:
       changes:
         - modules-sha
 
+code_quality:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+eslint-sast:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+lint_yarn:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+nodejs-scan-sast:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+secret_detection:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
 license_finder_yarn:
   rules:
     - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 release:
   stage: release
