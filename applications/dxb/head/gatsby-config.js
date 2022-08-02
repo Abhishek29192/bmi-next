@@ -37,13 +37,17 @@ const documentsQuery = `{
     }
   }
   allContentfulDocument (
-    filter: metadata: {
-        tags: {
-          elemMatch: {
-            contentful_id: { eq: ${process.env.MARKET_TAG_NAME} }
+    filter: {
+      metadata: { 
+        tags: { 
+          elemMatch: { 
+            contentful_id: { 
+              eq: "${process.env.MARKET_TAG_NAME}"
+            }
           }
         }
       }
+    }
   ) {
     edges {
       node {
