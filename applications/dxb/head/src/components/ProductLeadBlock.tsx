@@ -268,27 +268,29 @@ const ProductLeadBlock = ({
             )}
           </LeadBlock>
         </Tabs.TabPanel>
-        <Tabs.TabPanel
-          heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
-          index="three"
-          data-testid="documentsTab"
-        >
-          <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
-              <DocumentSimpleTableResults
-                documents={product.productDocuments}
-                page={page}
-                documentsPerPage={DOCUMENTS_PER_PAGE}
-                headers={[displayBy, "download", "add"]}
-              />
-              <DocumentResultsFooter
-                page={page}
-                count={count}
-                onPageChange={handlePageChange}
-              />
-            </DownloadList>
-          </div>
-        </Tabs.TabPanel>
+        {product.productDocuments?.length && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
+            index="three"
+            data-testid="documentsTab"
+          >
+            <div className={styles["document-library"]} ref={resultsElement}>
+              <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
+                <DocumentSimpleTableResults
+                  documents={product.productDocuments}
+                  page={page}
+                  documentsPerPage={DOCUMENTS_PER_PAGE}
+                  headers={[displayBy, "download", "add"]}
+                />
+                <DocumentResultsFooter
+                  page={page}
+                  count={count}
+                  onPageChange={handlePageChange}
+                />
+              </DownloadList>
+            </div>
+          </Tabs.TabPanel>
+        )}
         {Boolean(product.bimIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}

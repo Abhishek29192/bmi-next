@@ -193,4 +193,16 @@ describe("ProductLeadBlock tests", () => {
     expect(queryByText("MC: documentLibrary.headers.name")).toBeFalsy();
     expect(queryByText("MC: documentLibrary.headers.type")).toBeTruthy();
   });
+  it("renders correctly when productDocuments is empy array", () => {
+    const { container, queryByText } = render(
+      <ProductLeadBlock
+        product={createProduct({
+          productDocuments: []
+        })}
+      />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(queryByText("MC: pdp.leadBlock.documents")).toBeFalsy();
+  });
 });
