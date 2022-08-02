@@ -77,12 +77,6 @@ export const handleDownloadClick = async (
       createAssetFileCountMap(assets);
     const documents = assets.map(
       ({ __typename, asset, extension, title, url }, index) => {
-        if (__typename === "PIMSystemDocument") {
-          return {
-            href: asset.file.url,
-            name: asset.file.fileName
-          };
-        }
         return {
           href:
             __typename === "ContentfulDocument"
