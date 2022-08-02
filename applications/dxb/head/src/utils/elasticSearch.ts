@@ -178,7 +178,7 @@ export const getDocumentQueryObject = (
     .map((filter) => {
       const termQuery = (value) => ({
         term: {
-          ["assetType.pimCode.keyword"]: value
+          ["assetType.code.keyword"]: value
         }
       });
       const query =
@@ -219,7 +219,7 @@ export const getDocumentQueryObject = (
       assetTypes: {
         terms: {
           size: "100",
-          field: "assetType.pimCode.keyword"
+          field: "assetType.code.keyword"
         }
       },
       total: {
