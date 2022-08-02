@@ -20,6 +20,20 @@ if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
   useCountryCode = false;
 }
 
+const allContentfulDocumentFilter = process.env.MARKET_TAG_NAME
+  ? `{
+        metadata: {
+          tags: {
+            elemMatch: {
+              contentful_id: {
+                eq: "${process.env.MARKET_TAG_NAME}"
+              }
+            }
+          }
+        }
+      }`
+  : `{}`;
+
 const documentsQuery = `{
   allPIMDocument {
     __typename
@@ -37,17 +51,7 @@ const documentsQuery = `{
     }
   }
   allContentfulDocument (
-    filter: {
-      metadata: { 
-        tags: { 
-          elemMatch: { 
-            contentful_id: { 
-              eq: "${process.env.MARKET_TAG_NAME}"
-            }
-          }
-        }
-      }
-    }
+    filter: ${allContentfulDocumentFilter}
   ) {
     edges {
       node {
