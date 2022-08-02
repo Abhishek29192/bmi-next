@@ -2065,10 +2065,10 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
           class="Container"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-1 MuiContainer-maxWidthXl"
+            class="MuiContainer-root tabStyles-ContainerRoot-467 MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-2"
+              class="MuiTabs-root tabStyles-TabsRoot-468"
             >
               <div
                 aria-disabled="false"
@@ -2104,7 +2104,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-one"
                     role="tab"
@@ -2123,7 +2123,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-two"
                     role="tab"
@@ -2142,7 +2142,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-four"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-four"
                     role="tab"
@@ -2161,7 +2161,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-five"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-five"
                     role="tab"
@@ -2180,7 +2180,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-seven"
                     role="tab"
@@ -2199,7 +2199,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   <button
                     aria-controls="tabpanel-six"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-six"
                     role="tab"
@@ -2217,7 +2217,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-470 PrivateTabIndicator-colorPrimary-471 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -2252,7 +2252,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-8 TabPanelBox"
+          class="MuiBox-root MuiBox-root-474 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -2342,14 +2342,14 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-475 MuiButton-outlined MuiButton-outlinedPrimary"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-12"
+                      class="MuiButton-label buttonStyles-label-478"
                     >
                       asset-name
                       <span
@@ -2377,14 +2377,14 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-475 MuiButton-outlined MuiButton-outlinedPrimary"
                     href="http://localhost:8000/asset-real-file-name.pdf"
                     rel="noopener noreferrer"
                     tabindex="0"
                     target="_blank"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-12"
+                      class="MuiButton-label buttonStyles-label-478"
                     >
                       asset-name
                       <span
@@ -2478,7 +2478,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-29 TabPanelBox"
+          class="MuiBox-root MuiBox-root-495 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -2545,7 +2545,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-30 TabPanelBox"
+          class="MuiBox-root MuiBox-root-496 TabPanelBox"
         >
           <iframe
             class="assetsIframe"
@@ -2563,7 +2563,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-31 TabPanelBox"
+          class="MuiBox-root MuiBox-root-497 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
@@ -2602,7 +2602,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-32 TabPanelBox"
+          class="MuiBox-root MuiBox-root-498 TabPanelBox"
         >
           <iframe
             class="assetsIframe specification-tab-iframe"
@@ -2620,7 +2620,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empy 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-33 TabPanelBox"
+          class="MuiBox-root MuiBox-root-499 TabPanelBox"
         >
           <iframe
             class="assetsIframe fixing-tool-iframe"
