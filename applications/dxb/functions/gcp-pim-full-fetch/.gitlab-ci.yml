@@ -54,12 +54,6 @@ package_gcp-pim-full-fetch:
   variables:
     FUNCTION_NAME: "gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
-  script:
-    - mkdir -p dist/functions
-    - cd $ROOT_DIR/dist
-    - mv dist/function/package.json package.json
-    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
-    - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-full-fetch:
   extends: .deploy_function
