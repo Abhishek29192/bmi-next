@@ -21,7 +21,11 @@ const BuildingOwnerDetailsEditButton = ({
   const handleCloseDialog = () => setDialogOpen(false);
 
   return (
-    <AccessControl dataModel="project" action="edit">
+    <AccessControl
+      dataModel="project"
+      action="edit"
+      extraData={{ isArchived: project.hidden }}
+    >
       <MaybeTooltip
         title={t("projectDetails.hints.projectEditGuaranteeStatus")}
         placement="top-end"

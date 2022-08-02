@@ -136,7 +136,11 @@ export const TeamTab = ({
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <AccessControl dataModel="project" action="addTeamMember">
+        <AccessControl
+          dataModel="project"
+          action="addTeamMember"
+          extraData={{ isArchived: project.hidden }}
+        >
           <Button
             data-testid="add-team-member-button"
             variant="outlined"
@@ -162,7 +166,11 @@ export const TeamTab = ({
                 <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
                 <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
-                <AccessControl dataModel="project" action="removeTeamMember">
+                <AccessControl
+                  dataModel="project"
+                  action="removeTeamMember"
+                  extraData={{ isArchived: project.hidden }}
+                >
                   <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
                 </AccessControl>
               </Table.Row>
@@ -173,6 +181,7 @@ export const TeamTab = ({
                   team.account && (
                     <TeamMemberItem
                       key={`${team.id}-${index}`}
+                      project={project}
                       member={team}
                       onDeleteClick={() => {
                         onDeleteClickHandler(team.id);

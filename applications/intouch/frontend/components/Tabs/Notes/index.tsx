@@ -23,16 +23,20 @@ const NoteItem = ({ body, author, createdAt }: NoteItemProps) => (
 
 export type NoteTabProps = {
   accountId: number;
-  projectId: number;
+  project: GetProjectQuery["project"];
   notes: GetProjectQuery["project"]["notes"]["nodes"];
 };
 
-export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
+export const NoteTab = ({ accountId, project, notes }: NoteTabProps) => {
   const { t } = useTranslation("project-page");
   const [isAddNoteDialogOpen, setIsAddNoteDialogOpen] = useState(false);
   return (
     <div className={styles.main}>
-      <AccessControl dataModel="project" action="addNote">
+      <AccessControl
+        dataModel="project"
+        action="addNote"
+        extraData={{ isArchived: project.hidden }}
+      >
         <div className={styles.header}>
           <Button
             variant="outlined"
@@ -43,7 +47,7 @@ export const NoteTab = ({ accountId, projectId, notes }: NoteTabProps) => {
           <AddNoteDialog
             isOpen={isAddNoteDialogOpen}
             accountId={accountId}
-            projectId={projectId}
+            projectId={project.id}
             onCloseClick={() => setIsAddNoteDialogOpen(false)}
           />
         </div>

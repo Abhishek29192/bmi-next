@@ -187,13 +187,15 @@ const ProjectDetail = ({
     );
 
   const isGuaranteeAppliable =
-    can(account, "project", "submitSolutionGuarantee") &&
-    !isSolutionOrSystemGuaranteeExist(project);
+    can(account, "project", "submitSolutionGuarantee", {
+      isArchived: project.hidden
+    }) && !isSolutionOrSystemGuaranteeExist(project);
 
   const canNominateResponsibleInstaller = (): boolean => {
     return (
-      can(account, "project", "nominateResponsible") &&
-      ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
+      can(account, "project", "nominateResponsible", {
+        isArchived: project.hidden
+      }) && ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
     );
   };
 
@@ -276,8 +278,8 @@ const ProjectDetail = ({
           <Tabs.TabPanel heading={t("tabs.notes")} index="four">
             <TabCard>
               <NoteTab
+                project={project}
                 accountId={account.id}
-                projectId={project.id}
                 notes={project.notes.nodes}
               />
             </TabCard>
@@ -285,7 +287,9 @@ const ProjectDetail = ({
         </Tabs>
       </Grid>
       <Grid item xs={12}>
-        {can(account, "project", "adminActions") ? (
+        {can(account, "project", "adminActions", {
+          isArchived: project.hidden
+        }) ? (
           <ProjectActionsCard
             projectId={project.id}
             isArchived={project.hidden}

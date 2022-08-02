@@ -295,7 +295,11 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       />
       <div className={styles.main}>
         <div className={styles.header}>
-          <AccessControl dataModel="project" action="addEvidence">
+          <AccessControl
+            dataModel="project"
+            action="addEvidence"
+            extraData={{ isArchived: project.hidden }}
+          >
             <Button
               variant="outlined"
               onClick={() => setEvidenceDialogOpen(true)}
@@ -374,6 +378,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                                     <AccessControl
                                       dataModel="project"
                                       action="deleteEvidence"
+                                      extraData={{ isArchived: project.hidden }}
                                     >
                                       <Button
                                         data-testid="upload-item-delete"
