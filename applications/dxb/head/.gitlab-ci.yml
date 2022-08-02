@@ -58,6 +58,7 @@ wait_until_head_deployed_to_gatsby:
   stage: deploy
   image: !reference [.node-full-image, image]
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -139,6 +140,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -210,6 +212,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
