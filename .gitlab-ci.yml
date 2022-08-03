@@ -81,7 +81,11 @@ license_finder_yarn:
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - modules-sha
     - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - modules-sha
 
 release:
   stage: release
