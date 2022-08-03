@@ -18,6 +18,7 @@ export const sendMessageWithTemplate = async (
 
   try {
     const { data } = await messageTemplate(context.clientGateway, event);
+    logger.info({ data });
     const {
       messageTemplateCollection
     }: {
@@ -45,11 +46,12 @@ export const sendMessageWithTemplate = async (
     }
   } catch (error) {
     logger.error(
-      `[ONE] Error sending an email or a notification: for event ${event}, Error: ${error}`
+      `[error] Error sending an email or a notification: for event ${event}`,
+      error
     );
     logger.error(
-      `[TWO] Error sending an email or a notification: for event ${event}`,
-      error
+      `[context] Error sending an email or a notification: for event ${event}`,
+      context
     );
   }
 };
