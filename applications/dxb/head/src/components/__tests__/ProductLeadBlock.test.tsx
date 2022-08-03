@@ -193,7 +193,7 @@ describe("ProductLeadBlock tests", () => {
     expect(queryByText("MC: documentLibrary.headers.name")).toBeFalsy();
     expect(queryByText("MC: documentLibrary.headers.type")).toBeTruthy();
   });
-  it("renders correctly when productDocuments is empy array", () => {
+  it("renders correctly when productDocuments is empty array", () => {
     const { container, queryByText } = render(
       <ProductLeadBlock
         product={createProduct({

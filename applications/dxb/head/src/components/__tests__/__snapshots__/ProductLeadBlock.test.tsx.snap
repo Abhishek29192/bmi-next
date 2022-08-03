@@ -2050,7 +2050,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
 </div>
 `;
 
-exports[`ProductLeadBlock tests renders correctly when productDocuments is empy array 1`] = `
+exports[`ProductLeadBlock tests renders correctly when productDocuments is empty array 1`] = `
 <div>
   <div
     class="ProductLeadBlock"
