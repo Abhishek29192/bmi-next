@@ -7,6 +7,6 @@ module.exports = {
   ...sharedConfig,
   output: {
     ...sharedConfig.output,
-    path: path.resolve(__dirname, "dist/dist/function")
+    path: path.resolve(__dirname, "dist")
   }
 };
