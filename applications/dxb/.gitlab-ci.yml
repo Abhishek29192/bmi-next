@@ -1,4 +1,5 @@
 include:
+  - local: "/applications/dxb/contentful-migrate/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/.gitlab-ci.yml"
   - local: "/applications/dxb/head/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/.gitlab-ci.yml"

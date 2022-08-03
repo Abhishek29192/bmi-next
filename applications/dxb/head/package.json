@@ -6,7 +6,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
@@ -37,8 +37,8 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
-    "@bmi-digital/styles": "1.0.1",
-    "@bmi-digital/svg-import": "1.0.1",
+    "@bmi-digital/styles": "^1.3.3",
+    "@bmi-digital/svg-import": "^1.3.3",
     "@bmi/components": "1.2.0-monorepo",
     "@bmi/gatsby-plugin-google-tagmanager": "^0.0.0",
     "@bmi/gatsby-plugin-sitemap": "0.0.0",

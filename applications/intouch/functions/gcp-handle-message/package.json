@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "dist/index.js",
   "description": "BMI InTouch Function Handle Pub/Sub message",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",

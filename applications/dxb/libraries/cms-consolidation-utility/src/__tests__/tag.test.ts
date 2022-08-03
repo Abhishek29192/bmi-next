@@ -1,4 +1,4 @@
-import { Environment, Entry, Link } from "contentful-management";
+import type { Entry, Environment, Link } from "contentful-management";
 import mockConsole from "jest-mock-console";
 
 const createTag = async (environment: Partial<Environment>, market: string) =>

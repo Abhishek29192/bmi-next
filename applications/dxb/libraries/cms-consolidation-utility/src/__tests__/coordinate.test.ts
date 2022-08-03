@@ -1,4 +1,4 @@
-import { Asset, Entry, Environment } from "contentful-management";
+import type { Asset, Entry, Environment } from "contentful-management";
 import mockConsole from "jest-mock-console";
 import {} from "../tag";
 import SampleAssetsPage1 from "./resources/assets_page_1.json";

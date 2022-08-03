@@ -1,15 +1,14 @@
-import {
-  Home,
-  Build,
-  School,
-  People,
-  Business,
-  Place
-} from "@material-ui/icons";
+import { SVGImport } from "@bmi-digital/svg-import";
 import { Box, Design } from "@bmi/components";
 import { Account } from "@bmi/intouch-api-types";
-import { SVGImport } from "@bmi-digital/svg-import";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- Being used but not picked up
+import {
+  Build,
+  Business,
+  Home,
+  People,
+  Place,
+  School
+} from "@material-ui/icons";
 import { findAccountCompany } from "../../lib/account";
 import can from "../../lib/permissions/can";
 
