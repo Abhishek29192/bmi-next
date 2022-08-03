@@ -23,7 +23,7 @@ variables:
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
   # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
-  SAST_EXCLUDED_ANALYZERS: spotbugs semgrep flawfinder
+  SAST_EXCLUDED_ANALYZERS: flawfinder spotbugs
   TRANSFER_METER_FREQUENCY: 5s
 
 .ingore_release_mrs:
@@ -55,17 +55,17 @@ code_quality:
 
 eslint-sast:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-
-lint_yarn:
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - when: never
 
 nodejs-scan-sast:
+  rules:
+    - when: never
+
+semgrep-sast:
+  rules:
+    - when: never
+
+lint_yarn:
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_mr, rules, if]
@@ -76,16 +76,6 @@ secret_detection:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_mr, rules, if]
     - if: !reference [.run_for_changes_on_main, rules, if]
-
-license_finder_yarn:
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - modules-sha
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - modules-sha
 
 release:
   stage: release
