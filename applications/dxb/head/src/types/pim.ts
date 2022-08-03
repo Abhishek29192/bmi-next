@@ -9,6 +9,7 @@ import {
   Classification as FirestoreClassification,
   Feature as FirestoreFeature,
   Filter as FirestoreFilter,
+  Image as FirestoreImage,
   KeyFeatures as FirestoreKeyFeatures,
   Measurements as FirestoreMeasurements,
   Mime,
@@ -33,37 +34,31 @@ export type System = Omit<
   | "bim"
   | "brand"
   | "categories"
-  | "classifications"
+  | "description"
   | "documents"
   | "keyFeatures"
   | "images"
-  | "layerCodes"
-  | "name"
   | "promotionalContent"
+  | "shortDescription"
   | "specification"
   | "systemBenefits"
   | "systemLayers"
-  | "uniqueSellingPropositions"
   | "videos"
 > & {
   bim: BIM | null;
   brand: Brand | null;
   categories: readonly Category[];
-  classifications: readonly Classification[];
+  description: string | null;
   documents: readonly SystemDocument[];
   keyFeatures: KeyFeatures | null;
   images: readonly Image[];
-  layerCodes: string[];
-  name: string;
   promotionalContent: string | null;
+  shortDescription: string | null;
   specification: Asset | null;
   systemBenefits: string[] | null;
   systemLayers: readonly SystemLayer[] | null;
-  uniqueSellingPropositions: readonly string[];
   videos: readonly Video[];
-  path: string;
   relatedSystems: RelatedSystem[];
-  scoringWeight: number;
 };
 
 export type BIM = FirestoreBIM;
@@ -234,7 +229,10 @@ export type AssetType = {
   id: string;
 };
 
-export type Image = {
+export type Image = Omit<
+  FirestoreImage,
+  "mainSource" | "thumbnail" | "altText"
+> & {
   mainSource: string | null;
   thumbnail: string | null;
   altText: string | null;
@@ -287,7 +285,7 @@ export type RelatedSystem = Pick<
   System,
   "code" | "images" | "name" | "path" | "scoringWeight" | "shortDescription"
 > & {
-  brand: Pick<Brand, "code">;
+  brand: Pick<Brand, "code"> | null;
 };
 
 export type Filter = Omit<FirestoreFilter, "groupLabel" | "unit"> & {

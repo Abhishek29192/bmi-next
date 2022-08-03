@@ -44,7 +44,7 @@ Array [
     "CLASSIFICATION-FEATURE-CODE": Array [
       Object {
         "code": "codesymbol",
-        "name": "1.0 symbol",
+        "name": "value symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -107,6 +107,12 @@ Array [
         "name": "name",
       },
     ],
+    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
+      },
+    ],
     "allCategories": Array [
       Object {
         "code": "parent-category-code",
@@ -165,7 +171,7 @@ Array [
         "code": "scoringWeightAttributes",
         "features": Array [
           Object {
-            "code": "classification-feature-code",
+            "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
             "featureUnit": Object {
               "name": "unit-name",
               "symbol": "symbol",
@@ -630,7 +636,7 @@ Array [
     "CLASSIFICATION-FEATURE-CODE": Array [
       Object {
         "code": "codesymbol",
-        "name": "1.0 symbol",
+        "name": "value symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -661,6 +667,12 @@ Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+      },
+    ],
+    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "allCategories": Array [],
@@ -696,7 +708,7 @@ Array [
         "code": "scoringWeightAttributes",
         "features": Array [
           Object {
-            "code": "classification-feature-code",
+            "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
             "featureUnit": Object {
               "name": "unit-name",
               "symbol": "symbol",
@@ -1045,7 +1057,7 @@ Array [
     "CLASSIFICATION-FEATURE-CODE": Array [
       Object {
         "code": "codesymbol",
-        "name": "1.0 symbol",
+        "name": "value symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -1104,6 +1116,12 @@ Array [
         "name": "name",
       },
     ],
+    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
+      },
+    ],
     "allCategories": Array [
       Object {
         "code": "parent-category-code",
@@ -1158,7 +1176,7 @@ Array [
         "code": "scoringWeightAttributes",
         "features": Array [
           Object {
-            "code": "classification-feature-code",
+            "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
             "featureUnit": Object {
               "name": "unit-name",
               "symbol": "symbol",
@@ -1362,7 +1380,7 @@ Array [
     "CLASSIFICATION-FEATURE-CODE": Array [
       Object {
         "code": "codesymbol",
-        "name": "1.0 symbol",
+        "name": "value symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -1421,6 +1439,12 @@ Array [
         "name": "name",
       },
     ],
+    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
+      },
+    ],
     "allCategories": Array [
       Object {
         "code": "parent-category-code",
@@ -1475,7 +1499,7 @@ Array [
         "code": "scoringWeightAttributes",
         "features": Array [
           Object {
-            "code": "classification-feature-code",
+            "code": "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
             "featureUnit": Object {
               "name": "unit-name",
               "symbol": "symbol",

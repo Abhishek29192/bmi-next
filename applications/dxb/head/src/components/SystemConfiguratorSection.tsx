@@ -1,4 +1,5 @@
 import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
 import axios, { AxiosResponse } from "axios";
 import { graphql } from "gatsby";
@@ -14,7 +15,6 @@ import React, {
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import { useConfig } from "../contexts/ConfigProvider";
-import { RelatedSystem } from "../types/pim";
 import { devLog } from "../utils/devLog";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
@@ -317,7 +317,7 @@ const SystemConfiguratorResult = ({
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
-    useState<RelatedSystem[]>([]);
+    useState<EsSystem[]>([]);
   const {
     config: { esIndexNameSystem }
   } = useConfig();

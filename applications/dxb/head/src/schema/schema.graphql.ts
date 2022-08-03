@@ -592,18 +592,18 @@ type System implements Node {
   categories: [Category]!
   classifications: [Classification]!
   code: String!
-  description: String!
+  description: String
   documents: [PIMSystemDocument]!
   guaranteesAndWarrantiesImages: [PIMAsset]!
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   keyFeatures: KeyFeatures
   images: [PIMImage]!
   layerCodes: [String]!
-  longDescription: String!
   name: String!
   path: String!
   promotionalContent: String
-  shortDescription: String!
+  scoringWeight: Int!
+  shortDescription: String
   specification: PIMAsset
   systemBenefits: [String]
   systemLayers: [SystemLayer]
@@ -611,7 +611,6 @@ type System implements Node {
   uniqueSellingPropositions: [String]!
   videos: [PimVideo]!
   relatedSystems: [System]!
-  scoringWeight: Int!
 }
 
 type BIM {

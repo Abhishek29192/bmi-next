@@ -32,7 +32,10 @@ export const createScoringWeightAttributesClassification = (
 ): Classification =>
   createClassification({
     features: [
-      createFeature({ featureValues: [createFeatureValue({ value: "1.0" })] })
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/scoringWeightAttributes.scoringweight`,
+        featureValues: [createFeatureValue({ value: "1.0" })]
+      })
     ],
     ...classification,
     code: "scoringWeightAttributes"
