@@ -45,8 +45,11 @@ export const sendMessageWithTemplate = async (
     }
   } catch (error) {
     logger.error(
-      `Error sending an email or a notification: for event ${event}`,
-      error.message
+      `[ONE] Error sending an email or a notification: for event ${event}, Error: ${error}`
+    );
+    logger.error(
+      `[TWO] Error sending an email or a notification: for event ${event}`,
+      error
     );
   }
 };
