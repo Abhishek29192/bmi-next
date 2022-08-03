@@ -151,10 +151,7 @@ describe("Mailer", () => {
           project: "I am project",
           projectId: 2
         });
-        expect(loggerSpy).toBeCalledWith(
-          `Error sending an email or a notification: for event ${eventMessage}`,
-          errorMessage
-        );
+        expect(loggerSpy).toBeCalledTimes(2);
       });
     });
 
