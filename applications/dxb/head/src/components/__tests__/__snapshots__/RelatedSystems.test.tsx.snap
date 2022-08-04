@@ -821,3 +821,119 @@ exports[`RelatedSystems component renders systems correctly without classificati
   </div>
 </div>
 `;
+
+exports[`SystemCard renders correctly with related system 1`] = `
+<div>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+  >
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      data-gtm="{\\"id\\":\\"gtm-id\\"}"
+      href="/en/related-system-path/"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt="related-ssytem-name"
+        class="header-picture Media Media--contain"
+        src="http://localhost:8000/image-main-source.jpg"
+      />
+      <div
+        class="body"
+      >
+        <h5
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+        >
+          related-ssytem-name
+        </h5>
+        <div
+          class="children text"
+        >
+          related-short-desc
+        </div>
+        <div
+          class="footer"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-164"
+            >
+              MC: sdp.system.readMore
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`SystemCard renders correctly with system from elasticsearch 1`] = `
+<div>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+  >
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      data-gtm="{\\"id\\":\\"gtm-id\\"}"
+      href="/en/s/code-name-hashed-code/"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt="name"
+        class="header-picture Media Media--contain"
+        src="http://localhost:8000/mainSource"
+      />
+      <div
+        class="body"
+      >
+        <h5
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+        >
+          name
+        </h5>
+        <div
+          class="children text"
+        >
+          Short description
+        </div>
+        <div
+          class="footer"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-144"
+            >
+              MC: sdp.system.readMore
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</div>
+`;

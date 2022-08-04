@@ -10,5 +10,8 @@
     "build": "tsc",
     "compile": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
+  },
+  "dependencies": {
+    "@bmi/pim-types": "0.0.0"
   }
 }

@@ -1,8 +1,9 @@
 import type {
   ApprovalStatus,
   BaseProduct,
+  Category as PimCategory,
   Classification,
-  Image,
+  Image as PimImage,
   System as PimSystem
 } from "@bmi/pim-types";
 
@@ -27,7 +28,7 @@ export type Product = {
   code: string; // Needed
   baseProduct?: BaseProduct; // Needed
   brandCode?: string; // Needed
-  images: Image[]; // Needed
+  images: PimImage[]; // Needed
   allCategories: Category[];
   classifications: Classification[];
   approvalStatus: ApprovalStatus;
@@ -41,14 +42,21 @@ export type Product = {
   [extractedFilter: string]: any;
 };
 
+export type Image = {
+  mainSource?: string;
+  thumbnail?: string;
+  altText?: string;
+};
+
 export type System = {
   approvalStatus: PimSystem["approvalStatus"];
-  brand?: string;
-  type: PimSystem["type"];
-  images: PimSystem["images"];
-  code: PimSystem["code"];
-  name: PimSystem["name"];
-  shortDescription: PimSystem["shortDescription"];
+  brand?: PimCategory;
+  code: string;
   hashedCode: string;
+  images: readonly Image[];
+  name: string;
   path: string;
+  scoringWeight: number;
+  shortDescription?: string;
+  type?: string;
 };
