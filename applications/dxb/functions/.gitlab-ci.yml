@@ -9,6 +9,7 @@ include:
   - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-form-submit/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-functions-deployer/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-full-fetch-coordinator/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-message-handler/.gitlab-ci.yml"
