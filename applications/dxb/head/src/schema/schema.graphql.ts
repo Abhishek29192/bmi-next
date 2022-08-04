@@ -29,7 +29,7 @@ interface ContentfulPage implements Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -69,13 +69,19 @@ type PLPFilterResponse {
   allowFilterBy: [String]
 }
 
+type BreadcrumbItem{
+  id: String
+  label: String
+  slug: String
+}
+
 type ContentfulSimplePage implements ContentfulPage & Node {
   id: ID!
   contentful_id: String!
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -103,7 +109,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -129,7 +135,7 @@ type ContentfulHomePage implements Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
@@ -145,7 +151,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   content: ContentfulRichText
@@ -564,7 +570,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   slug: String!
   categoryCodes: [String!]
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -897,7 +903,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   cta: ContentfulLink @link(from: "cta___NODE")
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   subtitle: String
   description: contentfulBrandLandingPageDescriptionTextNode @link(from: "description___NODE")

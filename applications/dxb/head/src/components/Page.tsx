@@ -197,7 +197,11 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    breadcrumbs
+    breadcrumbs {
+      id
+      label
+      slug
+    }
     signupBlock {
       ...SignupBlockFragment
     }
