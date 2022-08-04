@@ -18,7 +18,7 @@ export const sendMessageWithTemplate = async (
 
   try {
     const { data } = await messageTemplate(context.clientGateway, event);
-    logger.info({ data });
+    logger.info("Logging messageTemplate data", data);
     const {
       messageTemplateCollection
     }: {
