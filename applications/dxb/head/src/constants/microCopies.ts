@@ -241,6 +241,7 @@ export const microCopy = {
   TILE_OPTIONS_RIDGE_TITLE: "tileOptions.ridge.title",
   TILE_OPTIONS_RIDGE_HELP: "tileOptions.ridge.help",
   TILE_OPTIONS_VENTILATION_HOOD_TITLE: "tileOptions.ventilationHood.title",
+  TILE_OPTIONS_VENTILATION_HOOD_HELP: "tileOptions.ventilationHood.help",
   TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL:
     "tileOptions.ventilationHood.noneLabel",
 
@@ -255,5 +256,82 @@ export const microCopy = {
   UNDERLAY_SELECTION_EMPTY: "underlaySelection.empty",
 
   VALIDATION_ERRORS_FIELD_REQUIRED: "validation.errors.fieldRequired",
-  VALIDATION_ERRORS_EMAIL: "validation.errors.email"
-};
+  VALIDATION_ERRORS_EMAIL: "validation.errors.email",
+
+  FIND_A_ROOFER_FILTERS_LABEL: "findARoofer.filtersLabel",
+  FIND_A_BRANCH_FILTERS_LABEL: "findABranch.filtersLabel",
+  FIND_A_MERCHANT_FILTERS_LABEL: "findAMerchant.filtersLabel",
+
+  FIND_A_ROOFER_MERCHANT_NAME_SEARCH_LABEL:
+    "findARoofer.merchantNameSearchLabel",
+  FIND_A_ROOFER_COMPANY_FILED_LABEL: "findARoofer.companyFieldLabel",
+
+  PDP_UNAVAILABLE_COLOR: "pdp.unavailable.color",
+  PDP_UNAVAILABLE_SIZE: "pdp.unavailable.size",
+  PDP_UNAVAILABLE_VARIANTATTRIBUTE: "pdp.unavailable.variantattribute",
+  PDP_UNAVAILABLE_TEXTUREFAMILY: "pdp.unavailable.texturefamily",
+
+  CALCULATOR_NOBB_LABEL: "calculator.nobb.label",
+  ROOF_DIMENSIONS_PROTRUSIONS_PROMPT: "roofDimensions.protrusions.prompt",
+
+  VALIDATION_ERRORS_POSITIVE_NUMBERS_ONLY:
+    "validation.errors.positiveNumberOnly",
+  VALIDATION_ERRORS_LENGTH_RANGE: "validation.errors.lengthRange",
+  VALIDATION_PITCH_RANGE: "validation.errors.pitchRange",
+  VALIDATION_RANGE: "validation.errors.range",
+
+  RESULTS_DOWNLOAD_PDF_LABEL: "results.downloadPdfLabel",
+  RESULTS_CATEGORIES_TITLES: "results.categories.tiles",
+  RESULTS_CATEGORIES_VENTILATION: "results.categories.ventilation",
+
+  ROOF_SELECTION_GABLE: "roofSelection.gable",
+  ROOF_SELECTION_HIPPED: "roofSelection.hipped",
+  ROOF_SELECTION_SLOPED: "roofSelection.sloped",
+
+  TILE_SELECTION_CATEGORIES_CONCRETE: "tileSelection.categories.concrete",
+  TILE_SELECTION_CATEGORIES_CLAY: "tileSelection.categories.clay",
+  TILE_SELECTION_CATEGORIES_METAL: "tileSelection.categories.metal",
+
+  RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TITLE:
+    "results.alerts.quantities.not.updated.title",
+  RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TEXT:
+    "results.alerts.quantities.not.updated.text",
+  RESULTS_ALERTS_QUANTITIES_UPDATED_TITLE:
+    "results.alerts.quantities.updated.title",
+  RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT:
+    "results.alerts.quantities.updated.text",
+  RESULTS_ALERTS_QUANTITIES_RESET_BUTTON:
+    "results.alerts.quantities.reset.button",
+
+  RESULTS_EDITED_PRODUCTS_TITLE: "results.edited.products.title",
+  PDF_REPORT_EXTRAS_SECTION_TITLE: "pdf.report.extras.section.title",
+
+  FILTER_LABELS_ASSET_TYPE: "filterLabels.assetType",
+
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_TILE_ROOFS:
+    "findARoofer.filters.pitchedRoofTileRoofs",
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_ROOF_COASTERS:
+    "findARoofer.filters.pitchedRoofRoofCoaters",
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_BITUMEN_ROOFS:
+    "findARoofer.filters.pitchedRoofBitumenRoofs",
+
+  SEARCH_TITLESUR: "search.titlesur",
+
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF: "findARoofer.filters.pitchedRoof",
+  PDP_FILTER_LABELS_ASSET_TYPE: "pdp.filterLabels.assetType",
+  FILTER_LABELS_MATERIALS: "filterLabels.materials",
+  FILTER_LABELS_BRAND: "filterLabels.brand",
+  FILTER_LABELS_PRODUCT_LINE: "filterLabels.productLine",
+  FILTER_LABELS_TEXTURE_FAMILY: "filterLabels.textureFamily",
+  FILTER_LABELS_COLOUR: "filterLabels.colour",
+  FILTER_LABELS_PRODUCT_FAMILY: "filterLabels.productFamily",
+
+  FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
+  UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
+  SEARCH_PLACEHOLDER: "search.placeholder",
+  FILTER_LABELS_TEXTUREFAMILY: "filterLabels.textureFamily"
+} as const;
+
+export type MicroCopyObj = typeof microCopy;
+
+export type MicroCopyValues = MicroCopyObj[keyof MicroCopyObj] | "";

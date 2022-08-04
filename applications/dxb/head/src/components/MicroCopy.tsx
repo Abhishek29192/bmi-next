@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { MicroCopyValues } from "../constants/microCopies";
 
 export type Data = {
   key: string;
@@ -6,7 +7,7 @@ export type Data = {
 };
 
 export type GetMicroCopy = (
-  path: string,
+  path: MicroCopyValues,
   variables?: Record<string, string>
 ) => string;
 
@@ -25,7 +26,9 @@ export const generateGetMicroCopy = (microCopy?: Data[]) => {
 
   const getMicroCopy: GetMicroCopy = (path, variables) => {
     const copy = microCopy.find(({ key }) => key === path)?.value;
-    return replaceVariables(copy, variables) || `MC: ${path}`;
+    return (
+      replaceVariables(copy as MicroCopyValues, variables) || `MC: ${path}`
+    );
   };
 
   return getMicroCopy;

@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState
 } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { devLog } from "../../../utils/devLog";
 import FormSection from "../../FormSection";
@@ -25,7 +26,6 @@ import { MainTileVariant, ResultsObject } from "../types/v2";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
-import { microCopy } from "./constants/microCopy";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
 import FieldContainer from "./subcomponents/_FieldContainer";
