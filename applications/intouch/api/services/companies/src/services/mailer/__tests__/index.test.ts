@@ -154,7 +154,7 @@ describe("Mailer", () => {
           project: "I am project",
           projectId: 2
         });
-        expect(loggerSpy).toBeCalledTimes(2);
+        expect(loggerSpy).toBeCalledTimes(1);
       });
     });
 

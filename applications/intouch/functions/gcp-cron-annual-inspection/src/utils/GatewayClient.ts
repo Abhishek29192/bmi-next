@@ -15,7 +15,8 @@ export default class GatewayClient {
         "Content-Type": "application/json",
         authorization: "bearer undefined",
         "x-api-key": bearer,
-        "x-apigateway-api-userinfo": userinfo
+        "x-apigateway-api-userinfo": userinfo,
+        "x-request-market-domain": "en"
       }
     });
   }
