@@ -19,6 +19,7 @@ exports[`ProjectActionsCard render correctly 1`] = `
     >
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        data-testid="archive-project-button"
         tabindex="0"
         type="button"
       >
@@ -33,6 +34,7 @@ exports[`ProjectActionsCard render correctly 1`] = `
       </button>
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        data-testid="reject-guarantee-button"
         tabindex="0"
         type="button"
       >
@@ -47,6 +49,7 @@ exports[`ProjectActionsCard render correctly 1`] = `
       </button>
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+        data-testid="approve-guarantee-button"
         tabindex="0"
         type="button"
       >

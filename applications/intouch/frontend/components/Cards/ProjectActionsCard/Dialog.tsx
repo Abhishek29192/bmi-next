@@ -62,6 +62,7 @@ const ConfirmDialog = ({
             onConfirmClick={dialogState.onConfirm}
             cancelLabel={t("projectActions.cta.cancel")}
             onCancelClick={onCancel}
+            data-testid="project-actions-guarantee-dialog"
           />
         </Grid>
       </Grid>
