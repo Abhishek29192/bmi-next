@@ -116,6 +116,22 @@ deploy_gatsby_cloud_qa:
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_one_page_qa:
+  extends: .migrate_content
+  variables:
+    CONTENTFUL_ALIAS: one-page-qa
+    DXB_MARKET_ID: "NO"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_one_page_qa:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_qa
+  variables:
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
+    DXB_MARKET_ID: "NO"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_norway:
   extends: .migrate_content
   rules:
