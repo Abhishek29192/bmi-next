@@ -156,7 +156,11 @@ export const ProjectActionsCard = ({
           </AccessControl>
         )}
         {!isArchived && (
-          <Button variant="outlined" onClick={toggleProjectArchive}>
+          <Button
+            data-testid="archive-project-button"
+            variant="outlined"
+            onClick={toggleProjectArchive}
+          >
             {t("projectActions.cta.archive")}
           </Button>
         )}
@@ -164,6 +168,7 @@ export const ProjectActionsCard = ({
           {isSolutionOrSystemGuaranteeExist && (
             <Button
               disabled={loading}
+              data-testid="restart-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -185,6 +190,7 @@ export const ProjectActionsCard = ({
             <Button
               variant="outlined"
               disabled={loading}
+              data-testid="reject-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -201,6 +207,7 @@ export const ProjectActionsCard = ({
             </Button>
             <Button
               disabled={loading}
+              data-testid="approve-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
