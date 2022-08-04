@@ -81,10 +81,6 @@ build_contentful_migrate:
       apt-get update
       apt-get install -y jq
 
-      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_QA
-      fi
-
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
         DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PREPROD
       fi
@@ -113,6 +109,23 @@ deploy_gatsby_cloud_qa:
   needs:
     - migrate_content_qa
   variables:
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
+    DXB_MARKET_ID: "NO"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+migrate_content_one_page_qa:
+  extends: .migrate_content
+  variables:
+    CONTENTFUL_ALIAS: one-page-qa
+    DXB_MARKET_ID: "NO"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_one_page_qa:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_one_page_qa
+  variables:
+    DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
