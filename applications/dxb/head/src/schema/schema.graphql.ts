@@ -136,6 +136,7 @@ type ContentfulHomePage implements Node {
   slug: String!
   path: String!
   breadcrumbs: [BreadcrumbItem]
+  spaBrands: [ContentfulBrand] @link(from:"spaBrands___NODE")
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
@@ -917,6 +918,13 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   tags: [ContentfulTag] @link(from: "tags___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
+}
+
+type ContentfulBrand implements Node {
+  title: String!
+  brandLogo: String!
+  subtitle: String
+  path: String
 }
 
 type contentfulTableDataJsonNode implements Node {
