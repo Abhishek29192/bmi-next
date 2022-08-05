@@ -6,14 +6,22 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 
 ### Environment variables
 
-| Variable name           | Description                                                                                                                                                                                       | Possible values                                  | Default value |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------- |
-| CONTENTFUL_ALIAS        | The alias _or_ environment name to be updated.                                                                                                                                                    | String name of the existing alias or environment | `undefined`   |
-| DELETE_OLD_ENVIRONMENTS | Whether to delete the old environments.                                                                                                                                                           | `true` or `false`                                | `false`       |
-| MANAGEMENT_ACCESS_TOKEN | The access token for the Contentful Management API.                                                                                                                                               | String of the access token                       | `undefined`   |
-| MIGRATION_DRY_RUN       | Whether this should be a dry run.                                                                                                                                                                 | `true` or `false`                                | `false`       |
-| NEW_ENVIRONMENT_NAME    | The name of the new environment to create and have the alias point to. Only if this is set will it clone an existing environment. If this is set, then the `CONTENTFUL_ALIAS` _must_ be an alias. | String name of the environment to create         | `undefined`   |
-| SPACE_ID                | The ID of the Contentful Space.                                                                                                                                                                   | String of the ID for the Contentful space        | `undefined`   |
+| Variable name           | Description                                                                                                                                                                                             | Possible values                                  | Default value |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------- |
+| CONTENTFUL_ENVIRONMENT  | The alias _or_ environment name to be updated.                                                                                                                                                          | String name of the existing alias or environment | `undefined`   |
+| DELETE_OLD_ENVIRONMENTS | Whether to delete the old environments.                                                                                                                                                                 | `true` or `false`                                | `false`       |
+| MANAGEMENT_ACCESS_TOKEN | The access token for the Contentful Management API.                                                                                                                                                     | String of the access token                       | `undefined`   |
+| MIGRATION_DRY_RUN       | Whether this should be a dry run.                                                                                                                                                                       | `true` or `false`                                | `false`       |
+| NEW_ENVIRONMENT_NAME    | The name of the new environment to create and have the alias point to. Only if this is set will it clone an existing environment. If this is set, then the `CONTENTFUL_ENVIRONMENT` _must_ be an alias. | String name of the environment to create         | `undefined`   |
+| SPACE_ID                | The ID of the Contentful Space.                                                                                                                                                                         | String of the ID for the Contentful space        | `undefined`   |
+
+## Build the scripts
+
+As our scripts are written in TypeScript, they need to be built before they can be run.
+
+```bash
+yarn workspace @bmi/dxb-contentful-migrate build
+```
 
 ## Initialise environment
 
@@ -33,10 +41,18 @@ yarn workspace @bmi/dxb-contentful-migrate run ctf-migrate create <migration-fil
 
 ## Run migration scripts
 
-If the `NEW_ENVIRONMENT_NAME` environment variable is provided, this will clone the environment the `CONTENTFUL_ALIAS` environment variable is pointing to and call the new environment as `NEW_ENVIRONMENT_NAME`. If the `DELETE_OLD_ENVIRONMENTS` environment variable is set, then all non-major version named environments will be deleted and all major version named environments that are greater than the previous version _and_ that do _not_ have an alias pointing to it.
+If the `NEW_ENVIRONMENT_NAME` environment variable is provided, this will clone the environment the `CONTENTFUL_ENVIRONMENT` environment variable is pointing to and call the new environment as `NEW_ENVIRONMENT_NAME`. If the `DELETE_OLD_ENVIRONMENTS` environment variable is set, then all non-major version named environments will be deleted and all major version named environments that are greater than the previous version _and_ that do _not_ have an alias pointing to it.
 
 ```bash
 yarn workspace @bmi/dxb-contentful-migrate prod
+```
+
+## Run migration scripts in debug mode
+
+This is the same as `prod` but with the `--inspect` flag set.
+
+```bash
+yarn workspace @bmi/dxb-contentful-migrate debug
 ```
 
 ## Migrate up
