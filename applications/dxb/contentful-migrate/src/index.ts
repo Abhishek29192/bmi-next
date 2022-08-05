@@ -5,7 +5,7 @@ import ora from "ora";
 import { compareSemVer, isValidSemVer, parseSemVer } from "semver-parser";
 
 const {
-  CONTENTFUL_ALIAS,
+  CONTENTFUL_ENVIRONMENT,
   DELETE_OLD_ENVIRONMENTS,
   MANAGEMENT_ACCESS_TOKEN,
   MIGRATION_DRY_RUN,
@@ -129,18 +129,16 @@ const isError = (error: unknown): error is Error => {
 
 const buildContentful = async (
   spaceId: string,
-  contentfulAlias: string,
+  contentfulEnvironment: string,
   managementAccessToken: string,
   deleteOldEnvironments: boolean,
   isDryRun: boolean,
   newEnvironmentName?: string
 ) => {
-  // const targetContentfulEnvironment = getTargetContentfulEnvironment(branch);
-  // NOTE: do not need to create new contentful environment if target brach is DEV_MAIN_BRANCH (MR merged into DEV_MAIN_BRANCH) or if it is a trigger from contentful netlify app
   if (!newEnvironmentName) {
     await runMigrationScripts(
       spaceId,
-      contentfulAlias,
+      contentfulEnvironment,
       managementAccessToken,
       isDryRun
     );
@@ -166,20 +164,20 @@ const buildContentful = async (
     }
   }
 
-  const alias = await space.getEnvironmentAlias(contentfulAlias);
+  const alias = await space.getEnvironmentAlias(contentfulEnvironment);
   if (!alias) {
     throw new Error(
-      `You must have the alias ${contentfulAlias} created in Contentful`
+      `You must have the alias ${contentfulEnvironment} created in Contentful`
     );
   }
 
   console.log(
-    `Creating new contentful environment ${newEnvironmentName} from ${contentfulAlias}`
+    `Creating new contentful environment ${newEnvironmentName} from ${contentfulEnvironment}`
   );
   const newEnv = await space.createEnvironmentWithId(
     newEnvironmentName,
     { name: newEnvironmentName },
-    contentfulAlias
+    contentfulEnvironment
   );
 
   const timer = ora(
@@ -211,7 +209,7 @@ const buildContentful = async (
   }
 
   console.log(
-    `Pointing contentful alias ${contentfulAlias} to ${newEnv.sys.id}`
+    `Pointing contentful alias ${contentfulEnvironment} to ${newEnv.sys.id}`
   );
 
   alias.environment.sys.id = newEnv.sys.id;
@@ -223,15 +221,15 @@ const buildContentful = async (
 };
 
 const main = async () => {
-  if (!CONTENTFUL_ALIAS || !MANAGEMENT_ACCESS_TOKEN || !SPACE_ID) {
+  if (!CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN || !SPACE_ID) {
     throw new Error(
-      "Missing env config `CONTENTFUL_ALIAS` or `MANAGEMENT_ACCESS_TOKEN` or `SPACE_ID`"
+      "Missing env config `CONTENTFUL_ENVIRONMENT` or `MANAGEMENT_ACCESS_TOKEN` or `SPACE_ID`"
     );
   }
 
   await buildContentful(
     SPACE_ID,
-    CONTENTFUL_ALIAS,
+    CONTENTFUL_ENVIRONMENT,
     MANAGEMENT_ACCESS_TOKEN,
     DELETE_OLD_ENVIRONMENTS === "true",
     MIGRATION_DRY_RUN === "true",

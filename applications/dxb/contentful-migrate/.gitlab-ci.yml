@@ -48,14 +48,14 @@ build_contentful_migrate:
       fi
 
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        CONTENTFUL_ALIAS=pre-production
+        CONTENTFUL_ENVIRONMENT=pre-production
         DELETE_OLD_ENVIRONMENTS=true
         DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
         NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
       fi
 
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        CONTENTFUL_ALIAS=production
+        CONTENTFUL_ENVIRONMENT=production
         DELETE_OLD_ENVIRONMENTS=true
         DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
         NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
@@ -100,7 +100,7 @@ build_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   variables:
-    CONTENTFUL_ALIAS: staging
+    CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
@@ -116,7 +116,7 @@ deploy_gatsby_cloud_qa:
 migrate_content_one_page_qa:
   extends: .migrate_content
   variables:
-    CONTENTFUL_ALIAS: one-page-qa
+    CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
