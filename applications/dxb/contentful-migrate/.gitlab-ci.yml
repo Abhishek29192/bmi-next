@@ -76,7 +76,7 @@ build_contentful_migrate:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
     ROOT_DIR: "applications/dxb/contentful-migrate"
   cache: {}
-  before_script:
+  script:
     - |
       apt-get update
       apt-get install -y jq
@@ -88,8 +88,7 @@ build_contentful_migrate:
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
         DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PROD
       fi
-  script:
-    - |
+
       DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
@@ -112,6 +111,11 @@ deploy_gatsby_cloud_qa:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
+  before_script:
+    # Until https://gitlab.com/gitlab-org/gitlab/-/issues/29407 is resolved
+    - temporary_file=$(mktemp)
+    - echo ${DXB_BUILD_HOOKS} > $temporary_file
+    - DXB_BUILD_HOOKS=$temporary_file
 
 migrate_content_one_page_qa:
   extends: .migrate_content
@@ -128,6 +132,11 @@ deploy_gatsby_cloud_one_page_qa:
     DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_ONE_PAGE_QA
     DXB_MARKET_ID: "NO"
     ROOT_DIR: "applications/dxb/contentful-migrate"
+  before_script:
+    # Until https://gitlab.com/gitlab-org/gitlab/-/issues/29407 is resolved
+    - temporary_file=$(mktemp)
+    - echo ${DXB_BUILD_HOOKS} > $temporary_file
+    - DXB_BUILD_HOOKS=$temporary_file
 
 migrate_content_norway:
   extends: .migrate_content
