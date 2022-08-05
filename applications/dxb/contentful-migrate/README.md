@@ -15,6 +15,14 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 | NEW_ENVIRONMENT_NAME    | The name of the new environment to create and have the alias point to. Only if this is set will it clone an existing environment. If this is set, then the `CONTENTFUL_ALIAS` _must_ be an alias. | String name of the environment to create         | `undefined`   |
 | SPACE_ID                | The ID of the Contentful Space.                                                                                                                                                                   | String of the ID for the Contentful space        | `undefined`   |
 
+## Build the scripts
+
+As our scripts are written in TypeScript, they need to be built before they can be run.
+
+```bash
+yarn workspace @bmi/dxb-contentful-migrate build
+```
+
 ## Initialise environment
 
 The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the current state of each managed content type.

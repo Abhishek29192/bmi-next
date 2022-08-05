@@ -13,6 +13,14 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 | MIGRATION_DRY_RUN       | Whether this should be a dry run.                   | `true` or `false`                                | `false`       |
 | SPACE_ID                | The ID of the Contentful Space.                     | String of the ID for the Contentful space        | `undefined`   |
 
+## Build the scripts
+
+As our scripts are written in TypeScript, they need to be built before they can be run.
+
+```bash
+yarn workspace @bmi/webtools-contentful-migrate build
+```
+
 ## Initialise environment
 
 The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the current state of each managed content type.
