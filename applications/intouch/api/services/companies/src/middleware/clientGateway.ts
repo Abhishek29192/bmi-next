@@ -39,6 +39,11 @@ export default (req, res, next: NextFunction) => {
     const { GATEWAY_URL } = process.env;
     const bearer = await getGCPToken(GATEWAY_URL);
 
+    logger.info(
+      `[x-request-market-domain] is: ${req.headers["x-request-market-domain"]}`,
+      req.headers
+    );
+
     try {
       const { data } = await axios({
         url: `${GATEWAY_URL}`,
