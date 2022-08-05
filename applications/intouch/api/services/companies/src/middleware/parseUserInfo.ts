@@ -26,6 +26,7 @@ export const can = (req) => (permissions: string | string[]) => {
 };
 
 export default async (req, res, next) => {
+  const logger = req.logger("userInfo");
   const user = parseHeaders(req);
   const dbPool = getDbPool();
 
@@ -45,6 +46,8 @@ export default async (req, res, next) => {
         source: user?.source,
         role: "SUPER_ADMIN"
       };
+
+      logger.info(`[req from parseUserInfo] is: ${req?.user?.role}`, req);
 
       if (req.headers["x-request-market-domain"]) {
         const {

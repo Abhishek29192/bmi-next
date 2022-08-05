@@ -5,6 +5,9 @@ import { getGCPToken } from "../utils";
 export const overwriteMarketHeader = (req) => {
   const { user = null } = req;
   const marketClaim = `${process.env.AUTH0_NAMESPACE}/intouch_market_code`;
+  const logger = req.logger("gateway:client");
+
+  logger.info(`[user] is: ${user?.role}`, user);
 
   if (
     user?.role !== "SUPER_ADMIN" &&
