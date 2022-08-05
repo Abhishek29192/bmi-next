@@ -24,7 +24,6 @@ describe("transformSystem", () => {
     const system = createSystem();
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
-    const images = getImages(system);
     const scoringWeight = getScoringWeight(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
@@ -34,7 +33,13 @@ describe("transformSystem", () => {
       brand,
       code,
       hashedCode: "hashed-system-code",
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       name,
       path: "/s/generated-url",
       scoringWeight,
@@ -48,7 +53,6 @@ describe("transformSystem", () => {
   it("should transform system to object without categories", () => {
     const system = createSystem({ categories: undefined });
     const { approvalStatus, type, code, name, shortDescription } = system;
-    const images = getImages(system);
     const scoringWeight = getScoringWeight(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
@@ -57,7 +61,13 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight,
@@ -72,7 +82,6 @@ describe("transformSystem", () => {
   it("should transform system to object without brand", () => {
     const system = createSystem({ categories: [] });
     const { approvalStatus, type, code, name, shortDescription } = system;
-    const images = getImages(system);
     const scoringWeight = getScoringWeight(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
@@ -81,7 +90,13 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight,
@@ -103,7 +118,6 @@ describe("transformSystem", () => {
 
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, code, name, shortDescription } = system;
-    const images = getImages(system);
     const scoringWeight = getScoringWeight(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
@@ -112,7 +126,13 @@ describe("transformSystem", () => {
       brand: brandCategory,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight,
@@ -134,7 +154,6 @@ describe("transformSystem", () => {
 
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, code, name, shortDescription } = system;
-    const images = getImages(system);
     const scoringWeight = getScoringWeight(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
@@ -143,7 +162,13 @@ describe("transformSystem", () => {
       brand: undefined,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight,
@@ -159,7 +184,6 @@ describe("transformSystem", () => {
     const system = createSystem({ classifications: undefined });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
-    const images = getImages(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
 
@@ -167,7 +191,13 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight: 0,
@@ -185,7 +215,6 @@ describe("transformSystem", () => {
     });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
-    const images = getImages(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
 
@@ -193,7 +222,13 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight: 0,
@@ -209,7 +244,6 @@ describe("transformSystem", () => {
     const system = createSystem({ classifications: [] });
     const { approvalStatus, type, code, name, shortDescription } = system;
     const brand = getBrand(system);
-    const images = getImages(system);
     generateHashFromString.mockReturnValue("hashed-system-code");
     generateUrl.mockReturnValue("generated-url");
 
@@ -217,7 +251,13 @@ describe("transformSystem", () => {
       brand,
       approvalStatus,
       type,
-      images,
+      images: [
+        {
+          altText: "name",
+          mainSource: "http://localhost:8000",
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight: 0,
@@ -280,13 +320,6 @@ describe("transformSystem", () => {
 
 const getBrand = (system: System) =>
   system.categories!.find(({ categoryType }) => categoryType === "Brand");
-
-const getImages = (system: System) =>
-  system.images!.map((image) => ({
-    mainSource: "",
-    thumbnail: "",
-    altText: ""
-  }));
 
 const getScoringWeight = (system: System) =>
   Number.parseInt(
