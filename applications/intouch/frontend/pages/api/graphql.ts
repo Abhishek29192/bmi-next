@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware, Options } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
-import { getMarketAndEnvFromReq } from "../../lib/utils";
+import { getMarketAndEnvFromReq, parseHeaders } from "../../lib/utils";
 import { withLoggerApi } from "../../lib/middleware/withLogger";
 
 interface ExtendedNextApiRequest extends NextApiRequest {
@@ -115,11 +115,20 @@ export const handler = async function (
   // arrive at this point without a subdomain
   const { host } = req.headers;
   const { FRONTEND_BASE_URL } = process.env;
+  const userFromFunctions = parseHeaders(req);
+
+  logger.info(`[graphql userFromFunctions] is:`, userFromFunctions);
+  logger.info(`[graphql headers] is:`, headers);
 
   if ([`http://${host}`, `https://${host}`].includes(FRONTEND_BASE_URL)) {
     market = user?.["https://intouch/intouch_market_code"];
   } else {
     market = getMarketAndEnvFromReq(req as any).market;
+    if (userFromFunctions) {
+      if (["annual-inspection-function"].includes(userFromFunctions?.source)) {
+        market = headers["x-apigateway-api-userinfo"];
+      }
+    }
   }
 
   /**

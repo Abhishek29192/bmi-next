@@ -5,9 +5,6 @@ import { getGCPToken } from "../utils";
 export const overwriteMarketHeader = (req) => {
   const { user = null } = req;
   const marketClaim = `${process.env.AUTH0_NAMESPACE}/intouch_market_code`;
-  const logger = req.logger("gateway:client");
-
-  logger.info(`[user] is: ${user?.role}`, user);
 
   if (
     user?.role !== "SUPER_ADMIN" &&
@@ -41,11 +38,6 @@ export default (req, res, next: NextFunction) => {
   ) => {
     const { GATEWAY_URL } = process.env;
     const bearer = await getGCPToken(GATEWAY_URL);
-
-    logger.info(
-      `[x-request-market-domain] is: ${req.headers["x-request-market-domain"]}`,
-      req.headers
-    );
 
     try {
       const { data } = await axios({
