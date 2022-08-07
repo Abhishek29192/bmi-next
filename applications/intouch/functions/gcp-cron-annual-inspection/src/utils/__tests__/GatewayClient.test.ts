@@ -40,7 +40,8 @@ describe("GatewayClient", () => {
   describe("annualInspection", () => {
     const raw = JSON.stringify({
       source: "annual-inspection-function",
-      sub: ""
+      sub: "",
+      market: "en"
     });
     const userinfo = Buffer.from(raw).toString("base64");
     const body = JSON.stringify({
