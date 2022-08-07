@@ -1,4 +1,3 @@
-import { Buffer } from "buffer";
 import { Request } from "express";
 import { DocumentContext } from "next/dist/next-server/lib/utils";
 
@@ -63,19 +62,5 @@ export const getOneTrustToken = (str: string, lang: string) => {
     return marketsOneTrustMap[lang] || null;
   } catch (e) {
     return false;
-  }
-};
-
-export const parseHeaders = (req) => {
-  const logger = req.logger("userInfo");
-  const userInfo = req.headers["x-apigateway-api-userinfo"];
-  if (userInfo) {
-    try {
-      return JSON.parse(
-        Buffer.from(userInfo as string, "base64").toString("ascii")
-      );
-    } catch (error) {
-      logger.error("Error parsing the userinfo header: ", error);
-    }
   }
 };

@@ -13,7 +13,7 @@ export const parseHeaders = (req): Account => {
         Buffer.from(userInfo as string, "base64").toString("ascii")
       );
     } catch (error) {
-      logger.error("Errore parsing the userinfo header: ", error);
+      logger.error("Error parsing the userinfo header: ", error);
     }
   }
 };

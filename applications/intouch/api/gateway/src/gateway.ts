@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 import { ApolloGateway, LocalGraphQLDataSource } from "@apollo/gateway";
 import FileUploadDataSource from "@profusion/apollo-federation-upload";
 import { ContentfulSchema } from "./local-services";
@@ -25,7 +26,7 @@ const createGateway = async () => {
           willSendRequest: async ({ request, context }) => {
             const bearer = await getGCPToken(url);
 
-            // Send gcp auth token to comunicate between services in gcp
+            // Send gcp auth token to communicate between services in gcp
             if (bearer) {
               request.http.headers.set("authorization", bearer);
             }
@@ -38,7 +39,7 @@ const createGateway = async () => {
               );
             }
 
-            // Send a uuid throught the request to track it
+            // Send a uuid through the request to track it
             if (context["x-request-id"]) {
               request.http.headers.set("x-request-id", context["x-request-id"]);
             }
@@ -51,12 +52,37 @@ const createGateway = async () => {
               );
             }
 
-            // Send the market throught the request
+            // Send the market through the request
             if (context.market) {
               request.http.headers.set(
                 "x-request-market-domain",
                 context.market
               );
+            }
+
+            // Customize x-request-market-domain for functions.
+            if (context["x-apigateway-api-userinfo"]) {
+              let userInfo;
+              try {
+                userInfo = JSON.parse(
+                  Buffer.from(
+                    context["x-apigateway-api-userinfo"] as string,
+                    "base64"
+                  ).toString("ascii")
+                );
+              } catch (error) {
+                // eslint-disable-next-line
+                console.log(error.message);
+              }
+              if (
+                ["annual-inspection-function"].includes(userInfo?.source) &&
+                userInfo?.market
+              ) {
+                request.http.headers.set(
+                  "x-request-market-domain",
+                  userInfo.market
+                );
+              }
             }
           }
         });

@@ -7,7 +7,8 @@ export default class GatewayClient {
   private constructor(bearer: string) {
     const raw = JSON.stringify({
       source: "annual-inspection-function",
-      sub: ""
+      sub: "",
+      market: "en"
     });
     const userinfo = Buffer.from(raw).toString("base64");
     this.request = new Request(FRONTEND_API_URL!, {
