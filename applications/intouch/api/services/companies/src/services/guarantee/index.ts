@@ -16,6 +16,7 @@ import { filesTypeValidate } from "../../utils/file";
 import { sendMessageWithTemplate } from "../mailer";
 import { EventMessage, tierBenefit } from "../contentful";
 import { getDbPool } from "../../db";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
@@ -160,9 +161,14 @@ export const updateGuarantee = async (
         projectId,
         pgClient
       );
+
+      const marketDomain = user.market?.domain;
+      const contentfulTag = parseMarketCompanyTag(marketDomain);
+
       const { guaranteeValidityOffsetYears = 0 } = await tierBenefit(
         context.clientGateway,
-        projectCompanyDetail.tier
+        projectCompanyDetail.tier,
+        contentfulTag
       );
 
       const max = await getSystemMaximumValidityYears(systemBmiRef, pgClient);

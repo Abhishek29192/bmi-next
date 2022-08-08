@@ -443,8 +443,15 @@ export const ADD_PROJECT_EVIDENCES = gql`
   }
 `;
 export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
-  query contentfulEvidenceCategories {
-    evidenceCategoryCollection {
+  query contentfulEvidenceCategories($tag: String!) {
+    evidenceCategoryCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         sys {
           id

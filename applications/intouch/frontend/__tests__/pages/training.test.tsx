@@ -88,6 +88,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueId",
+            tag: "en",
             userId: "doceboUserId"
           }
         },
@@ -129,6 +130,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueIdT3",
+            tag: "en",
             userId: "doceboUserId"
           }
         },
@@ -168,6 +170,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueId",
+            tag: "en",
             userId: "doceboUserId"
           }
         },
