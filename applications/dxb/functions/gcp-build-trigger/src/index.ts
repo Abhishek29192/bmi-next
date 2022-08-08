@@ -35,16 +35,20 @@ const monitorCheck = async (filter: string): Promise<boolean> => {
       endTime: { seconds: seconds },
       startTime: { seconds: seconds - 240 }
     },
-    view: "HEADERS"
+    view: "FULL"
   });
-  return results[0].length > 0;
+  return !!results[0].find((result) =>
+    result.points?.find((point) => (point.value?.int64Value || -1) > 0)
+  );
 };
 
+// The most granular we can get is the number of deletes at a project level. Whilst not ideal, it is at least better than not at all.
 const checkDocumentsDeleted = async (): Promise<boolean> =>
   monitorCheck(
     `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
   );
 
+// The most granular we can get is the number of updates at a project level. Whilst not ideal, it is at least better than not at all.
 const checkDocumentsUpdated = async (): Promise<boolean> =>
   monitorCheck(
     `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
@@ -118,10 +122,6 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!(await checkDocumentsDeleted()) && !(await checkDocumentsUpdated())) {
-    logger.info({ message: "No documents have been deleted or updated." });
-    return res.sendStatus(304);
-  }
   // eslint-disable-next-line no-constant-condition
   while (true) {
     if (runtime > timeoutLimit) {
@@ -129,14 +129,26 @@ export const build: HttpFunction = async (_req, res) => {
       return res.sendStatus(500);
     }
 
+    const documentsDeleted = await checkDocumentsDeleted();
+    const documentsUpdated = await checkDocumentsUpdated();
     const functionsRunning = await checkFunctionsRunning();
     const messagesStillBeingSent = await checkMessagesStillBeingSent();
 
-    if (!functionsRunning && !messagesStillBeingSent) {
+    if (
+      (documentsDeleted || documentsUpdated) &&
+      !functionsRunning &&
+      !messagesStillBeingSent
+    ) {
       logger.info({ message: "Calling Build Server..." });
       const response = await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
       logger.debug({ message: JSON.stringify(response, undefined, 2) });
       return res.sendStatus(200);
+    }
+
+    if (!documentsDeleted && !documentsUpdated) {
+      logger.info({
+        message: "Waiting for documents have either been deleted or updated."
+      });
     }
 
     if (functionsRunning) {
