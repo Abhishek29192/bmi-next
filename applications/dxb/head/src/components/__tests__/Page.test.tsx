@@ -1,9 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
-import { Data as SiteData } from "../Site";
+import { render } from "@testing-library/react";
+import React from "react";
 import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
+import { Data as SiteData } from "../Site";
 
 const mockNavigation: NavigationData = {
   __typename: "ContentfulNavigation",
@@ -100,6 +100,7 @@ const siteData: SiteData = {
   menuNavigation: mockNestedNavigation,
   menuUtilities: mockNavigation,
   resources: null,
+  pitchedRoofCalculatorConfig: null,
   regions: [
     {
       label: "Europe",

@@ -144,3 +144,8 @@ export enum CalculatorSteps {
   Guttering = "guttering",
   YourSolutionContains = "your-solution-contains"
 }
+
+export type CalculatorConfig = {
+  hubSpotFormId: string | null;
+  roofShapes: { roofShapeId: string }[];
+};

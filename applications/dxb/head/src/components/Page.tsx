@@ -77,7 +77,8 @@ const Page = ({
     menuUtilities,
     resources,
     headScripts,
-    regions
+    regions,
+    pitchedRoofCalculatorConfig
   } = siteData;
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
@@ -163,6 +164,7 @@ const Page = ({
                     onError={() =>
                       navigate(getPathWithCountryCode(countryCode, "422"))
                     }
+                    calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>
                       <Content>{children}</Content>

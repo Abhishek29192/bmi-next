@@ -18,7 +18,6 @@ export interface EnvConfig {
     gcpApsisEndpoint?: string;
     isCountryCodeProhibited?: boolean;
     webtoolsCalculatorDataUrl?: string;
-    webToolCalculatorHubSpotFormId?: string;
     isWebToolsCalculatorEnabled?: boolean;
     webToolsCalculatorApsisEndpoint?: string;
     documentDownloadMaxLimit?: number;
@@ -64,8 +63,6 @@ export const envConfig: EnvConfig = {
     ),
     webToolsCalculatorApsisEndpoint:
       process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
-    webToolCalculatorHubSpotFormId:
-      process.env.GATSBY_WEBTOOL_CALCULATOR_HUBSPOT_FORM_ID,
     documentDownloadMaxLimit:
       +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100,
     googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,

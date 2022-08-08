@@ -1,9 +1,10 @@
-import React from "react";
 import { graphql } from "gatsby";
-import { NavigationData } from "./Link";
-import { Data as ResourcesData } from "./Resources";
-import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
+import React from "react";
 import { Region } from "./Header";
+import { NavigationData } from "./Link";
+import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
+import { CalculatorConfig } from "./pitched-roof-calculator/types";
+import { Data as ResourcesData } from "./Resources";
 
 export type Context = {
   node_locale: string;
@@ -44,6 +45,7 @@ export type Data = {
     headScripts: string;
   } | null;
   regions: Region[];
+  pitchedRoofCalculatorConfig: CalculatorConfig | null;
 };
 
 export const query = graphql`
@@ -73,6 +75,9 @@ export const query = graphql`
     }
     regions {
       ...RegionFragment
+    }
+    pitchedRoofCalculatorConfig {
+      ...PitchedRoofCalculatorFragment
     }
   }
 `;

@@ -14,7 +14,10 @@ import { pushToDataLayer } from "../utils/google-tag-manager";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleDataV1 from "./pitched-roof-calculator/samples/data.json";
 import sampleDataV2 from "./pitched-roof-calculator/samples/v2/data.json";
-import { Data as DataV1 } from "./pitched-roof-calculator/types";
+import {
+  CalculatorConfig,
+  Data as DataV1
+} from "./pitched-roof-calculator/types";
 import { Data as DataV2 } from "./pitched-roof-calculator/types/v2";
 
 const PitchedRoofCalculatorV1 = React.lazy(
@@ -44,9 +47,10 @@ export const CalculatorContext = createContext<Context>({
 type Props = {
   children: React.ReactNode;
   onError: () => void;
+  calculatorConfig: CalculatorConfig | null;
 };
 
-const CalculatorProvider = ({ children, onError }: Props) => {
+const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState<DataV2 | DataV1>();
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
@@ -149,6 +153,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
           <PitchedRoofCalculatorV2
             {...calculatorProps}
             data={calculatorProps.data as DataV2}
+            calculatorConfig={calculatorConfig}
           />
         </Suspense>
       ) : (
