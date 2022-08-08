@@ -1,9 +1,10 @@
 import { BMI as brandLogo, ContainerDialog, Icon } from "@bmi/components";
 import { LinearProgress } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
-import { CalculatorSteps } from "../types";
+import { CalculatorConfig, CalculatorSteps } from "../types";
 import { Data } from "../types/v2";
 import styles from "./PitchedRoofCalculator.module.scss";
 
@@ -17,6 +18,7 @@ export type PitchedRoofCalculatorProps = {
   isDebugging?: boolean;
   data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
+  calculatorConfig: CalculatorConfig | null;
 };
 
 const stepProgress: { [key in CalculatorSteps]: number } = {
@@ -35,6 +37,7 @@ const PitchedRoofCalculator = ({
   onClose,
   isDebugging,
   data,
+  calculatorConfig,
   onAnalyticsEvent = () => {
     // no-op
   }
@@ -104,7 +107,8 @@ const PitchedRoofCalculator = ({
                     isDebugging,
                     selected,
                     setSelected,
-                    data
+                    data,
+                    calculatorConfig
                   }}
                 />
               ) : (
@@ -119,3 +123,12 @@ const PitchedRoofCalculator = ({
 };
 
 export default PitchedRoofCalculator;
+
+export const query = graphql`
+  fragment PitchedRoofCalculatorFragment on ContentfulWebToolCalculator {
+    hubSpotFormId
+    roofShapes {
+      roofShapeId
+    }
+  }
+`;

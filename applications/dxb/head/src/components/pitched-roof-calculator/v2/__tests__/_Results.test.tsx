@@ -124,6 +124,7 @@ jest.mock("../_PDF", () => ({
 }));
 
 const resultsProps = {
+  hubSpotFormId: "mock",
   measurements: {
     faces: [
       {

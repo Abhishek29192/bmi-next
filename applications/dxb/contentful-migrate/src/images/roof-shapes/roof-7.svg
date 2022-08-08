@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 300">
+  <defs>
+    <linearGradient id="linear-gradient" x1="243.95772" y1="198.60497" x2="217.03003" y2="151.96484" gradientUnits="userSpaceOnUse">
+      <stop offset="0.4707" stop-color="#b8c9d5" stop-opacity="0"/>
+      <stop offset="1" stop-color="#b8c9d5" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="63.28382" y1="222.97638" x2="90.30664" y2="176.17147" gradientUnits="userSpaceOnUse">
+      <stop offset="0.31641" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="328.73193" y1="113.73779" x2="328.73193" y2="87.99316" gradientUnits="userSpaceOnUse">
+      <stop offset="0.11719" stop-opacity="0"/>
+      <stop offset="1" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="21.39941" y1="173.63525" x2="21.39941" y2="136.21924" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-5" x1="133.03369" y1="226.84912" x2="133.03369" y2="201.10449" xlink:href="#linear-gradient-3"/>
+  </defs>
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="roof007">
+    <g id="fill">
+      <polygon points="132.645 200.81 132.645 262.872 328.343 149.76 328.343 87.698 132.645 200.81" fill="url(#linear-gradient)"/>
+      <polygon points="132.645 200.879 132.645 262.872 21.011 198.57 21.011 136.164 132.645 200.879" fill="url(#linear-gradient-2)"/>
+      <polygon points="340 81.333 133.033 201.104 123.322 74.897 226.036 15.669 340 81.333" fill="#237aad"/>
+      <polygon points="225.854 15.774 123.322 74.897 10 129.78 217.252 10 225.854 15.774" fill="#48d7ff"/>
+      <polygon points="133.033 201.104 10 129.78 123.322 74.897 133.033 201.104" fill="#05ffff"/>
+    </g>
+    <g id="lines">
+      <rect x="328.23193" y="87.99316" width="1" height="25.74463" fill="url(#linear-gradient-3)"/>
+      <rect x="20.89941" y="136.21924" width="1" height="37.41602" fill="url(#linear-gradient-4)"/>
+      <rect x="132.53369" y="201.10449" width="1" height="25.74463" fill="url(#linear-gradient-5)"/>
+      <line x1="123.32216" y1="74.89717" x2="226.03564" y2="15.6692" fill="none" stroke="#002839" stroke-miterlimit="10"/>
+      <path d="M236.30714,188.48073" fill="none" stroke="#00232d" stroke-linejoin="round"/>
+      <polyline points="133.034 201.105 123.322 74.897 10 129.781" fill="none" stroke="#002839" stroke-linejoin="round"/>
+      <polygon points="133.034 201.105 10 129.781 217.253 10 226.036 15.669 340 81.333 133.034 201.105" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

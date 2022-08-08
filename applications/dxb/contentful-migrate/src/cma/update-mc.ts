@@ -8,7 +8,7 @@
   Micro Copies. In this case, the value of each will be the same as the value 
 */
 import { microCopy } from "@bmi/head/src/constants/microCopies";
-import { createClient, Environment } from "contentful-management";
+import { getEnvironment, waitFor } from "@bmi/utils";
 
 /*
   Contentful Management API have limitation to amount of requests
@@ -26,25 +26,6 @@ const BULK_SIZE = 200;
 const KEYS_REQUEST_PAGE_SIZE = 100;
 
 const TO_BE_PUBLISHED = process.argv.includes("--publish");
-
-let environmentCache: Environment;
-
-const getEnvironment = async () => {
-  if (environmentCache) {
-    return environmentCache;
-  }
-
-  const client = createClient({
-    accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
-  });
-  const space = await client.getSpace(process.env.SPACE_ID!);
-
-  environmentCache = await space.getEnvironment(
-    process.env.CONTENTFUL_ENVIRONMENT!
-  );
-
-  return environmentCache;
-};
 
 const getContentfulKeys = async (
   fetched: unknown[],
@@ -70,9 +51,6 @@ const getContentfulKeys = async (
 
   return getContentfulKeys(result, resources.total);
 };
-
-const waitFor = (ms: number) =>
-  new Promise((resolve) => setTimeout(() => resolve(true), ms));
 
 const uploadChunk = async (chunk: any, locales: any, i: number) => {
   const environment = await getEnvironment();

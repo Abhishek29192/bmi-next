@@ -216,6 +216,19 @@ type ContentfulRichText implements Node {
   references: [ContentfulRichTextReference] @link(from: "references___NODE")
 }
 
+type ContentfulCalculatorRoofShape implements Node {
+  id: ID!
+  name: String!
+  roofShapeId: String!
+  media: ContentfulAsset! @link(by: "id", from: "media___NODE")
+}
+
+type ContentfulWebToolCalculator implements Node {
+  id: ID!
+  roofShapes: [ContentfulCalculatorRoofShape!]! @link(from: "roofShapes___NODE")
+  hubSpotFormId: String
+}
+
 type ContentfulCardCollectionSection implements Node {
   id: ID!
   title: String
@@ -495,6 +508,7 @@ type ContentfulSite implements Node {
   resources: ContentfulResources @link(from: "resources___NODE")
   headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
   regions: [RegionJson]! @link(from: "regions___NODE")
+  pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
 }
 
 type contentfulSiteHeadScriptsTextNode implements Node {

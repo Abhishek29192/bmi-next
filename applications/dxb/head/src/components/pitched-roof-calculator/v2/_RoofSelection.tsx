@@ -64,7 +64,7 @@ export type RoofSelectionProps = Pick<
   RoofSelectionRowProps,
   "select" | "selected"
 > & {
-  requiredRoofShapes?: Array<{ name: string; id: string }>;
+  requiredRoofShapes?: { roofShapeId: string }[];
 };
 
 const RoofSelection = ({
@@ -78,7 +78,7 @@ const RoofSelection = ({
       return [];
     }
 
-    const roofsToUse = requiredRoofShapes.map((roof) => roof.id);
+    const roofsToUse = requiredRoofShapes.map((roof) => roof.roofShapeId);
 
     return roofs.filter((roof) => roofsToUse.includes(roof.id));
   }, [requiredRoofShapes]);
