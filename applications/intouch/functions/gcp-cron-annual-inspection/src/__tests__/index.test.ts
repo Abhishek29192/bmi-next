@@ -8,6 +8,14 @@ jest.mock("../utils/GatewayClient.ts", () => ({
   create: () => createSpy(),
   annualInspection: () => annualInspectionSpy()
 }));
+
+const createMarketsSpy = jest.fn();
+const marketsSpy = jest.fn();
+jest.mock("../utils/GetMarkets.ts", () => ({
+  create: () => createMarketsSpy(),
+  getMarkets: () => marketsSpy()
+}));
+
 const loggerInfo = jest.fn();
 const loggerError = jest.fn();
 jest.mock("@bmi-digital/functions-logger", () => ({
@@ -22,7 +30,22 @@ describe("gcp-cron-annual-inspection", () => {
     jest.clearAllMocks();
   });
 
+  const marketsJson = {
+    data: {
+      markets: {
+        nodes: [{ domain: "en" }]
+      }
+    }
+  };
+
   it("normal case", async () => {
+    createMarketsSpy.mockImplementationOnce(() => ({
+      getMarkets: () => marketsSpy()
+    }));
+    marketsSpy.mockReturnValueOnce({
+      ok: true,
+      json: () => marketsJson
+    });
     createSpy.mockImplementationOnce(() => ({
       annualInspection: () => annualInspectionSpy()
     }));
@@ -43,6 +66,13 @@ describe("gcp-cron-annual-inspection", () => {
 
   it("show statusText when fetch fails", async () => {
     const statusText = "statusText";
+    createMarketsSpy.mockImplementationOnce(() => ({
+      getMarkets: () => marketsSpy()
+    }));
+    marketsSpy.mockReturnValueOnce({
+      ok: true,
+      json: () => marketsJson
+    });
     createSpy.mockImplementationOnce(() => ({
       annualInspection: () => annualInspectionSpy()
     }));
@@ -61,6 +91,13 @@ describe("gcp-cron-annual-inspection", () => {
 
   it("fetch throw error", async () => {
     const error = new Error("error");
+    createMarketsSpy.mockImplementationOnce(() => ({
+      getMarkets: () => marketsSpy()
+    }));
+    marketsSpy.mockReturnValueOnce({
+      ok: true,
+      json: () => marketsJson
+    });
     createSpy.mockImplementationOnce(() => Promise.reject(error));
     try {
       await handleRequest({} as Request, response);

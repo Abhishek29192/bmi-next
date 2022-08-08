@@ -1,7 +1,7 @@
 process.env.FRONTEND_API_URL = "http://localhost/";
 process.env.GATEWAY_API_KEY = "bearer";
 
-import GatewayClient from "../GatewayClient";
+import GatewayMarketsClient from "../GetMarkets";
 
 const fetchSpy = jest.fn();
 const requestSpy = jest.fn();
@@ -33,26 +33,30 @@ describe("GatewayClient", () => {
 
   describe("create", () => {
     it("normal case", async () => {
-      await GatewayClient.create("en");
+      await GatewayMarketsClient.create();
     });
   });
 
   describe("annualInspection", () => {
     const raw = JSON.stringify({
       source: "annual-inspection-function",
-      sub: "",
-      market: "en"
+      sub: ""
     });
     const userinfo = Buffer.from(raw).toString("base64");
     const body = JSON.stringify({
-      query: `mutation annualProjectsInspection {
-        annualProjectsInspection
+      query: `query markets{
+        markets{
+          nodes{
+            id
+            domain
+          }
+        }
       }`
     });
 
     it("normal case", async () => {
-      const gateway = await GatewayClient.create("en");
-      await gateway.annualInspection();
+      const gateway = await GatewayMarketsClient.create();
+      await gateway.getMarkets();
 
       expect(requestSpy).toHaveBeenLastCalledWith([
         {
@@ -61,8 +65,7 @@ describe("GatewayClient", () => {
             "Content-Type": "application/json",
             authorization: "bearer undefined",
             "x-api-key": "bearer",
-            "x-apigateway-api-userinfo": userinfo,
-            "x-request-market-domain": "en"
+            "x-apigateway-api-userinfo": userinfo
           }
         },
         {
