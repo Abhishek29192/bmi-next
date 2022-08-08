@@ -246,7 +246,8 @@ describe("Project", () => {
     });
 
     describe("annualProjectsInspection", () => {
-      const resultMessage = "Projects with id(s) 1 has been inspected.";
+      const resultMessage =
+        "Projects with id(s) 1 has been inspected for market undefined.";
       it("normal case", async () => {
         const mockMail = jest.fn();
         jest
@@ -291,7 +292,9 @@ describe("Project", () => {
           resolveInfo
         );
 
-        expect(loggerInfo).toHaveBeenCalledWith("No projects to be inspected.");
+        expect(loggerInfo).toHaveBeenCalledWith(
+          "No projects to be inspected for market undefined."
+        );
       });
       it("throw error when failed to update DB", async () => {
         const errorObject = new Error("error");
