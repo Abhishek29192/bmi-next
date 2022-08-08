@@ -166,12 +166,13 @@ export const annualProjectsInspection = async (
   const logger = Logger("service:projects");
 
   await pgClient.query(`SAVEPOINT ${savepointName}`);
-
   try {
+    const market = context?.user?.market?.domain;
+
     const criteria = format(sub(new Date(), { months: 11 }), "yyyy-MM-dd");
     const { rows } = await pgClient.query(
-      `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE p.inspected_at IS NULL AND p.inspection = true AND g.status = $1 AND g.project_id IS NOT NULL AND g.approved_at < $2 AND p.hidden = false and g.coverage = $3`,
-      ["APPROVED", criteria, "SOLUTION"]
+      `SELECT p.id FROM project p INNER JOIN company c ON c.id = p.company_id INNER JOIN market m ON m.id = c.market_id LEFT JOIN guarantee g ON g.project_id = p.id WHERE p.inspected_at IS NULL AND p.inspection = true AND g.status = $1 AND g.project_id IS NOT NULL AND g.approved_at < $2 AND p.hidden = false and g.coverage = $3 AND m.domain = $4`,
+      ["APPROVED", criteria, "SOLUTION", market]
     );
     if (rows.length) {
       const { rows: inspectedProjects } = await pgClient.query(
@@ -187,12 +188,12 @@ export const annualProjectsInspection = async (
       }
       const message = `Projects with id(s) ${inspectedProjects.map(
         ({ id }) => id
-      )} has been inspected.`;
+      )} has been inspected for market ${market}.`;
       logger.info(message);
 
       return message;
     }
-    const message = "No projects to be inspected.";
+    const message = `No projects to be inspected for market ${market}.`;
     logger.info(message);
 
     return message;

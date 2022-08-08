@@ -2,13 +2,12 @@ import fetch, { Request } from "node-fetch";
 
 const { FRONTEND_API_URL } = process.env;
 
-export default class GatewayClient {
-  private request: Request;
-  private constructor(bearer: string, market: string) {
+export default class GatewayMarketsClient {
+  private readonly request: Request;
+  private constructor(bearer: string) {
     const raw = JSON.stringify({
       source: "annual-inspection-function",
-      sub: "",
-      market: market
+      sub: ""
     });
     const userinfo = Buffer.from(raw).toString("base64");
     this.request = new Request(FRONTEND_API_URL!, {
@@ -16,23 +15,28 @@ export default class GatewayClient {
         "Content-Type": "application/json",
         authorization: "bearer undefined",
         "x-api-key": bearer,
-        "x-apigateway-api-userinfo": userinfo,
-        "x-request-market-domain": market
+        "x-apigateway-api-userinfo": userinfo
       }
     });
   }
 
-  public static async create(market: string): Promise<GatewayClient> {
+  public static async create(): Promise<GatewayMarketsClient> {
     const bearer = process.env.GATEWAY_API_KEY!;
-    return new GatewayClient(bearer, market);
+    return new GatewayMarketsClient(bearer);
   }
 
-  async annualInspection() {
+  public async getMarkets() {
     const body = {
-      query: `mutation annualProjectsInspection {
-        annualProjectsInspection
+      query: `query markets{
+        markets{
+          nodes{
+            id
+            domain
+          }
+        }
       }`
     };
+
     return await fetch(
       new Request(this.request, {
         method: "POST",
