@@ -12,6 +12,7 @@ import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
 import { getDbPool } from "../../db";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 
 const UNIQUE_VIOLATION_ERROR_CODE = "23505";
 
@@ -53,6 +54,9 @@ export const updateCompany = async (
   const { GCP_PUBLIC_BUCKET_NAME } = process.env;
   const { pgClient, storageClient, user } = context;
   const { logoUpload, shouldRemoveLogo, tier }: CompanyPatch = args.input.patch;
+
+  const marketDomain = user.market?.domain;
+  const contentfulTag = parseMarketCompanyTag(marketDomain);
 
   if (!logoUpload && shouldRemoveLogo) {
     args.input.patch.logo = null;
@@ -164,7 +168,8 @@ export const updateCompany = async (
     if (tier && activeCompanyTier !== tier) {
       const { shortDescription = "", name = "" } = await tierBenefit(
         context.clientGateway,
-        tier
+        tier,
+        contentfulTag
       );
       //Get all company admins and send mail
       const { rows: accounts } = await pgClient.query(

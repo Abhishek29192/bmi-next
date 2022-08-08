@@ -2032,7 +2032,7 @@ export type AddEvidencesMutation = {
 };
 
 export type ContentfulEvidenceCategoriesQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type ContentfulEvidenceCategoriesQuery = {
@@ -2397,7 +2397,7 @@ export type ImageFragmentFragment = {
 };
 
 export type GetMediaFoldersQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetMediaFoldersQuery = {
@@ -2477,6 +2477,7 @@ export type MediaToolDetailsFragment = {
 
 export type GetMediaFolderContentsQueryVariables = SchemaTypes.Exact<{
   mediaFolderId: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetMediaFolderContentsQuery = {
@@ -2605,6 +2606,7 @@ export type GetGlobalDataPublicQuery = {
 
 export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
   relativePath: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetContentArticleContentQuery = {
@@ -3050,6 +3052,7 @@ export type GetCompanyQuery = {
 export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
   role: SchemaTypes.Scalars["String"];
   tier: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetPartnerBrandsQuery = {
@@ -3371,6 +3374,7 @@ export type UpdateRoleAccountMutation = {
 export type TrainingQueryVariables = SchemaTypes.Exact<{
   catalogueId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
   userId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type TrainingQuery = {
