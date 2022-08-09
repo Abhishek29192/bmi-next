@@ -20,6 +20,13 @@
   },
   "lastCompanyAdminError": "You cannot remove the last Company Admin from a Company unless it has been deactivated by BMI",
   "memberRemoved": "Member succesfully removed",
+  "projectTable": {
+    "endDate": "End Date",
+    "project": "Project",
+    "startDate": "Start Date",
+    "title": "Projects",
+    "type": "Type"
+  },
   "report": "Download Teams List",
   "sidePanel": {
     "inviteLabel": "+ Invite team members",
@@ -44,10 +51,12 @@
   },
   "user_card": {
     "add_admin": "Assign as Company Admin",
+    "add_auditor": "Assign as Auditor",
     "cancel": "Cancel",
     "confirm": "Confirm",
     "remove": "Remove from company",
     "remove_admin": "Remove as Company Admin",
+    "remove_auditor": "Remove as Auditor",
     "remove_user_dialog": {
       "text": "Do you want to remove this company member?",
       "title": "Remove company member"
@@ -55,8 +64,6 @@
     "role_dialog": {
       "text": "Do you want to change the role?",
       "title": "Change role"
-    },
-    "remove_auditor": "Remove as Auditor",
-    "add_auditor": "Assign as Auditor"
+    }
   }
 }

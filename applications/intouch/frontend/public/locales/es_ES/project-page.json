@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descripción del proyecto",
           "endDate": "Fecha de finalización del proyecto",
+          "inspection": "Inspección",
           "name": "Nombre del proyecto",
           "roofArea": "Medida total de la cubierta (m2)",
           "siteAddress": {
@@ -24,8 +25,7 @@
             "town": "Localidad"
           },
           "startDate": "Fecha de inicio del proyecto",
-          "technology": "Tipo de proyecto",
-          "inspection": "Inspección"
+          "technology": "Tipo de proyecto"
         },
         "hints": {
           "technology": {
