@@ -81,7 +81,10 @@
     "T1": "Miembro",
     "T2": "Partner - Inclinado",
     "T3": "Partner - Plana",
-    "T4": "Elite"
+    "T4": "Elite",
+    "T5": "Partner Plus",
+    "T6": "Expert Plus",
+    "T7": "Elite Plus"
   },
   "visitWebsite": "Visita el sitio web",
   "button": {

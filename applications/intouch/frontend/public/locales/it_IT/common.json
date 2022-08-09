@@ -81,7 +81,10 @@
     "T1": "Membro",
     "T2": "Partner",
     "T3": "Expert",
-    "T4": "Elite"
+    "T4": "Elite",
+    "T5": "Partner Plus",
+    "T6": "Expert Plus",
+    "T7": "Elite Plus"
   },
   "visitWebsite": "Visita il sito web",
   "button": {

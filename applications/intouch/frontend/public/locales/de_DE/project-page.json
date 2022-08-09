@@ -13,6 +13,7 @@
         "fields": {
           "description": "Project description",
           "endDate": "Project end date",
+          "inspection": "Inspektion",
           "name": "Project name",
           "roofArea": "Total roof measurement (m2)",
           "siteAddress": {
@@ -24,8 +25,7 @@
             "town": "Town / City"
           },
           "startDate": "Project start date",
-          "technology": "Project type",
-          "inspection": "Inspektion"
+          "technology": "Project type"
         },
         "hints": {
           "technology": {
