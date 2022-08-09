@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import classnames from "classnames";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Grid } from "@bmi/components";
+import { Button, Dialog, Grid, Typography } from "@bmi/components";
 import HelpIcon from "@material-ui/icons/Help";
+import classnames from "classnames";
+import React, { useState } from "react";
 import styles from "./FlatRoofCalculator.module.scss";
 
 type FieldProps = {

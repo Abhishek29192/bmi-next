@@ -1,7 +1,7 @@
 "use strict";
 
 const path = require("path");
-const sharedConfig = require("../../../../functions-webpack.config");
+const sharedConfig = require("../../../../node-webpack.config");
 
 module.exports = {
   ...sharedConfig,

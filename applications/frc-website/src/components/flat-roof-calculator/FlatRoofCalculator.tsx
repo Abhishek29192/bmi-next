@@ -1,23 +1,23 @@
-import React, { useMemo, useState } from "react";
+import { FormProps } from "@bmi/components";
 import {
   parse as queryString,
   stringify as stringifyQueryString
 } from "query-string";
-import { FormProps } from "@bmi/components";
-import { FieldsDisplay } from "./types/FieldsDisplay";
-import styles from "./FlatRoofCalculator.module.scss";
-import { getSystem } from "./calculations/getSystem";
+import React, { useMemo, useState } from "react";
 import { calculateQuantities } from "./calculations/calculateQuantities";
-import ResultsView from "./_ResultsView";
-import InputView from "./_InputView";
-import { FormValues } from "./types/FormValues";
-import { FieldLabels } from "./types/FieldLabels";
+import { getSystem } from "./calculations/getSystem";
+import styles from "./FlatRoofCalculator.module.scss";
 import {
   CalculatorData,
   CalculatorDataProduct,
   ProductReference,
   Tree
 } from "./types/CalculatorData";
+import { FieldLabels } from "./types/FieldLabels";
+import { FieldsDisplay } from "./types/FieldsDisplay";
+import { FormValues } from "./types/FormValues";
+import InputView from "./_InputView";
+import ResultsView from "./_ResultsView";
 
 export const getProduct = (
   productReference: ProductReference,

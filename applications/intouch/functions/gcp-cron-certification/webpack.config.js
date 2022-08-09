@@ -2,7 +2,7 @@
 
 const path = require("path");
 const { IgnorePlugin } = require("webpack");
-const sharedConfig = require("../../../../functions-webpack.config");
+const sharedConfig = require("../../../../node-webpack.config");
 
 module.exports = {
   ...sharedConfig,

@@ -1,5 +1,5 @@
-import { pickNumbers } from "../utils/pickNumbers";
 import { getSystem } from "../calculations/getSystem";
+import { pickNumbers } from "../utils/pickNumbers";
 
 describe("MeasurementsSection component", () => {
   describe("getSystem tests", () => {

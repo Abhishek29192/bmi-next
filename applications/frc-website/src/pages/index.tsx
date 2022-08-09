@@ -1,19 +1,16 @@
-import React from "react";
-import { Hero } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
+import { Button, Grid, Hero, Typography } from "@bmi/components";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { Link } from "gatsby";
 import {
   parse as queryString,
   stringify as stringifyQueryString
 } from "query-string";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import React from "react";
+import Container from "../components/Container";
 import DescriptionCard from "../components/DescriptionCard";
 import OptionCard from "../components/OptionCard";
 import Page from "../components/Page";
-import Container from "../components/Container";
 import pageStyles from "../components/Page.module.scss";
 import landing from "../images/landing.jpg";
 
