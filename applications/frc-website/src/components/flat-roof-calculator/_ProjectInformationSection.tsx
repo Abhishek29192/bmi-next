@@ -1,10 +1,8 @@
+import { Form, Grid, TextField } from "@bmi/components";
 import React from "react";
-import { Form } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import FormSection from "./_FormSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { maxLengthValidator } from "./utils/maxLengthValidator";
+import FormSection from "./_FormSection";
 
 export const ProjectInformationSection = ({ header, defaultValues }: any) => (
   <FormSection header={header}>

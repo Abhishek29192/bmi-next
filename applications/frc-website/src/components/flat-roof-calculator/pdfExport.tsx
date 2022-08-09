@@ -1,28 +1,28 @@
-import React from "react";
-import { isElement } from "react-is";
 import {
-  pdf,
-  Document,
-  styled,
-  View,
-  Text,
   Canvas,
-  Row,
   Col,
+  ComponentProps,
+  ContentTable,
+  Document,
   Img,
+  Link,
+  pdf,
+  Row,
+  styled,
   SVG,
   Table,
-  Link,
-  ContentTable,
-  ComponentProps
+  Text,
+  View
 } from "@bmi-digital/react-pdf-maker";
-import EffraNormal from "./fonts/Effra_Rg.ttf";
+import React from "react";
+import { isElement } from "react-is";
 import EffraBold from "./fonts/Effra_Bd.ttf";
-import { ResultsContent } from "./types/ResultsContent";
-import { FieldsDisplay } from "./types/FieldsDisplay";
+import EffraNormal from "./fonts/Effra_Rg.ttf";
 import { FieldLabels } from "./types/FieldLabels";
-import { ResultProduct } from "./types/ResultProduct";
+import { FieldsDisplay } from "./types/FieldsDisplay";
 import { FormValues } from "./types/FormValues";
+import { ResultProduct } from "./types/ResultProduct";
+import { ResultsContent } from "./types/ResultsContent";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 
