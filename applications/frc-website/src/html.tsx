@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const GATSBY_FRC_GA_COOKIE_PREFIX =
   process.env.GATSBY_FRC_GA_COOKIE_PREFIX || "FRC";

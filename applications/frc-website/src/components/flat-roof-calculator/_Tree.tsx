@@ -1,9 +1,8 @@
+import { FormContext, FormValues, RadioGroup } from "@bmi/components";
 import React, { useContext, useMemo } from "react";
-import { RadioGroup } from "@bmi/components";
-import { FormContext, FormValues } from "@bmi/components";
-import Field from "./_Field";
-import { FieldsDisplay } from "./types/FieldsDisplay";
 import { Path, Tree as CalculatorDataTree } from "./types/CalculatorData";
+import { FieldsDisplay } from "./types/FieldsDisplay";
+import Field from "./_Field";
 
 type MappedOption = {
   value: string;

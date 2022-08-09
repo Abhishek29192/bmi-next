@@ -1,11 +1,11 @@
+import { getProduct } from "../FlatRoofCalculator";
 import {
-  Calculators,
   CalculatorDataProduct,
+  Calculators,
   ProductReference
 } from "../types/CalculatorData";
-import { getProduct } from "../FlatRoofCalculator";
-import { ResultProduct } from "../types/ResultProduct";
 import { FormValues } from "../types/FormValues";
+import { ResultProduct } from "../types/ResultProduct";
 
 export const calculateQuantities = (
   systemName: string,
