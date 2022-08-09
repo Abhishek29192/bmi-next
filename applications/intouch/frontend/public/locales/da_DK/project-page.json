@@ -13,6 +13,7 @@
         "fields": {
           "description": "Projektbeskrivelse",
           "endDate": "Slutdato (forventet)",
+          "inspection": "Inspektion",
           "name": "Projektnavn",
           "roofArea": "Samlet tagareal (m2)",
           "siteAddress": {
@@ -24,8 +25,7 @@
             "town": "By"
           },
           "startDate": "Hvornår",
-          "technology": "Tagtype",
-          "inspection": "Inspektion"
+          "technology": "Tagtype"
         },
         "hints": {
           "technology": {

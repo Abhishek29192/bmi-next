@@ -60,13 +60,14 @@
     "older": "Older than two months",
     "today": "Today"
   },
+  "requiredInformation": "required information",
   "results available": "results available",
   "roles": {
+    "AUDITOR": "Auditor",
     "COMPANY_ADMIN": "Company administrator",
     "INSTALLER": "Installer",
     "MARKET_ADMIN": "Market administrator",
-    "SUPER_ADMIN": "Super admin",
-    "AUDITOR": "Auditor"
+    "SUPER_ADMIN": "Super admin"
   },
   "session": {
     "dialog": {
@@ -80,12 +81,14 @@
     "T1": "Member",
     "T2": "Partner",
     "T3": "Expert",
-    "T4": "Elite"
+    "T4": "Elite",
+    "T5": "Partner Plus",
+    "T6": "Expert Plus",
+    "T7": "Elite Plus"
   },
   "visitWebsite": "Visit Website",
   "button": {
     "more": "Show more",
     "less": "Show less"
-  },
-  "requiredInformation": "required information"
+  }
 }

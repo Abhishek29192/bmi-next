@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descrição do projeto",
           "endDate": "Data de conclusão do projeto",
+          "inspection": "Inspeção",
           "name": "Nome do projeto",
           "roofArea": "Area total do telhado (m2)",
           "siteAddress": {
@@ -24,8 +25,7 @@
             "town": "Localização"
           },
           "startDate": "Data de início do projeto",
-          "technology": "Tipo de projeto",
-          "inspection": "Inspeção"
+          "technology": "Tipo de projeto"
         },
         "hints": {
           "technology": {
