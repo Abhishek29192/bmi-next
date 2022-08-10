@@ -18,7 +18,7 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^10.2.4",
+    "copy-webpack-plugin": "^11.0.0",
     "env-cmd": "^10.1.0",
     "generate-package-json-webpack-plugin": "^2.6.0",
     "inspectpack": "^4.7.1",
