@@ -10,6 +10,8 @@
 import { microCopy } from "@bmi/head/src/constants/microCopies";
 import { createClient, Environment } from "contentful-management";
 
+import { waitFor } from "../utils";
+
 /*
   Contentful Management API have limitation to amount of requests
   For more info https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/api-rate-limits
@@ -70,9 +72,6 @@ const getContentfulKeys = async (
 
   return getContentfulKeys(result, resources.total);
 };
-
-const waitFor = (ms: number) =>
-  new Promise((resolve) => setTimeout(() => resolve(true), ms));
 
 const uploadChunk = async (chunk: any, locales: any, i: number) => {
   const environment = await getEnvironment();
