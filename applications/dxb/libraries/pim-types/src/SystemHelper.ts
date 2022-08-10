@@ -154,7 +154,29 @@ const createSystem = (system?: Partial<System>): System => ({
     createGeneralInformationClassification(),
     createMeasurementsClassification()
   ],
-  images: [createImage()],
+  images: [
+    createImage(),
+    createImage({
+      assetType: "MASTER_IMAGE",
+      format: "Product-Hero-Small-Desktop-Tablet"
+    }),
+    createImage({
+      assetType: "MASTER_IMAGE",
+      format: "Product-Color-Selector-Mobile"
+    }),
+    createImage({ assetType: "MASTER_IMAGE", format: undefined }),
+    createImage({
+      assetType: "GALLERY",
+      format: "Product-Hero-Small-Desktop-Tablet"
+    }),
+    createImage({
+      assetType: "GALLERY",
+      format: "Product-Color-Selector-Mobile"
+    }),
+    createImage({ assetType: "GALLERY", format: undefined }),
+    createImage({ format: "Web" }),
+    createImage({ assetType: "TECHNICAL_DRAWINGS" })
+  ],
   longDescription: "<p>Some very long description</p>",
   name: "name",
   shortDescription: "Short description",

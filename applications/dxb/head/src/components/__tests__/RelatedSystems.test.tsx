@@ -1,8 +1,13 @@
-import React from "react";
+import {
+  createSystem as createEsSystem,
+  System as EsSystem
+} from "@bmi/elasticsearch-types";
 import { render } from "@testing-library/react";
-import RelatedSystems from "../RelatedSystems";
-import { System } from "../../types/pim";
+import React from "react";
+import { RelatedSystem, System } from "../../types/pim";
+import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import createSystem from "../../__tests__/helpers/SystemHelper";
+import RelatedSystems, { SystemCard } from "../RelatedSystems";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
@@ -84,6 +89,38 @@ describe("RelatedSystems component", () => {
 
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
+    );
+    expect(container).toMatchSnapshot();
+  });
+});
+
+describe("SystemCard", () => {
+  it("renders correctly with system from elasticsearch", () => {
+    const system: EsSystem = createEsSystem();
+    const gtm = { id: "gtm-id" };
+
+    const { container } = render(
+      <SystemCard
+        system={system}
+        countryCode="en"
+        path={system.path}
+        gtm={gtm}
+      />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with related system", () => {
+    const system: RelatedSystem = createRelatedSystem();
+    const gtm = { id: "gtm-id" };
+
+    const { container } = render(
+      <SystemCard
+        system={system}
+        countryCode="en"
+        path={system.path}
+        gtm={gtm}
+      />
     );
     expect(container).toMatchSnapshot();
   });

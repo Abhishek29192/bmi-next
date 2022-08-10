@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
 import {
   Button,
   Grid,
@@ -8,18 +6,21 @@ import {
   Section,
   SectionBackgroundColor
 } from "@bmi/components";
+import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { Add as AddIcon } from "@material-ui/icons";
+import { graphql, Link } from "gatsby";
+import React, { useState } from "react";
+import { microCopy } from "../constants/microCopies";
 import { RelatedSystem } from "../types/pim";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { microCopy } from "../constants/microCopies";
 import { renderMedia } from "../utils/renderMedia";
 import { iconMap } from "./Icon";
-import styles from "./styles/RelatedSystems.module.scss";
 import { useSiteContext } from "./Site";
+import styles from "./styles/RelatedSystems.module.scss";
 
 export type SystemCardProps = {
-  system: RelatedSystem;
+  system: RelatedSystem | EsSystem;
   countryCode: string;
   path: string;
   gtm: GTM;
@@ -39,7 +40,10 @@ export const SystemCard = ({
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
   // eslint-disable-next-line security/detect-object-injection
-  const brandLogo = iconMap[system.brand?.code];
+  const brandLogo =
+    iconMap[
+      typeof system.brand === "string" ? system.brand : system.brand?.code
+    ];
   const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = system.images[0]?.mainSource;
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);

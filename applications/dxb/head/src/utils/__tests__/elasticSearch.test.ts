@@ -1782,7 +1782,7 @@ describe("getDocumentQueryObject function", () => {
       sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
       aggs: {
         assetTypes: {
-          terms: { size: "100", field: "assetType.pimCode.keyword" }
+          terms: { size: "100", field: "assetType.code.keyword" }
         },
         total: { cardinality: { field: "titleAndSize.keyword" } }
       },
@@ -1820,7 +1820,7 @@ describe("getDocumentQueryObject function", () => {
       sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
       aggs: {
         assetTypes: {
-          terms: { size: "100", field: "assetType.pimCode.keyword" }
+          terms: { size: "100", field: "assetType.code.keyword" }
         },
         total: { cardinality: { field: "titleAndSize.keyword" } }
       },
@@ -1841,7 +1841,7 @@ describe("getDocumentQueryObject function", () => {
                 fields: ["noIndex"]
               }
             },
-            { term: { "assetType.pimCode.keyword": "ASSEMBLY_INSTRUCTIONS" } }
+            { term: { "assetType.code.keyword": "ASSEMBLY_INSTRUCTIONS" } }
           ]
         }
       },
