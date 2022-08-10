@@ -4,6 +4,7 @@ import { getLocales } from "@bmi-digital/contentful-migration";
 import { createClient } from "contentful-management";
 import type Migration from "contentful-migration";
 import type { MigrationContext, MigrationFunction } from "contentful-migration";
+import { waitFor } from "../../utils";
 
 export const description = "upload 1x1px file for place holder image";
 
@@ -11,9 +12,6 @@ export const description = "upload 1x1px file for place holder image";
 // this is recommneded method and only working method
 // for this task, as per CMA documentation
 const assetId = "d31e89cb31c3490f881d3f96dc8612d5";
-
-const waitFor = (ms: number) =>
-  new Promise((resolve) => setTimeout(() => resolve(true), ms));
 
 export const up: MigrationFunction = async (
   migration: Migration,
@@ -25,7 +23,7 @@ export const up: MigrationFunction = async (
   const { accessToken, spaceId, environmentId } = context;
 
   if (accessToken) {
-    const all_Locales = (await getLocales(context.makeRequest)).items.map(
+    const allLocales = (await getLocales(context.makeRequest)).items.map(
       (localeInfo: any) => {
         return localeInfo.code;
       }
@@ -48,52 +46,40 @@ export const up: MigrationFunction = async (
     });
     const space = await client.getSpace(spaceId!);
     const environment = await space.getEnvironment(environmentId!);
+
+    // Step 1: upload 1x1px image to contentful server
     const uploadedImage = await environment.createUpload({
       file: imageStream
     });
+
     await waitFor(100);
 
     if (uploadedImage && uploadedImage.sys) {
-      const all_Titles = all_Locales.reduce(
-        (
-          prevValue: any,
-          currValue: any,
-          currIndex: number,
-          allLocales: any
-        ) => {
+      const allLocaleTitles = allLocales.reduce(
+        (prevValue: any, currValue: any, currIndex: number, locales: any) => {
           return {
             ...prevValue,
-            [all_Locales[currIndex]]: "place-holder-image"
+            [allLocales[currIndex]]: "place-holder-image"
           };
         },
         {}
       );
 
-      const all_Descriptions = all_Locales.reduce(
-        (
-          prevValue: any,
-          currValue: any,
-          currIndex: number,
-          allLocales: any
-        ) => {
+      const allLocaleDescriptions = allLocales.reduce(
+        (prevValue: any, currValue: any, currIndex: number, locales: any) => {
           return {
             ...prevValue,
-            [all_Locales[currIndex]]: "place-holder-image"
+            [allLocales[currIndex]]: "place-holder-image"
           };
         },
         {}
       );
 
-      const all_Files = all_Locales.reduce(
-        (
-          prevValue: any,
-          currValue: any,
-          currIndex: number,
-          allLocales: any
-        ) => {
+      const allLocaleFiles = allLocales.reduce(
+        (prevValue: any, currValue: any, currIndex: number, locales: any) => {
           return {
             ...prevValue,
-            [all_Locales[currIndex]]: {
+            [allLocales[currIndex]]: {
               contentType: "image/png",
               fileName: "1x1.png",
               uploadFrom: {
@@ -112,16 +98,17 @@ export const up: MigrationFunction = async (
       const allLocaleAssetPayloadWithFile = {
         fields: {
           title: {
-            ...all_Titles
+            ...allLocaleTitles
           },
           description: {
-            ...all_Descriptions
+            ...allLocaleDescriptions
           },
           file: {
-            ...all_Files
+            ...allLocaleFiles
           }
         }
       };
+
       // Step 2: create asset for all locale while referencing file that was uploaded
       const defaultAssetWithImage = await environment.createAssetWithId(
         assetId,
@@ -129,11 +116,11 @@ export const up: MigrationFunction = async (
       );
       // wait is needed for versions to update on server!
       await waitFor(250);
-      // Step 2: Process asset for all locales
+      // Step 3: Process asset for all locales
       defaultAssetWithImage.processForAllLocales();
       // wait is needed for asset process to finish on contentful server!
       await waitFor(2000);
-      // Step 3: get latest version of the asset and publish asset.
+      // Step 4: get latest version of the asset and publish asset.
       await (await environment.getAsset(assetId)).publish();
     }
   }
@@ -146,12 +133,19 @@ export const down: MigrationFunction = async (
   if (!context) {
     return;
   }
-  const { accessToken, spaceId, environmentId } = context;
-  const client = createClient({
-    accessToken: accessToken!
-  });
-  const space = await client.getSpace(spaceId!);
-  const environment = await space.getEnvironment(environmentId!);
-  const latestAsset = await environment.getAsset(assetId);
-  await (await latestAsset.unpublish()).delete();
+  // in case if the 1x1px file is deleted by user ( manually )
+  // before this down migration occurs, then this script will fail
+  // wrap in try, so that, even if the down migration fails.. the script should not fail
+  try {
+    const { accessToken, spaceId, environmentId } = context;
+    const client = createClient({
+      accessToken: accessToken!
+    });
+    const space = await client.getSpace(spaceId!);
+    const environment = await space.getEnvironment(environmentId!);
+    const latestAsset = await environment.getAsset(assetId);
+    await (await latestAsset.unpublish()).delete();
+  } catch (err) {
+    console.log(err);
+  }
 };
