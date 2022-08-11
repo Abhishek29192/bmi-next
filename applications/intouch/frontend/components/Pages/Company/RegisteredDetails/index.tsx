@@ -61,7 +61,7 @@ export const CompanyRegisteredDetails = ({
       ({ tier: tierBenefit }) => tierBenefit === tier
     );
     return tierBenefit?.name || null;
-  }, [getTierBenefit]);
+  }, [getTierBenefit, company]);
 
   return (
     <div className={styles.main}>
