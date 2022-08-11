@@ -702,3 +702,10 @@
     :why: Our own project
     :versions: []
     :when: 2022-08-02 13:17:17.194759000 Z
+- - :approve
+  - taffydb
+  - :who: Benjamin Sproule
+    :why: It is either MIT, BSD-1-Clause or BSD-2-Clause depending on which part of
+      the project you look at
+    :versions: []
+    :when: 2022-08-11 12:06:16.689485000 Z
