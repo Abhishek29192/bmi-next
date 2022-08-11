@@ -1,9 +1,9 @@
 import { graphql } from "gatsby";
-import { RichTextData } from "./RichText";
+import { ContentfulImageData } from "./Image";
 import { Data as LinkData } from "./Link";
+import { RichTextData } from "./RichText";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
-import { Data as ImageData } from "./Image";
 
 export type Data = {
   __typename: "ContentfulPromo";
@@ -15,7 +15,7 @@ export type Data = {
   brandLogo: string | null;
   tags: TagData[] | null;
   featuredMedia:
-    | (ImageData & {
+    | (ContentfulImageData & {
         thumbnail: {
           src: string;
         };

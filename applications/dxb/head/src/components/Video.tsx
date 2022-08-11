@@ -2,14 +2,14 @@ import { YoutubeVideo } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";
-import Image, { Data as ImageData } from "./Image";
+import Image, { Data as ContentfulImageData } from "./Image";
 
 export type Data = {
   title: string;
   label: string;
   subtitle: string | null;
   videoUrl: string;
-  previewMedia: ImageData | null;
+  previewMedia: ContentfulImageData | null;
   videoRatio: { width: number; height: number } | null;
   defaultYouTubePreviewImage: string;
 };

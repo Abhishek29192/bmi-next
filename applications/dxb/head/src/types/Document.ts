@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import { Data as ImageData } from "../components/Image";
+import { ContentfulImageData } from "../components/Image";
 import { RichTextData } from "../components/RichText";
 import { ContentfulAssetType as AssetTypeData } from "./AssetType";
 
@@ -8,7 +8,7 @@ export type ContentfulDocument = {
   id: string;
   title: string;
   assetType: AssetTypeData;
-  featuredMedia: ImageData | null;
+  featuredMedia: ContentfulImageData | null;
   asset: {
     file: {
       url: string;

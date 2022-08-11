@@ -13,6 +13,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
+import Image from "../../Image";
 import { useSiteContext } from "../../Site";
 import { calculateCentre } from "../helpers";
 import { Service } from "../index";
@@ -53,8 +54,20 @@ export const ServiceLocatorMap = ({
         zoom={zoom}
       >
         {selectedRoofer && (
-          <Card className={styles["product-details-card"]}>
+          <Card
+            className={classNames(styles["product-details-card"], {
+              // eslint-disable-next-line security/detect-object-injection
+              [styles["product-details-card--with_logo"]]:
+                selectedRoofer.companyLogo
+            })}
+          >
             <CardHeader
+              avatar={
+                <Image
+                  data={selectedRoofer.companyLogo}
+                  className={styles["company-logo--card"]}
+                />
+              }
               title={selectedRoofer.name}
               action={
                 <Button

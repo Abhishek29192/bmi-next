@@ -1441,76 +1441,21 @@ describe("ServiceLocatorSection component", () => {
         centre: null,
         zoom: 8,
         services: [
-          {
-            __typename: "ContentfulService",
+          createService({
             id: "beef212f-8cbc-542d-9fd7-d9e5c0d3a467",
-            websiteLinkAsLabel: false,
-            entryType: EntryTypeEnum.ROOFER_TYPE,
             name: "FK Bygg as",
-            location: {
-              lat: 59.14346,
-              lon: 10.27727
-            },
-            address: "Helgerødveien 130, 3233 Sandefjord, Norway",
-            phone: "41102177",
-            email: "post@fasade-teknikk.no",
-            website: "https://www.fkbygg.no",
-            fax: null,
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flat Roof" },
-              { __typename: "ContentfulServiceType", name: "Pitched Roof" }
-            ],
-            certification: null,
-            summary: null
-          },
-          {
-            __typename: "ContentfulService",
+            address: "Helgerødveien 130, 3233 Sandefjord, Norway"
+          }),
+          createService({
             id: "c2ebbf9e-d2c1-554f-a12f-6a13f8d87e2c",
-            entryType: EntryTypeEnum.ROOFER_TYPE,
-            websiteLinkAsLabel: false,
             name: "GL Bygg AS",
-            location: {
-              lat: 60.80971,
-              lon: 11.0292
-            },
-            address: "Lundvegen 8, 2316 Hamar, Norway",
-            phone: "91757971",
-            email: "ole@glbygg.no",
-            website: "https://www.glbygg.no",
-            fax: null,
-            serviceTypes: [
-              { __typename: "ContentfulServiceType", name: "Flachdach system" }
-            ],
-            certification: null,
-            summary:
-              "GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder",
-            distance: 22.054402996325027
-          },
-          {
-            __typename: "ContentfulService",
+            address: "Lundvegen 8, 2316 Hamar, Norwa"
+          }),
+          createService({
             id: "36e43b38-652a-5f5a-89c2-2d7028f1132c",
-            entryType: EntryTypeEnum.ROOFER_TYPE,
-            websiteLinkAsLabel: false,
-            name: "Harviken Bygg AS",
-            location: {
-              lat: 60.87807,
-              lon: 11.54679
-            },
-            address: "Vindheiavegen 27, 2406 Elverum, Norway",
-            phone: "93092064",
-            email: "post@harviken-bygg.no",
-            website: null,
-            fax: null,
-            serviceTypes: [
-              {
-                __typename: "ContentfulServiceType",
-                name: "Pitched roof Bitumen roofs"
-              }
-            ],
-            certification: null,
-            summary: null,
-            distance: 29097.647859248013
-          }
+            name: "GL Bygg AS",
+            address: "Vindheiavegen 27, 2406 Elverum, Norway"
+          })
         ]
       };
       const { findByRole, container } = renderWithRouter(

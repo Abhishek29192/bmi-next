@@ -1,5 +1,5 @@
 import { MediaData } from "@bmi-digital/components";
-import { Data as ImageData, renderImage } from "../components/Image";
+import { ContentfulImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
 
 export const getJpgImage = (ogImageUrl: string) => {
@@ -12,12 +12,12 @@ export const getJpgImage = (ogImageUrl: string) => {
   return ogImageUrl;
 };
 
-export type GallerySectionImage = Omit<ImageData, "image"> & {
+export type GallerySectionImage = Omit<ContentfulImageData, "image"> & {
   __typename: "ContentfulImage";
   caption?: {
     caption: string;
   } | null;
-  image: ImageData["image"] & {
+  image: ContentfulImageData["image"] & {
     thumbnail: {
       src: string;
     };

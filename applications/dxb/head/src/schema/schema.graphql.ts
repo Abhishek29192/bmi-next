@@ -1061,6 +1061,7 @@ type ContentfulService implements ContentfulObject & Node @dontInfer {
   website: String
   websiteLinkAsLabel: Boolean
   fax: String
+  companyLogo: ContentfulImage @link(by: "id", from: "companyLogo___NODE")
   serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
   certification: String
   summary: String
