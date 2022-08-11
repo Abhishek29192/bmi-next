@@ -41,9 +41,9 @@ export type System = {
   classifications?: readonly Classification[];
   code: string;
   images?: readonly Image[];
-  longDescription: HTML;
+  longDescription?: HTML;
   name: string;
-  shortDescription: string;
+  shortDescription?: string;
   systemBenefits?: string[];
   systemLayers?: SystemLayer[];
   systemReferences?: SystemReference[];

@@ -15,7 +15,7 @@ export type System = {
   categories: readonly Category[];
   classifications: readonly Classification[];
   code: string;
-  description: string;
+  description?: string;
   documents: readonly SystemDocument[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
@@ -27,7 +27,7 @@ export type System = {
   path: string;
   promotionalContent?: string;
   scoringWeight: number;
-  shortDescription: string;
+  shortDescription?: string;
   specification?: Asset;
   systemBenefits?: string[];
   systemLayers?: readonly SystemLayer[];
