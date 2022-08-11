@@ -42,6 +42,13 @@
     "type": "Type",
     "validity": "Gyldighed"
   },
+  "projectTable": {
+    "title": "Projekter",
+    "type": "Type",
+    "project": "Projekt",
+    "startDate": "Start dato",
+    "endDate": "Slutdato"
+  },
   "userActions": {
     "action": {
       "activate": "Aktiver bruger",

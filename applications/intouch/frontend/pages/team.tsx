@@ -40,6 +40,18 @@ export const pageQuery = gql`
             expiryDate
           }
         }
+        projectMembers {
+          nodes {
+            project {
+              id
+              technology
+              name
+              startDate
+              endDate
+              hidden
+            }
+          }
+        }
         companyMembers(first: 1) {
           nodes {
             id
