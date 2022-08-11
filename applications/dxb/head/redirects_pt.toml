@@ -2804,17 +2804,17 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%E3o-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%E3o-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%C3%A3o-a-45%C2%BA-direito"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%E3o"
+ from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%C3%A3o"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
@@ -2831,11 +2831,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/telhasol-12-pata-de-le%C3%A3o"
  to="/pt/p/s12-pata-de-le%C3%A3o-natural-natural-cer%C3%A2mica-2773211232/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-passadeira-de-ventila%E7%E3o"
- to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
 [[redirects]]
@@ -2869,12 +2864,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-cume-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/telhasol-12-cume-a-45%C2%BA-esquerdo"
  to="/pt/p/piemontesa-cume-a-45%C2%BA-esquerdo-campestre-cer%C3%A2mica-4111784588/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-cume-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/telhasol-12-cume-a-45%C2%BA-direito"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
@@ -2899,28 +2894,13 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-canto-interior-beirado-5-pe%E7as"
- to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
- force=true
-
-[[redirects]]
  from="/pt/products/bmi-cobert/telhasol-12-canto-interior-beirado-5-pe%C3%A7as"
  to="/pt/p/s12-canto-interior-beirado-5-pe%C3%A7as-natural-natural-cer%C3%A2mica-2878141508/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-canto-de-telhado-3-pe%E7as"
- to="/pt/p/s12-canto-de-telhado-3-pe%C3%A7as-natural-natural-cer%C3%A2mica-516142742/"
- force=true
-
-[[redirects]]
  from="/pt/products/bmi-cobert/telhasol-12-canto-de-telhado-3-pe%C3%A7as"
  to="/pt/p/s12-canto-de-telhado-3-pe%C3%A7as-natural-natural-cer%C3%A2mica-516142742/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/telhasol-12-canto-de-beirado-11-pe%E7as"
- to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
 [[redirects]]
@@ -2944,7 +2924,7 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-10-telha-suporte-de-chamin%E9"
+ from="/pt/products/bmi-cobert/telhasol-10-telha-suporte-de-chamin%C3%A9"
  to="/pt/p/s10-telha-suporte-de-chamin%C3%A9-natural-natural-cer%C3%A2mica-1205695417/"
  force=true
 
@@ -2984,18 +2964,13 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/telhasol-10-pata-de-le%E3o"
+ from="/pt/products/bmi-cobert/telhasol-10-pata-de-le%C3%A7o"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
 [[redirects]]
  from="/pt/products/bmi-cobert/telhasol-10-pata-de-le%C3%A3o"
  to="/pt/p/s10-pata-de-le%C3%A3o-natural-natural-cer%C3%A2mica-2076386061/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/telhasol-10-passadeira-de-ventila%E7%E3o"
- to="/pt/p/s10-passadeira-de-ventila%C3%A7%C3%A3o-natural-natural-cer%C3%A2mica-3020762803/"
  force=true
 
 [[redirects]]
@@ -3021,11 +2996,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/telhasol-10-canto-de-telhado-3-partes"
  to="/pt/p/s10-canto-de-telhado-3-partes-natural-natural-cer%C3%A2mica-2929875844/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/telhasol-10-canto-de-beirado-11-pe%E7as"
- to="/pt/p/s10-canto-de-beirado-11-pe%C3%A7as-natural-natural-cer%C3%A2mica-759059086/"
  force=true
 
 [[redirects]]
@@ -3081,11 +3051,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/tampa-de-cume-universal"
  to="/pt/p/piemontesa-tampa-de-cume-universal-natural-natural-cer%C3%A2mica-1776678279/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/tampa-c%F3nica"
- to="/pt/p/tampa-c%C3%B3nica-natural-natural-cer%C3%A2mica-665297453/"
  force=true
 
 [[redirects]]
@@ -3189,12 +3154,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/s12-pata-de-leao-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/s12-pata-de-leao-a-45%C2%BA-esquerdo"
  to="/pt/p/s12-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-1558990706/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/s12-pata-de-leao-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/s12-pata-de-leao-a-45%C2%BA-direito"
  to="/pt/p/s12-pata-de-le%C3%A3o-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-3113951689/"
  force=true
 
@@ -3234,12 +3199,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/s12-cume-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/s12-cume-a-45%C2%BA-esquerdo"
  to="/pt/p/s12-cume-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-1184984344/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/s12-cume-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/s12-cume-a-45%C2%BA-direito"
  to="/pt/p/s12-cume-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-2661940163/"
  force=true
 
@@ -3394,22 +3359,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/rolo-para-aplica%E7%E3o"
- to="/pt/p/rolo-para-aplica%C3%A7%C3%A3o-1914418988/"
- force=true
-
-[[redirects]]
  from="/pt/products/bmi-cobert/rolo-para-aplica%C3%A7%C3%A3o"
  to="/pt/p/rolo-para-aplica%C3%A7%C3%A3o-1914418988/"
  force=true
 
 [[redirects]]
  from="/pt/products/bmi-cobert/ripa-de-ventilação"
- to="/pt/p/ripa-de-ventila%C3%A7%C3%A3o-ripa-de-ventila%C3%A7%C3%A3o-preto-120-mm-2850515011/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/ripa-de-ventila%E7%E3o"
  to="/pt/p/ripa-de-ventila%C3%A7%C3%A3o-ripa-de-ventila%C3%A7%C3%A3o-preto-120-mm-2850515011/"
  force=true
 
@@ -3431,16 +3386,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/placas-osb-3-eco"
  to="/pt/p/placas-osb-3-eco-placa-osb-3-eco-12-mm-812318016/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/pir%E2mide-pequena"
- to="/pt/p/pir%C3%A2mide-pequena-engobado-engobes-cer%C3%A2mica-452468706/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/pir%E2mide-grande"
- to="/pt/p/pir%C3%A2mide-grande-engobado-engobes-cer%C3%A2mica-1061356494/"
  force=true
 
 [[redirects]]
@@ -3504,12 +3449,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/piemontesa-pata-de-leao-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/piemontesa-pata-de-leao-a-45%C2%BA-esquerdo"
  to="/pt/p/piemontesa-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo-campestre-cer%C3%A2mica-1476227977/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/piemontesa-pata-de-leao-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/piemontesa-pata-de-leao-a-45%C2%BA-direito"
  to="/pt/p/piemontesa-pata-de-le%C3%A3o-a-45%C2%BA-direito-campestre-cer%C3%A2mica-761824433/"
  force=true
 
@@ -3549,12 +3494,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/piemontesa-cume-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/piemontesa-cume-a-45%C2%BA-esquerdo"
  to="/pt/p/piemontesa-cume-a-45%C2%BA-esquerdo-envelhecida-antigo-cer%C3%A2mica-3097203712/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/piemontesa-cume-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/piemontesa-cume-a-45%C2%BA-direito"
  to="/pt/p/piemontesa-cume-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-1645128456/"
  force=true
 
@@ -3624,11 +3569,6 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/perfis-met%E1licos"
- to="/pt/p/perfis-met%C3%A1licos-omega-50-4077715771/"
- force=true
-
-[[redirects]]
  from="/pt/products/bmi-cobert/perfis-met%C3%A1licos"
  to="/pt/p/perfis-met%C3%A1licos-omega-50-4077715771/"
  force=true
@@ -3649,13 +3589,8 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/pedal-ajust%E1vel-universal"
+ from="/pt/products/bmi-cobert/pedal-ajust%C3%A1vel-universal"
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/parafusos-gama-de-fixa%E7%E3o-basic"
- to="/pt/p/parafusos-gama-de-fixa%C3%A7%C3%A3o-basic-parafuso-autoroscante-35-x-3-5-mm-4005920909/"
  force=true
 
 [[redirects]]
@@ -3799,7 +3734,7 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-telha-suporte-de-chamin%E9"
+ from="/pt/products/bmi-cobert/lusa-mg-telha-suporte-de-chamin%C3%A9"
  to="/pt/p/lusa-mg-plus-telha-suporte-de-chamin%C3%A9-natural-natural-cer%C3%A2mica-2260722342/"
  force=true
 
@@ -3811,11 +3746,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/lusa-mg-telha-dupla"
  to="/pt/p/l%C3%B3gica-lusa-telha-dupla-natural-vidrado-brilho-cer%C3%A2mica-1715693372/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-telha-de-ventila%E7%E3o"
- to="/pt/p/lusa-mg-plus-telha-de-ventila%C3%A7%C3%A3o-natural-natural-cer%C3%A2mica-3537671316/"
  force=true
 
 [[redirects]]
@@ -3904,12 +3834,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-plus-pata-de-leao-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/lusa-mg-plus-pata-de-leao-a-45%C2%BA-esquerdo"
  to="/pt/p/lusa-mg-plus-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-3512290841/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-plus-pata-de-leao-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/lusa-mg-plus-pata-de-leao-a-45%C2%BA-direito"
  to="/pt/p/lusa-mg-plus-pata-de-le%C3%A3o-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-2029845002/"
  force=true
 
@@ -3949,12 +3879,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-plus-cume-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/lusa-mg-plus-cume-a-45%C2%BA-esquerdo"
  to="/pt/p/lusa-mg-plus-cume-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-2725903238/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-plus-cume-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/lusa-mg-plus-cume-a-45%C2%BA-direito"
  to="/pt/p/lusa-mg-plus-cume-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-2027953715/"
  force=true
 
@@ -4019,17 +3949,17 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%E3o-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo"
  to="/pt/p/lusa-mg-plus-pata-de-le%C3%A3o-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-3512290841/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%E3o-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%C3%A3o-a-45%C2%BA-direito"
  to="/pt/p/lusa-mg-plus-passadeira-com-ventila%C3%A7%C3%A3o-natural-natural-cer%C3%A2mica-3090479017/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%E3o"
+ from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%C3%A3o"
  to="/pt/p/lusa-mg-plus-pata-de-le%C3%A3o-natural-natural-cer%C3%A2mica-2026968500/"
  force=true
 
@@ -4046,11 +3976,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/lusa-mg-pata-de-le%C3%A3o"
  to="/pt/p/lusa-mg-plus-pata-de-le%C3%A3o-natural-natural-cer%C3%A2mica-2026968500/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-passadeira-com-ventila%E7%E3o"
- to="/pt/p/lusa-mg-plus-passadeira-com-ventila%C3%A7%C3%A3o-natural-natural-cer%C3%A2mica-3090479017/"
  force=true
 
 [[redirects]]
@@ -4084,12 +4009,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-cume-a-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/lusa-mg-cume-a-45%C2%BA-esquerdo"
  to="/pt/p/lusa-mg-plus-cume-a-45%C2%BA-esquerdo-natural-natural-cer%C3%A2mica-2725903238/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-cume-a-45%BA-direito"
+ from="/pt/products/bmi-cobert/lusa-mg-cume-a-45%C2%BA-direito"
  to="/pt/p/lusa-mg-plus-cume-a-45%C2%BA-direito-natural-natural-cer%C3%A2mica-2027953715/"
  force=true
 
@@ -4114,11 +4039,6 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-canto-para-beirado-11-pe%E7as"
- to="/pt/p/lusa-mg-plus-canto-para-beirado-11-pe%C3%A7as-natural-natural-cer%C3%A2mica-3067132304/"
- force=true
-
-[[redirects]]
  from="/pt/products/bmi-cobert/lusa-mg-canto-para-beirado-11-pe%C3%A7as"
  to="/pt/p/lusa-mg-plus-canto-para-beirado-11-pe%C3%A7as-natural-natural-cer%C3%A2mica-3067132304/"
  force=true
@@ -4131,11 +4051,6 @@
 [[redirects]]
  from="/pt/products/bmi-cobert/lusa-mg-canto-interior-beirado-5-partes"
  to="/pt/p/lusa-mg-plus-canto-interior-beirado-5-partes-natural-natural-cer%C3%A2mica-2501278627/"
- force=true
-
-[[redirects]]
- from="/pt/products/bmi-cobert/lusa-mg-canto-de-telhado-3-pe%E7as"
- to="/pt/p/lusa-mg-plus-canto-de-telhado-3-pe%C3%A7as-natural-natural-cer%C3%A2mica-3444519235/"
  force=true
 
 [[redirects]]
@@ -4404,12 +4319,12 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/logica-lusa-pata-de-leao-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/logica-lusa-pata-de-leao-45%C2%BA-esquerdo"
  to="/pt/p/l%C3%B3gica-lusa-cume-45%C2%BA-esquerdo-vermelho-natural-cer%C3%A2mica-755766876/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/logica-lusa-pata-de-leao-45%BA-direito"
+ from="/pt/products/bmi-cobert/logica-lusa-pata-de-leao-45%C2%BA-direito"
  to="/pt/p/l%C3%B3gica-lusa-pata-de-le%C3%A3o-45%C2%BA-direito-%C3%A9bano-mate-cer%C3%A2mica-1194558273/"
  force=true
 
@@ -4459,7 +4374,7 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/logica-lusa-cume-45%BA-esquerdo"
+ from="/pt/products/bmi-cobert/logica-lusa-cume-45%C2%BA-esquerdo"
  to="/pt/p/l%C3%B3gica-lusa-cume-45%C2%BA-esquerdo-vermelho-natural-cer%C3%A2mica-755766876/"
  force=true
 
@@ -4518,10 +4433,6 @@
  to="/pt/p/l%C3%B3gica-lusa-natural-vidrado-brilho-cer%C3%A2mica-1775476478/"
  force=true
 
-[[redirects]]
- from="/pt/products/bmi-cobert/kit-sa%EDda-ventila%E7%E3o-universal-dn-125"
- to="/pt/p/kit-sa%C3%ADda-ventila%C3%A7%C3%A3o-universal-dn-125-base-universal-sa%C3%ADda-ventila%C3%A7%C3%A3o-64428079/"
- force=true
 
 [[redirects]]
  from="/pt/products/bmi-cobert/kit-sa%C3%ADda-ventila%C3%A7%C3%A3o-universal-dn-125"
@@ -4654,17 +4565,17 @@
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/chamin%E9-de-60-cm"
+ from="/pt/products/bmi-cobert/chamin%C3%A9-de-60-cm"
  to="/pt/p/chamin%C3%A9-de-60-cm-natural-natural-cer%C3%A2mica-2636146120/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/chamin%E9-de-30-cm"
+ from="/pt/products/bmi-cobert/chamin%C3%A9-de-30-cm"
  to="/pt/p/chamin%C3%A9-de-30-cm-engobada-engobes-cer%C3%A2mica-3368141258/"
  force=true
 
 [[redirects]]
- from="/pt/products/bmi-cobert/chamin%E9-cl%E1ssica"
+ from="/pt/products/bmi-cobert/chamin%C3%A9-cl%C3%A1ssica"
  to="/pt/p/chamin%C3%A9-cl%C3%A1ssica-natural-natural-cer%C3%A2mica-1513167672/"
  force=true
 
