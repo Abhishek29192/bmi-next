@@ -5195,8 +5195,548 @@
  force=true
 
 [[redirects]]
- from="/pt/sxa/file/*"
+ from="/pt/sxa/file/download/?site=Portugal&id=055caf21742a3ef65499c692032fadc0"
+ to="https://assets.ctfassets.net/5gurbfyck794/1qPNlgIQRJ2qkLsSdPmJgO/38aabc9cd9c5983d2e3e513e687b6e0f/Ficha_Te__cnica_-_Parafor_30_GS_-_FICHAS_TE__CNICAS_-_Parafor_30_GS.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=05a94ef7723fd7b3e98f2ed162d20dc3"
  to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=072161ee4b8c0c8740b3aa50e85d397b"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=0716b48cc423a78117ca36f1e42e1eb0"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h12/hb5/9046481469470/CE034MARCAN001863-ES-2020-11-10pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=0a6b53aa04979f344147a3e79ec746e7"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=0d61e83bd6051b189cbe14fb45347b43"
+ to="https://assets.ctfassets.net/5gurbfyck794/6PoEM1QILuRQ2o2nWbwMtl/d018870af1659c00f26d5ca5855fdf70/Marcac__a__o_CE_Cera__mica_2020_-_CERTIFICAC__A__O_CE_-_Marselha_MG_Plus.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=152d58cf6979cce752fe6323a3800883"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=171c959850ae312eac1fe33d776c5b61"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc1/h5e/9046510567454/DoP---Parafor-Ponts---Declaracion-de-prestaciones---Parafor-Pontspdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=1288c55609b2d1a1de6dcd6c00e72802"
+ to="https://assets.ctfassets.net/5gurbfyck794/2A5cRnesXly79yIGDhAFrb/b55dd0f00d2129b2fdf7d74bfefaf7f9/Manual_instalacion_EverGuard_TPO.PDF"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=10367a1b5b7428f2a504f367c0adf8cd"
+ to="https://assets.ctfassets.net/5gurbfyck794/tSwjhdHSJ9J49xb7M4qZ1/5e6b6a015c80b8917f19d75de011c34a/Ficha_Te__cnica_-_PVFIX_-_FICHAS_TE__CNICAS_-_Suportes_Fotovoltaicos.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=17a171168f3c5e456c2d78c9ed36b8b8"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h3d/h52/9046505979934/DoP---Parathane-Mastic---Declaracion-de-prestaciones---Parathane-Masticpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=1efd43555675acf30861cb95d118ff32"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc1/h03/9046506176542/Ficha-tecnica---Walkway-TPO---Ficha-de-datos-del-producto---Lamina-TPO-Walkwaypdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=218b49d0ecca2392689a344e06df4380"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb8/hbe/9046503161886/AENOR---Log-Marselha-ECTpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=21b2ba9f4499f6793f10570c754ff99c"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/he7/h02/9046501851166/Ficha-de-seguridad---Adhesivo-de-Contacto-TPO---Ficha-de-Seguridad---TPO-Adhesivo-de-contactopdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=25443abf28c1ca8be5303ba4804dc4d7"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h67/hdc/9046520201246/AENOR---log-Plana-Naturalpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=29c03639176c6fc017c2acd57a13956c"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hef/h55/9046518497310/DdD--CALEIRA-METALICApdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=2a7f4a7ceb0be5b8ea0374d99705d106"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=2a68c2a9313cce3a26c28dfea3e820fa"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=2b3a0ea784b685bf57895d246fd9966b"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf2/h59/9046521970718/Ficha-tecnica---Neodyl---Documentacion-tecnica---Joint-Neodylpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=2c0b0f390a94b4b619983172e3f34cf5"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=2f7e921a8ea02eee53c45f67c57b6d31"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc7/hae/9046486122526/DoP---Parafor-30-GS---Declaracion-de-prestaciones---Parafor-30-GSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=40fa1e6e9368ac2f8d3ff3956d0d831a"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h10/h8f/9046478979102/Ficha-tecnica---Adesolo-G---Documentacion-tecnica---ADESOLO-Gpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=31b19a220f7bfd01a2873f2a60ac6ca5"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc0/hb5/9046481403934/DdD--SUPORTE-METALICO-CUMEpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=45b3cd3f1bd8bc6a859a5b8321e57baf"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=3415ea1c65545b86882e3d6939b51457"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h13/h1e/9046491562014/DoP---Monarplan-FM-1---Declaracion-de-prestaciones---Laminas-PVC-Monarplan-FM-(1)pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=499c43fa0e33d5753047d6705468c845"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h4d/h99/9046489464862/Ficha-de-datos-de-seguridad---Siplast-Primer---Ficha-de-Seguridad---Siplast-Primerpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=4f0f7f87401555f07fbebf60ea9a0ba6"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h51/hcf/9046516269086/DdD--EASYFLASHpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=4c9ad0085a61c28c913c32202fd88e72"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h57/h8f/9046484680734/Ficha-de-seguridad---Monarplan-Liquido---Ficha-de-Seguridad---PVC-Monarplan-Liquidopdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5354aec7e5b3a3f3b9b4937175af71de"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=557a2f4e4d502f2e7b04ded5aee81d69"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hfd/h36/9046495690782/Ficha-tecnica---Paradiene-3-FP---Documentacion-tecnica---Paradiene-3-FPpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=564a205ee333e3581b9470e5eb438ec9"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2d/h61/9046518104094/DdD--CALEIRA-FLEXIVELpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=59e20ee7cb294f3e4f87d39b33e8b003"
+ to="https://assets.ctfassets.net/5gurbfyck794/4M3B2Jm2G5BeRwrBkecoIz/a34eebccccdf8555ae0ecb071a9bcc25/Ficha_Te__cnica_-_Parafor_Ponts_-_FICHAS_TE__CNICAS_-_Parafor_Ponts.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5806184ff2c478f76776800ccee6d23c"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5a7e4c96a2e402014441b497fabe374e"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hab/h6e/9046523609118/AENOR---Log-plana-ECTpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5c37d96e3397aa9f23ae62a8031d3ddf"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/had/h65/9046502637598/DoP---Parequerre---Declaracion-de-prestaciones---Parequerrepdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5b00744567077f7f8209336ad6efc7d8"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h0e/hd1/9046512467998/Ficha-tecnica---Icoplast-4-FV---Documentacion-tecnica---Icoplast-4-FVpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=63657fbdb4aea87b6bc69b232c0c61a1"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf7/h7d/9046484156446/DoP---Parathane-Coating---Declaracion-de-prestaciones---Parathane-Coatingpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=5e93005a6f2812945055b754d0476354"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/he1/h27/9046491824158/Ficha-de-seguridad---Monarplan-THF---Ficha-de-Seguridad---PVC-Monarplan-THF-1,25pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=64369b4f07c1000fad89000222b19302"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2d/h02/9046530523166/DdD--RIPA-DE-VENTILACAO-LISApdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6614127cc6db92e7d31edb21c3875f1b"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hfa/h00/9046522495006/DoP---Parafor-Solo-S-5mm---Declaracion-de-prestaciones---Parafor-Solo-Spdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6762ed1c21f14956850dafd287845d0a"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=68dfaea69f343e1b13713d200b0a6321"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc7/hae/9046486122526/DoP---Parafor-30-GS---Declaracion-de-prestaciones---Parafor-30-GSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=68795657b7226d75a8aea531ba314ea5"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd0/h24/9046491758622/TDS-EverGuard-TPO---Chapa-colaminada---Documentacion-tecnica---TPO-EverGuard-Chapa-colaminadapdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6a2afcd4889e6d960a2d23de2a7e8522"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h08/hab/9046486253598/Ficha-tecnica---Icoplast-4-FP---Documentacion-tecnica---Icoplast-4-FPpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6ce0f5b946e69689387e702e8a590b3b"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h35/hc9/9046503489566/Certificado-NF---Logica-plana-495-du-09-10-2020pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6d47ad16fc4fd8a9aac4e9ff1aa6249c"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc1/h0c/9046514761758/Ficha-de-seguridad---Parathane-Mastic---Ficha-de-Seguridad---Parathane-Masticpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7019408ac5d1f06024ef1ee439dcd6a5"
+ to="https://assets.ctfassets.net/5gurbfyck794/2i6njfvjBXdqRgYCCzElZh/c806ffa9afd267c0fdcf7214a806da10/Ficha_te__cnica_-_Irex_Profil_-_FICHAS_TE__CNICAS_-_Irex_Profil.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6e3ee01eccf23d64ea8f1d6196cf9b64"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2d/h02/9046530523166/DdD--RIPA-DE-VENTILACAO-LISApdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=6e2433e7f7384b777a3869a9ad65a1d7"
+ to="https://assets.ctfassets.net/5gurbfyck794/6PoEM1QILuRQ2o2nWbwMtl/d018870af1659c00f26d5ca5855fdf70/Marcac__a__o_CE_Cera__mica_2020_-_CERTIFICAC__A__O_CE_-_Marselha_MG_Plus.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=715d14700e80562eb32cc8dc189c9247"
+ to="https://assets.ctfassets.net/5gurbfyck794/6PoEM1QILuRQ2o2nWbwMtl/d018870af1659c00f26d5ca5855fdf70/Marcac__a__o_CE_Cera__mica_2020_-_CERTIFICAC__A__O_CE_-_Marselha_MG_Plus.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=716d7aabe883d732c255d8fd91364ee6"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7231db146ff98e5175db6760ac919c88"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9f/h13/9046483107870/Ficha-tecnica---Icoplast-3-FV---Documentacion-tecnica---Icoplast-3-FVpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=72a8dcf51507a5fb8595a7bb9ab9c77d"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h53/9046490316830/Ficha-tecnica---Parafor-Solo-GS---Documentacion-tecnica---Parafor-Solo-GSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7425951468538a4f19bbeaf6f65f43cc"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h89/h5d/9046526361630/TRADUCAO-EPD-BMI-EVERGUARD-TPO-(1)-PT-(1)docx-(1)-(1)pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7286a13e6f688c2d7dcc69c7801c805b"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h49/hfd/9057881554974/Certificado-AENOR-Logica-(r)-Emotions---CERTIFICADOS---Logica(r)-Emotionspdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7704a5699ab230211df24ab9333ffc39"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h49/hfd/9057881554974/Certificado-AENOR-Logica-(r)-Emotions---CERTIFICADOS---Logica(r)-Emotionspdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=74f45dd95ce3b180a2b6825cccfd911f"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb2/hce/9046525116446/DoP---Paradiene-35-S-R4---Declaracion-de-prestaciones---Paradiene-35-S-R4pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7a90ebb3f8e54a10321630e0b816eeaa"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h95/h40/9046479175710/2019-Declaracion-Prestaciones-CLIMA-PRO-T-320---Declaracion-de-prestaciones---Clima-Propdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=79c85da7f224da2f454a16e7790e0bea"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h16/hca/9046517186590/DoP---Parevapo---Declaracion-de-prestaciones---Parevapopdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7c699e41a426cbd624a8ae7ed1c93b16"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h11/h6f/9046521315358/Ficha-de-seguridad---Parathane-Finish-UV-Clear---Ficha-de-Seguridad---Parathane-Finish-UV-Clearpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=7f509ee8dfbcbcd2ed21f619e1133471"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9e/h96/9046499491870/2020-0915-Cobert-Piemontesa-ESpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=80314573a8821bb48f79c9352eb5c360"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=852f5c8d519eab95f5e33ea4359d1ff7"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h33/hc7/9046525378590/DoP---Paradial-S---Declaracion-de-prestaciones---PARADIAL-Spdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=84417366eb418f213ce02a4d084e94f5"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h83/h3d/9046479241246/DdD--VAPOTECHpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=81447d0cbfc797d5f01d20d78cf964e6"
+ to="https://assets.ctfassets.net/5gurbfyck794/1qPNlgIQRJ2qkLsSdPmJgO/38aabc9cd9c5983d2e3e513e687b6e0f/Ficha_Te__cnica_-_Parafor_30_GS_-_FICHAS_TE__CNICAS_-_Parafor_30_GS.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=885e5b936ee62fa34ce224bcb24d992a"
+ to="https://assets.ctfassets.net/5gurbfyck794/52V9epI6ILIlfq9SUmJH4W/1c843889544be0d3c21f33a8f70fea7e/Ficha_Te__cnica_-_Icoplast_40_G_FV_-_FICHAS_TE__CNICAS_-_Icoplast_40_G_FV.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=8e72ce56793fabaed0c0f927b632cb53"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=88aad8d7c276aff60550e9e7596f31c5"
+ to="https://assets.ctfassets.net/5gurbfyck794/5lKqErcw4dgbuSF6oSdb2H/05bd3b6eaba75814cde463d5411c50ce/Ficha_Te__cnica_-_Supradial_GS_-_FICHAS_TE__CNICAS_-_SUPRADIAL.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=8f4013e03e4dffbcd297f21d49cb59a6"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb6/h6f/9046507421726/Ficha-tecnica---Paradiene-3-FV---Documentacion-tecnica---Paradiene-3-FVpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=9502cd70b75a4d2654cdd4b517521a12"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h74/h45/9046490710046/DoP---Adesolo-G---Declaracion-de-prestaciones---ADESOLO-Gpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=9533a5ecda978d310b4e4f642529369e"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hbb/hab/9046509912094/Ficha-tecnica---Parequerre---Documentacion-tecnica---Parequerrepdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=9d3b5540d3702993d7df6a17dad33f97"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2c/hc7/9046512730142/DoP---Parafor-Solo-GS---Declaracion-de-prestaciones---Parafor-Solo-GSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=96f6f0c74ae9cf21e058ad750bc92bf1"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h4d/hdf/9046529310750/DoP---Irex-Profil---Declaracion-de-prestaciones---Irex-Profilpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=a8db006f24ef7c172dde2ebbf83f83e0"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=a28144ec4ec29b0bb97ed9206ff549e6"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9e/h96/9046499491870/2020-0915-Cobert-Piemontesa-ESpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=a8f0f2048045ee6703155300061a5d1c"
+ to="/pt/search/?q=PARADIENE%20BD%20S%20&tab=documents"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=aab7ba6b6be19ede2f7ee592f476be4f"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf5/hf1/9046480945182/DdD--Ecotech-145pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=aef8db169c8280d1120d2f6405dc0ead"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h3a/h1e/9046496083998/CE034MARCAN001692-ES-2020-11-10pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=b5dc441dbbcb2fb42546836f71a8b8be"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h24/h28/9046488219678/DoP---Supradial-GS---Declaracion-de-prestaciones---SUPRADIALpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=b2d1c0bd2ddc37e2435a82971fc4e21b"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=b2f8e72d10c3649a08261a183e73f1a8"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hca/hb1/9046509781022/Ficha-de-seguridad---Parathane-Coating---Ficha-de-Seguridad---Parathane-Coatingpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=b879146c5e64c763bc84a31f566ed6c0"
+ to="https://assets.ctfassets.net/5gurbfyck794/qgWuqq8HL5VJzkZScKI2E/b309b6a11e6626c4dbb35ac2b75f14d0/Ficha_Te__cnica_-_Paradiene_24_FV_-_FICHAS_TE__CNICAS_-_Paradiene_24_FV.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=c4c9d5ae6b4bbbcc29977759fe76fdda"
+ to="https://assets.ctfassets.net/5gurbfyck794/S680YaajmgNpYML2q7u8K/1f470af41debbba0b5c86cd2f8fa9720/Ficha_Te__cnica_-_Icoplast_40_G_FP_-_FICHAS_TE__CNICAS_-__Icoplast_40_G_FP.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=cbe7f5f35fc0227b4aa4ae318ed53519"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=c411789b7ebcf0bf04019794eb97d755"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h52/hc3/9046504734750/DoP---Teranap-JS-2m---Declaracion-de-prestaciones---TERANAP-JSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=cb7c0f5694260180fbdeaf154f81a4a8"
+ to="https://assets.ctfassets.net/5gurbfyck794/4KFGQTjLqvswPIS35uCOcD/f3e14a6a5d2f66b573f7627e713d8735/Ficha_Te__cnica_-_Parafor_Solo_S_-_FICHAS_TE__CNICAS_-_Parafor_Solo_S.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=cc080aa6f93238f50c26be824b3120d6"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h36/hee/9046480814110/Ficha-tecnica---Paradiene-S-VV---Documentacion-tecnica---Paradiene-SVVpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=cd840fc28797608b7af72720f380cd89"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h66/hb6/9046517710878/TDS-Parafor-Solo-S-5-mm---Documentacion-tecnica---Parafor-Solo-Spdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=ce883fce33c3712c64b98d59bc20bd58"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=ceb1d6bc66cf66fa0906ce4b50cb1bfa"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2b/hd9/9046529179678/Ficha-tecnica---Parafor-4-FP---Documentacion-tecnica---Parafor-4-FPpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=d35aad5939640ac131417f4ecc3f31fc"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=d632b21f00f8c24017107629eabcdf33"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h00/hf5/9046493659166/DdD--WAKAFLEXpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=d6c660c64c58bde611b13b21c5da7a1b"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h63/hc0/9046525575198/Certificado-CE---Everguard-TPO---Certificado-CE---Laminas-TPO-EverGuardpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=d7ae476c5432bde6f0707851bd0edf07"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd5/h6b/9046528065566/DoP---Parafor-Solo-GFX---Declaracion-de-prestaciones---Parafor-Solo-GFXpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=dd5f5a0858561b5cfcfca50d49921e95"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=d8aad80629e5c05cb8f9a77bc903ee16"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e321143acc5d972d4608e88952a03386"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e359feb6fcf3716ebb446d924bb22cdb"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h49/hfd/9057881554974/Certificado-AENOR-Logica-(r)-Emotions---CERTIFICADOS---Logica(r)-Emotionspdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e5bd56f3488a32b44ce7732c485f6b5a"
+ to="https://assets.ctfassets.net/5gurbfyck794/64MptiUP6qztPhb6AvmIrl/af328985f1f1c35ad0c498a3ffda7f65/DdD_-_Teranap_JS_1m_-_Declarac__a__o_de_Desempenho_-_TERANAP_JS.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=ebfda386cc2ab7ee9bd07c344121918d"
+ to="https://assets.ctfassets.net/5gurbfyck794/6nKaG7Byf8MEm9eFZhFAyo/55df63b923b57dc7dc94e5f5bc0aaacb/Ficha_Te__cnica_-_Icoplast_50_G_FP_-_FICHAS_TE__CNICAS_-_Icoplast_50_G_FP.pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e5ca3aae26560b4b53df1820256981b8"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e6ff6700bf166780c7255c71b41ab54f"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h87/h88/9046484484126/DdD--DRYROLLpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=e987680a031ec7f8a62c26d3a0f08021"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h5b/hc7/9046520856606/DoP---Preflex---Declaracion-de-prestaciones---PREFLEX-en-6,5-mpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f6298b18d62ffd79ad6893eadaca2ceb"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f461bf20c2cf390938939d5d22d2789f"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f62abd89ad77bb4a791eea95e343901f"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hbc/h2b/9046483828766/DdD--FIGAROLL-PLUSpdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f845c9fbfb66b03d5619eb1f25d5b765"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb3/h5a/9046521905182/CE034MARCAN001997-ES-2021-09-20pdf"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f8a68f1ee43253e73eceee28c8e57e37"
+ to="/pt/documentacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sxa/file/download/?site=Portugal&id=f980fdcf8574949e7af56bce45b3e0ce"
+ to="https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h33/hc7/9046525378590/DoP---Paradial-S---Declaracion-de-prestaciones---PARADIAL-Spdf"
  force=true
 
 # Redirect root to /pt.
