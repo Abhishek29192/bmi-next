@@ -32,6 +32,9 @@ export const installerTeamMembers: TeamMembersQuery["accounts"]["nodes"] = [
           }
         }
       ]
+    },
+    projectMembers: {
+      nodes: []
     }
   }
 ];
@@ -67,6 +70,9 @@ export const adminTeamMembers: TeamMembersQuery["accounts"]["nodes"] = [
           }
         }
       ]
+    },
+    projectMembers: {
+      nodes: []
     }
   },
   {
@@ -94,6 +100,9 @@ export const adminTeamMembers: TeamMembersQuery["accounts"]["nodes"] = [
           }
         }
       ]
+    },
+    projectMembers: {
+      nodes: []
     }
   },
   {
@@ -115,6 +124,9 @@ export const adminTeamMembers: TeamMembersQuery["accounts"]["nodes"] = [
           }
         }
       ]
+    },
+    projectMembers: {
+      nodes: []
     }
   }
 ];

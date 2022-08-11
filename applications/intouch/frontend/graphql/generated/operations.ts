@@ -3329,6 +3329,21 @@ export type TeamMembersQuery = {
           expiryDate?: any | null;
         }>;
       };
+      projectMembers: {
+        __typename?: "ProjectMembersConnection";
+        nodes: Array<{
+          __typename?: "ProjectMember";
+          project?: {
+            __typename?: "Project";
+            id: number;
+            technology: SchemaTypes.Technology;
+            name: string;
+            startDate: any;
+            endDate: any;
+            hidden?: boolean | null;
+          } | null;
+        }>;
+      };
       companyMembers: {
         __typename?: "CompanyMembersConnection";
         nodes: Array<{

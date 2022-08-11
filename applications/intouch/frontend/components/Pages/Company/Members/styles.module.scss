@@ -1,9 +1,29 @@
 @import "~@bmi-digital/styles";
 
-.companyPage {
+.companyMemberPage {
   .detail {
-    flex: 2;
-    min-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 30px 20px;
+    width: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      justify-content: start;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 0;
+      margin-top: 16px;
+      overflow: hidden;
+    }
+
+    .userDetail {
+      @media (max-width: $breakpoint-lg) {
+        flex-direction: row-reverse;
+        flex-flow: wrap-reverse;
+      }
+    }
   }
 
   .icons {
@@ -19,8 +39,64 @@
   }
 
   .expired {
-    td {
-      color: red;
+    color: red;
+  }
+
+  .projectTable {
+    th {
+      &:nth-child(1) {
+        width: 72px;
+      }
+      &:nth-child(3),
+      &:nth-child(4) {
+        width: 90px;
+      }
+    }
+    @media (max-width: $breakpoint-lg) {
+      th {
+        &:nth-child(1) {
+          width: 72px;
+        }
+        &:nth-child(3),
+        &:nth-child(4) {
+          width: 130px;
+        }
+      }
+    }
+  }
+
+  .actionPanel {
+    margin-bottom: 0;
+
+    @media (max-width: $breakpoint-lg) {
+      padding: 20px 0;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding: 16px;
+    }
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      Button {
+        width: auto;
+      }
+    }
+
+    &.mobile {
+      @media (min-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
+    &.desktop {
+      @media (max-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
+  }
+
+  .userCard {
+    @media (max-width: $breakpoint-md) {
+      padding: 0 16px;
     }
   }
 }
