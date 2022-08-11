@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
-import { CalculatorSteps, Underlay } from "../types";
+import { CalculatorConfig, CalculatorSteps, Underlay } from "../types";
 import {
   DimensionsValues,
   LinesMap,
@@ -14,7 +14,6 @@ import { AnalyticsContext } from "./../helpers/analytics";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
-import { requiredRoofs } from "./calculation/roofs";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
 import Guttering, { GutteringSelections } from "./_Guttering";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
@@ -31,13 +30,15 @@ export type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
   selected: CalculatorSteps;
   setSelected: (value: CalculatorSteps) => void;
+  calculatorConfig: CalculatorConfig | null;
 };
 
 const PitchedRoofCalculatorSteps = ({
   data, // TODO: use here
   isDebugging,
   selected,
-  setSelected
+  setSelected,
+  calculatorConfig
 }: PitchedRoofCalculatorStepsProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
@@ -178,7 +179,7 @@ const PitchedRoofCalculatorSteps = ({
           subtitle={getMicroCopy(microCopy.ROOF_SELECTION_SUBTITLE)}
         >
           <RoofSelection
-            requiredRoofShapes={requiredRoofs}
+            requiredRoofShapes={calculatorConfig?.roofShapes}
             select={selectRoof}
             selected={roof}
           />
@@ -406,6 +407,7 @@ const PitchedRoofCalculatorSteps = ({
               underlays={data.underlays}
               gutters={data.gutters}
               gutterHooks={data.gutterHooks}
+              hubSpotFormId={calculatorConfig?.hubSpotFormId}
               {...{
                 isDebugging,
                 measurements,

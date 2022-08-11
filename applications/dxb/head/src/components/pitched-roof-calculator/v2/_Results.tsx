@@ -7,7 +7,6 @@ import React, {
   useState
 } from "react";
 import { microCopy } from "../../../constants/microCopies";
-import { useConfig } from "../../../contexts/ConfigProvider";
 import { devLog } from "../../../utils/devLog";
 import FormSection from "../../FormSection";
 import { useSiteContext } from "../../Site";
@@ -37,6 +36,7 @@ import { TileOptionsSelections } from "./_TileOptions";
 type EmailAddressCollectionProps = {
   results: ResultsObject;
   area: number;
+  hubSpotFormId: string | null;
 };
 
 const replaceImageURLWithImage = async (
@@ -70,15 +70,9 @@ const replaceImageURLWithImage = async (
 
 const EmailAddressCollection = ({
   results,
-  area
+  area,
+  hubSpotFormId
 }: EmailAddressCollectionProps) => {
-  const {
-    /**
-     * @todo move GATSBY_WEBTOOL_CALCULATOR_HUBSPOT_FORM_ID to Contentful
-     * https://bmigroup.atlassian.net/browse/WEBT-456
-     */
-    config: { webToolCalculatorHubSpotFormId }
-  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
@@ -164,7 +158,7 @@ const EmailAddressCollection = ({
       className={styles["Result"]}
       data={{
         __typename: "ContentfulFormSection",
-        hubSpotFormGuid: webToolCalculatorHubSpotFormId,
+        hubSpotFormGuid: hubSpotFormId,
         showTitle: true,
         description: (
           <Typography className={styles["help"]}>
@@ -202,6 +196,7 @@ export type ResultProps = {
   tileOptions: TileOptionsSelections;
   underlay: Underlay;
   guttering?: GutteringSelections;
+  hubSpotFormId: string | null;
 };
 
 const Results = ({
@@ -213,7 +208,8 @@ const Results = ({
   variant,
   tileOptions,
   underlay,
-  guttering
+  guttering,
+  hubSpotFormId
 }: ResultProps) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -484,7 +480,8 @@ const Results = ({
             accessories: accessoryRows,
             extras: updatedProducts || []
           },
-          area: area || 0
+          area: area || 0,
+          hubSpotFormId
         }}
       />
       {isDebugging ? (

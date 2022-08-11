@@ -1,8 +1,8 @@
 import React from "react";
-import GeneralError from "../general-error";
-import { renderWithRouter } from "../../test/renderWithRouter";
-import { Data as SiteData } from "../../components/Site";
 import { Data as LinkData } from "../../components/Link";
+import { Data as SiteData } from "../../components/Site";
+import { renderWithRouter } from "../../test/renderWithRouter";
+import GeneralError from "../general-error";
 
 describe("General Error", () => {
   const link: LinkData = {
@@ -98,6 +98,7 @@ describe("General Error", () => {
         sdpSpecificationNotesCta: null
       },
       headScripts: null,
+      pitchedRoofCalculatorConfig: null,
       regions: [
         {
           label: "Europe",

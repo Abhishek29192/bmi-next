@@ -166,6 +166,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={CalculatorSteps.SelectRoof}
           setSelected={jest.fn()}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );
@@ -186,6 +187,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={selected}
           setSelected={setSelected}
           data={data as any}
+          calculatorConfig={{
+            hubSpotFormId: "mock",
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+          }}
         />
       </MicroCopy.Provider>
     );
@@ -311,6 +316,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={selected}
           setSelected={setSelected}
           data={data as any}
+          calculatorConfig={{
+            hubSpotFormId: "mock",
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+          }}
         />
       </MicroCopy.Provider>
     );

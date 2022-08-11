@@ -6,7 +6,7 @@ import RoofSelection, { RoofSelectionProps } from "../_RoofSelection";
 
 const defaultProps: RoofSelectionProps = {
   select: jest.fn(),
-  requiredRoofShapes: [{ id: "1", name: "1" }]
+  requiredRoofShapes: [{ roofShapeId: "1" }]
 };
 
 const render = (props: Partial<RoofSelectionProps> = {}) => {
