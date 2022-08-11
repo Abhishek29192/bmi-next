@@ -10,8 +10,6 @@
 import { microCopy } from "@bmi/head/src/constants/microCopies";
 import { getEnvironment, waitFor } from "@bmi/utils";
 
-import { waitFor } from "../utils";
-
 /*
   Contentful Management API have limitation to amount of requests
   For more info https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/api-rate-limits
