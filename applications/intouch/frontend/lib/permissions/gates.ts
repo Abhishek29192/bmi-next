@@ -268,8 +268,8 @@ export const gates = {
       AUDITOR: archivedProjectRestriction(false)
     },
     copy: {
-      SUPER_ADMIN: archivedProjectRestriction(true),
-      MARKET_ADMIN: archivedProjectRestriction(true),
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
       COMPANY_ADMIN: archivedProjectRestriction(true),
       INSTALLER: archivedProjectRestriction(false),
       AUDITOR: archivedProjectRestriction(false)
