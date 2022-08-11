@@ -8,12 +8,13 @@
     "build": "tsc && copyfiles './src/images/**/*' ./dist/contentful-migrate",
     "migrateCreate": "node ./dist/contentful-migrate/src/create.js",
     "debug": "node --inspect ./dist/contentful-migrate/src/index.js",
+    "dxb-update-mc": "node ./dist/contentful-migrate/src/cma/update-mc.js",
+    "dxb-update-mc:publish": "node ./dist/contentful-migrate/src/cma/update-mc.js --publish",
     "down": "node ./dist/contentful-migrate/src/down.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prod": "node ./dist/contentful-migrate/src/index.js",
-    "up": "node ./dist/contentful-migrate/src/up.js",
-    "dxb-update-mc": "node ./dist/contentful-migrate/src/cma/update-mc.js",
-    "dxb-update-mc:publish": "node ./dist/contentful-migrate/src/cma/update-mc.js --publish"
+    "prod": "node ./dist/contentful-migrate/index.js",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
+    "up": "node ./dist/contentful-migrate/up.js"
   },
   "dependencies": {
     "@bmi-digital/contentful-migration": "^1.2.0",
@@ -22,6 +23,9 @@
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "jest": "^27.5.1",
+    "jest-junit": "^13.0.0",
+    "ts-jest": "^27.1.3"
   }
 }

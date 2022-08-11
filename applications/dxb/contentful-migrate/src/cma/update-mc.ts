@@ -36,9 +36,9 @@
   ii) It will publish newly created entries
   iii) `value` of each entry will same as its `key`
 */
+import { getEnvironment, waitFor } from "@bmi/utils";
 import { Entry, Environment, Link, Locale, Tag } from "contentful-management";
 import { microCopy } from "../../../head/src/constants/microCopies";
-import { getEnvironment, waitFor } from "../utils";
 
 /*
   Contentful Management API have limitation to amount of requests

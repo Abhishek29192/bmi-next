@@ -1,5 +1,5 @@
-import { migrateUp } from "@bmi-digital/contentful-migration";
 import "dotenv/config";
+import { runMigrationScripts } from "./migrationScripts";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -8,15 +8,14 @@ const {
   SPACE_ID
 } = process.env;
 
-const main = async () => {
+export const main = async () => {
   if (!SPACE_ID || !CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN) {
     throw Error(
       "Missing env config `SPACE_ID` or `CONTENTFUL_ENVIRONMENT` or `MANAGEMENT_ACCESS_TOKEN`"
     );
   }
 
-  return await migrateUp(
-    __dirname,
+  await runMigrationScripts(
     SPACE_ID,
     CONTENTFUL_ENVIRONMENT,
     MANAGEMENT_ACCESS_TOKEN,
@@ -24,8 +23,9 @@ const main = async () => {
   );
 };
 
-main()
-  .then((status) => process.exit(status || 0))
-  .catch((error) => {
+// istanbul ignore if - can't override require.main
+if (require.main === module) {
+  main().catch((error) => {
     console.error(error);
   });
+}

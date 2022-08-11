@@ -1,15 +1,18 @@
-build_contentful_migrate:
-  stage: build
-  rules:
-    - !reference [.run_for_changes_on_main, rules]
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - job: install_yarn
-      optional: true
+test_contentful_migrate:
+  extends: .test_yarn_workspace
   variables:
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  script:
-    - yarn workspace @bmi/dxb-contentful-migrate build
+    WORKSPACE: "@bmi/dxb-contentful-migrate"
+
+build_contentful_migrate:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.run_for_changes_on_main, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+    WORKSPACE: "@bmi/dxb-contentful-migrate"
   artifacts:
     untracked: false
     paths:
