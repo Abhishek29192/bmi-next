@@ -116,7 +116,11 @@ export const ProjectsHeader = ({
         </InfoPair>
       </div>
       {guaranteeEventType && (
-        <AccessControl dataModel="project" action="adminActions">
+        <AccessControl
+          dataModel="project"
+          action="adminActions"
+          extraData={{ isArchived: hidden }}
+        >
           <div className={styles.footer}>
             <Button
               onClick={() => {

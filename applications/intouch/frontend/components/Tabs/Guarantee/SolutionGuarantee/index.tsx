@@ -9,18 +9,21 @@ import { ProductCard } from "../ProductCard";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteesProps = {
+  project: GetProjectQuery["project"];
   guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
   onReviewClick: () => void;
   canGuaranteeBeSubmitted: boolean;
 };
 
 export const SolutionGuarantee = ({
+  project,
   guarantee,
   onReviewClick,
   canGuaranteeBeSubmitted
 }: SolutionGuaranteesProps) => {
   return (
     <SolutionGuaranteeCard
+      project={project}
       guarantee={guarantee}
       onReviewClick={onReviewClick}
       canGuaranteeBeSubmitted={canGuaranteeBeSubmitted}
@@ -29,11 +32,14 @@ export const SolutionGuarantee = ({
 };
 
 type SolutionGuaranteeCardProps = {
+  project: GetProjectQuery["project"];
   guarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0];
   onReviewClick: () => void;
   canGuaranteeBeSubmitted: boolean;
 };
+
 const SolutionGuaranteeCard = ({
+  project,
   guarantee,
   onReviewClick,
   canGuaranteeBeSubmitted
@@ -83,7 +89,11 @@ const SolutionGuaranteeCard = ({
         )}
         {["NEW", "REJECTED"].includes(status) && (
           <div className={styles.footer__buttonContainer}>
-            <AccessControl dataModel="project" action="submitSolutionGuarantee">
+            <AccessControl
+              dataModel="project"
+              action="submitSolutionGuarantee"
+              extraData={{ isArchived: project.hidden }}
+            >
               <Button
                 onClick={onReviewClick}
                 variant="outlined"

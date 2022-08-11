@@ -3,6 +3,7 @@ import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
 import { NoteTab } from "..";
+import { generateProject } from "../../../../lib/tests/factories/project";
 
 jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
@@ -14,11 +15,12 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 }));
 
 describe("NoteTab Components", () => {
+  const project = generateProject();
   describe("render correct number of notes", () => {
     it("none", () => {
       renderWithI18NProvider(
         <AccountContextWrapper>
-          <NoteTab accountId={1} projectId={1} notes={[]} />
+          <NoteTab accountId={1} project={project} notes={[]} />
         </AccountContextWrapper>
       );
 
@@ -35,7 +37,7 @@ describe("NoteTab Components", () => {
       ];
       renderWithI18NProvider(
         <AccountContextWrapper>
-          <NoteTab accountId={1} projectId={1} notes={notes} />
+          <NoteTab accountId={1} project={project} notes={notes} />
         </AccountContextWrapper>
       );
       expect(screen.getAllByTestId("note-item")).toHaveLength(1);
@@ -63,7 +65,7 @@ describe("NoteTab Components", () => {
       ];
       renderWithI18NProvider(
         <AccountContextWrapper>
-          <NoteTab accountId={1} projectId={1} notes={notes} />
+          <NoteTab accountId={1} project={project} notes={notes} />
         </AccountContextWrapper>
       );
       expect(screen.getAllByTestId("note-item")).toHaveLength(3);

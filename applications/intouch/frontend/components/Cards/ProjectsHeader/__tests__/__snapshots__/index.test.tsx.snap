@@ -62,7 +62,7 @@ exports[`ProjectsHeader component render correctly 1`] = `
           <div
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            bool.True
+            bool.False
           </div>
         </div>
         <div

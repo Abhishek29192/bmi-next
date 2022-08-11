@@ -140,21 +140,23 @@ export const ProjectActionsCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        {!isArchived && (
-          <AccessControl dataModel="project" action="inspection">
-            <div className={styles.inspectionWrapper}>
-              <Checkbox
-                name={"inspection"}
-                label={getFieldLabel(t, "inspection")}
-                checked={inspectionState}
-                className={styles.inspectionCheckbox}
-                onChange={(value) => {
-                  updateInspection(value);
-                }}
-              />
-            </div>
-          </AccessControl>
-        )}
+        <AccessControl
+          dataModel="project"
+          action="inspection"
+          extraData={{ isArchived }}
+        >
+          <div className={styles.inspectionWrapper}>
+            <Checkbox
+              name={"inspection"}
+              label={getFieldLabel(t, "inspection")}
+              checked={inspectionState}
+              className={styles.inspectionCheckbox}
+              onChange={(value) => {
+                updateInspection(value);
+              }}
+            />
+          </div>
+        </AccessControl>
         {!isArchived && (
           <Button
             data-testid="archive-project-button"
@@ -164,7 +166,11 @@ export const ProjectActionsCard = ({
             {t("projectActions.cta.archive")}
           </Button>
         )}
-        <AccessControl dataModel="project" action="restartSolutionGuarantee">
+        <AccessControl
+          dataModel="project"
+          action="restartSolutionGuarantee"
+          extraData={{ isArchived }}
+        >
           {isSolutionOrSystemGuaranteeExist && (
             <Button
               disabled={loading}
@@ -186,7 +192,11 @@ export const ProjectActionsCard = ({
           )}
         </AccessControl>
         {guaranteeEventHandler && (
-          <>
+          <AccessControl
+            dataModel="project"
+            action="approveAndRejectSolutionGuarantee"
+            extraData={{ isArchived }}
+          >
             <Button
               variant="outlined"
               disabled={loading}
@@ -223,7 +233,7 @@ export const ProjectActionsCard = ({
             >
               {t("projectActions.cta.approveGuarantee")}
             </Button>
-          </>
+          </AccessControl>
         )}
         {open && (
           <Dialog
