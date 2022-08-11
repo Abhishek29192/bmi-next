@@ -1046,19 +1046,11 @@ describe("permissions/gates", () => {
 
     describe("copy", () => {
       it("role is SUPER_ADMIN", () => {
-        expect(
-          gates.project.copy[ROLES.SUPER_ADMIN](null, {
-            isArchived: false
-          })
-        ).toBe(true);
+        expect(gates.project.copy[ROLES.SUPER_ADMIN]).toBe(true);
       });
 
       it("role is MARKET_ADMIN ", () => {
-        expect(
-          gates.project.copy[ROLES.MARKET_ADMIN](null, {
-            isArchived: false
-          })
-        ).toBe(true);
+        expect(gates.project.copy[ROLES.MARKET_ADMIN]).toBe(true);
       });
 
       it("role is COMPANY_ADMIN ", () => {
