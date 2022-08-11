@@ -75,58 +75,60 @@ export const UserCard = ({
   return account ? (
     <div data-testid={testid} className={styles.main}>
       <div className={styles.content}>
-        <Avatar
-          style={{ height: "150px", width: "150px" }}
-          src={account.signedPhotoUrl}
-        />
-        <Typography variant="h5" className={styles.userName}>
-          {`${account.firstName} ${account.lastName}`}
-        </Typography>
-        <Typography className={styles.role}>
-          {t(`common:roles.${account.role}`)}
-        </Typography>
-        <Typography variant="body1" className={styles.companyName}>
-          {companyName}
-        </Typography>
-        {canChangeUserRole && (
-          <AccessControl dataModel="company" action="changeRole">
-            <Button
-              data-testid="change-role"
-              onClick={() =>
-                onUpdateRole(
-                  account.role === "INSTALLER" ? "COMPANY_ADMIN" : "INSTALLER"
-                )
-              }
-              variant="text"
-            >
-              {account.role === "INSTALLER"
-                ? t("team-page:user_card.add_admin")
-                : t("team-page:user_card.remove_admin")}
-            </Button>
-          </AccessControl>
-        )}
-        {isSuperAdmin(user) &&
-          !isCompanyMember &&
-          (account.role === "INSTALLER" || account.role === "AUDITOR") && (
+        <div className={styles.info}>
+          <Avatar
+            style={{ height: "150px", width: "150px" }}
+            src={account.signedPhotoUrl}
+          />
+          <Typography variant="h5" className={styles.userName}>
+            {`${account.firstName} ${account.lastName}`}
+          </Typography>
+          <Typography className={styles.role}>
+            {t(`common:roles.${account.role}`)}
+          </Typography>
+          <Typography variant="body1" className={styles.companyName}>
+            {companyName}
+          </Typography>
+          {canChangeUserRole && (
             <AccessControl dataModel="company" action="changeRole">
               <Button
-                data-testid="change-role-auditor"
+                data-testid="change-role"
                 onClick={() =>
                   onUpdateRole(
-                    account.role === "INSTALLER" ? "AUDITOR" : "INSTALLER"
+                    account.role === "INSTALLER" ? "COMPANY_ADMIN" : "INSTALLER"
                   )
                 }
+                variant="text"
               >
                 {account.role === "INSTALLER"
-                  ? t("team-page:user_card.add_auditor")
-                  : t("team-page:user_card.remove_auditor")}
+                  ? t("team-page:user_card.add_admin")
+                  : t("team-page:user_card.remove_admin")}
               </Button>
             </AccessControl>
           )}
+          {isSuperAdmin(user) &&
+            !isCompanyMember &&
+            (account.role === "INSTALLER" || account.role === "AUDITOR") && (
+              <AccessControl dataModel="company" action="changeRole">
+                <Button
+                  data-testid="change-role-auditor"
+                  onClick={() =>
+                    onUpdateRole(
+                      account.role === "INSTALLER" ? "AUDITOR" : "INSTALLER"
+                    )
+                  }
+                >
+                  {account.role === "INSTALLER"
+                    ? t("team-page:user_card.add_auditor")
+                    : t("team-page:user_card.remove_auditor")}
+                </Button>
+              </AccessControl>
+            )}
+        </div>
 
         <div className={styles.details}>
           {/* TODO: Fix CompanyDetails child requirement in DXB */}
-          <CompanyDetails details={details}>&nbsp;</CompanyDetails>
+          <CompanyDetails details={details}>{null}</CompanyDetails>
         </div>
         {account.role === "INSTALLER" && isCompanyMember && (
           <AccessControl dataModel="company" action="removeUser">

@@ -42,6 +42,13 @@
     "type": "Tipo",
     "validity": "Validità"
   },
+  "projectTable": {
+    "title": "Progetti",
+    "type": "Tipo",
+    "project": "Progetto",
+    "startDate": "Data d'inizio",
+    "endDate": "Data di fine"
+  },
   "userActions": {
     "action": {
       "activate": "Attiva utente",
