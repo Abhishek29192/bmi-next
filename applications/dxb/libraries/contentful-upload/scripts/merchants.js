@@ -20,11 +20,11 @@ const ask = async (question) =>
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const readFile = promisify(fs.readFile);
 
-let LOCALE = process.env.LOCALE;
 const SEPARATOR = "\t";
 const CONTENT_TYPE_ID = "roofer";
 const SERVICE_TYPE_CONTENT_TYPE_ID = "serviceType";
 let serviceTypeOwnKeyValueMap = {}; //this will be updated
+let allLocales;
 
 const columns = [
   { label: "Name", name: "name", type: "string" },
@@ -51,7 +51,7 @@ const parsers = {
 // eslint-disable-next-line security/detect-object-injection
 const parseValue = (type, value) => parsers[type](value.trim());
 
-const getExstingServiceTypes = async (environment) => {
+const getExstingServiceTypes = async (environment, locale) => {
   const allServiceTypeEntries = await environment.getEntries({
     content_type: SERVICE_TYPE_CONTENT_TYPE_ID
   });
@@ -62,7 +62,7 @@ const getExstingServiceTypes = async (environment) => {
         return {
           ...allEntries,
           // eslint-disable-next-line security/detect-object-injection
-          [serviceTypeEntry.fields.name[LOCALE]]: serviceTypeEntry.sys.id
+          [serviceTypeEntry.fields.name[locale]]: serviceTypeEntry.sys.id
         };
       },
       {}
@@ -152,7 +152,15 @@ const uploadLines = async (lines, environment) => {
                 SERVICE_TYPE_CONTENT_TYPE_ID,
                 {
                   fields: {
-                    name: { [LOCALE]: currentMerchantType }
+                    name: allLocales.items.reduce(
+                      (localizedMerchantTypes, { code }) => {
+                        return {
+                          ...localizedMerchantTypes,
+                          [code]: currentMerchantType
+                        };
+                      },
+                      {}
+                    )
                   }
                 }
               );
@@ -220,7 +228,13 @@ const uploadLines = async (lines, environment) => {
     const fieldsLocalised = Object.entries(fields).reduce(
       (acc, [key, value]) => {
         // eslint-disable-next-line security/detect-object-injection
-        acc[key] = { [LOCALE]: value };
+        acc[key] = allLocales.items.reduce((localizedField, { code }) => {
+          return {
+            ...localizedField,
+            [code]: value
+          };
+        }, {});
+
         return acc;
       },
       {}
@@ -299,8 +313,7 @@ const main = async (file) => {
     ![
       process.env.MANAGEMENT_ACCESS_TOKEN,
       process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.LOCALE
+      process.env.CONTENTFUL_ENVIRONMENT
     ].every(Boolean)
   ) {
     throw new Error("Missing Env vars");
@@ -315,21 +328,18 @@ const main = async (file) => {
     process.env.CONTENTFUL_ENVIRONMENT
   );
 
-  const allLocales = await environment.getLocales();
+  allLocales = await environment.getLocales();
 
-  // .env locale can be different from the environment's locale
-  // we can get environment's locale and update variable..we do not need environment variable
-  // but keeping it for fallback purpose!
   if (allLocales && allLocales.total > 0) {
-    const environmentLocale = allLocales.items[0].code;
-    if (environmentLocale !== LOCALE) {
-      LOCALE = environmentLocale;
-      console.log(`updated LOCALE environment Locale : ${LOCALE}`);
-    }
-  }
+    const defaultLocale = allLocales.items.find((locale) => locale.default);
 
-  // Get master list of service type entries
-  serviceTypeOwnKeyValueMap = await getExstingServiceTypes(environment);
+    serviceTypeOwnKeyValueMap = await getExstingServiceTypes(
+      environment,
+      defaultLocale.code
+    );
+  } else {
+    throw new Error("Provide at least 1 locale in your space.");
+  }
 
   console.log(
     `Uploadng to ${CONTENT_TYPE_ID}, using:\n` +
