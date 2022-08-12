@@ -109,8 +109,10 @@ const getValidCertDate = () => {
 const getValidProjects = (currentMember) => {
   return currentMember
     ? currentMember.projectMembers.nodes.filter(
-        ({ project: { hidden, endDate } }) =>
-          hidden === false && new Date(endDate) > new Date()
+        ({ project }) =>
+          !!project &&
+          project.hidden === false &&
+          new Date(project.endDate) > new Date()
       )
     : [];
 };
@@ -477,7 +479,10 @@ const CompanyMembers = ({ data }: PageProps) => {
           </Grid>
           {isMobile && (
             <AccessControl dataModel="company" action="changeStatus">
-              <div className={classnames(styles.actionPanel)}>
+              <div
+                className={classnames(styles.actionPanel)}
+                data-testid="company-member-action-card-mobile"
+              >
                 <CompanyMemberActionCard
                   member={currentMember}
                   onAccountUpdate={onAccountChangeStatus}

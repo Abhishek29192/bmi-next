@@ -92,8 +92,8 @@ describe("Company Members Page", () => {
   };
 
   afterEach(() => {
+    jest.clearAllMocks();
     jest.resetAllMocks();
-    jest.restoreAllMocks();
   });
 
   beforeEach(() => {
@@ -622,7 +622,7 @@ describe("Company Members Page", () => {
 
         fireEvent.click(screen.getByText("user_card.confirm"));
 
-        mockRoleAccountMutation.mockRejectedValueOnce(
+        mockRoleAccountMutation.mockImplementationOnce(
           mockRoleAccountOnError({ message: "last_company_admin" })
         );
 
@@ -639,7 +639,7 @@ describe("Company Members Page", () => {
 
         fireEvent.click(screen.getByText("user_card.confirm"));
 
-        mockRoleAccountMutation.mockRejectedValueOnce(
+        mockRoleAccountMutation.mockImplementationOnce(
           mockRoleAccountOnError({ message: "generic" })
         );
 
@@ -685,6 +685,7 @@ describe("Company Members Page", () => {
           within(wrapper.container).queryByTestId("change-user-status")
         ).toBeNull();
       });
+
       it("the user action button visible if super admin", async () => {
         (useAccountContext as jest.Mock).mockImplementation(() => ({
           account: { role: "SUPER_ADMIN" }
@@ -717,7 +718,6 @@ describe("Company Members Page", () => {
           mockRoleAccountOnError({ message: "generic??" })
         );
 
-        wrapper.unmount();
         wrapper = render(
           <Apollo>
             <I18nProvider>
@@ -730,6 +730,7 @@ describe("Company Members Page", () => {
         );
 
         fireEvent.click(button);
+
         expect(mockRoleAccountMutation).toHaveBeenCalledTimes(1);
         expect(mockRoleAccountOnError).toHaveBeenCalledTimes(1);
         await waitFor(() => screen.getByTestId("CloseButton"));
@@ -942,6 +943,30 @@ describe("Company Members Page", () => {
         );
         await waitFor(() => {
           expect(screen.queryByTestId("project-table")).toBeFalsy();
+        });
+      });
+
+      it("show mobile action card", async () => {
+        mockMediaQuery.mockReturnValue(true);
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "SUPER_ADMIN" }
+        }));
+        (useMarketContext as jest.Mock).mockImplementation(() => ({
+          market: { id: 1 }
+        }));
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        await waitFor(() => {
+          expect(
+            screen.queryByTestId("company-member-action-card-mobile")
+          ).toBeTruthy();
         });
       });
     });
