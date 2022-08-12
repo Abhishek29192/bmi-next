@@ -66,9 +66,12 @@ const getEntries = jest.fn().mockResolvedValue({
     }
   ]
 });
-const getLocales = jest
-  .fn()
-  .mockReturnValue({ total: 1, items: [{ code: "en-US" }] });
+
+const originalLocale = "en-US";
+const getLocales = jest.fn().mockReturnValue({
+  total: 1,
+  items: [{ code: originalLocale, default: true }]
+});
 
 const publishRoofer = jest.fn().mockImplementation(() => {
   return {
@@ -234,30 +237,6 @@ describe("Merchants contentful upload", () => {
     expect(publishMerchantType).not.toHaveBeenCalled();
 
     process.env.CONTENTFUL_ENVIRONMENT = originalContentfulEnvironment;
-  });
-
-  it(`throws error if LOCALE is not set`, async () => {
-    const originalLocale = process.env.LOCALE;
-    delete process.env.LOCALE;
-    require("../scripts/merchants");
-    await done;
-    expect(console.log as jest.Mock).toHaveBeenCalledWith(
-      `Looking in ${process.argv[2]}`
-    );
-    expect(console.error as jest.Mock).toHaveBeenCalledWith(
-      new Error("Missing Env vars")
-    );
-    expect(console.error as jest.Mock).toHaveBeenCalledWith("Process failed");
-
-    expect(getSpace).not.toHaveBeenCalled();
-    expect(getEnvironment).not.toHaveBeenCalled();
-    expect(getLocales).not.toHaveBeenCalled();
-    expect(getEntries).not.toHaveBeenCalled();
-    expect(createEntry).not.toHaveBeenCalled();
-    expect(publishRoofer).not.toHaveBeenCalled();
-    expect(publishMerchantType).not.toHaveBeenCalled();
-
-    process.env.LOCALE = originalLocale;
   });
 
   it(`throws error if getSpace returns a rejected promise`, async () => {
@@ -974,174 +953,8 @@ describe("Merchants contentful upload", () => {
     });
   });
 
-  describe(`when site locale is different from env variable locale`, () => {
-    it(`creates 'merchant type' and 'merchant' entries with new locale`, async () => {
-      const newLocale = "en-GB";
-
-      getLocales.mockReturnValue({ total: 1, items: [{ code: newLocale }] });
-
-      require("../scripts/merchants");
-      await expectQuestion("Continue (y/N)?");
-      answer("y");
-      await done;
-
-      expect(console.log as jest.Mock).toHaveBeenCalledTimes(8);
-      expect(console.error as jest.Mock).toHaveBeenCalledTimes(0);
-
-      expect(createClient).toHaveBeenCalledTimes(1);
-      expect(getSpace).toHaveBeenCalledTimes(1);
-      expect(getEnvironment).toHaveBeenCalledTimes(1);
-      expect(getLocales).toHaveBeenCalledTimes(1);
-
-      expect(createEntry).toHaveBeenCalledTimes(2);
-      expect(createEntry.mock.calls[0]).toEqual([
-        "serviceType",
-        { fields: { name: { [newLocale]: "Hellend dak" } } }
-      ]);
-
-      expect(createEntry.mock.calls[1]).toEqual([
-        "roofer",
-        {
-          fields: {
-            address: {
-              [newLocale]: "Havenweg 17, AARLE RIXTEL, 5735 SH"
-            },
-            email: {
-              [newLocale]: "info@aarlesebouwmaterialen.nl"
-            },
-            entryType: {
-              [newLocale]: "Merchant"
-            },
-            location: {
-              [newLocale]: {
-                lat: 23,
-                lon: 63
-              }
-            },
-            name: {
-              [newLocale]: "Aarlese Bouwmaterialen"
-            },
-            phone: {
-              [newLocale]: "0492-383300"
-            },
-            serviceTypes: {
-              [newLocale]: [
-                {
-                  sys: {
-                    id: "merchant-type-id",
-                    linkType: "Entry",
-                    type: "Link"
-                  }
-                }
-              ]
-            },
-            summary: {
-              [newLocale]: "Test summary"
-            },
-            website: {
-              [newLocale]: undefined
-            }
-          }
-        }
-      ]);
-
-      expect(getEntries).toHaveBeenCalledTimes(1);
-      expect(console.log as jest.Mock).lastCalledWith("All done");
-    });
-  });
-
-  describe(`when getLocales returns null`, () => {
-    it(`creates merchant entries with new locale`, async () => {
-      const originlLocale = "en-US";
-
-      getLocales.mockReturnValue(null);
-      createEntry.mockImplementationOnce((contentTypeId, data) => {
-        if (contentTypeId === "roofer") {
-          return {
-            publish: jest.fn().mockImplementation(() => {
-              return {
-                sys: { version: 1, id: "roofer-id" }
-              };
-            })
-          };
-        }
-        if (contentTypeId === "serviceType") {
-          return {
-            sys: { id: "merchant-type-id" },
-            publish: publishMerchantType
-          };
-        }
-      });
-
-      require("../scripts/merchants");
-      await expectQuestion("Continue (y/N)?");
-      answer("y");
-      await done;
-
-      expect(console.error as jest.Mock).toHaveBeenCalledTimes(0);
-
-      expect(createClient).toHaveBeenCalledTimes(1);
-      expect(getSpace).toHaveBeenCalledTimes(1);
-      expect(getEnvironment).toHaveBeenCalledTimes(1);
-      expect(getLocales).toHaveBeenCalledTimes(1);
-      expect(getEntries).toHaveBeenCalledTimes(1);
-
-      expect(createEntry).toHaveBeenCalledTimes(1);
-      expect(createEntry.mock.calls[0]).toEqual([
-        "roofer",
-        {
-          fields: {
-            address: {
-              [originlLocale]: "Havenweg 17, AARLE RIXTEL, 5735 SH"
-            },
-            email: {
-              [originlLocale]: "info@aarlesebouwmaterialen.nl"
-            },
-            entryType: {
-              [originlLocale]: "Merchant"
-            },
-            location: {
-              [originlLocale]: {
-                lat: 23,
-                lon: 63
-              }
-            },
-            name: {
-              [originlLocale]: "Aarlese Bouwmaterialen"
-            },
-            phone: {
-              [originlLocale]: "0492-383300"
-            },
-            serviceTypes: {
-              [originlLocale]: [
-                {
-                  sys: {
-                    id: "id-2",
-                    linkType: "Entry",
-                    type: "Link"
-                  }
-                }
-              ]
-            },
-            summary: {
-              [originlLocale]: "Test summary"
-            },
-            website: {
-              [originlLocale]: undefined
-            }
-          }
-        }
-      ]);
-      expect(console.log as jest.Mock).nthCalledWith(
-        6,
-        "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
-      );
-      expect(console.log as jest.Mock).lastCalledWith("All done");
-    });
-  });
-
   describe(`When multiple lines are processed`, () => {
-    it(`creates 'merchant type' and 'merchant' entries with new locale`, async () => {
+    it(`creates 'merchant type' and 'merchant' entries`, async () => {
       process.argv = ["", "", getMinimalPath("merchants.tsv")];
 
       mockResponses(fetchMock, {
@@ -1329,5 +1142,215 @@ describe("Merchants contentful upload", () => {
         expect(console.log as jest.Mock).lastCalledWith("All done");
       });
     });
+  });
+
+  it(`should creates merchant entries`, async () => {
+    createEntry.mockImplementationOnce((contentTypeId, data) => {
+      if (contentTypeId === "roofer") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return {
+              sys: { version: 1, id: "roofer-id" }
+            };
+          })
+        };
+      }
+      if (contentTypeId === "serviceType") {
+        return {
+          sys: { id: "merchant-type-id" },
+          publish: publishMerchantType
+        };
+      }
+    });
+
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+
+    expect(console.error as jest.Mock).toHaveBeenCalledTimes(0);
+
+    expect(createClient).toHaveBeenCalledTimes(1);
+    expect(getSpace).toHaveBeenCalledTimes(1);
+    expect(getEnvironment).toHaveBeenCalledTimes(1);
+    expect(getLocales).toHaveBeenCalledTimes(1);
+    expect(getEntries).toHaveBeenCalledTimes(1);
+
+    expect(createEntry).toHaveBeenCalledTimes(1);
+    expect(createEntry.mock.calls[0]).toEqual([
+      "roofer",
+      {
+        fields: {
+          address: {
+            [originalLocale]: "Havenweg 17, AARLE RIXTEL, 5735 SH"
+          },
+          email: {
+            [originalLocale]: "info@aarlesebouwmaterialen.nl"
+          },
+          entryType: {
+            [originalLocale]: "Merchant"
+          },
+          location: {
+            [originalLocale]: {
+              lat: 23,
+              lon: 63
+            }
+          },
+          name: {
+            [originalLocale]: "Aarlese Bouwmaterialen"
+          },
+          phone: {
+            [originalLocale]: "0492-383300"
+          },
+          serviceTypes: {
+            [originalLocale]: [
+              {
+                sys: {
+                  id: "id-2",
+                  linkType: "Entry",
+                  type: "Link"
+                }
+              }
+            ]
+          },
+          summary: {
+            [originalLocale]: "Test summary"
+          },
+          website: {
+            [originalLocale]: undefined
+          }
+        }
+      }
+    ]);
+    expect(console.log as jest.Mock).nthCalledWith(
+      6,
+      "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
+    );
+    expect(console.log as jest.Mock).lastCalledWith("All done");
+  });
+
+  it(`should creates merchants and service types entries`, async () => {
+    process.argv = ["", "", getMinimalPath("new-serviceType.tsv")];
+    createEntry.mockImplementationOnce((contentTypeId, data) => {
+      if (contentTypeId === "roofer") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return {
+              sys: { version: 1, id: "roofer-id" }
+            };
+          })
+        };
+      }
+      if (contentTypeId === "serviceType") {
+        return {
+          sys: { id: "merchant-type-id" },
+          publish: publishMerchantType
+        };
+      }
+    });
+
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+
+    expect(console.error as jest.Mock).toHaveBeenCalledTimes(0);
+
+    expect(createClient).toHaveBeenCalledTimes(1);
+    expect(getSpace).toHaveBeenCalledTimes(1);
+    expect(getEnvironment).toHaveBeenCalledTimes(1);
+    expect(getLocales).toHaveBeenCalledTimes(1);
+    expect(getEntries).toHaveBeenCalledTimes(1);
+
+    expect(createEntry).toHaveBeenCalledTimes(2);
+    expect(createEntry.mock.calls[0]).toEqual([
+      "serviceType",
+      {
+        fields: {
+          name: {
+            [originalLocale]: "HellendTEST dak"
+          }
+        }
+      }
+    ]);
+    expect(createEntry.mock.calls[1]).toEqual([
+      "roofer",
+      {
+        fields: {
+          address: {
+            [originalLocale]: "Havenweg 17, AARLE RIXTEL, 5735 SH"
+          },
+          email: {
+            [originalLocale]: "info@aarlesebouwmaterialen.nl"
+          },
+          entryType: {
+            [originalLocale]: "Merchant"
+          },
+          location: {
+            [originalLocale]: {
+              lat: 23,
+              lon: 63
+            }
+          },
+          name: {
+            [originalLocale]: "Aarlese Bouwmaterialen"
+          },
+          phone: {
+            [originalLocale]: "0492-383300"
+          },
+          serviceTypes: {
+            [originalLocale]: [
+              {
+                sys: {
+                  id: "merchant-type-id",
+                  linkType: "Entry",
+                  type: "Link"
+                }
+              }
+            ]
+          },
+          summary: {
+            [originalLocale]: "Test summary"
+          },
+          website: {
+            [originalLocale]: undefined
+          }
+        }
+      }
+    ]);
+    expect(console.log as jest.Mock).nthCalledWith(
+      6,
+      "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
+    );
+    expect(console.log as jest.Mock).nthCalledWith(
+      7,
+      "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
+    );
+    expect(console.log as jest.Mock).lastCalledWith("All done");
+  });
+
+  it(`should should throw an error when getLocales returns null`, async () => {
+    getLocales.mockReturnValue(null);
+    require("../scripts/merchants");
+
+    await done;
+
+    expect(console.error as jest.Mock).toHaveBeenCalledTimes(2);
+    expect(console.error as jest.Mock).toHaveBeenNthCalledWith(
+      1,
+      new Error("Provide at least 1 locale in your space.")
+    );
+    expect(console.error as jest.Mock).toHaveBeenNthCalledWith(
+      2,
+      "Process failed"
+    );
+
+    expect(createClient).toHaveBeenCalledTimes(1);
+    expect(getSpace).toHaveBeenCalledTimes(1);
+    expect(getEnvironment).toHaveBeenCalledTimes(1);
+    expect(getLocales).toHaveBeenCalledTimes(1);
+    expect(getEntries).not.toBeCalled();
+
+    expect(createEntry).toHaveBeenCalledTimes(0);
   });
 });
