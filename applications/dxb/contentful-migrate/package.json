@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@bmi-digital/contentful-migration": "^1.1.1",
-    "@bmi/utils": "0.0.0",
     "ora": "^5.3.0",
     "semver-parser": "^3.0.5"
   },

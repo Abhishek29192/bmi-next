@@ -8,7 +8,7 @@
   Micro Copies. In this case, the value of each will be the same as the value 
 */
 import { microCopy } from "@bmi/head/src/constants/microCopies";
-import { getEnvironment, waitFor } from "@bmi/utils";
+import { getEnvironment, waitFor } from "../utils";
 
 /*
   Contentful Management API have limitation to amount of requests
