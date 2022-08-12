@@ -2,6 +2,7 @@ import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import monitoring from "@google-cloud/monitoring";
 import fetch from "node-fetch";
+import { waitFor } from "@bmi/utils";
 
 const {
   GCP_MONITOR_PROJECT,
@@ -10,19 +11,11 @@ const {
   DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID,
   NETLIFY_BUILD_HOOK,
   TIMEOUT_LIMIT,
-  DELAY_SECONDS
+  DELAY_MILLISECONDS
 } = process.env;
 
 const client = new monitoring.MetricServiceClient();
 let runtime = 0;
-
-const delay = (ms: number) =>
-  new Promise<void>((resolve) =>
-    setTimeout(() => {
-      runtime += ms;
-      resolve();
-    }, ms)
-  );
 
 const monitorCheck = async (filter: string): Promise<boolean> => {
   const now = new Date();
@@ -101,7 +94,7 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!DELAY_SECONDS) {
+  if (!DELAY_MILLISECONDS) {
     logger.error({ message: "DELAY_SECONDS was not provided" });
     return res.sendStatus(500);
   }
@@ -114,8 +107,8 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  const delay_seconds = Number.parseInt(DELAY_SECONDS);
-  if (Number.isNaN(delay_seconds)) {
+  const delay_milliseconds = Number.parseInt(DELAY_MILLISECONDS);
+  if (Number.isNaN(delay_milliseconds)) {
     logger.error({
       message: "DELAY_SECONDS was provided, but is not a valid number"
     });
@@ -161,7 +154,8 @@ export const build: HttpFunction = async (_req, res) => {
       });
     }
 
-    await delay(delay_seconds);
-    logger.debug({ message: `Running for ${runtime} seconds.` });
+    await waitFor(delay_milliseconds);
+    runtime += delay_milliseconds;
+    logger.debug({ message: `Running for ${runtime / 1000} seconds.` });
   }
 };
