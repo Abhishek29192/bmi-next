@@ -1,6 +1,5 @@
 import { promises as fs } from "fs";
 import { join } from "path";
-import { getEnvironment, waitFor } from "@bmi/utils";
 import {
   Asset,
   Collection,
@@ -12,6 +11,7 @@ import {
   VersionedLink
 } from "contentful-management";
 import type { MigrationFunction } from "contentful-migration";
+import { getEnvironment, waitFor } from "../../utils";
 
 export const description = "Upload WebTool Calculator Roof Shapes";
 
