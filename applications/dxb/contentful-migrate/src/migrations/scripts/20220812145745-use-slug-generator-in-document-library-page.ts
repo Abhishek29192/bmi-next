@@ -11,16 +11,16 @@ export const up: MigrationFunction = async (migration: Migration, context) => {
     (item) => item.extension.name === "Slug Generator"
   );
 
-  if (slugGenerator) {
-    const documentLibraryPage = migration.editContentType(
-      "documentLibraryPage"
-    );
-    documentLibraryPage.changeFieldControl(
-      "slug",
-      "builtin",
-      slugGenerator.sys.id
-    );
+  if (!slugGenerator) {
+    throw new Error("Slug Generator Extension was not found");
   }
+
+  const documentLibraryPage = migration.editContentType("documentLibraryPage");
+  documentLibraryPage.changeFieldControl(
+    "slug",
+    "builtin",
+    slugGenerator.sys.id
+  );
 };
 
 export const down: MigrationFunction = (migration: Migration) => {
