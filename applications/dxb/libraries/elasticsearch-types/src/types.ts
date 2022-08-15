@@ -4,6 +4,8 @@ import type {
   Category as PimCategory,
   Classification,
   Image as PimImage,
+  ProductReferenceType,
+  ReferenceTarget,
   System as PimSystem
 } from "@bmi/pim-types";
 
@@ -14,6 +16,10 @@ export type BulkOperationInstruction = any; // TODO
 export type Category = {
   code: string;
   parentCategoryCode: string;
+};
+
+export type ProductReference = ReferenceTarget & {
+  type: ProductReferenceType;
 };
 
 export type Product = {
@@ -38,6 +44,7 @@ export type Product = {
   mainImage: string;
   path: string;
   subTitle: string;
+  productReferences?: ProductReference[];
 } & {
   [extractedFilter: string]: any;
 };
