@@ -3,7 +3,7 @@ import { getServerSideProps } from "../../pages/[contentArticleRelativePath]";
 import { withPage } from "../../lib/middleware/withPage";
 import { withPublicPage } from "../../lib/middleware/withPublicPage";
 
-// TODO: dedup all these mocks
+// TODO: dedupe all these mocks
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: jest.fn()
 }));
@@ -68,7 +68,12 @@ describe("Content Article Page", () => {
     apolloClient: {
       query: jest.fn()
     },
-    res: {}
+    res: {},
+    req: {
+      headers: {
+        host: "en.local.intouch:3000"
+      }
+    }
   };
 
   it("should not require auth for whitelisted public pages", async () => {

@@ -19,6 +19,7 @@ import layoutStyles from "../components/Layout/styles.module.scss";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 import { sortCourses } from "../lib/utils/course";
 import { findAccountCompany } from "../lib/account";
+import { parseMarketTag } from "../lib/utils";
 
 type PageProps = {
   trainingData: {
@@ -121,6 +122,8 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
 
 export const getServerSideProps = withPage(
   async ({ apolloClient, account, locale, market }) => {
+    const marketDomain = account.market?.domain;
+    const contentfulTag = parseMarketTag(marketDomain);
     const { doceboUserId } = account;
     const { tier } = findAccountCompany(account) || { tier: null };
     const doceboCatalogueId = () => {
@@ -138,7 +141,8 @@ export const getServerSideProps = withPage(
         {
           variables: {
             catalogueId: doceboCatalogueId(),
-            userId: doceboUserId
+            userId: doceboUserId,
+            tag: contentfulTag
           }
         },
         apolloClient
@@ -170,8 +174,15 @@ export const getServerSideProps = withPage(
 export default withPageAuthRequired(TrainingPage);
 
 export const pageQuery = gql`
-  query training($catalogueId: Int, $userId: Int) {
-    trainingContentCollection {
+  query training($catalogueId: Int, $userId: Int, $tag: String!) {
+    trainingContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         pageHeading
         description

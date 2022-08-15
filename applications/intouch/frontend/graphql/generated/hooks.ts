@@ -2936,8 +2936,15 @@ export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddEvidencesMutationVariables
 >;
 export const ContentfulEvidenceCategoriesDocument = gql`
-  query contentfulEvidenceCategories {
-    evidenceCategoryCollection {
+  query contentfulEvidenceCategories($tag: String!) {
+    evidenceCategoryCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         sys {
           id
@@ -2962,11 +2969,12 @@ export const ContentfulEvidenceCategoriesDocument = gql`
  * @example
  * const { data, loading, error } = useContentfulEvidenceCategoriesQuery({
  *   variables: {
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useContentfulEvidenceCategoriesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.ContentfulEvidenceCategoriesQuery,
     OperationTypes.ContentfulEvidenceCategoriesQueryVariables
   >
@@ -3929,8 +3937,16 @@ export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
   OperationTypes.GetMarketsByDomainQueryVariables
 >;
 export const GetMediaFoldersDocument = gql`
-  query getMediaFolders {
-    marketContentCollection(limit: 1) {
+  query getMediaFolders($tag: String!) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         mediaLibraryRootCollection {
           items {
@@ -3943,7 +3959,14 @@ export const GetMediaFoldersDocument = gql`
         }
       }
     }
-    mediaFolderCollection {
+    mediaFolderCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       total
       items {
         __typename
@@ -3987,11 +4010,12 @@ export const GetMediaFoldersDocument = gql`
  * @example
  * const { data, loading, error } = useGetMediaFoldersQuery({
  *   variables: {
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useGetMediaFoldersQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetMediaFoldersQuery,
     OperationTypes.GetMediaFoldersQueryVariables
   >
@@ -4025,8 +4049,17 @@ export type GetMediaFoldersQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFoldersQueryVariables
 >;
 export const GetMediaFolderContentsDocument = gql`
-  query getMediaFolderContents($mediaFolderId: String!) {
-    mediaFolderCollection(where: { sys: { id: $mediaFolderId } }, limit: 1) {
+  query getMediaFolderContents($mediaFolderId: String!, $tag: String!) {
+    mediaFolderCollection(
+      where: {
+        sys: { id: $mediaFolderId }
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         __typename
         sys {
@@ -4067,6 +4100,7 @@ export const GetMediaFolderContentsDocument = gql`
  * const { data, loading, error } = useGetMediaFolderContentsQuery({
  *   variables: {
  *      mediaFolderId: // value for 'mediaFolderId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4257,8 +4291,17 @@ export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataPublicQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
-  query getContentArticleContent($relativePath: String!) {
-    contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
+  query getContentArticleContent($relativePath: String!, $tag: String!) {
+    contentArticleCollection(
+      where: {
+        relativePath: $relativePath
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         title
         body {
@@ -4286,6 +4329,7 @@ export const GetContentArticleContentDocument = gql`
  * const { data, loading, error } = useGetContentArticleContentQuery({
  *   variables: {
  *      relativePath: // value for 'relativePath'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4713,8 +4757,16 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const GetPartnerBrandsDocument = gql`
-  query GetPartnerBrands($role: String!, $tier: String!) {
-    marketContentCollection(limit: 1) {
+  query GetPartnerBrands($role: String!, $tier: String!, $tag: String!) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         partnerBrandsCollection {
           items {
@@ -4737,7 +4789,16 @@ export const GetPartnerBrandsDocument = gql`
         newsItemHeading
       }
     }
-    carouselCollection(where: { audienceRole: $role }, limit: 1) {
+    carouselCollection(
+      where: {
+        audienceRole: $role
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       total
       items {
         audienceRole
@@ -4759,7 +4820,16 @@ export const GetPartnerBrandsDocument = gql`
         }
       }
     }
-    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+    tierBenefitCollection(
+      where: {
+        tier: $tier
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         name
         description {
@@ -4785,6 +4855,7 @@ export const GetPartnerBrandsDocument = gql`
  *   variables: {
  *      role: // value for 'role'
  *      tier: // value for 'tier'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -5115,8 +5186,15 @@ export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateRoleAccountMutationVariables
 >;
 export const TrainingDocument = gql`
-  query training($catalogueId: Int, $userId: Int) {
-    trainingContentCollection {
+  query training($catalogueId: Int, $userId: Int, $tag: String!) {
+    trainingContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         pageHeading
         description
@@ -5176,11 +5254,12 @@ export const TrainingDocument = gql`
  *   variables: {
  *      catalogueId: // value for 'catalogueId'
  *      userId: // value for 'userId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useTrainingQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.TrainingQuery,
     OperationTypes.TrainingQueryVariables
   >

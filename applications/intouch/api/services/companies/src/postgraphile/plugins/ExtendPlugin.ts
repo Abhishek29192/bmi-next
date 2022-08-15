@@ -33,6 +33,7 @@ import { getDocumentType } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
 import * as reminderMutation from "../../services/reminder";
 import * as certificateMutation from "../../services/certification";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -57,6 +58,10 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
           const { guaranteeReferenceCode, languageCode } = _query;
+          const { user } = context;
+
+          const marketDomain = user.market?.domain;
+          const contentfulTag = parseMarketCompanyTag(marketDomain);
 
           if (!guaranteeReferenceCode) return null;
 
@@ -68,7 +73,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             };
           } = await getGuaranteeTypeCollection(
             context.clientGateway,
-            guaranteeReferenceCode
+            guaranteeReferenceCode,
+            contentfulTag
           );
 
           if ((guaranteeTypeCollection?.items?.length || 0) === 0) {
@@ -85,6 +91,10 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       ContentfulGuaranteeType: {
         guaranteeTemplatesCollection: async (_query, args, context) => {
           const { technology, coverage, languageCode } = _query;
+          const { user } = context;
+
+          const marketDomain = user.market?.domain;
+          const contentfulTag = parseMarketCompanyTag(marketDomain);
 
           if ([technology, coverage].filter(Boolean).length !== 2) return null;
 
@@ -98,7 +108,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             context.clientGateway,
             technology,
             coverage,
-            languageCode
+            languageCode,
+            contentfulTag
           );
 
           return guaranteeTemplateCollection;
@@ -112,6 +123,10 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         customEvidenceCategory: async (_query, args, context) => {
           const { customEvidenceCategoryKey } = _query;
+          const { user } = context;
+
+          const marketDomain = user.market?.domain;
+          const contentfulTag = parseMarketCompanyTag(marketDomain);
 
           if (!customEvidenceCategoryKey) return null;
 
@@ -121,7 +136,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             data: { evidenceCategoryCollection: EvidenceCategoryCollection };
           } = await getEvidenceCategory(
             context.clientGateway,
-            customEvidenceCategoryKey
+            customEvidenceCategoryKey,
+            contentfulTag
           );
 
           return evidenceCategoryCollection?.items[0];
