@@ -70,8 +70,8 @@ export const parseMarketTag = (market: string) => {
   try {
     const marketsContentfulMap = JSON.parse(CONTENTFUL_TAGS);
     // eslint-disable-next-line security/detect-object-injection
-    return marketsContentfulMap[market] || "en";
+    return marketsContentfulMap[market] || "non_existing_tag";
   } catch (e) {
-    return "en";
+    return "non_existing_tag";
   }
 };
