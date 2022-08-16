@@ -1,5 +1,4 @@
 import sgMail from "@sendgrid/mail";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
@@ -12,12 +11,7 @@ export async function emailSender(event, context) {
   let parsedPayload;
   const replyTo = "no-reply@intouch.bmigroup.com";
 
-  const { GCP_SECRET_PROJECT } = process.env;
-
-  const client = new SecretManagerServiceClient();
-  const [value] = await client.accessSecretVersion({
-    name: `projects/${GCP_SECRET_PROJECT}/secrets/SENDGRID_API_KEY/versions/latest`
-  });
+  const { SENDGRID_API_KEY } = process.env;
 
   // eslint-disable-next-line no-undef
   const payload = Buffer.from(event.data, "base64").toString();
@@ -29,7 +23,7 @@ export async function emailSender(event, context) {
     console.log("Error: ", error);
   }
 
-  sgMail.setApiKey(value.payload.data.toString());
+  sgMail.setApiKey(SENDGRID_API_KEY);
   try {
     await sgMail.send({
       replyTo,

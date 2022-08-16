@@ -20,6 +20,13 @@
   },
   "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
   "memberRemoved": "Membro rimosso con successo",
+  "projectTable": {
+    "endDate": "Data di fine",
+    "project": "Progetto",
+    "startDate": "Data d'inizio",
+    "title": "Progetti",
+    "type": "Tipo"
+  },
   "report": "Scarica l'elenco del team",
   "sidePanel": {
     "inviteLabel": "+ Invita i membri del team",
@@ -35,6 +42,13 @@
     "type": "Tipo",
     "validity": "Validità"
   },
+  "projectTable": {
+    "title": "Progetti",
+    "type": "Tipo",
+    "project": "Progetto",
+    "startDate": "Data d'inizio",
+    "endDate": "Data di fine"
+  },
   "userActions": {
     "action": {
       "activate": "Attiva utente",
@@ -44,10 +58,12 @@
   },
   "user_card": {
     "add_admin": "Assegna come amministratore dell'azienda",
+    "add_auditor": "Assegnare come revisore dei conti",
     "cancel": "Annulla",
     "confirm": "Conferma",
     "remove": "Rimuovi dall'azienda",
     "remove_admin": "Rimuovi come Admin dell'azienda",
+    "remove_auditor": "Rimuovere come revisore dei conti",
     "remove_user_dialog": {
       "text": "Vuoi rimuovere questo membro dell'azienda?",
       "title": "Rimuovi membro dell'azienda"
@@ -55,8 +71,6 @@
     "role_dialog": {
       "text": "Vuoi cambiare il ruolo?",
       "title": "Cambia ruolo"
-    },
-    "remove_auditor": "Rimuovere come revisore dei conti",
-    "add_auditor": "Assegnare come revisore dei conti"
+    }
   }
 }

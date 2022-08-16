@@ -1,9 +1,26 @@
-import { Icon } from "@bmi/components";
-import { Add, Remove } from "@material-ui/icons";
+import { Icon, Tooltip } from "@bmi/components";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import {
+  Add,
+  ArrowBack,
+  ArrowDownward,
+  ArrowForward,
+  ArrowUpward,
+  Home,
+  Remove,
+  ThreeDRotation
+} from "@material-ui/icons";
+import clamp from "lodash/clamp";
 import React from "react";
-import { PerspectiveCamera, Scene, Texture, WebGLRenderer } from "three";
+import {
+  PerspectiveCamera,
+  Scene,
+  Texture,
+  Vector3,
+  WebGLRenderer
+} from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { zoomStep } from "./constants/visualiser";
+import { rotationAngleInRad } from "./constants/visualiser";
 import styles from "./styles/Viewer.module.scss";
 import { Colour, Siding, Tile } from "./Types";
 
@@ -17,6 +34,8 @@ export interface Props {
 
 export interface State {
   isLoading: boolean;
+  showRotationTooltip?: boolean;
+  cameraPosition?: Vector3;
 }
 
 const isVisualisatorEnabled =
@@ -34,14 +53,28 @@ export default abstract class Viewer<
   diffuseImage?: Texture;
   metalicImage?: Texture;
   normalImage?: Texture;
+  tooltipContentRef?: React.RefObject<HTMLDivElement>;
 
   constructor(props: P, state: S) {
     super(props);
-    this.state = state;
+    this.state = {
+      ...state,
+      showRotationTooltip: false
+    };
+    this.tooltipContentRef = React.createRef();
     this.onWindowResize = this.onWindowResize.bind(this);
     this.setIsLoading = this.setIsLoading.bind(this);
     this.handleZoomIn = this.handleZoomIn.bind(this);
     this.handleZoomOut = this.handleZoomOut.bind(this);
+    this.handleLeftRotation = this.handleLeftRotation.bind(this);
+    this.handleRightRotation = this.handleRightRotation.bind(this);
+    this.handleTopRotation = this.handleTopRotation.bind(this);
+    this.handleBottomRotation = this.handleBottomRotation.bind(this);
+    this.handleResetRotation = this.handleResetRotation.bind(this);
+    this.handleTooltipClick = this.handleTooltipClick.bind(this);
+    this.handleTooltipClose = this.handleTooltipClose.bind(this);
+    this.computeCameraPosition = this.computeCameraPosition.bind(this);
+    this.saveCameraState = this.saveCameraState.bind(this);
   }
 
   /**
@@ -98,10 +131,59 @@ export default abstract class Viewer<
     this.setState({ isLoading });
   }
 
+  isMaxDistance() {
+    return this.getRoundDistance() >= this.controls?.maxDistance;
+  }
+
+  isMinDistance() {
+    return this.getRoundDistance() <= this.controls?.minDistance;
+  }
+
+  isMaxPolarAngle() {
+    return this.getRoundPolarAngle() >= this.controls?.maxPolarAngle;
+  }
+
+  isMinPolarAngle() {
+    return this.getRoundPolarAngle() <= this.controls?.minPolarAngle;
+  }
+
+  isMaxAzimutAngle() {
+    return this.getRoundAzimutAngle() >= this.controls?.maxAzimuthAngle;
+  }
+
+  isMinAzimutAngle() {
+    return this.getRoundAzimutAngle() <= this.controls?.minAzimuthAngle;
+  }
+
+  saveCameraState() {
+    if (!this.camera || this.state.cameraPosition) return;
+
+    const cameraPosition = this.camera.position.clone();
+
+    this.setState({
+      cameraPosition
+    });
+  }
+
+  isCameraPositionPristine() {
+    if (!this.state.cameraPosition || !this.camera) return false;
+    const currentPosition = this.camera.position
+      .multiplyScalar(100)
+      .round()
+      .divideScalar(100);
+    const pristinePosition = this.state.cameraPosition
+      .multiplyScalar(100)
+      .round()
+      .divideScalar(100);
+    return currentPosition.equals(pristinePosition);
+  }
+
   renderFrame() {
     if (!this.container) {
       return;
     }
+
+    this.saveCameraState();
 
     const size = this.container.getBoundingClientRect();
     this.camera!.aspect = size.width / size.height;
@@ -109,31 +191,136 @@ export default abstract class Viewer<
 
     this.renderer!.setSize(size.width, size.height);
     this.renderer!.render(this.scene!, this.camera!);
+
+    this.forceUpdate();
+  }
+
+  getRoundDistance() {
+    return (
+      Math.round(
+        this.camera?.position.distanceTo(this.controls?.target) * 100
+      ) / 100
+    );
+  }
+
+  getRoundPolarAngle() {
+    return Math.round(this.controls?.getPolarAngle() * 100) / 100;
+  }
+
+  getRoundAzimutAngle() {
+    return Math.round(this.controls?.getAzimuthalAngle() * 100) / 100;
+  }
+
+  computeCameraPosition({
+    distanceOffset = 0,
+    azimutOffset = 0,
+    polarOffset = 0
+  }: {
+    distanceOffset?: number;
+    azimutOffset?: number;
+    polarOffset?: number;
+  }) {
+    const polar = clamp(
+      this.controls.getPolarAngle() + polarOffset,
+      this.controls.minPolarAngle,
+      this.controls.maxPolarAngle
+    );
+    const azimut = clamp(
+      this.controls.getAzimuthalAngle() + azimutOffset,
+      this.controls.minAzimuthAngle,
+      this.controls.maxAzimuthAngle
+    );
+    const distance = clamp(
+      this.getRoundDistance() + distanceOffset,
+      this.controls.minDistance,
+      this.controls.maxDistance
+    );
+
+    const z = distance * Math.sin(polar) * Math.cos(azimut);
+    const x = distance * Math.sin(polar) * Math.sin(azimut);
+    const y = distance * Math.cos(polar);
+
+    return new Vector3(x, y, z).add(this.controls.target);
+  }
+
+  handleTooltipClick() {
+    this.setState((prevState) => ({
+      showRotationTooltip: !prevState.showRotationTooltip
+    }));
+  }
+
+  handleTooltipClose(event) {
+    if (!this.tooltipContentRef.current?.contains(event.target)) {
+      this.setState({ showRotationTooltip: false });
+    }
   }
 
   handleZoomIn() {
-    if (
-      Math.floor(this.camera.position.distanceTo(this.controls.target)) > 10
-    ) {
-      this.camera.position.multiplyScalar(Math.pow(0.95, zoomStep));
-      this.controls?.update();
-    }
+    const distanceOffset =
+      ((this.controls.maxDistance - this.controls.minDistance) / 10) * -1;
+    const position = this.computeCameraPosition({
+      distanceOffset
+    });
+    this.camera.position.copy(position);
+    this.controls?.update();
   }
 
   handleZoomOut() {
-    if (
-      Math.floor(this.camera.position.distanceTo(this.controls.target)) < 30
-    ) {
-      this.camera.position.divideScalar(Math.pow(0.95, zoomStep));
-      this.controls?.update();
-    }
+    const distanceOffset =
+      (this.controls.maxDistance - this.controls.minDistance) / 10;
+    const position = this.computeCameraPosition({ distanceOffset });
+    this.camera.position.copy(position);
+    this.controls?.update();
+  }
+
+  handleLeftRotation() {
+    const position = this.computeCameraPosition({
+      azimutOffset: -rotationAngleInRad
+    });
+    this.camera.position.copy(position);
+    this.controls.update();
+  }
+
+  handleRightRotation() {
+    const position = this.computeCameraPosition({
+      azimutOffset: rotationAngleInRad
+    });
+    this.camera.position.copy(position);
+    this.controls.update();
+  }
+
+  handleTopRotation() {
+    const position = this.computeCameraPosition({
+      polarOffset: -rotationAngleInRad
+    });
+    this.camera.position.copy(position);
+    this.controls.update();
+  }
+
+  handleBottomRotation() {
+    const position = this.computeCameraPosition({
+      polarOffset: rotationAngleInRad
+    });
+    this.camera.position.copy(position);
+    this.controls.update();
+  }
+
+  handleResetRotation() {
+    this.camera?.position.copy(this.state.cameraPosition);
+    this.controls.update();
   }
 
   render() {
     return (
-      <div className={styles["viewer"]}>
+      <div
+        className={
+          isVisualisatorEnabled ? styles["viewer-new"] : styles["viewer"]
+        }
+      >
         <div
-          className={styles["canvas"]}
+          className={
+            isVisualisatorEnabled ? styles["canvas-new"] : styles["canvas"]
+          }
           ref={(r) => {
             this.container = r;
           }}
@@ -145,12 +332,88 @@ export default abstract class Viewer<
                 source={Add}
                 viewBox="4 4 16 16"
                 onClick={this.handleZoomIn}
+                className={
+                  this.isMinDistance() ? styles["disabled"] : undefined
+                }
               />
               <Icon
                 source={Remove}
                 viewBox="4 4 16 16"
                 onClick={this.handleZoomOut}
+                className={
+                  this.isMaxDistance() ? styles["disabled"] : undefined
+                }
               />
+            </div>
+            <div className={styles["controls-group"]}>
+              <ClickAwayListener onClickAway={this.handleTooltipClose}>
+                <Tooltip
+                  PopperProps={{
+                    disablePortal: true
+                  }}
+                  classes={{
+                    popper: styles["popper"],
+                    tooltip: styles["tooltip"]
+                  }}
+                  title={
+                    <div
+                      className={styles["rotate-container"]}
+                      ref={this.tooltipContentRef}
+                    >
+                      <Icon
+                        source={ArrowBack}
+                        className={`${styles["rotate-left"]} ${
+                          this.isMinAzimutAngle() ? styles["disabled"] : ""
+                        }`}
+                        onClick={this.handleLeftRotation}
+                      />
+                      <Icon
+                        source={ArrowForward}
+                        className={`${styles["rotate-right"]} ${
+                          this.isMaxAzimutAngle() ? styles["disabled"] : ""
+                        }`}
+                        onClick={this.handleRightRotation}
+                      />
+                      <Icon
+                        source={ArrowUpward}
+                        className={`${styles["rotate-top"]} ${
+                          this.isMinPolarAngle() ? styles["disabled"] : ""
+                        }`}
+                        onClick={this.handleTopRotation}
+                      />
+                      <Icon
+                        source={ArrowDownward}
+                        className={`${styles["rotate-bottom"]} ${
+                          this.isMaxPolarAngle() ? styles["disabled"] : ""
+                        }`}
+                        onClick={this.handleBottomRotation}
+                      />
+                      <Icon
+                        source={Home}
+                        className={`${styles["rotate-reset"]} ${
+                          this.isCameraPositionPristine()
+                            ? styles["disabled"]
+                            : ""
+                        }`}
+                        onClick={this.handleResetRotation}
+                      />
+                    </div>
+                  }
+                  open={this.state.showRotationTooltip}
+                  placement="left-end"
+                >
+                  <Icon
+                    source={ThreeDRotation}
+                    viewBox="-4 -4 32 32"
+                    onClick={this.handleTooltipClick}
+                    className={`${styles["large-icon"]} ${
+                      this.state.showRotationTooltip
+                        ? styles["large-icon-selected"]
+                        : ""
+                    }`}
+                  />
+                </Tooltip>
+              </ClickAwayListener>
             </div>
           </div>
         )}

@@ -20,6 +20,13 @@
   },
   "lastCompanyAdminError": "Sie können den letzten Firmenadministrator nicht aus einer Firma entfernen, es sei denn, er wurde von BMI deaktiviert",
   "memberRemoved": "Mitglied erfolgreich entfernt",
+  "projectTable": {
+    "endDate": "End Date",
+    "project": "Project",
+    "startDate": "Start Date",
+    "title": "Projects",
+    "type": "Type"
+  },
   "report": "Teamliste herunterladen",
   "sidePanel": {
     "inviteLabel": " + Teammitglieder einladen",
@@ -35,6 +42,13 @@
     "type": "Typ",
     "validity": "Gültigkeit"
   },
+  "projectTable": {
+    "title": "Projects",
+    "type": "Type",
+    "project": "Project",
+    "startDate": "Start Date",
+    "endDate": "End Date"
+  },
   "userActions": {
     "action": {
       "activate": "Benutzer aktivieren",
@@ -44,10 +58,12 @@
   },
   "user_card": {
     "add_admin": "Als Firmenadministrator zuweisen",
+    "add_auditor": "Assign as Auditor",
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
     "remove": "Aus Firma entfernen",
     "remove_admin": "Als Firmenadministrator entfernen",
+    "remove_auditor": "Remove as Auditor",
     "remove_user_dialog": {
       "text": "Möchten Sie dieses Firmenmitglied entfernen?",
       "title": "Firmenmitglied entfernen"
@@ -55,8 +71,6 @@
     "role_dialog": {
       "text": "Möchten Sie die Rolle wechseln?",
       "title": "Rolle wechseln"
-    },
-    "remove_auditor": "Remove as Auditor",
-    "add_auditor": "Assign as Auditor"
+    }
   }
 }

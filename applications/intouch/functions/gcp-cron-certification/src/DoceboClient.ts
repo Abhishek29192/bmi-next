@@ -1,18 +1,16 @@
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import logger from "@bmi-digital/functions-logger";
 import fetch from "node-fetch";
 import { APIReportRecord } from "./__tests__/helper";
 
 export default class DoceboClient {
   private async getTokenByUserInfo() {
-    const { DOCEBO_API_URL } = process.env;
-
-    const DOCEBO_API_CLIENT_ID = await getSecret("DOCEBO_API_CLIENT_ID");
-    const DOCEBO_API_CLIENT_SECRET = await getSecret(
-      "DOCEBO_API_CLIENT_SECRET"
-    );
-    const DOCEBO_API_USERNAME = await getSecret("DOCEBO_API_USERNAME");
-    const DOCEBO_API_PASSWORD = await getSecret("DOCEBO_API_PASSWORD");
+    const {
+      DOCEBO_API_URL,
+      DOCEBO_API_CLIENT_ID,
+      DOCEBO_API_CLIENT_SECRET,
+      DOCEBO_API_USERNAME,
+      DOCEBO_API_PASSWORD
+    } = process.env;
 
     const body = JSON.stringify({
       grant_type: "password",
@@ -93,8 +91,7 @@ export default class DoceboClient {
           userId: item["user.idUser"],
           title: item["certification.title"],
           code: item["certification.code"],
-          expiration: item["certification.expiration"],
-          to_renew_in: item["enrollment.to_renew_in"]
+          toNewIn: item["enrollment.to_renew_in"]
         }));
       }
     }

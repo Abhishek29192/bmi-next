@@ -23,7 +23,10 @@ import { useAccountContext } from "../../context/AccountContext";
 import log from "../../lib/logger";
 import { mergeByKey } from "../../lib/utils/object";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
-import { useMarkAllNotificationsAsReadMutation } from "../../graphql/generated/hooks";
+import {
+  useMarkAllNotificationsAsReadMutation,
+  useGetTierBenefitQuery
+} from "../../graphql/generated/hooks";
 import AccessControl from "../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
@@ -48,6 +51,7 @@ export const Header = ({
 }: HeaderProps) => {
   const { t } = useTranslation("common");
   const { account } = useAccountContext();
+  const { data: getTierBenefit } = useGetTierBenefitQuery();
   // NOTE: workaround to client not being aware of cache to re-render from.
   const [notifications, setNotifications] = useState(initialNotifications);
 
@@ -114,11 +118,19 @@ export const Header = ({
     setState({ ...state, [anchor]: open });
   };
 
+  const tierName = useMemo(() => {
+    const tier = findAccountTier(account);
+    const tierBenefit = getTierBenefit?.tierBenefitCollection.items.find(
+      ({ tier: tierBenefit }) => tierBenefit === tier
+    );
+    return tierBenefit?.name || null;
+  }, [getTierBenefit, account]);
+
   const subHeading = useMemo(() => {
     return isSuperOrMarketAdmin(account)
       ? t(`roles.${account.role}`)
-      : t(`tier.${findAccountTier(account)}`);
-  }, [account]);
+      : tierName;
+  }, [account, tierName]);
 
   const attentionHeading = useMemo(
     () =>

@@ -129,6 +129,7 @@ const GoogleAutocomplete = ({
           />
         )
       }
+      filterOptions={(options) => options}
       {...props}
     />
   ) : (

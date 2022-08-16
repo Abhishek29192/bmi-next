@@ -32,8 +32,7 @@ const IEDialog = ({ data }: { data: { contentfulSite: SiteData } }) => {
         seo={null}
         path={null}
         scripts={{
-          headScripts: data.contentfulSite.headScripts,
-          scriptOnetrust: data.contentfulSite.scriptOnetrust
+          headScripts: data.contentfulSite.headScripts
         }}
         htmlAttributes={{ lang: data.contentfulSite.node_locale }}
         countryCode={data.contentfulSite.countryCode}

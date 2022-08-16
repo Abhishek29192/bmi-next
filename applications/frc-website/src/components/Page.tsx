@@ -1,8 +1,8 @@
-import React from "react";
 import { ThemeProvider } from "@bmi/components";
+import React from "react";
 import { Helmet } from "react-helmet";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 import styles from "./Page.module.scss";
 
 type Props = {

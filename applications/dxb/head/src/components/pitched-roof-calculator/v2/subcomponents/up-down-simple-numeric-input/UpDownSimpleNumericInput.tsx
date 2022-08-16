@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import classnames from "classnames";
-import { Button } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { withFormControl } from "@bmi/components";
+import { Button, Icon, withFormControl } from "@bmi/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
+import classnames from "classnames";
+import React, { useState } from "react";
 import RawTextField from "../raw-text-field/RawTextField";
 import styles from "./UpDownSimpleNumericInput.module.scss";
 
@@ -38,9 +36,11 @@ const UpDownSimpleNumericInput = ({
   );
 
   const handleChange = (value: number) => {
-    const newValue = getValidValue(value, min, max);
-    setCount(newValue);
-    onChange(newValue);
+    const validatedValue = getValidValue(value, min, max);
+    if (validatedValue !== count) {
+      setCount(validatedValue);
+      onChange(validatedValue);
+    }
   };
 
   const handleIncrement = () => handleChange(count + step);

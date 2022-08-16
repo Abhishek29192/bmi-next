@@ -9,6 +9,7 @@ import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
 import { tierBenefit } from "../contentful";
 import { getTranslatedRole, getTargetDomain } from "../../utils/account";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -544,9 +545,13 @@ export const completeInvitation = async (
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
 
+    const marketDomain = user.market?.domain;
+    const contentfulTag = parseMarketCompanyTag(marketDomain);
+
     const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
-      invitations[0].tier
+      invitations[0].tier,
+      contentfulTag
     );
 
     await sendMessageWithTemplate(context, "TEAM_JOINED", {

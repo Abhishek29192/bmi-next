@@ -23,6 +23,7 @@ const VimeoIFrameThumbnail = ({ videoUrl }: { videoUrl: string }) => (
       scrolling="yes"
       frameBorder="0"
       className={styles.iframe}
+      sandbox="allow-scripts allow-same-origin"
     />
 
     <div className={styles.playButton}>
@@ -40,19 +41,19 @@ export const MediaTileThumbnail = ({ mediaItem }: Props) => {
     return <Icon source={Folder} style={{ fontSize: 64 }} color="primary" />;
   }
   // precedence always to thumbnails uploaded by the market admin
-  if (mediaItem?.thumbnail) {
+  if (mediaItem.thumbnail) {
     return (
       <img
         src={resizeContentfulImage(
-          mediaItem?.thumbnail?.url,
+          mediaItem.thumbnail.url,
           THUMBNAIL_MAX_WIDTH
         )}
         className={styles.thumbnail}
-        alt={mediaItem.thumbnail?.title}
+        alt={mediaItem.thumbnail.title}
       />
     );
   }
-  const externalMediaUrl = mediaItem?.url;
+  const externalMediaUrl = mediaItem.url;
   if (externalMediaUrl?.includes("vimeo")) {
     // Vimeo doesn't provide a thumbnail url without making an additional request to Vimeo
     // rendering an iframe without controls to avoid making the extra request

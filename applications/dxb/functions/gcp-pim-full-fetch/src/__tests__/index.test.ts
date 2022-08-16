@@ -84,6 +84,23 @@ describe("handleRequest", () => {
     process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
   });
 
+  it("should return 500 if LOCALE is not set", async () => {
+    const originalLocale = process.env.LOCALE;
+    delete process.env.LOCALE;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledTimes(0);
+    expect(publishMessage).toHaveBeenCalledTimes(0);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.LOCALE = originalLocale;
+  });
+
   it("should return 400 if body is not provided", async () => {
     const request = mockRequest("POST");
     const response = mockResponse();
@@ -209,6 +226,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
   });
@@ -230,6 +248,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -252,6 +271,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -277,6 +297,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -307,6 +328,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -332,6 +354,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -369,10 +392,12 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage + 1
     );
     expect(publishMessage).toHaveBeenCalledWith({

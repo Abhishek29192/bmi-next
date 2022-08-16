@@ -1,9 +1,6 @@
 import {
   BMI,
   Button,
-  Card,
-  CardActions,
-  CardContent,
   ContainerDialog,
   Grid,
   Logo,
@@ -399,11 +396,10 @@ const SharePopover = ({
   };
 
   return (
-    <div>
+    <>
       <Button
-        isIconButton
         className={styles["share-button"]}
-        variant="text"
+        variant="outlined"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
         )}
@@ -430,7 +426,7 @@ const SharePopover = ({
       >
         {shareWidget}
       </Popover>
-    </div>
+    </>
   );
 };
 
@@ -461,6 +457,7 @@ const Visualiser = ({
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const header = useRef<HTMLDivElement>(null);
+  const shareAnchor = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
   const { getMicroCopy } = useMicroCopy();
 
@@ -548,11 +545,15 @@ const Visualiser = ({
       className={styles["Visualiser"]}
       containerClassName={styles["content"]}
     >
-      {shareWidget && (
-        <ContainerDialog.Header ref={header}>
-          <SharePopover shareWidget={shareWidget} anchorRef={header} />
-        </ContainerDialog.Header>
-      )}
+      <ContainerDialog.Header ref={header}>
+        <Typography
+          component="h2"
+          variant="h3"
+          className={styles["content-title"]}
+        >
+          RoofTile Visualiser
+        </Typography>
+      </ContainerDialog.Header>
       <div
         className={classnames(styles["container"], styles["container--viewer"])}
       >
@@ -562,46 +563,43 @@ const Visualiser = ({
           </div>
         )}
         <div className={styles["details"]}>
-          <Grid container>
-            <Grid item xs={10} sm={6} md={5} lg={4}>
-              <Card square={true}>
-                <CardContent>
-                  <Logo
-                    source={BMI}
-                    width="60"
-                    height="60"
-                    className={styles["details-logo"]}
-                  />
-                  <Typography
-                    variant="h5"
-                    component="h3"
-                    className={styles["details-title"]}
-                  >
-                    {activeTile.name}
-                  </Typography>
-                  <Typography>{activeColour.name}</Typography>
-                </CardContent>
-                {activeColour.variantCode && (
-                  <CardActions>
-                    <Button
-                      variant="outlined"
-                      endIcon={<ArrowForwardIcon />}
-                      onClick={() => {
-                        handleOnClick({
-                          type: "product-link",
-                          label: getMicroCopy(microCopy.readMore),
-                          data: { variantCode: activeColour.variantCode }
-                        });
-                        handleOnClose();
-                      }}
-                    >
-                      {getMicroCopy(microCopy.readMore)}
-                    </Button>
-                  </CardActions>
-                )}
-              </Card>
-            </Grid>
-          </Grid>
+          <Logo
+            source={BMI}
+            width="60"
+            height="60"
+            className={styles["details-logo"]}
+          />
+          <div className={styles["deatils-labels"]}>
+            <Typography
+              variant="h5"
+              component="h3"
+              className={styles["details-title"]}
+            >
+              {activeTile.name}
+            </Typography>
+            <Typography>{activeColour.name}</Typography>
+          </div>
+          <div className={styles["details-actions"]} ref={shareAnchor}>
+            {activeColour.variantCode && (
+              <Button
+                variant="outlined"
+                endIcon={<ArrowForwardIcon />}
+                onClick={() => {
+                  handleOnClick({
+                    type: "product-link",
+                    label: getMicroCopy(microCopy.readMore),
+                    data: { variantCode: activeColour.variantCode }
+                  });
+                  handleOnClose();
+                }}
+              >
+                {getMicroCopy(microCopy.readMore)}
+              </Button>
+            )}
+            {shareWidget && (
+              <SharePopover shareWidget={shareWidget} anchorRef={shareAnchor} />
+            )}
+          </div>
         </div>
         {viewMode && (
           <Viewer
@@ -634,14 +632,14 @@ const Visualiser = ({
           contentSource={contentSource}
           onClick={handleOnClick}
         />
-        <Actions
-          toggleTileSelector={setIsTileSelectorOpen}
-          toggleSidingsSelector={setIsSidingsSelectorOpen}
-          viewMode={state.viewMode}
-          setViewMode={setState}
-          onButtonClick={handleOnClick}
-        />
       </div>
+      <Actions
+        toggleTileSelector={setIsTileSelectorOpen}
+        toggleSidingsSelector={setIsSidingsSelectorOpen}
+        viewMode={state.viewMode}
+        setViewMode={setState}
+        onButtonClick={handleOnClick}
+      />
     </ContainerDialog>
   );
 };

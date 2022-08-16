@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import { Card, CardContent, CardActions } from "@bmi/components";
+import { Card, CardContent, CardActions, Checkbox } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import {
   useUpdateProjectHiddenMutation,
+  useUpdateProjectInspectionMutation,
   useRestartGuaranteeMutation,
   useAddProjectNoteMutation
 } from "../../../graphql/generated/hooks";
 import log from "../../../lib/logger";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { useProjectPageContext } from "../../../context/ProjectPageContext";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { getFieldLabel } from "../../Pages/Project/Form";
 import styles from "./styles.module.scss";
 import Dialog, { DialogProps } from "./Dialog";
 
@@ -21,16 +24,23 @@ type ProjectActionsCardProps = {
   isArchived?: boolean;
   guaranteeEventHandler?: (eventType: GuaranteeEventType) => void;
   isSolutionOrSystemGuaranteeExist: boolean;
+  project: GetProjectQuery["project"];
 };
 
 export const ProjectActionsCard = ({
   projectId,
   isArchived,
   guaranteeEventHandler,
-  isSolutionOrSystemGuaranteeExist
+  isSolutionOrSystemGuaranteeExist,
+  project
 }: ProjectActionsCardProps) => {
   const { getProjectsCallBack } = useProjectPageContext();
   const { t } = useTranslation("project-page");
+
+  const [inspectionState, setInspectionState] = useState<boolean>(
+    project.inspection
+  );
+
   const [dialogState, setDialogState] = useState<DialogProps>({
     open: false,
     title: null,
@@ -94,6 +104,33 @@ export const ProjectActionsCard = ({
       });
     }
   });
+  const [updateProjectInspection] = useUpdateProjectInspectionMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error updating project inspection status: ${error.toString()}`
+      });
+    },
+    onCompleted: ({ updateProject: { project } }) => {
+      log({
+        severity: "INFO",
+        message: `Project ID [${project.id}] inspection changed to ${inspectionState}`
+      });
+    }
+  });
+
+  const updateInspection = (value) => {
+    setInspectionState(value);
+  };
+
+  useEffect(() => {
+    updateProjectInspection({
+      variables: {
+        projectId,
+        inspection: inspectionState
+      }
+    });
+  }, [inspectionState, setInspectionState]);
 
   return (
     <Card className={styles.main}>
@@ -103,15 +140,41 @@ export const ProjectActionsCard = ({
         </Typography>
       </CardContent>
       <CardActions>
+        <AccessControl
+          dataModel="project"
+          action="inspection"
+          extraData={{ isArchived }}
+        >
+          <div className={styles.inspectionWrapper}>
+            <Checkbox
+              name={"inspection"}
+              label={getFieldLabel(t, "inspection")}
+              checked={inspectionState}
+              className={styles.inspectionCheckbox}
+              onChange={(value) => {
+                updateInspection(value);
+              }}
+            />
+          </div>
+        </AccessControl>
         {!isArchived && (
-          <Button variant="outlined" onClick={toggleProjectArchive}>
+          <Button
+            data-testid="archive-project-button"
+            variant="outlined"
+            onClick={toggleProjectArchive}
+          >
             {t("projectActions.cta.archive")}
           </Button>
         )}
-        <AccessControl dataModel="project" action="restartSolutionGuarantee">
+        <AccessControl
+          dataModel="project"
+          action="restartSolutionGuarantee"
+          extraData={{ isArchived }}
+        >
           {isSolutionOrSystemGuaranteeExist && (
             <Button
               disabled={loading}
+              data-testid="restart-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -129,10 +192,15 @@ export const ProjectActionsCard = ({
           )}
         </AccessControl>
         {guaranteeEventHandler && (
-          <>
+          <AccessControl
+            dataModel="project"
+            action="approveAndRejectSolutionGuarantee"
+            extraData={{ isArchived }}
+          >
             <Button
               variant="outlined"
               disabled={loading}
+              data-testid="reject-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -149,6 +217,7 @@ export const ProjectActionsCard = ({
             </Button>
             <Button
               disabled={loading}
+              data-testid="approve-guarantee-button"
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -157,15 +226,23 @@ export const ProjectActionsCard = ({
                   onConfirm: () => {
                     guaranteeEventHandler("APPROVE_SOLUTION");
                     closeDialog();
-                  }
+                  },
+                  inspectionFlag: true
                 });
               }}
             >
               {t("projectActions.cta.approveGuarantee")}
             </Button>
-          </>
+          </AccessControl>
         )}
-        {open && <Dialog dialogState={dialogState} onCancel={closeDialog} />}
+        {open && (
+          <Dialog
+            inspection={inspectionState}
+            setInspectionState={updateInspection}
+            dialogState={dialogState}
+            onCancel={closeDialog}
+          />
+        )}
       </CardActions>
     </Card>
   );
@@ -177,6 +254,19 @@ export const UpdateProjectHidden = gql`
       project {
         id
         hidden
+      }
+    }
+  }
+`;
+
+export const UpdateProjectInspection = gql`
+  mutation UpdateProjectInspection($projectId: Int!, $inspection: Boolean!) {
+    updateProject(
+      input: { id: $projectId, patch: { inspection: $inspection } }
+    ) {
+      project {
+        id
+        inspection
       }
     }
   }

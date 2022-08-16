@@ -1,4 +1,3 @@
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import logger from "@bmi-digital/functions-logger";
 import fetch, {
   FetchError,
@@ -39,11 +38,11 @@ export default class Auht0Client {
     const {
       AUTH0_MANAGEMENT_CLIENT_ID,
       AUTH0_ISSUER_BASE_URL,
-      AUTH0_AUDIENCE
+      AUTH0_AUDIENCE,
+      AUTH0_API_CLIENT_SECRET
     } = process.env;
 
     try {
-      const clientSecret = await getSecret("AUTH0_API_CLIENT_SECRET");
       const response = await fetch(`${AUTH0_ISSUER_BASE_URL}/oauth/token`, {
         method: "POST",
         headers: {
@@ -52,7 +51,7 @@ export default class Auht0Client {
         body: JSON.stringify({
           grant_type: "client_credentials",
           client_id: AUTH0_MANAGEMENT_CLIENT_ID,
-          client_secret: clientSecret,
+          client_secret: AUTH0_API_CLIENT_SECRET,
           audience: AUTH0_AUDIENCE
         })
       });

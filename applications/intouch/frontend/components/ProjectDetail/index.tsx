@@ -175,7 +175,9 @@ const ProjectDetail = ({
       message: `Error loading project details. ID: ${projectId}. Error: ${error.toString()}`
     });
     return (
-      <div style={{ minHeight: "100vh" }}>{t("projectDetails.error")}</div>
+      <div data-testid="project-error" style={{ minHeight: "100vh" }}>
+        {t("projectDetails.error")}
+      </div>
     );
   }
 
@@ -185,13 +187,15 @@ const ProjectDetail = ({
     );
 
   const isGuaranteeAppliable =
-    can(account, "project", "submitSolutionGuarantee") &&
-    !isSolutionOrSystemGuaranteeExist(project);
+    can(account, "project", "submitSolutionGuarantee", {
+      isArchived: project.hidden
+    }) && !isSolutionOrSystemGuaranteeExist(project);
 
   const canNominateResponsibleInstaller = (): boolean => {
     return (
-      can(account, "project", "nominateResponsible") &&
-      ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
+      can(account, "project", "nominateResponsible", {
+        isArchived: project.hidden
+      }) && ["NEW", "REJECTED"].includes(getGuaranteeStatus(project))
     );
   };
 
@@ -253,6 +257,7 @@ const ProjectDetail = ({
                 projectId={projectId}
                 teams={project.projectMembers.nodes as ProjectMember[]}
                 canNominateProjectResponsible={canNominateResponsibleInstaller()}
+                project={project}
               />
             </TabCard>
           </Tabs.TabPanel>
@@ -273,8 +278,8 @@ const ProjectDetail = ({
           <Tabs.TabPanel heading={t("tabs.notes")} index="four">
             <TabCard>
               <NoteTab
+                project={project}
                 accountId={account.id}
-                projectId={project.id}
                 notes={project.notes.nodes}
               />
             </TabCard>
@@ -282,7 +287,9 @@ const ProjectDetail = ({
         </Tabs>
       </Grid>
       <Grid item xs={12}>
-        {can(account, "project", "adminActions") ? (
+        {can(account, "project", "adminActions", {
+          isArchived: project.hidden
+        }) ? (
           <ProjectActionsCard
             projectId={project.id}
             isArchived={project.hidden}
@@ -295,6 +302,7 @@ const ProjectDetail = ({
                 account.id
               ) && guaranteeUpdateHandler
             }
+            project={project}
           />
         ) : null}
       </Grid>
@@ -329,6 +337,8 @@ export const GET_PROJECT = gql`
     buildingOwnerAddress {
       ...AddressLinesFragment
     }
+    inspection
+    inspectedAt
     guarantees {
       nodes {
         id

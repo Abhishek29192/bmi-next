@@ -1,5 +1,4 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
-import { getSecret } from "../utils/secrets";
 
 const auth0 = {};
 
@@ -10,21 +9,16 @@ export const getAuth0Instance = async (req, res) => {
     const {
       AUTH0_AUDIENCE,
       AUTH0_CLIENT_ID,
-      GCP_SECRET_PROJECT,
       AUTH0_COOKIE_DOMAIN,
       AUTH0_ISSUER_BASE_URL,
-      AUTH0_ROLLING_DURATION = "60" // in seconds
+      AUTH0_ROLLING_DURATION = "60", // in seconds
+      AUTH0_SECRET,
+      AUTH0_CLIENT_SECRET
     } = process.env;
 
     const { host } = req.headers;
 
     if (!auth0[`${host}`]) {
-      const AUTH0_CLIENT_SECRET = await getSecret(
-        GCP_SECRET_PROJECT,
-        "AUTH0_CLIENT_SECRET"
-      );
-      const AUTH0_SECRET = await getSecret(GCP_SECRET_PROJECT, "AUTH0_SECRET");
-
       const protocol = req.headers["x-forwarded-proto"] || "http";
 
       // eslint-disable-next-line

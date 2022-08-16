@@ -77,8 +77,8 @@ const Page = ({
     menuUtilities,
     resources,
     headScripts,
-    scriptOnetrust,
-    regions
+    regions,
+    pitchedRoofCalculatorConfig
   } = siteData;
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
@@ -114,8 +114,7 @@ const Page = ({
         defer={false}
         ogImageUrl={ogImageUrl}
         scripts={{
-          headScripts,
-          scriptOnetrust
+          headScripts
         }}
         path={path}
         seo={seo}
@@ -165,6 +164,7 @@ const Page = ({
                     onError={() =>
                       navigate(getPathWithCountryCode(countryCode, "422"))
                     }
+                    calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>
                       <Content>{children}</Content>
@@ -199,7 +199,11 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    breadcrumbs
+    breadcrumbs {
+      id
+      label
+      slug
+    }
     signupBlock {
       ...SignupBlockFragment
     }

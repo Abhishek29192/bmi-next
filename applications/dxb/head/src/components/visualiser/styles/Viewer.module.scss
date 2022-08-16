@@ -1,14 +1,53 @@
 @import "~@bmi-digital/styles";
 
+@mixin icon {
+  fill: $color-cyan-500;
+  cursor: pointer;
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  padding: 16px;
+  &.large-icon {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+
+    &-selected {
+      border: 2px solid $color-cyan-400;
+      padding: 6px;
+    }
+  }
+  &:hover {
+    fill: $color-cyan-600;
+  }
+  &.disabled {
+    fill: rgba(0, 91, 140, 0.35);
+    pointer-events: none;
+  }
+  & + svg {
+    border-top: 1px solid $color-alabaster;
+    &.large-icon-selected {
+      padding-top: 7px;
+    }
+  }
+}
+
 .viewer {
+  min-height: 100%;
   width: 100%;
   height: 100%;
-  min-height: 100%;
+}
+
+.viewer-new {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  position: relative;
 
   .controls {
     position: absolute;
-    bottom: 5.875rem;
-    right: 44px;
+    bottom: 24px;
+    right: 24px;
 
     &-group {
       box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -20,18 +59,17 @@
       align-items: center;
       background-color: $color-white;
       svg {
-        fill: $color-cyan-500;
-        cursor: pointer;
-        width: 48px;
-        height: 48px;
-        padding: 16px;
-        &:hover {
-          fill: $color-cyan-600;
-        }
-        & + svg {
-          border-top: 1px solid $color-alabaster;
-        }
+        @include icon;
       }
+
+      & + .controls-group {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      right: 18px;
+      bottom: 18px;
     }
   }
 
@@ -39,5 +77,64 @@
     width: 100%;
     height: 100%;
     min-height: 100%;
+  }
+
+  .canvas-new {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tooltip {
+    background-color: $color-white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 12px;
+
+    @media (max-width: $breakpoint-sm) {
+      margin: 0 6px;
+    }
+  }
+
+  .popper {
+    pointer-events: unset;
+  }
+
+  .rotate-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 6px 6px;
+    grid-template-areas:
+      ". top ."
+      "left reset right"
+      ". bottom .";
+
+    svg {
+      @include icon;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px -1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 12px;
+
+      & + svg {
+        border-top: none;
+      }
+    }
+    .rotate-left {
+      grid-area: left;
+    }
+    .rotate-right {
+      grid-area: right;
+    }
+    .rotate-top {
+      grid-area: top;
+    }
+    .rotate-bottom {
+      grid-area: bottom;
+    }
+    .rotate-reset {
+      border: none;
+      grid-area: reset;
+    }
   }
 }

@@ -1,11 +1,9 @@
+import { Form, Grid, TextField } from "@bmi/components";
 import React from "react";
-import { Form } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import Field from "./_Field";
-import FormSection from "./_FormSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { FormValues } from "./types/FormValues";
+import Field from "./_Field";
+import FormSection from "./_FormSection";
 
 const isNumber = (value: string) => !Number.isNaN(Number.parseFloat(value));
 

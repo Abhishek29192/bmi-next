@@ -295,7 +295,11 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       />
       <div className={styles.main}>
         <div className={styles.header}>
-          <AccessControl dataModel="project" action="addEvidence">
+          <AccessControl
+            dataModel="project"
+            action="addEvidence"
+            extraData={{ isArchived: project.hidden }}
+          >
             <Button
               variant="outlined"
               onClick={() => setEvidenceDialogOpen(true)}
@@ -374,6 +378,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                                     <AccessControl
                                       dataModel="project"
                                       action="deleteEvidence"
+                                      extraData={{ isArchived: project.hidden }}
                                     >
                                       <Button
                                         data-testid="upload-item-delete"
@@ -438,8 +443,15 @@ export const ADD_PROJECT_EVIDENCES = gql`
   }
 `;
 export const GET_CONTENTFUL_EVIDENCE_CATEGORIES = gql`
-  query contentfulEvidenceCategories {
-    evidenceCategoryCollection {
+  query contentfulEvidenceCategories($tag: String!) {
+    evidenceCategoryCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         sys {
           id

@@ -11,11 +11,12 @@ import {
 } from "@bmi-digital/react-pdf-maker";
 import React from "react";
 import { isElement } from "react-is";
+import { microCopy, MicroCopyValues } from "../../../constants/microCopies";
 import EffraBold from "../fonts/Effra_Bd.ttf";
 import EffraNormal from "../fonts/Effra_Rg.ttf";
-import { ResultsObject, ResultsRow } from "./../types";
+import { ResultsObject } from "../types/v2";
+import { ResultsRow } from "./../types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
-import { microCopy } from "./constants/microCopy";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
@@ -271,7 +272,7 @@ ResultsTableTemplate.Cell = ResultsTableTemplateCell;
 ResultsTableTemplate.Row = Table.Row;
 
 type GetMicroCopy = (
-  path: string,
+  path: MicroCopyValues,
   placeholders?: Record<string, string>
 ) => string;
 
@@ -451,14 +452,20 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
         </ResultsTable>
       </>
     ) : null}
+    {results.extras.length ? (
+      <>
+        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+          {getMicroCopy(microCopy.PDF_REPORT_EXTRAS_SECTION_TITLE)}
+        </Typography>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.extras.map(mapResultsRow)}
+        </ResultsTable>
+      </>
+    ) : null}
     <Alert
-      type="warn"
-      title={getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TITLE)}
+      title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}
       marginTop={40}
     >
-      {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TEXT)}
-    </Alert>
-    <Alert title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}>
       {getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TEXT, {
         contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}

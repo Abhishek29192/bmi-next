@@ -13,6 +13,7 @@
         "fields": {
           "description": "Prosjektbeskrivelse",
           "endDate": "Sluttdato",
+          "inspection": "Undersøkelse",
           "name": "Prosjektnavn",
           "roofArea": "Total tak måling (m2)",
           "siteAddress": {
@@ -117,7 +118,8 @@
       "MY_QUEUE": "Min kø",
       "NOT_STARTED": "Ikke påbegynt",
       "PITCHED": "Skråtak",
-      "UNASSIGNED": "Ikke tilordnet"
+      "UNASSIGNED": "Ikke tilordnet",
+      "ARCHIVED": "Arkivert"
     }
   },
   "guarantee": {

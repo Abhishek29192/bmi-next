@@ -1,4 +1,4 @@
-import { Typography } from "@bmi/components";
+import { Button, Typography } from "@bmi/components";
 import React, {
   useCallback,
   useContext,
@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState
 } from "react";
-import { useConfig } from "../../../contexts/ConfigProvider";
+import { microCopy } from "../../../constants/microCopies";
 import { devLog } from "../../../utils/devLog";
 import FormSection from "../../FormSection";
 import { useSiteContext } from "../../Site";
@@ -15,17 +15,16 @@ import { AnalyticsContext } from "../helpers/analytics";
 import {
   Guttering,
   LengthBasedProduct,
-  MainTileVariant,
-  ResultsObject,
+  ResultsObject as BasicResults,
   ResultsRow,
   Underlay,
   VergeOption
 } from "../types";
 import { Line, LinesMap, Measurements } from "../types/roof";
+import { MainTileVariant, ResultsObject } from "../types/v2";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
-import { microCopy } from "./constants/microCopy";
 import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
 import FieldContainer from "./subcomponents/_FieldContainer";
@@ -37,6 +36,7 @@ import { TileOptionsSelections } from "./_TileOptions";
 type EmailAddressCollectionProps = {
   results: ResultsObject;
   area: number;
+  hubSpotFormId: string | null;
 };
 
 const replaceImageURLWithImage = async (
@@ -70,15 +70,9 @@ const replaceImageURLWithImage = async (
 
 const EmailAddressCollection = ({
   results,
-  area
+  area,
+  hubSpotFormId
 }: EmailAddressCollectionProps) => {
-  const {
-    /**
-     * @todo move GATSBY_WEBTOOL_CALCULATOR_HUBSPOT_FORM_ID to Contentful
-     * https://bmigroup.atlassian.net/browse/WEBT-456
-     */
-    config: { webToolCalculatorHubSpotFormId }
-  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
@@ -164,7 +158,7 @@ const EmailAddressCollection = ({
       className={styles["Result"]}
       data={{
         __typename: "ContentfulFormSection",
-        hubSpotFormGuid: webToolCalculatorHubSpotFormId,
+        hubSpotFormGuid: hubSpotFormId,
         showTitle: true,
         description: (
           <Typography className={styles["help"]}>
@@ -184,28 +178,13 @@ const EmailAddressCollection = ({
 
 type SetRows = React.Dispatch<React.SetStateAction<Array<ResultsRow>>>;
 
-const createEmptyResult = () => ({
+const createEmptyResult = (): BasicResults => ({
   tiles: [],
   fixings: [],
   sealing: [],
   ventilation: [],
   accessories: []
 });
-
-const getRemoveRow = (setRows: SetRows) => (externalProductCode: string) =>
-  setRows((rows) =>
-    rows.filter((row) => row.externalProductCode !== externalProductCode)
-  );
-
-const getChangeQuantity =
-  (setRows: SetRows) => (externalProductCode: string, newQuantity: number) =>
-    setRows((rows) =>
-      rows.map((row) =>
-        row.externalProductCode === externalProductCode
-          ? { ...row, quantity: newQuantity }
-          : row
-      )
-    );
 
 export type ResultProps = {
   underlays: Underlay[];
@@ -217,6 +196,7 @@ export type ResultProps = {
   tileOptions: TileOptionsSelections;
   underlay: Underlay;
   guttering?: GutteringSelections;
+  hubSpotFormId: string | null;
 };
 
 const Results = ({
@@ -228,7 +208,8 @@ const Results = ({
   variant,
   tileOptions,
   underlay,
-  guttering
+  guttering,
+  hubSpotFormId
 }: ResultProps) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -304,6 +285,18 @@ const Results = ({
   const [sealingRows, setSealingRows] = useState(results.sealing);
   const [ventilationRows, setVentilationRows] = useState(results.ventilation);
   const [accessoryRows, setAccessoryRows] = useState(results.accessories);
+  const [updatedProducts, setUpdatedProducts] = useState<ResultsRow[] | null>(
+    null
+  );
+
+  const resetProducts = () => {
+    setUpdatedProducts(null);
+    setTileRows(results.tiles);
+    setFixingRows(results.fixings);
+    setSealingRows(results.sealing);
+    setVentilationRows(results.ventilation);
+    setAccessoryRows(results.accessories);
+  };
 
   const tableLabels = useMemo(
     () => ({
@@ -318,6 +311,50 @@ const Results = ({
     []
   );
 
+  const deleteRow =
+    (setRaw: SetRows, deletePermanently = false) =>
+    (itemToDelete: ResultsRow) => {
+      setRaw((prevProducts) =>
+        prevProducts.filter(
+          (product) =>
+            product.externalProductCode !== itemToDelete.externalProductCode
+        )
+      );
+
+      if (!deletePermanently) {
+        setUpdatedProducts((prevProducts) => [
+          ...(prevProducts || []),
+          itemToDelete
+        ]);
+      }
+    };
+
+  const changeQuantity =
+    (setRows: SetRows, moveToUpdatedProducts = true) =>
+    (item: ResultsRow, newQuantity: number) => {
+      if (moveToUpdatedProducts) {
+        setRows((prevProducts) =>
+          prevProducts.filter(
+            (product) =>
+              product.externalProductCode !== item.externalProductCode
+          )
+        );
+
+        setUpdatedProducts((prevProducts) => [
+          ...(prevProducts || []),
+          { ...item, quantity: newQuantity }
+        ]);
+      } else {
+        setRows((prevProducts) =>
+          prevProducts.map((product) =>
+            product.externalProductCode === item.externalProductCode
+              ? { ...product, quantity: newQuantity }
+              : product
+          )
+        );
+      }
+    };
+
   return (
     <div className={styles["Results"]}>
       {tileRows.length ? (
@@ -325,8 +362,8 @@ const Results = ({
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
         >
           <QuantityTable
-            onDelete={getRemoveRow(setTileRows)}
-            onChangeQuantity={getChangeQuantity(setTileRows)}
+            onDelete={deleteRow(setTileRows)}
+            onChangeQuantity={changeQuantity(setTileRows)}
             rows={tileRows}
             {...tableLabels}
           />
@@ -337,8 +374,8 @@ const Results = ({
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
         >
           <QuantityTable
-            onDelete={getRemoveRow(setFixingRows)}
-            onChangeQuantity={getChangeQuantity(setFixingRows)}
+            onDelete={deleteRow(setFixingRows)}
+            onChangeQuantity={changeQuantity(setFixingRows)}
             rows={fixingRows}
             {...tableLabels}
           />
@@ -349,8 +386,8 @@ const Results = ({
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
         >
           <QuantityTable
-            onDelete={getRemoveRow(setVentilationRows)}
-            onChangeQuantity={getChangeQuantity(setVentilationRows)}
+            onDelete={deleteRow(setVentilationRows)}
+            onChangeQuantity={changeQuantity(setVentilationRows)}
             rows={ventilationRows}
             {...tableLabels}
           />
@@ -361,8 +398,8 @@ const Results = ({
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
         >
           <QuantityTable
-            onDelete={getRemoveRow(setSealingRows)}
-            onChangeQuantity={getChangeQuantity(setSealingRows)}
+            onDelete={deleteRow(setSealingRows)}
+            onChangeQuantity={changeQuantity(setSealingRows)}
             rows={sealingRows}
             {...tableLabels}
           />
@@ -373,20 +410,58 @@ const Results = ({
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
         >
           <QuantityTable
-            onDelete={getRemoveRow(setAccessoryRows)}
-            onChangeQuantity={getChangeQuantity(setAccessoryRows)}
+            onDelete={deleteRow(setAccessoryRows)}
+            onChangeQuantity={changeQuantity(setAccessoryRows)}
             rows={accessoryRows}
             {...tableLabels}
           />
         </FieldContainer>
       ) : null}
-      <Alert
-        type="warning"
-        title={getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TITLE)}
-        first
-      >
-        {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TEXT)}
-      </Alert>
+      {updatedProducts?.length ? (
+        <FieldContainer
+          title={getMicroCopy(microCopy.RESULTS_EDITED_PRODUCTS_TITLE)}
+          titleClassName={styles["extrasTitle"]}
+        >
+          <QuantityTable
+            onDelete={deleteRow(setUpdatedProducts, true)}
+            onChangeQuantity={changeQuantity(setUpdatedProducts, false)}
+            rows={updatedProducts}
+            {...tableLabels}
+          />
+        </FieldContainer>
+      ) : null}
+      {updatedProducts ? (
+        <Alert
+          type="warning"
+          title={getMicroCopy(
+            microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TITLE
+          )}
+          first
+        >
+          {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT)}{" "}
+          <Button
+            onClick={resetProducts}
+            classes={{
+              root: styles["resetLink"],
+              text: styles["resetLink--text"]
+            }}
+            variant="text"
+          >
+            {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_RESET_BUTTON)}
+          </Button>
+          .
+        </Alert>
+      ) : (
+        <Alert
+          type="warning"
+          title={getMicroCopy(
+            microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TITLE
+          )}
+          first
+        >
+          {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TEXT)}
+        </Alert>
+      )}
       <Alert
         title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}
         last
@@ -402,9 +477,11 @@ const Results = ({
             fixings: fixingRows,
             sealing: sealingRows,
             ventilation: ventilationRows,
-            accessories: accessoryRows
+            accessories: accessoryRows,
+            extras: updatedProducts || []
           },
-          area: area || 0
+          area: area || 0,
+          hubSpotFormId
         }}
       />
       {isDebugging ? (

@@ -5,11 +5,6 @@ import { getAuth0Instance } from "..";
 
 jest.mock("axios");
 const mockAccessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => ({
-  SecretManagerServiceClient: jest.fn(() => ({
-    accessSecretVersion: mockAccessSecretVersion
-  }))
-}));
 
 jest.mock("@auth0/nextjs-auth0", () => ({
   initAuth0: jest.fn(() => ({
@@ -55,12 +50,6 @@ describe("App", () => {
   it("Should proceed if auth api", async () => {
     req.url = "/api/auth/callback";
     auth0Instance = await getAuth0Instance(req, res);
-    expect(mockAccessSecretVersion.mock.calls[0][0]).toEqual({
-      name: `projects/PROJECT_ID/secrets/AUTH0_CLIENT_SECRET/versions/latest`
-    });
-    expect(mockAccessSecretVersion.mock.calls[1][0]).toEqual({
-      name: `projects/PROJECT_ID/secrets/AUTH0_SECRET/versions/latest`
-    });
     expect(auth0Instance).not.toBeNull();
   });
 });

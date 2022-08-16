@@ -1,0 +1,2081 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-nl-icopal run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+
+
+
+[[redirects]]
+ from="/zonne-energie/monier-vi90"
+ to="https://www.bmigroup.com/nl/p/monier-pv-premium-systeem-1853715522/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/zonne-energie/monier-indax"
+ to="https://www.bmigroup.com/nl/p/monier-pv-indax-systeem-3047698923/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/zonne-energie"
+ to="https://www.bmigroup.com/nl/zonnestroom-systemen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/verkooppunten"
+ to="https://www.bmigroup.com/nl/contact/verkooppunten/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/tegalit-landingspage/download-brochure-tegalit"
+ to="https://www.bmigroup.com/nl/p/tegalit-bruin-natura-beton-2455233879/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/tegalit-landingspage"
+ to="https://www.bmigroup.com/nl/p/tegalit-bruin-natura-beton-2455233879/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/search"
+ to="https://www.bmigroup.com/nl/search?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/zonneenergie/monier-pv-premium"
+ to="https://www.bmigroup.com/nl/p/monier-pv-premium-systeem-1853715522/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/zonneenergie/monier-indax"
+ to="https://www.bmigroup.com/nl/p/monier-pv-indax-systeem-3047698923/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/zonneenergie"
+ to="https://www.bmigroup.com/nl/zonnestroom-systemen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen/aerodek-unique"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/aerodek-unique/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen/aerodek-tradition"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/aerodek-tradition/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen/aerodek-robust"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/aerodek-robust/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen/aerodek-quadro"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/aerodek-quadro/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen/aerodek-firenze"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/aerodek-firenze/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/stalen-dakpanelementen"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/spitsanker"
+ to="https://www.bmigroup.com/nl/p/spitsanker-2879464669/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/rvs-torxschroef--neopreenvolgring"
+ to="https://www.bmigroup.com/nl/p/rvs-torxschroef-neopreen-volgring-antraciet-3347671160/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-voor-onderste-pannenrij"
+ to="https://www.bmigroup.com/nl/p/panhaak-voor-onderste-pannenrij-495766651/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-tuile-du-nord"
+ to="https://www.bmigroup.com/nl/p/panhaak-tuile-du-nord-3901668750/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-renova"
+ to="https://www.bmigroup.com/nl/p/panhaak-renova-3131146562/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-grote-romaanse"
+ to="https://www.bmigroup.com/nl/p/panhaak-grote-romaanse-334925030/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-eenvoudig-rubin-11v"
+ to="https://www.bmigroup.com/nl/p/panhaak-eenvoudig-rubin-11v-2680795583/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/panhaak-eenvoudig-kruispan-65x2"
+ to="https://www.bmigroup.com/nl/p/panhaak-eenvoudig-kruispan-65x2-3273925422/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-vlakke-mulden"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-vlakke-mulden-2827047245/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-vhvariabel"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-vh-variabel-2390117573/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-tuile-plat"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-tuile-plat-3888594156/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-tegalit"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-tegalit-1705735144/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-stonewold"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-stonewold-3184487415/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-sneldek-aerlox-en-low-pitch-system"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-sneldek-aerlox-en-low-pitch-system-2702524054/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-signyfinnez"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-signy-finnez-2244266510/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-rubin-9v--11v"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-rubin-9v-11v-1309536894/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-postel-orage"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-postel-orage-4246090735/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-ovh-206"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-ovh-206-3431125005/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-ovh-200"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-ovh-200-2805082487/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-oude-holle"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-oude-holle-1487835124/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-horizon"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-horizon-3549332154/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-de-nieuwe-hollander-v-3966439058/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-brugse-pan"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-brugse-pan-1540523660/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-bretagne"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-bretagne-2181791888/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering/europanhaak-belmont"
+ to="https://www.bmigroup.com/nl/p/euro-panhaak-belmont-1390207299/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/verankering"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/verankering/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-wakaflex-doorvoerpan"
+ to="https://www.bmigroup.com/nl/p/universele-wakaflex-doorvoerpan-antraciet-3011310871/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-st-doorvoerset"
+ to="https://www.bmigroup.com/nl/p/universele-st-doorvoerset-antraciet-2552253151/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-scharnierkap-mf-140-wakaflex-doorvoerpan"
+ to="https://www.bmigroup.com/nl/p/universele-scharnierkap-mf-wakaflex-doorvoerpan-antraciet-3376175870/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-kabeldoorvoerset-8"
+ to="https://www.bmigroup.com/nl/p/universele-kabeldoorvoerset-8-antraciet-618223715/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-dampdichte-manchet-wakaflex-doorvoerpan"
+ to="https://www.bmigroup.com/nl/p/universele-dampdichte-manchet-wakaflex-doorvoerpan-4269559087/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-combivent"
+ to="https://www.bmigroup.com/nl/p/universele-combivent-antraciet-1888790542/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/universele-combipan"
+ to="https://www.bmigroup.com/nl/p/universele-combipan-antraciet-1038703817/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/kunststof-verlengstuk"
+ to="https://www.bmigroup.com/nl/p/kunststof-verlengstuk-grijs-1193668878/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/flexibele-slang-voor-keramische-doorvoeren"
+ to="https://www.bmigroup.com/nl/p/flexibele-slang-voor-keramische-doorvoeren-rood-2423490093/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/flexibele-slang-voor-combipancombivent"
+ to="https://www.bmigroup.com/nl/p/flexibele-slang-voor-combipan-combivent-grijs-2045900107/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/doorvoerset-clima-comfort-nbs"
+ to="https://www.bmigroup.com/nl/p/doorvoerset-clima-comfort-nbs-antraciet-3181174275/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/doorvoer-manchette-zelfklevend"
+ to="https://www.bmigroup.com/nl/p/doorvoer-manchette-zelfklevend-antraciet-3407857532/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-vhvariabel"
+ to="https://www.bmigroup.com/nl/p/combivent-vh-variabel-antraciet-2542082325/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-tuile-plat"
+ to="https://www.bmigroup.com/nl/p/combivent-tuile-plat-antraciet-1642976416/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-stonewold--tegalit"
+ to="https://www.bmigroup.com/nl/p/combivent-stonewold-tegalit-antraciet-3724512944/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-signyfinnez"
+ to="https://www.bmigroup.com/nl/p/combivent-signy-finnez-antraciet-1027924993/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-ovh-206"
+ to="https://www.bmigroup.com/nl/p/combivent-ovh-206-antraciet-629445935/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-ovh-200"
+ to="https://www.bmigroup.com/nl/p/combivent-ovh-200-rood-460574205/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-low-pitch-system"
+ to="https://www.bmigroup.com/nl/p/combivent-low-pitch-system-antraciet-115423395/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combivent-de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/p/combipan-de-nieuwe-hollander-v-antraciet-2579580345/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-vhvariabel"
+ to="https://www.bmigroup.com/nl/p/combipan-vh-variabel-antraciet-2542547607/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-tuile-plat"
+ to="https://www.bmigroup.com/nl/p/combipan-tuile-plat-antraciet-3966889735/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-stonewold--tegalit"
+ to="https://www.bmigroup.com/nl/p/combipan-stonewold-tegalit-antraciet-2856489407/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-signyfinnez"
+ to="https://www.bmigroup.com/nl/p/combipan-signy-finnez-antraciet-1809687819/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-ovh-206"
+ to="https://www.bmigroup.com/nl/p/combipan-ovh-206-antraciet-4212723267/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-ovh-200"
+ to="https://www.bmigroup.com/nl/p/combipan-ovh-200-antraciet-3720450818/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-low-pitch-system"
+ to="https://www.bmigroup.com/nl/p/combipan-low-pitch-system-antraciet-2937754059/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/combipan-de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/p/combipan-de-nieuwe-hollander-v-antraciet-2579580345/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/afdichtingsring-onderdakfolie-combipancombivent"
+ to="https://www.bmigroup.com/nl/p/afdichtingsring-onderdakfolie-combipan-combivent-antraciet-315384465/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie/adaptor-verloopstuk-combipan"
+ to="https://www.bmigroup.com/nl/p/adaptor-verloopstuk-combipan-antraciet-2632492277/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/ventilatie"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/ventilatie/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/vaporoll-vapotech-25"
+ to="https://www.bmigroup.com/nl/p/vaporoll-vapotech-25-antraciet-197159281/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/universele-afdichtingsband"
+ to="https://www.bmigroup.com/nl/p/universele-afdichtingsband-groen-3562004051/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/foliereparatie-tape"
+ to="https://www.bmigroup.com/nl/p/foliereparatie-tape-antraciet-92036112/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/dubbelzijdigtape-voor-onderdakfolies"
+ to="https://www.bmigroup.com/nl/p/dubbelzijdigtape-voor-onderdakfolies-2696622196/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-universal-2s"
+ to="https://www.bmigroup.com/nl/p/divoroll-universal-2s-3076860560/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-top-ru"
+ to="https://www.bmigroup.com/nl/p/divoroll-top-ru-1025879982/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-nagelafdichtingsband-50-mm-x-30-m"
+ to="https://www.bmigroup.com/nl/p/divoroll-nagelafdichtingsband-50-mm-rol-30-m-906512504/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-maximum-2s"
+ to="https://www.bmigroup.com/nl/p/divoroll-maximum-2s-599699900/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-kompakt-50-en-75-cm"
+ to="https://www.bmigroup.com/nl/p/divoroll-kompakt-dakfolie-50-en-75-cm-groen-2364737931/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-elite-2s"
+ to="https://www.bmigroup.com/nl/p/divoroll-elite-2s-2663654611/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/divoroll-clima-tape"
+ to="https://www.bmigroup.com/nl/p/divoroll-clima-tape-1006602975/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/compriband"
+ to="https://www.bmigroup.com/nl/p/compriband-zwart-1839940067/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/afdichtingsring-onderdakfolie-combipancombivent"
+ to="https://www.bmigroup.com/nl/p/afdichtingsring-onderdakfolie-combipan-combivent-antraciet-315384465/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/afdichtingsmassa"
+ to="https://www.bmigroup.com/nl/p/afdichtingsmassa-beige-4259198353/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies/afdichtingslijm"
+ to="https://www.bmigroup.com/nl/p/afdichtingslijm-antraciet-3708919478/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/onderdakfolies"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/onderdakfolies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/vorsthaak-type-p"
+ to="https://www.bmigroup.com/nl/p/vorsthaak-type-p-antracietbruin-2481945822/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/vorsthaak-type-ho"
+ to="https://www.bmigroup.com/nl/p/vorsthaak-type-ho-antracietbruin-3104379382/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/universele-ruiterrol-optivent"
+ to="https://www.bmigroup.com/nl/p/universele-ruiterrol-optivent-antraciet-1694069450/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/universele-nokbeugel-deelbaar"
+ to="https://www.bmigroup.com/nl/p/universele-nokbeugel-deelbaar-3683848494/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/peqondervorst-sneldek"
+ to="https://www.bmigroup.com/nl/p/peq-ondervorst-sneldek-antraciet-3118302885/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/mglue-290-ml"
+ to="https://www.bmigroup.com/nl/p/m-glue-290-ml-zwart-3769834350/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/metalroll"
+ to="https://www.bmigroup.com/nl/p/metalroll-zwart-3694652300/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/figaroll-plus"
+ to="https://www.bmigroup.com/nl/p/figaroll-plus-antraciet-1058988592/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/eurovorsthaak-schubvorst"
+ to="https://www.bmigroup.com/nl/p/euro-vorsthaak-schubvorst-antracietbruin-2232071459/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/eurovorsthaak-halfronde-en-platte-vorst"
+ to="https://www.bmigroup.com/nl/p/euro-vorsthaak-halfronde-en-platte-vorst-rood-3354559611/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper/eurohoekkeperklem-met-schroef"
+ to="https://www.bmigroup.com/nl/p/euro-hoekkeperklem-met-schroef-3167555618/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/nok-en-hoekkeper"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/nok-en-hoekkeper/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/kilkeper/metalen-kilgoot-profilos"
+ to="https://www.bmigroup.com/nl/p/metalen-kilgoot-profilo-s-antracietbruin-3778938486/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/kilkeper/koppelstrip"
+ to="https://www.bmigroup.com/nl/p/koppelstrip-2951108939/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/kilkeper"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/kilkeper/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelvide-v2"
+ to="https://www.bmigroup.com/nl/p/vogelvide-v2-antraciet-3431621598/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelvide-v1"
+ to="https://www.bmigroup.com/nl/p/vogelvide-v1-antraciet-3568323835/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelvide-g2"
+ to="https://www.bmigroup.com/nl/p/vogelvide-g2-antraciet-3257366471/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelvide-g1"
+ to="https://www.bmigroup.com/nl/p/vogelvide-g1-antraciet-1842403663/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelvide"
+ to="https://www.bmigroup.com/nl/p/vogelvide-antraciet-2062030595/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelschrootpanlatprofiel"
+ to="https://www.bmigroup.com/nl/p/vogelschroot-panlatprofiel-antraciet-3504143356/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/vogelmuisschroot-met-dubbele-kam"
+ to="https://www.bmigroup.com/nl/p/vogelmuisschroot-met-dubbele-kam-antraciet-3376206052/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/ventilerende-panlat"
+ to="https://www.bmigroup.com/nl/p/ventilerende-panlat-antraciet-antraciet-3224826387/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/uvs-vogelschroot"
+ to="https://www.bmigroup.com/nl/p/kombi-dakvoetprofiel-135-rood-1197501114/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/kombi-dakvoetprofiel-135"
+ to="https://www.bmigroup.com/nl/p/kombi-dakvoetprofiel-135-rood-1197501114/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/dakvoetsysteemprofiel-v1"
+ to="https://www.bmigroup.com/nl/p/dakvoetsysteemprofiel-v1-antraciet-3855986217/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/dakvoetsysteemprofiel-g1"
+ to="https://www.bmigroup.com/nl/p/dakvoetsysteemprofiel-g1-antraciet-3574397653/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet/dakvoetsysteemprofiel"
+ to="https://www.bmigroup.com/nl/p/dakvoetsysteemprofiel-rood-765748576/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/dakvoet"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/dakvoet/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/andere-toepassingen/zelfklevende-schuimstrook"
+ to="https://www.bmigroup.com/nl/p/zelfklevende-schuimstrook-zwart-643903770/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/andere-toepassingen/nestkastje"
+ to="https://www.bmigroup.com/nl/p/nestkastje-voor-huismussenpan-4094298015/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/andere-toepassingen/boortjes-speciaal-tbv-dakpannen"
+ to="https://www.bmigroup.com/nl/p/boortjes-speciaal-t-b-v-dakpannen-1915288648/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/andere-toepassingen"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/alle-andere-toepassingen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/wakaflex-schaar-en-roller"
+ to="https://www.bmigroup.com/nl/p/wakaflex-schaar-679018683/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/wakaflex"
+ to="https://www.bmigroup.com/nl/p/wakaflex-antraciet-1234573895/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/voegklem"
+ to="https://www.bmigroup.com/nl/p/voegklem-2294158813/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/renovatiekoppelelement"
+ to="https://www.bmigroup.com/nl/p/renovatie-koppelelement-antraciet-3138946019/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/mglue-290-ml"
+ to="https://www.bmigroup.com/nl/p/m-glue-290-ml-zwart-3769834350/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen/flexiroll-alu"
+ to="https://www.bmigroup.com/nl/p/flexiroll-alu-antraciet-3355229525/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten/aansluitingen"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/aansluitingen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/daksysteemcomponenten"
+ to="https://www.bmigroup.com/nl/hellend-dak/daksysteemcomponenten/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/vlakke-mulden"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vlakke-mulden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/tuile-plat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-plat/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/tegalit"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/tegalit/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/stonewold"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/stonewold/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/horizon"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/horizon/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak/bretagne"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/bretagne/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/vlak"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vh-variabel/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/belmont"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/belmont/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/renovatie"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/tuile-plat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-plat/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/tegalit"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/tegalit/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/stonewold"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/stonewold/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/sneldek-glazuron"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek-glazuron/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/rubin-9v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-9v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/horizon"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/horizon/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/bretagne"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/bretagne/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/modern"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/vlakke-mulden"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vlakke-mulden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vh-variabel/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/ovh-206"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-206/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/ovh-200"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-200/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/brugse-pan"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/brugse-pan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek/belmont"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/belmont/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/klassiek"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/vlakke-mulden"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vlakke-mulden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vh-variabel/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/tuile-plat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-plat/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/rubin-9v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-9v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/ovh-206"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-206/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/ovh-200"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-200/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/bretagne"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/bretagne/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch/belmont"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/belmont/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/keramisch"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vh-variabel/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/ovh-206"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-206/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/ovh-200"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-200/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/hollands"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/tuile-plat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-plat/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/sneldek-glazuron"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek-glazuron/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/rubin-9v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-9v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/groot-formaat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/vlakke-mulden"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vlakke-mulden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/sneldek-glazuron"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek-glazuron/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/rubin-9v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-9v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/ovh-206"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-206/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/ovh-200"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-200/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/low-pitch-system"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/low-pitch-system/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/brugse-pan"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/brugse-pan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/belmont"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/belmont/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/geprofileerd"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/tegalit"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/tegalit/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/stonewold"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/stonewold/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/sneldek-glazuron"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek-glazuron/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/low-pitch-system"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/low-pitch-system/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/horizon"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/horizon/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/brugse-pan"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/brugse-pan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/beton"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/vlakke-mulden"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vlakke-mulden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/vhvariabel"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/vh-variabel/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/tuile-plat"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-plat/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/tuile-du-nord"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/tuile-du-nord/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/tegalit"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/tegalit/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/stonewold"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/stonewold/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/sneldek-glazuron"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek-glazuron/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/sneldek"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/sneldek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/signyfinnez"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/signy-finnez/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/rubin-9v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-9v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/rubin-11v"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/rubin-11v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/postel-orage"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/postel-orage/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/ovh-206"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-206/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/ovh-200"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/ovh-200/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/oude-holle"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/oude-holle/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/low-pitch-system"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/low-pitch-system/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/kruispan"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/kruispan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/horizon"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/horizon/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/grote-romaanse"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/grote-romaanse/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/de-nieuwe-hollanderv"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/de-nieuwe-hollander-v/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/brugse-pan"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/brugse-pan/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/bretagne"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/bretagne/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/belmont"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/belmont/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen/aerlox"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/aerlox/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen/alle-modellen"
+ to="https://www.bmigroup.com/nl/hellend-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpannen"
+ to="https://www.bmigroup.com/nl/hellend-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie/monier-clima-comfort-basic-sandwichelement"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-sandwich-element-4012965464/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie/monier-clima-comfort-basic-renovatieelement-met-mw"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-renovatie-element-met-mw-3248495542/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie/monier-clima-comfort-basic-renovatieelement"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-renovatie-element-514697819/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie"
+ to="https://www.bmigroup.com/nl/alle-isolatieproducten/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten"
+ to="https://www.bmigroup.com/nl/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/privacy-policy"
+ to="https://www.bmigroup.com/nl/privacyverklaring-voor-derden/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/werkvoorbereider-technisch-adviseur"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/teamleider-productie-tegelen"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/operators-woerden"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/monteur-etd"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/monteur-dakpan-persen"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/hoofd-productie-tegelen"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/heftruckchauffeur-woerden"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht/commercieel-medewerkers-verkoop-binnendienst"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/vacatures-overzicht"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/organisatie"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/historie"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/garanties"
+ to="https://www.bmigroup.com/nl/diensten/garanties-bmi-monier/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/duurzaam"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier/arbo"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-bmi-monier"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/zeeuwse-schuur-staat-model-voor-nieuwe-kerk"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/zeeuwse-schuur-staat-model-voor-nieuwe-kerk/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/winnaar-monier-zomeractie-bekend"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/update-bmi-en-coronavirus"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/tweeling-met-ieder-een-eigen-karakter"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/tweeling-met-ieder-een-eigen-karakter/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/standard-industries-aankoop"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/ontdek-bmi-op-de-bouwbeurs-2019-in-utrecht"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/nieuwe-betondakpan-tegalit-sterker-en-gladder"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/nieuwe-aerlox-betondakpan-30-procent-lichter-en-net-zo-sterk"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/nieuw-dakhandboek-monier"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/monier-introduceert-innovatieve-variabele-dakpan"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/monier-dakservice-en-icopal-technische-service-is-nu-bmi-dakservice"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/markt-regelt-recycling-van-betonnen-dakpannen-in-convenant"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/jan-van-leeuwen-dakenman-van-het-jaar-2018"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/gratis-hamer-bij-euro-panhaken-van-bmi-monier"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/gescheiden-afval-inzamelen-vraagt-om-samenwerking-hele-bouwketen"
+ to="https://www.bmigroup.com/nl/nieuws/gescheiden-afval-inzamelen-vraagt-om-samenwerking-hele-bouwketen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/faalkosten-op-het-dak-kunnen-voorkomen-worden"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/de-buytenplaets-in-rijswijk-is-dak-van-het-jaar-2019"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/de-buytenplaets-in-rijswijk-is-dak-van-het-jaar-2019/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/dakrenovatie-met-behoud-van-unieke-uitstraling"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/dakrenovatie-met-behoud-van-unieke-uitstraling/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/dakpannen-als-blaadjes-aan-de-boom"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/dakpannen-als-blaadjes-aan-de-boom/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/coronavirus"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bouwmuuraansluitingen-eenvoudig-afwerken-met-nieuwe-divoroll-spirtech-200-folies"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-monier-start-workshop-klassieke-daken"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-monier-introduceert-nieuwe-kleuren"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-group-benoemt-sales-director-nederland"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-benoemt-sales-director-nederland"
+ to="https://www.bmigroup.com/nl/nieuws/bmi-benoemt-sales-director-nederland/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-benelux-zet-in-op-groei"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/bmi-benelux-neemt-resterende-50-procent-aandelen-rbb-over-van-etex"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/aardbevingsbestendig-bouwen-met-stalen-dakpanelementen"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/aardbevingsbestendig-bouwen-met-stalen-dakpanelementen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/monster-bestellen/monster-bestellen-formulier-tegalit-dakpan"
+ to="https://www.bmigroup.com/nl/p/tegalit-bruin-natura-beton-2455233879/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/monster-bestellen/monster-bestellen-formulier"
+ to="https://www.bmigroup.com/nl/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/monster-bestellen"
+ to="https://www.bmigroup.com/nl/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/klassieke-daken"
+ to="https://www.bmigroup.com/nl/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/keramisch-boeiboord"
+ to="https://www.bmigroup.com/nl/p/keramisch-boeiboord-rechts-oud-blauw-gepatineerd-1880-keramisch-3889521863/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening/verankeringsberekening-iframe"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening/verankering-hulpstukken-en-aansluitingen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/verankering-en-berekening/verankering-hulpstukken/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening/speciale-verankering"
+ to="https://www.bmigroup.com/nl/kenniscentrum/verankering-en-berekening/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening/normen-verankering"
+ to="https://www.bmigroup.com/nl/kenniscentrum/verankering-en-berekening/normen-verankering-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening/berekening-verankering"
+ to="https://www.bmigroup.com/nl/kenniscentrum/verankering-en-berekening/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/verankering-en-berekening"
+ to="https://www.bmigroup.com/nl/kenniscentrum/verankering-en-berekening/berekening-verankering/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/renovatie/waarom-een-renovatie"
+ to="https://www.bmigroup.com/nl/kenniscentrum/renovatie-van-het-dak/waarom-een-dakrenovatie/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/renovatie/huidige-staat-van-het-dak"
+ to="https://www.bmigroup.com/nl/kenniscentrum/renovatie-van-het-dak/vaststellen-huidige-staat-van-het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/renovatie/gewenste-staat-van-het-dak"
+ to="https://www.bmigroup.com/nl/kenniscentrum/renovatie-van-het-dak/gewenste-staat-van-het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/renovatie"
+ to="https://www.bmigroup.com/nl/kenniscentrum/renovatie-van-het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/het-dak/ideale-dakbedekking"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/het-dak/dakvormen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/dakvormen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/het-dak/daktermen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/daktermen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/het-dak/dakpan-als-gevelbekleding"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/dakpan-als-gevelbekleding/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/het-dak"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/toepassingsgebied-dakpannen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/speciale-hulpstukken"
+ to="https://www.bmigroup.com/nl/kenniscentrum/hulpstukken/speciale-hulpstukken/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/keramische-dakpannen"
+ to="https://www.bmigroup.com/nl/hellend-dak/keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/hulpstukken-keramische-dakpannen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/hulpstukken/hulpstukken-keramische-dakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/hulpstukken-betondakpannen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/hulpstukken/hulpstukken-betondakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/dakpanprofiel-herkennen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen/betondakpannen"
+ to="https://www.bmigroup.com/nl/hellend-dak/betondakpannen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum/dakpannen-algemeen"
+ to="https://www.bmigroup.com/nl/kenniscentrum/het-dak/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kenniscentrum"
+ to="https://www.bmigroup.com/nl/kenniscentrum/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/inspiratie"
+ to="https://www.bmigroup.com/nl/inspiratie/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/icopal"
+ to="https://www.bmigroup.com/nl/bmi-icopal?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/downloads/archief-certificaten"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/downloads/aerodek-certificaten"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/downloads"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_vlakke-mulden"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_vh-variabel"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_utrechter"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_tuile-plat"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_tuile-du-nord"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_stonewold"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_sneldek"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_signy-finnez"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_rubin-9v"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_renova"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_postel-orage"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_ovh-206"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_ovh-200"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_oude-holle"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_neroma"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_kruispan"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_innoslate"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_grote-romaanse"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool/verankering_bretagne"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/verankeringsadvies-tool"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/verankeringsadvies/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_vlakke-mulden"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_vh-variabel"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_utrechter"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_tuile-plat"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_tuile-du-nord"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_tegalit"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_stonewold"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_sneldek"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_signy-finnez"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_rubin-9v"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_rubin-11v"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_renova"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_postel-orage"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_ovh-206"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_ovh-200"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_oude-holle"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_neroma"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_low-pitch-system"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_kruispan"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_horizon"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_grote-romaanse"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_de-nieuwe-hollander-v"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_bretagne"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen/bim-cad_belmont"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/tekeningen"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bim/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools/bestekservice"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bestekservice-bmi-monier/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/online-tools"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/logistiek"
+ to="https://www.bmigroup.com/nl/diensten/logistiek/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/dakservice"
+ to="https://www.bmigroup.com/nl/diensten/dakservice/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/dakopleidingen/antwoorden-bmi-academy-quiz"
+ to="https://www.bmigroup.com/nl/diensten/bmi-academy/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten/dakopleidingen"
+ to="https://www.bmigroup.com/nl/diensten/bmi-academy/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/diensten"
+ to="https://www.bmigroup.com/nl/diensten/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/dakisolatie/monier-clima-comfort-basic-sandwich-dakelementen"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-sandwich-element-4012965464/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/dakisolatie/monier-clima-comfort-basic-renovatie-elementen-minerale-wol"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-renovatie-element-met-mw-3248495542/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/dakisolatie/monier-clima-comfort-basic-renovatie-elementen"
+ to="https://www.bmigroup.com/nl/p/monier-clima-comfort-basic-renovatie-element-514697819/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/dakisolatie"
+ to="https://www.bmigroup.com/nl/alle-isolatieproducten/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/verkoop-binnen-en-buitendienst"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/overzicht-sluitingen"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+# if no redirects are found, fall back to relevant root page
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/nl/?utm_source=monier.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true

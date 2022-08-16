@@ -1,9 +1,9 @@
-import React from "react";
 import { Typography } from "@bmi/components";
-import green from "../images/green.jpg";
+import React from "react";
+import blueGrey from "../images/blue-grey.jpg";
 import brown from "../images/brown.jpg";
 import charcoal from "../images/charcoal.jpg";
-import blueGrey from "../images/blue-grey.jpg";
+import green from "../images/green.jpg";
 
 const dialogImageStyle = { width: "100%", marginBottom: 16, marginTop: 36 };
 const swatchStyle = {

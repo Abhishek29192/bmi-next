@@ -12,6 +12,9 @@
 
   .brandLogoButton {
     background: transparent;
+    &-no-pointer {
+      cursor: default;
+    }
     &:hover {
       background: transparent;
     }

@@ -1,10 +1,10 @@
 import { CardRadioGroup } from "@bmi/components";
 import React, { useContext, useMemo } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
 import { RoofType, RoofV2 as Roof } from "../types/roof";
 import roofs from "./calculation/roofs";
-import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type RoofSelectionRowProps = {
@@ -64,7 +64,7 @@ export type RoofSelectionProps = Pick<
   RoofSelectionRowProps,
   "select" | "selected"
 > & {
-  requiredRoofShapes?: Array<{ name: string; id: string }>;
+  requiredRoofShapes?: { roofShapeId: string }[];
 };
 
 const RoofSelection = ({
@@ -78,7 +78,7 @@ const RoofSelection = ({
       return [];
     }
 
-    const roofsToUse = requiredRoofShapes.map((roof) => roof.id);
+    const roofsToUse = requiredRoofShapes.map((roof) => roof.roofShapeId);
 
     return roofs.filter((roof) => roofsToUse.includes(roof.id));
   }, [requiredRoofShapes]);

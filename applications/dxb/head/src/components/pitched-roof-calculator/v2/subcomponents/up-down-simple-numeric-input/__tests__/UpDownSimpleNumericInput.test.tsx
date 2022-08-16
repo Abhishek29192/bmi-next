@@ -1,5 +1,5 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import UpDownSimpleNumericInput from "../UpDownSimpleNumericInput";
 
 describe("UpDownSimpleNumericInput component", () => {
@@ -97,7 +97,7 @@ describe("UpDownSimpleNumericInput component", () => {
     }
     expect(onInputMock).not.toHaveBeenCalled();
   });
-  it("should trigger handleInputChange function with min value on trigger input change event with value that is less than min value", () => {
+  it("should not trigger handleInputChange function if min value is greater than current value", () => {
     const onInputMock = jest.fn();
     const min = 5;
     const wrapper = render(
@@ -111,7 +111,7 @@ describe("UpDownSimpleNumericInput component", () => {
     if (input) {
       fireEvent.change(input, { target: { value: 1 } });
     }
-    expect(onInputMock).toHaveBeenCalledWith(5);
+    expect(onInputMock).toHaveBeenCalledTimes(0);
   });
   it("should trigger handleInputChange function with max value on trigger input change event with value that is more than max value", () => {
     const onInputMock = jest.fn();

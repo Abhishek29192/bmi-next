@@ -1,0 +1,42 @@
+@import "~@bmi-digital/styles";
+
+.defaultTable {
+  .mobile {
+    @media (min-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+  .desktop {
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  .listView {
+    border: 1px solid $color-storm;
+
+    .item {
+      word-break: break-all;
+      margin: 0;
+      padding: 16px;
+      list-style: none;
+    }
+
+    .title {
+      font-weight: 500;
+    }
+
+    .item:nth-child(even) {
+      background-color: $color-pearl;
+    }
+  }
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: end;
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+  }
+}

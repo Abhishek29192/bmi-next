@@ -168,7 +168,7 @@ describe("ContentfulVideo", () => {
         expect(false).toEqual("An error should have been thrown");
       } catch (error) {
         expect((error as Error).message).toStrictEqual(
-          `resolvers.ContentfulVideo: Could not find video ${source.youtubeId}.`
+          `Failed request for "https://youtube_cache_api_url?youtubeId=${source.youtubeId}" after 5 retries with the following errors: ["Too Many Requests - ","Too Many Requests - ","Too Many Requests - ","Too Many Requests - ","Too Many Requests - "]`
         );
       }
       expect(fetchMock).toHaveFetchedTimes(5, expectedUrl, {
@@ -199,7 +199,7 @@ describe("ContentfulVideo", () => {
         expect(false).toEqual("An error should have been thrown");
       } catch (error) {
         expect((error as Error).message).toStrictEqual(
-          `resolvers.ContentfulVideo: Could not find video ${source.youtubeId}.`
+          `Failed request for "https://youtube_cache_api_url?youtubeId=${source.youtubeId}" after 1 retries with the following errors: ["Internal Server Error - "]`
         );
       }
       expect(fetchMock).toHaveFetchedTimes(1, expectedUrl, {

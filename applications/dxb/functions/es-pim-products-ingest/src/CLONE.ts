@@ -115,7 +115,6 @@ export const mapProductClassifications = (
 
   const MEASUREMENTS = "measurements";
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
   const FEATURES = {
     LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
     WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
@@ -126,7 +125,6 @@ export const mapProductClassifications = (
   return Object.entries(allProducts).reduce<ClassificationsPerProductMap>(
     (carry, [productCode, product]) => {
       (product.classifications || []).forEach((classification) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
         const { code, features } = classification;
         if (code === MEASUREMENTS) {
           features?.forEach(({ code, name, featureValues, featureUnit }) => {

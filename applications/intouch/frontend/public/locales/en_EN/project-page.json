@@ -13,6 +13,7 @@
         "fields": {
           "description": "Project description (optional)",
           "endDate": "Project end date",
+          "inspection": "Inspection",
           "name": "Project name",
           "roofArea": "Total roof measurement (m2)",
           "siteAddress": {
@@ -52,6 +53,10 @@
       },
       "title": "Add a project"
     }
+  },
+  "bool": {
+    "True": "True",
+    "False": "False"
   },
   "buildingOwnerDetails": {
     "address": "Building Owner address",
@@ -98,6 +103,11 @@
     "email": "Building owner email",
     "title": "Building Owner Details"
   },
+  "copyDialog": {
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}",
+    "title": "Copy this project"
+  },
   "filters": {
     "labels": {
       "ALL": "All",
@@ -108,7 +118,8 @@
       "MY_QUEUE": "My Queue",
       "NOT_STARTED": "Not started",
       "PITCHED": "Pitched",
-      "UNASSIGNED": "UnAssigned"
+      "UNASSIGNED": "UnAssigned",
+      "ARCHIVED": "Archived"
     }
   },
   "guarantee": {
@@ -141,6 +152,24 @@
     },
     "title": "You cannot apply for a guarantee yet"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Are you sure?",
+      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project."
+    },
+    "reject": {
+      "title": "Are you sure?",
+      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required."
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart guarantee",
+    "confirm": {
+      "title": "Restart Guarantee?",
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
+    },
+    "note": "The guarantee associated with this project has been restarted, so a new guarantee can be requested"
+  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Building owner details incomplete",
@@ -153,16 +182,6 @@
       "tier": "You are not in a Tier that supports Guarantees"
     },
     "title": "You cannot submit for a guarantee yet"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "title": "Are you sure?",
-      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project."
-    },
-    "reject": {
-      "title": "Are you sure?",
-      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required."
-    }
   },
   "guarantee_tab": {
     "applyGuarantee": {
@@ -285,15 +304,16 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Approve guarantee",
-      "confirm": "Confirm",
-      "cancel": "Cancel",
       "archive": "Archive project",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
       "requestInformation": "Request more information",
       "unarchive": "Un-archive project"
     },
     "heading": "Project Actions"
   },
   "projectDetails": {
+    "archived": "Archived?",
     "buildingAddress": "Building address",
     "code": "Project code",
     "cta": {
@@ -315,8 +335,7 @@
     "loading": "Loading project details",
     "roofArea": "Total roof measurement",
     "startDate": "Project start date",
-    "status": "Project status",
-    "archived": "Archived?"
+    "status": "Project status"
   },
   "report": {
     "guarantee": "Guarantee report",
@@ -367,35 +386,18 @@
       "confirm_label": "Upload files",
       "evidence_category": "Evidence Category",
       "file_validation_message": "You cannot upload files larger than",
-      "total_files_size": "Total files size exceeded - {{totalSize}}",
       "instruction": "You can add files",
       "microcopy": {
         "browse": "Browse",
         "drop": "Drop"
       },
-      "title": "Evidence Upload"
+      "title": "Evidence Upload",
+      "total_files_size": "Total files size exceeded - {{totalSize}}"
     },
     "header": "Upload file(s)",
     "noContent": "No uploads yet",
     "requirementModal": {
       "title": "What's required?"
     }
-  },
-  "guaranteeRestart": {
-    "note": "The guarantee associated with this project has been restarted, so a new guarantee can be requested",
-    "buttonLabel": "Restart guarantee",
-    "confirm": {
-      "title": "Restart Guarantee?",
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
-    }
-  },
-  "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
-  },
-  "bool": {
-    "True": "True",
-    "False": "False"
   }
 }

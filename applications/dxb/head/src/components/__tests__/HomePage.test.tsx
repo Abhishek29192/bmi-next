@@ -1,15 +1,15 @@
-import React from "react";
 import { render } from "@testing-library/react";
-import HomePage from "../../templates/home-page";
+import React from "react";
 import { Data as BrandData } from "../../components/Brands";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as SectionsData } from "../../components/Sections";
+import HomePage from "../../templates/home-page";
+import { getPathWithCountryCode } from "../../utils/path";
+import { DataTypeEnum, NavigationData } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { Data as SiteData } from "../Site";
-import { DataTypeEnum, NavigationData } from "../Link";
-import { getPathWithCountryCode } from "../../utils/path";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -17,6 +17,7 @@ type HomepageData = {
   slides: PageInfoData[];
   overlapCards: OverlapCardData;
   brands: BrandData[];
+  spaBrands: BrandData[];
   sections: SectionsData | null;
 } & PageData;
 
@@ -191,6 +192,7 @@ const homepageData: HomepageData = {
   slides: [slide],
   overlapCards: promos,
   brands: [],
+  spaBrands: [],
   sections: null,
   signupBlock: null,
   seo: null,
@@ -228,6 +230,7 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
+  pitchedRoofCalculatorConfig: null,
   regions: [
     {
       label: "Europe",

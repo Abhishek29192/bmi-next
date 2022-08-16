@@ -15,7 +15,8 @@ export const generateTierBenefitItem = (
   ...item
 });
 
-export const generateTierBenefitCollection =
-  (): GetPartnerBrandsQuery["tierBenefitCollection"] => ({
-    items: [generateTierBenefitItem()]
-  });
+export const generateTierBenefitCollection = (
+  items = []
+): GetPartnerBrandsQuery["tierBenefitCollection"] => ({
+  items: [generateTierBenefitItem(), ...items]
+});

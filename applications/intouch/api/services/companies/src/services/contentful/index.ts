@@ -18,18 +18,26 @@ export type EventMessage =
   | "REQUEST_REJECTED"
   | "REQUEST_APPROVED"
   | "REQUEST_SUBMITTED"
-  | "TEAM_JOINED";
+  | "TEAM_JOINED"
+  | "ANNUAL_INSPECTION1";
 
 export const getGuaranteeTypeCollection = async (
   client,
-  guaranteeReferenceCode: string
+  guaranteeReferenceCode: string,
+  tag: string
 ) => {
-  const variables = { guaranteeReferenceCode };
+  const variables = { guaranteeReferenceCode, tag };
   const query = `
-  query guaranteeTypes($guaranteeReferenceCode: String!) {
+  query guaranteeTypes($guaranteeReferenceCode: String!, $tag: String!) {
     guaranteeTypeCollection(
       limit: 1
-      where: { guaranteeReferenceCode: $guaranteeReferenceCode }
+      where: {
+        guaranteeReferenceCode: $guaranteeReferenceCode 
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        } 
+      }
     ) {
       total
       items {
@@ -67,12 +75,22 @@ export const getGuaranteeTypeCollection = async (
   return client(query, variables);
 };
 
-export const getEvidenceCategory = async (client, referenceCode: string) => {
+export const getEvidenceCategory = async (
+  client,
+  referenceCode: string,
+  tag: string
+) => {
   const query = `
-  query EvidenceCategory($referenceCode: String!) {
+  query EvidenceCategory($referenceCode: String!, $tag: String!) {
     evidenceCategoryCollection(
     limit: 1
-    where: { referenceCode: $referenceCode }
+    where: { 
+      referenceCode: $referenceCode
+      contentfulMetadata: {
+        tags_exists: true
+        tags: { id_contains_some: [$tag] }
+      } 
+    }
   ) {
     items {
       sys {
@@ -84,7 +102,7 @@ export const getEvidenceCategory = async (client, referenceCode: string) => {
   }
 }`;
 
-  const variables = { referenceCode: referenceCode };
+  const variables = { referenceCode: referenceCode, tag };
   return client(query, variables);
 };
 
@@ -92,19 +110,25 @@ export const getGuaranteeTemplates = async (
   client,
   technology: string,
   coverage: string,
-  language: string
+  language: string,
+  tag: string
 ) => {
   const query = `
    query getGuaranteeTemplates(
     $technology: String!
     $coverage: String!
     $language: String
+    $tag: String!
   ) {
     guaranteeTemplateCollection(
       where: {
         coverage: $coverage
         technology: $technology
         languageCode: $language
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        } 
       }
     ) {
       total
@@ -116,14 +140,22 @@ export const getGuaranteeTemplates = async (
   ${GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
   `;
 
-  const variables = { technology, coverage, language };
+  const variables = { technology, coverage, language, tag };
   return client(query, variables);
 };
 
-export const messageTemplate = async (client, event: EventMessage) => {
+export const messageTemplate = async (client, event: EventMessage, tag) => {
   const query = `
-  query messageTemplateCollection($event: String!) {
-    messageTemplateCollection(where: { event: $event }) {
+  query messageTemplateCollection($event: String!, $tag: String!) {
+    messageTemplateCollection(
+      where: { 
+        event: $event
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        } 
+      }
+    ) {
       items {
         subject
         emailBody
@@ -133,7 +165,7 @@ export const messageTemplate = async (client, event: EventMessage) => {
     }
   }`;
 
-  return client(query, { event });
+  return client(query, { event, tag });
 };
 
 export const GUARANTEE_TEMPLATE_DETAIL_FRAGMENT = `
@@ -197,10 +229,23 @@ fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
 
 `;
 
-export const tierBenefit = async (client, tier: Tier): Promise<TierBenefit> => {
+export const tierBenefit = async (
+  client,
+  tier: Tier,
+  tag
+): Promise<TierBenefit> => {
   const query = `
-  query tierBenefitCollection($tier: String!) {
-    tierBenefitCollection(limit: 1, where: { tier: $tier }) {
+  query tierBenefitCollection($tier: String!, $tag: String!) {
+    tierBenefitCollection(
+      limit: 1, 
+      where: { 
+        tier: $tier
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        } 
+      }
+    ) {
       items {
         sys {
           id
@@ -219,7 +264,7 @@ export const tierBenefit = async (client, tier: Tier): Promise<TierBenefit> => {
     data: {
       tierBenefitCollection: TierBenefitCollection;
     };
-  } = await client(query, { tier });
+  } = await client(query, { tier, tag });
 
   return data.tierBenefitCollection.items[0];
 };

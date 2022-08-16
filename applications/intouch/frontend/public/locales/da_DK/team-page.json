@@ -20,6 +20,13 @@
   },
   "lastCompanyAdminError": "Du kan ikke fjerne den sidste administrator fra en virksomhed, medmindre den er deaktiveret af BMI",
   "memberRemoved": "Medlemmet blev fjernet",
+  "projectTable": {
+    "endDate": "Slutdato",
+    "project": "Projekt",
+    "startDate": "Start dato",
+    "title": "Projekter",
+    "type": "Type"
+  },
   "report": "Download holdliste",
   "sidePanel": {
     "inviteLabel": " + Inviter teammedlemmer",
@@ -35,6 +42,13 @@
     "type": "Type",
     "validity": "Gyldighed"
   },
+  "projectTable": {
+    "title": "Projekter",
+    "type": "Type",
+    "project": "Projekt",
+    "startDate": "Start dato",
+    "endDate": "Slutdato"
+  },
   "userActions": {
     "action": {
       "activate": "Aktiver bruger",
@@ -44,10 +58,12 @@
   },
   "user_card": {
     "add_admin": "Tildel administratorrettigheder",
+    "add_auditor": "Tildel revisorrettigheder",
     "cancel": "Annullér",
     "confirm": "Bekræft",
     "remove": "Fjern fra virksomhed",
     "remove_admin": "Fjern tildelingen som administrator",
+    "remove_auditor": "Fjern revisorrettigheder",
     "remove_user_dialog": {
       "text": "Vil du fjerne dette medlem?",
       "title": "Fjern fra virksomhed"
@@ -55,8 +71,6 @@
     "role_dialog": {
       "text": "Vil du ændre rollen?",
       "title": "Skift rolle"
-    },
-    "remove_auditor": "Fjern revisorrettigheder",
-    "add_auditor": "Tildel revisorrettigheder"
+    }
   }
 }

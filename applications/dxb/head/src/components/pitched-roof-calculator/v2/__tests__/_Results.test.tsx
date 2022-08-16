@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results from "../_Results";
@@ -78,7 +78,34 @@ jest.mock("../../../FormSection", () => {
 
 jest.mock("../subcomponents/quantity-table/QuantityTable", () => {
   const QuantityTable = (props: Props) => (
-    <p>{JSON.stringify(props, null, 2)}</p>
+    <div>
+      {props.rows.map((row) => (
+        <div key={row.externalProductCode}>
+          <div>{row.description}</div>
+          <div aria-label={`Quantity for ${row.description}`}>
+            {row.quantity}
+          </div>
+          <button
+            aria-label={`Remove ${row.description}`}
+            onClick={() => props.onDelete(row)}
+          >
+            Delete
+          </button>
+          <button
+            aria-label={`Increase quantity of ${row.description}`}
+            onClick={() => props.onChangeQuantity(row, row.quantity + 1)}
+          >
+            +
+          </button>
+          <button
+            aria-label={`Decrease quantity of ${row.description}`}
+            onClick={() => props.onChangeQuantity(row, row.quantity - 1)}
+          >
+            -
+          </button>
+        </div>
+      ))}
+    </div>
   );
 
   return {
@@ -97,6 +124,7 @@ jest.mock("../_PDF", () => ({
 }));
 
 const resultsProps = {
+  hubSpotFormId: "mock",
   measurements: {
     faces: [
       {
@@ -494,7 +522,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with no guttering", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...{ ...resultsProps, guttering: {} }} />
+        <Results {...{ ...resultsProps, guttering: undefined }} />
       </MicroCopy.Provider>
     );
 
@@ -633,5 +661,93 @@ describe("PitchedRoofCalculator Results component", () => {
     expect(
       screen.getByText("MC: results.categories.accessories")
     ).toBeInTheDocument();
+  });
+
+  it("Moves product to 'extra section' when user tries to delete it", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.edited.products.title")
+    ).not.toBeInTheDocument();
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+    );
+    expect(
+      screen.getByText("MC: results.edited.products.title")
+    ).toBeInTheDocument();
+  });
+
+  it("Moves product to 'extra section' and change quantity if user clicks on '+' button", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    const quantityNode = screen.getByLabelText(
+      `Quantity for ${resultsProps.variant.clip.name}`
+    );
+    const initialQuantity = Number(quantityNode.textContent);
+
+    fireEvent.click(
+      screen.getByLabelText(
+        `Increase quantity of ${resultsProps.variant.clip.name}`
+      )
+    );
+    expect(
+      screen.getByText("MC: results.edited.products.title")
+    ).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByLabelText(
+        `Increase quantity of ${resultsProps.variant.clip.name}`
+      )
+    );
+    waitFor(() => expect(quantityNode.textContent).toBe(initialQuantity + 2));
+  });
+
+  it("Removes product if user removes it from 'extra section'", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+    );
+    expect(
+      screen.getByText(resultsProps.variant.clip.name)
+    ).toBeInTheDocument();
+
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+    );
+    expect(
+      screen.queryByText(resultsProps.variant.clip.name)
+    ).not.toBeInTheDocument();
+  });
+
+  it("resets products and removes 'extra section'", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${resultsProps.variant.clip.name}`)
+    );
+
+    fireEvent.click(
+      screen.getByText("MC: results.alerts.quantities.reset.button")
+    );
+    expect(
+      screen.queryByText("MC: results.edited.products.title")
+    ).not.toBeInTheDocument();
   });
 });

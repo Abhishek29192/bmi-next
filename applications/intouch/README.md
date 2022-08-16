@@ -69,9 +69,9 @@ If you want to create content via API, or run migrations:
 - go to https://app.contentful.com/spaces/opay6t6wwmup/api/keys
 - go to `Content management tokens`
 - create a personal token
-- put it in `libraries/migrate/.env.development`
+- put it in `applications/dxb/contentful-migrate/.env.development`
 
-Read `{dxb_root_folder}/README.md` `{dxb_root_folder}/libraries/migrate/README.md` for more information on:
+Read `{dxb_root_folder}/README.md` `{dxb_root_folder}/docs/contentful-migrations.md` for more information on:
 
 - Contentful setup
 - Content Migrations
@@ -106,7 +106,7 @@ contentful space import \
   --space-id $SPACE_ID \
   --environment-id $CONTENTFUL_ENVIRONMENT \
   --management-token $MANAGEMENT_ACCESS_TOKEN \
-  --export-dir libraries/migrate/$PROJECT_RELATIVE_PATH/mocks \
+  --export-dir applications/intouch/contentful-migrate/src/mocks \
   --skip-content-model \
-  --content-file libraries/migrate/$PROJECT_RELATIVE_PATH/mocks/content.json
+  --content-file applications/intouch/contentful-migrate/src/mocks/content.json
 ```

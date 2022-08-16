@@ -1,10 +1,14 @@
 import mockConsole from "jest-mock-console";
+import {
+  ProductCategory,
+  ResultsRow,
+  VergeMetalFlushOption
+} from "../../types";
+import { Measurements } from "../../types/roof";
 import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
 } from "../calculation/QuantitiesCalculator";
-import { ResultsRow, VergeMetalFlushOption } from "../../types";
-import { Measurements } from "../../types/roof";
 
 beforeAll(() => {
   mockConsole();
@@ -261,7 +265,7 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "5555550",
         image:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        category: "accessories",
+        category: ProductCategory.Accessories,
         packSize: 2
       }
     ],
@@ -272,7 +276,7 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "5555551",
         image:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        category: "accessories"
+        category: ProductCategory.Accessories
       }
     ],
     clip: {
@@ -281,7 +285,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Clips",
       externalProductCode: "113456781",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     ridgeAndHipScrew: {
       code: "ridgeAndHipScrew",
@@ -289,7 +293,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     longScrew: {
       code: "longScrew",
@@ -297,7 +301,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Long Screw",
       externalProductCode: "113456783",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     screw: {
       code: "screw",
@@ -305,7 +309,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Screw",
       externalProductCode: "113456784",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     stormBracket: {
       code: "stormBracket",
@@ -313,7 +317,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Storm Bracket",
       externalProductCode: "113456785",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     finishingKit: {
       code: "finishingKit",
@@ -321,7 +325,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Finishing Kit",
       externalProductCode: "113456786",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     ventilationHoodOptions: [
       {
@@ -330,7 +334,7 @@ const input: QuantitiesCalculatorProps = {
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 1",
         externalProductCode: "100456781",
-        category: "ventilation"
+        category: ProductCategory.Ventilation
       },
       {
         code: "vho2",
@@ -338,7 +342,7 @@ const input: QuantitiesCalculatorProps = {
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 2",
         externalProductCode: "100456782",
-        category: "ventilation"
+        category: ProductCategory.Ventilation
       }
     ],
     minBattenGauge: 31,
@@ -448,7 +452,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ventilation Hood 1",
       externalProductCode: "100456781",
-      category: "ventilation"
+      category: ProductCategory.Ventilation
     }
   ],
   underlay: {
@@ -476,7 +480,7 @@ const input: QuantitiesCalculatorProps = {
       image:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33332",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     downpipeConnector: {
       code: "Downpipe_Connector",
@@ -484,7 +488,7 @@ const input: QuantitiesCalculatorProps = {
       image:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33331",
-      category: "accessories"
+      category: ProductCategory.Accessories
     }
   },
   gutteringHook: {
@@ -1167,7 +1171,11 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     const calculator = new QuantitiesCalculator(input);
 
     expect(() => {
-      calculator.addProduct("ventilation", input.mainTileVariant, 5);
+      calculator.addProduct(
+        ProductCategory.Ventilation,
+        input.mainTileVariant,
+        5
+      );
     }).toThrow(
       `Product of code: ${input.mainTileVariant.code} is being added to two different category`
     );

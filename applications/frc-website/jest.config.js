@@ -12,10 +12,10 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "36",
-      branches: "20",
+      statements: "35",
+      branches: "19",
       functions: "27",
-      lines: "36"
+      lines: "35"
     }
   },
   resolver: "jest-node-exports-resolver"

@@ -7184,6 +7184,9 @@ enum ContentfulTiers {
   T2
   T3
   T4
+  T5
+  T6
+  T7
 }
 
 """
@@ -9411,6 +9414,53 @@ type CreateCourseTempPayload {
 }
 
 """
+All input for the create `DoceboTier` mutation.
+"""
+input CreateDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `DoceboTier` to be created by this mutation.
+  """
+  doceboTier: DoceboTierInput!
+}
+
+"""
+The output of our create `DoceboTier` mutation.
+"""
+type CreateDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `DoceboTier` that was created by this mutation.
+  """
+  doceboTier: DoceboTier
+
+  """
+  An edge for our `DoceboTier`. May be used by Relay 1.
+  """
+  doceboTierEdge(
+    """
+    The method to use when ordering `DoceboTier`.
+    """
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the create `EvidenceItem` mutation.
 """
 input CreateEvidenceItemInput {
@@ -11218,6 +11268,79 @@ type DeleteCourseTempPayload {
 }
 
 """
+All input for the `deleteDoceboTierByMarketIdAndTierCode` mutation.
+"""
+input DeleteDoceboTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+  tierCode: Tier!
+}
+
+"""
+All input for the `deleteDoceboTierByNodeId` mutation.
+"""
+input DeleteDoceboTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoceboTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteDoceboTier` mutation.
+"""
+input DeleteDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `DoceboTier` mutation.
+"""
+type DeleteDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedDoceboTierNodeId: ID
+
+  """
+  The `DoceboTier` that was deleted by this mutation.
+  """
+  doceboTier: DoceboTier
+
+  """
+  An edge for our `DoceboTier`. May be used by Relay 1.
+  """
+  doceboTierEdge(
+    """
+    The method to use when ordering `DoceboTier`.
+    """
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the `deleteEvidenceItemByNodeId` mutation.
 """
 input DeleteEvidenceItemByNodeIdInput {
@@ -12147,6 +12270,144 @@ The 'Dimension' type represents dimensions as whole numeric values between `1` a
 """
 scalar Dimension
 
+input DoceboCertification {
+  code: String
+  title: String
+  toNewIn: String
+  userId: String
+}
+
+type DoceboTier implements Node {
+  doceboCatalogueId: Int
+  id: Int!
+  marketId: Int!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  tierCode: Tier!
+}
+
+"""
+A condition to be used against `DoceboTier` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input DoceboTierCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+}
+
+"""
+A filter to be used against `DoceboTier` object types. All fields are combined with a logical ‘and.’
+"""
+input DoceboTierFilter {
+  """
+  Checks for all expressions in this list.
+  """
+  and: [DoceboTierFilter!]
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: DoceboTierFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [DoceboTierFilter!]
+}
+
+"""
+An input for mutations affecting `DoceboTier`
+"""
+input DoceboTierInput {
+  doceboCatalogueId: Int
+  id: Int
+  marketId: Int!
+  tierCode: Tier!
+}
+
+"""
+Represents an update to a `DoceboTier`. Fields that are set will be updated.
+"""
+input DoceboTierPatch {
+  doceboCatalogueId: Int
+  id: Int
+  marketId: Int
+  tierCode: Tier
+}
+
+"""
+A connection to a list of `DoceboTier` values.
+"""
+type DoceboTiersConnection {
+  """
+  A list of edges which contains the `DoceboTier` and cursor to aid in pagination.
+  """
+  edges: [DoceboTiersEdge!]!
+
+  """
+  A list of `DoceboTier` objects.
+  """
+  nodes: [DoceboTier!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `DoceboTier` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `DoceboTier` edge in the connection.
+"""
+type DoceboTiersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `DoceboTier` at the end of the edge.
+  """
+  node: DoceboTier!
+}
+
+"""
+Methods to use when ordering `DoceboTier`.
+"""
+enum DoceboTiersOrderBy {
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
 interface Entry {
   contentfulMetadata: ContentfulMetadata!
   sys: Sys!
@@ -12489,6 +12750,7 @@ The `guarantee` to be created by this mutation.
 input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -13061,6 +13323,8 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -13482,6 +13746,8 @@ enum FindRoofersOrderBy {
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
 type Guarantee implements Node {
+  approvedAt: Datetime
+
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
@@ -13792,6 +14058,7 @@ An input for mutations affecting `Guarantee`
 input GuaranteeInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14167,6 +14434,7 @@ Represents an update to a `Guarantee`. Fields that are set will be updated.
 input GuaranteePatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14252,6 +14520,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14507,6 +14776,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14741,6 +15011,8 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -14787,6 +15059,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14992,6 +15265,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -15197,6 +15471,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -18618,6 +18893,7 @@ enum MigrationOrder {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
+  annualProjectsInspection: String
   archiveProjects: String
   bulkImport(
     """
@@ -18800,6 +19076,16 @@ type Mutation {
     """
     input: CreateCourseTempInput!
   ): CreateCourseTempPayload
+
+  """
+  Creates a single `DoceboTier`.
+  """
+  createDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDoceboTierInput!
+  ): CreateDoceboTierPayload
   createDoceboUser(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -19280,6 +19566,36 @@ type Mutation {
   ): DeleteCourseTempPayload
 
   """
+  Deletes a single `DoceboTier` using a unique key.
+  """
+  deleteDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierInput!
+  ): DeleteDoceboTierPayload
+
+  """
+  Deletes a single `DoceboTier` using a unique key.
+  """
+  deleteDoceboTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierByMarketIdAndTierCodeInput!
+  ): DeleteDoceboTierPayload
+
+  """
+  Deletes a single `DoceboTier` using its globally unique id.
+  """
+  deleteDoceboTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierByNodeIdInput!
+  ): DeleteDoceboTierPayload
+
+  """
   Deletes a single `EvidenceItem` using a unique key.
   """
   deleteEvidenceItem(
@@ -19610,6 +19926,12 @@ type Mutation {
   ): resetPasswordImportedUsersResult
   restartGuarantee(projectId: Int!): String
   sendReminderToIncompleteCompanyProfile: String
+  truncateAndInsertCertification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: TruncateAndInsertCertificationInput
+  ): String
 
   """
   Updates a single `Account` using a unique key and a patch.
@@ -19980,6 +20302,42 @@ type Mutation {
     """
     input: UpdateCourseTempByNodeIdInput!
   ): UpdateCourseTempPayload
+
+  """
+  Updates a single `DoceboTier` using a unique key and a patch.
+  """
+  updateDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierInput!
+  ): UpdateDoceboTierPayload
+
+  """
+  Updates a single `DoceboTier` using a unique key and a patch.
+  """
+  updateDoceboTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierByMarketIdAndTierCodeInput!
+  ): UpdateDoceboTierPayload
+
+  """
+  Updates a single `DoceboTier` using its globally unique id and a patch.
+  """
+  updateDoceboTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierByNodeIdInput!
+  ): UpdateDoceboTierPayload
+  updateDoceboTiersByMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTiersByMarketInput
+  ): [UpdateDoceboTiersByMarketResult]
   updateDoceboUser(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -20848,6 +21206,8 @@ input NoteProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -22531,6 +22891,8 @@ type Project implements Node {
   Primary key
   """
   id: Int!
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -22859,6 +23221,8 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23055,6 +23419,8 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23211,6 +23577,8 @@ input ProjectInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23768,6 +24136,8 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -24219,6 +24589,8 @@ input ProjectPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -24472,6 +24844,8 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -25430,6 +25804,64 @@ type Query implements Node {
   currentAccountId: Int
   currentCompany: Int
   currentMarket: Int
+  doceboTier(id: Int!): DoceboTier
+  doceboTierByMarketIdAndTierCode(marketId: Int!, tierCode: Tier!): DoceboTier
+
+  """
+  Reads a single `DoceboTier` using its globally unique `ID`.
+  """
+  doceboTierByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `DoceboTier`.
+    """
+    nodeId: ID!
+  ): DoceboTier
+
+  """
+  Reads and enables pagination through a set of `DoceboTier`.
+  """
+  doceboTiers(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DoceboTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DoceboTierFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `DoceboTier`.
+    """
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersConnection
   entryCollection(
     limit: Int = 100
     locale: String
@@ -28764,6 +29196,9 @@ enum Tier {
   T2
   T3
   T4
+  T5
+  T6
+  T7
 }
 
 """
@@ -29053,6 +29488,10 @@ enum TrainingContentOrder {
   sys_publishedAt_DESC
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
+}
+
+input TruncateAndInsertCertificationInput {
+  certificates: [DoceboCertification]
 }
 
 """
@@ -30352,6 +30791,111 @@ type UpdateCourseTempPayload {
 }
 
 """
+All input for the `updateDoceboTierByMarketIdAndTierCode` mutation.
+"""
+input UpdateDoceboTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+  tierCode: Tier!
+}
+
+"""
+All input for the `updateDoceboTierByNodeId` mutation.
+"""
+input UpdateDoceboTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoceboTier` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+}
+
+"""
+All input for the `updateDoceboTier` mutation.
+"""
+input UpdateDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+}
+
+"""
+The output of our update `DoceboTier` mutation.
+"""
+type UpdateDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `DoceboTier` that was updated by this mutation.
+  """
+  doceboTier: DoceboTier
+
+  """
+  An edge for our `DoceboTier`. May be used by Relay 1.
+  """
+  doceboTierEdge(
+    """
+    The method to use when ordering `DoceboTier`.
+    """
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+input UpdateDoceboTiersByMarketInput {
+  T1: Int
+  T2: Int
+  T3: Int
+  T4: Int
+  T5: Int
+  T6: Int
+  T7: Int
+  marketId: Int
+}
+
+type UpdateDoceboTiersByMarketResult {
+  docebo_catalogue_id: Int
+  id: Int
+  market_id: Int
+  tier_code: Tier
+}
+
+"""
 All input for the `updateEvidenceItemByNodeId` mutation.
 """
 input UpdateEvidenceItemByNodeIdInput {
@@ -31501,6 +32045,7 @@ union _Entity =
   | CourseEnrollmentTemp
   | CourseSyncConfiguration
   | CourseTemp
+  | DoceboTier
   | EvidenceItem
   | Guarantee
   | Invitation
@@ -34130,6 +34675,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34215,6 +34761,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34295,6 +34842,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34375,6 +34923,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34455,6 +35004,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34535,6 +35085,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -35600,6 +36151,8 @@ input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -35691,6 +36244,8 @@ input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -35782,6 +36337,8 @@ input updateProjectOnNoteForNoteProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -35868,6 +36425,8 @@ input updateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -35954,6 +36513,8 @@ input updateProjectOnProjectForProjectCompanyIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36045,6 +36606,8 @@ input updateProjectOnProjectForProjectSiteAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36131,6 +36694,8 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """

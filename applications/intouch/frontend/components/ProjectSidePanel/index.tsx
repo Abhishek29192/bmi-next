@@ -28,7 +28,8 @@ const getProjectFilters = (t, isPowerfulUser: boolean) => {
       label: t("filters.labels.ASSIGNED"),
       attr: "ASSIGNED"
     },
-    { label: t("filters.labels.MY_QUEUE"), attr: "MY_QUEUE" }
+    { label: t("filters.labels.MY_QUEUE"), attr: "MY_QUEUE" },
+    { label: t("filters.labels.ARCHIVED"), attr: "ARCHIVED" }
   ];
   const userFilter = [
     { label: t("filters.labels.ALL"), attr: "ALL" },
@@ -144,18 +145,27 @@ export const ProjectSidePanel = ({
         buildingOwnerFirstname,
         buildingOwnerLastname,
         buildingOwnerCompany,
-        buildingOwnerMail
+        buildingOwnerMail,
+        hidden
       }) => {
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
         );
-        const matchesFilter =
-          filterSelection === "ALL" ||
+
+        // Check for status and guarantee selections.
+        const notAll =
+          !hidden &&
           (knownStatuses.includes(filterSelection)
             ? getProjectStatus(startDate, endDate) === filterSelection
             : technologyStatus.includes(filterSelection)
             ? technology === filterSelection
             : guaranteeFilter(guarantees.nodes, filterSelection));
+
+        // Check for archived status selection.
+        const archivedSelection = filterSelection === "ARCHIVED" && hidden;
+
+        const matchesFilter =
+          filterSelection === "ALL" || notAll || archivedSelection;
 
         const data = isPowerfulUser
           ? [name, company?.name]
@@ -185,7 +195,7 @@ export const ProjectSidePanel = ({
 
   const guaranteeLength = useMemo(() => {
     return projects.reduce(
-      (sum, { guarantees }) => sum + guarantees?.nodes?.length || 0,
+      (sum, { guarantees }) => sum + guarantees.nodes.length || 0,
       0
     );
   }, [projects]);

@@ -35,7 +35,11 @@ describe("Guarantee", () => {
       data: {
         guaranteeTypeCollection: ContentfulGuaranteeTypeCollection;
       };
-    } = await getGuaranteeTypeCollection(mockClientGateway, "test");
+    } = await getGuaranteeTypeCollection(
+      mockClientGateway,
+      "test",
+      "market_endor"
+    );
     expect(guaranteeTypeCollection).toMatchObject(collection);
   });
 
@@ -57,7 +61,7 @@ describe("Guarantee", () => {
       data: { evidenceCategoryCollection }
     }: {
       data: { evidenceCategoryCollection: EvidenceCategoryCollection };
-    } = await getEvidenceCategory(mockClientGateway, "test");
+    } = await getEvidenceCategory(mockClientGateway, "test", "market_endor");
     expect(evidenceCategoryCollection).toMatchObject(collection);
   });
 
@@ -81,7 +85,13 @@ describe("Guarantee", () => {
       data: {
         guaranteeTemplateCollection: ContentfulGuaranteeTemplatesCollection;
       };
-    } = await getGuaranteeTemplates(mockClientGateway, "test", "test", "EN");
+    } = await getGuaranteeTemplates(
+      mockClientGateway,
+      "test",
+      "test",
+      "EN",
+      "market_endor"
+    );
     expect(guaranteeTemplateCollection).toMatchObject(collection);
   });
 
@@ -103,7 +113,8 @@ describe("Guarantee", () => {
     }));
     const { data } = await messageTemplate(
       mockClientGateway,
-      "REQUEST_SUBMITTED"
+      "REQUEST_SUBMITTED",
+      "market_endor"
     );
     const {
       messageTemplateCollection
@@ -130,7 +141,11 @@ describe("Guarantee", () => {
         tierBenefitCollection: collection
       }
     }));
-    const { shortDescription } = await tierBenefit(mockClientGateway, "T1");
+    const { shortDescription } = await tierBenefit(
+      mockClientGateway,
+      "T1",
+      "market_endor"
+    );
     expect(shortDescription).toEqual("shortDescription");
   });
 });

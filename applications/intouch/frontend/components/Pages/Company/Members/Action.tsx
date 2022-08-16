@@ -28,17 +28,17 @@ const CompanyMemberActionCard = ({
   return (
     <SimpleCard>
       <Typography variant="h5">{t("userActions.title")}</Typography>
-      <div style={{ textAlign: "right" }}>
-        <Button
-          onClick={toggleCompanyMemberAction}
-          disabled={disabled}
-          data-testid="change-user-status"
-        >
-          {status === "ACTIVE"
-            ? t("userActions.action.deactivate")
-            : t("userActions.action.activate")}
-        </Button>
-      </div>
+      <Button
+        onClick={toggleCompanyMemberAction}
+        disabled={disabled}
+        data-testid="change-user-status"
+        fullWidth={true}
+        style={{ marginTop: 24 }}
+      >
+        {status === "ACTIVE"
+          ? t("userActions.action.deactivate")
+          : t("userActions.action.activate")}
+      </Button>
     </SimpleCard>
   );
 };

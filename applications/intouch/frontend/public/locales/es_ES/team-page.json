@@ -19,6 +19,13 @@
   },
   "lastCompanyAdminError": "No puede eliminar al último administrador de la empresa de una empresa a menos que BMI lo haya desactivado.",
   "memberRemoved": "Miembro eliminado con éxito de la empresa",
+  "projectTable": {
+    "endDate": "Fecha final",
+    "project": "Proyecto",
+    "startDate": "Fecha de inicio",
+    "title": "Proyectos",
+    "type": "Tipo"
+  },
   "report": "Descargar listado de equipos",
   "sidePanel": {
     "inviteLabel": " + Invitar a miembros del equipo",
@@ -34,6 +41,13 @@
     "type": "Tipo",
     "validity": "Validez"
   },
+  "projectTable": {
+    "title": "Proyectos",
+    "type": "Tipo",
+    "project": "Proyecto",
+    "startDate": "Fecha de inicio",
+    "endDate": "Fecha final"
+  },
   "userActions": {
     "action": {
       "activate": "Activar usuario",
@@ -43,10 +57,12 @@
   },
   "user_card": {
     "add_admin": "Asignar como administrador de la empresa",
+    "add_auditor": "Asignar como auditor",
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "remove": "Eliminar de la empresa",
     "remove_admin": "Eliminar como administrador de la empresa",
+    "remove_auditor": "Eliminar como auditor",
     "remove_user_dialog": {
       "text": "¿Desea eliminar a este miembro de la empresa?",
       "title": "Eliminar miembro de la empresa"
@@ -54,8 +70,6 @@
     "role_dialog": {
       "text": "¿Quieres cambiar el rol del usuario?",
       "title": "Cambiar rol de usuario"
-    },
-    "remove_auditor": "Eliminar como auditor",
-    "add_auditor": "Asignar como auditor"
+    }
   }
 }

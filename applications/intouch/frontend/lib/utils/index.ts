@@ -54,3 +54,24 @@ export const getFileExtension = (
   ),
   extension: filename.substring(filename.lastIndexOf(".") + 1, filename.length)
 });
+
+export const getOneTrustToken = (str: string, lang: string) => {
+  try {
+    const marketsOneTrustMap = JSON.parse(str);
+    // eslint-disable-next-line security/detect-object-injection
+    return marketsOneTrustMap[lang] || null;
+  } catch (e) {
+    return false;
+  }
+};
+
+export const parseMarketTag = (market: string) => {
+  const { CONTENTFUL_TAGS = "{}" } = process.env;
+  try {
+    const marketsContentfulMap = JSON.parse(CONTENTFUL_TAGS);
+    // eslint-disable-next-line security/detect-object-injection
+    return marketsContentfulMap[market] || "en";
+  } catch (e) {
+    return "en";
+  }
+};

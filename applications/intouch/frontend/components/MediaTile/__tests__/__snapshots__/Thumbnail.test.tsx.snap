@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaTileThumbnail should render component 1`] = `
+<body>
+  <div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+      focusable="false"
+      style="font-size: 64px;"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`MediaTileThumbnail should render mediaThumbnail component 1`] = `
+<body>
+  <div>
+    <img
+      alt="mediaAsset"
+      class="thumbnail"
+      src="http://www.external.com?w=300"
+    />
+  </div>
+</body>
+`;
+
+exports[`MediaTileThumbnail should render not vimeo MediaTool component 1`] = `
+<body>
+  <div>
+    <svg
+      color="primary"
+      style="width: 50px; display: block;"
+    />
+  </div>
+</body>
+`;
+
+exports[`MediaTileThumbnail should render vimeo MediaTool component 1`] = `
+<body>
+  <div>
+    <div>
+      <iframe
+        class="iframe"
+        frameborder="0"
+        height="100%"
+        sandbox="allow-scripts allow-same-origin"
+        scrolling="yes"
+        src="https://player.vimeo.com/video/vimeo.com?title=0&portrait=0&controls=0&sidedock=0"
+        width="100%"
+      />
+      <div
+        class="playButton"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+          focusable="false"
+          style="font-size: 2rem; display: block;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+`;

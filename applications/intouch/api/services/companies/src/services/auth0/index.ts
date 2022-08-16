@@ -3,7 +3,8 @@ import FormData from "form-data";
 import { Logger } from "winston";
 import axios from "axios";
 
-const { AUTH0_API_DOMAIN, AUTH0_CONNECTION_ID } = process.env;
+const { AUTH0_API_DOMAIN, AUTH0_CONNECTION_ID, AUTH0_API_AUDIENCE } =
+  process.env;
 
 class Auth0 {
   logger: Logger;
@@ -33,7 +34,7 @@ class Auth0 {
           grant_type: "client_credentials",
           client_id: process.env.AUTH0_API_CLIENT_ID,
           client_secret: process.env.AUTH0_API_CLIENT_SECRET,
-          audience: `https://${AUTH0_API_DOMAIN}/api/v2/`
+          audience: `https://${AUTH0_API_AUDIENCE || AUTH0_API_DOMAIN}/api/v2/`
         }
       });
 

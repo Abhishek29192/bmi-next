@@ -16,6 +16,7 @@ import {
   teamMembers,
   installerTeamMembers
 } from "../../../../../fixtures/teamMembers";
+import { projectFactory } from "../../../../../lib/tests/factories/project";
 import { useAccountContext } from "../../../../../context/AccountContext";
 import { useMarketContext } from "../../../../../context/MarketContext";
 import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
@@ -30,6 +31,7 @@ const mockRoleAccountOnError = jest.fn();
 const mockDeleteOnCompleted = jest.fn();
 const mockDeleteOnError = jest.fn();
 const mockRoterPush = jest.fn();
+const mockMediaQuery = jest.fn().mockReturnValue(false);
 jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
   useInviteMutation: () => [inviteMock, { loading: false }],
@@ -74,6 +76,13 @@ jest.mock("next/router", () => {
     })
   };
 });
+jest.mock("@material-ui/core", () => {
+  const original = jest.requireActual("@material-ui/core");
+  return {
+    ...original,
+    useMediaQuery: () => mockMediaQuery()
+  };
+});
 
 describe("Company Members Page", () => {
   let wrapper;
@@ -83,8 +92,8 @@ describe("Company Members Page", () => {
   };
 
   afterEach(() => {
+    jest.clearAllMocks();
     jest.resetAllMocks();
-    jest.restoreAllMocks();
   });
 
   beforeEach(() => {
@@ -368,7 +377,7 @@ describe("Company Members Page", () => {
         </Apollo>
       );
 
-      expect(screen.getByTestId("certification-0-undefined")).not.toHaveClass(
+      expect(screen.getByTestId("certification-0-icon")).not.toHaveClass(
         "expired"
       );
     });
@@ -613,7 +622,7 @@ describe("Company Members Page", () => {
 
         fireEvent.click(screen.getByText("user_card.confirm"));
 
-        mockRoleAccountMutation.mockRejectedValueOnce(
+        mockRoleAccountMutation.mockImplementationOnce(
           mockRoleAccountOnError({ message: "last_company_admin" })
         );
 
@@ -630,7 +639,7 @@ describe("Company Members Page", () => {
 
         fireEvent.click(screen.getByText("user_card.confirm"));
 
-        mockRoleAccountMutation.mockRejectedValueOnce(
+        mockRoleAccountMutation.mockImplementationOnce(
           mockRoleAccountOnError({ message: "generic" })
         );
 
@@ -676,6 +685,7 @@ describe("Company Members Page", () => {
           within(wrapper.container).queryByTestId("change-user-status")
         ).toBeNull();
       });
+
       it("the user action button visible if super admin", async () => {
         (useAccountContext as jest.Mock).mockImplementation(() => ({
           account: { role: "SUPER_ADMIN" }
@@ -708,7 +718,6 @@ describe("Company Members Page", () => {
           mockRoleAccountOnError({ message: "generic??" })
         );
 
-        wrapper.unmount();
         wrapper = render(
           <Apollo>
             <I18nProvider>
@@ -721,6 +730,7 @@ describe("Company Members Page", () => {
         );
 
         fireEvent.click(button);
+
         expect(mockRoleAccountMutation).toHaveBeenCalledTimes(1);
         expect(mockRoleAccountOnError).toHaveBeenCalledTimes(1);
         await waitFor(() => screen.getByTestId("CloseButton"));
@@ -810,6 +820,154 @@ describe("Company Members Page", () => {
             `${adminTeamMembers[0].firstName} ${adminTeamMembers[0].lastName}`
           )
         ).toBeTruthy();
+      });
+    });
+
+    describe("Project Table", () => {
+      it("should show project when user is a member of a project", async () => {
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [
+              {
+                ...installerTeamMembers[0],
+                projectMembers: {
+                  nodes: [
+                    {
+                      project: {
+                        ...projectFactory(),
+                        id: 1,
+                        name: "test-project-1",
+                        hidden: false
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        };
+
+        expect(screen.queryByTestId("project-table")).toBeFalsy();
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        await waitFor(() => {
+          expect(screen.getByTestId("project-table")).toBeTruthy();
+          expect(screen.queryByText("test-project-1")).toBeTruthy();
+          const table = screen.queryByTestId("project-table-row-0");
+          expect(table.childElementCount).toBe(4);
+          expect(screen.queryByTestId("project-link-1")).toHaveAttribute(
+            "href",
+            "projects/1"
+          );
+        });
+      });
+
+      it("should hide hidden project", async () => {
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [
+              {
+                ...installerTeamMembers[0],
+                projectMembers: {
+                  nodes: [
+                    {
+                      project: {
+                        ...projectFactory(),
+                        name: "test-project-1",
+                        hidden: false
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                ...installerTeamMembers[0],
+                projectMembers: {
+                  nodes: [
+                    {
+                      project: {
+                        ...projectFactory(),
+                        name: "test-project-2",
+                        hidden: false
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        };
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        await waitFor(() => {
+          expect(screen.getByTestId("project-table")).toBeTruthy();
+          expect(screen.queryByText("test-project-2")).toBeFalsy();
+        });
+      });
+
+      it("shouldn't show table if no projects", async () => {
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [
+              {
+                ...installerTeamMembers[0],
+                projectMembers: {
+                  nodes: []
+                }
+              }
+            ]
+          }
+        };
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        await waitFor(() => {
+          expect(screen.queryByTestId("project-table")).toBeFalsy();
+        });
+      });
+
+      it("show mobile action card", async () => {
+        mockMediaQuery.mockReturnValue(true);
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "SUPER_ADMIN" }
+        }));
+        (useMarketContext as jest.Mock).mockImplementation(() => ({
+          market: { id: 1 }
+        }));
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        await waitFor(() => {
+          expect(
+            screen.queryByTestId("company-member-action-card-mobile")
+          ).toBeTruthy();
+        });
       });
     });
   });

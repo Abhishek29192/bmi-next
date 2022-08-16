@@ -1,0 +1,1409 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-fr-siplast run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+[[redirects]]
+ from="/young-roofers/apprentice-of-the-year-2020"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/young-roofers"
+ to="https://www.bmigroup.com/uk/about-us/news/the-role-of-continuous-learning-and-upskilling-in-creating-roofs-of-the-future-thought-leadership/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/training-and-cpd"
+ to="https://www.bmigroup.com/uk/bmi-academy/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/workmanship-warranties"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/viewmaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/specmaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/specmaster/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/sample-request"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/request-a-sample/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/quantmaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/quantmaster/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/nbs-plus"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/nbs/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/fixmaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/fixmaster/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/ecomaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/ecomaster/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/designmaster"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/designmaster/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services/bim"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/bim/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/services"
+ to="https://www.bmigroup.com/uk/support/pitched-roofing-services/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/solar-range/indax-pv-system"
+ to="https://www.bmigroup.com/uk/solar-range/pv-indax-adapt/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/solar-range"
+ to="https://www.bmigroup.com/uk/solar-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/westminster-slate"
+ to="https://www.bmigroup.com/uk/full-redland-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/stonewold-ii"
+ to="https://www.bmigroup.com/uk/p/mini-stonewold-tile-charcoal-grey-coated-1280299628/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/saxon-10-slate"
+ to="https://www.bmigroup.com/uk/p/saxon-10-slate-blue-coated-2565460520/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/richmond-10-slate"
+ to="https://www.bmigroup.com/uk/p/richmond-10-slate-slate-grey-smooth-3173901133/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/mockbond-richmond-10-slate"
+ to="https://www.bmigroup.com/uk/p/mockbond-richmond-10-slate-slate-grey-smooth-422054288/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/mockbond-mini-stonewold"
+ to="https://www.bmigroup.com/uk/p/mockbond-mini-stonewold-tile-charcoal-grey-coated-2475763087/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/mini-stonewold"
+ to="https://www.bmigroup.com/uk/p/mini-stonewold-tile-charcoal-grey-coated-1280299628/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range/cambrian-slate"
+ to="https://www.bmigroup.com/uk/redland-pitched/recycled-natural-slate-range/cambrian-slate/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/slate-range"
+ to="https://www.bmigroup.com/uk/redland-pitched/recycled-natural-slate-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/renown"
+ to="https://www.bmigroup.com/uk/p/renown-tile-brown-granular-644662873/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/regent"
+ to="https://www.bmigroup.com/uk/redland-pitched/plain-tile-range/rosemary-clay/rosemary-craftsman/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/redland-49"
+ to="https://www.bmigroup.com/uk/p/redland-49-tile-brown-granular-1879346601/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/postel-clay-tile"
+ to="https://www.bmigroup.com/uk/p/postel-tile-brindle-3923218124/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/old-hollow-clay-pantile"
+ to="https://www.bmigroup.com/uk/p/old-hollow-clay-pantile-vintage-blue-smooth-2259058305/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/hollander-clay-pantile"
+ to="https://www.bmigroup.com/uk/p/hollander-clay-pantile-red-smooth-2733079517/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/grovebury"
+ to="https://www.bmigroup.com/uk/redland-pitched/profile-tile-range/concrete-profile-tile-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/fenland-pantile"
+ to="https://www.bmigroup.com/uk/p/fenland-pantile-terracotta-smooth-2655609549/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range/50-double-roman"
+ to="https://www.bmigroup.com/uk/p/50-double-roman-tile-terracotta-smooth-63797835/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/profile-range"
+ to="https://www.bmigroup.com/uk/redland-pitched/profile-tile-range/concrete-profile-tile-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/rosemary-craftsman-ornamental"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/rosemary-clay-craftsman"
+ to="https://www.bmigroup.com/uk/redland-pitched/plain-tile-range/rosemary-clay/rosemary-craftsman/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/rosemary-clay-classic"
+ to="https://www.bmigroup.com/uk/redland-pitched/plain-tile-range/rosemary-clay/rosemary-classic/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/rosemary-classic-ornamental"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/plain-tile-ornamental"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/plain-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/plain-tile-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/heathland-ornamental"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/heathland"
+ to="https://www.bmigroup.com/uk/p/heathland-tile-wealden-red-sanded-2722654788/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range/duoplain"
+ to="https://www.bmigroup.com/uk/p/duoplain-tile-charcoal-grey-coated-3213897085/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/plain-tile-range"
+ to="https://www.bmigroup.com/uk/redland-pitched/plain-tile-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/metal-tile-range/aerodek-tradition-plus-09"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/metal-tile-range/aerodek-tradition-plus"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/metal-tile-range/aerodek-robust-plus"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/metal-tile-range"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/verge-products/cloaked-verge"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/verge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/verge-products"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/verge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/valley-products/valley-trough-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/valley-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/valley-products/plain-tile-valleys"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/valley-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/valley-products"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/valley-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings/slate-verge-fittings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/plain-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings/slate-hip-fittings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/plain-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings/plain-tile-verge-fittings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/plain-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings/plain-tile-external-angles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/plain-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings/plain-tile-eavestop-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/plain-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/slate-and-plain-tile-fittings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/universal-angle-ridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/universal-angle-monoridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/ornamental-ridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/half-round-ridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/half-round-monoridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/finials"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products/angle-ridge-hip-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/ridge-products"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ridge-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products/universal-angle-hip-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products/third-round-hip-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products/bonnet-hip-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products/baby-ridge-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products/arris-hip-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings/hip-products"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/hip-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/fittings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/fittings/ornamental-tile-fittings/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/wakaflex-rapid-flashing-range/wakaflex-rapid-flashing-accessories"
+ to="https://www.bmigroup.com/uk/full-redland-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/wakaflex-rapid-flashing-range/wakaflex-rapid-flashing"
+ to="https://www.bmigroup.com/uk/full-redland-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/wakaflex-rapid-flashing-range"
+ to="https://www.bmigroup.com/uk/full-redland-range/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/verge-systems/rapid-dryverge"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/verge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/verge-systems/dryverge"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/verge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/verge-systems/ambi-dry-ii-verge-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/verge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/verge-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/verge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ventilation-tiles/thruvent-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ventilation-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ventilation-tiles/redline-vent-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ventilation-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ventilation-tiles/rapid-roof-vent-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ventilation-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ventilation-tiles/hi-flow-thruvent-tile"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ventilation-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ventilation-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ventilation-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/valley-systems/dry-valley"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/valley-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/valley-systems/125-grp-valley"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/valley-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/valley-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/valley-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/underlay/veltitech-145"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/underlays/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/underlay/underlay-support-tray"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/underlays/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/underlay/spirtech-400-2s"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/underlays/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/underlay"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/underlays/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings/plain-tile-fixings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings/kro-clip"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings/interlocking-tile-fixings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings/innofix-clip"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings/fixings-for-small-cut-tiles"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/tile-and-slate-fixings"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/fixings-and-clips/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/uni-vent-rapid-ridgehip"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/ridge-vent-terminal"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/ridge-end-cap"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/mortar-bedded-fixing-kit"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/gas-flue-ridge-terminal"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/dryvent-ridge-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems/continuous-ridge-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/ridge-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/monoridge-systems/monoridge-end-cap"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/monoridge-systems/dryvent-monoridge-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/monoridge-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/ridge-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/uni-vent-rapid-ridgehip"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/uni-vent-rapid-hip-support-tray"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/mortar-bedded-fixing-kit"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/hip-end-cap"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/dry-hip-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/continuous-hip-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems/cambrian-mitred-hip-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/hip-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/hip-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/eaves-systems/redvent-eavesvent"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/eaves-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/eaves-systems/redvent-25-over-fascia-vent"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/eaves-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/eaves-systems/rapid-eaves-vent"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/eaves-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/eaves-systems/eaves-comb"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/eaves-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/eaves-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/eaves-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/abutment-systems/side-abutment-grp-secret-gutter"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/abutment-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/abutment-systems/bonding-strip"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/abutment-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/abutment-systems/abutment-ventilation-system"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/abutment-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components/abutment-systems"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/abutment-systems/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products/components"
+ to="https://www.bmigroup.com/uk/redland-pitched/pitched-roof-accessories/components/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/products"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/privacy-policy"
+ to="https://www.bmigroup.com/uk/third-party-site-privacy-notice/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2020/redland-mini-stonewold-is-the-perfect-solution-against-high-winds-in-orkney"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2020/ford-motors-on"
+ to="https://www.bmigroup.com/uk/about-us/news/ford-steps-up-a-gear/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2020/band-of-builders-and-bmi-team-up-for-community-project"
+ to="https://www.bmigroup.com/uk/about-us/news/band-of-builders-and-bmi-team-up-for-community-project/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2020/a-new-faster-safer-stronger-and-lighter-metal-tile-solution-from-bmi"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/winners-and-contenders-alike-praise-the-bmi-apprentice-of-the-year-competition"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/uk-roofing-awards--young-roofer-of-the-year-award"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/the-roaring-twenties---and-40s---sees-bmi-take-shape"
+ to="https://www.bmigroup.com/uk/about-us/news/the-roaring-20s-and-40s-see-bmi-take-shape/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/returning-st-josephs-school-to-its-former-glory"
+ to="https://www.bmigroup.com/uk/about-us/news/award-winning-roof-returns-school-to-former-glory/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/planners-and-residents-find-bmi-redland-heathland-moreish"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/no-battle-for-bmi-redland-heathland-tiles-at-hastings-house"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/lifting-the-vale-with-primary-school-project"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/leeds-duo-take-the-honours-at-bmi-apprentice-of-the-year"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/keeping-the-college-on-message"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/ford-plans-to-get-motoring"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmis-training-facilities-claim-academy-status-12-0959"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmis-apprentice-competition-demonstrates-its-commitment-to-roofings-future"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-uk-ireland-launches-to-the-uk-construction-industry"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-reveals-roofings-top-20-for-the-apprentice-of-the-year-final"
+ to="https://www.bmigroup.com/uk/bmi-academy/apprentice-of-the-year/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-previews-100-years-of-concrete-tile-manufacture-with-180-years-of-heritage"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-national-training-centre-flattens-ceirans-learning-curve"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-hosts-a-meeting-of-minds"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-helps-children-in-need-keep-young-people-safe"
+ to="https://www.bmigroup.com/uk/about-us/news/bmi-helps-children-in-need-keep-young-people-safe/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/bmi-delivers-high-aesthetic-down-by-the-waterside"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/award-winning-roof-returns-school-to-former-glory"
+ to="https://www.bmigroup.com/uk/about-us/news/award-winning-roof-returns-school-to-former-glory/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2019/a-piece-of-home-delivered-by-bmi-redland-cambrian-slate-for-pioneering-hospice"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/white-knight-roofer-races-to-the-rescue-of-pensioner"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/trivallis-chooses-inclusive-redland-package-for-peace-of-mind"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/top-marks-for-specmaster-on-mixed-ownership-estate"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/the-best-from-the-west"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/test-your-roofing-knowledge-at-contractors-day"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/specmaster-solves-thorny-problem-at-gorse-hill-school"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/redland-regent-crowns-residential-block"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/redland-components-get-construction-back-on-track"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/new-dry-verges-to-meet-and-beat-bs-8612"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/exposed-estate-weathers-storms-with-redland-specification"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/churchs-crowning-glory-sees-bmi-redland-reach-the-heights"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/building-futures-for-veterans"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/bmi-pitches-up-with-a-new-flat-roof-training-facility"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/a-true-dutch-masterpiece-with-bmi-redlands-hollander-clay-pantile"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/a-soldiers-story"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2018/a-force-for-good-in-roofing"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/west-country-apprentices-dominate-roofings-top-ten"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/selecting-victorian-tile-leads-to-swift-sale"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/scottish-school-sets-tough-test-for-redland-cambrian"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/roofings-top-ten-apprentices-tough-it-out-in-national-final"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redlands-westminster-slate-works-in-wisbech"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redlands-fontenelle-provides-the-finishing-touch-at-finningley"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redlands-craftsman-victorian-preserves-schools-period-aesthetic"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redland-to-boost-tile-manufacturing-with-multimillion-pound-investment"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redland-saxon-blue-takes-the-woad-north"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redland-craftsman-albury-crowns-eco-home-with-period-twist"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/redland-cambrian-provides-sheltered-housing-cover-in-bristol"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2017/changes-to-our-management-structure"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/universal-appeal-for-clay"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/the-victorian-aesthetic-a-top-priority-in-the-12-million-expansion-of-beautiful-alvaston-hall"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/the-new-way-of-doing-things-the-old-way"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/selecting-victorian-tile-leads-to-swift-sale"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/introducing-the-new-rapid-roof-vent-tile-for-the-iconic-redland-slate-10-tile-range"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/introducing-the-first-dry-verge-for-15x9-tiles"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/bim-and-the-future-for-design"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2016/a-victorian-addition-to-the-redland-family"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/weathering-the-storm"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/townscape-cityscape"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/tiles-that-sell-themselves"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/tiles-fixed-in-a-click-with-innofix"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/the-plain-house"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/spy-master"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/rosemary-refurbishment-wins-top-award"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/roofing-practice"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/red-book-revival"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/making-history"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/introducing-fenland-antique"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/happy-birthday-fenland-pantile"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/fixed-in-a-click"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/a-universal-fixing"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/a-tale-of-two-parks"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2015/a-roofing-education"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/train-to-gain"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/tiled-and-tested"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/the-pantile-evolves"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rustic-red-extended-to-two-popular-tiles"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rosemary-makes-its-contribution-to-a-dream-home"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rosemary-hip-now-with-nail-holes"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/redland-rolls-out-new-support-for-hip-tiles"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/redland-rolls-out-new-rapid-flashing-guarantee"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/redland-customers-strike-gold"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-roof-paint-helps-eliminate-scrapes"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-flashing-with-m-glue-a-lead-free-solution-for-metal-roofs"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-flashing-removes-lead-theft-risk-for-hatcham-temple-grove-primary-school"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-flashing-now-suitable-for-use-on-metal-and-in-the-rain"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-flashing-lead-free-alternative"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/rapid-flashing-even-in-the-rain"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/pv-certification-mcs-012-mandatory-from-july"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/period-features-and-tradition-as-important-today-as-always"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/on-the-dark-side"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/introducing-the-plain-tile-in-charcoal-grey"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/get-the-blues-with-redland-duoplain"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/fixing-standards"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/fitting-in"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/fighting-the-vortex-with-redland-49"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/defusing-the-roofing-time-bomb"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/bs-5534-new-standards-for-underlay"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2014/a-new-tradition"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/uni-vent-rapid-ridgehip-is-launched"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/underlay-underlay"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/redland-supplies-total-package-for-hackney"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/redland-launches-new-pv-solution"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/redland-launches-craftsman"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/rapid-roof-putty"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/rapid-flashing-strip-saves-time"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/new-rapid-eaves-vent-system"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/new-clay-tile-for-domestic-refurbishment"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/new-adaptor-range-fits-in"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/mini-stonewold-on-the-dark-side"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/introducing-fontenelle-interlocking-plain-tile-appearance-in-clay"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/heather-brindle-launched"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/heather-brindle"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/green-deal-with-it"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/duoplain-half-tile"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/avoiding-condensation-in-pitched-roofs"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2013/a-rapid-ending"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news/2011/pitching-the-roof-at-planners"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/news"
+ to="https://www.bmigroup.com/uk/about-us/news/the-role-of-continuous-learning-and-upskilling-in-creating-roofs-of-the-future-thought-leadership/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/literature"
+ to="https://www.bmigroup.com/uk/downloads/redland-downloads/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/faqs"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/knowledge-library-and-inspiration/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/cookie-policy"
+ to="https://www.bmigroup.com/uk/legal/cookie-policy/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact-us"
+ to="https://www.bmigroup.com/uk/contact-us/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/case-studies"
+ to="https://www.bmigroup.com/uk/bmi-from-the-rooftop-blog/case-studies/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/working-for-bmi-redland"
+ to="https://www.bmigroup.com/uk/about-us/we-are-bmi/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/trade-associations-and-useful-links"
+ to="https://www.bmigroup.com/uk/support/industry-standards/trade-associations/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq/responsible-sourcing"
+ to="https://www.bmigroup.com/uk/about-us/csr/environmental/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq/responsible-sourcing"
+ to="https://www.bmigroup.com/uk/about-us/csr/environmental/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq/quality"
+ to="https://www.bmigroup.com/uk/about-us/csr/quality/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq/health-and-safety"
+ to="https://www.bmigroup.com/uk/about-us/csr/health-and-safety/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq/environment"
+ to="https://www.bmigroup.com/uk/about-us/csr/quality/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/safety-health-environment-and-quality-sheq"
+ to="https://www.bmigroup.com/uk/about-us/csr/health-and-safety/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities/economic-responsibility"
+ to="https://www.bmigroup.com/uk/about-us/csr/sustainability/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/responsibilities"
+ to="https://www.bmigroup.com/uk/about-us/csr/sustainability/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/modern-slavery-act"
+ to="https://www.bmigroup.com/uk/about-us/csr?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/innovation"
+ to="https://www.bmigroup.com/uk/about-us/csr/sustainability/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/history"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/gender-pay-gap-report"
+ to="https://www.bmigroup.com/uk/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/facts-and-figures"
+ to="https://www.bmigroup.com/uk/about-us/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us/covid-19-updates"
+ to="https://www.bmigroup.com/uk/about-us/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/about-us"
+ to="https://www.bmigroup.com/uk/about-us/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/uk/redland-pitched/?utm_source=redland.co.uk&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true

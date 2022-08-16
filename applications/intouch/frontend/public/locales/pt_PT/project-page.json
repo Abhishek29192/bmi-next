@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descrição do projeto",
           "endDate": "Data de conclusão do projeto",
+          "inspection": "Inspeção",
           "name": "Nome do projeto",
           "roofArea": "Area total do telhado (m2)",
           "siteAddress": {
@@ -117,7 +118,8 @@
       "MY_QUEUE": "minha Fila",
       "NOT_STARTED": "Não foi iniciado",
       "PITCHED": "Inclinado",
-      "UNASSIGNED": "Não atribuído"
+      "UNASSIGNED": "Não atribuído",
+      "ARCHIVED": "Arquivado"
     }
   },
   "guarantee": {

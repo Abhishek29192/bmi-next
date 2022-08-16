@@ -4,7 +4,7 @@ import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import no from "../../samples/copy/no.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import PitchedRoofCalculator from "../PitchedRoofCalculator";
 
 const LOADED_TEXT = "loaded";
@@ -28,8 +28,8 @@ describe("PitchedRoofCalculator component", () => {
           isOpen
           onClose={jest.fn()}
           isDebugging
-          onAnalyticsEvent={jest.fn()}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );
@@ -47,6 +47,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={jest.fn()}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );
@@ -68,6 +69,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );
@@ -94,6 +96,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );

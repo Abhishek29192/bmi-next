@@ -39,7 +39,8 @@ jest.mock("../../../graphql/generated/hooks", () => ({
   useUpdateProjectHiddenMutation: () => [jest.fn(), { loading: false }],
   useAddProjectNoteMutation: () => [jest.fn(), { loading: false }],
   useRestartGuaranteeMutation: () => [jest.fn(), { loading: false }],
-  useUpdateProjectMutation: () => [jest.fn(), { loading: false }]
+  useUpdateProjectMutation: () => [jest.fn(), { loading: false }],
+  useUpdateProjectInspectionMutation: () => [jest.fn(), { loading: false }]
 }));
 
 const logSpy = jest.fn();

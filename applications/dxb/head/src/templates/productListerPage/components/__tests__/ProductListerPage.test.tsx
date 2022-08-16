@@ -131,6 +131,7 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
+  pitchedRoofCalculatorConfig: null,
   regions: [
     {
       label: "Europe",

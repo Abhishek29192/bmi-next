@@ -1,7 +1,7 @@
 {
   "name": "@bmi/intouch-frontend-auth0-login",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "browserslist": [
     "last 2 versions",
     "> 5%"

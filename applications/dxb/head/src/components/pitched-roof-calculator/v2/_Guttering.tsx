@@ -1,5 +1,6 @@
 import { CardRadioGroup, FormContext, Grid } from "@bmi/components";
 import React, { useContext } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "./../helpers/analytics";
 import {
@@ -7,7 +8,6 @@ import {
   GutteringVariant,
   LengthBasedProduct
 } from "./../types";
-import { microCopy } from "./constants/microCopy";
 import NumericInput from "./subcomponents/up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import FieldContainer from "./subcomponents/_FieldContainer";
 

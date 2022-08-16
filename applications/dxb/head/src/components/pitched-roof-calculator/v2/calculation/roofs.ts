@@ -1,23 +1,23 @@
-import Roof1Illustration from "../../images/roof-shapes/roof1.svg";
 import Roof1DimensionsIllustration from "../../images/roof-dimensions/roof1.svg";
-import Roof2Illustration from "../../images/roof-shapes/roof2.svg";
-import Roof2DimensionsIllustration from "../../images/roof-dimensions/roof2.svg";
-import Roof3Illustration from "../../images/roof-shapes/roof3.svg";
-import Roof3DimensionsIllustration from "../../images/roof-dimensions/roof3.svg";
-import Roof4Illustration from "../../images/roof-shapes/roof4.svg";
-import Roof4DimensionsIllustration from "../../images/roof-dimensions/roof4.svg";
-import Roof5Illustration from "../../images/roof-shapes/roof5.svg";
-import Roof5DimensionsIllustration from "../../images/roof-dimensions/roof5.svg";
-import Roof6Illustration from "../../images/roof-shapes/roof6.svg";
-import Roof6DimensionsIllustration from "../../images/roof-dimensions/roof6.svg";
-import Roof7Illustration from "../../images/roof-shapes/roof7.svg";
-import Roof7DimensionsIllustration from "../../images/roof-dimensions/roof7.svg";
-import Roof8Illustration from "../../images/roof-shapes/roof8.svg";
-import Roof8DimensionsIllustration from "../../images/roof-dimensions/roof8.svg";
-import Roof9Illustration from "../../images/roof-shapes/roof9.svg";
-import Roof9DimensionsIllustration from "../../images/roof-dimensions/roof9.svg";
-import Roof10Illustration from "../../images/roof-shapes/roof10.svg";
 import Roof10DimensionsIllustration from "../../images/roof-dimensions/roof10.svg";
+import Roof2DimensionsIllustration from "../../images/roof-dimensions/roof2.svg";
+import Roof3DimensionsIllustration from "../../images/roof-dimensions/roof3.svg";
+import Roof4DimensionsIllustration from "../../images/roof-dimensions/roof4.svg";
+import Roof5DimensionsIllustration from "../../images/roof-dimensions/roof5.svg";
+import Roof6DimensionsIllustration from "../../images/roof-dimensions/roof6.svg";
+import Roof7DimensionsIllustration from "../../images/roof-dimensions/roof7.svg";
+import Roof8DimensionsIllustration from "../../images/roof-dimensions/roof8.svg";
+import Roof9DimensionsIllustration from "../../images/roof-dimensions/roof9.svg";
+import Roof1Illustration from "../../images/roof-shapes/roof1.svg";
+import Roof10Illustration from "../../images/roof-shapes/roof10.svg";
+import Roof2Illustration from "../../images/roof-shapes/roof2.svg";
+import Roof3Illustration from "../../images/roof-shapes/roof3.svg";
+import Roof4Illustration from "../../images/roof-shapes/roof4.svg";
+import Roof5Illustration from "../../images/roof-shapes/roof5.svg";
+import Roof6Illustration from "../../images/roof-shapes/roof6.svg";
+import Roof7Illustration from "../../images/roof-shapes/roof7.svg";
+import Roof8Illustration from "../../images/roof-shapes/roof8.svg";
+import Roof9Illustration from "../../images/roof-shapes/roof9.svg";
 import { DimensionsValues, RoofV2 as Roof } from "../../types/roof";
 import getMeasurement from "./getMeasurement";
 
@@ -1515,16 +1515,3 @@ export default [
   roof9,
   roof10
 ] as Roof[];
-
-export const requiredRoofs = [
-  { name: "1", id: "1" },
-  { name: "2", id: "2" },
-  { name: "3", id: "3" },
-  { name: "4", id: "4" },
-  { name: "5", id: "5" },
-  { name: "6", id: "6" },
-  { name: "7", id: "7" },
-  { name: "8", id: "8" },
-  { name: "9", id: "9" },
-  { name: "10", id: "10" }
-];

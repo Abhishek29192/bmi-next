@@ -1,27 +1,22 @@
-import { writeFileSync, mkdir } from "fs";
+import { mkdir, writeFileSync } from "fs";
 import { dirname } from "path";
-import { MailService } from "@sendgrid/mail";
-import { AttachmentData } from "@sendgrid/helpers/classes/attachment";
-import { Guarantee } from "@bmi/intouch-api-types";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import logger from "@bmi-digital/functions-logger";
+import { Guarantee } from "@bmi/intouch-api-types";
+import { AttachmentData } from "@sendgrid/helpers/classes/attachment";
+import { MailService } from "@sendgrid/mail";
 import { mockSolutionGuarantee } from "../mocks/guarantee";
-import { replaceData } from "./util/mail";
+import GatewayClient from "./GatewayClient";
 import GuaranteePdfGenerator from "./GuaranteePdf";
 import StorageClient from "./storage-client";
-import GatewayClient from "./GatewayClient";
+import { replaceData } from "./util/mail";
 
 export const sendGuaranteePdf = async (postEvent: any) => {
-  const { GCP_SECRET_PROJECT, MAIL_FROM, GCP_PRIVATE_BUCKET_NAME, NODE_ENV } =
+  const { MAIL_FROM, GCP_PRIVATE_BUCKET_NAME, NODE_ENV, SENDGRID_API_KEY } =
     process.env;
   const isLocal = NODE_ENV === "local";
   const getSendGridClient = async () => {
-    const secretManagerClient = new SecretManagerServiceClient();
-    const [value] = await secretManagerClient.accessSecretVersion({
-      name: `projects/${GCP_SECRET_PROJECT}/secrets/SENDGRID_API_KEY/versions/latest`
-    });
     const sendGridClient = new MailService();
-    sendGridClient.setApiKey(value.payload.data.toString());
+    sendGridClient.setApiKey(SENDGRID_API_KEY);
     return sendGridClient;
   };
   try {
