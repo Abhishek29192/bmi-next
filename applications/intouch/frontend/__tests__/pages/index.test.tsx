@@ -74,7 +74,12 @@ describe("homepage", () => {
     },
     account: generateAccount(),
     res: {},
-    locale: {}
+    locale: {},
+    req: {
+      headers: {
+        host: "en.local.intouch:3000"
+      }
+    }
   });
   const market = {
     ...generateMarketContext(),

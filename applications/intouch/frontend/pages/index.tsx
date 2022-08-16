@@ -22,7 +22,7 @@ import { findAccountCompany, findAccountTier } from "../lib/account";
 import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dialog";
 import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
-import { parseMarketTag } from "../lib/utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
@@ -257,10 +257,10 @@ export const GET_PARTNER_BRANDS = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account }) => {
+  async ({ apolloClient, locale, account, req }) => {
     const tier = findAccountTier(account);
-    const marketDomain = account.market?.domain;
-    const contentfulTag = parseMarketTag(marketDomain);
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
 
     const {
       props: {

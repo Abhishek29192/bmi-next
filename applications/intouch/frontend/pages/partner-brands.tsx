@@ -9,7 +9,7 @@ import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { BrandCard } from "../components/Cards/BrandCard";
-import { parseMarketTag } from "../lib/utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 type PartnerBrandPageProps = GlobalPageProps & {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
@@ -61,9 +61,9 @@ const PartnerBrandPage = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account }) => {
-    const marketDomain = account.market?.domain;
-    const contentfulTag = parseMarketTag(marketDomain);
+  async ({ apolloClient, locale, account, req }) => {
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
     const {
       props: {
         data: { marketContentCollection }
