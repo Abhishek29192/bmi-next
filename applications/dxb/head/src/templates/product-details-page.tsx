@@ -70,6 +70,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return isSSR ? "" : window.location.search;
   }, [location]);
 
+  const images = transformImages(
+    [product.masterImages[0], ...product.galleryImages].filter(Boolean)
+  );
+
   return (
     <Page
       brand={product.brand?.code}
@@ -109,10 +113,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandCode: product.brand?.code,
                   nobb: product.externalProductCode,
-                  images: transformImages([
-                    ...product.masterImages,
-                    ...product.galleryImages
-                  ]),
+                  images,
                   videos: transformMediaSrc(product.videos),
                   attributes: getProductAttributes(
                     product,
