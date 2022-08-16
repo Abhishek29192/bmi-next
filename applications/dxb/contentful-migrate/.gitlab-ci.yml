@@ -41,28 +41,26 @@ build_contentful_migrate:
       apt-get update
       apt-get install -y jq
 
-      DELETE_OLD_ENVIRONMENTS=false
+      export DELETE_OLD_ENVIRONMENTS=false
 
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_QA
       fi
 
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        CONTENTFUL_ENVIRONMENT=pre-production
-        DELETE_OLD_ENVIRONMENTS=true
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
-        NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
+        export CONTENTFUL_ENVIRONMENT=pre-production
+        export DELETE_OLD_ENVIRONMENTS=true
+        export DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
+        export NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
       fi
 
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        CONTENTFUL_ENVIRONMENT=production
-        DELETE_OLD_ENVIRONMENTS=true
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
-        NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
+        export CONTENTFUL_ENVIRONMENT=production
+        export DELETE_OLD_ENVIRONMENTS=true
+        export DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
+        export NEW_ENVIRONMENT_NAME=$CI_COMMIT_TAG
       fi
-      
-      export CONTENTFUL_ENVIRONMENT
-      export PROJECT_RELATIVE_PATH=projects/dxb
+
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
 
@@ -76,7 +74,7 @@ build_contentful_migrate:
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  cache: {}
+  cache: { }
   script:
     - |
       apt-get update
