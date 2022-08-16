@@ -221,7 +221,7 @@ const buildContentful = async (
 };
 
 const main = async () => {
-  console.log({ CONTENTFUL_ENVIRONMENT, MANAGEMENT_ACCESS_TOKEN, SPACE_ID });
+  console.log({ CONTENTFUL_ENVIRONMENT, SPACE_ID });
   if (!CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN || !SPACE_ID) {
     throw new Error(
       "Missing env config `CONTENTFUL_ENVIRONMENT` or `MANAGEMENT_ACCESS_TOKEN` or `SPACE_ID`"
