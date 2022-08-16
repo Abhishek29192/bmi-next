@@ -197,7 +197,11 @@ export const submit: HttpFunction = async (request, response) => {
                       }
                     }
                   })
-                  .then((asset) => asset.processForAllLocales())
+                  .then((asset) =>
+                    asset.processForAllLocales().then((asset) => {
+                      return asset;
+                    })
+                  )
               )
             )
           : [];
