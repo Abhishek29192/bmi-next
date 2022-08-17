@@ -123,7 +123,7 @@ export type Data = {
 
 export type ResultsRow = {
   category: ProductCategory;
-  image: string;
+  image: string | null;
   description: string;
   externalProductCode: string;
   packSize: string;

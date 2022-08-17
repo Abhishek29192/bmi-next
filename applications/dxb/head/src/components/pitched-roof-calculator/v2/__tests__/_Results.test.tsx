@@ -1,14 +1,17 @@
+import { mockResponses } from "@bmi-digital/fetch-mocks";
 import { TextField } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/v2/data.json";
+import { ProductCategory, ResultsRow } from "../../types";
 import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
-import Results from "../_Results";
+import Results, { replaceImageURLWithImage } from "../_Results";
 
 beforeAll(() => {
   mockConsole();
@@ -749,5 +752,57 @@ describe("PitchedRoofCalculator Results component", () => {
     expect(
       screen.queryByText("MC: results.edited.products.title")
     ).not.toBeInTheDocument();
+  });
+});
+
+describe("replaceImageURLWithImage", () => {
+  const fetchMock = fetchMockJest.sandbox();
+  global.fetch = fetchMock;
+
+  beforeEach(() => {
+    fetchMock.reset();
+  });
+
+  it("removes image if that's not jpeg or png", async () => {
+    const data: ResultsRow = {
+      category: ProductCategory.Accessories,
+      image: "mockImage.gif",
+      description: "",
+      externalProductCode: "",
+      packSize: "10",
+      quantity: 10
+    };
+
+    mockResponses(fetchMock, {
+      headers: { "content-type": "image/gif" },
+      url: "*",
+      method: "GET",
+      status: 200
+    });
+
+    const res = await replaceImageURLWithImage(data);
+    expect(res.image).toBeNull();
+  });
+
+  it("transforms image into base64", async () => {
+    const data: ResultsRow = {
+      category: ProductCategory.Accessories,
+      image: "mockImage.jpeg",
+      description: "",
+      externalProductCode: "",
+      packSize: "10",
+      quantity: 10
+    };
+
+    mockResponses(fetchMock, {
+      headers: { "content-type": "image/jpeg" },
+      url: "*",
+      method: "GET",
+      status: 200,
+      body: new File(["mock"], "mock.jpeg", { type: "image/jpeg" })
+    });
+
+    const res = await replaceImageURLWithImage(data);
+    expect(res.image.includes("data:image/jpeg;base64")).toBeTruthy();
   });
 });
