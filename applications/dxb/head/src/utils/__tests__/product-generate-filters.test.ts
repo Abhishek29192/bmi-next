@@ -517,6 +517,114 @@ describe("product-filters geterateFilters tests", () => {
           }
         ]);
       });
+
+      it("should return microcopied value for label if present", () => {
+        const categoryFilter = new Map<string, string[]>();
+        categoryFilter.set("PITCHROOF_NO", []);
+        categoryFilter.set("Category", []);
+        const classFilter = new Map<string, string[]>();
+        expect(
+          generateFilters(
+            [
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "PRODUCTS_NO",
+                name: "category-1",
+                parentFilterCode: "PITCHROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "GUTTERS_NO",
+                name: "category-2",
+                parentFilterCode: "PITCHROOF_NO"
+              })
+            ],
+            categoryFilter,
+            classFilter,
+            new Map([
+              ["plpFilter.PRODUCTS_NO", "Produkter"],
+              ["plpFilter.GUTTERS_NO", "Gutters"],
+              ["filterLabels.Category", "Category Group Label"],
+              ["filterLabels.PITCHROOF_NO", "Pitched Roof Group Label"]
+            ])
+          )
+        ).toEqual([
+          {
+            filterCode: "Category",
+            name: "Category",
+            label: "Category Group Label",
+            value: [],
+            options: [
+              {
+                label: "Gutters",
+                value: "GUTTERS_NO",
+                sortValue: "Gutters"
+              },
+              {
+                label: "Produkter",
+                value: "PRODUCTS_NO",
+                sortValue: "Produkter"
+              }
+            ]
+          },
+          {
+            filterCode: "PITCHROOF_NO",
+            name: "PITCHROOF_NO",
+            label: "Pitched Roof Group Label",
+            value: [],
+            options: [
+              {
+                label: "Gutters",
+                value: "GUTTERS_NO",
+                sortValue: "Gutters"
+              },
+              {
+                label: "Produkter",
+                value: "PRODUCTS_NO",
+                sortValue: "Produkter"
+              }
+            ]
+          }
+        ]);
+      });
+
+      it("should return fallback value for label if microcopy and name values are empty", () => {
+        const categoryFilter = new Map<string, string[]>();
+        categoryFilter.set("Category", []);
+        const classFilter = new Map<string, string[]>();
+        expect(
+          generateFilters(
+            [
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "PRODUCTS_NO",
+                name: "",
+                parentFilterCode: "PITCHROOF_NO"
+              })
+            ],
+            categoryFilter,
+            classFilter,
+            new Map([
+              ["filterLabels.Category", "Category Group Label"],
+              ["filterLabels.PITCHROOF_NO", "Pitched Roof Group Label"]
+            ])
+          )
+        ).toEqual([
+          {
+            filterCode: "Category",
+            name: "Category",
+            label: "Category Group Label",
+            value: [],
+            options: [
+              {
+                label: "MC:plpFilter.PRODUCTS_NO",
+                value: "PRODUCTS_NO",
+                sortValue: "MC:plpFilter.PRODUCTS_NO"
+              }
+            ]
+          }
+        ]);
+      });
     });
   });
 

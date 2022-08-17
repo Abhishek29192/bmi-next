@@ -136,7 +136,7 @@ export type Feature = {
 
 export type Filter = {
   filterCode: FeatureCode | CategoryType;
-  name: string;
+  name?: string;
   value: string;
   code: string;
   groupLabel?: string;

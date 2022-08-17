@@ -116,7 +116,7 @@ export const getBrand = (
   const brand = categories?.find(
     ({ categoryType }) => categoryType === "Brand"
   );
-  if (!brand) {
+  if (!brand || !brand.name) {
     return;
   }
   return {

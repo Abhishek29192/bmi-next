@@ -47,7 +47,7 @@ type FilterOption {
 
 type Filter {
   filterCode: String!
-  name: String!
+  name: String
   value: String!
   code: String!
   groupLabel: String
