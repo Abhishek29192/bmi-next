@@ -707,7 +707,7 @@ describe("Account", () => {
           ...contextMock,
           user: {
             ...contextMock.user,
-            market: { sendMailbox: "send_mailbox" },
+            market: { domain: "domain", sendMailbox: "send_mailbox" },
             id: 1
           }
         },
@@ -1018,7 +1018,7 @@ describe("Account", () => {
           ...contextMock,
           user: {
             ...contextMock.user,
-            market: { sendMailbox: "send_mailbox" },
+            market: { domain: "domain", sendMailbox: "send_mailbox" },
             id: 1
           }
         },
