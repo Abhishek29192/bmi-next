@@ -55,11 +55,20 @@ class BMIDocument extends Document<Props> {
             />
           )}
           {!!oneTrustToken && (
-            <script type="text/javascript">
-              {function OptanonWrapper() {
-                // no-op
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+            function getCookie(e){e=("; "+document.cookie).split("; "+e+"=");
+            if(2==e.length)return e.pop().split(";").shift()}
+            function OptanonWrapper(){var e=document.getElementById("onetrust-accept-btn-handler"),
+            t=document.getElementById("accept-recommended-btn-handler"),
+            n=document.getElementsByClassName("save-preference-btn-handler onetrust-close-btn-handler button-theme")[0];
+            !getCookie("OptanonAlertBoxClosed")&&e&&e.addEventListener("click",function(){location.reload()}),
+            t&&t.addEventListener("click",function(){location.reload()}),
+            n.addEventListener("click",function(){location.reload()})}
+            `
               }}
-            </script>
+            />
           )}
           {!!gtmID && (
             <script
