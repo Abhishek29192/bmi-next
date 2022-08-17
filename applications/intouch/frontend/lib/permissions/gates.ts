@@ -320,6 +320,9 @@ export const gates = {
     marketsAdmin: isSuperAdmin,
     notification: (account) => {
       return ![ROLES.AUDITOR].includes(account?.role);
+    },
+    faq: (account) => {
+      return ![ROLES.AUDITOR].includes(account?.role);
     }
   },
   home: {
