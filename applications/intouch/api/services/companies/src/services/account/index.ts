@@ -85,7 +85,8 @@ export const createAccount = async (
         ...context.user,
         id: result.data.$account_id,
         market: {
-          sendMailbox: markets[0].send_mailbox
+          sendMailbox: markets[0].send_mailbox,
+          domain: markets[0].domain
         } as Market
       }
     };
@@ -521,7 +522,8 @@ export const completeInvitation = async (
           id: user.id,
           market: {
             ...context.user.market,
-            sendMailbox: markets[0].send_mailbox
+            sendMailbox: markets[0].send_mailbox,
+            domain: markets[0].domain
           }
         }
       };
