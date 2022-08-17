@@ -1,11 +1,22 @@
 @import "~@bmi-digital/styles";
 
 .PitchedRoofCalculator {
+  position: relative;
+  height: 100%;
+
   .spinnerContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: calc(100vh - 100px /* container margins and paddings */);
+  }
+
+  .dialogContent {
+    padding: 0;
+  }
+
+  .dialogBody {
+    height: 100%;
   }
 }
 

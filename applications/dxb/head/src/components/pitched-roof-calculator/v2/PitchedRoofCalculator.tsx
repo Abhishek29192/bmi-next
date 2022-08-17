@@ -85,7 +85,9 @@ const PitchedRoofCalculator = ({
           onClose();
         }}
         maxWidth="xl"
-        allowOverflow
+        className={styles["PitchedRoofCalculator"]}
+        containerClassName={styles["dialogContent"]}
+        allowOverflow={false}
         onBackdropClick={() => {
           // Disabling close on backdrop click
         }}
@@ -98,7 +100,7 @@ const PitchedRoofCalculator = ({
             className={styles["progressBar"]}
           />
         </ContainerDialog.Header>
-        <div className={styles["PitchedRoofCalculator"]}>
+        <div className={styles["dialogBody"]}>
           {!isSSR ? (
             <Suspense fallback={loading}>
               {data ? (
