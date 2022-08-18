@@ -8,7 +8,7 @@ import styles from "../styles/ServiceLocatorSection.module.scss";
 
 interface ServiceLocatorChipsProps {
   microCopyPrefix: ServiceTypesPrefixesEnum;
-  onChipClick: (serviceType) => void;
+  onChipClick: (serviceType: ServiceType) => void;
   activeFilters: ServiceTypeFilter;
   uniqueRoofTypeByData: ServiceType[];
 }

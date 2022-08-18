@@ -124,7 +124,7 @@ describe("LeadBlockSection tests", () => {
       expect(ctaLabelElement).toBeInTheDocument();
       expect(backToYourSelectionBtn).toBeInTheDocument();
       expect(
-        (backToYourSelectionBtn.parentElement as HTMLAnchorElement).href
+        (backToYourSelectionBtn!.parentElement as HTMLAnchorElement).href
       ).toContain("system-configurator-page?referer=sys_details");
     });
   });

@@ -55,10 +55,15 @@ describe("SampleBasketDialog component", () => {
   });
 
   it("renders correctly", () => {
+    const toggleCart = jest.fn();
     const { container, queryByRole } = render(
       <ThemeProvider>
         <BasketContextProvider>
-          <SampleBasketDialog title="Basket title" />
+          <SampleBasketDialog
+            title="Basket title"
+            maximumSamples={3}
+            toggleCart={toggleCart}
+          />
         </BasketContextProvider>
       </ThemeProvider>
     );
@@ -84,7 +89,7 @@ describe("SampleBasketDialog component", () => {
     const { container } = render(
       <ThemeProvider>
         <BasketContextProvider>
-          <SampleBasketDialog title="Basket title" />
+          <SampleBasketDialog title="Basket title" maximumSamples={3} />
         </BasketContextProvider>
       </ThemeProvider>
     );
@@ -95,7 +100,7 @@ describe("SampleBasketDialog component", () => {
     render(
       <ThemeProvider>
         <BasketContextProvider>
-          <SampleBasketDialog title="Basket title" />
+          <SampleBasketDialog title="Basket title" maximumSamples={3} />
         </BasketContextProvider>
       </ThemeProvider>
     );
@@ -122,6 +127,7 @@ describe("SampleBasketDialog component", () => {
             <SampleBasketDialog
               title="Basket title"
               basketAction={basketAction}
+              maximumSamples={3}
             />
           </BasketContextProvider>
         </SiteContextProvider>
@@ -137,7 +143,11 @@ describe("SampleBasketDialog component", () => {
     render(
       <ThemeProvider>
         <BasketContextProvider>
-          <SampleBasketDialog title="Basket title" toggleCart={toggleCart} />
+          <SampleBasketDialog
+            title="Basket title"
+            toggleCart={toggleCart}
+            maximumSamples={3}
+          />
         </BasketContextProvider>
       </ThemeProvider>
     );

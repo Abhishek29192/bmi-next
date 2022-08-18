@@ -27,7 +27,7 @@ const VideoSection = ({
       {title && (
         <Section.Title className={styles["heading"]}>{title}</Section.Title>
       )}
-      <RichText document={description} />
+      {description && <RichText document={description} />}
       <div className={styles["video"]}>{videoNode}</div>
     </Section>
   );

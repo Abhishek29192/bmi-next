@@ -20,6 +20,6 @@ describe("BrandLogo component", () => {
       <BrandLogo brandName="Monarplan" brandWhiteBox={true} />
     );
     const logo = container.querySelector(".BrandLogo");
-    expect(logo.classList).toContain("BrandLogo-whiteBox");
+    expect(logo!.classList).toContain("BrandLogo-whiteBox");
   });
 });
