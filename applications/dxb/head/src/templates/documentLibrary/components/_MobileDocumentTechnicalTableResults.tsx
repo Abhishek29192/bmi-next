@@ -77,7 +77,7 @@ const MobileDocumentTechnicalTableResults = ({
                       {!asset.isLinkDocument ? (
                         <Icon
                           source={
-                            fileIconsMap[asset.format] || iconMap.External
+                            fileIconsMap[asset.format] || iconMap.FileUniversal
                           }
                           className={styles["format-icon"]}
                         />

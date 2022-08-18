@@ -315,10 +315,10 @@ export const MultipleAssetToFileDownload = ({
       accessibilityLabel="Download"
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
-        fileIconsMap[document.format] && (
+        document.format && (
           <Icon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[document.format]}
+            source={fileIconsMap[document.format] || iconMap.FileUniversal}
             className={styles["download-icon"]}
           />
         )
@@ -349,10 +349,10 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       variant="text"
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
-        fileIconsMap[format] && (
+        format && (
           <Icon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format]}
+            source={fileIconsMap[format] || iconMap.FileUniversal}
             className={styles["download-icon"]}
           />
         )
