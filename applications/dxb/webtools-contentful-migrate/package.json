@@ -6,12 +6,13 @@
   "src": "src/index.ts",
   "scripts": {
     "build": "tsc",
+    "migrateCreate": "node ./dist/create.js",
     "down": "node ./dist/down.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "up": "node ./dist/up.js"
   },
   "dependencies": {
-    "@bmi-digital/contentful-migration": "^1.1.1"
+    "@bmi-digital/contentful-migration": "^1.2.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"

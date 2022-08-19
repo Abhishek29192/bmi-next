@@ -6,12 +6,13 @@ Copy the `.env.example` file to `.env` and enter the appropriate values.
 
 ### Environment variables
 
-| Variable name           | Description                                         | Possible values                                  | Default value |
-| ----------------------- | --------------------------------------------------- | ------------------------------------------------ | ------------- |
-| CONTENTFUL_ENVIRONMENT  | The alias _or_ environment name to be updated.      | String name of the existing alias or environment | `undefined`   |
-| MANAGEMENT_ACCESS_TOKEN | The access token for the Contentful Management API. | String of the access token                       | `undefined`   |
-| MIGRATION_DRY_RUN       | Whether this should be a dry run.                   | `true` or `false`                                | `false`       |
-| SPACE_ID                | The ID of the Contentful Space.                     | String of the ID for the Contentful space        | `undefined`   |
+| Variable name                        | Description                                         | Possible values                           | Default value |
+| ------------------------------------ | --------------------------------------------------- | ----------------------------------------- | ------------- |
+| CONTENTFUL_ENVIRONMENT               | The alias \_                                        |                                           |               |
+| or\_ environment name to be updated. | String name of the existing alias or environment    | `undefined`                               |               |
+| MANAGEMENT_ACCESS_TOKEN              | The access token for the Contentful Management API. | String of the access token                | `undefined`   |
+| MIGRATION_DRY_RUN                    | Whether this should be a dry run.                   | `true` or `false`                         | `false`       |
+| SPACE_ID                             | The ID of the Contentful Space.                     | String of the ID for the Contentful space | `undefined`   |
 
 ## Build the scripts
 
@@ -23,7 +24,8 @@ yarn workspace @bmi/webtools-contentful-migrate build
 
 ## Initialise environment
 
-The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the current state of each managed content type.
+The `init` command creates the content type `Migration` in your Contentful space. This will be used to keep track of the
+current state of each managed content type.
 
 _N.B. This is only needed for empty spaces, not for spaces that have already been initialized._
 
@@ -34,7 +36,7 @@ yarn workspace @bmi/webtools-contentful-migrate run ctf-migrate init
 ## Create migration script template
 
 ```bash
-yarn workspace @bmi/webtools-contentful-migrate run ctf-migrate create <migration-file-name-without-timestamp> -c scripts
+yarn workspace @bmi/webtools-contentful-migrate migrateCreate <migration-file-name-without-timestamp> <content-type>
 ```
 
 ## Migrate up
