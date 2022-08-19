@@ -1,11 +1,20 @@
 import {
   createCategory,
   createProduct,
-  Product as FirestoreProduct,
-  createProductDocument
+  createProductDocument,
+  Product as FirestoreProduct
 } from "@bmi/firestore-types";
-import { Context } from "../types/Gatsby";
 import Product from "../Product";
+import { Context, Node } from "../types/Gatsby";
+
+jest.mock("../utils/path", () => ({
+  ...(jest.requireActual("../utils/path") as any),
+  resolvePath: jest
+    .fn()
+    .mockResolvedValue([
+      { id: "page", label: "label", slug: "product-family-slug" }
+    ])
+}));
 
 const findAll = jest.fn();
 const findOne = jest.fn();
@@ -363,5 +372,85 @@ describe("resolve related products", () => {
       },
       type: "Product"
     });
+  });
+});
+
+const sourceNode: Node = {
+  id: "source",
+  internal: null,
+  children: null,
+  parent: null,
+  hashedCode: "00000001",
+  name: "test product",
+  colour: "colour",
+  textureFamily: "textureFamily",
+  path: "simple-path",
+  categories: [createCategory({ categoryType: "ProductFamily" })]
+};
+
+describe("breadcrumbs resolver", () => {
+  it("should use MARKET_TAG_NAME if provided to filter product family", async () => {
+    findAll.mockReturnValueOnce({ entries: [] });
+    process.env.MARKET_TAG_NAME = "market__test";
+
+    const breadcrumbs = await Product.breadcrumbs.resolve(
+      sourceNode,
+      null,
+      context
+    );
+
+    expect(breadcrumbs).toEqual([
+      {
+        id: "00000001",
+        label: "test product",
+        slug: "test-product/colour/texturefamily/00000001"
+      }
+    ]);
+
+    expect(findAll).toBeCalledWith({
+      query: {
+        filter: {
+          categoryCodes: { in: ["code"] },
+          metadata: {
+            tags: { elemMatch: { contentful_id: { eq: "market__test" } } }
+          }
+        }
+      },
+      type: "ContentfulProductListerPage"
+    });
+
+    process.env.MARKET_TAG_NAME = "";
+  });
+});
+
+describe("path resolver", () => {
+  it("should return simple path if feature flag provided", async () => {
+    process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE = "true";
+
+    const path = await Product.path.resolve(sourceNode, null, context);
+
+    expect(path).toBe("simple-path");
+    process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE = "";
+  });
+  it("should return path based on product family", async () => {
+    findAll.mockReturnValueOnce({ entries: ["some-parent-family"] });
+
+    const path = await Product.path.resolve(sourceNode, null, context);
+
+    expect(path).toBe(
+      "p/product-family-slug/test-product/colour/texturefamily/00000001/"
+    );
+  });
+});
+
+describe("oldPath resolver", () => {
+  it("should return oldPath based on product family", async () => {
+    findAll.mockReturnValueOnce({ entries: ["some-parent-family"] });
+
+    const path = await Product.oldPath.resolve(sourceNode, null, context);
+
+    expect(path).toBe(
+      "p/product-family-slug/test-product/colour/texturefamily/00000001/"
+    );
   });
 });
