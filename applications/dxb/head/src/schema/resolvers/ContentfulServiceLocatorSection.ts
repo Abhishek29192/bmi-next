@@ -8,10 +8,24 @@ export default {
       args: ResolveArgs,
       context: Context
     ): Promise<Node[]> {
+      const marketFilters = process.env.MARKET_TAG_NAME
+        ? {
+            metadata: {
+              tags: {
+                elemMatch: {
+                  contentful_id: {
+                    eq: process.env.MARKET_TAG_NAME
+                  }
+                }
+              }
+            }
+          }
+        : {};
+
       const { entries } = await context.nodeModel.findAll<Node>(
         {
           query: {
-            filter: { entryType: { eq: source.type } }
+            filter: { entryType: { eq: source.type }, ...marketFilters }
           },
           type: "ContentfulService"
         },
@@ -21,6 +35,7 @@ export default {
       if (!services || !services.length) {
         return [];
       }
+
       return services;
     }
   }
