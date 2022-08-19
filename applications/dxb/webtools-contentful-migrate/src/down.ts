@@ -1,4 +1,3 @@
-import path from "path";
 import { argv } from "process";
 import { migrateDown } from "@bmi-digital/contentful-migration";
 import "dotenv/config";
@@ -28,7 +27,7 @@ const main = async (script?: string, contentType?: string) => {
   return await migrateDown(
     script,
     contentType,
-    path.join(path.resolve(), "dist"),
+    __dirname,
     SPACE_ID,
     CONTENTFUL_ENVIRONMENT,
     MANAGEMENT_ACCESS_TOKEN,
