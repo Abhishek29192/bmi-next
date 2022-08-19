@@ -709,3 +709,9 @@
       the project you look at
     :versions: []
     :when: 2022-08-11 12:06:16.689485000 Z
+- - :approve
+  - "@bmi/redirects-checker"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-08-22 08:21:39.860951000 Z
