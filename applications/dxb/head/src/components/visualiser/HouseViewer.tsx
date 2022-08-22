@@ -482,7 +482,7 @@ export default class HouseViewer extends Viewer<Props, State> {
           });
 
           // Delete the rough roof:
-          const roofMetal = gltf.scene.getObjectByName("Roof_metal_rough");
+          const roofMetal = gltf.scene.getObjectByName("Roof_metal");
           this.roofSegments = gltf.scene.children.filter((seg) =>
             seg.name.includes(house.roofSegmentName)
           ) as Mesh[];
