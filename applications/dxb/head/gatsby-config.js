@@ -419,9 +419,14 @@ const config = {
         spaceId,
         accessToken,
         environment,
-        host: process.env.CONTENT_API_HOST || "cdn.contentful.com",
-        enableTags: true
+        host: process.env.CONTENT_API_HOST || "cdn.contentful.com"
       };
+      if (process.env.MARKET_TAG_NAME) {
+        options = {
+          ...options,
+          enableTags: true
+        };
+      }
       if (process.env.GATSBY_MARKET_LOCALE_CODE) {
         options = {
           ...options,
