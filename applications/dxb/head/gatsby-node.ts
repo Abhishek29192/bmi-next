@@ -269,9 +269,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (fs.existsSync(redirectsTomlFile)) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const redirectsToml = fs.readFileSync(redirectsTomlFile);
+    const redirectsToml = fs.readFileSync(redirectsTomlFile, "utf8");
 
-    const redirects = toml.parse(redirectsToml.toString());
+    const redirects = toml.parse(redirectsToml);
     await Promise.all(
       redirects.redirects.map((redirect) =>
         createRedirect({
