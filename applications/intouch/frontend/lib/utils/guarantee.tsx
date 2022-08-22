@@ -26,7 +26,10 @@ export const guaranteeStatusIcons: Record<
   SUBMITTED: <WatchLaterIcon style={{ color: "#009fe3" }} />,
   REVIEW: <WatchLaterIcon style={{ color: "#009fe3" }} />,
   REJECTED: <Warning style={{ color: "red" }} />,
-  APPROVED: <Check style={{ color: "green" }} />
+  APPROVED: <Check style={{ color: "green" }} />,
+  DECLINED: <Warning style={{ color: "red" }} />,
+  EXPIRED: <Warning style={{ color: "red" }} />,
+  ISSUED: <Check style={{ color: "green" }} />
 };
 
 export enum SolutionGuaranteeValidationError {

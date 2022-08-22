@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormContainer render correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h4
+      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+    >
+      title
+    </h4>
+    <div
+      class="body"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        >
+          <h4
+            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+          >
+            warantyPeriod
+          </h4>
+          <div>
+            10
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        >
+          <h4
+            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+          >
+            guaranteeScope
+          </h4>
+          <div>
+            guaranteeScopeDescription
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        >
+          <h4
+            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+          >
+            guaranteeConditions
+          </h4>
+          <div>
+            guaranteeConditionsDescription
+          </div>
+          <div>
+            onerousConditionsSummary
+          </div>
+          <div
+            class="guaranteeConditionsText"
+          >
+            <div>
+              <div
+                data-testid="rich-text"
+              >
+                richText
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form
+        class="Form Form--rightAlignButton"
+        data-testid="double-acceptance-form"
+        id="double-acceptance-form"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          >
+            <div
+              class="MuiFormControl-root Checkbox"
+            >
+              <label
+                class="MuiFormControlLabel-root"
+              >
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-4"
+                      data-indeterminate="false"
+                      name="acceptance"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+                <span
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  form.fields.acceptance.label
+                </span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+                    data-shrink="false"
+                  >
+                    form.fields.firstname.label
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                      disabled=""
+                      name="firstName"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-7"
+                      >
+                        <span>
+                          form.fields.firstname.label
+                           *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+                    data-shrink="false"
+                  >
+                    form.fields.lastname.label
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                      disabled=""
+                      name="lastName"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-7"
+                      >
+                        <span>
+                          form.fields.lastname.label
+                           *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

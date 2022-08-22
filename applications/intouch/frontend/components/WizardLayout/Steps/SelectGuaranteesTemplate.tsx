@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Select, SelectMenuItem } from "@bmi/components";
-import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
@@ -78,29 +77,3 @@ const SelectGuaranteesTemplate = () => {
 };
 
 export default SelectGuaranteesTemplate;
-
-export const GET_GUARANTEE_TEMPLATES = gql`
-  query getGuaranteeTemplates(
-    $technology: String!
-    $coverage: String!
-    $language: String
-  ) {
-    guaranteeTemplateCollection(
-      where: {
-        coverage: $coverage
-        technology: $technology
-        languageCode: $language
-      }
-    ) {
-      items {
-        sys {
-          id
-        }
-        displayName
-        languageCode
-        languageDescriptor
-        coverage
-      }
-    }
-  }
-`;

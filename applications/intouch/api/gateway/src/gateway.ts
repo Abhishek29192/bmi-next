@@ -74,10 +74,7 @@ const createGateway = async () => {
                 // eslint-disable-next-line
                 console.log(error.message);
               }
-              if (
-                ["annual-inspection-function"].includes(userInfo?.source) &&
-                userInfo?.market
-              ) {
+              if (userInfo?.market) {
                 request.http.headers.set(
                   "x-request-market-domain",
                   userInfo.market

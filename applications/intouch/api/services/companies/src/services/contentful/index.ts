@@ -19,7 +19,9 @@ export type EventMessage =
   | "REQUEST_APPROVED"
   | "REQUEST_SUBMITTED"
   | "TEAM_JOINED"
-  | "ANNUAL_INSPECTION1";
+  | "ANNUAL_INSPECTION1"
+  | "DOUBLE_ACCEPTANCE"
+  | "DOUBLE_ACCEPTANCE_CONFIRMATION";
 
 export const getGuaranteeTypeCollection = async (
   client,
@@ -225,6 +227,10 @@ fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
   titleLine1
   titleLine2
   roofType
+  onerousConditionsSummary
+  onerousConditionsText {
+    json
+  }
 }
 
 `;

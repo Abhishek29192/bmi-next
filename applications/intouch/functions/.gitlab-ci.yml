@@ -7,6 +7,7 @@ include:
   - local: "/applications/intouch/functions/gcp-cron-rm-unverified-users/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-cron-auto-archive-project/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-cron-annual-inspection/.gitlab-ci.yml"
+  - local: "/applications/intouch/functions/gcp-cron-auto-reject-double-acceptance/.gitlab-ci.yml"
 
 .test_intouch_function:
   extends: .test_yarn_workspace

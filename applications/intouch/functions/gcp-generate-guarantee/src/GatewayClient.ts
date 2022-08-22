@@ -1,6 +1,6 @@
 import fetch, { Request } from "node-fetch";
 
-const { FRONTEND_API_URL } = process.env;
+const { FRONTEND_API_URL, DOUBLE_ACCEPTANCE_EXPIRY_AFTER } = process.env;
 
 export interface ICourseSyncConfiguration {
   configName: string;
@@ -46,6 +46,63 @@ export default class GatewayClient {
       variables: {
         id,
         fileStorageId
+      }
+    };
+
+    return await fetch(
+      new Request(this.client, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      })
+    );
+  }
+
+  async createDoubleAcceptance(guaranteeId: number) {
+    const expiryDate = new Date(
+      new Date().setDate(
+        new Date().getDate() + parseInt(DOUBLE_ACCEPTANCE_EXPIRY_AFTER)
+      )
+    )
+      .toISOString()
+      .replace("T", " ")
+      .replace("Z", "")
+      .toString();
+    const payload = {
+      query: `mutation createDoubleAcceptance($guaranteeId: Int!, $expiryDate: Datetime!) {
+        createDoubleAcceptance(input: { doubleAcceptance: { guaranteeId: $guaranteeId, expiryDate: $expiryDate }}) {
+          doubleAcceptance {
+            id
+            tempToken
+          }
+        }
+      }`,
+      variables: {
+        guaranteeId,
+        expiryDate
+      }
+    };
+
+    return await fetch(
+      new Request(this.client, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      })
+    );
+  }
+
+  async updateGuaranteeStatus(id) {
+    const payload = {
+      query: `mutation updatePendingGuaranteeStatus($id: Int!, $fileStorageId: String!) {
+        updateGuarantee(
+          input: { id: $id, patch: { status: "ISSUED" } }
+        ) {
+          guarantee {
+            id
+          }
+        }
+      }`,
+      variables: {
+        id
       }
     };
 
