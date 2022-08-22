@@ -55,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Verdade"
+    "False": "Não",
+    "True": "Sim"
   },
   "buildingOwnerDetails": {
     "address": "Endereço do proprietário do edifício",
