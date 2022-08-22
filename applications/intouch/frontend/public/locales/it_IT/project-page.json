@@ -55,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Vero"
+    "False": "No",
+    "True": "Sì"
   },
   "buildingOwnerDetails": {
     "address": "Indirizzo proprietario edificio",

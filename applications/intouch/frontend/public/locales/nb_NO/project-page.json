@@ -55,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falsk",
-    "True": "Ekte"
+    "False": "Nei",
+    "True": "Ja"
   },
   "buildingOwnerDetails": {
     "address": "Bygningseier adresse",
