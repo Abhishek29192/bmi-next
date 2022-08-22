@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
-import dotenv from "dotenv";
 import findUp from "find-up";
 import type { GatsbyNode } from "gatsby";
 import toml from "toml";
+import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
