@@ -13,8 +13,7 @@ Monorepo for BMI websites that includes a component library.
 ## Contents
 
 - [Components](components/README.md)
-- [Functions](functions/README.md)
-- [Head](applications/head/README.md)
+- [Contentful Migrations](doc/contentful-migrations.md)
+- [DXB](applications/dxb/README.md)
 - [InTouch](applications/intouch/README.md)
-- [Migrations](docs/contentful-migrations.md)
-- [Netlify](doc/netlify.md) decommission
+- [License Finder](doc/license-finder.md)
