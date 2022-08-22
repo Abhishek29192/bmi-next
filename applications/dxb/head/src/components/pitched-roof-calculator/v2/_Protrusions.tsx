@@ -42,8 +42,8 @@ const SelectProtrusion = ({
   }, []);
 
   return (
-    <FieldContainer>
-      <Grid container>
+    <FieldContainer className={styles["protrusionsList"]}>
+      <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
           <Grid key={type} item xs={6} lg={2}>
             <CardInput
@@ -160,11 +160,11 @@ const ProtrusionDimensions = ({
       title={getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_PROMPT)}
     >
       <Grid container className={styles["dimensions"]}>
-        <Grid item xs={12} lg={3}>
+        <Grid item xs={12} lg={4}>
           <DimensionsIllustration />
         </Grid>
         <Grid item md={1} className={styles["showOnLarge"]}></Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid item xs={12} lg={4}>
           <Grid container>
             {fields.map(({ name, type }: { name: string; type: Type }) => (
               <Grid key={`protrusion-${id}-${name}`} item xs={12}>
@@ -178,46 +178,42 @@ const ProtrusionDimensions = ({
                 />
               </Grid>
             ))}
-            <Grid item xs={12}>
-              {onAddAnother ? (
-                <Button
-                  variant="text"
-                  onClick={() => {
-                    pushEvent({
-                      event: "dxb.button_click",
-                      id: "rc-dimensions-protrusions",
-                      label: getMicroCopy(
-                        microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
-                      ),
-                      action: "selected"
-                    });
-                    onAddAnother();
-                  }}
-                >
-                  {getMicroCopy(
-                    microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
-                  )}
-                </Button>
-              ) : null}
-              <Button
-                variant="text"
-                onClick={() => {
-                  pushEvent({
-                    event: "dxb.button_click",
-                    id: "rc-dimensions-protrusions",
-                    label: getMicroCopy(
-                      microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE
-                    ),
-                    action: "removed"
-                  });
-                  onRemove();
-                }}
-              >
-                {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
-              </Button>
-            </Grid>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        {onAddAnother ? (
+          <Button
+            variant="text"
+            onClick={() => {
+              pushEvent({
+                event: "dxb.button_click",
+                id: "rc-dimensions-protrusions",
+                label: getMicroCopy(
+                  microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
+                ),
+                action: "selected"
+              });
+              onAddAnother();
+            }}
+          >
+            {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER)}
+          </Button>
+        ) : null}
+        <Button
+          variant="text"
+          onClick={() => {
+            pushEvent({
+              event: "dxb.button_click",
+              id: "rc-dimensions-protrusions",
+              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE),
+              action: "removed"
+            });
+            onRemove();
+          }}
+        >
+          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
+        </Button>
       </Grid>
     </FieldContainer>
   );
@@ -265,7 +261,7 @@ const Protrusion = ({
   const { type } = values;
 
   return (
-    <div>
+    <div className={styles["protrusion"]}>
       <SelectProtrusion
         id={id}
         defaultValue={type}

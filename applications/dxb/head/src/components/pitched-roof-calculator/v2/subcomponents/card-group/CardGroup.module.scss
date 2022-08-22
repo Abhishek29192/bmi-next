@@ -1,0 +1,15 @@
+.CardGroup {
+  width: 100%;
+
+  .gridContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -8px 0;
+  }
+}
+
+.CardItem {
+  display: block;
+}

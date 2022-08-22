@@ -16,10 +16,10 @@ exports[`PitchedRoofCalculator TileSelection component renders correctly 1`] = `
         </h6>
       </div>
       <div
-        class="CardRadioGroup"
+        class="CardRadioGroup CardGroup"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root gridContainer MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"

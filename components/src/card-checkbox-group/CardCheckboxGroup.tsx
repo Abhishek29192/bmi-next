@@ -12,6 +12,7 @@ export type Props = {
   defaultValue?: string[];
   onChange?: (value: string[] | null) => void;
   noneLabel?: string;
+  gridContainerClassName?: string;
 };
 
 const CardCheckboxInput = (props: CardInputProps) => (
@@ -38,7 +39,8 @@ const CardCheckboxGroup = ({
   defaultValue,
   onChange,
   children,
-  noneLabel
+  noneLabel,
+  gridContainerClassName
 }: Props) => {
   const [selected, setSelected] = useState<Record<string, boolean>>(() =>
     defaultValue ? toBooleanObject(defaultValue) : {}
@@ -98,7 +100,7 @@ const CardCheckboxGroup = ({
 
   return (
     <div className={classnames(styles["CardCheckboxGroup"], className)}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className={gridContainerClassName}>
         {items}
         {noneLabel ? (
           <Grid item xs={6} md={4} lg={2}>

@@ -1,4 +1,3 @@
-import { CardRadioGroup } from "@bmi/components";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -8,6 +7,7 @@ import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPi
 import { RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
 import { MainTile, MainTileVariant } from "../types/v2";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VariantSelectionRowProps = {

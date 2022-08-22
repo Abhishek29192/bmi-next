@@ -1,4 +1,4 @@
-import { CardRadioGroup, Typography } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -6,6 +6,7 @@ import { useAnalyticsContext } from "../helpers/analytics";
 import getPitchValues from "../helpers/getPitchValues";
 import { Underlay } from "../types";
 import { DimensionsValues } from "../types/roof";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type UnderlaySelectionRowProps = {

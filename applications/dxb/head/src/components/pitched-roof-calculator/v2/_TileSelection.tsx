@@ -1,4 +1,4 @@
-import { CardRadioGroup, Typography } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -7,6 +7,7 @@ import getPitchValues from "../helpers/getPitchValues";
 import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
 import { BaseProduct, MainTile, MainTileCategory, RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type TileForValidation = {
