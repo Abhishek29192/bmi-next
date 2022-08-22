@@ -69,6 +69,11 @@ type PLPFilterResponse {
   allowFilterBy: [String]
 }
 
+type FourOFourResponse {
+  errorPageData: ContentfulPromo
+  siteData: ContentfulSite
+}
+
 type BreadcrumbItem{
   id: String
   label: String

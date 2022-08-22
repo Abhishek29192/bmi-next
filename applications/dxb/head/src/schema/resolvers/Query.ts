@@ -1,5 +1,5 @@
 import { Product } from "@bmi/firestore-types";
-import { PLPFilterResponse } from "../../types/pim";
+import { FourOFourResponse, PLPFilterResponse } from "../../types/pim";
 import { ContentfulAssetType } from "./types/Contentful";
 import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
 import { ProductDocument } from "./types/pim";
@@ -258,6 +258,61 @@ export default {
         filters: productFilters,
         allowFilterBy: allowFilterBy
       };
+    }
+  },
+  FourOFour: {
+    type: "FourOFourResponse",
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<FourOFourResponse> {
+      const marketCode = process.env.SPACE_MARKET_CODE;
+      const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+
+      const { entries } = await context.nodeModel.findAll<Node>(
+        {
+          query: {
+            filter: {
+              countryCode: { eq: marketCode },
+              node_locale: { eq: localeCode }
+            }
+          },
+          type: "ContentfulSite"
+        },
+        { connectionType: "ContentfulSite" }
+      );
+      const siteData = [...entries];
+
+      if (siteData.length === 0) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Site not found: for country code: '${marketCode}' and locale: '${localeCode}'.`
+        );
+        return { errorPageData: undefined, siteData: undefined };
+      }
+      const resource = await context.nodeModel.getNodeById({
+        id: siteData[0].resources___NODE as string,
+        type: "ContentfulResources"
+      });
+      const currSite = siteData[0];
+      if (!resource) {
+        // eslint-disable-next-line no-console
+        console.warn(`Resource not found: for site id: '${currSite.id}'.`);
+        return { errorPageData: undefined, siteData: currSite };
+      }
+      const errorFourOFour = await context.nodeModel.getNodeById({
+        id: resource.errorFourOFour___NODE as string,
+        type: "ContentfulPromo"
+      });
+      if (!errorFourOFour) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Resource 'errorFourOFour' not found: at resource id: '${resource.id}'.`
+        );
+        return { errorPageData: undefined, siteData: currSite };
+      }
+      return { errorPageData: errorFourOFour, siteData: currSite };
     }
   }
 };

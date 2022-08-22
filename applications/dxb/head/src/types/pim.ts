@@ -310,3 +310,8 @@ export type PLPFilterResponse = {
   filters: ProductFilter[];
   allowFilterBy: string[] | undefined;
 };
+
+export type FourOFourResponse = {
+  siteData: any; //this is meant to be ContentfulSite type!
+  errorPageData: any; //this is meant to be PromoCardFragment type!
+};
