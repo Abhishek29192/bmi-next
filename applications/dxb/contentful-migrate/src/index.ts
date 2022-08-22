@@ -221,10 +221,14 @@ const buildContentful = async (
 };
 
 const main = async () => {
-  if (!CONTENTFUL_ENVIRONMENT || !MANAGEMENT_ACCESS_TOKEN || !SPACE_ID) {
-    throw new Error(
-      "Missing env config `CONTENTFUL_ENVIRONMENT` or `MANAGEMENT_ACCESS_TOKEN` or `SPACE_ID`"
-    );
+  if (!CONTENTFUL_ENVIRONMENT) {
+    throw new Error("Missing CONTENTFUL_ENVIRONMENT environment variable.");
+  }
+  if (!MANAGEMENT_ACCESS_TOKEN) {
+    throw new Error("Missing MANAGEMENT_ACCESS_TOKEN environment variable.");
+  }
+  if (!SPACE_ID) {
+    throw new Error("Missing SPACE_ID environment variable.");
   }
 
   await buildContentful(
@@ -239,6 +243,5 @@ const main = async () => {
 
 main().catch((error) => {
   console.error(error);
-  // TODO: Is this needed?
   process.exit(1);
 });
