@@ -424,10 +424,8 @@ const getGroups = (categories: readonly Category[]): CategoryGroup[] => {
     ({ categoryType }) => categoryType === "Category"
   );
   return categoryTypeCategories
-    .filter((rootCategory): rootCategory is CategoryWithName =>
-      Boolean(
-        rootCategory.parentCategoryCode === "" && rootCategory.name?.length
-      )
+    .filter((category): category is CategoryWithName =>
+      Boolean(category.parentCategoryCode === "" && category.name?.length)
     )
     .map((rootCategory) => {
       let path = [{ label: rootCategory.name, code: rootCategory.code }];

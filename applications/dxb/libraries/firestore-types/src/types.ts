@@ -116,7 +116,7 @@ export type AssetAssetType = PimAssetAssetType;
 
 export type Brand = {
   code: string;
-  name: string;
+  name?: string;
   logo?: string;
 };
 
