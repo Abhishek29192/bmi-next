@@ -25,7 +25,11 @@ export default {
       const { entries } = await context.nodeModel.findAll<Node>(
         {
           query: {
-            filter: { entryType: { eq: source.type }, ...marketFilters }
+            filter: {
+              entryType: { eq: source.type },
+              node_locale: { eq: process.env.GATSBY_MARKET_LOCALE_CODE },
+              ...marketFilters
+            }
           },
           type: "ContentfulService"
         },
