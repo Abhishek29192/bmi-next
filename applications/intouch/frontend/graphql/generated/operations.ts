@@ -2350,6 +2350,22 @@ export type CreateSsoUrlMutation = {
   createSSOUrl?: { __typename?: "SSOUrlOutput"; url?: string | null } | null;
 };
 
+export type QueryDoceboTiersByMarketIdQueryVariables = SchemaTypes.Exact<{
+  marketId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type QueryDoceboTiersByMarketIdQuery = {
+  __typename?: "Query";
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+};
+
 export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
   domain: SchemaTypes.Scalars["String"];
 }>;
@@ -2365,10 +2381,6 @@ export type GetMarketsByDomainQuery = {
       cmsSpaceId?: string | null;
       language: SchemaTypes.Language;
       domain: string;
-      doceboCatalogueId?: number | null;
-      doceboCatalogueIdT2?: number | null;
-      doceboCatalogueIdT3?: number | null;
-      doceboCatalogueIdT4?: number | null;
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
       merchandisingUrl?: string | null;
