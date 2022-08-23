@@ -1,7 +1,7 @@
 build_contentful_migrate:
   stage: build
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -27,7 +27,7 @@ build_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -69,7 +69,7 @@ build_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
@@ -97,6 +97,8 @@ build_contentful_migrate:
 
 migrate_content_qa:
   extends: .migrate_content
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -104,6 +106,8 @@ migrate_content_qa:
 
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_qa
   variables:
@@ -118,6 +122,8 @@ deploy_gatsby_cloud_qa:
 
 migrate_content_one_page_qa:
   extends: .migrate_content
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -125,6 +131,8 @@ migrate_content_one_page_qa:
 
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_one_page_qa
   variables:
