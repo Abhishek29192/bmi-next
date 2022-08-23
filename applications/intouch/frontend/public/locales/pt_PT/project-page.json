@@ -55,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Verdade"
+    "False": "Não",
+    "True": "Sim"
   },
   "buildingOwnerDetails": {
     "address": "Endereço do proprietário do edifício",
@@ -130,7 +130,7 @@
     "notRequested": "Não requerido",
     "status": {
       "APPROVED": "Passado",
-      "NOT_APPLICABLE": "N / A",
+      "NOT_APPLICABLE": "N/A",
       "READY": "Preparar",
       "REJECTED": "Retornou",
       "REVIEW": "Aplicação submetida",

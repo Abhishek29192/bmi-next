@@ -5049,6 +5049,7 @@ export const TeamMembersDocument = gql`
         firstName
         formattedRole
         status
+        marketId
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
@@ -5068,6 +5069,9 @@ export const TeamMembersDocument = gql`
               startDate
               endDate
               hidden
+              company {
+                marketId
+              }
             }
           }
         }

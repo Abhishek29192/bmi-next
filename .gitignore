@@ -79,3 +79,5 @@ package-lock.json
 
 log-error.txt
 log-success.txt
+
+*-dump.json

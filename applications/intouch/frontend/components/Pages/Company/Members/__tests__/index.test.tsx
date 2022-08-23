@@ -831,6 +831,7 @@ describe("Company Members Page", () => {
             nodes: [
               {
                 ...installerTeamMembers[0],
+                marketId: 1,
                 projectMembers: {
                   nodes: [
                     {
@@ -838,7 +839,10 @@ describe("Company Members Page", () => {
                         ...projectFactory(),
                         id: 1,
                         name: "test-project-1",
-                        hidden: false
+                        hidden: false,
+                        company: {
+                          marketId: 1
+                        }
                       }
                     }
                   ]
@@ -876,13 +880,17 @@ describe("Company Members Page", () => {
             nodes: [
               {
                 ...installerTeamMembers[0],
+                marketId: 1,
                 projectMembers: {
                   nodes: [
                     {
                       project: {
                         ...projectFactory(),
                         name: "test-project-1",
-                        hidden: false
+                        hidden: false,
+                        company: {
+                          marketId: 1
+                        }
                       }
                     }
                   ]
@@ -890,13 +898,17 @@ describe("Company Members Page", () => {
               },
               {
                 ...installerTeamMembers[0],
+                marketId: 1,
                 projectMembers: {
                   nodes: [
                     {
                       project: {
                         ...projectFactory(),
                         name: "test-project-2",
-                        hidden: false
+                        hidden: true,
+                        company: {
+                          marketId: 1
+                        }
                       }
                     }
                   ]
@@ -915,6 +927,7 @@ describe("Company Members Page", () => {
         );
         await waitFor(() => {
           expect(screen.getByTestId("project-table")).toBeTruthy();
+          expect(screen.queryByText("test-project-1")).toBeTruthy();
           expect(screen.queryByText("test-project-2")).toBeFalsy();
         });
       });
@@ -926,6 +939,7 @@ describe("Company Members Page", () => {
             nodes: [
               {
                 ...installerTeamMembers[0],
+                marketId: 1,
                 projectMembers: {
                   nodes: []
                 }
@@ -967,6 +981,61 @@ describe("Company Members Page", () => {
           expect(
             screen.queryByTestId("company-member-action-card-mobile")
           ).toBeTruthy();
+        });
+      });
+
+      it("hide project from other market", async () => {
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [
+              {
+                ...installerTeamMembers[0],
+                marketId: 1,
+                projectMembers: {
+                  nodes: [
+                    {
+                      project: {
+                        ...projectFactory(),
+                        id: 1,
+                        name: "test-project-1",
+                        hidden: false,
+                        company: {
+                          marketId: 1
+                        }
+                      }
+                    },
+                    {
+                      project: {
+                        ...projectFactory(),
+                        id: 2,
+                        name: "test-project-2",
+                        hidden: false,
+                        company: {
+                          marketId: 2
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        };
+        wrapper.unmount();
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        await waitFor(() => {
+          expect(screen.queryByText("test-project-1")).toBeTruthy();
+          expect(screen.queryByText("test-project-2")).toBeFalsy();
+          expect(screen.queryByTestId("project-table-row-0")).toBeTruthy();
+          expect(screen.queryByTestId("project-table-row-1")).toBeFalsy();
         });
       });
     });

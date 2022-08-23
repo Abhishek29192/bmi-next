@@ -56,6 +56,11 @@ describe("Partner Brands server side props", () => {
       res: {},
       market: {
         id: 1
+      },
+      req: {
+        headers: {
+          host: "en.local.intouch:3000"
+        }
       }
     };
   });

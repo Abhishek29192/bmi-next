@@ -99,6 +99,11 @@ describe("Team page server side props", () => {
       locale: {},
       params: {
         mediaParams: ["mediaParam"]
+      },
+      req: {
+        headers: {
+          host: "en.local.intouch:3000"
+        }
       }
     };
   });

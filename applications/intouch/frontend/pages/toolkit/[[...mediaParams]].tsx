@@ -19,7 +19,7 @@ import { MediaFolders, RootFolders } from "../../lib/media/types";
 import { getRootFolders, getMediaItemPath } from "../../lib/media/utils";
 import { GetMediaFolderContentsQuery } from "../../graphql/generated/operations";
 import { MediaPage } from "../../components/Pages/Media";
-import { parseMarketTag } from "../../lib/utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 
 type ToolkitPageProps = GlobalPageProps & {
   rootFolders: RootFolders;
@@ -56,7 +56,8 @@ export const getServerSideProps = withPage(
     globalPageData,
     locale,
     params: { mediaParams },
-    res
+    res,
+    req
   }) => {
     const translations = await serverSideTranslations(locale, [
       "common",
@@ -74,8 +75,8 @@ export const getServerSideProps = withPage(
       );
     }
 
-    const marketDomain = account.market?.domain;
-    const contentfulTag = parseMarketTag(marketDomain);
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
 
     const {
       props: { data }

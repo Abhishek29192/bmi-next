@@ -112,7 +112,8 @@ const getValidProjects = (currentMember) => {
         ({ project }) =>
           !!project &&
           project.hidden === false &&
-          new Date(project.endDate) > new Date()
+          new Date(project.endDate) > new Date() &&
+          currentMember.marketId === project.company?.marketId
       )
     : [];
 };

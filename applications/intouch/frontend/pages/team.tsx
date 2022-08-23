@@ -30,6 +30,7 @@ export const pageQuery = gql`
         firstName
         formattedRole
         status
+        marketId
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
@@ -49,6 +50,9 @@ export const pageQuery = gql`
               startDate
               endDate
               hidden
+              company {
+                marketId
+              }
             }
           }
         }

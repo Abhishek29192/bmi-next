@@ -24,12 +24,27 @@ const resolvePathFromFamily = async (
   args: ResolveArgs,
   context: Context
 ): Promise<Path> => {
+  const marketFilters = process.env.MARKET_TAG_NAME
+    ? {
+        metadata: {
+          tags: {
+            elemMatch: {
+              contentful_id: {
+                eq: process.env.MARKET_TAG_NAME
+              }
+            }
+          }
+        }
+      }
+    : {};
+
   const { entries } = await context.nodeModel.findAll<Node>({
     query: {
       filter: {
         categoryCodes: {
           in: (source.categories || []).map(({ code }) => code)
-        }
+        },
+        ...marketFilters
       }
     },
     type: "ContentfulProductListerPage"

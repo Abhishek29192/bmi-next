@@ -1,12 +1,10 @@
-import React from "react";
+import { Button, PromoSection, Typography } from "@bmi/components";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { PromoSection } from "@bmi/components";
+import React from "react";
+import { renderImage } from "../components/Image";
+import { getClickableActionFromUrl } from "../components/Link";
 import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
-import { getClickableActionFromUrl } from "../components/Link";
-import { renderImage } from "../components/Image";
 import { renderVideo } from "../components/Video";
 
 type Data = {
@@ -16,7 +14,11 @@ type Data = {
 };
 
 const FourOFour = ({ data }: { data: Data }) => {
-  const siteData = data.allContentfulSite.nodes[0];
+  const siteData = data.allContentfulSite.nodes.filter(
+    (node) =>
+      node.countryCode === `${process.env.SPACE_MARKET_CODE}` &&
+      node.node_locale === `${process.env.GATSBY_MARKET_LOCALE_CODE}`
+  )[0];
   const { errorFourOFour } = siteData.resources;
 
   const {
@@ -74,12 +76,7 @@ export default FourOFour;
 
 export const pageQuery = graphql`
   {
-    # TODO: The country code should come from somewhere else, however unable to
-    # pass the context to this page.
-    # Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-    # rc note: filter not required at this stage - site isn't ready for it
-    #    the following allows it to search all sites, but not break the build
-    allContentfulSite(filter: { countryCode: { ne: "99" } }) {
+    allContentfulSite {
       nodes {
         ...SiteFragment
       }

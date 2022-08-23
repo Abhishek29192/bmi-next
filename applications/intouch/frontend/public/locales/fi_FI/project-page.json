@@ -1,0 +1,402 @@
+{
+  "CUSTOM": "Todiste asennuksesta",
+  "MISCELLANEOUS": "Tukidokumentaatio",
+  "PROOF_OF_PURCHASE": "Ostotosite",
+  "Projects": "Projektit",
+  "addProject": {
+    "cta": "Lisää uusi projekti",
+    "dialog": {
+      "form": {
+        "actions": {
+          "submit": "Tallenna ja sulje"
+        },
+        "fields": {
+          "description": "Projektin kuvaus",
+          "endDate": "Projektin päättymispäivämäärä",
+          "inspection": "Tarkastus",
+          "name": "Projektin nimi",
+          "roofArea": "Katon koko yhteensä (m2)",
+          "siteAddress": {
+            "country": "Maa",
+            "firstLine": "Osoiterivi 1",
+            "postcode": "Postinumero",
+            "region": "Alue",
+            "secondLine": "Osoiterivi 2",
+            "town": "Postitoimipaikka"
+          },
+          "startDate": "Projektin aloituspäivämäärä",
+          "technology": "Projektin tyyppi"
+        },
+        "hints": {
+          "technology": {
+            "FLAT": "Tasakatto - katto on päällystetty bitumi- tai betonimateriaaleilla ja yleensä vaakasuora ja litteä.",
+            "PITCHED": "Harjakatto - katto on peitetty savi- tai metallilaatoilla ja sillä on yleensä viisto kulma."
+          }
+        },
+        "values": {
+          "technology": {
+            "FLAT": "Tasakatto",
+            "PITCHED": "Harjakatto"
+          }
+        }
+      },
+      "sections": {
+        "dates": {
+          "title": "Projektin päivämäärät"
+        },
+        "projectDetails": {
+          "title": "Projektin tiedot"
+        },
+        "siteAddress": {
+          "title": "Rakennuspaikan osoite"
+        }
+      },
+      "title": "Lisää uusi projekti"
+    }
+  },
+  "bool": {
+    "False": "Ei",
+    "True": "Joo"
+  },
+  "buildingOwnerDetails": {
+    "address": "Rakennuksen omistajan osoite",
+    "company": "Yritys",
+    "edit": {
+      "description": "Voit lisätä rakennuksen omistajan tiedot myöhemmin ennen takuun hakemista.",
+      "form": {
+        "actions": {
+          "submit": "Tallenna ja sulje"
+        },
+        "fields": {
+          "buildingOwnerAddress": {
+            "country": "Maa",
+            "firstLine": "Osoiterivi 1",
+            "postcode": "Postinumero",
+            "region": "Alue",
+            "secondLine": "Osoiterivi 2",
+            "town": "Postitoimipaikka"
+          },
+          "buildingOwnerCompany": "Yrityksen nimi",
+          "buildingOwnerFirstname": "Etunimi",
+          "buildingOwnerLastname": "Sukunimi",
+          "buildingOwnerMail": "Sähköpostiosoite"
+        }
+      },
+      "sections": {
+        "buildingOwnerAddress": {
+          "title": "Osoite"
+        },
+        "contactDetails": {
+          "title": "Yhteystiedot"
+        }
+      },
+      "title": "Rakennuksen omistajan tiedot"
+    },
+    "email": "Sähköposti",
+    "name": "Nimi",
+    "noContent": "Rakennuksen omistajan tietoja ei ole lisätty tähän projektiin",
+    "title": "Rakennuksen omistajan tiedot"
+  },
+  "building_owner": {
+    "address": "Rakennuksen omistajan osoite",
+    "contact_detail": "Rakennuksen omistajan nimi",
+    "email": "Rakennuksen omistajan sähköpostiosoite",
+    "title": "Rakennuksen omistajan tiedot"
+  },
+  "copyDialog": {
+    "content": "Haluatko kopioida tämän projektin (projektin tiedot ja rakennuksen omistajan tiedot) luodaksesi uuden?",
+    "copyOf": "Kopio {{name}}",
+    "title": "Kopioi tämä projekti"
+  },
+  "filters": {
+    "labels": {
+      "ALL": "Kaikki",
+      "ASSIGNED": "Määrätty",
+      "COMPLETED": "Valmistunut",
+      "FLAT": "Tasakatto",
+      "IN_PROGRESS": "Meneillään",
+      "MY_QUEUE": "Minulle määrätty",
+      "NOT_STARTED": "Ei vielä aloitettu",
+      "PITCHED": "Harjakatto",
+      "UNASSIGNED": "Ei määritetty"
+    }
+  },
+  "guarantee": {
+    "incompleteGuaranteeAlert": {
+      "description": "Täydentääksesi hakemuksesi lisää sertifioitu vastuullinen asentaja projektitiimiin ja lataa vaaditut todisteet Lataukset-välilehdelle.",
+      "title": "Vaadittu tieto"
+    },
+    "notRequested": "Ei pyydetty",
+    "status": {
+      "APPROVED": "Hyväksytty",
+      "NOT_APPLICABLE": "N/A",
+      "READY": "Valmis",
+      "REJECTED": "Palannut",
+      "REVIEW": "Lähetetty",
+      "STARTED": "Aloitettu",
+      "SUBMITTED": "Lähetetty"
+    },
+    "type": {
+      "PRODUCT": "Tuotetakuu",
+      "SOLUTION": "Ratkaisutakuu",
+      "SYSTEM": "Järjestelmätakuu"
+    }
+  },
+  "guaranteeApplyAlert": {
+    "message": {
+      "buildingOwner": "Rakennuksen omistajan tiedot eivät ole täydellisiä",
+      "guaranteeType": "Takuutyyppiä ei ole valittu",
+      "projectDetails": "Hankkeen yksityiskohdat eivät ole täydellisiä",
+      "tier": "Et ole tasolla, jossa takuut ovat saatavilla"
+    },
+    "title": "Et voi vielä hakea takuuta"
+  },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "Olet hyväksymässä ratkaisutakuupyyntöä. Takuuasiakirjat luodaan nyt ja lähetetään automaattisesti rakennuksen omistajalle sähköpostitse. Asentaja saa ilmoituksen, mutta voit myös lisätä viestin tähän projektiin.",
+      "title": "Oletko varma?"
+    },
+    "reject": {
+      "description": "Olet hylkäämässä ratkaisutakuupyynnön. Asentajalle ilmoitetaan asiasta. Lisää viesti tähän projektiin vahvistaaksesi asentajalle, mitä vaaditaan.",
+      "title": "Oletko varma?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "Tähän projektiin liittyvä takuu on käynnistetty uudelleen, joten uutta takuuta voidaan pyytää"
+  },
+  "guaranteeSubmitAlert": {
+    "message": {
+      "buildingOwner": "Rakennuksen omistajan tiedot eivät ole täydellisiä",
+      "certification": "Valitulla vastuullisella asentajalla ei tällä hetkellä ole BMI-sertifikaattia samassa tekniikassa kuin projektilla",
+      "guaranteeType": "Takuutyyppiä ei ole valittu",
+      "minumumEvidence": "Toimitettu riittämätön todiste",
+      "notApplicable": "Takuu ei ole voimassa",
+      "projectDetails": "Hankkeen yksityiskohdat eivät ole täydellisiä",
+      "responsibleInstaller": "BMI-sertifioitua vastuullista asentajaa ei ole valittu",
+      "tier": "Et ole tasolla, jossa takuut ovat saatavilla"
+    },
+    "title": "Et voi vielä lähettää takuuhakemustasi"
+  },
+  "guarantee_tab": {
+    "applyGuarantee": {
+      "defaultDialog": {
+        "confirm_label": "Sulje",
+        "description": "Takuutodistus on nähtävissä ja ladattavissa Projektit-sivulla.",
+        "title": "Takuusi on käsitelty."
+      },
+      "solutionDialog": {
+        "confirm_label": "Sulje",
+        "description": "Täytä hakemuksesi lähettämällä todisteet Tuonti-välilehdessä.",
+        "title": "Takuuhakemus aloitettu"
+      }
+    },
+    "apply_guarantee": {
+      "alert": {
+        "selectGuarantee": {
+          "message": "Tämän tyyppiselle katolle ei ole takuita. Ota yhteyttä paikalliseen BMI-järjestelmänvalvojaan saadaksesi lisätietoja.",
+          "title": "Tälle kattotyypille ei ole saatavilla takuutyyppiä"
+        }
+      },
+      "cancel_label": "Peruuta",
+      "confirm_label": "Käytä",
+      "message": {
+        "guarantee_exists_error": "Sinulla ei voi olla ratkaisu- tai järjestelmätakuuta projektille, jolla on jo tuotetakuu",
+        "not_available_tier": "Tämä takuutyyppi ei ole saatavilla tasossasi"
+      },
+      "review": {
+        "alert_banner": {
+          "description": "Kun takuu on hyväksytty, rakennuksen omistaja saa takuuasiakirjat automaattisesti antamaasi sähköpostiosoitteeseen.",
+          "title": "Tarvitsee tietää"
+        },
+        "header": "Takuuasiakirjat",
+        "preferred_language": "Valittu kieli",
+        "product_title": "Tuotteen yksityiskohdat",
+        "receipt_subTitle": "Ostotodistus",
+        "receipt_title": "Kuitin tiedot",
+        "required": {
+          "evidence": "Esitä asiaa tukeva näyttö",
+          "title": "Täytä hakemuksesi toimittamalla seuraavat tiedot:"
+        },
+        "responsible_installer": {
+          "description": "Valitse projektitiimistä asentaja, joka toimii vastuullisena asentajana. Heillä tulee olla BMI-sertifikaatti samassa tekniikassa kuin projektilla, jonka haluat taata.",
+          "title": "Vastuullinen asentaja"
+        },
+        "system_title": "Järjestelmän tiedot"
+      },
+      "title": "Aloita takuuhakemus",
+      "wizard": {
+        "footer": {
+          "goBack": "Mene takaisin",
+          "next": "Seuraava",
+          "submit": "Lähetä hakemus"
+        },
+        "step1": {
+          "subTitle": "Valitse vaadittu takuutaso",
+          "title": "Aloita takuuhakemus"
+        },
+        "step2": {
+          "inputLabel": "Valitse kieli",
+          "subTitle": "Valitse takuuasiakirjojen ensisijainen kieli.",
+          "title": "Aloita takuuhakemus"
+        },
+        "step3": {
+          "product_subTitle": "Valitse tuote takuuasiakirjaan",
+          "product_title": "Tuotetakuu",
+          "solution_subTitle": "Valitse järjestelmä takuudokumentaatiota varten",
+          "solution_title": "Ratkaisun takuu",
+          "system_subTitle": "Valitse järjestelmä takuudokumentaatiota varten",
+          "system_title": "Järjestelmätakuu"
+        },
+        "step4": {
+          "subTitle": "Liitä mukaan kopio tuotteen kuitista, jonka haluat taata",
+          "title": "Kuitin tiedot"
+        },
+        "step5": {
+          "subTitle": "Tarkista antamasi tiedot ennen hakemuksen lähettämistä.",
+          "title": "Arvostelu"
+        },
+        "stepDefault": {
+          "subTitle": "Takuuhakemus",
+          "title": "Takuuhakemus"
+        }
+      }
+    },
+    "header": "Tee takuuhakemus",
+    "nocontent_message": "Takuuta ei ole vielä pyydetty",
+    "submit_solution": "Pyydä ratkaisutakuu"
+  },
+  "noProjectSelected": {
+    "body1": "Et ole vielä valinnut projektia",
+    "body2": "Aloita valitsemalla sivupalkista \"Lisää uusi projekti\".",
+    "title": "Ei näytettäviä projekteja"
+  },
+  "noProjects": {
+    "body1": "Muuta suodatinta nähdäksesi erityyppiset projektit",
+    "body2": "Aloita valitsemalla toinen suodatin tai luomalla projekti",
+    "title": "Ei näytettäviä projekteja"
+  },
+  "noteTab": {
+    "addNoteDialog": {
+      "cancel": "Peruuta",
+      "detailHeading": "Jaa tietoa tästä projektista",
+      "send": "Lähettää",
+      "title": "Lisää viesti"
+    },
+    "header": "Lisää viesti",
+    "noContent": "Tähän projektiin ei ole lisätty viestejä",
+    "table": {
+      "author": "Kirjoittaja",
+      "date": "Päivämäärä",
+      "note": "Viesti"
+    }
+  },
+  "productDetails": {
+    "brand": "Brändi",
+    "family": "Tuoteperhe",
+    "name": "Tuotteen nimi"
+  },
+  "projectActions": {
+    "cta": {
+      "approveGuarantee": "Hyväksy takuu",
+      "archive": "Arkistoprojekti",
+      "cancel": "Peruuta",
+      "confirm": "Vahvista",
+      "requestInformation": "Pyydä lisätietoja",
+      "unarchive": "Ei arkistoitu"
+    },
+    "heading": "Projektin toimet"
+  },
+  "projectDetails": {
+    "archived": "Arkistoitu?",
+    "buildingAddress": "Rakennuspaikan osoite",
+    "code": "Projektin koodi",
+    "cta": {
+      "ASSIGN_SOLUTION": "Osoita minulle",
+      "NOT_ASSIGNABLE": "Ei luovutettavissa",
+      "REASSIGN_SOLUTION": "Määritä uudelleen minulle",
+      "UNASSIGN_SOLUTION": "Poista määritys minulta",
+      "copy": "Kopio?",
+      "edit": "Muokata"
+    },
+    "description": "Projektin kuvaus",
+    "endDate": "Projektin päättymispäivämäärä",
+    "error": "Virhe ladattaessa projektin tietoja",
+    "guaranteeStatus": "Takuun tila",
+    "guaranteeType": "Takuu",
+    "hints": {
+      "projectEditGuaranteeStatus": "Projektin tietoja ei voi muokata takuun tilan vuoksi."
+    },
+    "loading": "Ladataan projektin tietoja",
+    "roofArea": "Katon koko yhteensä (m2)",
+    "startDate": "Projektin aloituspäivämäärä",
+    "status": "Projektin tila"
+  },
+  "report": {
+    "guarantee": "Takuuraportti",
+    "project": "Projektiraportti",
+    "projectUpload": "Todistusraportti"
+  },
+  "responsible_installer": {
+    "address": "Vastaavan asentajan osoite",
+    "contact_detail": "Vastaavan asentajan yhteystiedot",
+    "email": "Vastuullisen asentajan sähköpostiosoite",
+    "title": "Vastuullisen asentajan tiedot"
+  },
+  "search": {
+    "inputLabel": "Etsi projekti"
+  },
+  "tabs": {
+    "guarantee": "Takuu",
+    "notes": "Viestit",
+    "team": "Tiimi",
+    "uploads": "Tuonti"
+  },
+  "teamTab": {
+    "add_team_member_modal": {
+      "cancel_label": "Peruuta",
+      "caption": "Valitse tiimin jäsenet, jotka työskentelevät tämän projektin parissa.",
+      "confirm_label": "Lisää tiimin jäsen",
+      "table": {
+        "certification": "BMI-sertifikaatti",
+        "email": "Sähköposti",
+        "name": "Nimi"
+      },
+      "title": "Lisää tiimin jäsen"
+    },
+    "header": "Lisää tiimin jäsen",
+    "noContent": "Tähän projektiin ei ole lisätty yhtään tiimin jäsentä",
+    "table": {
+      "certification": "BMI-sertifikaatti",
+      "remove": "Poista",
+      "responsibleInstaller": "Vastuullinen asentaja",
+      "role": "Rooli",
+      "teamMember": "Tiimin jäsen"
+    }
+  },
+  "upload_tab": {
+    "add_evidence_modal": {
+      "button_label": "Tuo tiedostot",
+      "cancel_label": "Peruuta",
+      "confirm_label": "Tuo tiedostot",
+      "evidence_category": "Todisteen tyyppi",
+      "file_validation_message": "Et voi ladata tiedostoja, jotka ovat suurempia kuin",
+      "instruction": "Voit tuoda tiedostoja",
+      "microcopy": {
+        "browse": "Selaa",
+        "drop": "Pudota"
+      },
+      "title": "Tuo todisteita",
+      "total_files_size": "Tiedostojen kokonaiskoko ylitetty - {{totalSize}}"
+    },
+    "header": "Tuo tiedosto",
+    "noContent": "Ei vielä tuotuja tiedostoja",
+    "requirementModal": {
+      "title": "Mitä vaaditaan?"
+    }
+  }
+}

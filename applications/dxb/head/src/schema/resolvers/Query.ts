@@ -42,12 +42,28 @@ export default {
       context: Context
     ): Promise<PLPFilterResponse> {
       const { categoryCodes, allowFilterBy } = args;
+      const marketFilters = process.env.MARKET_TAG_NAME
+        ? {
+            metadata: {
+              tags: {
+                elemMatch: {
+                  contentful_id: {
+                    eq: process.env.MARKET_TAG_NAME
+                  }
+                }
+              }
+            }
+          }
+        : {};
 
       const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
           ? {
               filter: {
-                categories: { elemMatch: { code: { in: categoryCodes } } }
+                categories: {
+                  elemMatch: { code: { in: categoryCodes } },
+                  ...marketFilters
+                }
               }
             }
           : {},

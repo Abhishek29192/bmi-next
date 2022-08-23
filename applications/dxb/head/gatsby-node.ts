@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
-import dotenv from "dotenv";
 import findUp from "find-up";
 import type { GatsbyNode } from "gatsby";
 import toml from "toml";
+import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
@@ -269,9 +269,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (fs.existsSync(redirectsTomlFile)) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const redirectsToml = fs.readFileSync(redirectsTomlFile);
+    const redirectsToml = fs.readFileSync(redirectsTomlFile, "utf8");
 
-    const redirects = toml.parse(redirectsToml.toString());
+    const redirects = toml.parse(redirectsToml);
     await Promise.all(
       redirects.redirects.map((redirect) =>
         createRedirect({

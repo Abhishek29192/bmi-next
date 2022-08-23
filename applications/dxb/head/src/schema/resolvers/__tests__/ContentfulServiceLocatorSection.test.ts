@@ -43,4 +43,37 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       { connectionType: "ContentfulService" }
     );
   });
+
+  it("should use MARKET_TAG_NAME if provided", async () => {
+    process.env.MARKET_TAG_NAME = "market__test";
+    expect(
+      await ContentfulServiceLocatorSection.services.resolve(
+        source,
+        null,
+        context
+      )
+    ).toEqual([{ type: "ContentfulServiceLocatorSection" }]);
+
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      {
+        query: { filter: { entryType: { eq: "type" } } },
+        type: "ContentfulService"
+      },
+      { connectionType: "ContentfulService" }
+    );
+
+    process.env.MARKET_TAG_NAME = "";
+  });
+
+  it("should return empty array if no  services found", async () => {
+    (context.nodeModel.findAll as jest.Mock).mockReturnValue({ entries: [] });
+
+    expect(
+      await ContentfulServiceLocatorSection.services.resolve(
+        source,
+        null,
+        context
+      )
+    ).toEqual([]);
+  });
 });

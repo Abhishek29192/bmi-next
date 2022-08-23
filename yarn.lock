@@ -1401,14 +1401,14 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.1.0.tgz#fbea7a688ffedf0763085b2cda8efe6fdd54d4c4"
   integrity sha512-iZf+UWfL+DogJVpd/xMQyP6X6McYd6ArdYoPMiv/zlOTzeXXfQbYxBNJJBF6tThvsjLMbA8tLjkCdm9RWMFCCw==
 
-"@bmi-digital/contentful-migration@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/contentful-migration/-/contentful-migration-1.1.1.tgz#0a866cce7634f7940ab14378eb537c2d848ce215"
-  integrity sha512-3KsGRDx4jjRb5EtBiYPX5DqPIl4gemt+SZx6D75U00khYGvr8uY8ewHUkNPnjci8aw7NGVUCxvWgWL+lhGpQZA==
+"@bmi-digital/contentful-migration@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/contentful-migration/-/contentful-migration-1.2.0.tgz#72348605928d2ce6f793745cfd511aa48026ec0b"
+  integrity sha512-PIs49Tr4e+tC1NW9m6duZQmoKKYSE9Dh1FUprxhNw1I/Hv/R7LAUsk8EJHN0H/fcefUfuOO7iZk+K1A7ALssIQ==
   dependencies:
     "@contentful/rich-text-from-markdown" "^15.13.1"
     "@types/node-fetch" "^2.6.2"
-    contentful-management "^10.6.3"
+    contentful-management "^10.12.0"
     contentful-migrate "^0.17.0"
     node-fetch "^2.6.7"
     ora "^5.4.1"
@@ -7833,6 +7833,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/xml2js@^0.4.11":
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/@types/xml2js/-/xml2js-0.4.11.tgz#bf46a84ecc12c41159a7bd9cf51ae84129af0e79"
+  integrity sha512-JdigeAKmCyoJUiQljjr7tQG3if9NkqGUgwEUqBvV0N7LM4HyQk7UXCnusRa1lnvXAEYJ8mw8GtZWioagNztOwA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/yargs-parser@*":
   version "21.0.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-21.0.0.tgz#0c60e537fa790f5f9472ed2776c2b71ec117351b"
@@ -12020,10 +12027,10 @@ contentful-management@^10.0.0:
     fast-copy "^2.1.1"
     lodash.isplainobject "^4.0.6"
 
-contentful-management@^10.6.3:
-  version "10.6.3"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-10.6.3.tgz#f6224bd9a046c40d1de7b320673207533aa758b4"
-  integrity sha512-1tzQM1VeJi1KGiaE7vWhIla79XwlwIrmPd6+BUw2LG/0ar6azeU1uvO6oQxH4azVN3D5k2XmshRE2OvRIJJ6Xw==
+contentful-management@^10.12.0:
+  version "10.12.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-10.12.0.tgz#72c6e7ed8c3f05d7b7b5956da995ca130060d617"
+  integrity sha512-Bk4M0Sax8eu+1JYEQKDq4OSX/EtVBuaVqv1cOYLr6wfEaA0ayFftHidNXtMgAvAhft+mIYlQV0ARL8fqRs/jOQ==
   dependencies:
     "@types/json-patch" "0.0.30"
     axios "^0.27.1"
@@ -25636,7 +25643,7 @@ process-top@^1.2.0:
 process@0.11.10, process@^0.11.10:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
-  integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
+  integrity sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==
 
 progress@2.0.3, progress@^2.0.0, progress@^2.0.3:
   version "2.0.3"
@@ -27768,7 +27775,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
 rx@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
-  integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
+  integrity sha512-CiaiuN6gapkdl+cZUr67W6I8jquN4lkak3vtIsIWCl4XIPP8ffsoyN6/+PuGXnQy8Cu8W2y9Xxh31Rq4M6wUug==
 
 rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.6.0, rxjs@^6.6.3:
   version "6.6.7"
@@ -32300,7 +32307,7 @@ xml2js@0.4.17:
     sax ">=0.6.0"
     xmlbuilder "^4.1.0"
 
-xml2js@^0.4.5:
+xml2js@^0.4.23, xml2js@^0.4.5:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.23.tgz#a0c69516752421eb2ac758ee4d4ccf58843eac66"
   integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==

@@ -3,8 +3,8 @@ export const parseMarketCompanyTag = (market: string) => {
   try {
     const marketsContentfulMap = JSON.parse(CONTENTFUL_TAGS);
     // eslint-disable-next-line security/detect-object-injection
-    return marketsContentfulMap[market] || "en";
+    return marketsContentfulMap[market] || "market__endor";
   } catch (e) {
-    return "en";
+    return "market__endor";
   }
 };

@@ -19,7 +19,7 @@ import layoutStyles from "../components/Layout/styles.module.scss";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 import { sortCourses } from "../lib/utils/course";
 import { findAccountCompany } from "../lib/account";
-import { parseMarketTag } from "../lib/utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 type PageProps = {
   trainingData: {
@@ -121,9 +121,9 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, account, locale, market }) => {
-    const marketDomain = account.market?.domain;
-    const contentfulTag = parseMarketTag(marketDomain);
+  async ({ apolloClient, account, locale, market, req }) => {
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
     const { doceboUserId } = account;
     const { tier } = findAccountCompany(account) || { tier: null };
     const doceboCatalogueId = () => {

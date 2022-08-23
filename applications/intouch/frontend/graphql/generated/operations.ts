@@ -3322,6 +3322,7 @@ export type TeamMembersQuery = {
       firstName?: string | null;
       formattedRole?: string | null;
       status?: SchemaTypes.AccountStatus | null;
+      marketId?: number | null;
       certificationsByDoceboUserId: {
         __typename?: "CertificationsConnection";
         nodes: Array<{
@@ -3344,6 +3345,10 @@ export type TeamMembersQuery = {
             startDate: any;
             endDate: any;
             hidden?: boolean | null;
+            company?: {
+              __typename?: "Company";
+              marketId?: number | null;
+            } | null;
           } | null;
         }>;
       };

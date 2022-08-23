@@ -70,7 +70,12 @@ describe("Training Page", () => {
       doceboCatalogueIdT3: "doceboCatalogueIdT3",
       doceboCatalogueIdT4: "doceboCatalogueIdT4"
     },
-    locale: {}
+    locale: {},
+    req: {
+      headers: {
+        host: "en.local.intouch:3000"
+      }
+    }
   });
 
   describe("server side props", () => {
@@ -88,7 +93,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueId",
-            tag: "en",
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },
@@ -130,7 +135,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueIdT3",
-            tag: "en",
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },
@@ -170,7 +175,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: "doceboCatalogueId",
-            tag: "en",
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },
