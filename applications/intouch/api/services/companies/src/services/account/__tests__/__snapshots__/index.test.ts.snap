@@ -294,6 +294,12 @@ Array [
     ],
   ],
   Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
     "RELEASE SAVEPOINT graphql_mutation",
   ],
 ]
@@ -333,6 +339,15 @@ Array [
       1,
       1,
     ],
+  ],
+  Array [
+    "SELECT * FROM market WHERE id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
   ],
   Array [
     "RELEASE SAVEPOINT graphql_mutation",
