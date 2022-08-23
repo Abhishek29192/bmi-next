@@ -32,8 +32,8 @@ build_gcp-pim-message-handler:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
@@ -49,8 +49,8 @@ package_gcp-pim-message-handler:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
   variables:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
@@ -68,10 +68,10 @@ deploy_gcp-pim-message-handler:
         - applications/dxb/libraries/pim-api/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
