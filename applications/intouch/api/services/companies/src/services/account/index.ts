@@ -544,11 +544,27 @@ export const completeInvitation = async (
     );
 
     logger.info(
-      `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
+      `Added relation with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
 
-    const marketDomain = user.market?.domain;
-    const contentfulTag = parseMarketCompanyTag(marketDomain);
+    const { rows: markets } = await pgClient.query(
+      `SELECT * FROM market WHERE id = $1`,
+      [user.marketId]
+    );
+
+    // Add domain to context.
+    const updatedContext: PostGraphileContext = {
+      ...context,
+      user: {
+        ...context.user,
+        market: {
+          ...context.user.market,
+          domain: markets[0].domain
+        }
+      }
+    };
+
+    const contentfulTag = parseMarketCompanyTag(markets[0].domain);
 
     const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
@@ -556,7 +572,7 @@ export const completeInvitation = async (
       contentfulTag
     );
 
-    await sendMessageWithTemplate(context, "TEAM_JOINED", {
+    await sendMessageWithTemplate(updatedContext, "TEAM_JOINED", {
       email: user.email,
       accountId: user.id,
       firstname: user.firstName,
