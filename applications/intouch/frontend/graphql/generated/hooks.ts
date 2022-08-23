@@ -3855,6 +3855,67 @@ export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
 >;
+export const QueryDoceboTiersByMarketIdDocument = gql`
+  query queryDoceboTiersByMarketId($marketId: Int!) {
+    doceboTiers(condition: { marketId: $marketId }) {
+      nodes {
+        tierCode
+        doceboCatalogueId
+      }
+    }
+  }
+`;
+
+/**
+ * __useQueryDoceboTiersByMarketIdQuery__
+ *
+ * To run a query within a React component, call `useQueryDoceboTiersByMarketIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQueryDoceboTiersByMarketIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQueryDoceboTiersByMarketIdQuery({
+ *   variables: {
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useQueryDoceboTiersByMarketIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >(QueryDoceboTiersByMarketIdDocument, options);
+}
+export function useQueryDoceboTiersByMarketIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >(QueryDoceboTiersByMarketIdDocument, options);
+}
+export type QueryDoceboTiersByMarketIdQueryHookResult = ReturnType<
+  typeof useQueryDoceboTiersByMarketIdQuery
+>;
+export type QueryDoceboTiersByMarketIdLazyQueryHookResult = ReturnType<
+  typeof useQueryDoceboTiersByMarketIdLazyQuery
+>;
+export type QueryDoceboTiersByMarketIdQueryResult = Apollo.QueryResult<
+  OperationTypes.QueryDoceboTiersByMarketIdQuery,
+  OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+>;
 export const GetMarketsByDomainDocument = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
@@ -3864,10 +3925,6 @@ export const GetMarketsByDomainDocument = gql`
         cmsSpaceId
         language
         domain
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl

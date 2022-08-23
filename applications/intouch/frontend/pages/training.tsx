@@ -13,7 +13,10 @@ import {
   GetGlobalDataQuery
 } from "../graphql/generated/operations";
 import { withPage } from "../lib/middleware/withPage";
-import { getServerPageTraining } from "../graphql/generated/page";
+import {
+  getServerPageTraining,
+  getServerPageDoceboTiersByMarketId
+} from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 import layoutStyles from "../components/Layout/styles.module.scss";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
@@ -125,22 +128,47 @@ export const getServerSideProps = withPage(
     const marketEnv = getMarketAndEnvFromReq(req);
     const contentfulTag = parseMarketTag(marketEnv.market);
     const { doceboUserId } = account;
-    const { tier } = findAccountCompany(account) || { tier: null };
-    const doceboCatalogueId = () => {
-      if (tier) {
-        return tier === "T1"
-          ? market.doceboCatalogueId
-          : market[`doceboCatalogueId${tier}`];
+    const { tier } = findAccountCompany(account) || { tier: "T1" };
+    const logger = req.logger("trainingPage");
+    const getDoceboCatalogueId = async () => {
+      try {
+        const {
+          props: {
+            data: {
+              doceboTiers: { nodes }
+            }
+          }
+        } = await getServerPageDoceboTiersByMarketId(
+          {
+            variables: {
+              marketId: market.id
+            }
+          },
+          apolloClient
+        );
+        const doceboCatalogue = nodes
+          .filter(
+            ({ tierCode, doceboCatalogueId }) =>
+              (tierCode === tier && !!doceboCatalogueId) || tierCode === "T1"
+          )
+          .sort((a, b) => (a.tierCode === "T1" ? -1 : 1));
+        return doceboCatalogue.length > 1
+          ? doceboCatalogue[1].doceboCatalogueId
+          : doceboCatalogue[0].doceboCatalogueId;
+      } catch (error) {
+        logger.error({
+          message: `failed to get docebo id with status ${error.status}, ERROR: ${error}`
+        });
+        return null;
       }
-      return market.doceboCatalogueId;
     };
-
+    const doceboCatalogueId = await getDoceboCatalogueId();
     let trainingData = {};
     try {
       const pageQuery = await getServerPageTraining(
         {
           variables: {
-            catalogueId: doceboCatalogueId(),
+            catalogueId: doceboCatalogueId,
             userId: doceboUserId,
             tag: contentfulTag
           }
