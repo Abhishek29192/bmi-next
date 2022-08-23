@@ -7,7 +7,7 @@
   Can use option --publish. Provide this option to publish all just created 
   Micro Copies. In this case, the value of each will be the same as the value 
 */
-import { microCopy } from "@bmi/head/src/constants/microCopies";
+import { microCopy } from "../../../head/src/constants/microCopies";
 import { getEnvironment, waitFor } from "../utils";
 
 /*
