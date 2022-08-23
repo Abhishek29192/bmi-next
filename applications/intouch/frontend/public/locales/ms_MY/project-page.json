@@ -1,0 +1,402 @@
+{
+  "CUSTOM": "Custom Files",
+  "MISCELLANEOUS": "Supporting files",
+  "PROOF_OF_PURCHASE": "Proof of purchase",
+  "Projects": "Projects",
+  "addProject": {
+    "cta": "Add new project",
+    "dialog": {
+      "form": {
+        "actions": {
+          "submit": "Save & Close"
+        },
+        "fields": {
+          "description": "Project description",
+          "endDate": "Project end date",
+          "inspection": "Inspection",
+          "name": "Project name",
+          "roofArea": "Total roof measurement (m2)",
+          "siteAddress": {
+            "country": "Country",
+            "firstLine": "Address Line 1",
+            "postcode": "Post Code / ZIP",
+            "region": "Region",
+            "secondLine": "Address Line 2",
+            "town": "Town / City"
+          },
+          "startDate": "Project start date",
+          "technology": "Project type"
+        },
+        "hints": {
+          "technology": {
+            "FLAT": "A roof covered with bituminous or concrete materials. It is usually horizontal and flat.",
+            "PITCHED": "A roof covered with ceramic or tin tiles. Usually it is sloping"
+          }
+        },
+        "values": {
+          "technology": {
+            "FLAT": "Flat",
+            "PITCHED": "Pitched"
+          }
+        }
+      },
+      "sections": {
+        "dates": {
+          "title": "Project dates"
+        },
+        "projectDetails": {
+          "title": "Project Details"
+        },
+        "siteAddress": {
+          "title": "Site address"
+        }
+      },
+      "title": "Add a project"
+    }
+  },
+  "bool": {
+    "False": "No",
+    "True": "Yes"
+  },
+  "buildingOwnerDetails": {
+    "address": "Building Owner address",
+    "company": "Company",
+    "edit": {
+      "description": "You can add the building owner details later on, before applying for a guarantee.",
+      "form": {
+        "actions": {
+          "submit": "Save & close"
+        },
+        "fields": {
+          "buildingOwnerAddress": {
+            "country": "Country",
+            "firstLine": "Address Line 1",
+            "postcode": "Post Code / ZIP",
+            "region": "Region",
+            "secondLine": "Address Line 2",
+            "town": "Town / City"
+          },
+          "buildingOwnerCompany": "Company name",
+          "buildingOwnerFirstname": "First name",
+          "buildingOwnerLastname": "Last name",
+          "buildingOwnerMail": "Email address"
+        }
+      },
+      "sections": {
+        "buildingOwnerAddress": {
+          "title": "Address"
+        },
+        "contactDetails": {
+          "title": "Contact Details"
+        }
+      },
+      "title": "Building owner details"
+    },
+    "email": "Email",
+    "name": "Name",
+    "noContent": "Building Owner details have not been added to this project",
+    "title": "Building Owner Details"
+  },
+  "building_owner": {
+    "address": "Building owner address",
+    "contact_detail": "Building contact details",
+    "email": "Building owner email",
+    "title": "Building Owner Details"
+  },
+  "copyDialog": {
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}",
+    "title": "Copy this project"
+  },
+  "filters": {
+    "labels": {
+      "ALL": "All",
+      "ASSIGNED": "Assigned",
+      "COMPLETED": "Completed",
+      "FLAT": "Flat",
+      "IN_PROGRESS": "In progress",
+      "MY_QUEUE": "My Queue",
+      "NOT_STARTED": "Not started",
+      "PITCHED": "Pitched",
+      "UNASSIGNED": "UnAssigned"
+    }
+  },
+  "guarantee": {
+    "incompleteGuaranteeAlert": {
+      "description": "To complete your application add a certified responsible installer to the project team and upload the evidence required on the Uploads tab.",
+      "title": "Information Required"
+    },
+    "notRequested": "Not requested",
+    "status": {
+      "APPROVED": "Approved",
+      "NOT_APPLICABLE": "N/A",
+      "READY": "Ready",
+      "REJECTED": "Returned",
+      "REVIEW": "Submitted",
+      "STARTED": "Started",
+      "SUBMITTED": "Submitted"
+    },
+    "type": {
+      "PRODUCT": "Product Guarantee",
+      "SOLUTION": "Solution Guarantee",
+      "SYSTEM": "System Guarantee"
+    }
+  },
+  "guaranteeApplyAlert": {
+    "message": {
+      "buildingOwner": "Builder Owner details are not completed",
+      "guaranteeType": "Guarantee Type is not defined",
+      "projectDetails": "Project details are not completed",
+      "tier": "You are not in a Tier that supports Guarantees"
+    },
+    "title": "You cannot apply for a guarantee yet"
+  },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project.",
+      "title": "Are you sure?"
+    },
+    "reject": {
+      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required.",
+      "title": "Are you sure?"
+    }
+  },
+  "guaranteeRestart": {
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
+    },
+    "note": "The guarantee associated with this project has been restarted, so a new guarantee can be requested"
+  },
+  "guaranteeSubmitAlert": {
+    "message": {
+      "buildingOwner": "Building owner details incomplete",
+      "certification": "The nominated Responsible Installer currently doesn't hold a BMI Certification in the same technology as the Project",
+      "guaranteeType": "Guarantee Type is not defined",
+      "minumumEvidence": "Insufficient evidence uploaded",
+      "notApplicable": "Guarantee not applicable",
+      "projectDetails": "Project details incomplete",
+      "responsibleInstaller": "No responsible installer nominated with the required certification",
+      "tier": "You are not in a Tier that supports Guarantees"
+    },
+    "title": "You cannot submit for a guarantee yet"
+  },
+  "guarantee_tab": {
+    "applyGuarantee": {
+      "defaultDialog": {
+        "confirm_label": "Close",
+        "description": "A certificate for your guarantee will be available to view on the Projects page.",
+        "title": "Your guarantee has been processed"
+      },
+      "solutionDialog": {
+        "confirm_label": "Close",
+        "description": "Complete your application by submitting evidence on the uploads tab.",
+        "title": "Guarantee application started"
+      }
+    },
+    "apply_guarantee": {
+      "alert": {
+        "selectGuarantee": {
+          "message": "Guarantees are not available for this type of roof.  Please contact your local BMI Administrator for more information.",
+          "title": "There is no guarantee type available for their technology"
+        }
+      },
+      "cancel_label": "Cancel",
+      "confirm_label": "Register",
+      "message": {
+        "guarantee_exists_error": "You cannot have a Solution or System Guarantee for a project that already has a Product Guarantee",
+        "not_available_tier": "This guarantee type is not available in your Tier"
+      },
+      "review": {
+        "alert_banner": {
+          "description": "Once the guarantee has been approved, the building owner will receive the guarantee documentation automatically, to the email address provided.",
+          "title": "Need to know"
+        },
+        "header": "Guarantee Documentation",
+        "preferred_language": "Preferred Language",
+        "product_title": "Product Details",
+        "receipt_subTitle": "Receipt of purchase",
+        "receipt_title": "Receipt Details",
+        "required": {
+          "evidence": "Provide supporting evidence",
+          "title": "Please complete your application by providing the following:"
+        },
+        "responsible_installer": {
+          "description": "Please select an installer from the Project Team who is acting as the Responsible Installer. They should hold a BMI Certification in the same technology as the Project that you want to guarantee.",
+          "title": "A responsible installer"
+        },
+        "system_title": "System Details"
+      },
+      "title": "Register for a guarantee",
+      "wizard": {
+        "footer": {
+          "goBack": "Go Back",
+          "next": "Next",
+          "submit": "Submit application"
+        },
+        "step1": {
+          "subTitle": "Select required level of guarantee",
+          "title": "Register for a guarantee"
+        },
+        "step2": {
+          "inputLabel": "Select language",
+          "subTitle": "Select the preferrred language for the guarantee documentation",
+          "title": "Register for a guarantee"
+        },
+        "step3": {
+          "product_subTitle": "Select the Product for the guarantee documentation",
+          "product_title": "Product Guarantee",
+          "solution_subTitle": "Select the System for the guarantee documentation",
+          "solution_title": "Solution Guarantee",
+          "system_subTitle": "Select the System for the guarantee documentation",
+          "system_title": "System Guarantee"
+        },
+        "step4": {
+          "subTitle": "Please upload a copy of the receipt for the product(s) you would like to guarantee",
+          "title": "Receipt details"
+        },
+        "step5": {
+          "subTitle": "Please review the information that you have provided, before submitting your application.",
+          "title": "Review"
+        },
+        "stepDefault": {
+          "subTitle": "Guarantee Application",
+          "title": "Guarantee Application"
+        }
+      }
+    },
+    "header": "Apply for a guarantee",
+    "nocontent_message": "No guarantee has been added yet",
+    "submit_solution": "Request Solution Guarantee"
+  },
+  "noProjectSelected": {
+    "body1": "You have not select any project yet!",
+    "body2": "Select the &quot;project&quot; from sidebar to get started.",
+    "title": "No projects to display"
+  },
+  "noProjects": {
+    "body1": "Change the filter to view different types of project",
+    "body2": "Select a different filter or create a project to get started",
+    "title": "No projects to display"
+  },
+  "noteTab": {
+    "addNoteDialog": {
+      "cancel": "Cancel",
+      "detailHeading": "Share information about this project",
+      "send": "Send",
+      "title": "Add a note"
+    },
+    "header": "Add Note",
+    "noContent": "No notes have been added to this project",
+    "table": {
+      "author": "Author",
+      "date": "Date",
+      "note": "Note"
+    }
+  },
+  "productDetails": {
+    "brand": "Brand",
+    "family": "Family",
+    "name": "Product name"
+  },
+  "projectActions": {
+    "cta": {
+      "approveGuarantee": "Approve guarantee",
+      "archive": "Archive project",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "requestInformation": "Request more information",
+      "unarchive": "Un-archive project"
+    },
+    "heading": "Project Actions"
+  },
+  "projectDetails": {
+    "archived": "Archived?",
+    "buildingAddress": "Building address",
+    "code": "Project code",
+    "cta": {
+      "ASSIGN_SOLUTION": "Assign to me",
+      "NOT_ASSIGNABLE": "Not Assignable",
+      "REASSIGN_SOLUTION": "Reassign to me",
+      "UNASSIGN_SOLUTION": "Unassign from me",
+      "copy": "Copy?",
+      "edit": "Edit"
+    },
+    "description": "Project description",
+    "endDate": "Project end date",
+    "error": "Error loading project details.",
+    "guaranteeStatus": "Guarantee status",
+    "guaranteeType": "Guarantee",
+    "hints": {
+      "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
+    },
+    "loading": "Loading project details",
+    "roofArea": "Total roof measurement",
+    "startDate": "Project start date",
+    "status": "Project status"
+  },
+  "report": {
+    "guarantee": "Guarantees Report",
+    "project": "Projects Report",
+    "projectUpload": "Uploads Report"
+  },
+  "responsible_installer": {
+    "address": "Responsible Installer address",
+    "contact_detail": "Responsible Installer contact details",
+    "email": "Responsible Installer email",
+    "title": "Responsible Installer details"
+  },
+  "search": {
+    "inputLabel": "Search for a project"
+  },
+  "tabs": {
+    "guarantee": "Guarantee",
+    "notes": "Notes",
+    "team": "Team",
+    "uploads": "Uploads"
+  },
+  "teamTab": {
+    "add_team_member_modal": {
+      "cancel_label": "Cancel",
+      "caption": "Choose the installers who will be working on this project.",
+      "confirm_label": "Add Members",
+      "table": {
+        "certification": "Certification",
+        "email": "Email",
+        "name": "Name"
+      },
+      "title": "Add an installer"
+    },
+    "header": "Add team member",
+    "noContent": "No team members have been added to this project",
+    "table": {
+      "certification": "Certification",
+      "remove": "Remove",
+      "responsibleInstaller": "Responsible Installer",
+      "role": "Role",
+      "teamMember": "Team Member"
+    }
+  },
+  "upload_tab": {
+    "add_evidence_modal": {
+      "button_label": "Upload Files",
+      "cancel_label": "Cancel",
+      "confirm_label": "Upload files",
+      "evidence_category": "Evidence Category",
+      "file_validation_message": "You cannot upload files larger than",
+      "instruction": "You can add files",
+      "microcopy": {
+        "browse": "Browse",
+        "drop": "Drop"
+      },
+      "title": "Evidence Upload",
+      "total_files_size": "Total files size exceeded - {{totalSize}}"
+    },
+    "header": "Upload file(s)",
+    "noContent": "No uploads yet",
+    "requirementModal": {
+      "title": "What's required?"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "genericError": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä paikalliseen BMI-järjestelmänvalvojaan.",
+  "invitation": {
+    "dialog": {
+      "cancel": "Peruuta",
+      "emails": {
+        "helperText": "Lisää useita jäseniä erottamalla jokainen sähköpostiosoite pilkulla",
+        "label": "Vastaanottajan sähköpostiosoite"
+      },
+      "errorAlreadyMember": "Käyttäjä on jo toisen yrityksen jäsen",
+      "errorInvitationNotFound": "Kutsua ei löydy",
+      "personalNote": {
+        "label": "Viestisi (valinnainen)"
+      },
+      "send": "Lähettää sähköpostia",
+      "success": "Kutsu on lähetetty",
+      "title": "Kutsu tiimin jäseniä"
+    }
+  },
+  "lastCompanyAdminError": "Et voi poistaa Yrityksen ylläpitäjää yrityksestä, jos hän on yrityksen viimeinen järjestelmänvalvoja, ellei BMI ole poistanut hänen tiliään käytöstä.",
+  "memberRemoved": "Jäsen poistettiin onnistuneesti",
+  "projectTable": {
+    "endDate": "Päättymispäivä",
+    "project": "Projekti",
+    "startDate": "Aloituspäivämäärä",
+    "title": "Projektit",
+    "type": "Tyyppi"
+  },
+  "report": "Lataa joukkueluettelo",
+  "sidePanel": {
+    "inviteLabel": " + Kutsu tiimin jäseniä",
+    "search": {
+      "label": "Etsi käyttäjä",
+      "noResult": "Käyttäjää ei löydy"
+    }
+  },
+  "table": {
+    "certification": "BMI-sertifikaatti",
+    "noResults": "Käyttäjällä ei ole BMI-sertifikaatteja",
+    "title": "BMI-sertifikaatit",
+    "type": "Tyyppi",
+    "validity": "Voimassaolo"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Aktivoi käyttäjä",
+      "deactivate": "Poista käyttäjä käytöstä"
+    },
+    "title": "Käyttäjän toimet"
+  },
+  "user_card": {
+    "add_admin": "Määritä yrityksen ylläpitäjäksi",
+    "add_auditor": "Määritä tilintarkastajaksi",
+    "cancel": "Peruuta",
+    "confirm": "Vahvista",
+    "remove": "Poista yrityksestä",
+    "remove_admin": "Poista yrityksen järjestelmänvalvojan määritys",
+    "remove_auditor": "Poista tilintarkastaja",
+    "remove_user_dialog": {
+      "text": "Haluatko poistaa tämän yrityksen jäsenen?",
+      "title": "Poista yrityksen jäsen"
+    },
+    "role_dialog": {
+      "text": "Haluatko muuttaa käyttäjän roolia?",
+      "title": "Vaihda roolia"
+    }
+  }
+}

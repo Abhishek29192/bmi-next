@@ -1,0 +1,52 @@
+{
+  "editDialog": {
+    "buttons": {
+      "removeProfilePicture": "Poista",
+      "saveAndClose": "Tallenna ja sulje",
+      "uploadProfilePicture": "Lataa uusi kuva"
+    },
+    "contactDetailsHeading": "Yhteystiedot",
+    "fileSizeMessage": "Tiedoston enimmäiskoko 3Mb",
+    "fileTypesMessage": "Voit ladata jpg-, gif- tai png-tiedostoja.",
+    "form": {
+      "fields": {
+        "email": "Sähköposti",
+        "firstName": "Etunimi",
+        "lastName": "Sukunimi",
+        "phone": "Puhelin",
+        "photo": "Profiilikuva"
+      }
+    },
+    "title": "Omat tiedot"
+  },
+  "leaveCompany": {
+    "cta": "Jätä yritys",
+    "dialog": {
+      "content": "Kaikki omistamasi BMI-sertifikaatit säilyvät sinulle, mutta Yritys ei enää peri mitään sertifikaattejasi. Et ole enää heidän projektiensa jäsen etkä voi tarkastella projektin tietoja. Yritys ei voi nimetä sinua projektien vastaavaksi asentajaksi.",
+      "cta": {
+        "cancel": "Peruuttaa",
+        "confirm": "Jatka"
+      },
+      "title": "Oletko varma?"
+    }
+  },
+  "passwordReset": {
+    "dialog": {
+      "error": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä BMI-järjestelmänvalvojaan.",
+      "success": "Lähetimme sinulle sähköpostin, jossa on linkki salasanan vaihtoon. Noudata sähköpostissa olevia ohjeita.",
+      "title": "Vaihda salasana"
+    }
+  },
+  "profileCard": {
+    "buttons": {
+      "changePassword": "Vaihda salasana",
+      "editProfile": "Muokata"
+    },
+    "certificationsHeading": "Sertifikaatit"
+  },
+  "registerCompany": {
+    "body": "Voit rekisteröidä yrityksesi tästä",
+    "cta": "Rekisteröidy",
+    "heading": "Rekisteröi yritysesi"
+  }
+}

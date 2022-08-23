@@ -1,0 +1,13 @@
+{
+  "dialog": {
+    "form": {
+      "agree_label": "Hyväksyn BMI:n",
+      "and": "ja",
+      "firstName": "Etunimi",
+      "lastName": "Sukunimi",
+      "privacy_policy": "Tietosuojakäytännön",
+      "terms_condition": "Käyttöehdot"
+    },
+    "title": "Täydellinen rekisteröinti"
+  }
+}

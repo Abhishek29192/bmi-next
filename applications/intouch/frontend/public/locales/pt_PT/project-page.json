@@ -130,7 +130,7 @@
     "notRequested": "Não requerido",
     "status": {
       "APPROVED": "Passado",
-      "NOT_APPLICABLE": "N / A",
+      "NOT_APPLICABLE": "N/A",
       "READY": "Preparar",
       "REJECTED": "Retornou",
       "REVIEW": "Aplicação submetida",
