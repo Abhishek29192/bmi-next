@@ -40,5 +40,17 @@
       "COMPANY_ADMIN": "Gerente de empresa",
       "INSTALLER": "Membro"
     }
+  },
+  "ms_MY": {
+    "roles": {
+      "COMPANY_ADMIN": "Company Administrator",
+      "INSTALLER": "Member"
+    }
+  },
+  "fi_FI": {
+    "roles": {
+      "COMPANY_ADMIN": "Yrityksen ylläpitäjä",
+      "INSTALLER": "Jäsen"
+    }
   }
 }
