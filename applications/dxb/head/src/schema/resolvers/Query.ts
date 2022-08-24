@@ -1,6 +1,6 @@
 import { Product } from "@bmi/firestore-types";
-import { FourOFourResponse, PLPFilterResponse } from "../../types/pim";
-import { ContentfulAssetType } from "./types/Contentful";
+import { PLPFilterResponse } from "../../types/pim";
+import { ContentfulAssetType, FourOFourResponse } from "./types/Contentful";
 import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
 import { ProductDocument } from "./types/pim";
 import { resolveDocumentsFromProducts } from "./utils/documents";

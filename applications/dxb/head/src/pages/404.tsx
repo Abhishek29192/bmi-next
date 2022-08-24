@@ -6,7 +6,7 @@ import { renderImage } from "../components/Image";
 import { getClickableActionFromUrl } from "../components/Link";
 import Page from "../components/Page";
 import { renderVideo } from "../components/Video";
-import { FourOFourResponse } from "../types/pim";
+import { FourOFourResponse } from "../schema/resolvers/types/Contentful";
 
 type Data = {
   FourOFour: FourOFourResponse;
@@ -43,10 +43,6 @@ const FourOFour = ({ data }: { data: Data }) => {
               action={getClickableActionFromUrl(
                 errorFourOFour.cta?.linkedPage,
                 errorFourOFour.cta?.url,
-                // TODO: As per below TODO
-                // Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-                // rc note: improved, this would be sufficient if the bit on line
-                //          21 were correct
                 siteData?.countryCode,
                 null,
                 errorFourOFour.cta.label

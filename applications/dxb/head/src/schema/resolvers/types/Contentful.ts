@@ -43,3 +43,8 @@ export type ContentfulDocument = Node & {
   brand: string;
   noIndex: boolean;
 };
+
+export type FourOFourResponse = {
+  siteData: any; //this is meant to be ContentfulSite type!
+  errorPageData: any; //this is meant to be PromoCardFragment type!
+};
