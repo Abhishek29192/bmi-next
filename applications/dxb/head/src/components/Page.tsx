@@ -13,6 +13,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
+import FallbackComponent from "./FallbackComponent";
 import { Head } from "./Head";
 import { generateGetMicroCopy } from "./MicroCopy";
 import CalculatorProvider from "./PitchedRoofCalcualtor";
@@ -185,12 +186,6 @@ const Page = ({
     </>
   );
 };
-
-const FallbackComponent = () => (
-  <div role="alert">
-    It&#39;s not you, it&#39;s us - something went wrong on our web server.
-  </div>
-);
 
 export default withErrorBoundary(Page, {
   FallbackComponent: FallbackComponent
