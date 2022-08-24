@@ -1,6 +1,11 @@
 import { Product } from "@bmi/firestore-types";
 import { PLPFilterResponse } from "../../types/pim";
-import { ContentfulAssetType, FourOFourResponse } from "./types/Contentful";
+import {
+  ContentfulAssetType,
+  ContentfulPromoCard,
+  ContentfulSite,
+  FourOFourResponse
+} from "./types/Contentful";
 import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
 import { ProductDocument } from "./types/pim";
 import { resolveDocumentsFromProducts } from "./utils/documents";
@@ -260,7 +265,7 @@ export default {
       };
     }
   },
-  FourOFour: {
+  fourOFour: {
     type: "FourOFourResponse",
     async resolve(
       source: Node,
@@ -269,8 +274,14 @@ export default {
     ): Promise<FourOFourResponse> {
       const marketCode = process.env.SPACE_MARKET_CODE;
       const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
-
-      const { entries } = await context.nodeModel.findAll<Node>(
+      if (!marketCode || !localeCode) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+        );
+        return { errorPageData: undefined, siteData: undefined };
+      }
+      const currSite = await context.nodeModel.findOne<ContentfulSite>(
         {
           query: {
             filter: {
@@ -282,24 +293,26 @@ export default {
         },
         { connectionType: "ContentfulSite" }
       );
-      const siteData = [...entries];
-
-      if (siteData.length === 0) {
+      if (!currSite) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Site not found: for country code: '${marketCode}' and locale: '${localeCode}'.`
+          `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
         );
         return { errorPageData: undefined, siteData: undefined };
       }
       const resource = await context.nodeModel.getNodeById({
-        id: siteData[0].resources___NODE as string,
+        id: currSite.resources___NODE as string,
         type: "ContentfulResources"
       });
-      const currSite = siteData[0];
       if (!resource) {
         // eslint-disable-next-line no-console
-        console.warn(`Resource not found: for site id: '${currSite.id}'.`);
-        return { errorPageData: undefined, siteData: currSite };
+        console.warn(
+          `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
+        );
+        return {
+          errorPageData: undefined,
+          siteData: currSite
+        };
       }
       const errorFourOFour = await context.nodeModel.getNodeById({
         id: resource.errorFourOFour___NODE as string,
@@ -308,11 +321,18 @@ export default {
       if (!errorFourOFour) {
         // eslint-disable-next-line no-console
         console.warn(
-          `Resource 'errorFourOFour' not found: at resource id: '${resource.id}'.`
+          `'errorFourOFour' not found on resource in contentful with id: '${resource.contentful_id}'.`
         );
-        return { errorPageData: undefined, siteData: currSite };
+        return {
+          errorPageData: undefined,
+          siteData: currSite
+        };
       }
-      return { errorPageData: errorFourOFour, siteData: currSite };
+
+      return {
+        errorPageData: errorFourOFour as ContentfulPromoCard,
+        siteData: currSite
+      };
     }
   }
 };

@@ -9,16 +9,19 @@ import { renderVideo } from "../components/Video";
 import { FourOFourResponse } from "../schema/resolvers/types/Contentful";
 
 type Data = {
-  FourOFour: FourOFourResponse;
+  fourOFour: FourOFourResponse;
 };
 
 const FourOFour = ({ data }: { data: Data }) => {
-  const siteData = data.FourOFour.siteData;
-  const errorFourOFour = data.FourOFour.errorPageData;
+  const siteData = data.fourOFour.siteData;
+  const errorFourOFour = data.fourOFour.errorPageData;
+  const placeholderTitle = "Error:404.title";
+  const placeholderSubtitle = "Error:404.subtitle";
+  const placeholderCTALabel = "Error:404.cta.label";
   {
     return siteData && errorFourOFour ? (
       <Page
-        title={errorFourOFour.title || "Error:404.title"}
+        title={errorFourOFour.title || placeholderTitle}
         pageData={{
           breadcrumbs: null,
           signupBlock: null,
@@ -28,7 +31,7 @@ const FourOFour = ({ data }: { data: Data }) => {
         siteData={siteData}
       >
         <PromoSection
-          title={errorFourOFour.title}
+          title={errorFourOFour.title || placeholderTitle}
           media={
             errorFourOFour.featuredVideo
               ? renderVideo(errorFourOFour.featuredVideo)
@@ -36,7 +39,7 @@ const FourOFour = ({ data }: { data: Data }) => {
           }
         >
           <Typography variant="body2" gutterBottom>
-            {errorFourOFour.subtitle}
+            {errorFourOFour.subtitle || placeholderSubtitle}
           </Typography>
           {errorFourOFour.cta && (
             <Button
@@ -45,10 +48,10 @@ const FourOFour = ({ data }: { data: Data }) => {
                 errorFourOFour.cta?.url,
                 siteData?.countryCode,
                 null,
-                errorFourOFour.cta.label
+                errorFourOFour.cta?.label || placeholderCTALabel
               )}
             >
-              {errorFourOFour.cta.label}
+              {errorFourOFour.cta?.label || placeholderCTALabel}
             </Button>
           )}
         </PromoSection>
@@ -63,7 +66,7 @@ export default FourOFour;
 
 export const pageQuery = graphql`
   {
-    FourOFour {
+    fourOFour {
       errorPageData {
         ...PromoCardFragment
       }
