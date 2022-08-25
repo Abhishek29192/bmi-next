@@ -109,7 +109,7 @@ export type Category = {
   categoryType: CategoryType;
   code: string;
   image?: CategoryImage;
-  name: string;
+  name?: string;
   parentCategoryCode?: string;
 };
 

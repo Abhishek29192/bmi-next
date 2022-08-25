@@ -146,8 +146,9 @@ export type Brand = Omit<FirestoreBrand, "logo"> & {
 
 export type Category = Omit<
   FirestoreCategory,
-  "image" | "parentCategoryCode"
+  "name" | "image" | "parentCategoryCode"
 > & {
+  name: string | null;
   image: CategoryImage | null;
   parentCategoryCode: string | null;
 };
@@ -301,7 +302,7 @@ export type ProductFilterOption = {
 export type ProductFilter = {
   filterCode: string | undefined;
   label: string;
-  name: string;
+  name: string | null;
   options: ProductFilterOption[];
   value?: string[];
 };
