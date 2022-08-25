@@ -1,58 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-  <context>
-    <name>Head MR</name>
-    <desc />
-    <inscope>true</inscope>
-    <incregexes>https://.*bmi-dxb-head-qa.netlify.app.*</incregexes>
-    <incregexes>https://dxbqa-.*.gtsb.io.*</incregexes>
-    <tech>
-      <include>Db</include>
-      <include>Language</include>
-      <include>Language.JavaScript</include>
-      <include>OS</include>
-      <include>OS.Linux</include>
-      <include>SCM</include>
-      <include>SCM.Git</include>
-    </tech>
-    <urlparser>
-      <class>org.zaproxy.zap.model.StandardParameterParser</class>
-      <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
-    </urlparser>
-    <postparser>
-      <class>org.zaproxy.zap.model.StandardParameterParser</class>
-      <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
-    </postparser>
-    <authentication>
-      <type>2</type>
-      <strategy>EACH_RESP</strategy>
-      <pollurl />
-      <polldata />
-      <pollheaders />
-      <pollfreq>60</pollfreq>
-      <pollunits>REQUESTS</pollunits>
-      <loggedout>\QPlease enter your password to get access.\E</loggedout>
-      <form>
-        <loginurl>REPLACE_ME</loginurl>
-        <loginbody>username={%username%}&amp;password={%password%}</loginbody>
-        <loginpageurl>https://dxbqa-dxb2683performanceanalysis.gtsb.io</loginpageurl>
-      </form>
-    </authentication>
-    <users>
-      <user>1388;true;bXI=;2;bXI=~TDN0TTNpbmQkYjIwMjA=~</user>
-    </users>
-    <forceduser>1388</forceduser>
-    <session>
-      <type>0</type>
-    </session>
-    <authorization>
-      <type>0</type>
-      <basic>
-        <header />
-        <body />
-        <logic>AND</logic>
-        <code>-1</code>
-      </basic>
-    </authorization>
-  </context>
+    <context>
+        <name>mr</name>
+        <desc/>
+        <inscope>true</inscope>
+        <incregexes>https://dxbqa-.*.gtsb.io.*</incregexes>
+        <tech>
+            <include>Language.JavaScript</include>
+            <include>OS.Linux</include>
+            <include>SCM.Git</include>
+            <exclude>Db</exclude>
+            <exclude>Db.CouchDB</exclude>
+            <exclude>Db.Firebird</exclude>
+            <exclude>Db.HypersonicSQL</exclude>
+            <exclude>Db.IBM DB2</exclude>
+            <exclude>Db.Microsoft Access</exclude>
+            <exclude>Db.Microsoft SQL Server</exclude>
+            <exclude>Db.MongoDB</exclude>
+            <exclude>Db.MySQL</exclude>
+            <exclude>Db.Oracle</exclude>
+            <exclude>Db.PostgreSQL</exclude>
+            <exclude>Db.SAP MaxDB</exclude>
+            <exclude>Db.SQLite</exclude>
+            <exclude>Db.Sybase</exclude>
+            <exclude>Language</exclude>
+            <exclude>Language.ASP</exclude>
+            <exclude>Language.C</exclude>
+            <exclude>Language.JSP/Servlet</exclude>
+            <exclude>Language.Java</exclude>
+            <exclude>Language.Java.Spring</exclude>
+            <exclude>Language.PHP</exclude>
+            <exclude>Language.Python</exclude>
+            <exclude>Language.Ruby</exclude>
+            <exclude>Language.XML</exclude>
+            <exclude>OS</exclude>
+            <exclude>OS.MacOS</exclude>
+            <exclude>OS.Windows</exclude>
+            <exclude>SCM</exclude>
+            <exclude>SCM.SVN</exclude>
+            <exclude>WS</exclude>
+            <exclude>WS.Apache</exclude>
+            <exclude>WS.IIS</exclude>
+            <exclude>WS.Tomcat</exclude>
+        </tech>
+        <urlparser>
+            <class>org.zaproxy.zap.model.StandardParameterParser</class>
+            <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
+        </urlparser>
+        <postparser>
+            <class>org.zaproxy.zap.model.StandardParameterParser</class>
+            <config>{"kvps":"&amp;","kvs":"=","struct":[]}</config>
+        </postparser>
+        <authentication>
+            <type>2</type>
+            <strategy>EACH_RESP</strategy>
+            <pollurl/>
+            <polldata/>
+            <pollheaders/>
+            <pollfreq>60</pollfreq>
+            <pollunits>REQUESTS</pollunits>
+            <loggedout>\QPlease enter your password to get access.\E</loggedout>
+            <form>
+                <loginurl>REPLACE_ME</loginurl>
+                <loginbody>username={%username%}&amp;password={%password%}</loginbody>
+                <loginpageurl>REPLACE_ME</loginpageurl>
+            </form>
+        </authentication>
+        <users>
+            <user>1388;true;bXI=;2;bXI=~TDN0TTNpbmQkYjIwMjA=~</user>
+        </users>
+        <forceduser>1388</forceduser>
+        <session>
+            <type>0</type>
+        </session>
+        <authorization>
+            <type>0</type>
+            <basic>
+                <header/>
+                <body/>
+                <logic>AND</logic>
+                <code>-1</code>
+            </basic>
+        </authorization>
+    </context>
 </configuration>
