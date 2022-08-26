@@ -872,6 +872,90 @@
           alertSignupDescription: `Um convite para se registrar foi enviado para {email} e ainda está pendente. Selecione 'Cancelar' para encontrar o e-mail e aceitar o convite ou selecione 'Confirmar' para recusar o convite e registrar uma conta individual.`,
           cancel: "Cancelar",
           confirm: "Confirmar"
+        },
+        my: {
+          intouch_title: "InTouch - Login/Registration",
+          signup_welcome: "Welcome",
+          intouch_role: "Please select your registration type",
+          installer: "Installer",
+          company: "Company",
+          first_name: "First Name",
+          last_name: "Last Name",
+          enter_email: "Email address",
+          enter_password: "Password",
+          sign_up: "Sign Up",
+          already_registered: "Already registered",
+          login_welcome: "Welcome",
+          log_in: "Log In",
+          forgot_password: "Forgot password?",
+          not_registered: "Not registered?",
+          new_password: "Request new password",
+          new_password_text:
+            "Please enter your email address and we will send you a link for a password reset",
+          reset_password: "Reset Password",
+          back_to_login: "Back to Log In",
+          reset_password_success: "Check your inbox",
+          email_missing: "Please insert your email",
+          generic_error:
+            "Please check your credential, if the problem persists contact use",
+          name_surname_missing: "First and last name missing",
+          email_password_missing: "Email and password missing",
+          registration_tooltip:
+            "Only select Company Account if you are sure that your company is not already registered InTouch.  Individual Accounts will get access to training and can become members of registered companies.",
+          i_agree_to: "I agree to BMI's",
+          terms_and_conditions: "Terms & Conditions",
+          and: "and",
+          privacy_policy: "Privacy Policy",
+          success: "Success",
+          terms_missing: "Please accept terms & condition",
+          PasswordStrengthError:
+            "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)",
+          alertSignupTitle: "Already invited?",
+          alertSignupDescription: `An invitation to register was sent to {email} and is still pending. Select ‘Cancel’ to find the email and accept the invitation or select ‘Confirm’ to decline the invitation and register an individual account.`,
+          cancel: "Cancel",
+          confirm: "Confirm"
+        },
+        fi: {
+          intouch_title: "InTouch - Kirjautuminen/Rekisteröityminen",
+          signup_welcome: "Tervetuloa",
+          intouch_role: "Valitse rekisteröintityyppi",
+          installer: "Yksittäinen jäsen",
+          company: "Yritystili",
+          first_name: "Etunimi",
+          last_name: "Sukunimi",
+          enter_email: "Sähköpostiosoite",
+          enter_password: "Salasana",
+          sign_up: "Rekisteröidy",
+          already_registered: "Jo rekisteröity?",
+          login_welcome: "Tervetuloa",
+          log_in: "Kirjaudu sisään",
+          forgot_password: "Unohtuiko salasana?",
+          not_registered: "Ei rekisteröity?",
+          new_password: "Pyydä uusi salasana",
+          new_password_text:
+            "Anna sähköpostiosoitteesi, niin lähetämme sinulle linkin salasanan vaihtoon",
+          reset_password: "Nollaa salasana",
+          back_to_login: "Takaisin sisäänkirjautumiseen",
+          reset_password_success: "Tarkista sähköpostisi",
+          email_missing: "Lisää sähköpostiosoitteesi",
+          generic_error:
+            "Tarkista kirjautumistietosi. Jos ongelma jatkuu, ota yhteyttä BMI:hen",
+          name_surname_missing: "Etu- ja sukunimi puuttuu",
+          email_password_missing: "Sähköpostiosoite ja salasana puuttuu",
+          registration_tooltip:
+            "Valitse yritystili vain, jos olet varma, ettei yrityksesi ole jo rekisteröitynyt InTouchiin. Henkilökohtainen tili antaa sinulle pääsyn koulutukseen ja voit liittyä InTouchissa rekisteröidyn yrityksen jäseneksi.",
+          i_agree_to: "Hyväksyn BMI:n",
+          terms_and_conditions: "Käyttöehdot",
+          and: "ja",
+          privacy_policy: "Tietosuojakäytännön",
+          success: "Menestys",
+          terms_missing: "Hyväksy BMI-ehdot",
+          PasswordStrengthError:
+            "Käytä salasanaa, jossa on vähintään 8 merkkiä ja joka sisältää vähintään 3 seuraavista 4 merkkityypistä: pienet kirjaimet (a-z), isot kirjaimet (A-Z), numerot (eli 0-9), erikoismerkit (esim. !@#$%^&*)",
+          alertSignupTitle: "Oletko jo kutsuttu?",
+          alertSignupDescription: "Rekisteröitymiskutsu lähetettiin osoitteeseen {email}, ja se on edelleen kesken. Valitse Peruuta löytääksesi sähköpostin ja hyväksyäksesi kutsun tai valitsemalla Vahvista, jos haluat hylätä kutsun ja rekisteröidä henkilökohtaisen tilin.",
+          cancel: "Peruuta",
+          confirm: "Vahvista"
         }
       };
 
@@ -896,6 +980,8 @@
           de: false,
           es: true,
           pt: true,
+          my: true,
+          fi: true
           en: false // project not active
         };
 
@@ -1192,12 +1278,14 @@
 
         // Define map of OneTrust tokens depends on market.
         const marketsOneTrustMap = {
-          no: "6a79505b-511c-4865-a79a-6d6152ba223b-test",
-          it: "2194ed0e-b5ed-4ae8-b642-53ff110a08d3-test",
-          dk: "7b88b89f-d776-49b4-8cd3-aabbc1f84ba2-test",
-          de: "1810f8b2-1df6-424e-98c2-5215b272935e-test",
-          es: "eeaf5ed2-4c02-4b0f-ba27-680f7520f30b-test",
+          no: "",
+          it: "",
+          dk: "",
+          de: "",
+          es: "",
           pt: "",
+          my: "",
+          fi: "",
           en: ""
         };
 
