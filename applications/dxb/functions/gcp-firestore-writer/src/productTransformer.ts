@@ -19,6 +19,7 @@ import type {
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
+import logger from "@bmi-digital/functions-logger";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -190,6 +191,14 @@ export const transformProduct = (product: PimProduct): Product[] => {
       });
       const hashedCode = generateHashFromString(variant.code, false);
       const name = product.name;
+
+      product.categories?.forEach((category) => {
+        if (!category.name) {
+          logger.info({
+            message: `Product's category doesn't have a name. Product: ${product.name}, Category Code: ${category.code}`
+          });
+        }
+      });
 
       const transformedProduct: Product = {
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
@@ -390,7 +399,7 @@ const getFilters = (
       const parentCategory: PimCategory[] = categories.filter(
         (cat) => cat.code === category.parentCategoryCode
       );
-      if (parentCategory[0]?.name.length) {
+      if (parentCategory[0]?.name?.length) {
         groupLabel = parentCategory[0].name;
       }
     }
@@ -408,22 +417,29 @@ const getFilters = (
   return [...classificationFilters, ...categoryFilters];
 };
 
+export type CategoryWithName = Category & { name: string };
+
 const getGroups = (categories: readonly Category[]): CategoryGroup[] => {
   const categoryTypeCategories = categories.filter(
     ({ categoryType }) => categoryType === "Category"
   );
   return categoryTypeCategories
-    .filter(({ parentCategoryCode }) => parentCategoryCode === "")
+    .filter((category): category is CategoryWithName =>
+      Boolean(category.parentCategoryCode === "" && category.name?.length)
+    )
     .map((rootCategory) => {
       let path = [{ label: rootCategory.name, code: rootCategory.code }];
-      let currentNode: Category | undefined = rootCategory;
+      let currentNode: CategoryWithName | undefined = rootCategory;
 
       while (currentNode) {
         currentNode = categories.find(
-          ({ parentCategoryCode }) =>
-            parentCategoryCode &&
-            currentNode &&
-            parentCategoryCode === currentNode.code
+          (category): category is CategoryWithName =>
+            Boolean(
+              category.parentCategoryCode &&
+                currentNode &&
+                category.parentCategoryCode === currentNode.code &&
+                category.name?.length
+            )
         );
 
         if (currentNode) {

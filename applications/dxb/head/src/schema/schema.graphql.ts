@@ -47,7 +47,7 @@ type FilterOption {
 
 type Filter {
   filterCode: String!
-  name: String!
+  name: String
   value: String!
   code: String!
   groupLabel: String
@@ -67,6 +67,11 @@ type PLPFilter {
 type PLPFilterResponse {
   filters: [PLPFilter]
   allowFilterBy: [String]
+}
+
+type FourOFourResponse {
+  errorPageData: ContentfulPromo
+  siteData: ContentfulSite
 }
 
 type BreadcrumbItem{

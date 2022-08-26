@@ -131,9 +131,17 @@ export const generateFilters = (
       const tryConvertToNumber = (value: string) =>
         parseInt(value.replace(/\D+/gi, ""));
 
+      const getCategoryLabel = (firestoreFilter: FirestoreFilter) => {
+        return (
+          microCopies.get(`plpFilter.${firestoreFilter.code}`) ||
+          firestoreFilter.name?.trim() ||
+          `MC:plpFilter.${firestoreFilter.code}`
+        );
+      };
+
       const getLabel = (firestoreFilter: FirestoreFilter) => {
         if (firestoreFilter.isCategory) {
-          return firestoreFilter.name.trim();
+          return getCategoryLabel(firestoreFilter);
         }
         return `${firestoreFilter.value} ${firestoreFilter.unit || ""}`.trim();
       };
@@ -141,7 +149,7 @@ export const generateFilters = (
       const getSortValue = (firestoreFilter: FirestoreFilter) => {
         const optionSortValue = tryConvertToNumber(firestoreFilter.value);
         if (firestoreFilter.isCategory) {
-          return firestoreFilter.name.trim();
+          return getCategoryLabel(firestoreFilter);
         }
         return isNaN(optionSortValue) ? firestoreFilter.value : optionSortValue;
       };

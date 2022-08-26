@@ -1,7 +1,7 @@
 build_contentful_migrate:
   stage: build
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -27,7 +27,7 @@ build_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -69,7 +69,7 @@ build_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [.run_for_changes_on_main, rules]
+    - !reference [ .run_for_changes_on_main, rules ]
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
@@ -91,12 +91,52 @@ build_contentful_migrate:
       DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
+
+
+############################################################################
+# Templates used by each consolidated market to run microcopy update
+#
+# For example:
+# variables:
+#   DXB_MARKET_ID: NO
+############################################################################
+.update_mc:
+  stage: pre deploy
+  variables:
+    DXB_MARKET_ID: "" # Market ID - i.e. NO
+  needs:
+    - job: install_yarn
+      optional: true
+  rules:
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/head/src/constants/microCopies.ts
+      variables:
+        CONTENTFUL_ENVIRONMENT: pre-production
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/head/src/constants/microCopies.ts
+      variables:
+        CONTENTFUL_ENVIRONMENT: master
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
+  script:
+    - |
+      apt-get update && apt-get install -y jq
+      export MANAGEMENT_ACCESS_TOKEN=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
+      export SPACE_ID=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
+      cd applications/dxb/contentful-migrate && yarn build && yarn dxb-update-mc:publish
+
 ##############################################################
-# Market specific migration and deploy jobs start from here
+# Market specific migration, microcopy and deploy jobs start from here
 ##############################################################
 
 migrate_content_qa:
   extends: .migrate_content
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -104,6 +144,8 @@ migrate_content_qa:
 
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_qa
   variables:
@@ -118,6 +160,8 @@ deploy_gatsby_cloud_qa:
 
 migrate_content_one_page_qa:
   extends: .migrate_content
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -125,6 +169,8 @@ migrate_content_one_page_qa:
 
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
+  rules:
+    - !reference [ .run_for_changes_on_main, rules ]
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -454,3 +500,139 @@ deploy_gatsby_cloud_blueprint:
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
     ROOT_DIR: "applications/dxb/contentful-migrate"
+
+update_mc_poc:
+  extends: .update_mc
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/head/src/constants/microCopies.ts
+      variables:
+        CONTENTFUL_ENVIRONMENT: master
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
+  variables:
+    DXB_MARKET_ID: "POC"
+
+update_mc_qa:
+  extends: .update_mc
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/contentful-migrate/src/**/*
+        - applications/dxb/head/src/constants/microCopies.ts
+      variables:
+        CONTENTFUL_ENVIRONMENT: staging
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
+  variables:
+    DXB_MARKET_ID: "NO"
+
+update_mc_norway:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "NO"
+
+update_mc_italy:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "IT"
+
+update_mc_finland:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "FI"
+
+update_mc_france:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "FR"
+
+update_mc_germany:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "DE"
+
+update_mc_austria:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "AT"
+
+update_mc_netherlands:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "NL"
+
+update_mc_unitedkingdom:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "UK"
+
+update_mc_southafrica:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "ZA"
+
+update_mc_turkey:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "TR"
+
+update_mc_spain:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "ES"
+
+update_mc_portugal:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "PT"
+
+update_mc_malaysia:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "MY"
+
+update_mc_belgium_nl:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "BE"
+
+update_mc_romania:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "RO"
+
+update_mc_indonesia:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "ID"
+
+update_mc_poland:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "PL"
+
+update_mc_group:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "GROUP"
+
+update_mc_sandpit:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "SANDPIT"
+  rules:
+    # Only trigger for PROD tags
+    # Gitlab CI/CD does not currently support pattern matching using a regex in
+    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+
+update_mc_blueprint:
+  extends: .update_mc
+  rules:
+    # Only trigger for PROD tags
+    # Gitlab CI/CD does not currently support pattern matching using a regex in
+    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+  variables:
+    DXB_MARKET_ID: "BLUEPRINT"

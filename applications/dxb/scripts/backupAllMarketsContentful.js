@@ -205,7 +205,7 @@ const main = async (args) => {
     throw Error("Contentful access token was not provided.");
   }
 
-  const marketsToRun = args.splice(2);
+  const marketsToRun = args.splice(1);
   const allBackups = await Promise.allSettled(
     markets
       .filter(

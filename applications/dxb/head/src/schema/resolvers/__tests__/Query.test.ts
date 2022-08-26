@@ -220,4 +220,209 @@ describe("Query resolver", () => {
       });
     });
   });
+  describe("fourOFour", () => {
+    jest.spyOn(console, "warn");
+    beforeEach(() => {
+      process.env = {};
+      jest.clearAllMocks();
+      jest.resetAllMocks();
+    });
+    describe("environment variable tests", () => {
+      describe("when environment variables are NOT set", () => {
+        it("should log warning", async () => {
+          const args: ResolveArgs = {
+            categoryCodes: [],
+            allowFilterBy: []
+          };
+          // jest.spyOn(console, "warn");
+          expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+            errorPageData: undefined,
+            siteData: undefined
+          });
+          // eslint-disable-next-line no-console
+          expect(console.warn).toBeCalledWith(
+            "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          );
+        });
+      });
+      describe("when SPACE_MARKET_CODE is NOT set", () => {
+        it("should log warning", async () => {
+          process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+          const args: ResolveArgs = {
+            categoryCodes: [],
+            allowFilterBy: []
+          };
+          // jest.spyOn(console, "warn");
+          expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+            errorPageData: undefined,
+            siteData: undefined
+          });
+          // eslint-disable-next-line no-console
+          expect(console.warn).toBeCalledWith(
+            "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          );
+        });
+      });
+      describe("when GATSBY_MARKET_LOCALE_CODE is NOT set", () => {
+        it("should log warning", async () => {
+          process.env.SPACE_MARKET_CODE = "fi";
+
+          const args: ResolveArgs = {
+            categoryCodes: [],
+            allowFilterBy: []
+          };
+          // jest.spyOn(console, "warn");
+          expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+            errorPageData: undefined,
+            siteData: undefined
+          });
+          // eslint-disable-next-line no-console
+          expect(console.warn).toBeCalledWith(
+            "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          );
+        });
+      });
+      describe("when both environment variables are set", () => {
+        it("should NOT log warning for environment variables", async () => {
+          process.env.SPACE_MARKET_CODE = "fi";
+          process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+          const args: ResolveArgs = {
+            categoryCodes: [],
+            allowFilterBy: []
+          };
+          expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+            errorPageData: undefined,
+            siteData: undefined
+          });
+          // eslint-disable-next-line no-console
+          expect(console.warn).not.toBeCalledWith(
+            "Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!"
+          );
+        });
+
+        describe("when contentful site is NOT found", () => {
+          it("should log warning for contentful site", async () => {
+            process.env.SPACE_MARKET_CODE = "fi";
+            process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+            const args: ResolveArgs = {
+              categoryCodes: [],
+              allowFilterBy: []
+            };
+            context.nodeModel.findOne = jest.fn().mockResolvedValueOnce(null);
+            expect(await Query.fourOFour.resolve(null, args, context)).toEqual({
+              errorPageData: undefined,
+              siteData: undefined
+            });
+            // eslint-disable-next-line no-console
+            expect(console.warn).toBeCalledWith(
+              `Site not found in contentful: for country code: '${process.env.SPACE_MARKET_CODE}' and locale: '${process.env.GATSBY_MARKET_LOCALE_CODE}'.`
+            );
+          });
+        });
+        describe("when contentful site is found", () => {
+          describe("And resource is queried", () => {
+            describe("And resource is not found", () => {
+              it("should log error message for Resource", async () => {
+                process.env.SPACE_MARKET_CODE = "fi";
+                process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+                const args: ResolveArgs = {
+                  categoryCodes: [],
+                  allowFilterBy: []
+                };
+                const mockSiteData = { contentful_id: "1" };
+                context.nodeModel.findOne = jest
+                  .fn()
+                  .mockResolvedValueOnce(mockSiteData);
+                context.nodeModel.getNodeById = jest
+                  .fn()
+                  .mockResolvedValueOnce(null);
+                expect(
+                  await Query.fourOFour.resolve(null, args, context)
+                ).toEqual({
+                  errorPageData: undefined,
+                  siteData: mockSiteData
+                });
+                // eslint-disable-next-line no-console
+                expect(console.warn).toBeCalledWith(
+                  `Resource not found: for site in contentful with id: '${mockSiteData.contentful_id}'.`
+                );
+              });
+            });
+            describe("And resource is found", () => {
+              describe("And errorFourOFour object is NOT found", () => {
+                it("should log error message for errorFourOFour", async () => {
+                  process.env.SPACE_MARKET_CODE = "fi";
+                  process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+                  const args: ResolveArgs = {
+                    categoryCodes: [],
+                    allowFilterBy: []
+                  };
+                  const mockSiteData = { contentful_id: "1" };
+                  const mockSiteResource = {
+                    errorFourOFour___NODE: "for_o_four_id",
+                    contentful_id: "2"
+                  };
+                  context.nodeModel.findOne = jest
+                    .fn()
+                    .mockResolvedValueOnce(mockSiteData);
+                  context.nodeModel.getNodeById = jest
+                    .fn()
+                    .mockResolvedValueOnce(mockSiteResource)
+                    .mockResolvedValueOnce(null);
+                  expect(
+                    await Query.fourOFour.resolve(null, args, context)
+                  ).toEqual({
+                    errorPageData: undefined,
+                    siteData: mockSiteData
+                  });
+                  // eslint-disable-next-line no-console
+                  expect(console.warn).toBeCalledWith(
+                    `'errorFourOFour' not found on resource in contentful with id: '${mockSiteResource.contentful_id}'.`
+                  );
+                });
+              });
+              describe("And errorFourOFour object is found", () => {
+                it("should return FourOFourResponse with site data and error data", async () => {
+                  process.env.SPACE_MARKET_CODE = "fi";
+                  process.env.GATSBY_MARKET_LOCALE_CODE = "fi-FI";
+                  const args: ResolveArgs = {
+                    categoryCodes: [],
+                    allowFilterBy: []
+                  };
+                  const mockSiteData = { contentful_id: "1" };
+                  const mockSiteResource = {
+                    errorFourOFour___NODE: "for_o_four_id",
+                    contentful_id: "2"
+                  };
+                  const mockErrorFourOFourResource = {
+                    id: "9999",
+                    contentful_id: "3",
+                    spaceId: "space_id",
+                    title: "title_1",
+                    subtitle: "sub_title_1"
+                  };
+                  context.nodeModel.findOne = jest
+                    .fn()
+                    .mockResolvedValueOnce(mockSiteData);
+                  context.nodeModel.getNodeById = jest
+                    .fn()
+                    .mockResolvedValueOnce(mockSiteResource)
+                    .mockResolvedValueOnce(mockErrorFourOFourResource);
+
+                  expect(
+                    await Query.fourOFour.resolve(null, args, context)
+                  ).toEqual({
+                    errorPageData: mockErrorFourOFourResource,
+                    siteData: mockSiteData
+                  });
+                  // eslint-disable-next-line no-console
+                  expect(console.warn).toBeCalledTimes(0);
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
 });

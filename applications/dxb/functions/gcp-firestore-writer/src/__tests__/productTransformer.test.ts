@@ -3899,6 +3899,39 @@ describe("transformProduct", () => {
     expect(transformedProducts[0].categories).toEqual([brandCategory]);
   });
 
+  it("filtered out categories without name from group", async () => {
+    const parentCategory = createCategory({
+      categoryType: "Category",
+      code: "parent-category",
+      name: "parent-category",
+      parentCategoryCode: ""
+    });
+    const product = createProduct({
+      categories: [
+        parentCategory,
+        createCategory({
+          categoryType: "Category",
+          code: "parent-category",
+          name: undefined,
+          parentCategoryCode: ""
+        }),
+        createCategory({
+          categoryType: "Category",
+          code: "child-category",
+          name: "Child Category",
+          parentCategoryCode: "parent-category"
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].groups).toEqual([
+      {
+        code: parentCategory.code,
+        label: parentCategory.name
+      }
+    ]);
+  });
+
   it("overwrites base classification features with variant classification features of the same feature code", async () => {
     const product = createProduct({
       classifications: [

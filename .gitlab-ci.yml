@@ -96,7 +96,7 @@ auto_merge:
   rules:
     - if: $CI_COMMIT_TAG
   script:
-    - .scripts/auto_merge.sh
+    - scripts/auto_merge.sh
   artifacts:
     reports:
       dotenv: post_deploy.env
@@ -112,7 +112,7 @@ open_mr_preprod_to_master:
     - |
       if [ "$PREPROD_MR" == "true" ];
         then
-        gitlab_auto_mr --private-token $GITLAB_API_TOKEN --source-branch pre-production -t master -c WIP
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch pre-production -t master -c WIP
       else
         echo "No need to open merge request for pre-production"
       fi
@@ -128,8 +128,8 @@ open_mr_prod_to_preprod_to_master:
     - |
       if [ "$PROD_MR" == "true" ];
         then
-        gitlab_auto_mr --private-token $GITLAB_API_TOKEN --source-branch production -t pre-production -c WIP
-        gitlab_auto_mr --private-token $GITLAB_API_TOKEN --source-branch pre-production -t master -c WIP
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch production -t pre-production -c WIP
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch pre-production -t master -c WIP
       else
         echo "No need to open merge request for production"
       fi
