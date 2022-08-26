@@ -11,7 +11,7 @@ import {
   ContentfulDocumentsWithFilters,
   ProductDocumentsWithFilters
 } from "../types/DocumentsWithFilters";
-import { Context, MicroCopy, Node } from "../types/Gatsby";
+import { Context, Node } from "../types/Gatsby";
 import { ProductDocument } from "../types/pim";
 import { getPlpFilters } from "./filters";
 
@@ -65,15 +65,14 @@ export const resolveDocumentsFromProducts = async (
     type: "ContentfulResources"
   });
 
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {},
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies: Map<string, string> = [...resourceEntries].reduce(
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies: Map<string, string> = microCopies.reduce(
     (map, microCopy) => {
       return map.set(microCopy.key, microCopy.value);
     },
@@ -248,21 +247,29 @@ const generateBrandFilterFromDocuments = async (
 ): Promise<ProductFilter> => {
   const microCopyKey = "filterLabels.Brand";
 
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {
-          filter: {
-            key: {
-              in: [microCopyKey]
-            }
+  const resources = await context.nodeModel.findOne<Node>({
+    query: {
+      filter: {
+        site: {
+          elemMatch: {
+            countryCode: { eq: process.env.SPACE_MARKET_CODE }
           }
-        },
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies = [...resourceEntries];
+        }
+      }
+    },
+    type: "ContentfulResources"
+  });
+
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies = microCopies.filter(
+    (microCopy) => microCopy.key === microCopyKey
+  );
 
   // Find Unique assetTypes, they're the same as far as TS is concerned
   const allValues = [
@@ -272,9 +279,9 @@ const generateBrandFilterFromDocuments = async (
   if (allValues.length === 0) {
     return;
   }
-  const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
-    microCopyKey;
+  const filterLabel = (filterMicroCopies.find(
+    (item) => item.key === microCopyKey
+  )?.value || microCopyKey) as string;
 
   return {
     filterCode: "Brand",
@@ -294,21 +301,29 @@ const generateAssetTypeFilterFromDocuments = async (
   context: Context
 ): Promise<ProductFilter> => {
   const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {
-          filter: {
-            key: {
-              in: [microCopyKey]
-            }
+  const resources = await context.nodeModel.findOne<Node>({
+    query: {
+      filter: {
+        site: {
+          elemMatch: {
+            countryCode: { eq: process.env.SPACE_MARKET_CODE }
           }
-        },
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies = [...resourceEntries];
+        }
+      }
+    },
+    type: "ContentfulResources"
+  });
+
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies = microCopies.filter(
+    (microCopy) => microCopy.key === microCopyKey
+  );
 
   const allsAssetTypeIds: string[] = [
     ...new Set(documents.map((document) => document["assetType___NODE"]))
@@ -326,9 +341,10 @@ const generateAssetTypeFilterFromDocuments = async (
     return;
   }
 
-  const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
-    microCopyKey;
+  const filterLabel = (filterMicroCopies.find(
+    (item) => item.key === microCopyKey
+  )?.value || microCopyKey) as string;
+
   return {
     filterCode: "AssetType",
     label: filterLabel,

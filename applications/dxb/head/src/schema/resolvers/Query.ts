@@ -6,7 +6,7 @@ import {
   ContentfulSite,
   FourOFourResponse
 } from "./types/Contentful";
-import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
+import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import { ProductDocument } from "./types/pim";
 import { resolveDocumentsFromProducts } from "./utils/documents";
 import { getPlpFilters } from "./utils/filters";
@@ -156,19 +156,32 @@ export default {
         }
       }
 
-      const { entries: resourceEntries } =
-        await context.nodeModel.findAll<MicroCopy>(
-          {
-            query: {},
-            type: "ContentfulMicroCopy"
-          },
-          { connectionType: "ContentfulMicroCopy" }
-        );
-      const filterMicroCopies: Map<string, string> = [
-        ...resourceEntries
-      ].reduce((map, microCopy) => {
-        return map.set(microCopy.key, microCopy.value);
-      }, new Map());
+      const resources = await context.nodeModel.findOne<Node>({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+
+      // MC access in consistently happens only via resource content type
+      // that means a market is only aware of MCs which are associated with the resource
+      const microCopies = await context.nodeModel.getNodesByIds({
+        ids: resources.microCopy___NODE,
+        type: "ContentfulMicroCopy"
+      });
+
+      const filterMicroCopies: Map<string, string> = microCopies.reduce(
+        (map, microCopy) => {
+          return map.set(microCopy.key, microCopy.value);
+        },
+        new Map()
+      );
 
       const productFilters = getPlpFilters({
         products: resolvedProducts,
@@ -225,19 +238,32 @@ export default {
         return { filters: [], allowFilterBy: allowFilterBy };
       }
 
-      const { entries: resourceEntries } =
-        await context.nodeModel.findAll<MicroCopy>(
-          {
-            query: {},
-            type: "ContentfulMicroCopy"
-          },
-          { connectionType: "ContentfulMicroCopy" }
-        );
-      const filterMicroCopies: Map<string, string> = [
-        ...resourceEntries
-      ].reduce((map, microCopy) => {
-        return map.set(microCopy.key, microCopy.value);
-      }, new Map());
+      const resources = await context.nodeModel.findOne<Node>({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+
+      // MC access in consistently happens only via resource content type
+      // that means a market is only aware of MCs which are associated with the resource
+      const microCopies = await context.nodeModel.getNodesByIds({
+        ids: resources.microCopy___NODE,
+        type: "ContentfulMicroCopy"
+      });
+
+      const filterMicroCopies: Map<string, string> = microCopies.reduce(
+        (map, microCopy) => {
+          return map.set(microCopy.key, microCopy.value);
+        },
+        new Map()
+      );
 
       const productFilters = getPlpFilters({
         products: resolvedProducts,

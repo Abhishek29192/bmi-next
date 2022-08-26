@@ -32,6 +32,7 @@ export interface LegalConsent {
 */
 export interface Node extends GatsbyNode {
   site___NODE?: string[];
+  microCopy___NODE?: string[];
   menuNavigation___NODE?: string;
   parentPage___NODE?: string;
   links___NODE?: string[];
