@@ -30,6 +30,11 @@ jest.mock("../utils/documents", () => ({
     resolveDocumentsFromProducts(...args)
 }));
 
+const args: ResolveArgs = {
+  categoryCodes: ["category-1"],
+  allowFilterBy: []
+};
+
 describe("Query resolver", () => {
   describe("allPIMDocument", () => {
     it("should contain specific type", () => {
@@ -55,10 +60,6 @@ describe("Query resolver", () => {
   });
 
   describe("plpFilters", () => {
-    const args: ResolveArgs = {
-      categoryCodes: ["category-1"],
-      allowFilterBy: []
-    };
     it("should contain specific type", () => {
       expect(Query.plpFilters.type).toEqual("PLPFilterResponse");
     });
@@ -101,6 +102,14 @@ describe("Query resolver", () => {
           ]
         })
         .mockResolvedValueOnce({ entries: [] });
+      context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+        microCopy___NODE: ["id1", "id2", "id3"]
+      });
+      context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+        { key: "key1", value: "value1" },
+        { key: "key2", value: "value2" },
+        { key: "key3", value: "value3" }
+      ]);
 
       expect(
         await Query.plpFilters.resolve(
@@ -114,6 +123,22 @@ describe("Query resolver", () => {
         query: {},
         type: "Product"
       });
+      expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+      expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+        ids: ["id1", "id2", "id3"],
+        type: "ContentfulMicroCopy"
+      });
     });
 
     it("should run query if resolved categories is empty", async () => {
@@ -121,8 +146,15 @@ describe("Query resolver", () => {
       getPlpFilters.mockReturnValue([]);
       context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValueOnce({ entries: [{ categories: null }] })
-        .mockResolvedValueOnce({ entries: [] });
+        .mockResolvedValueOnce({ entries: [{ categories: null }] });
+      context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+        microCopy___NODE: ["id1", "id2", "id3"]
+      });
+      context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+        { key: "key1", value: "value1" },
+        { key: "key2", value: "value2" },
+        { key: "key3", value: "value3" }
+      ]);
 
       expect(
         await Query.plpFilters.resolve(null, { ...args }, context)
@@ -142,30 +174,71 @@ describe("Query resolver", () => {
         },
         type: "Product"
       });
+      expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+      expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+        ids: ["id1", "id2", "id3"],
+        type: "ContentfulMicroCopy"
+      });
     });
 
     it("should resolve plp filters", async () => {
       const filters = { allowFilterBy: [], filters: [] };
       getPlpFilters = jest.fn().mockReturnValue([]);
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValueOnce({
-          entries: [
-            {
-              code: "product-1"
-            }
-          ]
-        })
-        .mockResolvedValueOnce({ entries: [] });
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+        entries: [
+          {
+            code: "product-1"
+          }
+        ]
+      });
+      context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+        microCopy___NODE: ["id1", "id2", "id3"]
+      });
+      context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+        { key: "key1", value: "value1" },
+        { key: "key2", value: "value2" },
+        { key: "key3", value: "value3" }
+      ]);
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
         filters
       );
+      expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+      expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+        ids: ["id1", "id2", "id3"],
+        type: "ContentfulMicroCopy"
+      });
 
       expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [],
         products: [{ code: "product-1" }],
-        microCopies: new Map()
+        microCopies: new Map([
+          ["key1", "value1"],
+          ["key2", "value2"],
+          ["key3", "value3"]
+        ])
       });
     });
 
@@ -177,25 +250,47 @@ describe("Query resolver", () => {
           filters: []
         };
         getPlpFilters = jest.fn().mockReturnValue([]);
-        context.nodeModel.findAll = jest
-          .fn()
-          .mockResolvedValueOnce({
-            entries: [
-              {
-                code: "product-1",
-                categories: [],
-                groups: [
-                  { label: "cat 1", code: "PRODUCT_NO" },
-                  { label: "cat 2", code: "PRODUCT_NO" }
-                ]
-              }
-            ]
-          })
-          .mockResolvedValueOnce({ entries: [] });
+        context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+          entries: [
+            {
+              code: "product-1",
+              categories: [],
+              groups: [
+                { label: "cat 1", code: "PRODUCT_NO" },
+                { label: "cat 2", code: "PRODUCT_NO" }
+              ]
+            }
+          ]
+        });
+        context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+          microCopy___NODE: ["id1", "id2", "id3"]
+        });
+        context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+          { key: "key1", value: "value1" },
+          { key: "key2", value: "value2" },
+          { key: "key3", value: "value3" }
+        ]);
 
         expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
           filters
         );
+
+        expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+          query: {
+            filter: {
+              site: {
+                elemMatch: {
+                  countryCode: { eq: process.env.SPACE_MARKET_CODE }
+                }
+              }
+            }
+          },
+          type: "ContentfulResources"
+        });
+        expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+          ids: ["id1", "id2", "id3"],
+          type: "ContentfulMicroCopy"
+        });
 
         expect(getPlpFilters).toHaveBeenCalledWith({
           allowedFilters: ["Category | PRODUCT_NO"],
@@ -215,8 +310,313 @@ describe("Query resolver", () => {
               ]
             }
           ],
-          microCopies: new Map()
+          microCopies: new Map([
+            ["key1", "value1"],
+            ["key2", "value2"],
+            ["key3", "value3"]
+          ])
         });
+      });
+    });
+    describe("when GATSBY_USE_LEGACY_FILTERS = true", () => {
+      it("should resolve plp filters with legacy filters", async () => {
+        process.env.GATSBY_USE_LEGACY_FILTERS = "true";
+        const filters = {
+          allowFilterBy: [
+            "Brand",
+            "appearanceAttributes.colourFamily",
+            "generalInformation.materials",
+            "appearanceAttributes.textureFamily"
+          ],
+          filters: []
+        };
+        getPlpFilters = jest.fn().mockReturnValue([]);
+        context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+          entries: [
+            {
+              code: "product-1",
+              categories: [],
+              groups: [
+                { label: "cat 1", code: "PRODUCT_NO" },
+                { label: "cat 2", code: "PRODUCT_NO" }
+              ]
+            }
+          ]
+        });
+        context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+          microCopy___NODE: ["id1", "id2", "id3"]
+        });
+        context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+          { key: "key1", value: "value1" },
+          { key: "key2", value: "value2" },
+          { key: "key3", value: "value3" }
+        ]);
+
+        expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+          filters
+        );
+
+        expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+          query: {
+            filter: {
+              site: {
+                elemMatch: {
+                  countryCode: { eq: process.env.SPACE_MARKET_CODE }
+                }
+              }
+            }
+          },
+          type: "ContentfulResources"
+        });
+        expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+          ids: ["id1", "id2", "id3"],
+          type: "ContentfulMicroCopy"
+        });
+
+        expect(getPlpFilters).toHaveBeenCalledWith({
+          allowedFilters: [
+            "Brand",
+            "appearanceAttributes.colourFamily",
+            "generalInformation.materials",
+            "appearanceAttributes.textureFamily"
+          ],
+          products: [
+            {
+              categories: [],
+              code: "product-1",
+              groups: [
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 1"
+                },
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 2"
+                }
+              ]
+            }
+          ],
+          microCopies: new Map([
+            ["key1", "value1"],
+            ["key2", "value2"],
+            ["key3", "value3"]
+          ])
+        });
+      });
+
+      it("should resolve plp filters with legacy filters if pageCategory is not undefined", async () => {
+        process.env.GATSBY_USE_LEGACY_FILTERS = "true";
+        const filters = {
+          allowFilterBy: [
+            "Brand",
+            "ProductFamily",
+            "ProductLine",
+            "appearanceAttributes.colourFamily",
+            "generalInformation.materials",
+            "appearanceAttributes.textureFamily",
+            "PRODUCT_NO"
+          ],
+          filters: []
+        };
+        getPlpFilters = jest.fn().mockReturnValue([]);
+        context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+          entries: [
+            {
+              code: "product-1",
+              categories: [{ code: "category-1" }],
+              groups: [
+                { label: "cat 1", code: "PRODUCT_NO" },
+                { label: "cat 2", code: "PRODUCT_NO" }
+              ]
+            }
+          ]
+        });
+        context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+          microCopy___NODE: ["id1", "id2", "id3"]
+        });
+        context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+          { key: "key1", value: "value1" },
+          { key: "key2", value: "value2" },
+          { key: "key3", value: "value3" }
+        ]);
+
+        expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+          filters
+        );
+
+        expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+          query: {
+            filter: {
+              site: {
+                elemMatch: {
+                  countryCode: { eq: process.env.SPACE_MARKET_CODE }
+                }
+              }
+            }
+          },
+          type: "ContentfulResources"
+        });
+        expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+          ids: ["id1", "id2", "id3"],
+          type: "ContentfulMicroCopy"
+        });
+
+        expect(getPlpFilters).toHaveBeenCalledWith({
+          allowedFilters: [
+            "Brand",
+            "ProductFamily",
+            "ProductLine",
+            "appearanceAttributes.colourFamily",
+            "generalInformation.materials",
+            "appearanceAttributes.textureFamily",
+            "PRODUCT_NO"
+          ],
+          products: [
+            {
+              categories: [{ code: "category-1" }],
+              code: "product-1",
+              groups: [
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 1"
+                },
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 2"
+                }
+              ]
+            }
+          ],
+          microCopies: new Map([
+            ["key1", "value1"],
+            ["key2", "value2"],
+            ["key3", "value3"]
+          ])
+        });
+      });
+    });
+  });
+
+  describe("searchFilters", () => {
+    it("should resolve search Filters", async () => {
+      const filters = {
+        allowFilterBy: [
+          "ProductFamily",
+          "ProductLine",
+          "Brand",
+          "appearanceAttributes.colourFamily",
+          "generalInformation.materials",
+          "appearanceAttributes.textureFamily",
+          "Category"
+        ],
+        filters: []
+      };
+      getPlpFilters = jest.fn().mockReturnValue([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+        entries: [
+          {
+            code: "product-1",
+            categories: [],
+            groups: [
+              { label: "cat 1", code: "PRODUCT_NO" },
+              { label: "cat 2", code: "PRODUCT_NO" }
+            ]
+          }
+        ]
+      });
+      context.nodeModel.findOne = jest.fn().mockResolvedValueOnce({
+        microCopy___NODE: ["id1", "id2", "id3"]
+      });
+      context.nodeModel.getNodesByIds = jest.fn().mockResolvedValueOnce([
+        { key: "key1", value: "value1" },
+        { key: "key2", value: "value2" },
+        { key: "key3", value: "value3" }
+      ]);
+
+      expect(await Query.searchFilters.resolve(null, args, context)).toEqual(
+        filters
+      );
+
+      expect(context.nodeModel.findOne).toHaveBeenCalledWith({
+        query: {
+          filter: {
+            site: {
+              elemMatch: {
+                countryCode: { eq: process.env.SPACE_MARKET_CODE }
+              }
+            }
+          }
+        },
+        type: "ContentfulResources"
+      });
+      expect(context.nodeModel.getNodesByIds).toHaveBeenCalledWith({
+        ids: ["id1", "id2", "id3"],
+        type: "ContentfulMicroCopy"
+      });
+
+      expect(getPlpFilters).toHaveBeenCalledWith({
+        allowedFilters: [
+          "ProductFamily",
+          "ProductLine",
+          "Brand",
+          "appearanceAttributes.colourFamily",
+          "generalInformation.materials",
+          "appearanceAttributes.textureFamily",
+          "Category"
+        ],
+        products: [
+          {
+            categories: [],
+            code: "product-1",
+            groups: [
+              {
+                code: "PRODUCT_NO",
+                label: "cat 1"
+              },
+              {
+                code: "PRODUCT_NO",
+                label: "cat 2"
+              }
+            ]
+          }
+        ],
+        microCopies: new Map([
+          ["key1", "value1"],
+          ["key2", "value2"],
+          ["key3", "value3"]
+        ])
+      });
+    });
+
+    it("should run query with default filters if didn't find any products", async () => {
+      const filters = {
+        allowFilterBy: [
+          "ProductFamily",
+          "ProductLine",
+          "Brand",
+          "appearanceAttributes.colourFamily",
+          "generalInformation.materials",
+          "appearanceAttributes.textureFamily",
+          "Category"
+        ],
+        filters: []
+      };
+      getPlpFilters.mockReturnValue([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
+        entries: []
+      });
+
+      expect(
+        await Query.searchFilters.resolve(
+          null,
+          { ...args, categoryCodes: null },
+          context
+        )
+      ).toEqual(filters);
+
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
+        query: {},
+        type: "Product"
       });
     });
   });
