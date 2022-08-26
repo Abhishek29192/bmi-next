@@ -47,6 +47,20 @@
 {% assign thanks = "Obrigado!" %}
 {% assign contactMessage = "Se você tiver algum problema com sua conta, entre em contato com o administrador local do BMI. Obrigado!" %}
 {% assign warningMessage = "Você está recebendo este correio eletronico porque possui uma conta no BMI Group. Se você não tiver certeza do motivo pelo qual está recebendo isso, entre em contato com um administrador local da BMI." %}
+{% elsif language == "my" %}
+{% assign welcome = "Welcome to" %}
+{% assign signinMessage = "Thank you for signing up. Please verify your email address by clicking the following link:" %}
+{% assign confirmMessage = "Confirm my account" %}
+{% assign thanks = "Thanks!" %}
+{% assign contactMessage = "If you are having any issues with your account, please contact your local BMI administrator. Thanks!" %}
+{% assign warningMessage = "You’re receiving this email because you have an account in BMI Group. If you are not sure why you’re receiving this, please contact us through our Support Center." %}
+{% elsif language == "fi" %}
+{% assign welcome = "Tervetuloa" %}
+{% assign signinMessage = "Kiitos rekisteröitymisestä. Vahvista sähköpostiosoitteesi napsauttamalla seuraavaa linkkiä:" %}
+{% assign confirmMessage = "Vahvista tilini" %}
+{% assign thanks = "Kiitos!" %}
+{% assign contactMessage = "Jos sinulla on ongelmia tilissäsi, ota yhteyttä paikalliseen BMI-järjestelmänvalvojaan. Kiitos!" %}
+{% assign warningMessage = "Sait tämän sähköpostin, koska sinulla on BMI InTouch -tili. Jos et ole varma, miksi saat tämän, ota meihin yhteyttä tukikeskuksemme kautta." %}
 {% endif %}
 
 <html>
