@@ -8219,4 +8219,58 @@ describe("transformProduct", () => {
       ]
     `);
   });
+
+  it("ignore bimAttributes classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "bimAttributes",
+              name: "bimAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/bimAttributes.productPageURL",
+                  name: "bimAttributes"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore bimAttributes classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "bimAttributes",
+          name: "bimAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/bimAttributes.productPageURL",
+              name: "bimAttributes"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
 });
