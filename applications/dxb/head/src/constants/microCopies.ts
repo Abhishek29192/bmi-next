@@ -189,10 +189,8 @@ export const microCopy = {
   RESULTS_AREA_LABEL: "results.areaLabel",
   RESULTS_TITLE: "results.title",
   RESULTS_SUBTITLE: "results.subtitle",
-  RESULTS_CATEGORIES_TILES: "results.categories.tiles",
   RESULTS_CATEGORIES_FIXINGS: "results.categories.fixings",
   RESULTS_CATEGORIES_SEALING: "results.categories.sealing",
-  RESULTS_CATEGORIES_VENTELATION: "results.categories.ventilation",
   RESULTS_CATEGORIES_ACCESSORIES: "results.categories.accessories",
   RESULTS_ALERTS_QUANTITIES_TITLE: "results.alerts.quantities.title",
   RESULTS_ALERTS_QUANTITIES_TEXT: "results.alerts.quantities.text",
@@ -200,7 +198,6 @@ export const microCopy = {
   RESULTS_ALERTS_NEED_TO_KNOW_TEXT: "results.alerts.needToKnow.text",
   RESULTS_BACK_LABEL: "results.backLabel",
   RESULTS_START_OVER_LABEL: "results.startOverLabel",
-  RESULTS_DOWNLOAD_PDF_LEBEL: "results.downloadPdfLabel",
   RESULTS_EMAIL_TITLE: "results.email.title",
   RESULTS_EMAIL_HELP: "results.email.help",
   RESULTS_EMAIL_NAME_LABEL: "results.email.nameLabel",
@@ -217,7 +214,6 @@ export const microCopy = {
   ROOF_DIMENSIONS_TITLE: "roofDimensions.title",
   ROOF_DIMENSIONS_SUBTITLE: "roofDimensions.subtitle",
   ROOF_DIMENSIONS_BACK_LABEL: "roofDimensions.backLabel",
-  ROOF_DIMENSIONS_PROTRUSIONS_PROMT: "roofDimensions.protrusions.prompt",
   ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER:
     "roofDimensions.protrusions.addAnother",
   ROOF_DIMENSIONS_PROTRUSIONS_REMOVE: "roofDimensions.protrusions.remove",
@@ -328,8 +324,7 @@ export const microCopy = {
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
-  SEARCH_PLACEHOLDER: "search.placeholder",
-  FILTER_LABELS_TEXTUREFAMILY: "filterLabels.textureFamily"
+  SEARCH_PLACEHOLDER: "search.placeholder"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;

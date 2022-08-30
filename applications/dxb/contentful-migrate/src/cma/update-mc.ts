@@ -113,27 +113,36 @@ const uploadMicroCopiesChunks = async (chunks: any) => {
 };
 
 const publishMicroCopies = async (nodes: any) => {
-  if (nodes.length === 0) {
-    console.log("Publish action is complete");
-    return;
-  }
-
-  const entriesToPublish = nodes.slice(0, BULK_SIZE);
-
-  const environment = await getEnvironment();
-
-  const bulk = await environment.createPublishBulkAction({
-    entities: {
-      sys: { type: "Array" },
-      items: entriesToPublish
+  try {
+    if (nodes.length === 0) {
+      console.log("Publish action is complete");
+      return;
     }
-  });
 
-  await bulk.waitProcessing();
+    const entriesToPublish = nodes.slice(0, BULK_SIZE);
 
-  console.log(`${entriesToPublish.length} successfully published`);
+    const environment = await getEnvironment();
 
-  await publishMicroCopies(nodes.slice(BULK_SIZE));
+    const bulk = await environment.createPublishBulkAction({
+      entities: {
+        sys: { type: "Array" },
+        items: entriesToPublish
+      }
+    });
+
+    await bulk.waitProcessing();
+
+    console.log(`${entriesToPublish.length} successfully published`);
+
+    await publishMicroCopies(nodes.slice(BULK_SIZE));
+  } catch (error: any) {
+    console.log(error, "Error");
+    console.log(
+      error?.action?.error?.details?.errors?.map(
+        (i: any) => i?.error?.details?.errors
+      )
+    );
+  }
 };
 
 const main = async () => {
