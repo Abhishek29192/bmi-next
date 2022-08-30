@@ -318,9 +318,7 @@ export default abstract class Viewer<
         }
       >
         <div
-          className={
-            isVisualisatorEnabled ? styles["canvas-new"] : styles["canvas"]
-          }
+          className={styles["canvas"]}
           ref={(r) => {
             this.container = r;
           }}
