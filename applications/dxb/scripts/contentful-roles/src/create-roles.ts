@@ -1,9 +1,9 @@
 import {
-  getCreateRolesRequestBody,
   getMarketsToRun,
+  getRolesPermissionsToCreate,
   roles
 } from "./configurations";
-import { triggerCreateRolesRequest } from "./requests";
+import { createRoles } from "./requests";
 import { IMarket } from "./types";
 
 export const main = async () => {
@@ -26,8 +26,12 @@ export const main = async () => {
         console.info(
           `Getting request body for ${role} role for ${market.name}`
         );
-        const body = getCreateRolesRequestBody(role, market, otherMarketsTags);
-        await triggerCreateRolesRequest(body);
+        const body = getRolesPermissionsToCreate(
+          role,
+          market,
+          otherMarketsTags
+        );
+        await createRoles(body);
       }
     })
   );

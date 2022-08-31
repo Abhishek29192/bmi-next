@@ -2,25 +2,25 @@ import mockConsole from "jest-mock-console";
 import { IMarket, RolesEnum } from "../types";
 
 const getMarketsToRun = jest.fn();
-const getCreateRolesRequestBody = jest.fn();
+const getRolesPermissionsToCreate = jest.fn();
 jest.mock("../configurations", () => {
   const originalModule = jest.requireActual("../configurations");
   return {
     ...originalModule,
     getMarketsToRun: () => getMarketsToRun(),
-    getCreateRolesRequestBody: (
+    getRolesPermissionsToCreate: (
       role: RolesEnum,
       market: IMarket,
       otherMarketsTags: string[]
-    ) => getCreateRolesRequestBody(role, market, otherMarketsTags)
+    ) => getRolesPermissionsToCreate(role, market, otherMarketsTags)
   };
 });
-const triggerCreateRolesRequest = jest.fn();
+const createRoles = jest.fn();
 jest.mock("../requests", () => {
   const originalModule = jest.requireActual("../requests");
   return {
     ...originalModule,
-    triggerCreateRolesRequest: () => triggerCreateRolesRequest()
+    createRoles: () => createRoles()
   };
 });
 const consoleSpy = jest.spyOn(console, "info");
@@ -44,8 +44,8 @@ describe("create roles", () => {
     expect(consoleSpy.mock.calls[0][0]).toEqual(
       "Please provide markets with locales to create roles in the space"
     );
-    expect(getCreateRolesRequestBody).not.toHaveBeenCalled();
-    expect(triggerCreateRolesRequest).not.toHaveBeenCalled();
+    expect(getRolesPermissionsToCreate).not.toHaveBeenCalled();
+    expect(createRoles).not.toHaveBeenCalled();
   });
   it("with one market in markets array", async () => {
     const market = { name: "uk", locales: ["en-GB"] };
@@ -57,19 +57,19 @@ describe("create roles", () => {
     expect(consoleSpy.mock.calls[0][0]).toEqual(
       "Triggering create roles for uk"
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       1,
       RolesEnum.publisher,
       market,
       []
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       2,
       RolesEnum.editor,
       market,
       []
     );
-    expect(triggerCreateRolesRequest).toHaveBeenCalledTimes(2);
+    expect(createRoles).toHaveBeenCalledTimes(2);
   });
   it("with two markets in markets array", async () => {
     const market1 = { name: "uk", locales: ["en-GB"] };
@@ -82,30 +82,30 @@ describe("create roles", () => {
     expect(consoleSpy.mock.calls[0][0]).toEqual(
       "Triggering create roles for uk"
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       1,
       RolesEnum.publisher,
       market1,
       ["market__finland"]
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       2,
       RolesEnum.publisher,
       market2,
       ["market__uk"]
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       3,
       RolesEnum.editor,
       market1,
       ["market__finland"]
     );
-    expect(getCreateRolesRequestBody).toHaveBeenNthCalledWith(
+    expect(getRolesPermissionsToCreate).toHaveBeenNthCalledWith(
       4,
       RolesEnum.editor,
       market2,
       ["market__uk"]
     );
-    expect(triggerCreateRolesRequest).toHaveBeenCalledTimes(4);
+    expect(createRoles).toHaveBeenCalledTimes(4);
   });
 });

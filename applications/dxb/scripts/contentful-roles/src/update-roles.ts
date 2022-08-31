@@ -1,9 +1,9 @@
 import {
   getMarketsToRun,
-  getUpdateRolesRequestBody,
+  getRolesPermissionsToUpdate,
   roles
 } from "./configurations";
-import { triggerGetAllSpaceRoles, triggerUpdateExistingRole } from "./requests";
+import { getSpaceRoles, updateRole } from "./requests";
 import { IMarket } from "./types";
 
 export const main = async () => {
@@ -14,7 +14,7 @@ export const main = async () => {
     );
     return;
   }
-  const allExistingSpaceRoles = await triggerGetAllSpaceRoles();
+  const allExistingSpaceRoles = await getSpaceRoles();
   if (
     !allExistingSpaceRoles ||
     !allExistingSpaceRoles.items ||
@@ -46,8 +46,12 @@ export const main = async () => {
           return;
         }
         console.info(`Getting request body for ${roleToUpdate.name} role`);
-        const body = getUpdateRolesRequestBody(role, market, otherMarketsTags);
-        await triggerUpdateExistingRole(body, roleToUpdate);
+        const body = getRolesPermissionsToUpdate(
+          role,
+          market,
+          otherMarketsTags
+        );
+        await updateRole(body, roleToUpdate);
       }
     })
   );

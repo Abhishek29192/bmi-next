@@ -17,10 +17,10 @@ export const getMarketsToRun = () => [];
  *
  * for now we have two roles: publisher and editor
  */
-export const roles: RolesEnum[] = [RolesEnum.publisher, RolesEnum.editor];
+export const roles = [RolesEnum.publisher, RolesEnum.editor];
 
 /* get permision configuration depends on the role type */
-export const getCreateRolesRequestBody = (
+export const getRolesPermissionsToCreate = (
   role: RolesEnum,
   market: IMarket,
   otherMarketsTags: string[]
@@ -710,7 +710,7 @@ export const getCreateRolesRequestBody = (
 };
 
 /* get permision configuration depends on the role type to update */
-export const getUpdateRolesRequestBody = (
+export const getRolesPermissionsToUpdate = (
   role: RolesEnum,
   market: IMarket,
   otherMarketsTags: string[]

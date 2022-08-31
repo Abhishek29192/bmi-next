@@ -2,7 +2,7 @@
 import fetchRetry from "@bmi/fetch-retry";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const triggerCreateRolesRequest = async (body: any) => {
+export const createRoles = async (body: any) => {
   try {
     await fetchRetry(
       `https://api.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/roles`,
@@ -23,7 +23,7 @@ export const triggerCreateRolesRequest = async (body: any) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const triggerUpdateExistingRole = async (body: any, role: any) => {
+export const updateRole = async (body: any, role: any) => {
   try {
     console.info(`Triggering update ${role.name} role`);
     await fetchRetry(
@@ -45,7 +45,7 @@ export const triggerUpdateExistingRole = async (body: any, role: any) => {
   }
 };
 
-export const triggerGetAllSpaceRoles = async () => {
+export const getSpaceRoles = async () => {
   try {
     const response = await fetchRetry(
       `https://api.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/roles`,

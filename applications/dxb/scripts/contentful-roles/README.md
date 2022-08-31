@@ -36,7 +36,7 @@ provide configuration of permissions for all role types in
 ```js
 // configurations.ts
 
-export const getCreateRolesRequestBody = () => {...}
+export const getRolesPermissionsToCreate = () => {...}
 ```
 
 and run
@@ -54,7 +54,7 @@ provide configuration of permissions for all role types in
 ```js
 // configurations.ts
 
-export const getUpdateRolesRequestBody = () => {...}
+export const getRolesPermissionsToUpdate = () => {...}
 ```
 
 and run
