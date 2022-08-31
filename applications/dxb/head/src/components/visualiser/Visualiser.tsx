@@ -11,6 +11,7 @@ import {
   ToggleCard,
   Typography
 } from "@bmi/components";
+import { useMediaQuery } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Popover from "@material-ui/core/Popover";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -99,6 +100,7 @@ const Actions = ({
   viewMode: Props["viewMode"];
   onButtonClick: (data: { type: string; label: string }) => void;
 }) => {
+  const isXsMobile = useMediaQuery("(max-width: 376px)");
   const { getMicroCopy } = useMicroCopy();
   return (
     <nav className={styles["actions"]}>
@@ -116,7 +118,7 @@ const Actions = ({
           });
         }}
       >
-        {getMicroCopy(microCopy.actions.selectProduct)}
+        {!isXsMobile && getMicroCopy(microCopy.actions.selectProduct)}
       </Button>
       <Button
         hasDarkBackground
@@ -134,7 +136,7 @@ const Actions = ({
           });
         }}
       >
-        {getMicroCopy(microCopy.actions.wallColor)}
+        {!isXsMobile && getMicroCopy(microCopy.actions.wallColor)}
       </Button>
       {viewMode === "tile" && (
         <Button
@@ -149,7 +151,7 @@ const Actions = ({
             });
           }}
         >
-          {getMicroCopy(microCopy.actions.roofMode)}
+          {!isXsMobile && getMicroCopy(microCopy.actions.roofMode)}
         </Button>
       )}
       {viewMode === "roof" && (
@@ -165,7 +167,7 @@ const Actions = ({
             });
           }}
         >
-          {getMicroCopy(microCopy.actions.tileMode)}
+          {!isXsMobile && getMicroCopy(microCopy.actions.tileMode)}
         </Button>
       )}
     </nav>
@@ -593,7 +595,9 @@ const Visualiser = ({
                   handleOnClose();
                 }}
               >
-                {getMicroCopy(microCopy.readMore)}
+                <span className={styles["details-text"]}>
+                  {getMicroCopy(microCopy.readMore)}
+                </span>
               </Button>
             )}
             {shareWidget && (
