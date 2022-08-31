@@ -1,37 +1,42 @@
 @import "~@bmi-digital/styles";
 
-.Result {
-  h2 {
-    & {
-      margin-bottom: 24px !important;
+.Results {
+  .FormSection {
+    h2 {
+      margin-bottom: 24px;
       font-size: 1.35rem;
+      text-align: center;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .help {
+      margin-bottom: 40px;
+      text-align: center;
+
+      & + div {
+        margin: 1rem auto 0;
+      }
     }
   }
 
-  .help {
-    margin-bottom: 40px;
-    width: 50%;
-
-    @media (max-width: $breakpoint-lg) {
-      width: 100%;
-    }
-  }
-}
-
-.extrasTitle {
-  text-align: center;
-}
-
-.resetLink {
-  text-decoration: underline;
-  padding: 0;
-  vertical-align: unset;
-
-  &:hover {
+  .resetLink {
     text-decoration: underline;
+    padding: 0;
+    vertical-align: unset;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--text:hover {
+      background-color: unset;
+    }
   }
 
-  &--text:hover {
-    background-color: unset;
+  .fieldContainer {
+    display: block;
   }
 }

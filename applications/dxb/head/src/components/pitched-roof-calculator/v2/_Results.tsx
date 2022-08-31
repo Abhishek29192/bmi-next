@@ -157,7 +157,7 @@ const EmailAddressCollection = ({
       backgroundColor="white"
       onSuccess={onSuccess}
       onFormReady={onFormReady}
-      className={styles["Result"]}
+      className={styles["FormSection"]}
       data={{
         __typename: "ContentfulFormSection",
         hubSpotFormGuid: hubSpotFormId,
@@ -362,6 +362,7 @@ const Results = ({
       {tileRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setTileRows)}
@@ -374,6 +375,7 @@ const Results = ({
       {fixingRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setFixingRows)}
@@ -386,6 +388,7 @@ const Results = ({
       {ventilationRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setVentilationRows)}
@@ -398,6 +401,7 @@ const Results = ({
       {sealingRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setSealingRows)}
@@ -410,6 +414,7 @@ const Results = ({
       {accessoryRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setAccessoryRows)}
@@ -422,7 +427,7 @@ const Results = ({
       {updatedProducts?.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_EDITED_PRODUCTS_TITLE)}
-          titleClassName={styles["extrasTitle"]}
+          className={styles["fieldContainer"]}
         >
           <QuantityTable
             onDelete={deleteRow(setUpdatedProducts, true)}

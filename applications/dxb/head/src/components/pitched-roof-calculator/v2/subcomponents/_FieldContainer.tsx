@@ -1,4 +1,5 @@
 import { Typography } from "@bmi/components";
+import classnames from "classnames";
 import React from "react";
 import styles from "./_FieldContainer.module.scss";
 
@@ -6,24 +7,20 @@ type FieldContainerProps = {
   title?: string;
   help?: string;
   children: React.ReactNode;
-  titleClassName?: string;
+  className?: string;
 };
 
 const FieldContainer = ({
   title,
   help,
   children,
-  titleClassName
+  className
 }: FieldContainerProps) => {
   return (
-    <div className={styles["FieldContainer"]}>
+    <div className={classnames(styles["FieldContainer"], className)}>
       {title || help ? (
         <div className={styles["head"]}>
-          {title ? (
-            <Typography variant="h6" className={titleClassName}>
-              {title}
-            </Typography>
-          ) : null}
+          {title ? <Typography variant="h6">{title}</Typography> : null}
           {help ? (
             <Typography variant="body2" className={styles["help"]}>
               {help}

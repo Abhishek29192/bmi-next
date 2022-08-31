@@ -29,7 +29,7 @@ exports[`CardCheckboxGroup component renders correctly 1`] = `
     class="CardCheckboxGroup"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
         class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
@@ -130,7 +130,7 @@ exports[`CardCheckboxGroup component renders with initial value 1`] = `
     class="CardCheckboxGroup"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
         class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"

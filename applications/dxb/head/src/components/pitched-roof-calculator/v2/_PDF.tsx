@@ -404,7 +404,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     </Typography>
     {results.tiles.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
@@ -414,7 +414,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     {results.fixings.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
@@ -424,7 +424,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     {results.ventilation.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
@@ -434,7 +434,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     {results.sealing.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
@@ -444,7 +444,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     {results.accessories.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
@@ -454,7 +454,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     {results.extras.length ? (
       <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+        <Typography variant="h5" margin={[0, 25, 0, 10]} center>
           {getMicroCopy(microCopy.PDF_REPORT_EXTRAS_SECTION_TITLE)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>

@@ -19,7 +19,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
         class="CardRadioGroup"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
@@ -86,7 +86,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="CardRadioGroup"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
@@ -147,7 +147,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="CardRadioGroup"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
@@ -263,7 +263,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         class="CardRadioGroup"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"

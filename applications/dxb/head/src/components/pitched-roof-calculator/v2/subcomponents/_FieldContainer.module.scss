@@ -1,13 +1,20 @@
 @import "~@bmi-digital/styles";
 
 .FieldContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+
   margin-bottom: 64px;
 
   .head {
-    margin-bottom: 36px;
+    margin-bottom: 24px;
+    text-align: center;
   }
 
   .help {
     margin-top: 24px;
+    text-align: center;
   }
 }
