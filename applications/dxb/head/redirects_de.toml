@@ -15450,6 +15450,11 @@
  to="/de/dachlexikon/dachlexikon-flachdachrichtlinie/"
  force=true
 
+ [[redirects]]
+ from="/de/Gaszuschlag/"
+ to="/de/gaszuschlag/"
+ force=true
+
 [[redirects]]
  from="/de/fachwissen/flachdachabdichtung/"
  to="/de/fachwissen/"
@@ -15494,9 +15499,6 @@
  from="/de/alle-metallplattendatenblatt"
  to="/de/services-downloads-im-ueberblick/alle-downloads/"
  force=true
-
-
-
 
 [[redirects]]
  from="/de/jobs"
