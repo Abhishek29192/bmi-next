@@ -187,7 +187,7 @@ describe("FormSection component", () => {
       `button[type="submit"]`
     );
     expect(specificationButton).toHaveAttribute("aria-label", "GTM-label");
-    expect(specificationButton).toHaveAttribute("aria-action", "GTM-action");
+    expect(specificationButton).toHaveAttribute("data-action", "GTM-action");
   });
 
   it("test handleEmailValidation with incorrect email", () => {

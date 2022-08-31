@@ -63,7 +63,7 @@ export const transformMediaSrc = (
             item.previewMedia?.image?.thumbnail?.src ||
             getDefaultPreviewImage(item.videoUrl),
           caption: item.subtitle || undefined,
-          altText: item.previewMedia?.altText || undefined,
+          altText: item.label,
           isVideo: true
         };
       case "PimVideo":

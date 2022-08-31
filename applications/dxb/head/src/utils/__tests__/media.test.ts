@@ -111,7 +111,8 @@ describe("transformMediaSrc function", () => {
         thumbnail: "//images.asset.jpg",
         isVideo: true,
         caption: "ContentfulVideoSubtitle",
-        altText: "ContentfulVideoAltText"
+        altText: "label",
+        media: undefined
       })
     );
     expect(expectResult[2]).toEqual(
@@ -142,7 +143,8 @@ describe("transformMediaSrc function", () => {
         thumbnail: "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         isVideo: true,
         caption: "ContentfulVideoSubtitle",
-        altText: undefined
+        altText: "label",
+        media: undefined
       })
     );
   });
@@ -183,7 +185,8 @@ describe("transformMediaSrc function", () => {
         thumbnail: "//images.asset.jpg",
         isVideo: true,
         caption: undefined,
-        altText: "ContentfulVideoAltText"
+        altText: "label",
+        media: undefined
       })
     );
   });

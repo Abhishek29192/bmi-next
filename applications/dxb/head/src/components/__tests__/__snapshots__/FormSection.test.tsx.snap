@@ -26,6 +26,8 @@ exports[`FormSection component renders correctly 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                   data-shrink="false"
+                  for="text"
+                  id="text-label"
                 >
                   Text
                 </label>
@@ -35,6 +37,7 @@ exports[`FormSection component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="text"
                     name="text"
                     type="text"
                     value=""
@@ -63,6 +66,8 @@ exports[`FormSection component renders correctly 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                   data-shrink="false"
+                  for="textarea"
+                  id="textarea-label"
                 >
                   Textarea
                 </label>
@@ -72,6 +77,7 @@ exports[`FormSection component renders correctly 1`] = `
                   <textarea
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                    id="textarea"
                     name="textarea"
                     rows="6"
                   />
@@ -99,6 +105,8 @@ exports[`FormSection component renders correctly 1`] = `
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                   data-shrink="false"
+                  for="email"
+                  id="email-label"
                 >
                   Email
                   <span
@@ -115,6 +123,7 @@ exports[`FormSection component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="email"
                     name="email"
                     required=""
                     type="text"
@@ -675,9 +684,9 @@ exports[`FormSection component renders correctly 1`] = `
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               disabled=""
               tabindex="-1"
@@ -873,9 +882,9 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-293 MuiButton-contained buttonStyles-contained-295 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -1004,9 +1013,9 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-269 MuiButton-contained buttonStyles-contained-271 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -1095,6 +1104,8 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                   data-shrink="true"
+                  for="email"
+                  id="email-label"
                 >
                   Email
                   <span
@@ -1111,6 +1122,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="email"
                     name="email"
                     required=""
                     type="text"
@@ -1137,9 +1149,9 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-85 MuiButton-contained buttonStyles-contained-87 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -1228,6 +1240,8 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error MuiFormLabel-filled Mui-required Mui-required"
                   data-shrink="true"
+                  for="email"
+                  id="email-label"
                 >
                   Email
                   <span
@@ -1242,8 +1256,10 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
                 >
                   <input
+                    aria-describedby="email-helper-text"
                     aria-invalid="true"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    id="email"
                     name="email"
                     required=""
                     type="text"
@@ -1280,6 +1296,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                 </div>
                 <p
                   class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error MuiFormHelperText-filled Mui-required"
+                  id="email-helper-text"
                 >
                   MC: errors.emailInvalid
                 </p>
@@ -1290,9 +1307,9 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               disabled=""
               tabindex="-1"
@@ -1514,9 +1531,9 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-321 MuiButton-contained buttonStyles-contained-323 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -1709,9 +1726,9 @@ exports[`FormSection component test upload input with large file 1`] = `
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-105 MuiButton-contained buttonStyles-contained-107 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -1849,9 +1866,9 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-147 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
@@ -2044,9 +2061,9 @@ exports[`FormSection component test upload input with small file 1`] = `
             class="ButtonWrapper"
           >
             <button
-              aria-action="Test form"
               aria-label="children"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-125 MuiButton-contained buttonStyles-contained-127 Button MuiButton-containedPrimary"
+              data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"

@@ -1341,6 +1341,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
                 class="assetsIframe bmiIframe"
                 data-testid="bmi-iframe"
                 src="http://nowhere.com"
+                title="BIM_CODE"
               />
             </div>
           </div>

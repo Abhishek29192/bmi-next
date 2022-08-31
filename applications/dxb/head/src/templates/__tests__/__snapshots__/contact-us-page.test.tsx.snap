@@ -2780,6 +2780,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -2794,7 +2795,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-contained-201 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -3293,6 +3296,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -3404,6 +3408,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -3418,7 +3423,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-contained-201 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -7238,6 +7245,7 @@ exports[`Contact us page render Sections correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -7252,7 +7260,9 @@ exports[`Contact us page render Sections correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-contained-107 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -7751,6 +7761,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -7862,6 +7873,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -7876,7 +7888,9 @@ exports[`Contact us page render Sections correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-contained-107 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -12206,6 +12220,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -12317,6 +12332,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -12331,7 +12347,9 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-247 iconButtonStyles-medium-253 iconButtonStyles-contained-248 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -16151,6 +16169,7 @@ exports[`Contact us page render iframe correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -16165,7 +16184,9 @@ exports[`Contact us page render iframe correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-contained-60 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -16664,6 +16685,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -16775,6 +16797,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -16789,7 +16812,9 @@ exports[`Contact us page render iframe correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-contained-60 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -20609,6 +20634,7 @@ exports[`Contact us page render location correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -20623,7 +20649,9 @@ exports[`Contact us page render location correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-153 iconButtonStyles-medium-159 iconButtonStyles-contained-154 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -21122,6 +21150,7 @@ exports[`Contact us page render location correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -21233,6 +21262,7 @@ exports[`Contact us page render location correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -21247,7 +21277,9 @@ exports[`Contact us page render location correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-153 iconButtonStyles-medium-159 iconButtonStyles-contained-154 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -25067,6 +25099,7 @@ exports[`Contact us page renders correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -25081,7 +25114,9 @@ exports[`Contact us page renders correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -25580,6 +25615,7 @@ exports[`Contact us page renders correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -25691,6 +25727,7 @@ exports[`Contact us page renders correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -25705,7 +25742,9 @@ exports[`Contact us page renders correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >

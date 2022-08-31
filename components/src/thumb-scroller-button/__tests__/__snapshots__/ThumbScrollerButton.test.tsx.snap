@@ -3,6 +3,7 @@
 exports[`ThumbScrollerButton component renders correctly 1`] = `
 <div>
   <button
+    aria-label="Scroll right"
     class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--right"
     tabindex="-1"
     type="button"
@@ -27,6 +28,7 @@ exports[`ThumbScrollerButton component renders correctly 1`] = `
 exports[`ThumbScrollerButton component renders correctly when className is provided 1`] = `
 <div>
   <button
+    aria-label="Scroll left"
     class="MuiButtonBase-root testClass ThumbScrollerButton ThumbScrollerButton--left"
     tabindex="-1"
     type="button"
@@ -51,6 +53,7 @@ exports[`ThumbScrollerButton component renders correctly when className is provi
 exports[`ThumbScrollerButton component renders correctly when direction is left 1`] = `
 <div>
   <button
+    aria-label="Scroll left"
     class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--left"
     tabindex="-1"
     type="button"

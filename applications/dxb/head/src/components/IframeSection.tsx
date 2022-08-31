@@ -27,6 +27,7 @@ const IframeSection = ({ data }: Props) => {
         </div>
       )}
       <iframe
+        title={data.title}
         className={styles["iFrame"]}
         src={data.url}
         width="100%"

@@ -1,8 +1,7 @@
-import React from "react";
-import classnames from "classnames";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
-import { ChevronRight } from "@material-ui/icons";
-import { ChevronLeft } from "@material-ui/icons";
+import { ChevronLeft, ChevronRight } from "@material-ui/icons";
+import classnames from "classnames";
+import React from "react";
 import styles from "./ThumbScrollerButton.module.scss";
 
 type Props = ButtonBaseProps & {
@@ -17,6 +16,7 @@ const ThumbScrollerButton = ({ direction, className, ...rest }: Props) => {
         styles["ThumbScrollerButton"],
         styles[`ThumbScrollerButton--${direction}`]
       )}
+      aria-label={`Scroll ${direction}`}
       {...rest}
       tabIndex="-1"
     >

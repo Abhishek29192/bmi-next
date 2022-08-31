@@ -286,6 +286,7 @@ const Input = ({
     default:
       return (
         <TextField
+          id={name}
           name={name}
           isRequired={required}
           errorText={getMicroCopy(microCopy.UPLOAD_FIELD_IS_REQUIRED)}
@@ -484,7 +485,7 @@ const FormSection = ({
   const { executeRecaptcha } = useGoogleReCaptcha();
   const GTMButton = withGTM<ButtonProps>(Button, {
     label: "aria-label",
-    action: "aria-action"
+    action: "data-action"
   });
 
   const handleSubmit = async (
@@ -705,7 +706,7 @@ const FormSection = ({
                     aria-label={
                       gtmOverride?.label ? gtmOverride?.label : "children"
                     }
-                    aria-action={
+                    data-action={
                       gtmOverride?.action ? gtmOverride?.action : title
                     }
                   />
