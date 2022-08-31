@@ -68,6 +68,7 @@ export default class HouseViewer extends Viewer<Props, State> {
       await this.loadSiding(props.siding);
     }
     this.setIsLoading(false);
+    this.renderFrame();
   }
 
   async loadHouse(colour: Colour, tileInfo: Tile) {
@@ -104,7 +105,6 @@ export default class HouseViewer extends Viewer<Props, State> {
       mat.metalnessMap = this.metalicImage;
       mat.roughnessMap = this.metalicImage;
       mat.needsUpdate = true;
-      this.renderFrame();
     }
 
     if (normalUrl) {
@@ -112,7 +112,6 @@ export default class HouseViewer extends Viewer<Props, State> {
       this.normalImage = normalTexture;
       mat.normalMap = normalTexture;
       mat.needsUpdate = true;
-      this.renderFrame();
     }
 
     if (diffuseUrl) {
@@ -154,15 +153,12 @@ export default class HouseViewer extends Viewer<Props, State> {
 
       // Generate the roof now:
       this.generateRoof(tileInfo, mat, tileMesh, ridgeMesh, ridgeEndMesh);
-
-      this.renderFrame();
     }
 
     if (this.snowFences) {
       this.snowFences.forEach((fence) => {
         fence.visible = tileInfo.snowFenceActive;
       });
-      this.renderFrame();
     }
   }
 
@@ -517,7 +513,6 @@ export default class HouseViewer extends Viewer<Props, State> {
             .map((fenceName) => gltf.scene.getObjectByName(fenceName))
             .filter(Boolean) as Object3D[];
 
-          this.renderFrame();
           this.loadModel(this.props);
         }
       );
