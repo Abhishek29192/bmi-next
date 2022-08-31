@@ -2581,7 +2581,7 @@ enum BusinessType {
 }
 
 """
-Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel)
+Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel)
 """
 type Carousel implements Entry {
   audienceRole(locale: String): String
@@ -2627,7 +2627,7 @@ input CarouselFilter {
 }
 
 """
-Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem)
+Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
 """
 type CarouselItem implements Entry {
   audienceTiers(locale: String): [String]
@@ -6842,7 +6842,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
 }
 
 """
-Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails)
+Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails)
 """
 type ContactDetails implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -6931,7 +6931,7 @@ enum ContactDetailsOrder {
 }
 
 """
-A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle)
+A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle)
 """
 type ContentArticle implements Entry {
   body(locale: String): ContentArticleBody
@@ -12439,7 +12439,7 @@ enum EntryOrder {
 }
 
 """
-A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory)
+A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory)
 """
 type EvidenceCategory implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -13597,6 +13597,179 @@ enum EvidenceItemsOrderBy {
   PROJECT_ID_DESC
   UPLOADER_ACCOUNT_ID_ASC
   UPLOADER_ACCOUNT_ID_DESC
+}
+
+"""
+A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem)
+"""
+type FaqItem implements Entry {
+  body(locale: String): FaqItemBody
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): FaqItemLinkingCollections
+  sys: Sys!
+  title(locale: String): String
+}
+
+type FaqItemBody {
+  json: JSON!
+  links: FaqItemBodyLinks!
+}
+
+type FaqItemBodyAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type FaqItemBodyEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type FaqItemBodyLinks {
+  assets: FaqItemBodyAssets!
+  entries: FaqItemBodyEntries!
+}
+
+type FaqItemCollection {
+  items: [FaqItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input FaqItemFilter {
+  AND: [FaqItemFilter]
+  OR: [FaqItemFilter]
+  body_contains: String
+  body_exists: Boolean
+  body_not_contains: String
+  contentfulMetadata: ContentfulMetadataFilter
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+}
+
+type FaqItemLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+  faqTopicCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): FaqTopicCollection
+}
+
+enum FaqItemOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
+"""
+A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic)
+"""
+type FaqTopic implements Entry {
+  audienceRole(locale: String): [String]
+  audienceTiers(locale: String): [String]
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): FaqTopicLinkingCollections
+  listCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): FaqTopicListCollection
+  sys: Sys!
+  title(locale: String): String
+  weight(locale: String): Int
+}
+
+type FaqTopicCollection {
+  items: [FaqTopic]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input FaqTopicFilter {
+  AND: [FaqTopicFilter]
+  OR: [FaqTopicFilter]
+  audienceRole_contains_all: [String]
+  audienceRole_contains_none: [String]
+  audienceRole_contains_some: [String]
+  audienceRole_exists: Boolean
+  audienceTiers_contains_all: [String]
+  audienceTiers_contains_none: [String]
+  audienceTiers_contains_some: [String]
+  audienceTiers_exists: Boolean
+  contentfulMetadata: ContentfulMetadataFilter
+  listCollection_exists: Boolean
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+  weight: Int
+  weight_exists: Boolean
+  weight_gt: Int
+  weight_gte: Int
+  weight_in: [Int]
+  weight_lt: Int
+  weight_lte: Int
+  weight_not: Int
+  weight_not_in: [Int]
+}
+
+type FaqTopicLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+}
+
+type FaqTopicListCollection {
+  items: [FaqItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum FaqTopicOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+  weight_ASC
+  weight_DESC
 }
 
 type FindIncompleteCompanyProfile {
@@ -15712,7 +15885,7 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
 }
 
 """
-A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate)
+A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate)
 """
 type GuaranteeTemplate implements Entry {
   approvalMessage(locale: String, preview: Boolean): MessageTemplate
@@ -15742,6 +15915,7 @@ type GuaranteeTemplate implements Entry {
   linkedFrom(allowedLocales: [String]): GuaranteeTemplateLinkingCollections
   logo(locale: String, preview: Boolean): Asset
   mailBody(locale: String): String
+  mailSubject(locale: String): String
   maintenanceTemplate(locale: String, preview: Boolean): Asset
   rejectionMessage(locale: String, preview: Boolean): MessageTemplate
   roofType(locale: String): String
@@ -15928,6 +16102,13 @@ input GuaranteeTemplateFilter {
   mailBody_not: String
   mailBody_not_contains: String
   mailBody_not_in: [String]
+  mailSubject: String
+  mailSubject_contains: String
+  mailSubject_exists: Boolean
+  mailSubject_in: [String]
+  mailSubject_not: String
+  mailSubject_not_contains: String
+  mailSubject_not_in: [String]
   maintenanceTemplate_exists: Boolean
   rejectionMessage: cfMessageTemplateNestedFilter
   rejectionMessage_exists: Boolean
@@ -16028,6 +16209,8 @@ enum GuaranteeTemplateOrder {
   languageCode_DESC
   languageDescriptor_ASC
   languageDescriptor_DESC
+  mailSubject_ASC
+  mailSubject_DESC
   roofType_ASC
   roofType_DESC
   signatory_ASC
@@ -16049,7 +16232,7 @@ enum GuaranteeTemplateOrder {
 }
 
 """
-A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType)
+A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType)
 """
 type GuaranteeType implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -17702,7 +17885,7 @@ input MarketCondition {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent)
+[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent)
 """
 type MarketContent implements Entry {
   contactUsPage(locale: String, preview: Boolean): ContentArticle
@@ -18590,7 +18773,7 @@ enum MarketsOrderBy {
 }
 
 """
-A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder)
+A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder)
 """
 type MediaFolder implements Entry {
   childrenCollection(
@@ -18671,7 +18854,7 @@ enum MediaFolderOrder {
 }
 
 """
-Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool)
+Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool)
 """
 type MediaTool implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -18744,7 +18927,7 @@ enum MediaToolOrder {
 }
 
 """
-A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate)
+A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate)
 """
 type MessageTemplate implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -18836,7 +19019,7 @@ enum MessageTemplateOrder {
 }
 
 """
-Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration)
+Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration)
 """
 type Migration implements Entry {
   contentTypeId(locale: String): String
@@ -18864,6 +19047,7 @@ input MigrationFilter {
   contentTypeId_not_contains: String
   contentTypeId_not_in: [String]
   contentfulMetadata: ContentfulMetadataFilter
+  state_exists: Boolean
   sys: SysFilter
 }
 
@@ -21746,7 +21930,7 @@ type PageInfo {
 }
 
 """
-MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand)
+MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand)
 """
 type PartnerBrand implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -25977,6 +26161,24 @@ type Query implements Node {
     """
     offset: Int
   ): EvidenceItemsConnection
+  faqItem(id: String!, locale: String, preview: Boolean): FaqItem
+  faqItemCollection(
+    limit: Int = 100
+    locale: String
+    order: [FaqItemOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: FaqItemFilter
+  ): FaqItemCollection
+  faqTopic(id: String!, locale: String, preview: Boolean): FaqTopic
+  faqTopicCollection(
+    limit: Int = 100
+    locale: String
+    order: [FaqTopicOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: FaqTopicFilter
+  ): FaqTopicCollection
 
   """
   Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
@@ -29202,7 +29404,7 @@ enum Tier {
 }
 
 """
-A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit)
+A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit)
 """
 type TierBenefit implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -29314,7 +29516,7 @@ type Token {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent)
+[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent)
 """
 type TrainingContent implements Entry {
   contentfulMetadata: ContentfulMetadata!

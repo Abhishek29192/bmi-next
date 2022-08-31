@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Partner Brands server side props empty 1`] = `
+exports[`FAQ server side props render correctly 1`] = `
 <div>
   <div>
     <div
@@ -190,318 +190,7 @@ exports[`Partner Brands server side props empty 1`] = `
                 <h3
                   class="MuiTypography-root Typography MuiTypography-h3"
                 >
-                  Partner Brands
-                </h3>
-                <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
-                />
-                <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
-                />
-              </div>
-              <div
-                class="lowerHeaderNav"
-              >
-                <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <div
-                  class="makeStyles-root-23"
-                >
-                  <div>
-                    <button
-                      aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        <div
-                          class="userMenu"
-                        >
-                          <div
-                            class="avatar"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              style="width: 20px; color: rgb(238, 238, 238);"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                              />
-                            </svg>
-                          </div>
-                          <div
-                            class="userName"
-                          >
-                            Account
-                          </div>
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                            />
-                          </svg>
-                        </div>
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="appContent"
-        />
-        <div
-          class="footer"
-        >
-          <svg
-            style="width: 50px;"
-          />
-          <nav
-            class="footerNav"
-          >
-            <a
-              href="/footer/link/relativePath"
-            >
-              Footer link title
-            </a>
-          </nav>
-          <svg
-            style="width: 120px;"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Partner Brands server side props render correctly 1`] = `
-<div>
-  <div>
-    <div
-      class="appContainer"
-    >
-      <div
-        class="sidebar"
-      >
-        <div
-          class="logoContainer"
-        >
-          <svg
-            class="logo"
-            style="width: 72px; display: block;"
-          />
-        </div>
-        <nav
-          class="sidebarNavigation"
-        >
-          <a
-            class="sidebarLink"
-            href="/"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-              focusable="false"
-              style="font-size: 24px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
-              />
-            </svg>
-            Home
-          </a>
-          <a
-            class="sidebarLink"
-            href="/training"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
-              focusable="false"
-              style="font-size: 24px;"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-              />
-            </svg>
-            Training
-          </a>
-          <a
-            class="sidebarLink"
-            href="/faq"
-          >
-            <svg
-              color="primary"
-              style="font-size: 24px;"
-            />
-            FAQ
-          </a>
-        </nav>
-      </div>
-      <div
-        class="appMain"
-      >
-        <div
-          class="headerContainer"
-        >
-          <div
-            class="header"
-          >
-            <div
-              class="upperHeader"
-            >
-              <nav>
-                <a
-                  href="/contact"
-                >
-                  Contact
-                </a>
-                <a
-                  data-testid="global-external-link"
-                  href="https://www.bmigroup.com/no/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  BMI Norway Website
-                </a>
-              </nav>
-            </div>
-            <div
-              class="midHeader"
-            >
-              <svg
-                class="logo"
-                style="width: 50px; display: block;"
-              />
-              <div
-                class="midHeaderNav"
-              >
-                <button
-                  aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
-                  id="notifications-panel-toggle"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <div
-                  class="tabletNavButton"
-                >
-                  <button
-                    aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
-                    id="tablet-navigation-panel-toggle"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <div
-                  class="mobileNavButton"
-                >
-                  <button
-                    aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
-                    id="mobile-navigation-panel-toggle"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="lowerHeader"
-            >
-              <div
-                class="lowerHeaderMeta"
-              >
-                <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
-                >
-                  Partner Brands
+                  FAQ
                 </h3>
                 <hr
                   class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
@@ -598,77 +287,320 @@ exports[`Partner Brands server side props render correctly 1`] = `
           class="appContent"
         >
           <div
-            class="Section Section--alabaster Section--slim"
+            class="MuiGrid-root Grid MuiGrid-container"
           >
             <div
-              class="Container"
+              class="MuiGrid-root faqContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
             >
+              <h4
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                style="font-size: 31.5px; padding-bottom: 24px;"
+              >
+                test
+              </h4>
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="accordionStyles-root-3 accordionStyles-no-inner-padding-6"
               >
                 <div
-                  class="main"
-                  id="test"
+                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  data-testid="accordion-item"
+                  style="box-shadow: none;"
                 >
                   <div
-                    class="header"
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    data-testid="accordion-summary"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
-                      class="banner"
+                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
                     >
-                      <img
-                        src="http://images/test.png"
-                      />
-                    </div>
-                    <div
-                      class="logo"
-                    >
-                      <img
-                        src="http://images/test.png"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="body"
-                  >
-                    <h3
-                      class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
-                      style="font-size: 1.5rem;"
-                    >
-                      test
-                    </h3>
-                    <div
-                      class="content"
-                    >
-                      <div
-                        class="main"
+                      <h6
+                        class="MuiTypography-root Typography MuiTypography-h6"
                       >
-                        <p
-                          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-                        >
-                          test text
-                        </p>
-                      </div>
+                        title 1
+                      </h6>
                     </div>
-                  </div>
-                  <div
-                    class="footer"
-                  >
-                    <a
+                    <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-contained buttonStyles-contained-5 MuiButton-containedPrimary"
-                      href="http://test"
-                      tabindex="0"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-6"
+                        class="MuiIconButton-label"
                       >
-                        visitWebsite
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
                       </span>
                       <span
                         class="MuiTouchRipple-root"
                       />
-                    </a>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-13"
+                            style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
+                          >
+                            <div
+                              class="main"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  data-testid="accordion-item"
+                  style="box-shadow: none;"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    data-testid="accordion-summary"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                    >
+                      <h6
+                        class="MuiTypography-root Typography MuiTypography-h6"
+                      >
+                        title 2
+                      </h6>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-16"
+                            style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
+                          >
+                            <div
+                              class="main"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root faqContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+            >
+              <h4
+                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                style="font-size: 31.5px; padding-bottom: 24px;"
+              >
+                test 2
+              </h4>
+              <div
+                class="accordionStyles-root-3 accordionStyles-no-inner-padding-6"
+              >
+                <div
+                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  data-testid="accordion-item"
+                  style="box-shadow: none;"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    data-testid="accordion-summary"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                    >
+                      <h6
+                        class="MuiTypography-root Typography MuiTypography-h6"
+                      >
+                        title 3
+                      </h6>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-20"
+                            style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
+                          >
+                            <div
+                              class="main"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  data-testid="accordion-item"
+                  style="box-shadow: none;"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    data-testid="accordion-summary"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                    >
+                      <h6
+                        class="MuiTypography-root Typography MuiTypography-h6"
+                      >
+                        title 4
+                      </h6>
+                    </div>
+                    <div
+                      aria-disabled="false"
+                      aria-hidden="true"
+                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-hidden"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-23"
+                            style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
+                          >
+                            <div
+                              class="main"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

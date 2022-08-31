@@ -3061,6 +3061,67 @@ export type GetCompanyQuery = {
   } | null;
 };
 
+export type GetFaqTopicsQueryVariables = SchemaTypes.Exact<{
+  role: SchemaTypes.Scalars["String"];
+  tier: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetFaqTopicsQuery = {
+  __typename?: "Query";
+  faqTopicCollection?: {
+    __typename?: "FaqTopicCollection";
+    items: Array<{
+      __typename?: "FaqTopic";
+      title?: string | null;
+      audienceRole?: Array<string | null> | null;
+      audienceTiers?: Array<string | null> | null;
+      weight?: number | null;
+      listCollection?: {
+        __typename?: "FaqTopicListCollection";
+        items: Array<{
+          __typename?: "FaqItem";
+          title?: string | null;
+          sys: { __typename?: "Sys"; id: string };
+        } | null>;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type GetFaqItemQueryVariables = SchemaTypes.Exact<{
+  id: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetFaqItemQuery = {
+  __typename?: "Query";
+  faqItemCollection?: {
+    __typename?: "FaqItemCollection";
+    items: Array<{
+      __typename?: "FaqItem";
+      body?: {
+        __typename?: "FaqItemBody";
+        json: any;
+        links: {
+          __typename?: "FaqItemBodyLinks";
+          assets: {
+            __typename?: "FaqItemBodyAssets";
+            block: Array<{
+              __typename?: "Asset";
+              url?: string | null;
+              title?: string | null;
+              width?: number | null;
+              height?: number | null;
+              description?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+            } | null>;
+          };
+        };
+      } | null;
+    } | null>;
+  } | null;
+};
+
 export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
   role: SchemaTypes.Scalars["String"];
   tier: SchemaTypes.Scalars["String"];

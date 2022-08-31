@@ -4813,6 +4813,162 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQuery,
   OperationTypes.GetCompanyQueryVariables
 >;
+export const GetFaqTopicsDocument = gql`
+  query GetFaqTopics($role: String!, $tier: String!, $tag: String!) {
+    faqTopicCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+        audienceRole_contains_some: [$role]
+        audienceTiers_contains_some: [$tier]
+      }
+    ) {
+      items {
+        title
+        audienceRole
+        audienceTiers
+        weight
+        listCollection {
+          items {
+            title
+            sys {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetFaqTopicsQuery__
+ *
+ * To run a query within a React component, call `useGetFaqTopicsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetFaqTopicsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetFaqTopicsQuery({
+ *   variables: {
+ *      role: // value for 'role'
+ *      tier: // value for 'tier'
+ *      tag: // value for 'tag'
+ *   },
+ * });
+ */
+export function useGetFaqTopicsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetFaqTopicsQuery,
+    OperationTypes.GetFaqTopicsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetFaqTopicsQuery,
+    OperationTypes.GetFaqTopicsQueryVariables
+  >(GetFaqTopicsDocument, options);
+}
+export function useGetFaqTopicsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetFaqTopicsQuery,
+    OperationTypes.GetFaqTopicsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetFaqTopicsQuery,
+    OperationTypes.GetFaqTopicsQueryVariables
+  >(GetFaqTopicsDocument, options);
+}
+export type GetFaqTopicsQueryHookResult = ReturnType<
+  typeof useGetFaqTopicsQuery
+>;
+export type GetFaqTopicsLazyQueryHookResult = ReturnType<
+  typeof useGetFaqTopicsLazyQuery
+>;
+export type GetFaqTopicsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetFaqTopicsQuery,
+  OperationTypes.GetFaqTopicsQueryVariables
+>;
+export const GetFaqItemDocument = gql`
+  query GetFaqItem($id: String!) {
+    faqItemCollection(where: { sys: { id: $id } }, limit: 1) {
+      items {
+        body {
+          json
+          links {
+            assets {
+              block {
+                sys {
+                  id
+                }
+                url
+                title
+                width
+                height
+                description
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetFaqItemQuery__
+ *
+ * To run a query within a React component, call `useGetFaqItemQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetFaqItemQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetFaqItemQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetFaqItemQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetFaqItemQuery,
+    OperationTypes.GetFaqItemQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetFaqItemQuery,
+    OperationTypes.GetFaqItemQueryVariables
+  >(GetFaqItemDocument, options);
+}
+export function useGetFaqItemLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetFaqItemQuery,
+    OperationTypes.GetFaqItemQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetFaqItemQuery,
+    OperationTypes.GetFaqItemQueryVariables
+  >(GetFaqItemDocument, options);
+}
+export type GetFaqItemQueryHookResult = ReturnType<typeof useGetFaqItemQuery>;
+export type GetFaqItemLazyQueryHookResult = ReturnType<
+  typeof useGetFaqItemLazyQuery
+>;
+export type GetFaqItemQueryResult = Apollo.QueryResult<
+  OperationTypes.GetFaqItemQuery,
+  OperationTypes.GetFaqItemQueryVariables
+>;
 export const GetPartnerBrandsDocument = gql`
   query GetPartnerBrands($role: String!, $tier: String!, $tag: String!) {
     marketContentCollection(

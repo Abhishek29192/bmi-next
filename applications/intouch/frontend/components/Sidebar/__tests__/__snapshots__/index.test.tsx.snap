@@ -100,6 +100,16 @@ exports[`Sidebar component renders correctly for company admin 1`] = `
       </svg>
       Tools
     </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
+    </a>
   </nav>
 </div>
 `;
@@ -142,6 +152,16 @@ exports[`Sidebar component renders correctly for installer 1`] = `
         />
       </svg>
       Training
+    </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
     </a>
   </nav>
 </div>
@@ -230,6 +250,16 @@ exports[`Sidebar component renders correctly for installer in a T2 company 1`] =
       </svg>
       Tools
     </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
+    </a>
   </nav>
 </div>
 `;
@@ -306,6 +336,16 @@ exports[`Sidebar component renders correctly for installer in a company 1`] = `
         />
       </svg>
       Tools
+    </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
     </a>
   </nav>
 </div>
@@ -393,6 +433,16 @@ exports[`Sidebar component renders correctly for installer with projects 1`] = `
         />
       </svg>
       Tools
+    </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
     </a>
   </nav>
 </div>
@@ -507,6 +557,16 @@ exports[`Sidebar component renders correctly for market admin 1`] = `
         style="font-size: 24px;"
       />
       Inventory
+    </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
     </a>
   </nav>
 </div>
@@ -655,6 +715,16 @@ exports[`Sidebar component renders correctly for super admin 1`] = `
         style="font-size: 24px;"
       />
       Inventory
+    </a>
+    <a
+      class="sidebarLink"
+      href="/faq"
+    >
+      <svg
+        color="primary"
+        style="font-size: 24px;"
+      />
+      FAQ
     </a>
   </nav>
 </div>

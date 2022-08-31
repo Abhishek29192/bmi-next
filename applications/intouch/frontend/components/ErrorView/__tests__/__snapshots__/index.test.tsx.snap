@@ -54,6 +54,16 @@ exports[`ErrorView component renders correctly with title 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -364,6 +374,16 @@ exports[`ErrorView component renders correctly with title and message 1`] = `
               />
             </svg>
             Training
+          </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
           </a>
         </nav>
       </div>
@@ -681,6 +701,16 @@ exports[`ErrorView component renders correctly without title 1`] = `
               />
             </svg>
             Training
+          </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
           </a>
         </nav>
       </div>

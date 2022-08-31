@@ -10,6 +10,7 @@ import {
   School
 } from "@material-ui/icons";
 import { findAccountCompany } from "../../lib/account";
+import { QuizIcon } from "../../components/icons";
 import can from "../../lib/permissions/can";
 
 type Link = {
@@ -84,6 +85,12 @@ export const getSidebarLinks = (account: Account, t): Link[] => {
       icon: Box,
       label: t("Inventory"),
       isVisible: can(account, "navigation", "productsAdmin")
+    },
+    {
+      href: "/faq",
+      icon: QuizIcon,
+      label: t("FAQ"),
+      isVisible: can(account, "navigation", "faq")
     }
   ].filter(({ isVisible }) => isVisible);
 };

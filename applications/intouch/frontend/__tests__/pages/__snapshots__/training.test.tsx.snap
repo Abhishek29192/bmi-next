@@ -54,6 +54,16 @@ exports[`Training Page render correctly 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -850,6 +860,16 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -1155,6 +1175,16 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
               />
             </svg>
             Training
+          </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
           </a>
         </nav>
       </div>
