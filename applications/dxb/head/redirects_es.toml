@@ -77,6 +77,11 @@
  from="/es/profesionales/videos"
  to="/es/videos/"
  force=true
+
+[[redirects]]
+ from="/es/profesionales/preciario"
+ to="http://www.preoc.es/#1252608062"
+ force=true
  
 [[redirects]]
  from="/es/profesionales/instaladores-bmi-roofpro/bmi-cobert-slu"
