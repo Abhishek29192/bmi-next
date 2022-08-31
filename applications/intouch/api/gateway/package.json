@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/intouch-api-gateway",
+  "name": "@bmi/intouch-graph-gateway",
   "version": "1.0.0",
   "description": "BMI InTouch GraphQL API GateWay",
   "license": "UNLICENSED",
