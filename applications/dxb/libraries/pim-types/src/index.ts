@@ -43,11 +43,13 @@ import {
   Mime,
   PimTypes,
   Product,
+  ProductReference,
+  ProductReferenceType,
   ProductsApiResponse,
+  ReferenceTarget,
   System,
   SystemLayer,
   SystemReference,
-  SystemReferenceTarget,
   SystemsApiResponse,
   VariantOption
 } from "./types";
@@ -106,8 +108,10 @@ export {
   System,
   SystemLayer,
   SystemReference,
-  SystemReferenceTarget,
+  ReferenceTarget,
   SystemsApiResponse,
   VariantOption,
-  BaseProduct
+  BaseProduct,
+  ProductReference,
+  ProductReferenceType
 };

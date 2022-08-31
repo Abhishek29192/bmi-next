@@ -216,7 +216,7 @@ describe("transformProduct", () => {
         );
 
         expect(featureNameAsProp).toEqual([
-          { code: "100symbol", name: "100 symbol" }
+          { code: "100symbol", name: "100 symbol", value: "100" }
         ]);
       });
 
@@ -247,8 +247,8 @@ describe("transformProduct", () => {
         );
 
         expect(featureNameAsProp).toEqual([
-          { code: "100symbol", name: "100 symbol" },
-          { code: "200symbol", name: "200 symbol" }
+          { code: "100symbol", name: "100 symbol", value: "100" },
+          { code: "200symbol", name: "200 symbol", value: "200" }
         ]);
       });
     });
@@ -284,7 +284,7 @@ describe("transformProduct", () => {
         );
 
         expect(featureNameAsProp).toEqual([
-          { code: "COLOUR_GREEN", name: "green" }
+          { code: "COLOUR_GREEN", name: "green", value: "green" }
         ]);
       });
 
@@ -319,8 +319,8 @@ describe("transformProduct", () => {
         );
 
         expect(featureNameAsProp).toEqual([
-          { code: "COLOUR_GREEN", name: "green" },
-          { code: "COLOUR_RED", name: "red" }
+          { code: "COLOUR_GREEN", name: "green", value: "green" },
+          { code: "COLOUR_RED", name: "red", value: "red" }
         ]);
       });
     });
@@ -505,6 +505,99 @@ describe("transformProduct", () => {
 
       const transformedProduct = await transformProduct(product);
       expect(transformedProduct).toMatchSnapshot();
+    });
+
+    it("transforms product correctly with relatedProducts", async () => {
+      const product = createPimProduct({
+        name: "name",
+        code: "code",
+        productReferences: [
+          {
+            referenceType: "HIP",
+            target: {
+              code: "base_product_reference_product_code",
+              name: "base product reference product"
+            },
+            preselected: false
+          }
+        ],
+        variantOptions: [
+          createVariantOption({
+            approvalStatus: "unapproved",
+            productReferences: [
+              {
+                referenceType: "CLIP",
+                target: {
+                  code: "variant_reference_product_code",
+                  name: "variant reference product"
+                },
+                preselected: false
+              }
+            ]
+          })
+        ]
+      });
+
+      const transformedProducts = await transformProduct(product);
+      const expectedProductReferences = [
+        {
+          type: "CLIP",
+          code: "variant_reference_product_code",
+          name: "variant reference product"
+        },
+        {
+          type: "HIP",
+          code: "base_product_reference_product_code",
+          name: "base product reference product"
+        }
+      ];
+      expect(transformedProducts[0].productReferences).toStrictEqual(
+        expectedProductReferences
+      );
+    });
+
+    it("returns only references of variant if it contains the same reference as the base product", async () => {
+      const product = createPimProduct({
+        name: "name",
+        code: "code",
+        productReferences: [
+          {
+            referenceType: "CLIP",
+            target: {
+              code: "base_product_reference_product_code",
+              name: "base product reference product"
+            },
+            preselected: false
+          }
+        ],
+        variantOptions: [
+          createVariantOption({
+            approvalStatus: "unapproved",
+            productReferences: [
+              {
+                referenceType: "CLIP",
+                target: {
+                  code: "variant_reference_product_code",
+                  name: "variant reference product"
+                },
+                preselected: false
+              }
+            ]
+          })
+        ]
+      });
+
+      const transformedProducts = await transformProduct(product);
+      const expectedProductReferences = [
+        {
+          type: "CLIP",
+          code: "variant_reference_product_code",
+          name: "variant reference product"
+        }
+      ];
+      expect(transformedProducts[0].productReferences).toStrictEqual(
+        expectedProductReferences
+      );
     });
 
     it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", async () => {

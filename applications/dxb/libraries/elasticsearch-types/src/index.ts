@@ -6,6 +6,7 @@ import type {
   Image,
   Operation,
   Product,
+  ProductReference,
   System
 } from "./types";
 
@@ -16,5 +17,6 @@ export type {
   Image,
   Operation,
   Product,
+  ProductReference,
   System
 };
