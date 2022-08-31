@@ -1,6 +1,8 @@
 @import "~@bmi-digital/styles";
 
 .CalculatorStepper {
+  height: 100%;
+
   .title {
     padding: 0;
   }
@@ -42,58 +44,76 @@
   }
 
   .footer {
-    padding-top: 36px;
+    padding: 24px 30px;
+    background-color: $color-white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    border-top: 1px solid $color-alabaster;
+
+    .footerButton {
+      height: 44px;
+
+      &--link {
+        margin-right: 60px;
+
+        @media (max-width: $breakpoint-md) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      padding: 16px 24px;
+
+      .footerButton {
+        width: 100%;
+
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+      }
+    }
   }
 
-  .breakableRow {
-    display: flex;
-    flex-direction: column;
+  .form,
+  .stepWithoutForm {
+    height: 100%;
 
-    & > .breakableRow:not(:first-child) {
-      margin: 0;
-      margin-top: 24px;
+    &--sm-padding,
+    &--md-padding,
+    &--lg-padding {
+      padding-bottom: 96px;
 
-      @media (min-width: $breakpoint-md) {
-        margin: 0;
+      .formContent {
+        padding-bottom: 0;
       }
     }
 
-    & > .rowItem:not(:first-child) {
-      margin: 0;
-      margin-top: 24px;
-
-      @media (min-width: $breakpoint-md) {
-        margin: 0;
-        margin-left: 60px;
-      }
-    }
-
-    &--reverse {
-      flex-direction: column-reverse;
-
-      & > .breakableRow:not(:first-child) {
-        margin: 0;
-        margin-bottom: 24px;
-
-        @media (min-width: $breakpoint-md) {
-          margin: 0;
-        }
+    @media (max-width: $breakpoint-md) {
+      &--sm-padding {
+        padding-bottom: 76px;
       }
 
-      & > .rowItem:not(:first-child) {
-        margin: 0;
-        margin-bottom: 24px;
+      &--md-padding {
+        padding-bottom: 132px;
+      }
 
-        @media (min-width: $breakpoint-md) {
-          margin: 0;
-          margin-right: 60px;
-        }
+      &--lg-padding {
+        padding-bottom: 188px;
       }
     }
+  }
 
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+  .formContent {
+    overflow: hidden auto;
+    padding: 0 32px 32px;
+    height: 100%;
   }
 }

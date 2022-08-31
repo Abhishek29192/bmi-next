@@ -34,7 +34,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl ContainerDialog--allowOverflow"
+      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl PitchedRoofCalculator"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
@@ -82,10 +82,10 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         </button>
       </div>
       <div
-        class="content"
+        class="dialogContent content"
       >
         <div
-          class="PitchedRoofCalculator"
+          class="dialogBody"
         >
           <p>
             loaded
@@ -121,7 +121,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl ContainerDialog--allowOverflow"
+      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl PitchedRoofCalculator"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
@@ -169,10 +169,10 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         </button>
       </div>
       <div
-        class="content"
+        class="dialogContent content"
       >
         <div
-          class="PitchedRoofCalculator"
+          class="dialogBody"
         >
           <p>
             loaded
