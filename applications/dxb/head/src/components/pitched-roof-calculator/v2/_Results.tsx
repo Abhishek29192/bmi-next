@@ -39,25 +39,27 @@ type EmailAddressCollectionProps = {
   hubSpotFormId: string | null;
 };
 
-const replaceImageURLWithImage = async (
+const ALLOWED_CONTENT_TYPES = ["image/jpeg", "image/png"];
+
+export const replaceImageURLWithImage = async (
   result: ResultsRow
 ): Promise<ResultsRow> => {
-  let dataURI = "";
+  let dataURI = null;
 
   try {
     const response = await fetch(result.image);
     const contentType = response.headers.get("content-type");
 
-    const imageArrayBuffer = await response.arrayBuffer();
-    const imageUInt8Array = new Uint8Array(imageArrayBuffer);
-    let utf8EncodedImage = "";
-
-    for (const byte of imageUInt8Array) {
-      utf8EncodedImage += String.fromCharCode(byte);
+    if (ALLOWED_CONTENT_TYPES.includes(contentType)) {
+      const imageArrayBuffer = await response.arrayBuffer();
+      const imageUInt8Array = new Uint8Array(imageArrayBuffer);
+      let utf8EncodedImage = "";
+      for (const byte of imageUInt8Array) {
+        utf8EncodedImage += String.fromCharCode(byte);
+      }
+      const base64EncodedImage = btoa(utf8EncodedImage);
+      dataURI = `data:${contentType};base64,${base64EncodedImage}`;
     }
-
-    const base64EncodedImage = btoa(utf8EncodedImage);
-    dataURI = `data:${contentType};base64,${base64EncodedImage}`;
   } catch (error) {
     devLog("Failed to convert image for PDF", result, error);
   }
