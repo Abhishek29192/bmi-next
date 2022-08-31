@@ -1,10 +1,10 @@
 import Protrusion01 from "../../images/protrusions/protrusion01.svg";
-import Protrusion01Dim from "../../images/protrusions/protrusion01-dims.svg";
 import Protrusion02 from "../../images/protrusions/protrusion02.svg";
-import Protrusion02Dim from "../../images/protrusions/protrusion02-dims.svg";
 import Protrusion03 from "../../images/protrusions/protrusion03.svg";
-import Protrusion03Dim from "../../images/protrusions/protrusion03-dims.svg";
-import { Protrusion, DimensionsValues } from "../../types/roof";
+import Protrusion01Dim from "../../images/v2/protrusions/protrusion01-dims.svg";
+import Protrusion02Dim from "../../images/v2/protrusions/protrusion02-dims.svg";
+import Protrusion03Dim from "../../images/v2/protrusions/protrusion03-dims.svg";
+import { DimensionsValues, Protrusion } from "../../types/roof";
 import getMeasurement from "./getMeasurement";
 
 const protrusion01: Protrusion = {
