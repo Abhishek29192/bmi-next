@@ -1365,5 +1365,19 @@ export default [
         ]
       })
     ]
+  }),
+  createClassification({
+    code: "bimAttributes",
+    name: "bimAttributes",
+    features: [
+      createFeature({
+        code: "bimAttributes.productPageURL",
+        featureValues: [
+          createFeatureValue({
+            value: "bimAttributes.productPageURL"
+          })
+        ]
+      })
+    ]
   })
 ];

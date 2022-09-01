@@ -171,7 +171,8 @@ export const productIgnorableAttributes: FeatureCode[] = [
   "squareMeterUomAttributes.unit",
   "squareMeterUomAttributes.uomType",
   "squareMeterUomAttributes.volume",
-  "squareMeterUomAttributes.width"
+  "squareMeterUomAttributes.width",
+  "bimAttributes.productPageURL"
 ];
 
 export const systemIgnorableAttributes: FeatureCode[] = [

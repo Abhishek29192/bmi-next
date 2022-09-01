@@ -392,7 +392,8 @@ export enum TwoOneClassToIgnore {
   palletUomAttributes = "palletUomAttributes",
   pieceUomAttributes = "pieceUomAttributes",
   rollsUomAttributes = "rollsUomAttributes",
-  squareMeterUomAttributes = "squareMeterUomAttributes"
+  squareMeterUomAttributes = "squareMeterUomAttributes",
+  bimAttributes = "bimAttributes"
 }
 
 export enum TwoOneAttribToIgnore {
@@ -406,7 +407,8 @@ export enum TwoOneAttribToIgnore {
   volume = "volume",
   width = "width",
   unit = "unit",
-  uomType = "uomType"
+  uomType = "uomType",
+  productPageURL = "productPageURL"
 }
 
 export const commonIgnoreList = [
@@ -450,7 +452,8 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
   [TwoOneClassToIgnore.cartonUomAttributes]: [
     TwoOneAttribToIgnore.unit,
     TwoOneAttribToIgnore.uomType
-  ]
+  ],
+  [TwoOneClassToIgnore.bimAttributes]: [TwoOneAttribToIgnore.productPageURL]
 };
 
 const extractFeatureCode = (

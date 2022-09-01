@@ -487,6 +487,7 @@ describe("transformProduct", () => {
       expect(transformedProduct[0].pieceUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].rollsUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].squareMeterUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].bimAttributes).toEqual(undefined);
     });
   });
 
