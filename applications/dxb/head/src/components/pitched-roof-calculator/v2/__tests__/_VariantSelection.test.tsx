@@ -1,76 +1,68 @@
 import { FormContext } from "@bmi/components";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
+import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/v2/data.json";
+import { Tile } from "../../types/v2";
 import VariantSelection from "../_VariantSelection";
 
-const dimensionsSample = {
-  A: "10",
-  B: "5",
-  P1: "20",
-  P2: "21"
-};
+const tiles: Tile[] = [
+  {
+    ...createProduct<Tile>({ name: "first product" }),
+    brokenBond: false,
+    color: "Red color",
+    packSize: 15
+  },
+  {
+    ...createProduct<Tile>({ name: "second product" }),
+    brokenBond: false,
+    color: "Black color",
+    packSize: 20
+  }
+];
 
 describe("PitchedRoofCalculator VariantSelection component", () => {
-  it("renders correctly", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
+  it("calls select function", () => {
     const select = jest.fn();
 
-    const { container } = render(
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
-          <VariantSelection
-            select={select}
-            selected={undefined}
-            dimensions={dimensionsSample}
-            tile={data.mainTiles[0] as any}
-          />
+          <VariantSelection select={select} options={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    fireEvent.click(screen.getByText(tiles[0].color));
+    expect(select).toBeCalledWith(tiles[0]);
   });
 
   it("renders with no variants", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
     const select = jest.fn();
 
     const { container } = render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
-          <VariantSelection
-            select={select}
-            selected={undefined}
-            dimensions={dimensionsSample}
-            tile={{ ...data.mainTiles[0], variants: [] } as any}
-          />
+          <VariantSelection select={select} selected={undefined} options={[]} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    expect(container.childNodes.length).toBe(0);
   });
 });

@@ -1,12 +1,5 @@
-import { VergeTileOption } from "../../types";
 import { Face, FaceWithBattens, Point, Vertex } from "../../types/roof";
-import { MainTileVariant } from "../../types/v2";
-
-type RangeValue = {
-  start: number;
-  end: number;
-  value: number;
-};
+import { Tile, VergeOption } from "../../types/v2";
 
 const calculatePolygonArea = (vertices: Point[]) => {
   let area = 0;
@@ -30,44 +23,27 @@ export const calculateArea = (faces: Face[]) => {
   return area;
 };
 
-const getValueForPitchSet = (options: RangeValue[], pitchSet: number[]) =>
-  (
-    options.find(({ start, end }) =>
-      pitchSet.every((p) => p >= start && p < end)
-    ) || {}
-  ).value;
-
-export const battenCalc = (
-  vertices: Vertex[],
-  pitchSet: number[],
-  mainTileVariant: MainTileVariant
-) => {
+export const battenCalc = (vertices: Vertex[], mainTileVariant: Tile) => {
   const allBattens = [];
   // Get rafter length by taking highest y of all points
   const rafterLength = vertices.reduce(
     (prev, curr) => (prev < curr.y ? curr.y : prev),
     0
   );
-  // Get the max gauge for the pitch of the face
-  const maxGauge = getValueForPitchSet(
-    mainTileVariant.maxBattenGauge,
-    pitchSet
-  );
   // Store list of battens. First batten should account for correct overhang, from height of tile and overhang.
-  const firstBatten =
-    getValueForPitchSet(mainTileVariant.eaveGauge, pitchSet) || 0;
+  const firstBatten = mainTileVariant.eaveGauge;
   // Calculate the remaining space in the roof with the first batten position and ridge space
   const remainingSpace =
-    rafterLength -
-    firstBatten -
-    (getValueForPitchSet(mainTileVariant.ridgeSpacing, pitchSet) || 0);
+    rafterLength - firstBatten - mainTileVariant.ridgeSpacing;
   // Find the number of battens that are needed at max gauge by finding how many will fit at max gauge and round up by one
-  const battenCount = maxGauge ? Math.ceil(remainingSpace / maxGauge) : 0;
+  const battenCount = Math.ceil(
+    remainingSpace / mainTileVariant.maxBattenSpacing
+  );
 
   // Find the adjusted even spacing and check that this is within min gauge
   const spacing = remainingSpace / battenCount;
 
-  if (spacing < mainTileVariant.minBattenGauge) {
+  if (spacing < mainTileVariant.minBattenSpacing) {
     // eslint-disable-next-line no-console
     console.error("Tiles are at less than min gauge"); // Temporary alert until Error page is built.
   }
@@ -184,8 +160,8 @@ export const battenCalc = (
 
 export const surface = (
   { battens, sides, subtract }: FaceWithBattens,
-  tile: MainTileVariant,
-  cloakedVerge?: VergeTileOption
+  tile: Tile,
+  cloakedVerge?: VergeOption
 ) => {
   const { halfTile: half } = tile;
   const [left, right] = sides;

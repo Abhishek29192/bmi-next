@@ -454,7 +454,6 @@ export type ProductReferenceType =
   | "RIDGE_END_TILE"
   | "T_RIDGE"
   | "Y_RIDGE"
-  | "VERGE_TILE"
   | "LEFT_START"
   | "RIGHT_START"
   | "LEFT_VERGE_TILE"
@@ -474,6 +473,7 @@ export type ProductReferenceType =
   | "LONG_SCREW"
   | "SCREW"
   | "STORM_BRACKET"
+  | "FINISHING_KIT"
   | "FINISHING_KIT"
   | "CROSSELLING"
   | "UPSELLING";

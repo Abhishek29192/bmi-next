@@ -6,12 +6,22 @@ import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { MicroCopy } from "../../helpers/microCopy";
+import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/v2/data.json";
 import { ProductCategory, ResultsRow } from "../../types";
-import { Measurements } from "../../types/roof";
+import {
+  Accessory,
+  GutterHook,
+  GutterVariant,
+  LengthBasedProduct,
+  Tile,
+  Underlay,
+  VentilationHood,
+  VergeVariant,
+  WidthBasedProduct
+} from "../../types/v2";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
-import Results, { replaceImageURLWithImage } from "../_Results";
+import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
 
 beforeAll(() => {
   mockConsole();
@@ -126,7 +136,58 @@ jest.mock("../_PDF", () => ({
   })
 }));
 
-const resultsProps = {
+const selectedVerge = {
+  ...createProduct<VergeVariant>({
+    name: "Verge Metal Flush",
+    externalProductCode: "12345"
+  }),
+  left: createProduct<VergeVariant>({
+    code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
+    name: "Zanda_Protector_verge metal flush black left",
+    externalProductCode: "86035761",
+    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+    length: 10
+  }),
+  right: createProduct<VergeVariant>({
+    code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
+    name: "Zanda_Protector_verge metal flush black right",
+    externalProductCode: "86035762",
+    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+    length: 10
+  }),
+  leftStart: createProduct<VergeVariant>({
+    code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
+    name: "Zanda_Protector_verge metal flush black left start",
+    externalProductCode: "86035763",
+    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+    length: 10
+  }),
+  rightStart: createProduct<VergeVariant>({
+    code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
+    name: "Zanda_Protector_verge metal flush black right start",
+    externalProductCode: "86035764",
+    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+    length: 10
+  })
+};
+
+const selectedRidge = createProduct<LengthBasedProduct>({
+  code: "249702122_Zanda_Protector_ridge_tile_black",
+  name: "Zanda_Protector_ridge tile black",
+  externalProductCode: "46035761",
+  image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+  length: 33.33
+});
+
+const selectedVentilationHood = createProduct<VentilationHood>({
+  code: "vho1",
+  image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+  name: "Ventilation Hood 1",
+  externalProductCode: "100456781",
+  category: "ventilation"
+});
+
+const resultsProps: ResultProps = {
   hubSpotFormId: "mock",
   measurements: {
     faces: [
@@ -215,300 +276,246 @@ const resultsProps = {
       valley: []
     },
     area: 1515140.4208063872
-  } as Measurements,
+  },
   variant: {
-    code: "175200122_Zanda_Protector_main_tile_black",
-    name: "Zanda Protector main tile black",
-    externalProductCode: "46035712",
-    image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-    color: "Black",
-    halfTile: {
+    ...createProduct<Tile>({
+      code: "175200122_Zanda_Protector_main_tile_black",
+      name: "Zanda Protector main tile black",
+      externalProductCode: "46035712",
+      image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      color: "Black"
+    }),
+    halfTile: createProduct<WidthBasedProduct>({
       code: "275102122_Zanda_Protector_half_tile_black",
       name: "Zanda Protector half tile black",
       externalProductCode: "46035795",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       width: 18
-    },
-    hip: {
+    }),
+    hip: createProduct<LengthBasedProduct>({
       code: "249702122_Zanda_Protector_ridge_tile_black",
       name: "Zanda_Protector_ridge tile black",
       externalProductCode: "46035761",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 33.33
-    },
+    }),
     ridgeOptions: [
-      {
-        code: "249702122_Zanda_Protector_ridge_tile_black",
-        name: "Zanda_Protector_ridge tile black",
-        externalProductCode: "46035761",
-        image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        length: 33.33
-      },
-      {
+      selectedRidge,
+      createProduct<LengthBasedProduct>({
         code: "249702122_Zanda_Protector_SAMPLE_RIDGE_METAL_FLUSH",
         name: "Zanda_Protector_ridge sample metal flush black",
         externalProductCode: "46035001",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
         length: 33.33
-      }
+      })
     ],
     vergeOptions: [
+      selectedVerge,
       {
-        type: "METAL_FLUSH",
-        name: "Verge Metal Flush",
-        left: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
-          name: "Zanda_Protector_verge metal flush black left",
-          externalProductCode: "86035761",
-          image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-          length: 10
-        },
-        right: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
-          name: "Zanda_Protector_verge metal flush black right",
-          externalProductCode: "86035762",
-          image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-          length: 10
-        },
-        leftStart: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
-          name: "Zanda_Protector_verge metal flush black left start",
-          externalProductCode: "86035763",
-          image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-          length: 10
-        },
-        rightStart: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
-          name: "Zanda_Protector_verge metal flush black right start",
-          externalProductCode: "86035764",
-          image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-          length: 10
-        }
-      },
-      {
-        type: "TILE",
-        name: "Verge Tile",
-        left: {
+        ...createProduct<VergeVariant>({ name: "Verge Tile" }),
+        left: createProduct<VergeVariant>({
           code: "849702122_Zanda_Protector_verge_tile_black_left",
           name: "Zanda_Protector_verge tile black left",
           externalProductCode: "87035761",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
           width: 30
-        },
-        right: {
+        }),
+        right: createProduct<VergeVariant>({
           code: "849702122_Zanda_Protector_verge_tile_black_right",
           name: "Zanda_Protector_verge tile black right",
           externalProductCode: "87035762",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
           width: 30
-        },
-        halfLeft: {
+        }),
+        halfLeft: createProduct<VergeVariant>({
           code: "849702122_Zanda_Protector_verge_half_tile_black_left",
           name: "Zanda_Protector_verge half tile black left",
           externalProductCode: "87035763",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
           width: 15
-        },
-        halfRight: {
+        }),
+        halfRight: createProduct<VergeVariant>({
           code: "849702122_Zanda_Protector_verge_half_tile_black_right",
           name: "Zanda_Protector_verge half tile black right",
           externalProductCode: "87035764",
           image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
           width: 15
-        }
+        })
       }
     ],
-    valleyMetalFlushStart: {
+
+    valleyMetalFlushStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_start",
       name: "Zanda_Protector_valley metal flush black start",
       externalProductCode: "66035761",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 19
-    },
-    valleyMetalFlush: {
+    }),
+    valleyMetalFlush: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black",
       name: "Zanda_Protector_valley metal flush black",
       externalProductCode: "66035762",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 19
-    },
-    valleyMetalFlushEnd: {
+    }),
+    valleyMetalFlushEnd: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_end",
       name: "Zanda_Protector_valley metal flush black end",
       externalProductCode: "66035763",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 19
-    },
-    valleyMetalFlushTop: {
+    }),
+    valleyMetalFlushTop: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_top",
       name: "Zanda_Protector_valley metal flush black top",
       externalProductCode: "66035764",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 19
-    },
-    valleyMetalFlushDormerStart: {
+    }),
+    valleyMetalFlushDormerStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_dormer_start",
       name: "Zanda_Protector_valley metal flush black dormer start",
       externalProductCode: "66035765",
       image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
       length: 19
-    },
+    }),
     accessories: [
-      {
+      createProduct<Accessory>({
         code: "Other",
         name: "Other accesories example",
         externalProductCode: "5555550",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        category: "accessories"
-      },
-      {
+        category: ProductCategory.Accessories
+      }),
+      createProduct<Accessory>({
         code: "304200051_M_Glue_290ml_grey",
         name: "M_Glue_290ml",
         externalProductCode: "51531703",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        category: "sealing",
+        category: ProductCategory.Sealing,
         packSize: 1
-      }
+      })
     ],
     eaveAccessories: [
-      {
+      createProduct<Accessory>({
         code: "Fuglelist_ventilert",
         name: "Fuglelist ventilert",
         externalProductCode: "5555551",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        category: "accessories"
-      }
+        category: ProductCategory.Accessories
+      })
     ],
-    clip: {
+    clip: createProduct<Accessory>({
       code: "clip",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Clips",
       externalProductCode: "113456781",
-      category: "fixings"
-    },
-    ridgeAndHipScrew: {
+      category: ProductCategory.Fixings
+    }),
+    ridgeAndHipScrew: createProduct<Accessory>({
       code: "ridgeAndHipScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
-      category: "fixings"
-    },
-    longScrew: {
+      category: ProductCategory.Fixings
+    }),
+    longScrew: createProduct<Accessory>({
       code: "longScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Long Screw",
       externalProductCode: "113456783",
-      category: "fixings"
-    },
-    screw: {
+      category: ProductCategory.Fixings
+    }),
+    screw: createProduct<Accessory>({
       code: "screw",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Screw",
       externalProductCode: "113456784",
-      category: "fixings"
-    },
-    stormBracket: {
+      category: ProductCategory.Fixings
+    }),
+    stormBracket: createProduct<Accessory>({
       code: "stormBracket",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Storm Bracket",
       externalProductCode: "113456785",
-      category: "accessories"
-    },
-    finishingKit: {
+      category: ProductCategory.Accessories
+    }),
+    finishingKit: createProduct<Accessory>({
       code: "finishingKit",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Finishing Kit",
       externalProductCode: "113456786",
-      category: "accessories"
-    },
+      category: ProductCategory.Accessories
+    }),
     ventilationHoodOptions: [
-      {
-        code: "vho1",
-        image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
-        name: "Ventilation Hood 1",
-        externalProductCode: "100456781",
-        category: "ventilation"
-      },
-      {
+      selectedVentilationHood,
+      createProduct<VentilationHood>({
         code: "vho2",
         image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
         name: "Ventilation Hood 2",
         externalProductCode: "100456782",
         category: "ventilation"
-      }
+      })
     ],
-    minBattenGauge: 31,
-    maxBattenGauge: [
-      {
-        start: 15,
-        end: 24,
-        value: 31
-      },
-      {
-        start: 24,
-        end: 27,
-        value: 33
-      },
-      {
-        start: 27,
-        end: 31,
-        value: 34
-      },
-      {
-        start: 31,
-        end: 35,
-        value: 35
-      },
-      {
-        start: 35,
-        end: 42,
-        value: 36
-      },
-      {
-        start: 42,
-        end: 90,
-        value: 37
-      }
-    ],
-    eaveGauge: [
-      {
-        start: 15,
-        end: 31,
-        value: 38
-      },
-      {
-        start: 31,
-        end: 45,
-        value: 38.5
-      }
-    ],
-    ridgeSpacing: [
-      {
-        start: 15,
-        end: 55,
-        value: 5
-      }
-    ],
+    minBattenSpacing: 31,
+    maxBattenSpacing: 34,
+    eaveGauge: 38,
+    ridgeSpacing: 5,
     width: 33.2,
     height: 42,
     brokenBond: true
-  } as any,
+  },
   tileOptions: {
-    verge: "Verge Metal Flush",
-    ridge: "46035761",
-    ventilation: ["100456781"]
-  } as any,
-  underlay: data.underlays[0],
+    verge: selectedVerge,
+    ridge: selectedRidge,
+    ventilationHoods: [selectedVentilationHood]
+  },
+  underlay: createProduct<Underlay>({
+    code: "304910308_Underlay_Divoroll_TOP_RU",
+    name: "Underlay Divoroll TOP RU",
+    description: "Short underlay description",
+    externalProductCode: "26583450",
+    image:
+      "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
+    length: 5000,
+    width: 150,
+    overlap: 0
+  }),
   guttering: {
-    guttering: "Test Guttering",
-    gutteringVariant: "4391",
-    gutteringHook: "4392",
+    guttering: "test_guttering",
+    gutteringVariant: createProduct<GutterVariant>({
+      code: "Test_Guttering_Grey",
+      name: "Test Guttering Grey",
+      externalProductCode: "4391",
+      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      length: 600,
+      downpipe: createProduct<Accessory>({
+        code: "Downpipe",
+        name: "Downpipe",
+        image:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+        externalProductCode: "33332",
+        category: ProductCategory.Accessories
+      }),
+      downpipeConnector: createProduct<Accessory>({
+        code: "Downpipe_Connector",
+        name: "Downpipe Connector",
+        image:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+        externalProductCode: "33331",
+        category: ProductCategory.Accessories
+      })
+    }),
+    gutteringHook: createProduct<GutterHook>({
+      code: "Test_Guttering_Hook_Grey",
+      name: "Test Guttering Hook Grey",
+      externalProductCode: "4392",
+      image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      length: 400
+    }),
     downPipes: 2,
     downPipeConnectors: 3
-  } as any,
-  underlays: data.underlays as any,
-  gutters: data.gutters as any,
-  gutterHooks: data.gutterHooks as any
+  }
 };
 
 describe("PitchedRoofCalculator Results component", () => {
@@ -526,36 +533,6 @@ describe("PitchedRoofCalculator Results component", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
         <Results {...{ ...resultsProps, guttering: undefined }} />
-      </MicroCopy.Provider>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders with main tile as verge", () => {
-    const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...{
-            ...resultsProps,
-            tileOptions: { ...resultsProps.tileOptions, verge: "none" }
-          }}
-        />
-      </MicroCopy.Provider>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders with default ridge", () => {
-    const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...{
-            ...resultsProps,
-            tileOptions: { ...resultsProps.tileOptions, ridge: null }
-          }}
-        />
       </MicroCopy.Provider>
     );
 
@@ -589,57 +566,6 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
-  });
-
-  it("renders without final report if ridgeOptions are empty", () => {
-    render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...resultsProps}
-          variant={{ ...resultsProps.variant, ridgeOptions: [] }}
-        />
-      </MicroCopy.Provider>
-    );
-
-    expect(
-      screen.queryByText("MC: results.categories.tiles")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.fixings")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.sealing")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.ventilation")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.accessories")
-    ).not.toBeInTheDocument();
-  });
-
-  it("renders without final report if underlay is empty", () => {
-    render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} underlays={[]} />
-      </MicroCopy.Provider>
-    );
-
-    expect(
-      screen.queryByText("MC: results.categories.tiles")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.fixings")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.sealing")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.ventilation")
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText("MC: results.categories.accessories")
-    ).not.toBeInTheDocument();
   });
 
   it("renders with final report", () => {
