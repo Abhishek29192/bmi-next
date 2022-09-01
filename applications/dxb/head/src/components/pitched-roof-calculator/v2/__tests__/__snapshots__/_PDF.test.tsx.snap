@@ -85,48 +85,11 @@ Document {
       null,
       null,
       null,
+      null,
       Object {
         "layout": "noBorders",
         "marginLeft": -25,
         "marginTop": 40,
-        "table": Object {
-          "body": Array [
-            Array [
-              Object {
-                "bold": true,
-                "color": "#3B3B3B",
-                "fillColor": "#FFC72C",
-                "margin": Array [
-                  25,
-                  15,
-                  25,
-                  5,
-                ],
-                "text": "Quantities update",
-              },
-            ],
-            Array [
-              Object {
-                "color": "#3B3B3B",
-                "fillColor": "#FFC72C",
-                "margin": Array [
-                  25,
-                  0,
-                  25,
-                  15,
-                ],
-                "text": "Changing the quantities may affect the accuracy of the estimates.",
-              },
-            ],
-          ],
-          "widths": Array [
-            595.28,
-          ],
-        },
-      },
-      Object {
-        "layout": "noBorders",
-        "marginLeft": -25,
         "table": Object {
           "body": Array [
             Array [
@@ -1523,48 +1486,180 @@ Document {
           },
         },
       ],
+      Array [
+        Object {
+          "alignment": "left",
+          "bold": true,
+          "fontSize": 12,
+          "lineHeight": 1.65,
+          "margin": Array [
+            0,
+            25,
+            0,
+            10,
+          ],
+          "text": "pdf.report.extras.section.title",
+        },
+        Object {
+          "layout": Object {
+            "fillColor": [Function],
+            "hLineColor": [Function],
+            "vLineColor": [Function],
+            "vLineWidth": [Function],
+          },
+          "table": Object {
+            "body": Array [
+              Array [
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "height": 50,
+                  "margin": Array [
+                    14,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": " ",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Product",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Pack size",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Nobb no",
+                },
+                Object {
+                  "bold": true,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "header": true,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Quantity",
+                },
+              ],
+              Array [
+                Array [
+                  Object {
+                    "fit": Array [
+                      50,
+                      50,
+                    ],
+                    "image": "data:image/jpg;base64,imagedata",
+                  },
+                ],
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "Ling screw",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "-",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "4325423",
+                },
+                Object {
+                  "bold": false,
+                  "color": "#70706F",
+                  "fontSize": 10,
+                  "height": 50,
+                  "margin": Array [
+                    5,
+                    8,
+                    5,
+                    10,
+                  ],
+                  "text": "0",
+                },
+              ],
+            ],
+            "headerRows": 1,
+            "widths": Array [
+              80,
+              180,
+              110,
+              70,
+              65,
+            ],
+          },
+        },
+      ],
       Object {
         "layout": "noBorders",
         "marginLeft": -25,
         "marginTop": 40,
-        "table": Object {
-          "body": Array [
-            Array [
-              Object {
-                "bold": true,
-                "color": "#3B3B3B",
-                "fillColor": "#FFC72C",
-                "margin": Array [
-                  25,
-                  15,
-                  25,
-                  5,
-                ],
-                "text": "Quantities update",
-              },
-            ],
-            Array [
-              Object {
-                "color": "#3B3B3B",
-                "fillColor": "#FFC72C",
-                "margin": Array [
-                  25,
-                  0,
-                  25,
-                  15,
-                ],
-                "text": "Changing the quantities may affect the accuracy of the estimates.",
-              },
-            ],
-          ],
-          "widths": Array [
-            595.28,
-          ],
-        },
-      },
-      Object {
-        "layout": "noBorders",
-        "marginLeft": -25,
         "table": Object {
           "body": Array [
             Array [

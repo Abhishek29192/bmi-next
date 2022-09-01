@@ -51,8 +51,8 @@ process.env.GCP_APPLICATION_PROJECT = "application_project";
 process.env.DXB_FIRESTORE_HANDLER_FUNCTION = "handler_function";
 process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID = "handler_subscription_id";
 process.env.NETLIFY_BUILD_HOOK = "http://localhost:9090";
-process.env.TIMEOUT_LIMIT = "3";
-process.env.DELAY_SECONDS = "1";
+process.env.TIMEOUT_LIMIT = "3000";
+process.env.DELAY_MILLISECONDS = "1000";
 process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 
 process.env.BUILD_TRIGGER_ENDPOINT = "http://localhost:9057";
@@ -83,3 +83,4 @@ process.env.CONTENTFUL_ENVIRONMENT = "environment_1";
 
 process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
+process.env.LOCALE = "en-US";

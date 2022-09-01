@@ -19,6 +19,7 @@ import { MediaFolders, RootFolders } from "../../lib/media/types";
 import { getRootFolders, getMediaItemPath } from "../../lib/media/utils";
 import { GetMediaFolderContentsQuery } from "../../graphql/generated/operations";
 import { MediaPage } from "../../components/Pages/Media";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 
 type ToolkitPageProps = GlobalPageProps & {
   rootFolders: RootFolders;
@@ -55,7 +56,8 @@ export const getServerSideProps = withPage(
     globalPageData,
     locale,
     params: { mediaParams },
-    res
+    res,
+    req
   }) => {
     const translations = await serverSideTranslations(locale, [
       "common",
@@ -73,9 +75,15 @@ export const getServerSideProps = withPage(
       );
     }
 
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
+
     const {
       props: { data }
-    } = await getServerPageGetMediaFolders({}, apolloClient);
+    } = await getServerPageGetMediaFolders(
+      { variables: { tag: contentfulTag } },
+      apolloClient
+    );
 
     const rootFolders = getRootFolders(data);
     const allFolders = data.mediaFolderCollection.items;
@@ -112,7 +120,7 @@ export const getServerSideProps = withPage(
         }
       }
     } = await getServerPageGetMediaFolderContents(
-      { variables: { mediaFolderId } },
+      { variables: { mediaFolderId, tag: contentfulTag } },
       apolloClient
     );
     // folder not found

@@ -2,6 +2,7 @@ import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import monitoring from "@google-cloud/monitoring";
 import fetch from "node-fetch";
+import { waitFor } from "@bmi/utils";
 
 const {
   GCP_MONITOR_PROJECT,
@@ -10,19 +11,11 @@ const {
   DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID,
   NETLIFY_BUILD_HOOK,
   TIMEOUT_LIMIT,
-  DELAY_SECONDS
+  DELAY_MILLISECONDS
 } = process.env;
 
 const client = new monitoring.MetricServiceClient();
 let runtime = 0;
-
-const delay = (ms: number) =>
-  new Promise<void>((resolve) =>
-    setTimeout(() => {
-      runtime += ms;
-      resolve();
-    }, ms)
-  );
 
 const monitorCheck = async (filter: string): Promise<boolean> => {
   const now = new Date();
@@ -35,16 +28,20 @@ const monitorCheck = async (filter: string): Promise<boolean> => {
       endTime: { seconds: seconds },
       startTime: { seconds: seconds - 240 }
     },
-    view: "HEADERS"
+    view: "FULL"
   });
-  return results[0].length > 0;
+  return !!results[0].find((result) =>
+    result.points?.find((point) => (point.value?.int64Value || -1) > 0)
+  );
 };
 
+// The most granular we can get is the number of deletes at a project level. Whilst not ideal, it is at least better than not at all.
 const checkDocumentsDeleted = async (): Promise<boolean> =>
   monitorCheck(
     `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
   );
 
+// The most granular we can get is the number of updates at a project level. Whilst not ideal, it is at least better than not at all.
 const checkDocumentsUpdated = async (): Promise<boolean> =>
   monitorCheck(
     `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
@@ -97,7 +94,7 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!DELAY_SECONDS) {
+  if (!DELAY_MILLISECONDS) {
     logger.error({ message: "DELAY_SECONDS was not provided" });
     return res.sendStatus(500);
   }
@@ -110,18 +107,14 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  const delay_seconds = Number.parseInt(DELAY_SECONDS);
-  if (Number.isNaN(delay_seconds)) {
+  const delay_milliseconds = Number.parseInt(DELAY_MILLISECONDS);
+  if (Number.isNaN(delay_milliseconds)) {
     logger.error({
       message: "DELAY_SECONDS was provided, but is not a valid number"
     });
     return res.sendStatus(500);
   }
 
-  if (!(await checkDocumentsDeleted()) && !(await checkDocumentsUpdated())) {
-    logger.info({ message: "No documents have been deleted or updated." });
-    return res.sendStatus(304);
-  }
   // eslint-disable-next-line no-constant-condition
   while (true) {
     if (runtime > timeoutLimit) {
@@ -129,14 +122,26 @@ export const build: HttpFunction = async (_req, res) => {
       return res.sendStatus(500);
     }
 
+    const documentsDeleted = await checkDocumentsDeleted();
+    const documentsUpdated = await checkDocumentsUpdated();
     const functionsRunning = await checkFunctionsRunning();
     const messagesStillBeingSent = await checkMessagesStillBeingSent();
 
-    if (!functionsRunning && !messagesStillBeingSent) {
+    if (
+      (documentsDeleted || documentsUpdated) &&
+      !functionsRunning &&
+      !messagesStillBeingSent
+    ) {
       logger.info({ message: "Calling Build Server..." });
       const response = await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
       logger.debug({ message: JSON.stringify(response, undefined, 2) });
       return res.sendStatus(200);
+    }
+
+    if (!documentsDeleted && !documentsUpdated) {
+      logger.info({
+        message: "Waiting for documents have either been deleted or updated."
+      });
     }
 
     if (functionsRunning) {
@@ -149,7 +154,8 @@ export const build: HttpFunction = async (_req, res) => {
       });
     }
 
-    await delay(delay_seconds);
-    logger.debug({ message: `Running for ${runtime} seconds.` });
+    await waitFor(delay_milliseconds);
+    runtime += delay_milliseconds;
+    logger.debug({ message: `Running for ${runtime / 1000} seconds.` });
   }
 };

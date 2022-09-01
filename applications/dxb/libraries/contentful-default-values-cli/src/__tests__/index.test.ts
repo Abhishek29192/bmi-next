@@ -1,4 +1,4 @@
-import { ClientAPI, Space } from "contentful-management";
+import type { ClientAPI, Space } from "contentful-management";
 import mockConsole from "jest-mock-console";
 
 const main = async (tag: string, locales: string[]) =>
@@ -26,7 +26,7 @@ jest.mock("contentful-management", () => {
 });
 
 const fillDefaultValues = jest.fn();
-jest.mock("@bmi/contentful-tag-utility", () => {
+jest.mock("@bmi/cms-consolidation-utility", () => {
   return { fillDefaultValues };
 });
 

@@ -3,8 +3,6 @@ import express from "express";
 
 config();
 
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-
 import migrate from "./migrate";
 
 const {
@@ -14,30 +12,17 @@ const {
   PG_SSL_HOST,
   PG_TRAINING_DATABASE,
   PG_COMPANIES_DATABASE,
-  PORT = 4001
+  PORT = 4001,
+  PG_COMPANIES_HOST,
+  PG_COMPANIES_PASSWORD,
+  PG_TRAINING_HOST,
+  PG_TRAINING_PASSWORD,
+  PG_SSL_CLIENT_KEY,
+  PG_SSL_CLIENT_CERT,
+  PG_SSL_SERVER_CA
 } = process.env;
 
-const getSecret = async (client, key) => {
-  const secret = await client.accessSecretVersion({
-    name: `projects/${process.env.GCP_SECRET_PROJECT}/secrets/${key}/versions/latest`
-  });
-
-  return secret[0].payload.data.toString();
-};
-
 async function main() {
-  const client = new SecretManagerServiceClient();
-  const PG_COMPANIES_HOST = await getSecret(client, "COMPANIES_DB_HOST");
-  const PG_TRAINING_HOST = await getSecret(client, "TRAINING_DB_HOST");
-  const PG_TRAINING_PASSWORD = await getSecret(client, "TRAINING_DB_PASSWORD");
-  const PG_COMPANIES_PASSWORD = await getSecret(
-    client,
-    "COMPANIES_DB_PASSWORD"
-  );
-  const PG_SSL_CLIENT_KEY = await getSecret(client, "PG_SSL_CLIENT_KEY");
-  const PG_SSL_CLIENT_CERT = await getSecret(client, "PG_SSL_CLIENT_CERT");
-  const PG_SSL_SERVER_CA = await getSecret(client, "PG_SSL_SERVER_CA");
-
   const app = express();
   app.use(express.json());
 

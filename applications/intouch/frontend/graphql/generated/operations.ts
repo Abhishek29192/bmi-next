@@ -34,6 +34,23 @@ export type UpdateProjectHiddenMutation = {
   } | null;
 };
 
+export type UpdateProjectInspectionMutationVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+  inspection: SchemaTypes.Scalars["Boolean"];
+}>;
+
+export type UpdateProjectInspectionMutation = {
+  __typename?: "Mutation";
+  updateProject?: {
+    __typename?: "UpdateProjectPayload";
+    project?: {
+      __typename?: "Project";
+      id: number;
+      inspection?: boolean | null;
+    } | null;
+  } | null;
+};
+
 export type RestartGuaranteeMutationVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;
@@ -462,10 +479,6 @@ export type UpdateMarketMutation = {
           sendMailbox?: string | null;
           doceboInstallersBranchId?: string | null;
           doceboCompanyAdminBranchId?: string | null;
-          doceboCatalogueId?: number | null;
-          doceboCatalogueIdT2?: number | null;
-          doceboCatalogueIdT3?: number | null;
-          doceboCatalogueIdT4?: number | null;
           merchandisingUrl?: string | null;
           projectsEnabled?: boolean | null;
           locationBiasRadiusKm?: number | null;
@@ -475,6 +488,21 @@ export type UpdateMarketMutation = {
       } | null;
     } | null;
   } | null;
+};
+
+export type UpdateDoceboTiersByMarketMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateDoceboTiersByMarketInput;
+}>;
+
+export type UpdateDoceboTiersByMarketMutation = {
+  __typename?: "Mutation";
+  updateDoceboTiersByMarket?: Array<{
+    __typename?: "UpdateDoceboTiersByMarketResult";
+    id?: number | null;
+    docebo_catalogue_id?: number | null;
+    market_id?: number | null;
+    tier_code?: SchemaTypes.Tier | null;
+  } | null> | null;
 };
 
 export type BulkImportMutationVariables = SchemaTypes.Exact<{
@@ -599,6 +627,8 @@ export type CreateProjectMutation = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      inspection?: boolean | null;
+      inspectedAt?: any | null;
       siteAddress?: {
         __typename?: "Address";
         id: number;
@@ -770,6 +800,8 @@ export type UpdateProjectMutation = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      inspection?: boolean | null;
+      inspectedAt?: any | null;
       siteAddress?: {
         __typename?: "Address";
         id: number;
@@ -1095,6 +1127,8 @@ export type ProjectDetailsFragmentFragment = {
   buildingOwnerLastname?: string | null;
   buildingOwnerCompany?: string | null;
   buildingOwnerMail?: string | null;
+  inspection?: boolean | null;
+  inspectedAt?: any | null;
   siteAddress?: {
     __typename?: "Address";
     id: number;
@@ -1262,6 +1296,8 @@ export type GetProjectQuery = {
     buildingOwnerLastname?: string | null;
     buildingOwnerCompany?: string | null;
     buildingOwnerMail?: string | null;
+    inspection?: boolean | null;
+    inspectedAt?: any | null;
     siteAddress?: {
       __typename?: "Address";
       id: number;
@@ -1507,6 +1543,7 @@ export type GetGuaranteesReportQuery = {
         technology: SchemaTypes.Technology;
         roofArea: number;
         hidden?: boolean | null;
+        inspection?: boolean | null;
         company?: { __typename?: "Company"; name?: string | null } | null;
       } | null;
       requestorAccount?: {
@@ -1724,6 +1761,22 @@ export type GetEvidenceItemsReportQuery = {
   } | null;
 };
 
+export type GetTierBenefitQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetTierBenefitQuery = {
+  __typename?: "Query";
+  tierBenefitCollection?: {
+    __typename?: "TierBenefitCollection";
+    items: Array<{
+      __typename?: "TierBenefit";
+      tier?: string | null;
+      name?: string | null;
+    } | null>;
+  } | null;
+};
+
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;
 }>;
@@ -1818,6 +1871,7 @@ export type GetProjectCompanyMembersQueryVariables = SchemaTypes.Exact<{
   existAccounts?: SchemaTypes.InputMaybe<
     Array<SchemaTypes.Scalars["Int"]> | SchemaTypes.Scalars["Int"]
   >;
+  companyId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetProjectCompanyMembersQuery = {
@@ -1978,7 +2032,7 @@ export type AddEvidencesMutation = {
 };
 
 export type ContentfulEvidenceCategoriesQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type ContentfulEvidenceCategoriesQuery = {
@@ -2296,6 +2350,22 @@ export type CreateSsoUrlMutation = {
   createSSOUrl?: { __typename?: "SSOUrlOutput"; url?: string | null } | null;
 };
 
+export type QueryDoceboTiersByMarketIdQueryVariables = SchemaTypes.Exact<{
+  marketId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type QueryDoceboTiersByMarketIdQuery = {
+  __typename?: "Query";
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+};
+
 export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
   domain: SchemaTypes.Scalars["String"];
 }>;
@@ -2311,10 +2381,6 @@ export type GetMarketsByDomainQuery = {
       cmsSpaceId?: string | null;
       language: SchemaTypes.Language;
       domain: string;
-      doceboCatalogueId?: number | null;
-      doceboCatalogueIdT2?: number | null;
-      doceboCatalogueIdT3?: number | null;
-      doceboCatalogueIdT4?: number | null;
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
       merchandisingUrl?: string | null;
@@ -2343,7 +2409,7 @@ export type ImageFragmentFragment = {
 };
 
 export type GetMediaFoldersQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetMediaFoldersQuery = {
@@ -2423,6 +2489,7 @@ export type MediaToolDetailsFragment = {
 
 export type GetMediaFolderContentsQueryVariables = SchemaTypes.Exact<{
   mediaFolderId: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetMediaFolderContentsQuery = {
@@ -2551,6 +2618,7 @@ export type GetGlobalDataPublicQuery = {
 
 export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
   relativePath: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetContentArticleContentQuery = {
@@ -2616,15 +2684,21 @@ export type MarketsQuery = {
       sendMailbox?: string | null;
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
-      doceboCatalogueId?: number | null;
-      doceboCatalogueIdT2?: number | null;
-      doceboCatalogueIdT3?: number | null;
-      doceboCatalogueIdT4?: number | null;
       merchandisingUrl?: string | null;
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
       locationBiasRadiusKm?: number | null;
+    }>;
+  } | null;
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
     }>;
   } | null;
 };
@@ -2990,6 +3064,7 @@ export type GetCompanyQuery = {
 export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
   role: SchemaTypes.Scalars["String"];
   tier: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetPartnerBrandsQuery = {
@@ -3213,6 +3288,7 @@ export type GetProjectsQuery = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      hidden?: boolean | null;
       siteAddress?: {
         __typename?: "Address";
         town?: string | null;
@@ -3258,6 +3334,7 @@ export type TeamMembersQuery = {
       firstName?: string | null;
       formattedRole?: string | null;
       status?: SchemaTypes.AccountStatus | null;
+      marketId?: number | null;
       certificationsByDoceboUserId: {
         __typename?: "CertificationsConnection";
         nodes: Array<{
@@ -3266,6 +3343,25 @@ export type TeamMembersQuery = {
           name?: string | null;
           technology?: string | null;
           expiryDate?: any | null;
+        }>;
+      };
+      projectMembers: {
+        __typename?: "ProjectMembersConnection";
+        nodes: Array<{
+          __typename?: "ProjectMember";
+          project?: {
+            __typename?: "Project";
+            id: number;
+            technology: SchemaTypes.Technology;
+            name: string;
+            startDate: any;
+            endDate: any;
+            hidden?: boolean | null;
+            company?: {
+              __typename?: "Company";
+              marketId?: number | null;
+            } | null;
+          } | null;
         }>;
       };
       companyMembers: {
@@ -3295,6 +3391,7 @@ export type UpdateRoleAccountMutation = {
 export type TrainingQueryVariables = SchemaTypes.Exact<{
   catalogueId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
   userId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type TrainingQuery = {
@@ -3346,20 +3443,5 @@ export type TrainingQuery = {
         };
       } | null;
     }>;
-  } | null;
-};
-
-export type DoceboCatalogIdByMarketDomainQueryVariables = SchemaTypes.Exact<{
-  domain: SchemaTypes.Scalars["String"];
-}>;
-
-export type DoceboCatalogIdByMarketDomainQuery = {
-  __typename?: "Query";
-  marketByDomain?: {
-    __typename?: "Market";
-    doceboCatalogueId?: number | null;
-    doceboCatalogueIdT2?: number | null;
-    doceboCatalogueIdT3?: number | null;
-    doceboCatalogueIdT4?: number | null;
   } | null;
 };

@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descrizione progetto",
           "endDate": "Data finale progetto",
+          "inspection": "Ispezione",
           "name": "Nome del progetto",
           "roofArea": "Superficie di copertura (m2)",
           "siteAddress": {
@@ -54,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Vero"
+    "False": "No",
+    "True": "Sì"
   },
   "buildingOwnerDetails": {
     "address": "Indirizzo proprietario edificio",
@@ -117,7 +118,8 @@
       "MY_QUEUE": "Assegnato",
       "NOT_STARTED": "Non iniziato",
       "PITCHED": "Falda",
-      "UNASSIGNED": "Non assegna"
+      "UNASSIGNED": "Non assegna",
+      "ARCHIVED": "Archiviato"
     }
   },
   "guarantee": {

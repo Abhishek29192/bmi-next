@@ -13,6 +13,7 @@
         "fields": {
           "description": "Project description",
           "endDate": "Project end date",
+          "inspection": "Inspektion",
           "name": "Project name",
           "roofArea": "Total roof measurement (m2)",
           "siteAddress": {
@@ -54,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falsch",
-    "True": "Stimmt"
+    "False": "Nein",
+    "True": "Ja"
   },
   "buildingOwnerDetails": {
     "address": "Building Owner address",
@@ -117,7 +118,8 @@
       "MY_QUEUE": "My Queue",
       "NOT_STARTED": "Not started",
       "PITCHED": "Pitched",
-      "UNASSIGNED": "UnAssigned"
+      "UNASSIGNED": "UnAssigned",
+      "ARCHIVED": "Archived"
     }
   },
   "guarantee": {

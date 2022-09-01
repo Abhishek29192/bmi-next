@@ -22,6 +22,7 @@ import { findAccountCompany, findAccountTier } from "../lib/account";
 import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dialog";
 import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
@@ -99,9 +100,6 @@ const Homepage = ({
   });
   const pageTitle = getPageTitle(account);
   const company = findAccountCompany(account);
-  const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
-    company?.tier
-  );
 
   const getCta = (
     ctaName: string,
@@ -153,9 +151,9 @@ const Homepage = ({
           heroes={heroItems}
         />
       )}
-      {canSeePartnerBrandsCarousel && (
+      <AccessControl dataModel="home" action="partnerBrandsCarousel">
         <PartnerBrand marketContent={marketContent} />
-      )}
+      </AccessControl>
       <FeedHolder marketContent={marketContent} tierBenefit={tierBenefit} />
       {company?.id && (
         <NewProjectDialog
@@ -174,9 +172,17 @@ const Homepage = ({
 };
 
 export const GET_PARTNER_BRANDS = gql`
-  query GetPartnerBrands($role: String!, $tier: String!) {
+  query GetPartnerBrands($role: String!, $tier: String!, $tag: String!) {
     # Only one relevant market content entry expected, without "limit" we hit query complexity limits
-    marketContentCollection(limit: 1) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         partnerBrandsCollection {
           items {
@@ -199,7 +205,16 @@ export const GET_PARTNER_BRANDS = gql`
         newsItemHeading
       }
     }
-    carouselCollection(where: { audienceRole: $role }, limit: 1) {
+    carouselCollection(
+      where: {
+        audienceRole: $role
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       total
       items {
         audienceRole
@@ -221,7 +236,16 @@ export const GET_PARTNER_BRANDS = gql`
         }
       }
     }
-    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+    tierBenefitCollection(
+      where: {
+        tier: $tier
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         name
         description {
@@ -233,8 +257,11 @@ export const GET_PARTNER_BRANDS = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account }) => {
+  async ({ apolloClient, locale, account, req }) => {
     const tier = findAccountTier(account);
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
+
     const {
       props: {
         data: {
@@ -244,7 +271,7 @@ export const getServerSideProps = withPage(
         }
       }
     } = await getServerPageGetPartnerBrands(
-      { variables: { role: account.role, tier } },
+      { variables: { role: account.role, tier, tag: contentfulTag } },
       apolloClient
     );
     const marketContent = marketContentCollection.items.find(Boolean);

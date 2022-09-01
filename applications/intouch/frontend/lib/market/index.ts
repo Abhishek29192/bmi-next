@@ -9,10 +9,6 @@ export const queryMarketsByDomain = gql`
         cmsSpaceId
         language
         domain
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl

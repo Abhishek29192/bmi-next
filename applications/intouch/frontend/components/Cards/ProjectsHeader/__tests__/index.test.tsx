@@ -40,7 +40,7 @@ describe("ProjectsHeader component", () => {
   it("render correctly", () => {
     const { container } = renderWithUserProvider(
       <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
-        <ProjectsHeader {...generateProjectHeaderData()} />
+        <ProjectsHeader {...generateProjectHeaderData({ hidden: false })} />
       </AccountContextWrapper>
     );
     expect(container).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe("ProjectsHeader component", () => {
     renderWithUserProvider(
       <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
         <ProjectsHeader
-          {...generateProjectHeaderData()}
+          {...generateProjectHeaderData({ hidden: false })}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>
@@ -62,7 +62,7 @@ describe("ProjectsHeader component", () => {
         account={generateAccount({ role: "MARKET_ADMIN" })}
       >
         <ProjectsHeader
-          {...generateProjectHeaderData()}
+          {...generateProjectHeaderData({ hidden: false })}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>
@@ -74,7 +74,7 @@ describe("ProjectsHeader component", () => {
     renderWithUserProvider(
       <AccountContextWrapper account={generateAccount({ role: "INSTALLER" })}>
         <ProjectsHeader
-          {...generateProjectHeaderData()}
+          {...generateProjectHeaderData({ hidden: false })}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>

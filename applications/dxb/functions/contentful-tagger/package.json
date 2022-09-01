@@ -2,7 +2,7 @@
   "name": "@bmi/contentful-tagger",
   "private": true,
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,8 +15,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.2.0",
-    "@bmi/contentful-tag-utility": "0.0.0",
+    "@bmi-digital/functions-logger": "^1.3.3",
+    "@bmi/cms-consolidation-utility": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",
     "contentful-management": "^10.0.0"
   },

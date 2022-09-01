@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@bmi/components";
+import classnames from "classnames";
 import styles from "./styles.module.scss";
 
 export type TableContainerProps = {
@@ -7,16 +8,18 @@ export type TableContainerProps = {
   testid?: string;
   noResultsText?: string;
   children?: React.ReactNode | React.ReactNode[];
+  className?: string;
 };
 
 export const TableContainer = ({
   title,
   children,
   noResultsText,
-  testid
+  testid,
+  className
 }: TableContainerProps) => {
   return (
-    <div data-testid={testid} className={styles.main}>
+    <div data-testid={testid} className={classnames(styles.main, className)}>
       <Typography variant="h4" style={{ fontSize: "1.25rem" }} hasUnderline>
         {title}
       </Typography>

@@ -1,0 +1,26 @@
+test_fetch-retry:
+  extends: .test_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/fetch-retry"
+    ROOT_DIR: "applications/dxb/libraries/fetch-retry"
+
+build_fetch-retry:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    WORKSPACE: "@bmi/fetch-retry"
+    ROOT_DIR: "applications/dxb/libraries/fetch-retry"

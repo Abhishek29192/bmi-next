@@ -2,21 +2,14 @@ import { Icon, Table, Typography } from "@bmi/components";
 import { Delete } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
+import { ResultsRow } from "../../../types";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import styles from "./QuantityTable.module.scss";
 
-type RowProps = {
-  image: string;
-  description: string;
-  externalProductCode: string;
-  packSize: string;
-  quantity: number;
-};
-
 type BuildRowProps = {
-  onDelete: (externalProductCode: string) => void;
-  onChangeQuantity: (externalProductCode: string, newQuantity: any) => void;
-  rows: RowProps[];
+  onDelete: (item: ResultsRow) => void;
+  onChangeQuantity: (item: ResultsRow, newQuantity: number) => void;
+  rows: ResultsRow[];
   packSize?: string;
   externalProductCode?: string;
   quantity?: string;
@@ -32,9 +25,9 @@ type HeaderProps = {
 };
 
 export type Props = {
-  onDelete: (externalProductCode: string) => void;
-  onChangeQuantity: (externalProductCode: string, newQuantity: any) => void;
-  rows: RowProps[];
+  onDelete: (item: ResultsRow) => void;
+  onChangeQuantity: (item: ResultsRow, newQuantity: number) => void;
+  rows: ResultsRow[];
   title: string;
   packSize: string;
   externalProductCode: string;
@@ -140,9 +133,7 @@ export const BuildSmallViewRows = ({
                     name={row.externalProductCode.toString()}
                     min={0}
                     defaultValue={row.quantity}
-                    onChange={(value) =>
-                      onChangeQuantity(row.externalProductCode, value)
-                    }
+                    onChange={(value) => onChangeQuantity(row, value)}
                   />
                 </div>
                 <Icon
@@ -150,7 +141,7 @@ export const BuildSmallViewRows = ({
                   role="button"
                   className={styles.icon}
                   source={Delete}
-                  onClick={() => onDelete(row.externalProductCode)}
+                  onClick={() => onDelete(row)}
                 />
               </div>
             </div>
@@ -187,9 +178,7 @@ export const BuildMediumViewRows = ({
               name={row.externalProductCode.toString()}
               min={0}
               defaultValue={row.quantity}
-              onChange={(value) =>
-                onChangeQuantity(row.externalProductCode, value)
-              }
+              onChange={(value) => onChangeQuantity(row, value)}
             />
           </div>
         </Table.Cell>
@@ -202,7 +191,7 @@ export const BuildMediumViewRows = ({
               role="button"
               className={styles.icon}
               source={Delete}
-              onClick={() => onDelete(row.externalProductCode)}
+              onClick={() => onDelete(row)}
             />
           </div>
         </Table.Cell>
@@ -245,9 +234,7 @@ export const BuildLargeViewRows = ({
                 name={row.externalProductCode.toString()}
                 min={0}
                 defaultValue={row.quantity}
-                onChange={(value) =>
-                  onChangeQuantity(row.externalProductCode, value)
-                }
+                onChange={(value) => onChangeQuantity(row, value)}
               />
             </div>
           </Table.Cell>
@@ -257,7 +244,7 @@ export const BuildLargeViewRows = ({
               role="button"
               className={styles.icon}
               source={Delete}
-              onClick={() => onDelete(row.externalProductCode)}
+              onClick={() => onDelete(row)}
             />
           </Table.Cell>
         </Table.Row>

@@ -707,7 +707,7 @@ describe("Account", () => {
           ...contextMock,
           user: {
             ...contextMock.user,
-            market: { sendMailbox: "send_mailbox" },
+            market: { domain: "domain", sendMailbox: "send_mailbox" },
             id: 1
           }
         },
@@ -940,7 +940,10 @@ describe("Account", () => {
 
       contextMock = {
         user: {
-          email: "email@email.com"
+          email: "email@email.com",
+          market: {
+            domain: "domain"
+          }
         },
         pgClient: { query: mockQuery },
         pgRootPool: { query: mockRootQuery },
@@ -989,6 +992,14 @@ describe("Account", () => {
         }) // market
         .mockResolvedValueOnce({
           rows: [{ id: 2, account_id: 1, market_id: 1, company_id: 1 }]
+        })
+        .mockResolvedValueOnce({
+          rows: [
+            {
+              send_mailbox: "send_mailbox",
+              domain: "domain"
+            }
+          ]
         }); // company_member
 
       mockClientGateway.mockImplementationOnce(() => ({
@@ -1018,7 +1029,7 @@ describe("Account", () => {
           ...contextMock,
           user: {
             ...contextMock.user,
-            market: { sendMailbox: "send_mailbox" },
+            market: { domain: "domain", sendMailbox: "send_mailbox" },
             id: 1
           }
         },

@@ -20,6 +20,13 @@
   },
   "lastCompanyAdminError": "Du kan ikke fjerne den siste bedriftsadministratoren fra et selskap med mindre det er deaktivert av BMI",
   "memberRemoved": "Medlemmet ble fjernet",
+  "projectTable": {
+    "endDate": "Sluttdato",
+    "project": "Prosjekt",
+    "startDate": "Startdato",
+    "title": "Prosjekter",
+    "type": "Type"
+  },
   "report": "Last ned lagliste",
   "sidePanel": {
     "inviteLabel": "+ Invitere teammedlemmer",
@@ -44,10 +51,12 @@
   },
   "user_card": {
     "add_admin": "Tilordne som bedriftsadministrator",
+    "add_auditor": "Stille opp som prosjektrevisor",
     "cancel": "Avbryt",
     "confirm": "Bekrefte",
     "remove": "Fjern fra selskap",
     "remove_admin": "Fjern som bedriftsadministrator",
+    "remove_auditor": "Fjern som prosjektrevisor",
     "remove_user_dialog": {
       "text": "Vil du fjerne dette medlemmet?",
       "title": "Fjern fra selskap"
@@ -55,8 +64,6 @@
     "role_dialog": {
       "text": "Vil du endre rollen?",
       "title": "Endre rolle"
-    },
-    "remove_auditor": "Fjern som prosjektrevisor",
-    "add_auditor": "Stille opp som prosjektrevisor"
+    }
   }
 }

@@ -9,6 +9,7 @@ include:
   - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-form-submit/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-functions-deployer/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-full-fetch-coordinator/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-pim-message-handler/.gitlab-ci.yml"
@@ -44,8 +45,8 @@ include:
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
 
 .package_function:
   extends: .package_function_yarn_workspace
@@ -54,8 +55,8 @@ include:
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
 
 .deploy_function:
   extends: .deploy_function_yarn_workspace
@@ -66,9 +67,9 @@ include:
         - yarn.lock
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD

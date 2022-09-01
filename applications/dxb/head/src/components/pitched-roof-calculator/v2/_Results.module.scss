@@ -17,3 +17,21 @@
     }
   }
 }
+
+.extrasTitle {
+  text-align: center;
+}
+
+.resetLink {
+  text-decoration: underline;
+  padding: 0;
+  vertical-align: unset;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--text:hover {
+    background-color: unset;
+  }
+}

@@ -1,9 +1,11 @@
-import React from "react";
-import { Icopal as IcopalLogoSVG } from "@bmi/components";
+import {
+  Container,
+  Icopal as IcopalLogoSVG,
+  Typography
+} from "@bmi/components";
 import Paper from "@material-ui/core/Paper";
-import { Container } from "@bmi/components";
-import { Typography } from "@bmi/components";
 import { Link } from "gatsby";
+import React from "react";
 import styles from "./Header.module.scss";
 
 const BmiHeader = () => {

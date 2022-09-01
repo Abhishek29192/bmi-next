@@ -38,13 +38,16 @@ jest.mock("../../events", () => {
 
 describe("Mailer", () => {
   const loggerSpy = jest.fn();
+  const loggerInfoSpy = jest.fn();
   const clientGatewaySpy = jest.fn();
   const pgClientSpy = jest.fn();
   const context: any = {
     pubSub: null,
     clientGateway: clientGatewaySpy,
     user: generateAccount(),
-    logger: jest.fn().mockReturnValue({ error: loggerSpy }),
+    logger: jest
+      .fn()
+      .mockReturnValue({ error: loggerSpy, info: loggerInfoSpy }),
     pgRootPool: null,
     pgClient: {
       query: pgClientSpy
@@ -151,10 +154,7 @@ describe("Mailer", () => {
           project: "I am project",
           projectId: 2
         });
-        expect(loggerSpy).toBeCalledWith(
-          `Error sending an email or a notification: for event ${eventMessage}`,
-          errorMessage
-        );
+        expect(loggerSpy).toBeCalledTimes(1);
       });
     });
 

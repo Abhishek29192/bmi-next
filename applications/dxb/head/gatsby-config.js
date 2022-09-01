@@ -20,6 +20,20 @@ if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
   useCountryCode = false;
 }
 
+const allContentfulDocumentFilter = process.env.MARKET_TAG_NAME
+  ? `{
+        metadata: {
+          tags: {
+            elemMatch: {
+              contentful_id: {
+                eq: "${process.env.MARKET_TAG_NAME}"
+              }
+            }
+          }
+        }
+      }`
+  : `{}`;
+
 const documentsQuery = `{
   allPIMDocument {
     __typename
@@ -36,7 +50,9 @@ const documentsQuery = `{
       pimCode
     }
   }
-  allContentfulDocument {
+  allContentfulDocument (
+    filter: ${allContentfulDocumentFilter}
+  ) {
     edges {
       node {
         __typename
@@ -398,17 +414,32 @@ const config = {
         }
       }
     },
-    ...contentfulCredentialData.map(
-      ({ spaceId, accessToken, environment }) => ({
+    ...contentfulCredentialData.map(({ spaceId, accessToken, environment }) => {
+      let options = {
+        spaceId,
+        accessToken,
+        environment,
+        host: process.env.CONTENT_API_HOST || "cdn.contentful.com"
+      };
+      if (process.env.MARKET_TAG_NAME) {
+        options = {
+          ...options,
+          enableTags: true
+        };
+      }
+      if (process.env.GATSBY_MARKET_LOCALE_CODE) {
+        options = {
+          ...options,
+          localeFilter: (locale) =>
+            locale.code === process.env.GATSBY_MARKET_LOCALE_CODE,
+          pageLimit: process.env.GATSBY_SOURCE_CONTENTFUL_PAGE_LIMIT || 100
+        };
+      }
+      return {
         resolve: `gatsby-source-contentful`,
-        options: {
-          spaceId,
-          accessToken,
-          environment,
-          host: process.env.CONTENT_API_HOST || "cdn.contentful.com"
-        }
-      })
-    ),
+        options
+      };
+    }),
     ...(process.env.DISABLE_PIM_DATA === "true"
       ? []
       : [

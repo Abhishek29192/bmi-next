@@ -30,6 +30,7 @@ export const pageQuery = gql`
         firstName
         formattedRole
         status
+        marketId
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
@@ -38,6 +39,21 @@ export const pageQuery = gql`
             name
             technology
             expiryDate
+          }
+        }
+        projectMembers {
+          nodes {
+            project {
+              id
+              technology
+              name
+              startDate
+              endDate
+              hidden
+              company {
+                marketId
+              }
+            }
           }
         }
         companyMembers(first: 1) {

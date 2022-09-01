@@ -1,9 +1,8 @@
-import React from "react";
 import classnames from "classnames";
+import React from "react";
 import Typography from "../typography/Typography";
 import styles from "./Bullets.module.scss";
 
-// eslint-disable-next-line react/prop-types -- TODO: Some how thinks className is not in HTMLProps
 const Bullets = ({ className, ...rest }: React.HTMLProps<HTMLUListElement>) => {
   return <ul className={classnames(styles["Bullets"], className)} {...rest} />;
 };

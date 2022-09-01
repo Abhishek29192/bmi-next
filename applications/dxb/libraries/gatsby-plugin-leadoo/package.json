@@ -3,7 +3,7 @@
   "description": "Gatsby source plugin for including Leadoo",
   "version": "0.0.0",
   "private": true,
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "keywords": [
     "leadoo",
     "gatsby-plugin",

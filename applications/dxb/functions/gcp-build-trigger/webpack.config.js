@@ -3,7 +3,7 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const GeneratePackageJsonPlugin = require("generate-package-json-webpack-plugin");
-const sharedConfig = require("../../../../functions-webpack.config");
+const sharedConfig = require("../../../../node-webpack.config");
 
 module.exports = {
   ...sharedConfig,

@@ -1,5 +1,6 @@
-import { MainTileVariant, VergeTileOption } from "../../types";
-import { Vertex, Face, FaceWithBattens, Point } from "../../types/roof";
+import { VergeTileOption } from "../../types";
+import { Face, FaceWithBattens, Point, Vertex } from "../../types/roof";
+import { MainTileVariant } from "../../types/v2";
 
 type RangeValue = {
   start: number;

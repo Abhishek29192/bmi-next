@@ -7,8 +7,7 @@ We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's d
 ### Create environment files
 
 1. Copy `applications/dxb/head/.env.example` to `applications/dxb/head/.env.development`
-1. Copy `libraries/migrate/.env.example` to `libraries/migrate/.env.development`
-1. Set `PROJECT_RELATIVE_PATH` to `projects/dxb` in `libraries/migrate/.env.development`
+1. Copy `applications/dxb/contentful-migrate/.env.example` to `applications/dxb/contentful-migrate/.env.development`
 
 ### Setup your own Contentful account and space for local development
 
@@ -31,8 +30,8 @@ We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's d
 1. Click on the `Copy to clipboard` button next to `Space ID`
 1. Paste into `applications/dxb/head/.env.development` as `SPACE_ID`
 1. Set `ENVIRONMENT` as `master` in `applications/dxb/head/.env.development`
-1. Paste into `libraries/migrate/.env.development` as `SPACE_ID`
-1. Set `CONTENTFUL_ENVIRONMENT` as `master` in `libraries/migrate/.env.development`
+1. Paste into `applications/dxb/contentful-migrate/.env.development` as `SPACE_ID`
+1. Set `CONTENTFUL_ENVIRONMENT` as `master` in `applications/dxb/contentful-migrate/.env.development`
 
 Once completed, you will have a space that can be used for your own development purposes and will have a `master` environment already created, so that you don't need to make changes or run your migration directly on DXB's Contentful account.
 
@@ -475,12 +474,12 @@ Code:
 1. Click `Generate`
 1. Click the `Copy to clipboard` button and _do not click `Done`_ as we need to make sure we've stored it somewhere useful
 1. Paste into `applications/dxb/head/.env.development` as `ACCESS_TOKEN`
-1. Paste into `libraries/migrate/.env.development` as `ACCESS_TOKEN`
+1. Paste into `applications/dxb/contentful-migrate/.env.development` as `ACCESS_TOKEN`
 1. Click `Done` on the `Generate Personal Access Token` modal in Contentful
 
 #### Create content model
 
-Follow the steps under [migrate initialise](../../../libraries/migrate/README.md#Initialise) and then [migrate up](../../../libraries/migrate/README.md#Up).
+Follow the steps under [migrate initialise](../contentful-migrate/README.md#Initialise) and then [migrate up](../contentful-migrate/README.md#Up).
 
 #### Populate personal development space
 

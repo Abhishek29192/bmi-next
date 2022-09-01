@@ -7,11 +7,11 @@ import {
   RawTextField
 } from "@bmi/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "./../helpers/analytics";
 import { getFieldTypes, Type } from "./../helpers/fieldTypes";
 import protrusionTypes from "./calculation/protrusions";
-import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import inputStyles from "./subcomponents/_InputTextField.module.scss";
 import styles from "./_Protrusions.module.scss";

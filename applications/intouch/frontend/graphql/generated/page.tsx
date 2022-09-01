@@ -396,6 +396,49 @@ export const ssrGetEvidenceItemsReport = {
 
   usePage: useGetEvidenceItemsReport
 };
+export async function getServerPageGetTierBenefit(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetTierBenefitQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetTierBenefitQuery>({
+    ...options,
+    query: Operations.GetTierBenefitDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetTierBenefit = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetTierBenefitDocument, options);
+};
+export type PageGetTierBenefitComp = React.FC<{
+  data?: OperationTypes.GetTierBenefitQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetTierBenefit = {
+  getServerPage: getServerPageGetTierBenefit,
+
+  usePage: useGetTierBenefit
+};
 
 export async function getServerPageGetProjectCompanyMembers(
   options: Omit<
@@ -792,6 +835,50 @@ export const ssrInvitations = {
   usePage: useInvitations
 };
 
+export async function getServerPageDoceboTiersByMarketId(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.QueryDoceboTiersByMarketIdQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.QueryDoceboTiersByMarketIdQuery>({
+      ...options,
+      query: Operations.QueryDoceboTiersByMarketIdDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useDoceboTiersByMarketId = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.QueryDoceboTiersByMarketIdDocument, options);
+};
+export type PageDoceboTiersByMarketIdComp = React.FC<{
+  data?: OperationTypes.QueryDoceboTiersByMarketIdQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrDoceboTiersByMarketId = {
+  getServerPage: getServerPageDoceboTiersByMarketId,
+
+  usePage: useDoceboTiersByMarketId
+};
 export async function getServerPageGetMarketsByDomain(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetMarketsByDomainQueryVariables>,
@@ -1439,47 +1526,4 @@ export const ssrTraining = {
   getServerPage: getServerPageTraining,
 
   usePage: useTraining
-};
-export async function getServerPageDoceboCatalogIdByMarketDomain(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data =
-    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
-      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
-    );
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const useDoceboCatalogIdByMarketDomain = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.DoceboCatalogIdByMarketDomainDocument, options);
-};
-export type PageDoceboCatalogIdByMarketDomainComp = React.FC<{
-  data?: OperationTypes.DoceboCatalogIdByMarketDomainQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrDoceboCatalogIdByMarketDomain = {
-  getServerPage: getServerPageDoceboCatalogIdByMarketDomain,
-
-  usePage: useDoceboCatalogIdByMarketDomain
 };

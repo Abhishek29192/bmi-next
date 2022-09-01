@@ -2,6 +2,7 @@ import { MessageTemplate } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../events";
 import { messageTemplate, EventMessage } from "../contentful";
 import { PostGraphileContext } from "../../types";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 
 export const replaceData = (template, data) => {
   if (!template) return template;
@@ -16,8 +17,17 @@ export const sendMessageWithTemplate = async (
 ) => {
   const logger = context.logger("mailer");
 
+  const { user } = context;
+
+  const marketDomain = user.market?.domain;
+  const contentfulTag = parseMarketCompanyTag(marketDomain);
+
   try {
-    const { data } = await messageTemplate(context.clientGateway, event);
+    const { data } = await messageTemplate(
+      context.clientGateway,
+      event,
+      contentfulTag
+    );
     const {
       messageTemplateCollection
     }: {
@@ -45,8 +55,8 @@ export const sendMessageWithTemplate = async (
     }
   } catch (error) {
     logger.error(
-      `Error sending an email or a notification: for event ${event}`,
-      error.message
+      `[error] Error sending an email or a notification: for event ${event}`,
+      error
     );
   }
 };

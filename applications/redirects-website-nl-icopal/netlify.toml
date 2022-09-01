@@ -1,0 +1,2514 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-nl-icopal run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+
+
+
+
+
+[[redirects]]
+ from="/service/vastgoedzorg/sectoren.aspx"
+ to="https://www.bmigroup.com/nl/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/vastgoedzorg/onze-aanpak.aspx"
+ to="https://www.bmigroup.com/nl/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/vastgoedzorg.aspx"
+ to="https://www.bmigroup.com/nl/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/training/demonstraties.aspx"
+ to="https://www.bmigroup.com/nl/diensten/bmi-academy/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/training.aspx"
+ to="https://www.bmigroup.com/nl/diensten/bmi-academy/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/subsidies.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/fiscale-regelingen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/nen-6050.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/brandveilig-werken-volgens-nen-6050/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/kenniscentrum/plat-dak-vervangen.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/kenniscentrum/plat-dak-maken.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/kenniscentrum.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/handelaar.aspx"
+ to="https://www.bmigroup.com/nl/diensten/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/gebouweigenaar.aspx"
+ to="https://www.bmigroup.com/nl/diensten/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/dakdekker.aspx"
+ to="https://www.bmigroup.com/nl/diensten/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/bestekservice.aspx"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bestekservice-bmi-icopal/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service/architect-voorschrijver.aspx"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/bestekservice-bmi-icopal/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/service.aspx"
+ to="https://www.bmigroup.com/nl/diensten/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/zorginstellingen/tangenborgh-emmen-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/zorginstellingen/cello-rosmalen-groendak.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/zorginstellingen.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/woningbouw/woonhuis-leek-quadro.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/woningbouw/veemkade-amsterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/woningbouw.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/retail/winkelcentrum-krommenie-app.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/retail/van-noppen-eshagum-470-wit.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/retail/piet-klerkx-waalwijk.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/retail.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/were-di-tilburg-quadro.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/sporthal-cromstrijen-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/sportcomplex-amerena-amersfoort.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/rodahal-kerkrade-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/eye-amsterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie/elfstedenhal-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/recreatie.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/overheidsgebouwen/sozawe-groningen-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/overheidsgebouwen.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/monumenten/watertoren-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/monumenten.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/kunststof/veemkade-amsterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/kunststof/sozawe-groningen-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/kunststof/f16-shelter-vliegveld-twente.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/kunststof/elfstedenhal-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/kunststof.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/industrie/roteb-rotterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/industrie/f16-shelter-vliegveld-twente.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/industrie.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal/sporthal-cromstrijen-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal/rug-groningen-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal/rodahal-kerkrade-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal/piet-klerkx-waalwijk.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal/eye-amsterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/horeca/hilton-schiphol-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/horeca.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/watertoren-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/van-noppen-eshagum-470-wit.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/tangenborgh-emmen-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/sozawe-groningen-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/roteb-rotterdam.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/hilton-schiphol-noxite.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/elfstedenhal-fpo.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking/cello-rosmalen-groendak.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/duurzame-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/dakpanplaten/woonhuis-leek-quadro.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/dakpanplaten/were-di-tilburg-quadro.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/dakpanplaten.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/bitumen/winkelcentrum-krommenie-app.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/bitumen/van-noppen-eshagum-470-wit.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/bitumen/sportcomplex-amerena-amersfoort.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten/bitumen.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Projecten.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/witte-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/cool-roof-witte-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/wegmembranen.aspx"
+ to="https://www.bmigroup.com/nl/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/wolfin-m.aspx"
+ to="https://www.bmigroup.com/nl/p/wolfin-m-1-5-grijs-2041522314/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/wolfin-ib.aspx"
+ to="https://www.bmigroup.com/nl/p/wolfin-ib-1-5-grijs-2390092324/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/wolfin-gwsk.aspx"
+ to="https://www.bmigroup.com/nl/p/wolfin-gwsk-2-3-grijs-1386500234/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/accessoires/wolfin-vloeibaar.aspx"
+ to="https://www.bmigroup.com/nl/p/wolfin-vloeibaar-2948243390/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/accessoires/wolfin-stroken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/accessoires/wolfin-primer.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/accessoires/wolfin-gecacheerde-staalplaat.aspx"
+ to="https://www.bmigroup.com/nl/p/wolfin-foliestaalplaat-zwart-1771041137/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin/accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/wolfin.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/polymeric-pvc/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/witec-cleaner.aspx"
+ to="https://www.bmigroup.com/nl/p/witec-reinigingsmiddel-62041461/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/terotech-sproeikleefstof.aspx"
+ to="https://www.bmigroup.com/nl/p/teroson-terotech-spuitbare-contactlijm-866967963/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/everguard-w-tpo.aspx"
+ to="https://www.bmigroup.com/nl/p/everguard-ww-geel-3522702540/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/everguard-prefab-hoeken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/tpo-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/everguard-gecoat-metaalplaat.aspx"
+ to="https://www.bmigroup.com/nl/p/tpo-foliestaalplaat-reflectiewit-1252600368/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires/everguard-d-tpo.aspx"
+ to="https://www.bmigroup.com/nl/p/everguard-d-reflectie-wit-4211105851/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo/accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/tpo-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/everguard-tpo.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/tpo/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/walkways.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/voorbereidend-werk.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/roeven.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/pijpdoorvoeren.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/montagerails.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/laswerkzaamheden/lassen-testen-en-controleren.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/laswerkzaamheden/kruisverbindingen-lassen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/laswerkzaamheden/heteluchtlassen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/laswerkzaamheden.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/kabel-en-buiskokers.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/isolatie.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/hoeken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/dampremmende-lagen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/daklichten.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/afwerkingen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/afvoer/renovatieafvoeren.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/afvoer/afvoeren-warm-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen/afvoer.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/toepassingsrichtlijnen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/zijdelingse-overlap.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/kim/opstaande-kant-tegen-muur.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/kim/opstaande-kant-tegen-borstwering-3.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/kim/opstaande-kant-tegen-borstwering-2.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/kim/opstaande-kant-tegen-borstwering-1.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/kim.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/hoge-opstaande-kanten.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/eindoverlap.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/dakranden-blootgesteld/installatie-gecoate-metalen-rand.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem/dakranden-blootgesteld.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/volledig-gekleefd-systeem.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/membraan-volledig-gekleefd-isolatie-mechanisch-bevestigd.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/zijdelingse-overlap.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/kim/opstaande-kant-tegen-muur.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/kim/opstaande-kant-tegen-borstwering-3.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/kim/opstaande-kant-tegen-borstwering-2.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/kim/opstaande-kant-tegen-borstwering-1.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/kim.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/hoge-opstaande-kanten.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/eindoverlap.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/dakranden-blootgesteld/installatie-gecoate-metalen-rand.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem/dakranden-blootgesteld.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/mechanisch-bevestigd-systeem.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/groendaken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-warm-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-omgekeerd-dak/kim/opstaande-kant-tegen-muur.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-omgekeerd-dak/kim/opstaande-kant-tegen-borstwering-2.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-omgekeerd-dak/kim/opstaande-kant-tegen-borstwering-1.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-omgekeerd-dak/kim.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/geballast-omgekeerd-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/weerstand-tegen-uittrekken-van-bevestiger.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/onderhoud.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/materiaalopslag.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/integriteitstests-en-kwaliteitsbewaking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden/multiplex-of-osb.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden/houten-planken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden/geprofileerd-metaalplaat.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden/beton.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden/andere-ondergronden.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/geschikte-ondergronden.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp/chemische-compatibiliteit.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken/aanvullende-overwegingen-systeemontwerp.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/ontwerpen-van-eenlaags-kunststof-daken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/kies-de-juiste-kunststof-dakbedekking/warm-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/kies-de-juiste-kunststof-dakbedekking/renovatieprojecten.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/kies-de-juiste-kunststof-dakbedekking/omgekeerd-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/kies-de-juiste-kunststof-dakbedekking/koud-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/kies-de-juiste-kunststof-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/cosmofin-g-pvc.aspx"
+ to="https://www.bmigroup.com/nl/p/cosmofin-g-grijs-ral-7001-2447239423/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/cosmofin-fg-pvc.aspx"
+ to="https://www.bmigroup.com/nl/p/cosmofin-fg-1-2-grijs-ral-7001-2363416585/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/cosmofin-fb-pvc.aspx"
+ to="https://www.bmigroup.com/nl/p/cosmofin-fb-grijs-ral-7001-3917644997/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/terotech-sproeikleefstof.aspx"
+ to="https://www.bmigroup.com/nl/p/teroson-terotech-spuitbare-contactlijm-866967963/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/teroson-ad-914-pvc-contactlijm.aspx"
+ to="https://www.bmigroup.com/nl/p/teroson-ad-914-573611356/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/scheidingsvlies.aspx"
+ to="https://www.bmigroup.com/nl/p/glasvezelmat-scheidingslaag-1294894462/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-ww-pvc-walkway.aspx"
+ to="https://www.bmigroup.com/nl/p/cosmofin-ww-antraciet-ral-7015-1007681617/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-vloeibaar-pvc.aspx"
+ to="https://www.bmigroup.com/nl/p/monarplan-vloeibare-pvc-antraciet-4057747435/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-roeven.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-pvc-f.aspx"
+ to="https://www.bmigroup.com/nl/p/cosmofin-f-grijs-ral-7001-4064998113/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-prefab-hoeken.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-pijpkragen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-overige-accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-gecoat-staal.aspx"
+ to="https://www.bmigroup.com/nl/p/pvc-foliestaalplaat-antraciet-873645699/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-dakafvoeren-stads-zijuitloop.aspx"
+ to="https://www.bmigroup.com/nl/p/pvc-stads-zijuitloop-grijs-2002741821/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-dakafvoeren-onderuitloop.aspx"
+ to="https://www.bmigroup.com/nl/p/pvc-onderuitloop-1310937705/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cosmofin-bladvanger.aspx"
+ to="https://www.bmigroup.com/nl/p/universele-bladvanger-1445546219/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires/cleaner.aspx"
+ to="https://www.bmigroup.com/nl/p/witec-reinigingsmiddel-62041461/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc/accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking/cosmofin-pvc.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/monomeric-pvc/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/kunststof-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/icopal-universal-pocb-dakbedekking/universal-accessoires/universal-perfect-fix.aspx"
+ to="https://www.bmigroup.com/nl/p/universal-perfect-fix-foliestaalplaat-zwart-4029381711/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/icopal-universal-pocb-dakbedekking/universal-accessoires/h/*"
+ to="https://www.bmigroup.com/nl/p/universal-perfect-fix-foliestaalplaat-zwart-4029381711/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/producten/icopal-universal-pocb-dakbedekking/universal-accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/universal-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/icopal-universal-pocb-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/universal-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/h/*"
+ to="https://www.bmigroup.com/nl/p/universal-perfect-fix-foliestaalplaat-zwart-4029381711/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/gereedschappen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/epdm-dakbedekking-alternatief.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/universal-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking/noxite/werking-noxite.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/noxite/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking/noxite/referentie-projecten.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/noxite/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking/noxite.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/noxite/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking/cool-roof-dakbedekking/werking-cool-roof.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/cool-roof-witte-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking/cool-roof-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/cool-roof-witte-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/duurzame-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakproducten-overig/profi-dicht-afdichtingssysteem.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/profidicht/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakproducten-overig.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakpanplaten-aerodek.aspx"
+ to="https://www.bmigroup.com/nl/hellend-dak/stalen-dakpanelementen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie/thermazone-pir.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakisolatie.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakbedekkingen/dakbedekking-prijzen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakbedekkingen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/dakbedekking-plat-en-hellend-dak.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/SBS-bitumen/zelfklevend.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/onderlagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/SBS-bitumen/toplagen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/sbs-toplagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/SBS-bitumen/thermbanen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/sbs-toplagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/SBS-bitumen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/sbs-toplagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/onderlagen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/onderlagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/groendak.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/groene-daken/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/gebruiksdaken.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/gebruiksdaken/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/dampdicht.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/dampdichte-lagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/dakleer.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/APP-bitumen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/app-toplagen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/reparatiepasta.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/reparatiepasta/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/primers/icopal-sa-primer.aspx"
+ to="https://www.bmigroup.com/nl/p/icopal-sa-primer-782540363/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/primers.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/primers/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/kleefstoffen/block-bitumen.aspx"
+ to="https://www.bmigroup.com/nl/p/icopal-block-bitumen-1299834286/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/kleefstoffen.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/kleefstoffen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires/dakcoating.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/dakcoating/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/accessoires.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/alle-bitumen-accessoires/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking/aanbrengen-branden.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten/bitumen-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/bitumen-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/producten.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/vacatures/vacature-10.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/vacatures/vacature-06.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/vacatures.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/vacatures/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/missie.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/management.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/inzicht/4A1-ketenanalyses.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/inzicht/3A1-emissie-inventaris.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/inzicht.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/initiatieven/4D1-inititatiefnemer.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/initiatieven/3D1-sectorinitiatieven.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/initiatieven.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/communicatie/3C1-communicatie.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/communicatie.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/co2-reductie/4B2-voortgang.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/co2-reductie/3B2-programma.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/co2-reductie/3B1-doelstelling.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder/co2-reductie.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/co2-prestatieladder.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/co2-prestatieladder/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/bitumenrecycling/sloopdaken-recycling.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/bitumenrecycling/inleveren-snijafval/inleverpunten.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/bitumenrecycling/inleveren-snijafval.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid/bitumenrecycling.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons/duurzaamheid.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/duurzaamheid/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/over-ons.aspx"
+ to="https://www.bmigroup.com/nl/over-bmi/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/nieuwsbrief-icopal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog/NEN-2767-conditiemeting-voor-het-dak.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog/Monier-Dakservice-en-Icopal-technische-service-is-nu-BMI-Dakservice.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog/het-dak-op-met-de-brander-ja-of-nee.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog/Circulaire-dakbanen-brengen-circulaire-economie-dichterbij.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog/bewonerstevredenheid-stijgt-met-hoge-kwaliteit-dak.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/blog.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2022/fiscale-korting-op-icopal-universal-2022.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/fiscale-regelingen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2022.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/Universal-Perfect-Fix-speciale-hechtingsplaat-voor-POCB-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/speciale-hechtingsplaat-universal-perfect-fix-voor-universal-pocb-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/ook-in-2021-fiscale-korting-op-icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/fiscale-regelingen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/Hoe-meer-groendaken-hoe-beter.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/hoe-meer-groendaken-hoe-beter/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/hoe-gaat-BMI-Nederland-om-met-het-Coronavirus.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/BMI-benoemt-Sales-Director-Nederland.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/bmi-benoemt-sales-director-nederland/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/BMI-Benelux-zet-in-op-groei.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021/APP-dakbanen-EshaGum-446-belangrijk-verbeterd.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/app-dakbanen-eshagum-446-belangrijk-verbeterd/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2021.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2020/ook-in-2020-fiscale-korting-op-icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/fiscale-regelingen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2020/nieuwe-bitumen-onderlaag-eshabase-g-eps.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2020/BMI-Benelux-neemt-resterende-50procent-aandelen-RBB-over-van-Etex.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2020.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/ook-in-2019-fiscale-korting-op-icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/ontdek-BMI-op-de-BouwBeurs-2019-in-Utrecht.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/noxite-maakt-stikstofoxiden-onschadelijk.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/gelden-EIA-MIA-en-Vamil-voor-particulieren-en-woningcorporaties.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/BMI-Icopal-introduceert-duurzame-TPO-dakbaan.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019/BMI-Group-benoemt-Sales-Director-Nederland.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2019.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/winnaar-zomeractie-bekend.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/wijziging-in-directie-BMI-Group-Benelux.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/primeur-circulaire-dakbedekking-in-nederland.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/ook-in-2018-fiscale-korting-op-icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/nexteria-pilot-project-deventer.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/mis-niets-meer-over-kwalitatief-hoogwaardige-platdakoplossingen.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/iso-14001-milieucertificaat-voor-icopal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/fiscale-kortingen-verlengd-tot-2024.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018/citumen-circulair-dak-nieuwste-innovatie-in-bouw-en-sloopwereld.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2018.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/wolfin-persbericht-mei-2017.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/wijziging-zwarte-leislag.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/standard-industries-voltooit-aankoop-braas-monier.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/kerst-2017.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/icopal-introduceert-nieuwe-lijn-pvc-dakbanen.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/grondstoffenakkoord-probasys.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/fm-approval-cosmofin-persbericht-nov-2017.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017/fiscale-korting-op-eenlaagse-dakbedekking-icopal-universal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2017.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/tco-zet-dakbedekking-in-ander-daglicht.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/overname-proofs-daken.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/overname-icopal-gaf.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/hogere-rekenwaards-eenlaagse-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/gaf-voltooit-aankoop-icopal.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016/discover-project-ontwikkeling-biobased-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/nieuws-2016.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2015/universal-opnieuw-duurzaamste.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2015/seal-a-leak-reparatiekit-persbericht.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2015/brn-leaflet.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2015.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/uitbreiding-productie-persbericht.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/renovatie-brug-curacao.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/lignine-tno-persbericht.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-persbericht-quadro.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-persbericht-pvc-recycling.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-persbericht-jos-van-bommel.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-persbericht-fiscaal-voordeel.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-persbericht-building-holland.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/icopal-lid-probasys.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/echo-detect.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014/co2-bewust-certificaat.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/archief/2014.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws/~/link.aspx?_id=E63643B2FD4944799AA1FEBB37ACA8FE&_z=z"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/nieuws.aspx"
+ to="https://www.bmigroup.com/nl/nieuws/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Global/Toolbox/Sitemap.aspx"
+ to="https://www.bmigroup.com/nl/sitemap/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/noxite.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/noxite/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/walkway-aanbrengen-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/volledig-gekleefde-kunststof-dakrol-aanbrengen-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/uitrusting-en-voorbereiding.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/stuiknaad-l-profiel-gecoat-metaalplaat-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/staande-naden-maken-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/randen-volledig-gekleefd-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/randen-mechanisch-bevestigd-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/pijpdoorvoeren-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/mechanisch-bevestigde-kunststof-dakrol-aanbrengen-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/lage-opstaande-kanten-maken-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/hoge-opstaande-kanten-maken-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos/buitenhoeken-maken-video.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/kunststof-dakbedekking-demonstratievideos.aspx"
+ to="https://www.bmigroup.com/nl/plat-dak/kunststof-dakbedekking/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video/het-nieuwe-branden.aspx"
+ to="https://www.bmigroup.com/nl/kenniscentrum/brandveilig-werken-volgens-nen-6050/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/video.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/verwerkingsrichtlijnen.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/productbladen.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/garanties.aspx"
+ to="https://www.bmigroup.com/nl/diensten/garanties-bmi-icopal/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/dop.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/certificaten.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/cad-bibliotheek/cad-bibliotheek-pvc-volledig-gekleefd.aspx"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/cad-bibliotheek/cad-bibliotheek-pvc-mechanisch-bevestigd.aspx"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/cad-bibliotheek.aspx"
+ to="https://www.bmigroup.com/nl/diensten/online-tools/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download/brochures.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/download.aspx"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/Routebeschrijving.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/referentie-project-form.aspx"
+ to="https://www.bmigroup.com/nl/inspiratie/referentieverhalen/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/privacy/privacybeleid-website.aspx"
+ to="https://www.bmigroup.com/nl/privacyverklaring-voor-derden/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/privacy/cookie-beleid.aspx"
+ to="https://www.bmigroup.com/nl/cookie-policy/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/privacy.aspx"
+ to="https://www.bmigroup.com/nl/privacyverklaring-voor-derden/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/offerte-dakbedekking.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/Mail.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/Klachtenformulier.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/contactformulier.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/adviseurs.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact/~/link.aspx?_id=E63643B2FD4944799AA1FEBB37ACA8FE&_z=z"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/contact.aspx"
+ to="https://www.bmigroup.com/nl/contact/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/verwerkingsrichtlijnen/verwerkingsrichtlijnen-noxite.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/verwerkingsrichtlijnen/Universal-Perfect-Fix-Verwerkingsrichtlijnen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/verwerkingsrichtlijnen/Icopal-Universal-Verwerkingsrichtlijnen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/verwerkingsrichtlijnen/EverGuard-TPO-Verwerkingsrichtlijnen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Guarantees/Garantiecertificaat-Project-Specimen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Guarantees/Garantiecertificaat-Product-Specimen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Ventitherm-7134846-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Vedatop-SU-4394-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Vedatop-SU-0394-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Vedagard-Safety-147635-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Vedagard-Multi-SK-147668-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Thermosolo-GS-7103853-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Thermazone-PIR-Alu.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Sicotec-7131740-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Parafor-Multi-444555-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Icopal-Universal-WS-1109-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Icopal-Universal-WS-0109-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Icopal-Universal-SA-FM-1100-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Icopal-Universal-SA-FM-0100-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Expandrit-Plus-7112010-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-EVERGUARD-TPO-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshagum-470-WS-0479-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-EshaGum-470-0470-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshagum-446-WS-0449-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshagum-446-0446-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshaflex-TK60-gemineraliseerd-0373-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshaflex-370-zz-0377-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshaflex-370-WS-gemineraliseerd-0379-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshaflex-370-SA-gemineraliseerd-0374-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshaflex-370-0370-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-TK40-0333-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-P-EPS-0371-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-G-EPS-0430-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-Alu-3248-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-460-zf-0460-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-260-EW-0261-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Eshabase-260-0260-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Elastotherm-7103716-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-COSMOFIN-FG-R-1-5mm-EN13956-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-COSMOFIN-FG-1-8mm-EN13967-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-COSMOFIN-FG-1-5mm-EN13967-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-COSMOFIN-FG-1-2mm-EN13956-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Citumen-470-C0470-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Citumen-460-zf-C0460-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Citumen-460-EW-C0461-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Alu-Villatherm-K-7142826-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/nl/DoP-Alu-Villatherm-7142825-NL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Ventitherm-7134846-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Vedatop-SU-4394-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Vedatop-SU-0394-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Vedatop-Multi-SK-147668-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Vedagard-Safety-147635-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Sicotec-7131740-%20ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Parafor-Multi-444555-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Icopal-Universal-WS-1109-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Icopal-Universal-WS-0109-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Icopal-Universal-SA-FM-1100-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Icopal-Universal-SA-FM-0100-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshagum-470-WS-0479-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshagum-470-0470-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshagum-446-WS-0449-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshagum-446-0446-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshaflex-TK60-gemineraliseerd-0373-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshaflex-370-zz-0377-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshaflex-370-WS-gemineraliseerd-0379-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshaflex-370-SA-gemineraliseerd-0374-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshaflex-370-0370-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-TK40-0333-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-P-EPS-0371-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-G-EPS-0430-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-Alu-3248-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-460-zf-0460-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-460-EW-0461-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-260-EW-0261-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Eshabase-260-0260-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-COSMOFIN-FG-1-8mm-EN13967-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-COSMOFIN-FG-1-5mm-EN13967-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-COSMOFIN-FG-1-2mm-EN13956-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Citumen-470-C0470-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Citumen-460-zf-C0460-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Citumen-460-EW-C0461-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Alu-Villatherm-K-7142826-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/dop/eng/DoP-Alu-Villatherm-7142825-ENG.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Divers/Klachtenformulier-BMI-Icopal.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/vedatop-su-snijrollen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/EshaFlex-TK60-Zwart-SBS-thermbaan.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/EshaFlex-370-zz-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/EshaFlex-370-Zwart-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/EshaFlex-370-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/EshaFlex-370-Grijs-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/Datasheet-Everguard-TPO.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/7134846-Ventitherm.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/7131740-Sicotec.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/7112010-Expandrit-Plus-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/7103853-Thermosolo-GS-SBS-thermbaan.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/7103716-Elastotherm-SBS-thermbaan.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/561642-icopal-universal-contact-glue.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/444606-eshaflex-370-sa-zwart.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/444605-vedatop-su.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/444555-Parafor-Multi-SBS-bitumen.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/158611-EshaGum-470-KK-Zwart.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/158579-EshaGum-470-Zwart.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/059706-Icopal-Universal-SA.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/059704-Icopal-Universal-WS.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/059701-Icopal-Universal.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058856-EshaGum-446.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058852-EshaGum-446-WS.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058764-EshaBase-460-EW.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058750-eshagum-470-ws.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058746-eshagum-470.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058687-EshaGum-470-Grijs.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058584-eshagum-470-noxite.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058583-eshagum-470-wit.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/058412-EshaBase-460-z-f.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/055522-EshaBase-260-z-z.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/054668-EshaBase-260-EW.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/054310-EshaBase-260%20z-f.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/054163-EshaBase-P-EPS.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Datasheets/054162-EshaBase-G-EPS.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/Milieubeoordeling-DUBOkeur-ICOPAL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/levensduurrapport-eshagum.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/KOMO-attest-met-productcertificaat-BMI-POCB-dakbanen-Icopal-Universal-K66715.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/KOMO-attest-met-productcertificaat-BMI-Icopal-SBS-dakbanen-K66713.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/KOMO-attest-met-productcertificaat-BMI-Icopal-APP-dakbanen-K66714.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/KOMO-attest-met-productcertificaat-BMI-Everguard-108958.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Certificates/Certificaat-DUBOkeur-ICOPAL.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/vedatop-su-snijrollen-brochure.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/Noxite-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/Icopal-Universal.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/Icopal-Universal-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/icopal-cool-roof-%20brochure.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/expandrit-plus-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/EshaGum-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/EshaGum-446-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/EshaFlex-TK-60-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/Elastotherm.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/BMI-Icopal-productoverzicht-2022.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Brochures/BMI-EverGuard-TPO-flyer.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Bitumen/Levensduurrapport%20Eshaflex%20%20rapport%202005%2012%201%20%20pdf.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/Bitumen/HetNieuweBranden-brochure-LR.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/AVG/Verzoek-Toegang-Data.pdf"
+ to="https://www.bmigroup.com/nl/downloads/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalBvNL/Download/AVG/GDPR-Privacy-notice-NL.pdf"
+ to="https://www.bmigroup.com/nl/privacyverklaring-voor-derden/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+# if no redirects are found, fall back to relevant root page
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/nl/?utm_source=icopal.nl&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ force=true

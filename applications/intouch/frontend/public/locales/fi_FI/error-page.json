@@ -1,0 +1,9 @@
+{
+  "body": "Tapahtui virhe, ota yhteyttä BMI-järjestelmänvalvojaan",
+  "errorAlreadyMember": "Käyttäjä on jo toisen yrityksen jäsen",
+  "errorAuthentication": "Todennusvirhe",
+  "errorInvitationNotFound": "Kutsua ei löydy",
+  "errorUserBlocked": "Käyttäjä on estetty",
+  "title": "Jotain meni pieleen",
+  "user_blocked": "Käyttäjä on estetty"
+}

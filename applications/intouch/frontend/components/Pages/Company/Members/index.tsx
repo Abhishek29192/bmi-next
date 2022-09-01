@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Typography } from "@bmi/components";
 import { Button } from "@bmi/components";
@@ -7,9 +7,13 @@ import { useTranslation } from "next-i18next";
 import {
   CertificationFlatRoof,
   CertificationOtherTraining,
-  CertificationPitchedRoof
+  CertificationPitchedRoof,
+  Grid,
+  Icon,
+  FlatRoof,
+  PitchedRoof,
+  AnchorLink
 } from "@bmi/components";
-import { Table } from "@bmi/components";
 import { SvgIcon } from "@material-ui/core";
 import {
   Technology,
@@ -18,13 +22,14 @@ import {
   AccountStatus
 } from "@bmi/intouch-api-types";
 import classnames from "classnames";
-import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
 import { sortByFirstName } from "../../../../lib/utils/account";
 import { TeamMembersQuery } from "../../../../graphql/generated/operations";
 import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
+import { DefaultTable } from "../../../Tables";
 import { UserCard } from "../../../UserCard";
 import {
   useDeleteCompanyMemberMutation,
@@ -72,6 +77,14 @@ const CERTIFICATION_ICONS: {
   OTHER: CertificationOtherTraining
 };
 
+const TECHNOLOGY_ICONS: Record<
+  Exclude<Technology, "OTHER">,
+  React.SFC<React.SVGProps<SVGSVGElement>>
+> = {
+  FLAT: FlatRoof,
+  PITCHED: PitchedRoof
+};
+
 const today = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
 const getTechnologies = (account) =>
@@ -81,9 +94,9 @@ const getTechnologies = (account) =>
     )
   );
 
-const certificationClass = (data: string): string => {
+const certificationClass = (data: string): boolean => {
   const certDate: Date = new Date(new Date(data).setUTCHours(0, 0, 0, 0));
-  return certDate < today ? styles.expired : "";
+  return certDate < today;
 };
 
 const getValidCertDate = () => {
@@ -93,22 +106,33 @@ const getValidCertDate = () => {
   return expiryDate;
 };
 
+const getValidProjects = (currentMember) => {
+  return currentMember
+    ? currentMember.projectMembers.nodes.filter(
+        ({ project }) =>
+          !!project &&
+          project.hidden === false &&
+          new Date(project.endDate) > new Date() &&
+          currentMember.marketId === project.company?.marketId
+      )
+    : [];
+};
+
 const CompanyMembers = ({ data }: PageProps) => {
   const { t } = useTranslation(["common", "team-page"]);
-
   const { account } = useAccountContext();
   const router = useRouter();
-
   const isPowerfulUser = isSuperOrMarketAdmin(account);
-
   const [dialogOpen, setDialogOpen] = useState(false);
   const [messages, setMessages] = useState<MessageProp[]>([]);
   const [members, setMembers] = useState(data.accounts.nodes);
   const [currentMember, setCurrentMember] = useState<
     TeamMembersQuery["accounts"]["nodes"][0]
   >(data.accounts.nodes[0]);
-
   const [isMemberActionDisabled, setMemberActionDisabled] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [deleteMember] = useDeleteCompanyMemberMutation({
     onError: (error) => {
@@ -162,6 +186,7 @@ const CompanyMembers = ({ data }: PageProps) => {
 
       setMembers(sortByFirstName(data.accounts.nodes));
       setMemberActionDisabled(false);
+      setProjects(getValidProjects(currentMember));
     }
   });
 
@@ -237,6 +262,7 @@ const CompanyMembers = ({ data }: PageProps) => {
 
     setMembers(membersResult);
   };
+
   const onAccountChangeStatus = async (id: number, status: AccountStatus) => {
     setMemberActionDisabled(true);
     updateAccount({
@@ -250,13 +276,18 @@ const CompanyMembers = ({ data }: PageProps) => {
       }
     });
   };
+
+  useEffect(() => {
+    setProjects(getValidProjects(currentMember));
+  }, [currentMember]);
+
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
       <div
         className={classnames(
           layoutStyles.sidePanelWrapper,
-          styles.companyPage
+          styles.companyMemberPage
         )}
       >
         <SidePanel
@@ -319,100 +350,155 @@ const CompanyMembers = ({ data }: PageProps) => {
             </FilterResult>
           ))}
         </SidePanel>
-        <ThreeColumnGrid>
-          <div className={styles.detail}>
-            <TableContainer
-              title={t("team-page:table.title")}
-              testid="certification-table"
-              noResultsText={t("team-page:table.noResults")}
-            >
-              {currentMember?.certificationsByDoceboUserId.nodes.length && (
-                <Table>
-                  <Table.Head>
-                    <Table.Row>
-                      <Table.Cell>{t("team-page:table.type")}</Table.Cell>
-                      <Table.Cell>
-                        {t("team-page:table.certification")}
-                      </Table.Cell>
-                      <Table.Cell>{t("team-page:table.validity")}</Table.Cell>
-                    </Table.Row>
-                  </Table.Head>
-                  <Table.Body>
-                    {currentMember.certificationsByDoceboUserId.nodes.map(
-                      (certification, index) => (
-                        <Table.Row
-                          key={`certification-${index}-${certification.id}`}
-                          className={certificationClass(
-                            certification.expiryDate
-                          )}
-                          data-testid={`certification-${index}-${certification.id}`}
-                        >
-                          <Table.Cell>
+        <div className={styles.detail}>
+          <Grid container className={styles.userDetail}>
+            <Grid className={styles.item} item xs={12} lg={8}>
+              <TableContainer
+                title={t("team-page:table.title")}
+                testid="certification-table"
+                noResultsText={t("team-page:table.noResults")}
+              >
+                {currentMember?.certificationsByDoceboUserId.nodes.length && (
+                  <DefaultTable
+                    tableReference="certification"
+                    items={currentMember?.certificationsByDoceboUserId.nodes.map(
+                      ({ name, technology, expiryDate }, index) => ({
+                        [t("team-page:table.type")]: (
+                          <span
+                            className={classnames({
+                              expired: certificationClass(expiryDate)
+                            })}
+                            data-testid={`certification-${index}-icon`}
+                          >
                             <SvgIcon
-                              key={`${index}-${certification.technology}`}
+                              key={`${index}-${technology}`}
                               viewBox="0 0 48 48"
                               className={styles.icon}
-                              component={
-                                CERTIFICATION_ICONS[certification.technology]
-                              }
-                              data-testid={`icon-${certification.technology}`}
+                              component={CERTIFICATION_ICONS[`${technology}`]}
+                              data-testid={`icon-${technology}`}
                             />
-                          </Table.Cell>
-                          <Table.Cell>{certification.name}</Table.Cell>
-                          <Table.Cell>
-                            {formatDate(certification.expiryDate)}
-                          </Table.Cell>
-                        </Table.Row>
-                      )
+                          </span>
+                        ),
+                        [t("team-page:table.certification")]: name,
+                        [t("team-page:table.validity")]: formatDate(expiryDate)
+                      })
                     )}
-                  </Table.Body>
-                </Table>
+                    enablePagination={false}
+                  />
+                )}
+              </TableContainer>
+              {!!projects.length && (
+                <TableContainer
+                  title={t("team-page:projectTable.title")}
+                  testid="project-table"
+                  noResultsText={t("team-page:table.noResults")}
+                  className={styles.projectTable}
+                >
+                  <DefaultTable
+                    tableReference="project"
+                    items={projects.map(
+                      ({
+                        project: { id, technology, name, startDate, endDate }
+                      }) => ({
+                        [t("team-page:projectTable.type")]: (
+                          <Icon
+                            source={TECHNOLOGY_ICONS[`${technology}`]}
+                            style={{ width: 20, height: 17 }}
+                          />
+                        ),
+                        [t("team-page:projectTable.project")]: (
+                          <AnchorLink
+                            action={{ href: `projects/${id}` }}
+                            data-testid={`project-link-${id}`}
+                          >
+                            {name}
+                          </AnchorLink>
+                        ),
+                        [t("team-page:projectTable.startDate")]:
+                          formatDate(startDate),
+                        [t("team-page:projectTable.endDate")]:
+                          formatDate(endDate)
+                      })
+                    )}
+                    enablePagination={true}
+                    count={10}
+                  />
+                </TableContainer>
               )}
-            </TableContainer>
-          </div>
-          <UserCard
-            testid="user-card"
-            onAccountUpdate={onAccountUpdate}
-            onRemoveUser={onRemoveUser}
-            account={currentMember as Account}
-            companyName={findAccountCompany(currentMember as Account)?.name}
-            details={[
-              {
-                type: "phone",
-                text: currentMember?.phone,
-                action: {
-                  model: "htmlLink",
-                  href: `tel:${currentMember?.phone}`
-                },
-                label: t("common:telephone")
-              },
-              {
-                type: "email",
-                text: currentMember?.email,
-                action: {
-                  model: "htmlLink",
-                  href: `mailto:${currentMember?.email}`
-                },
-                label: t("common:email")
-              }
-            ]}
-          />
-          <div style={{ flexBasis: "100%" }}>
+            </Grid>
+            <Grid className={styles.item} item xs={12} lg={4}>
+              <Grid item xs={12}>
+                <div className={styles.userCard}>
+                  <UserCard
+                    testid="user-card"
+                    onAccountUpdate={onAccountUpdate}
+                    onRemoveUser={onRemoveUser}
+                    account={currentMember as Account}
+                    companyName={
+                      findAccountCompany(currentMember as Account)?.name
+                    }
+                    details={[
+                      {
+                        type: "phone",
+                        text: currentMember?.phone,
+                        action: {
+                          model: "htmlLink",
+                          href: `tel:${currentMember?.phone}`
+                        },
+                        label: t("common:telephone")
+                      },
+                      {
+                        type: "email",
+                        text: currentMember?.email,
+                        action: {
+                          model: "htmlLink",
+                          href: `mailto:${currentMember?.email}`
+                        },
+                        label: t("common:email")
+                      }
+                    ]}
+                  />
+                </div>
+              </Grid>
+              {!isMobile && (
+                <AccessControl dataModel="company" action="changeStatus">
+                  <Grid
+                    item
+                    xs={12}
+                    style={{ marginTop: 30 }}
+                    className={classnames(styles.actionPanel)}
+                  >
+                    <CompanyMemberActionCard
+                      member={currentMember}
+                      onAccountUpdate={onAccountChangeStatus}
+                      disabled={isMemberActionDisabled}
+                    />
+                  </Grid>
+                </AccessControl>
+              )}
+            </Grid>
+          </Grid>
+          {isMobile && (
             <AccessControl dataModel="company" action="changeStatus">
-              <CompanyMemberActionCard
-                member={currentMember}
-                onAccountUpdate={onAccountChangeStatus}
-                disabled={isMemberActionDisabled}
-              />
+              <div
+                className={classnames(styles.actionPanel)}
+                data-testid="company-member-action-card-mobile"
+              >
+                <CompanyMemberActionCard
+                  member={currentMember}
+                  onAccountUpdate={onAccountChangeStatus}
+                  disabled={isMemberActionDisabled}
+                />
+              </div>
             </AccessControl>
-          </div>
-        </ThreeColumnGrid>
-        <InvitationDialog
-          styles={styles}
-          dialogOpen={dialogOpen}
-          onCloseClick={() => setDialogOpen(false)}
-        />
+          )}
+        </div>
       </div>
+      <InvitationDialog
+        styles={styles}
+        dialogOpen={dialogOpen}
+        onCloseClick={() => setDialogOpen(false)}
+      />
     </>
   );
 };

@@ -9,7 +9,7 @@ import {
 } from "next/dist/next-server/lib/utils";
 import { initializeApollo } from "../lib/apolloClient";
 import { queryMarketsByDomain } from "../lib/market";
-import { getMarketAndEnvFromReq } from "../lib/utils";
+import { getMarketAndEnvFromReq, getOneTrustToken } from "../lib/utils";
 import { getAuth0Instance } from "../lib/auth0";
 
 // see https://github.com/vercel/next.js/tree/canary/examples/with-google-tag-manager
@@ -26,7 +26,8 @@ class BMIDocument extends Document<Props> {
     const {
       GOOGLE_TAGMANAGER_ID,
       GOOGLE_TAGMANAGER_MARKET_MEDIA_ID,
-      NODE_ENV
+      NODE_ENV,
+      ONE_TRUST_GUID
     } = process.env;
     const gtmID =
       (NODE_ENV === "development" && GOOGLE_TAGMANAGER_ID) ||
@@ -36,10 +37,39 @@ class BMIDocument extends Document<Props> {
       marketMediaGoogleTagId;
     const lang =
       (locale.split("_").length && locale.split("_")[1].toLowerCase()) || "en";
-
+    const oneTrustToken = getOneTrustToken(ONE_TRUST_GUID, lang);
     return (
       <Html lang={lang}>
         <Head>
+          {!!oneTrustToken && (
+            <script
+              type="text/javascript"
+              src={`https://cdn.cookielaw.org/consent/${oneTrustToken}/OtAutoBlock.js`}
+            />
+          )}
+          {!!oneTrustToken && (
+            <script
+              src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+              type="text/javascript"
+              data-domain-script={oneTrustToken}
+            />
+          )}
+          {!!oneTrustToken && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+            function getCookie(e){e=("; "+document.cookie).split("; "+e+"=");
+            if(2==e.length)return e.pop().split(";").shift()}
+            function OptanonWrapper(){var e=document.getElementById("onetrust-accept-btn-handler"),
+            t=document.getElementById("accept-recommended-btn-handler"),
+            n=document.getElementsByClassName("save-preference-btn-handler onetrust-close-btn-handler button-theme")[0];
+            !getCookie("OptanonAlertBoxClosed")&&e&&e.addEventListener("click",function(){location.reload()}),
+            t&&t.addEventListener("click",function(){location.reload()}),
+            n.addEventListener("click",function(){location.reload()})}
+            `
+              }}
+            />
+          )}
           {!!gtmID && (
             <script
               dangerouslySetInnerHTML={{

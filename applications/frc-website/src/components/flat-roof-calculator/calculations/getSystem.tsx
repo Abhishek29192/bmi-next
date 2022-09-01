@@ -1,5 +1,5 @@
-import { pickNumbers } from "../utils/pickNumbers";
 import { Tree } from "../types/CalculatorData";
+import { pickNumbers } from "../utils/pickNumbers";
 
 export const getSystem = (values: any, tree: Tree) => {
   // Create a new values object that only keep the necessary values (no left overs selections from other tree paths)

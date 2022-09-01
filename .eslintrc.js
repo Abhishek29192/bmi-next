@@ -2,12 +2,7 @@
 
 module.exports = {
   extends: ["@bmi-digital/eslint-config"],
-  overrides: [
-    {
-      files: ["**/migrate/**/migrations/**/*.js"],
-      rules: {
-        strict: "off"
-      }
-    }
-  ]
+  rules: {
+    "import/extensions": [0, "never"]
+  }
 };

@@ -114,6 +114,9 @@ export const insertOne = async (
       `SELECT * FROM ${tableName} WHERE ${condition}`,
       parameters
     );
+    if (tableName === "docebo_tier") {
+      console.debug(condition, parameters);
+    }
     return existingRows[0];
   }
 
@@ -348,6 +351,18 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     docebo_user_id: 2
   });
 
+  const doceboTier = await dbInsertOne("docebo_tier", {
+    market_id: market.id,
+    tier_code: "T1",
+    docebo_catalogue_id: 1
+  });
+
+  const otherMarketDoceboTier = await dbInsertOne("docebo_tier", {
+    market_id: otherMarket.id,
+    tier_code: "T1",
+    docebo_catalogue_id: 1
+  });
+
   await dbInsertOne("company_member", {
     market_id: market.id,
     company_id: company.id,
@@ -413,6 +428,8 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     note,
     otherMarketNote,
     certification,
-    otherMarketCertification
+    otherMarketCertification,
+    doceboTier,
+    otherMarketDoceboTier
   };
 };

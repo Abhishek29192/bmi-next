@@ -1,7 +1,7 @@
 {
   "name": "@bmi/netlify-plugin-trigger-gitlab",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "private": true,
   "main": "./index",
   "dependencies": {

@@ -5,7 +5,10 @@
  * fields.
  */
 import { Node } from "gatsby";
+import { Region } from "../../../components/Header";
+import { Data as ContentfulImage } from "../../../components/Image";
 import { RichTextData } from "../../../components/RichText";
+import { Data as ContentfulVideo } from "../../../components/Video";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;
@@ -42,4 +45,61 @@ export type ContentfulDocument = Node & {
   description: RichTextData | null;
   brand: string;
   noIndex: boolean;
+};
+
+export type FourOFourResponse = {
+  siteData: ContentfulSite;
+  errorPageData: ContentfulPromoCard;
+};
+
+export type ContentfulTag = {
+  tags___NODE: string[];
+};
+
+export type ContentfulSite = Node & {
+  id: string;
+  spaceId: string;
+  contentful_id: string;
+  createdAt: string;
+  node_locale: string;
+  countryCode: string;
+  menuUtilities___NODE: string | null;
+  menuNavigation___NODE: string | null;
+  homePage___NODE: string | null;
+  pages___NODE: string[];
+  footerMainNavigation___NODE: string | null;
+  footerSecondaryNavigation___NODE: string | null;
+  resources___NODE: string | null;
+  metadata: ContentfulTag;
+  homePage: null;
+  footerMainNavigation: null;
+  footerSecondaryNavigation: null;
+  menuNavigation: null;
+  menuUtilities: null;
+  resources: null;
+  regions: Region[] | null;
+  pitchedRoofCalculatorConfig: null;
+};
+export type CTAType = {
+  linkedPage: { path: string };
+  url: string;
+  label: string;
+};
+export type ContentfulPromoCard = Node & {
+  id: string;
+  spaceId: string;
+  contentful_id: string;
+  createdAt: string;
+  updatedAt: string;
+  parent: string;
+  node_locale: string;
+  title: string | null;
+  subtitle: string | null;
+  body: RichTextData | null;
+  cta___NODE: string | null;
+  cta: CTAType | null;
+  featuredVideo: ContentfulVideo;
+  featuredMedia: ContentfulImage;
+  resources___NODE: string[];
+  metadata: ContentfulTag;
 };

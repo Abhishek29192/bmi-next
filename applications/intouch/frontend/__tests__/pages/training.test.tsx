@@ -11,10 +11,14 @@ import {
   generateTrainingCourseCatalogues,
   generateCourse
 } from "../../lib/tests/factories/training";
+import { generateDoceboTier } from "../../lib/tests/factories/doceboTier";
 import { renderWithUserProvider } from "../../lib/tests/utils";
 import AccountContextWrapper from "../../lib/tests/fixtures/account";
 import ApolloProvider from "../../lib/tests/fixtures/apollo";
-import { getServerPageTraining } from "../../graphql/generated/page";
+import {
+  getServerPageTraining,
+  getServerPageDoceboTiersByMarketId
+} from "../../graphql/generated/page";
 
 jest.mock("next/router", () => {
   const original = jest.requireActual("next/router");
@@ -32,11 +36,13 @@ jest.mock("../../lib/middleware/withPage", () => ({
   }
 }));
 jest.mock("../../graphql/generated/page", () => ({
-  getServerPageTraining: jest.fn()
+  getServerPageTraining: jest.fn(),
+  getServerPageDoceboTiersByMarketId: jest.fn()
 }));
 jest.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations: () => Promise.resolve({})
 }));
+const loggerError = jest.fn();
 
 describe("Training Page", () => {
   const generateTrainingData = (): { data: TrainingQuery } => ({
@@ -70,11 +76,27 @@ describe("Training Page", () => {
       doceboCatalogueIdT3: "doceboCatalogueIdT3",
       doceboCatalogueIdT4: "doceboCatalogueIdT4"
     },
-    locale: {}
+    locale: {},
+    req: {
+      logger: () => ({
+        error: loggerError
+      }),
+      headers: {
+        host: "en.local.intouch:3000"
+      }
+    }
   });
 
   describe("server side props", () => {
     it("return correct props", async () => {
+      (getServerPageDoceboTiersByMarketId as jest.Mock).mockImplementationOnce(
+        () =>
+          Promise.resolve({
+            props: {
+              data: { doceboTiers: { nodes: [generateDoceboTier()] } }
+            }
+          })
+      );
       (getServerPageTraining as jest.Mock).mockImplementationOnce(() =>
         Promise.resolve({
           props: {
@@ -87,7 +109,8 @@ describe("Training Page", () => {
       expect(getServerPageTraining).toBeCalledWith(
         {
           variables: {
-            catalogueId: "doceboCatalogueId",
+            catalogueId: 1,
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },
@@ -101,6 +124,24 @@ describe("Training Page", () => {
     });
 
     it("return correct props for other company tier than tier 1", async () => {
+      (getServerPageDoceboTiersByMarketId as jest.Mock).mockImplementationOnce(
+        () =>
+          Promise.resolve({
+            props: {
+              data: {
+                doceboTiers: {
+                  nodes: [
+                    generateDoceboTier(),
+                    generateDoceboTier({
+                      tierCode: "T3",
+                      doceboCatalogueId: 3
+                    })
+                  ]
+                }
+              }
+            }
+          })
+      );
       (getServerPageTraining as jest.Mock).mockImplementationOnce(() =>
         Promise.resolve({
           props: {
@@ -128,7 +169,8 @@ describe("Training Page", () => {
       expect(getServerPageTraining).toBeCalledWith(
         {
           variables: {
-            catalogueId: "doceboCatalogueIdT3",
+            catalogueId: 3,
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },
@@ -141,7 +183,25 @@ describe("Training Page", () => {
       });
     });
 
-    it("return correct props when no company tier", async () => {
+    it("sort tier for other company tier than tier 1", async () => {
+      (getServerPageDoceboTiersByMarketId as jest.Mock).mockImplementationOnce(
+        () =>
+          Promise.resolve({
+            props: {
+              data: {
+                doceboTiers: {
+                  nodes: [
+                    generateDoceboTier({
+                      tierCode: "T3",
+                      doceboCatalogueId: 3
+                    }),
+                    generateDoceboTier()
+                  ]
+                }
+              }
+            }
+          })
+      );
       (getServerPageTraining as jest.Mock).mockImplementationOnce(() =>
         Promise.resolve({
           props: {
@@ -156,6 +216,55 @@ describe("Training Page", () => {
           companyMembers: {
             nodes: [
               {
+                company: {
+                  tier: "T3"
+                }
+              }
+            ]
+          }
+        }
+      };
+      await getServerSideProps(context);
+
+      expect(getServerPageTraining).toBeCalledWith(
+        {
+          variables: {
+            catalogueId: 3,
+            tag: "non_existing_tag",
+            userId: "doceboUserId"
+          }
+        },
+        context.apolloClient
+      );
+    });
+
+    it("return correct props when no company tier", async () => {
+      (getServerPageDoceboTiersByMarketId as jest.Mock).mockImplementationOnce(
+        () =>
+          Promise.resolve({
+            props: {
+              data: {
+                doceboTiers: {
+                  nodes: [generateDoceboTier()]
+                }
+              }
+            }
+          })
+      );
+      (getServerPageTraining as jest.Mock).mockImplementationOnce(() =>
+        Promise.resolve({
+          props: {
+            trainingData: generateTrainingData()
+          }
+        })
+      );
+      const context = {
+        ...generateTrainingContext(),
+        account: {
+          doceboUserId: 1,
+          companyMembers: {
+            nodes: [
+              {
                 company: null
               }
             ]
@@ -167,7 +276,8 @@ describe("Training Page", () => {
       expect(getServerPageTraining).toBeCalledWith(
         {
           variables: {
-            catalogueId: "doceboCatalogueId",
+            catalogueId: 1,
+            tag: "non_existing_tag",
             userId: "doceboUserId"
           }
         },

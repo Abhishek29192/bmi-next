@@ -76,6 +76,8 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     buildingOwnerAddress {
       ...AddressLinesFragment
     }
+    inspection
+    inspectedAt
     guarantees {
       nodes {
         id
@@ -401,6 +403,62 @@ export type UpdateProjectHiddenMutationResult =
 export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
+>;
+export const UpdateProjectInspectionDocument = gql`
+  mutation UpdateProjectInspection($projectId: Int!, $inspection: Boolean!) {
+    updateProject(
+      input: { id: $projectId, patch: { inspection: $inspection } }
+    ) {
+      project {
+        id
+        inspection
+      }
+    }
+  }
+`;
+export type UpdateProjectInspectionMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProjectInspectionMutation,
+  OperationTypes.UpdateProjectInspectionMutationVariables
+>;
+
+/**
+ * __useUpdateProjectInspectionMutation__
+ *
+ * To run a mutation, you first call `useUpdateProjectInspectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProjectInspectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProjectInspectionMutation, { data, loading, error }] = useUpdateProjectInspectionMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *      inspection: // value for 'inspection'
+ *   },
+ * });
+ */
+export function useUpdateProjectInspectionMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProjectInspectionMutation,
+    OperationTypes.UpdateProjectInspectionMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProjectInspectionMutation,
+    OperationTypes.UpdateProjectInspectionMutationVariables
+  >(UpdateProjectInspectionDocument, options);
+}
+export type UpdateProjectInspectionMutationHookResult = ReturnType<
+  typeof useUpdateProjectInspectionMutation
+>;
+export type UpdateProjectInspectionMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProjectInspectionMutation>;
+export type UpdateProjectInspectionMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProjectInspectionMutation,
+  OperationTypes.UpdateProjectInspectionMutationVariables
 >;
 export const RestartGuaranteeDocument = gql`
   mutation RestartGuarantee($projectId: Int!) {
@@ -965,10 +1023,6 @@ export const UpdateMarketDocument = gql`
             sendMailbox
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
-            doceboCatalogueId
-            doceboCatalogueIdT2
-            doceboCatalogueIdT3
-            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm
@@ -1023,6 +1077,60 @@ export type UpdateMarketMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateMarketMutation,
   OperationTypes.UpdateMarketMutationVariables
 >;
+export const UpdateDoceboTiersByMarketDocument = gql`
+  mutation updateDoceboTiersByMarket($input: UpdateDoceboTiersByMarketInput!) {
+    updateDoceboTiersByMarket(input: $input) {
+      id
+      docebo_catalogue_id
+      market_id
+      tier_code
+    }
+  }
+`;
+export type UpdateDoceboTiersByMarketMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateDoceboTiersByMarketMutation,
+  OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+>;
+
+/**
+ * __useUpdateDoceboTiersByMarketMutation__
+ *
+ * To run a mutation, you first call `useUpdateDoceboTiersByMarketMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateDoceboTiersByMarketMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateDoceboTiersByMarketMutation, { data, loading, error }] = useUpdateDoceboTiersByMarketMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateDoceboTiersByMarketMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >(UpdateDoceboTiersByMarketDocument, options);
+}
+export type UpdateDoceboTiersByMarketMutationHookResult = ReturnType<
+  typeof useUpdateDoceboTiersByMarketMutation
+>;
+export type UpdateDoceboTiersByMarketMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateDoceboTiersByMarketMutation>;
+export type UpdateDoceboTiersByMarketMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
     bulkImport(input: $input) {
@@ -1718,6 +1826,7 @@ export const GetGuaranteesReportDocument = gql`
             name
           }
           hidden
+          inspection
         }
         requestorAccountId
         requestorAccount {
@@ -2202,6 +2311,66 @@ export type GetEvidenceItemsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetEvidenceItemsReportQuery,
   OperationTypes.GetEvidenceItemsReportQueryVariables
 >;
+export const GetTierBenefitDocument = gql`
+  query getTierBenefit {
+    tierBenefitCollection {
+      items {
+        tier
+        name
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetTierBenefitQuery__
+ *
+ * To run a query within a React component, call `useGetTierBenefitQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetTierBenefitQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetTierBenefitQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetTierBenefitQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >(GetTierBenefitDocument, options);
+}
+export function useGetTierBenefitLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >(GetTierBenefitDocument, options);
+}
+export type GetTierBenefitQueryHookResult = ReturnType<
+  typeof useGetTierBenefitQuery
+>;
+export type GetTierBenefitLazyQueryHookResult = ReturnType<
+  typeof useGetTierBenefitLazyQuery
+>;
+export type GetTierBenefitQueryResult = Apollo.QueryResult<
+  OperationTypes.GetTierBenefitQuery,
+  OperationTypes.GetTierBenefitQueryVariables
+>;
 export const CreateGuaranteeDocument = gql`
   mutation createGuarantee($input: CreateGuaranteeInput!) {
     createGuarantee(input: $input) {
@@ -2466,8 +2635,11 @@ export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutationVariables
 >;
 export const GetProjectCompanyMembersDocument = gql`
-  query getProjectCompanyMembers($existAccounts: [Int!]) {
-    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+  query getProjectCompanyMembers($existAccounts: [Int!], $companyId: Int!) {
+    companyMembers(
+      filter: { accountId: { notIn: $existAccounts } }
+      condition: { companyId: $companyId }
+    ) {
       nodes {
         id
         accountId
@@ -2500,11 +2672,12 @@ export const GetProjectCompanyMembersDocument = gql`
  * const { data, loading, error } = useGetProjectCompanyMembersQuery({
  *   variables: {
  *      existAccounts: // value for 'existAccounts'
+ *      companyId: // value for 'companyId'
  *   },
  * });
  */
 export function useGetProjectCompanyMembersQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetProjectCompanyMembersQuery,
     OperationTypes.GetProjectCompanyMembersQueryVariables
   >
@@ -2763,8 +2936,15 @@ export type AddEvidencesMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.AddEvidencesMutationVariables
 >;
 export const ContentfulEvidenceCategoriesDocument = gql`
-  query contentfulEvidenceCategories {
-    evidenceCategoryCollection {
+  query contentfulEvidenceCategories($tag: String!) {
+    evidenceCategoryCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         sys {
           id
@@ -2789,11 +2969,12 @@ export const ContentfulEvidenceCategoriesDocument = gql`
  * @example
  * const { data, loading, error } = useContentfulEvidenceCategoriesQuery({
  *   variables: {
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useContentfulEvidenceCategoriesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.ContentfulEvidenceCategoriesQuery,
     OperationTypes.ContentfulEvidenceCategoriesQueryVariables
   >
@@ -3674,6 +3855,67 @@ export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
 >;
+export const QueryDoceboTiersByMarketIdDocument = gql`
+  query queryDoceboTiersByMarketId($marketId: Int!) {
+    doceboTiers(condition: { marketId: $marketId }) {
+      nodes {
+        tierCode
+        doceboCatalogueId
+      }
+    }
+  }
+`;
+
+/**
+ * __useQueryDoceboTiersByMarketIdQuery__
+ *
+ * To run a query within a React component, call `useQueryDoceboTiersByMarketIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQueryDoceboTiersByMarketIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQueryDoceboTiersByMarketIdQuery({
+ *   variables: {
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useQueryDoceboTiersByMarketIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >(QueryDoceboTiersByMarketIdDocument, options);
+}
+export function useQueryDoceboTiersByMarketIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.QueryDoceboTiersByMarketIdQuery,
+    OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+  >(QueryDoceboTiersByMarketIdDocument, options);
+}
+export type QueryDoceboTiersByMarketIdQueryHookResult = ReturnType<
+  typeof useQueryDoceboTiersByMarketIdQuery
+>;
+export type QueryDoceboTiersByMarketIdLazyQueryHookResult = ReturnType<
+  typeof useQueryDoceboTiersByMarketIdLazyQuery
+>;
+export type QueryDoceboTiersByMarketIdQueryResult = Apollo.QueryResult<
+  OperationTypes.QueryDoceboTiersByMarketIdQuery,
+  OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+>;
 export const GetMarketsByDomainDocument = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
@@ -3683,10 +3925,6 @@ export const GetMarketsByDomainDocument = gql`
         cmsSpaceId
         language
         domain
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
@@ -3756,8 +3994,16 @@ export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
   OperationTypes.GetMarketsByDomainQueryVariables
 >;
 export const GetMediaFoldersDocument = gql`
-  query getMediaFolders {
-    marketContentCollection(limit: 1) {
+  query getMediaFolders($tag: String!) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         mediaLibraryRootCollection {
           items {
@@ -3770,7 +4016,14 @@ export const GetMediaFoldersDocument = gql`
         }
       }
     }
-    mediaFolderCollection {
+    mediaFolderCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       total
       items {
         __typename
@@ -3814,11 +4067,12 @@ export const GetMediaFoldersDocument = gql`
  * @example
  * const { data, loading, error } = useGetMediaFoldersQuery({
  *   variables: {
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useGetMediaFoldersQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetMediaFoldersQuery,
     OperationTypes.GetMediaFoldersQueryVariables
   >
@@ -3852,8 +4106,17 @@ export type GetMediaFoldersQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFoldersQueryVariables
 >;
 export const GetMediaFolderContentsDocument = gql`
-  query getMediaFolderContents($mediaFolderId: String!) {
-    mediaFolderCollection(where: { sys: { id: $mediaFolderId } }, limit: 1) {
+  query getMediaFolderContents($mediaFolderId: String!, $tag: String!) {
+    mediaFolderCollection(
+      where: {
+        sys: { id: $mediaFolderId }
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         __typename
         sys {
@@ -3894,6 +4157,7 @@ export const GetMediaFolderContentsDocument = gql`
  * const { data, loading, error } = useGetMediaFolderContentsQuery({
  *   variables: {
  *      mediaFolderId: // value for 'mediaFolderId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4084,8 +4348,17 @@ export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataPublicQueryVariables
 >;
 export const GetContentArticleContentDocument = gql`
-  query getContentArticleContent($relativePath: String!) {
-    contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
+  query getContentArticleContent($relativePath: String!, $tag: String!) {
+    contentArticleCollection(
+      where: {
+        relativePath: $relativePath
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         title
         body {
@@ -4113,6 +4386,7 @@ export const GetContentArticleContentDocument = gql`
  * const { data, loading, error } = useGetContentArticleContentQuery({
  *   variables: {
  *      relativePath: // value for 'relativePath'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4163,15 +4437,19 @@ export const MarketsDocument = gql`
         sendMailbox
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
         gtagMarketMedia
         locationBiasRadiusKm
+      }
+    }
+    doceboTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        doceboCatalogueId
       }
     }
   }
@@ -4536,8 +4814,16 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const GetPartnerBrandsDocument = gql`
-  query GetPartnerBrands($role: String!, $tier: String!) {
-    marketContentCollection(limit: 1) {
+  query GetPartnerBrands($role: String!, $tier: String!, $tag: String!) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         partnerBrandsCollection {
           items {
@@ -4560,7 +4846,16 @@ export const GetPartnerBrandsDocument = gql`
         newsItemHeading
       }
     }
-    carouselCollection(where: { audienceRole: $role }, limit: 1) {
+    carouselCollection(
+      where: {
+        audienceRole: $role
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       total
       items {
         audienceRole
@@ -4582,7 +4877,16 @@ export const GetPartnerBrandsDocument = gql`
         }
       }
     }
-    tierBenefitCollection(where: { tier: $tier }, limit: 1) {
+    tierBenefitCollection(
+      where: {
+        tier: $tier
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         name
         description {
@@ -4608,6 +4912,7 @@ export const GetPartnerBrandsDocument = gql`
  *   variables: {
  *      role: // value for 'role'
  *      tier: // value for 'tier'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4717,6 +5022,7 @@ export const GetProjectsDocument = gql`
         buildingOwnerLastname
         buildingOwnerCompany
         buildingOwnerMail
+        hidden
         siteAddress {
           town
           postcode
@@ -4800,6 +5106,7 @@ export const TeamMembersDocument = gql`
         firstName
         formattedRole
         status
+        marketId
         certificationsByDoceboUserId(
           filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
         ) {
@@ -4808,6 +5115,21 @@ export const TeamMembersDocument = gql`
             name
             technology
             expiryDate
+          }
+        }
+        projectMembers {
+          nodes {
+            project {
+              id
+              technology
+              name
+              startDate
+              endDate
+              hidden
+              company {
+                marketId
+              }
+            }
           }
         }
         companyMembers(first: 1) {
@@ -4925,8 +5247,15 @@ export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateRoleAccountMutationVariables
 >;
 export const TrainingDocument = gql`
-  query training($catalogueId: Int, $userId: Int) {
-    trainingContentCollection {
+  query training($catalogueId: Int, $userId: Int, $tag: String!) {
+    trainingContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         pageHeading
         description
@@ -4986,11 +5315,12 @@ export const TrainingDocument = gql`
  *   variables: {
  *      catalogueId: // value for 'catalogueId'
  *      userId: // value for 'userId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useTrainingQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.TrainingQuery,
     OperationTypes.TrainingQueryVariables
   >
@@ -5020,65 +5350,4 @@ export type TrainingLazyQueryHookResult = ReturnType<
 export type TrainingQueryResult = Apollo.QueryResult<
   OperationTypes.TrainingQuery,
   OperationTypes.TrainingQueryVariables
->;
-export const DoceboCatalogIdByMarketDomainDocument = gql`
-  query DoceboCatalogIdByMarketDomain($domain: String!) {
-    marketByDomain(domain: $domain) {
-      doceboCatalogueId
-      doceboCatalogueIdT2
-      doceboCatalogueIdT3
-      doceboCatalogueIdT4
-    }
-  }
-`;
-
-/**
- * __useDoceboCatalogIdByMarketDomainQuery__
- *
- * To run a query within a React component, call `useDoceboCatalogIdByMarketDomainQuery` and pass it any options that fit your needs.
- * When your component renders, `useDoceboCatalogIdByMarketDomainQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useDoceboCatalogIdByMarketDomainQuery({
- *   variables: {
- *      domain: // value for 'domain'
- *   },
- * });
- */
-export function useDoceboCatalogIdByMarketDomainQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >(DoceboCatalogIdByMarketDomainDocument, options);
-}
-export function useDoceboCatalogIdByMarketDomainLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >(DoceboCatalogIdByMarketDomainDocument, options);
-}
-export type DoceboCatalogIdByMarketDomainQueryHookResult = ReturnType<
-  typeof useDoceboCatalogIdByMarketDomainQuery
->;
-export type DoceboCatalogIdByMarketDomainLazyQueryHookResult = ReturnType<
-  typeof useDoceboCatalogIdByMarketDomainLazyQuery
->;
-export type DoceboCatalogIdByMarketDomainQueryResult = Apollo.QueryResult<
-  OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-  OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
 >;

@@ -18,7 +18,7 @@ interface HeadProps {
   title: string;
   defer?: boolean;
   ogImageUrl?: string;
-  scripts?: Pick<SiteData, "headScripts" | "scriptOnetrust">;
+  scripts?: Pick<SiteData, "headScripts">;
   seo: SEOContentData | null;
   path: string | null;
   variantProduct?: Product;
@@ -36,13 +36,13 @@ export const Head = ({
   variantProduct,
   countryCode
 }: HeadProps) => {
-  const { headScripts, scriptOnetrust } = scripts;
+  const { headScripts } = scripts;
   const {
-    config: { isPreviewMode, hubSpotId, isSchemaORGActivated }
+    config: { isPreviewMode, hubSpotId, isSchemaORGActivated, oneTrustId }
   } = useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
-  const isScriptOnetrustEnabled = Boolean(!isPreviewMode && scriptOnetrust);
+  const isScriptOnetrustEnabled = Boolean(!isPreviewMode && oneTrustId);
   const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
 
   const schemaOrgActivated =
@@ -129,7 +129,7 @@ export const Head = ({
       {isScriptOnetrustEnabled && (
         <script
           type="text/javascript"
-          src={`https://cdn.cookielaw.org/consent/${scriptOnetrust}/OtAutoBlock.js`}
+          src={`https://cdn.cookielaw.org/consent/${oneTrustId}/OtAutoBlock.js`}
         />
       )}
 
@@ -138,7 +138,7 @@ export const Head = ({
           src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
           type="text/javascript"
           charSet="UTF-8"
-          data-domain-script={scriptOnetrust}
+          data-domain-script={oneTrustId}
         />
       )}
       {isScriptOnetrustEnabled && (

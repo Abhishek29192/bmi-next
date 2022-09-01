@@ -1,28 +1,32 @@
-import React, { useCallback, useMemo, useState } from "react";
+import { gql } from "@apollo/client";
+import {
+  AlertBanner,
+  Dialog,
+  Form,
+  Grid,
+  Select,
+  SelectMenuItem,
+  TextField,
+  Typography
+} from "@bmi/components";
 import { useTranslation } from "next-i18next";
-import { Grid } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Select, SelectMenuItem } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
+import React, { useCallback, useMemo, useState } from "react";
 import { useMarketContext } from "../../context/MarketContext";
+import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
+import { GetCompanyQuery } from "../../graphql/generated/operations";
+import { BUSINESS_TYPES } from "../../lib/constants";
+import AccessControl from "../../lib/permissions/AccessControl";
+import { getNestedValue, spreadObjectKeys } from "../../lib/utils/object";
 import {
   validateEmailInput,
   validatePhoneNumberInput,
   validateUrlInput
 } from "../../lib/validations/utils";
-import AccessControl from "../../lib/permissions/AccessControl";
-import { GetCompanyQuery } from "../../graphql/generated/operations";
-import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
-import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
-import { getNestedValue } from "../../lib/utils/object";
+import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
-import { SetCompanyOperations } from "./SetCompanyOperations";
 
 export type OnCompanyUpdateSuccess = (
   company: GetCompanyQuery["company"]
@@ -38,6 +42,7 @@ export type SetCompanyDetailsDialogProps = {
   errorMessage?: string;
   mapsApiKey: string;
 };
+export const MAX_FILE_SIZE = 3;
 
 export const SetCompanyDetailsDialog = ({
   title,
@@ -50,7 +55,7 @@ export const SetCompanyDetailsDialog = ({
   loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-
+  const { data: getTierBenefit } = useGetTierBenefitQuery();
   const { market } = useMarketContext();
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
@@ -59,7 +64,6 @@ export const SetCompanyDetailsDialog = ({
   const [fileValidationMessage, setFileValidationMessage] = useState("");
 
   // You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-  const MAX_FILE_SIZE = 3;
 
   const onValidationException = (restriction: boolean, message: string) => {
     setFileSizeRestriction(restriction);
@@ -72,7 +76,7 @@ export const SetCompanyDetailsDialog = ({
 
     onValidationException(false, "");
 
-    if (file?.size > MAX_FILE_SIZE * (1024 * 1024)) {
+    if (file.size > MAX_FILE_SIZE * (1024 * 1024)) {
       onValidationException(
         true,
         `${t(
@@ -83,8 +87,21 @@ export const SetCompanyDetailsDialog = ({
   };
 
   const operations = useMemo(() => {
-    return company?.companyOperationsByCompany?.nodes || [];
+    return company?.companyOperationsByCompany.nodes || [];
   }, [company]);
+
+  const tierBenefits = useMemo(() => {
+    return getTierBenefit?.tierBenefitCollection.items || [];
+  }, [getTierBenefit]);
+
+  const tierName = useMemo(() => {
+    const tierBenefit = getTierBenefit?.tierBenefitCollection.items.find(
+      ({ tier: tierBenefit }) => {
+        return tierBenefit === company?.tier;
+      }
+    );
+    return tierBenefit?.name || null;
+  }, [getTierBenefit, company?.tier]);
 
   const handleSubmit = useCallback(
     (event, values) => {
@@ -145,6 +162,7 @@ export const SetCompanyDetailsDialog = ({
           onKeyDown={(e) => {
             if (e.key === "Enter") e.preventDefault();
           }}
+          data-testid="company-details-form"
         >
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
@@ -212,21 +230,22 @@ export const SetCompanyDetailsDialog = ({
                 action="editTier"
                 dataModel="company"
                 fallbackView={
-                  company?.tier ? (
+                  tierName ? (
                     <InfoPair
                       title={t("company-page:edit_dialog.form.fields.tier")}
                     >
-                      {t(`common:tier.${company.tier}`)}
+                      {tierName}
                     </InfoPair>
                   ) : null
                 }
               >
                 <Select {...getFieldProps("tier")} isRequired>
-                  {Object.entries(TIERS).map(([, tier]) => (
-                    <SelectMenuItem key={tier} value={tier}>
-                      {t(`common:tier.${tier}`)}
-                    </SelectMenuItem>
-                  ))}
+                  {tierBenefits.length &&
+                    tierBenefits.map(({ tier, name }) => (
+                      <SelectMenuItem key={tier} value={tier}>
+                        {name}
+                      </SelectMenuItem>
+                    ))}
                 </Select>
               </AccessControl>
             </Grid>
@@ -359,3 +378,14 @@ export const SetCompanyDetailsDialog = ({
     </Dialog>
   );
 };
+
+export const GET_TIER_BENEFIT = gql`
+  query getTierBenefit {
+    tierBenefitCollection {
+      items {
+        tier
+        name
+      }
+    }
+  }
+`;

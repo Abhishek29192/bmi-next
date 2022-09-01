@@ -1,14 +1,13 @@
+import { Fade, Modal, ModalProps } from "@material-ui/core";
+import { Close } from "@material-ui/icons";
+import classnames from "classnames";
 import React, { useContext } from "react";
 import { isElement } from "react-is";
-import classnames from "classnames";
-import { Modal, ModalProps } from "@material-ui/core";
-import { Close } from "@material-ui/icons";
-import { Fade } from "@material-ui/core";
-import Typography from "../typography/Typography";
 import Button from "../button/Button";
 import ColorPair from "../color-pair/ColorPair";
-import styles from "./Dialog.module.scss";
+import Typography from "../typography/Typography";
 import { DialogClassNameContext } from "./context";
+import styles from "./Dialog.module.scss";
 
 type Props = {
   open?: boolean;
@@ -119,7 +118,6 @@ const Title = ({
 
 Dialog.Title = Title;
 
-// eslint-disable-next-line react/prop-types -- TODO: Some how thinks className is not in HTMLProps
 const Content = ({ className, ...rest }: React.HTMLProps<HTMLDivElement>) => (
   <div className={classnames(styles["content"], className)} {...rest} />
 );

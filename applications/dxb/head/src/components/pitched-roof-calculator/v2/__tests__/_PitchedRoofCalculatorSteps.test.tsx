@@ -2,8 +2,9 @@ import { act, render } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
-import { CalculatorSteps, MainTile } from "../../types";
+import data from "../../samples/v2/data.json";
+import { CalculatorSteps } from "../../types";
+import { MainTile } from "../../types/v2";
 import roofs from "../calculation/roofs";
 import {
   Props as CalculatorStepperProps,
@@ -165,6 +166,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={CalculatorSteps.SelectRoof}
           setSelected={jest.fn()}
           data={data as any}
+          calculatorConfig={null}
         />
       </MicroCopy.Provider>
     );
@@ -185,6 +187,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={selected}
           setSelected={setSelected}
           data={data as any}
+          calculatorConfig={{
+            hubSpotFormId: "mock",
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+          }}
         />
       </MicroCopy.Provider>
     );
@@ -310,6 +316,10 @@ describe("PitchedRoofCalculatorSteps component", () => {
           selected={selected}
           setSelected={setSelected}
           data={data as any}
+          calculatorConfig={{
+            hubSpotFormId: "mock",
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+          }}
         />
       </MicroCopy.Provider>
     );

@@ -9,6 +9,7 @@ import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
 import { tierBenefit } from "../contentful";
 import { getTranslatedRole, getTargetDomain } from "../../utils/account";
+import { parseMarketCompanyTag } from "../../utils/contentful";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -84,7 +85,8 @@ export const createAccount = async (
         ...context.user,
         id: result.data.$account_id,
         market: {
-          sendMailbox: markets[0].send_mailbox
+          sendMailbox: markets[0].send_mailbox,
+          domain: markets[0].domain
         } as Market
       }
     };
@@ -520,7 +522,8 @@ export const completeInvitation = async (
           id: user.id,
           market: {
             ...context.user.market,
-            sendMailbox: markets[0].send_mailbox
+            sendMailbox: markets[0].send_mailbox,
+            domain: markets[0].domain
           }
         }
       };
@@ -541,15 +544,35 @@ export const completeInvitation = async (
     );
 
     logger.info(
-      `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
+      `Added relation with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
+
+    const { rows: markets } = await pgClient.query(
+      `SELECT * FROM market WHERE id = $1`,
+      [user.marketId]
+    );
+
+    // Add domain to context.
+    const updatedContext: PostGraphileContext = {
+      ...context,
+      user: {
+        ...context.user,
+        market: {
+          ...context.user.market,
+          domain: markets[0].domain
+        }
+      }
+    };
+
+    const contentfulTag = parseMarketCompanyTag(markets[0].domain);
 
     const { shortDescription = "", name = "" } = await tierBenefit(
       context.clientGateway,
-      invitations[0].tier
+      invitations[0].tier,
+      contentfulTag
     );
 
-    await sendMessageWithTemplate(context, "TEAM_JOINED", {
+    await sendMessageWithTemplate(updatedContext, "TEAM_JOINED", {
       email: user.email,
       accountId: user.id,
       firstname: user.firstName,

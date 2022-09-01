@@ -29,7 +29,7 @@ interface ContentfulPage implements Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -47,7 +47,7 @@ type FilterOption {
 
 type Filter {
   filterCode: String!
-  name: String!
+  name: String
   value: String!
   code: String!
   groupLabel: String
@@ -69,13 +69,24 @@ type PLPFilterResponse {
   allowFilterBy: [String]
 }
 
+type FourOFourResponse {
+  errorPageData: ContentfulPromo
+  siteData: ContentfulSite
+}
+
+type BreadcrumbItem{
+  id: String
+  label: String
+  slug: String
+}
+
 type ContentfulSimplePage implements ContentfulPage & Node {
   id: ID!
   contentful_id: String!
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -103,7 +114,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -129,7 +140,8 @@ type ContentfulHomePage implements Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
+  spaBrands: [ContentfulBrand] @link(from:"spaBrands___NODE")
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
@@ -145,7 +157,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   title: String
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   content: ContentfulRichText
@@ -207,6 +219,19 @@ type ContentfulRichText implements Node {
   id: ID!
   raw: String!
   references: [ContentfulRichTextReference] @link(from: "references___NODE")
+}
+
+type ContentfulCalculatorRoofShape implements Node {
+  id: ID!
+  name: String!
+  roofShapeId: String!
+  media: ContentfulAsset! @link(by: "id", from: "media___NODE")
+}
+
+type ContentfulWebToolCalculator implements Node {
+  id: ID!
+  roofShapes: [ContentfulCalculatorRoofShape!]! @link(from: "roofShapes___NODE")
+  hubSpotFormId: String
 }
 
 type ContentfulCardCollectionSection implements Node {
@@ -487,8 +512,8 @@ type ContentfulSite implements Node {
   footerSecondaryNavigation: ContentfulNavigation @link(from: "footerSecondaryNavigation___NODE")
   resources: ContentfulResources @link(from: "resources___NODE")
   headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
-  scriptOnetrust: String
   regions: [RegionJson]! @link(from: "regions___NODE")
+  pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
 }
 
 type contentfulSiteHeadScriptsTextNode implements Node {
@@ -565,7 +590,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   slug: String!
   categoryCodes: [String!]
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   brandLogo: String
   subtitle: String
@@ -897,7 +922,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   cta: ContentfulLink @link(from: "cta___NODE")
   slug: String!
   path: String!
-  breadcrumbs: JSON
+  breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   subtitle: String
   description: contentfulBrandLandingPageDescriptionTextNode @link(from: "description___NODE")
@@ -911,6 +936,13 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   tags: [ContentfulTag] @link(from: "tags___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
+}
+
+type ContentfulBrand implements Node {
+  title: String!
+  brandLogo: String!
+  subtitle: String
+  path: String
 }
 
 type contentfulTableDataJsonNode implements Node {

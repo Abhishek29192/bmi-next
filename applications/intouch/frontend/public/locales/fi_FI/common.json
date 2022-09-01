@@ -1,0 +1,90 @@
+{
+  "ARCHITECT": "Arkkitehti",
+  "About Us": "Tietoja meistä",
+  "Account": "Tili",
+  "CONTRACTOR": "Urakoitsija",
+  "CORP_DEVELOPER": "Kiinteistökehittäjä",
+  "Companies": "Yritykset",
+  "Company": "Yritys",
+  "Company Description": "Yrityksen kuvaus",
+  "Download": "Lataa",
+  "Edit": "Muokata",
+  "Home": "Etusivu",
+  "Inventory": "Varasto",
+  "Logout": "Kirjaudu ulos",
+  "MERCHANT": "Kauppias",
+  "Main office address": "Kaupankäyntiosoite",
+  "No Options": "Ei tuloksia",
+  "Notifications": "Ilmoitukset",
+  "Products": "Tuotteet",
+  "Profile": "Profiili",
+  "Projects": "Projektit",
+  "Registered Address": "Rekisteröity osoite",
+  "Registered Details": "Rekisteröity tiedot",
+  "Registered Name": "Rekisteröity nimi",
+  "SavePdf": "Lataa PDF",
+  "Search": "Etsi",
+  "Show me": "Näytä minulle",
+  "Sort by": "Lajitteluperuste",
+  "Team": "Ryhmä",
+  "Tools": "Työkalut",
+  "Training": "Koulutus",
+  "aria": {
+    "navigation": "Navigointi",
+    "notifications": "Ilmoitukset"
+  },
+  "certificationLabels": {
+    "certification": "Sertifiointi",
+    "expiry": "Voimassa asti",
+    "type": "Tyyppi"
+  },
+  "certifications": {
+    "flat": "Tasakatto",
+    "other": "Muu",
+    "pitched": "Harjakatto"
+  },
+  "deactivatedCompany": "Yritys poistettu käytöstä",
+  "error_messages": {
+    "email_format": "Virheellinen sähköpostiosoite",
+    "phone_number_format": "Virheellinen puhelinnumero",
+    "required": "Vaaditaan",
+    "url_format": "Virheellinen URL"
+  },
+  "fallback": {
+    "noResults": "Ei tuloksia",
+    "notAdded": "Ei lisätty"
+  },
+  "generatingPdf": "PDF:n luominen",
+  "notifications": {
+    "earlier": "Aikaisemmin",
+    "older": "Yli 2 kuukautta vanhempi",
+    "today": "Tänään"
+  },
+  "requiredInformation": "Vaadittu tieto",
+  "results available": "Tulokset saatavilla",
+  "roles": {
+    "AUDITOR": "Tarkastaja",
+    "COMPANY_ADMIN": "Yrityksen pääkäyttäjän",
+    "INSTALLER": "Jäsen",
+    "MARKET_ADMIN": "BMI-järjestelmänvalvoja",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "Tämä istunto vanhenee pian käyttämättömyyden vuoksi ja sinut kirjataan automaattisesti ulos.",
+      "continue": "Pidennä istuntoa",
+      "logout": "Kirjaudu ulos",
+      "title": "Istuntosi vanhenee {{counter}} jälkeen"
+    }
+  },
+  "tier": {
+    "T1": "Jäsen",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite",
+    "T5": "Partner - Tasakatto",
+    "T6": "Expert - Tasakatto",
+    "T7": "Elite - Tasakatto"
+  },
+  "visitWebsite": "Vieraile verkkosivustolla"
+}

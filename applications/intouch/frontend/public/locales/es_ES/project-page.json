@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descripción del proyecto",
           "endDate": "Fecha de finalización del proyecto",
+          "inspection": "Inspección",
           "name": "Nombre del proyecto",
           "roofArea": "Medida total de la cubierta (m2)",
           "siteAddress": {
@@ -54,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Verdadero"
+    "False": "No",
+    "True": "Sí"
   },
   "buildingOwnerDetails": {
     "address": "Dirección del propietario del edificio",
@@ -117,7 +118,8 @@
       "MY_QUEUE": "Mi cola",
       "NOT_STARTED": "No empezado",
       "PITCHED": "Inclinado",
-      "UNASSIGNED": "Sin asignar"
+      "UNASSIGNED": "Sin asignar",
+      "ARCHIVED": "¿Archivado"
     }
   },
   "guarantee": {

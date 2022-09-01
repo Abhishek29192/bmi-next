@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
-import dotenv from "dotenv";
 import findUp from "find-up";
 import type { GatsbyNode } from "gatsby";
 import toml from "toml";
+import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
@@ -84,7 +84,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
 }) => {
-  const { createPage, createRedirect } = actions;
+  const { createRedirect, createPage } = actions;
 
   const componentMap = {
     ContentfulSimplePage: path.resolve(
@@ -143,7 +143,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   } = result;
 
-  for (const site of sites) {
+  const site = sites.find(
+    (s) => s.countryCode === process.env.SPACE_MARKET_CODE
+  );
+
+  if (!site) {
+    throw new Error(
+      `No site found with space market code : ${process.env.SPACE_MARKET_CODE}`
+    );
+  } else {
     // TODO: This is temporary until we'll have the path inside ES.
     const variantCodeToPathMap =
       process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false"
@@ -196,7 +204,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: {
         siteId: site.id,
         countryCode: site.countryCode,
-        variantCodeToPathMap
+        variantCodeToPathMap,
+        assetTypeFilter: process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                  }
+                }
+              }
+            }
+          : null
       }
     });
 
@@ -250,9 +269,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (fs.existsSync(redirectsTomlFile)) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const redirectsToml = fs.readFileSync(redirectsTomlFile);
+    const redirectsToml = fs.readFileSync(redirectsTomlFile, "utf8");
 
-    const redirects = toml.parse(redirectsToml.toString());
+    const redirects = toml.parse(redirectsToml);
     await Promise.all(
       redirects.redirects.map((redirect) =>
         createRedirect({

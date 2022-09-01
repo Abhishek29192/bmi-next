@@ -23,6 +23,10 @@ import {
 
 describe("ProjectSidePanel component", () => {
   it("renders correctly", () => {
+    const guarantee = generateGuarantee({
+      reviewerAccountId: null,
+      status: "SUBMITTED"
+    });
     const projects: GetProjectsQuery["projectsByMarket"]["nodes"] = [
       {
         id: 1,
@@ -34,7 +38,9 @@ describe("ProjectSidePanel component", () => {
         technology: "FLAT",
         startDate: "01/01/2019",
         endDate: "01/01/2020",
-        guarantees: null,
+        guarantees: {
+          nodes: [guarantee]
+        },
         company: null
       }
     ];
@@ -62,7 +68,7 @@ describe("ProjectSidePanel component", () => {
       postcode: "N11 111",
       town: "LONDON"
     };
-    const guarantees = null;
+    const guarantees = { nodes: [] };
     const company = null;
 
     const projects: GetProjectsQuery["projectsByMarket"]["nodes"] = [
@@ -234,7 +240,7 @@ describe("ProjectSidePanel component", () => {
     );
     const filterListButtons = container.querySelectorAll(".filterButton .Chip");
     fireEvent.click(filterListButtons[5]);
-    expect(screen.queryByText("fallback.noResults")).toBeFalsy();
+    expect(screen.queryByText("fallback.noResults")).toBeTruthy();
   });
   it("should show project side panel if user MARKET_ADMIN", () => {
     const { container } = renderWithUserProvider(
@@ -459,6 +465,67 @@ describe("ProjectSidePanel component", () => {
         const filteredList = screen.getAllByTestId("projectCard");
         expect(filteredList.length).toBe(1);
         expect(filteredList[0]).toHaveTextContent(projectName);
+      });
+
+      it("Check for ARCHIVED status", () => {
+        const projects: GetProjectsQuery["projectsByMarket"]["nodes"] = [
+          {
+            id: 1,
+            name: "test",
+            siteAddress: {
+              postcode: "N11 111",
+              town: "LONDON"
+            },
+            technology: "FLAT",
+            startDate: "01/01/2019",
+            endDate: "01/01/2020",
+            guarantees: {
+              nodes: []
+            },
+            company: null,
+            hidden: true
+          },
+          {
+            id: 1,
+            name: "test",
+            siteAddress: {
+              postcode: "N11 111",
+              town: "LONDON"
+            },
+            technology: "FLAT",
+            startDate: "01/01/2019",
+            endDate: "01/01/2020",
+            guarantees: {
+              nodes: []
+            },
+            company: {
+              name: "test"
+            },
+            hidden: true
+          }
+        ];
+
+        renderWithUserProvider(
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext({ id: 1 })}>
+              <AccountContextWrapper
+                account={generateAccount({
+                  role: "MARKET_ADMIN",
+                  hasCompany: true
+                })}
+              >
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
+              </AccountContextWrapper>
+            </MarketProvider>
+          </ApolloProvider>
+        );
+        fireEvent.click(screen.getByText("filters.labels.ARCHIVED"));
+        expect(screen.getAllByTestId("projectCard").length).toBe(2);
       });
 
       it("company name", () => {

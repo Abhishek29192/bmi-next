@@ -11,6 +11,11 @@ include:
   - local: "/applications/redirects-website/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-siplast/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-italy/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-nl-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-nl-monier/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-uk-redland/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-uk-icopal/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
 
 variables:
@@ -23,7 +28,7 @@ variables:
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
   # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
-  SAST_EXCLUDED_ANALYZERS: spotbugs semgrep flawfinder
+  SAST_EXCLUDED_ANALYZERS: flawfinder spotbugs
   TRANSFER_METER_FREQUENCY: 5s
 
 .ingore_release_mrs:
@@ -47,11 +52,35 @@ install_yarn:
       changes:
         - modules-sha
 
-license_finder_yarn:
+code_quality:
   rules:
     - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_mr, rules]
-    - !reference [.run_for_changes_on_main, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+eslint-sast:
+  rules:
+    - when: never
+
+nodejs-scan-sast:
+  rules:
+    - when: never
+
+semgrep-sast:
+  rules:
+    - when: never
+
+lint_yarn:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+
+secret_detection:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 release:
   stage: release
@@ -61,3 +90,47 @@ release:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn run semantic-release
+
+auto_merge:
+  stage: post deploy
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - chmod +x scripts/auto_merge.sh
+    - scripts/auto_merge.sh
+  artifacts:
+    reports:
+      dotenv: post_deploy.env
+
+open_mr_preprod_to_master:
+  image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
+  stage: post deploy
+  needs:
+    - auto_merge
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - |
+      if [ "$PREPROD_MR" == "true" ];
+        then
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch pre-production -t master -c "Backdown MR"
+      else
+        echo "No need to open merge request for pre-production"
+      fi
+
+open_mr_prod_to_preprod_to_master:
+  image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
+  stage: post deploy
+  needs:
+    - auto_merge
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - |
+      if [ "$PROD_MR" == "true" ];
+        then
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch production -t pre-production -c "Backdown MR"
+        gitlab_auto_mr --private-token $TOKEN_AUTO_MERGE --source-branch pre-production -t master -c "Backdown MR"
+      else
+        echo "No need to open merge request for production"
+      fi

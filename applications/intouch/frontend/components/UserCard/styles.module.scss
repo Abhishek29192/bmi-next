@@ -21,9 +21,13 @@
 
 .content {
   position: relative;
+}
+
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 34px;
 }
 
 .avatar {
@@ -50,6 +54,9 @@
   padding: 0 1.5rem;
   width: 100%;
   background-color: $color-pearl;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .buttonHolder {

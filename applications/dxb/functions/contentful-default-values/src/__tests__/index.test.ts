@@ -54,7 +54,7 @@ jest.mock("../locale.ts", () => {
 
 const findIrrelevantLocales = jest.fn().mockReturnValue({});
 const copyDefaultValues = jest.fn();
-jest.mock("@bmi/contentful-tag-utility", () => {
+jest.mock("@bmi/cms-consolidation-utility", () => {
   return { findIrrelevantLocales, copyDefaultValues };
 });
 

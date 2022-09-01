@@ -17,10 +17,20 @@ import {
 } from "../lib/error";
 import { getServerPageGetContentArticleContent } from "../graphql/generated/page";
 import styles from "../styles/ContentArticle.module.scss";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 export const GET_CONTENT_ARTICLE_CONTENT = gql`
-  query getContentArticleContent($relativePath: String!) {
-    contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
+  query getContentArticleContent($relativePath: String!, $tag: String!) {
+    contentArticleCollection(
+      where: {
+        relativePath: $relativePath
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         title
         body {
@@ -103,6 +113,9 @@ export const getServerSideProps = async (context) => {
       ? withPublicPage
       : withPage;
 
+  const marketEnv = getMarketAndEnvFromReq(context.req);
+  const contentfulTag = parseMarketTag(marketEnv.market);
+
   // account and globalPageData are only available in withPage middleware
   return await middleware(
     async ({ globalPageData, locale, apolloClient, res }) => {
@@ -123,7 +136,8 @@ export const getServerSideProps = async (context) => {
       } = await getServerPageGetContentArticleContent(
         {
           variables: {
-            relativePath: `/${contentArticleRelativePath}`
+            relativePath: `/${contentArticleRelativePath}`,
+            tag: contentfulTag
           }
         },
         apolloClient

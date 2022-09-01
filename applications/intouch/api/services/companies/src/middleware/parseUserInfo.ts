@@ -13,7 +13,7 @@ export const parseHeaders = (req): Account => {
         Buffer.from(userInfo as string, "base64").toString("ascii")
       );
     } catch (error) {
-      logger.error("Errore parsing the userinfo header: ", error);
+      logger.error("Error parsing the userinfo header: ", error);
     }
   }
 };
@@ -34,7 +34,9 @@ export default async (req, res, next) => {
       [
         "pdf-generator-function",
         "incomplete-reminder-function",
-        "archive-guarantee-function"
+        "archive-guarantee-function",
+        "certification-function",
+        "annual-inspection-function"
       ].includes(user?.source)
     ) {
       // if we want to limit access per function/service

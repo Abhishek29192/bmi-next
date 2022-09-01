@@ -1,6 +1,7 @@
 import { UpdateProjectInput, Guarantee } from "@bmi/intouch-api-types";
 import { PoolClient, QueryResult } from "pg";
 import { sub, format } from "date-fns";
+import { sendMailToMarketAdmins } from "../guarantee";
 
 // Checks if some of the values in disallowed exist in input
 const checkDisallowedInputs = (input, disallowed) =>
@@ -145,6 +146,59 @@ export const archiveProjects = async (
     return message;
   } catch (error) {
     logger.error(`Failed to archive projects`);
+    await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepointName}`);
+
+    throw error;
+  } finally {
+    await pgClient.query(`RELEASE SAVEPOINT ${savepointName}`);
+  }
+};
+
+export const annualProjectsInspection = async (
+  resolve,
+  source,
+  args,
+  context,
+  resolveInfo
+) => {
+  const savepointName = "graphql_annual_inspection_mutation";
+  const { pgClient, logger: Logger } = context;
+  const logger = Logger("service:projects");
+
+  await pgClient.query(`SAVEPOINT ${savepointName}`);
+  try {
+    const market = context?.user?.market?.domain;
+
+    const criteria = format(sub(new Date(), { months: 11 }), "yyyy-MM-dd");
+    const { rows } = await pgClient.query(
+      `SELECT p.id FROM project p INNER JOIN company c ON c.id = p.company_id INNER JOIN market m ON m.id = c.market_id LEFT JOIN guarantee g ON g.project_id = p.id WHERE p.inspected_at IS NULL AND p.inspection = true AND g.status = $1 AND g.project_id IS NOT NULL AND g.approved_at < $2 AND p.hidden = false and g.coverage = $3 AND m.domain = $4`,
+      ["APPROVED", criteria, "SOLUTION", market]
+    );
+    if (rows.length) {
+      const { rows: inspectedProjects } = await pgClient.query(
+        `UPDATE project SET inspected_at = NOW() WHERE id IN (${rows.map(
+          (_, id) => `$${id + 1}`
+        )}) RETURNING id`,
+        [...rows.map(({ id }) => id)]
+      );
+      for (let i = 0; i < inspectedProjects.length; i++) {
+        const projectId = inspectedProjects[+i].id;
+        // Send message to market admins.
+        sendMailToMarketAdmins(context, projectId, "ANNUAL_INSPECTION1");
+      }
+      const message = `Projects with id(s) ${inspectedProjects.map(
+        ({ id }) => id
+      )} has been inspected for market ${market}.`;
+      logger.info(message);
+
+      return message;
+    }
+    const message = `No projects to be inspected for market ${market}.`;
+    logger.info(message);
+
+    return message;
+  } catch (error) {
+    logger.error("Failed to perform annual inspection");
     await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepointName}`);
 
     throw error;

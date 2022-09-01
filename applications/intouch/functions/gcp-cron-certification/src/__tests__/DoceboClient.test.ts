@@ -1,20 +1,19 @@
 process.env.DOCEBO_API_URL = "DOCEBO_API_URL";
 process.env.USER_CERTIFICATION_REPORT_ID = "1";
 process.env.DOCEBO_API_MAX_RECORD_LIMIT = "1";
+process.env.DOCEBO_API_CLIENT_ID = "DOCEBO_API_CLIENT_ID";
+process.env.DOCEBO_API_CLIENT_SECRET = "DOCEBO_API_CLIENT_SECRET";
+process.env.DOCEBO_API_USERNAME = "DOCEBO_API_USERNAME";
+process.env.DOCEBO_API_PASSWORD = "DOCEBO_API_PASSWORD";
 
+import { fetchSpy, loggerError, loggerInfo } from "../../__mocks__";
 import DoceboClient from "../DoceboClient";
 import {
-  getSecretSpy,
-  fetchSpy,
-  loggerInfo,
-  loggerError
-} from "../../__mocks__";
-import {
-  generateReportRecordFactory,
+  countApiReponseFactory,
+  fetchResponseFactory,
   generateReportAPIRecordFactory,
   generateReportAPIResponseFactory,
-  countApiReponseFactory,
-  fetchResponseFactory
+  generateReportRecordFactory
 } from "./helper";
 
 describe("DoceboClient", () => {
@@ -24,11 +23,6 @@ describe("DoceboClient", () => {
     jest.clearAllMocks();
     jest.resetModules();
     process.env = { ...OLD_ENV };
-    getSecretSpy
-      .mockReturnValueOnce("DOCEBO_API_CLIENT_ID")
-      .mockReturnValueOnce("DOCEBO_API_CLIENT_SECRET")
-      .mockReturnValueOnce("DOCEBO_API_USERNAME")
-      .mockReturnValueOnce("DOCEBO_API_PASSWORD");
   });
 
   afterAll(() => {
@@ -36,7 +30,14 @@ describe("DoceboClient", () => {
   });
 
   describe("getCertificationsReport", () => {
-    const { DOCEBO_API_URL, USER_CERTIFICATION_REPORT_ID } = process.env;
+    const {
+      DOCEBO_API_URL,
+      USER_CERTIFICATION_REPORT_ID,
+      DOCEBO_API_CLIENT_ID,
+      DOCEBO_API_CLIENT_SECRET,
+      DOCEBO_API_USERNAME,
+      DOCEBO_API_PASSWORD
+    } = process.env;
 
     it("normal case", async () => {
       const countResponse = countApiReponseFactory();
@@ -48,10 +49,10 @@ describe("DoceboClient", () => {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           grant_type: "password",
-          client_id: "DOCEBO_API_CLIENT_ID",
-          client_secret: "DOCEBO_API_CLIENT_SECRET",
-          username: "DOCEBO_API_USERNAME",
-          password: "DOCEBO_API_PASSWORD"
+          client_id: DOCEBO_API_CLIENT_ID,
+          client_secret: DOCEBO_API_CLIENT_SECRET,
+          username: DOCEBO_API_USERNAME,
+          password: DOCEBO_API_PASSWORD
         })
       };
       const request = {
@@ -68,10 +69,6 @@ describe("DoceboClient", () => {
         .mockReturnValueOnce(fetchResponseFactory({ response: reportReponse }));
       const certificates = await new DoceboClient().getCertificationsReport();
 
-      expect(getSecretSpy).toHaveBeenCalledWith("DOCEBO_API_CLIENT_ID");
-      expect(getSecretSpy).toHaveBeenCalledWith("DOCEBO_API_CLIENT_SECRET");
-      expect(getSecretSpy).toHaveBeenCalledWith("DOCEBO_API_USERNAME");
-      expect(getSecretSpy).toHaveBeenCalledWith("DOCEBO_API_PASSWORD");
       expect(fetchSpy).toHaveBeenNthCalledWith(1, [
         `${DOCEBO_API_URL}/oauth2/token`,
         tokenRequestBody
@@ -92,8 +89,7 @@ describe("DoceboClient", () => {
           userId: record["user.idUser"],
           title: record["certification.title"],
           code: record["certification.code"],
-          expiration: record["certification.expiration"],
-          to_renew_in: record["enrollment.to_renew_in"]
+          toNewIn: record["enrollment.to_renew_in"]
         })
       ]);
     });

@@ -119,7 +119,6 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used inside the nested map later on
   const mappedClassifications = mapProductClassifications(
     product,
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE

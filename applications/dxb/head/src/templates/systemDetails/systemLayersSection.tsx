@@ -27,45 +27,46 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
   return (
     <Accordion>
       {systemLayers &&
-        systemLayers
-          .filter(
-            (layer) =>
-              layer.relatedProducts.length > 0 ||
-              layer.relatedOptionalProducts.length > 0
-          )
-          .map((layer, index) => {
-            const relatedProduct = layer.relatedProducts?.[0];
-            const productLinkAction =
-              relatedProduct && createLinkAction(relatedProduct, countryCode);
+        systemLayers.map((layer, index) => {
+          const relatedProduct = layer.relatedProducts?.[0];
+          const productLinkAction =
+            relatedProduct && createLinkAction(relatedProduct, countryCode);
 
-            const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-              label: "children"
-            });
+          const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+            label: "children"
+          });
 
-            const GTMAccordionSummary = withGTM(Accordion.Summary);
+          const GTMAccordionSummary = withGTM(Accordion.Summary);
 
-            const layerLabel = layer.type ? ` ${layer.type}:` : "";
+          const layerLabel = layer.type ? ` ${layer.type}:` : "";
 
-            const optionalRelatedProducts = (
-              layer.relatedOptionalProducts || []
-            ).filter((optProduct) => optProduct.name !== relatedProduct?.name);
+          const optionalRelatedProducts = (
+            layer.relatedOptionalProducts || []
+          ).filter((optProduct) => optProduct.name !== relatedProduct?.name);
 
-            return (
-              <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
-                <GTMAccordionSummary
-                  gtm={{
-                    id: "selector-accordion1",
-                    label: `${layer.layerNumber}.${layerLabel} ${
-                      layer.name || ""
-                    }`,
-                    action: "Selector - Accordion"
-                  }}
-                >
-                  <Typography variant="default">
-                    {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
-                  </Typography>
-                </GTMAccordionSummary>
+          const hasAccordionItemDetailsData = Boolean(
+            relatedProduct ||
+              layer.shortDescription ||
+              optionalRelatedProducts.length > 0
+          );
 
+          return (
+            <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
+              <GTMAccordionSummary
+                gtm={{
+                  id: "selector-accordion1",
+                  label: `${layer.layerNumber}.${layerLabel} ${
+                    layer.name || ""
+                  }`,
+                  action: "Selector - Accordion"
+                }}
+              >
+                <Typography variant="default">
+                  {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
+                </Typography>
+              </GTMAccordionSummary>
+
+              {hasAccordionItemDetailsData && (
                 <Accordion.Details>
                   <Grid container spacing={3}>
                     {relatedProduct && (
@@ -125,9 +126,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                     })}
                   </Grid>
                 </Accordion.Details>
-              </Accordion.Item>
-            );
-          })}
+              )}
+            </Accordion.Item>
+          );
+        })}
     </Accordion>
   );
 };

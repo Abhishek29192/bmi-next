@@ -13,6 +13,7 @@
         "fields": {
           "description": "Descrição do projeto",
           "endDate": "Data de conclusão do projeto",
+          "inspection": "Inspeção",
           "name": "Nome do projeto",
           "roofArea": "Area total do telhado (m2)",
           "siteAddress": {
@@ -54,8 +55,8 @@
     }
   },
   "bool": {
-    "False": "Falso",
-    "True": "Verdade"
+    "False": "Não",
+    "True": "Sim"
   },
   "buildingOwnerDetails": {
     "address": "Endereço do proprietário do edifício",
@@ -117,7 +118,8 @@
       "MY_QUEUE": "minha Fila",
       "NOT_STARTED": "Não foi iniciado",
       "PITCHED": "Inclinado",
-      "UNASSIGNED": "Não atribuído"
+      "UNASSIGNED": "Não atribuído",
+      "ARCHIVED": "Arquivado"
     }
   },
   "guarantee": {
@@ -128,7 +130,7 @@
     "notRequested": "Não requerido",
     "status": {
       "APPROVED": "Passado",
-      "NOT_APPLICABLE": "N / A",
+      "NOT_APPLICABLE": "N/A",
       "READY": "Preparar",
       "REJECTED": "Retornou",
       "REVIEW": "Aplicação submetida",

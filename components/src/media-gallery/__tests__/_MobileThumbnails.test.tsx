@@ -1,5 +1,5 @@
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
 import Thumbnail from "../../thumbnail/Thumbnail";
 import MobileThumbnails from "../_MobileThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
@@ -70,8 +70,7 @@ describe("_MobileThumbnails component", () => {
   it("scroll correctly", async () => {
     const { container } = renderComponent();
     const scroller = container.querySelector(".scroller");
-    const scrollToSpy = ((scroller?.parentElement as HTMLElement).scrollTo =
-      jest.fn());
+    const scrollToSpy = jest.spyOn(scroller!.parentElement!, "scrollTo");
     expect(container.firstChild).toMatchSnapshot();
     expect(scroller).toBeTruthy();
 
@@ -118,8 +117,7 @@ describe("_MobileThumbnails component", () => {
       />
     );
     const scroller = container.querySelector(".scroller");
-    const scrollToSpy = ((scroller?.parentElement as HTMLElement).scrollTo =
-      jest.fn());
+    const scrollToSpy = jest.spyOn(scroller!.parentElement!, "scrollTo");
     expect(container.firstChild).toMatchSnapshot();
     expect(scroller).toBeTruthy();
 

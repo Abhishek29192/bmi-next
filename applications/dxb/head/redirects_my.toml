@@ -1,0 +1,1041 @@
+[[redirects]]
+ from="/my/third-party-privacy-policy"
+ to="/my/third-party-site-privacy-notice/"
+ force=true
+
+[[redirects]]
+ from="/my/search-page"
+ to="/my/search/"
+ force=true
+
+[[redirects]]
+ from="/my/products/roofing-systems/solarroof"
+ to="/my/product-and-system/solutions/solarroof-system/"
+ force=true
+
+[[redirects]]
+ from="/my/products/roofing-systems/rainwater-harvesting"
+ to="/my/product-and-system/solutions/rainwater-harvesting-system/"
+ force=true
+
+[[redirects]]
+ from="/my/products/roofing-systems/coolroof"
+ to="/my/product-and-system/solutions/coolroof-system/"
+ force=true
+
+[[redirects]]
+ from="/my/products/roofing-systems"
+ to="/my/product-and-system/solutions/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/toscana-warisan"
+ to="/my/product-and-system/pitched-roofs/clay-tiles/toscana-warisan/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/s-pantile"
+ to="/my/product-and-system/pitched-roofs/clay-tiles/s-pantile/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/perspective-mineral"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/perspective-mineral/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/nordica"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/nordica/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/marseille-12"
+ to="/my/product-and-system/pitched-roofs/clay-tiles/marseille-12/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/logica-plana"
+ to="/my/product-and-system/pitched-roofs/clay-tiles/logica-plana/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/legacy-mineral"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/legacy-mineral/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/horizon-8"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/horizon-8/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/heritage-v"
+ to="/my/product-and-system/pitched-roofs/clay-tiles/heritage-v/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/elabana"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/elabana/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/products/advanced-contour"
+ to="/my/product-and-system/pitched-roofs/concrete-tiles/advanced-contour/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/monier"
+ to="/my/bmi-monier/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof/gci-clay"
+ to="/my/bmi-gci/"
+ force=true
+
+[[redirects]]
+ from="/my/products/pitched-roof"
+ to="/my/product-and-system/pitched-roofs/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/wakastrip"
+ to="/my/p/wakastrip-red-steel-605774804/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/verge-seal"
+ to="/my/p/verge-seal-butyl-2707667688/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/topflex-ii-280"
+ to="/my/p/topflex-ii-280-butyl-2921525698/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/topflex-ii-250"
+ to="/my/p/topflex-ii-250-butyl-3543511764/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/thermafoil-deluxe-bubble-r"
+ to="/my/p/thermafoil-deluxe-bubble-r-aluminium-2456918006/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/thermafoil-deluxe-bf"
+ to="/my/p/thermafoil-deluxe-bf-aluminium-2189374958/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/thermafoil-bf"
+ to="/my/p/thermafoil-bf-aluminium-2667501210/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/ridge-tree"
+ to="/my/p/ridge-tree-galvanized-metal-4245666410/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/radenshield-al-fx"
+ to="/my/p/radenshield-al-fx-aluminium-1144424553/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/pest-guard"
+ to="/my/p/pest-guard-3310881746/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-v-pipe-set"
+ to="/my/p/monier-perspective-v-pipe-set-bronze-brown-lumino-concrete-3240344087/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-roof-tile"
+ to="/my/p/monier-perspective-roof-tile-silverstone-grey-lumino-concrete-1070954655/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-verge-end"
+ to="/my/p/monier-perspective-angular-verge-end-bronze-brown-lumino-concrete-3408350644/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-verge"
+ to="/my/p/monier-perspective-angular-verge-bronze-brown-lumino-concrete-2093389406/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-ridge-end"
+ to="/my/p/monier-perspective-angular-ridge-end-bronze-brown-lumino-concrete-627986114/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-ridge"
+ to="/my/p/monier-perspective-angular-ridge-bronze-brown-lumino-concrete-300940283/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-mono-ridge-end"
+ to="/my/p/monier-perspective-angular-mono-ridge-end-bronze-brown-lumino-concrete-4011487889/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-mono-ridge"
+ to="/my/p/monier-perspective-angular-mono-ridge-bronze-brown-lumino-concrete-2235104055/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-hip-end"
+ to="/my/p/monier-perspective-angular-hip-end-bronze-brown-lumino-concrete-1867786705/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-hip"
+ to="/my/p/monier-perspective-angular-hip-bronze-brown-lumino-concrete-3392866514/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-half-tile"
+ to="/my/p/monier-perspective-angular-half-tile-bronze-brown-lumino-concrete-1377263737/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-perspective-angular-3-way-apex"
+ to="/my/p/monier-perspective-angular-3-way-apex-bronze-brown-lumino-concrete-1869243808/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-verge-end"
+ to="/my/p/monier-nordica-verge-end-boreal-orange-gep-concrete-3138044501/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-verge"
+ to="/my/p/monier-nordica-verge-boreal-orange-gep-concrete-373668297/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-v-pipe-set"
+ to="/my/p/monier-nordica-v-pipe-set-boreal-orange-gep-concrete-1669995886/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-toplight"
+ to="/my/p/monier-nordica-toplight-pmma-1996287642/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-tile"
+ to="/my/p/monier-nordica-tile-boreal-orange-gep-concrete-112111891/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-ridge-end"
+ to="/my/p/monier-nordica-design-ridge-end-boreal-orange-gep-concrete-4242038794/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-ridge"
+ to="/my/p/monier-nordica-design-ridge-midnight-sun-gep-concrete-1167309553/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-hip-starter"
+ to="/my/p/monier-nordica-design-hip-starter-boreal-orange-gep-concrete-267905123/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-4-way-apex"
+ to="/my/p/monier-nordica-design-4-way-apex-boreal-orange-gep-concrete-475495161/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-3-way-apex"
+ to="/my/p/monier-nordica-design-3-way-apex-boreal-orange-gep-concrete-1347812457/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-nordica-design-2-way-ridge"
+ to="/my/p/monier-nordica-design-2-way-ridge-chessboard-wood-gep-concrete-3685912752/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-v-pipe-set"
+ to="/my/p/monier-legacy-v-pipe-set-ferra-red-lumino-concrete-2221590593/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-toplight"
+ to="/my/p/monier-legacy-toplight-pmma-2841561125/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-toplight"
+ to="/my/p/monier-legacy-toplight-pmma-2841561125/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-roof-tile"
+ to="/my/p/monier-legacy-roof-tile-bronze-brown-lumino-concrete-3904012274/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-verge-end"
+ to="/my/p/monier-legacy-angular-verge-end-bronze-brown-lumino-concrete-2696985315/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-verge"
+ to="/my/p/monier-legacy-angular-verge-bronze-brown-lumino-concrete-4228821428/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-ridge-end"
+ to="/my/p/monier-legacy-angular-ridge-end-bronze-brown-lumino-concrete-1044336953/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-ridge"
+ to="/my/p/monier-legacy-angular-ridge-bronze-brown-lumino-concrete-3195314771/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-mono-ridge-end"
+ to="/my/p/monier-legacy-angular-mono-ridge-end-bronze-brown-lumino-concrete-891561690/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-mono-ridge"
+ to="/my/p/monier-legacy-angular-mono-ridge-bronze-brown-lumino-concrete-823640593/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-hip-end"
+ to="/my/p/monier-legacy-angular-hip-end-bronze-brown-lumino-concrete-629572095/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-hip"
+ to="/my/p/monier-legacy-angular-hip-bronze-brown-lumino-concrete-1542437752/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-legacy-angular-3-way-apex"
+ to="/my/p/monier-legacy-angular-3-way-apex-terracotta-orange-lumino-concrete-3212780211/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-v-pipe-set"
+ to="/my/p/monier-horizon-8-v-pipe-set-black-lumino-concrete-3257504968/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-roof-tile-for-roof-pitch-%E2%89%A515"
+ to="/my/p/monier-horizon-8-roof-tile-for-roof-pitch-15-black-lumino-concrete-749694356/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-roof-tile"
+ to="/my/p/monier-horizon-8-roof-tile-black-lumino-concrete-3473488453/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-verge"
+ to="/my/p/monier-horizon-8-angular-verge-black-lumino-concrete-1473613289/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-ridge-for-roof-pitch-%E2%89%A58-to-15"
+ to="/my/p/monier-horizon-8-angular-ridge-for-roof-pitch-8-to-15-black-lumino-concrete-794010296/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-ridge-for-roof-pitch-%E2%89%A515"
+ to="/my/p/monier-horizon-8-angular-ridge-for-roof-pitch-15-black-lumino-concrete-1555665945/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-ridge-end-for-roof-pitch-%E2%89%A58-to-15"
+ to="/my/p/monier-horizon-8-angular-ridge-end-for-roof-pitch-8-to-15-black-lumino-concrete-1819948017/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-ridge-end-for-roof-pitch-%E2%89%A515"
+ to="/my/p/monier-horizon-8-angular-ridge-end-for-roof-pitch-15-black-lumino-concrete-1536749800/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-mono-ridge-end"
+ to="/my/p/monier-horizon-8-angular-mono-ridge-end-black-lumino-concrete-349251372/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-mono-ridge"
+ to="/my/p/monier-horizon-8-angular-mono-ridge-black-lumino-concrete-3931613463/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-hip-end"
+ to="/my/p/monier-horizon-8-angular-hip-end-black-lumino-concrete-2936872814/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-hip"
+ to="/my/p/monier-horizon-8-angular-hip-black-lumino-concrete-2077226956/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-horizon-8-angular-3-way-apex"
+ to="/my/p/monier-horizon-8-angular-3-way-apex-grey-lumino-concrete-2531083744/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-verge-end"
+ to="/my/p/monier-elabana-tropical-verge-end-antique-red-gep-concrete-2898701859/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-verge"
+ to="/my/p/monier-elabana-tropical-verge-antique-red-gep-concrete-2934086228/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-v-pipe-set"
+ to="/my/p/monier-elabana-tropical-v-pipe-set-antique-red-gep-concrete-2958137287/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-tile"
+ to="/my/p/monier-elabana-tropical-tile-antique-red-gep-concrete-2980336664/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-standard-ridge-end"
+ to="/my/p/monier-elabana-tropical-standard-ridge-end-antique-red-gep-concrete-31234871/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-standard-ridge"
+ to="/my/p/monier-elabana-tropical-standard-ridge-antique-red-gep-concrete-1386180094/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-standard-hip-starter"
+ to="/my/p/monier-elabana-tropical-standard-hip-starter-antique-red-gep-concrete-3242324801/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-standard-4-way-apex"
+ to="/my/p/monier-elabana-tropical-standard-4-way-apex-antique-red-gep-concrete-1642902449/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-standard-3-way-apex"
+ to="/my/p/monier-elabana-tropical-standard-3-way-apex-antique-red-gep-concrete-1879716075/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-ridge-end"
+ to="/my/p/monier-elabana-tropical-design-ridge-end-antique-red-gep-concrete-351571272/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-ridge"
+ to="/my/p/monier-elabana-tropical-design-ridge-antique-red-gep-concrete-4036635286/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-hip-starter"
+ to="/my/p/monier-elabana-tropical-design-hip-starter-antique-red-gep-concrete-523822262/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-4-way-apex"
+ to="/my/p/monier-elabana-tropical-design-4-way-apex-antique-red-gep-concrete-3671771080/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-3-way-apex"
+ to="/my/p/monier-elabana-tropical-design-3-way-apex-antique-red-gep-concrete-2375092151/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-elabana-tropical-design-2-way-ridge"
+ to="/my/p/monier-elabana-tropical-design-2-way-ridge-antique-red-gep-concrete-533689062/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-verge-end"
+ to="/my/p/monier-advanced-contour-verge-end-advanced-dark-grey-gep-concrete-3038076146/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-verge"
+ to="/my/p/monier-advanced-contour-verge-advanced-dark-grey-gep-concrete-1010155017/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-v-pipe-set"
+ to="/my/p/monier-advanced-contour-v-pipe-set-advanced-pure-brown-gep-concrete-4099702289/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-tile"
+ to="/my/p/monier-advanced-contour-tile-advanced-dark-grey-gep-concrete-241780769/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-ridge-end"
+ to="/my/p/monier-advanced-contour-design-ridge-end-advanced-dark-grey-gep-concrete-1317525405/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-ridge"
+ to="/my/p/monier-advanced-contour-design-ridge-advanced-dark-grey-gep-concrete-2364123551/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-mono-ridge-end"
+ to="/my/p/monier-advanced-contour-design-mono-ridge-end-advanced-dark-grey-gep-concrete-808873522/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-mono-ridge"
+ to="/my/p/monier-advanced-contour-design-mono-ridge-advanced-dark-grey-gep-concrete-545412870/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-hip-starter"
+ to="/my/p/monier-advanced-contour-design-hip-starter-advanced-dark-grey-gep-concrete-3285364140/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-4-way-apex"
+ to="/my/p/monier-advanced-contour-design-4-way-apex-advanced-dark-grey-gep-concrete-469709942/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-3-way-apex"
+ to="/my/p/monier-advanced-contour-design-3-way-apex-advanced-dark-grey-gep-concrete-3365467321/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/monier-advanced-contour-design-2-way-ridge"
+ to="/my/p/monier-advanced-contour-design-2-way-ridge-advanced-grey-gep-concrete-4042223202/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/easyflash-plus-280mm"
+ to="/my/p/easyflash-plus-280mm-anthracite-butyl-2399966765/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/cut-tiles-clip"
+ to="/my/p/cut-tiles-clip-stainless-steel-2578453386/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/compactroll-plus-340"
+ to="/my/p/compactroll-plus-340-antracite-butyl-2953393168/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/compactroll-plus-295"
+ to="/my/p/compactroll-plus-295-anthracite-butyl-1534173785/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/bmi-solar-thermal-system"
+ to="/my/p/bmi-solar-thermal-system-1027776887/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/bmi-part-fill-valve"
+ to="/my/p/bmi-part-fill-valve-2942495532/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/bmi-first-flush-diverter"
+ to="/my/p/bmi-first-flush-diverter-1340219073/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/bmi-filter-collector-grey"
+ to="/my/p/bmi-filter-collector-grey-3208144221/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier/bmi-750l-wall-tank"
+ to="/my/p/bmi-750l-wall-tank-1170690419/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier-perspective-toplight"
+ to="/my/p/monier-perspective-toplight-pmma-2029690000/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier-horizon-8-toplight"
+ to="/my/p/monier-horizon-8-toplight-pmma-953342806/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier-elabana-tropical-toplight"
+ to="/my/p/monier-elabana-tropical-toplight-pmma-3068780620/"
+ force=true
+
+[[redirects]]
+ from="/my/products/monier-advance-contour-toplight"
+ to="/my/p/monier-advance-contour-toplight-pmma-846476508/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-standard-tile"
+ to="/my/p/logica-plana-standard-tile-charcoal-satin-water-2441306799/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-right-verge"
+ to="/my/p/logica-plana-right-verge-charcoal-satin-water-277419315/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-left-verge"
+ to="/my/p/logica-plana-left-verge-charcoal-satin-water-3912521695/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-lanterne-base-tile"
+ to="/my/p/logica-plana-lanterne-base-tile-red-natural-water-2006779807/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-lantern-cap"
+ to="/my/p/logica-plana-lantern-cap-charcoal-satin-water-1084458981/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-angular-ridge-hip"
+ to="/my/p/logica-plana-angular-ridge-hip-charcoal-satin-water-67835659/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-angular-hip-end"
+ to="/my/p/logica-plana-angular-hip-end-charcoal-satin-water-2094635111/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-angular-end-cap-for-lateral-verges"
+ to="/my/p/logica-plana-angular-end-cap-for-lateral-verges-red-natural-water-1814593461/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/logica-plana-angular-3-ridge-junction"
+ to="/my/p/logica-plana-angular-3-ridge-junction-charcoal-satin-water-2261561662/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-verge-tile-right"
+ to="/my/p/gci-toscana-warisan-verge-tile-right-red-natural-water-1278464306/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-verge-tile-left"
+ to="/my/p/gci-toscana-warisan-verge-tile-left-maroon-glazed-water-4278668837/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-ventilation-tile"
+ to="/my/p/gci-toscana-warisan-ventilation-tile-maroon-glazed-water-1651171267/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-universal-capping"
+ to="/my/p/gci-toscana-warisan-universal-capping-maroon-glazed-water-3575677727/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-standard-tile"
+ to="/my/p/gci-toscana-warisan-standard-tile-red-natural-water-1401723262/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-ridge-tile"
+ to="/my/p/gci-toscana-warisan-ridge-tile-brown-satin-water-120127689/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-ridge-infill"
+ to="/my/p/gci-toscana-warisan-ridge-infill-dark-brown-glazed-water-1426289728/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-ridge-end-cap"
+ to="/my/p/gci-toscana-warisan-ridge-end-cap-charcoal-glazed-water-3638758603/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-ridge-end"
+ to="/my/p/gci-toscana-warisan-ridge-end-charcoal-glazed-water-724313487/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-mono-ridge-tile"
+ to="/my/p/gci-toscana-warisan-mono-ridge-tile-charcoal-glazed-water-3257951943/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-lantern-cap"
+ to="/my/p/gci-toscana-warisan-lantern-cap-charcoal-natural-water-3875388091/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-hip-tile"
+ to="/my/p/gci-toscana-warisan-hip-tile-natural-red-glazed-water-459325353/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-hip-end"
+ to="/my/p/gci-toscana-warisan-hip-end-charcoal-natural-water-409147819/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-elbow"
+ to="/my/p/gci-toscana-warisan-elbow-maroon-glazed-water-2269731602/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-double-tile"
+ to="/my/p/gci-toscana-warisan-double-tile-maroon-glazed-water-4257650943/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-4-way-apex"
+ to="/my/p/gci-toscana-warisan-4-way-apex-natural-red-natural-water-904445721/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana%C2%AE-warisan-3-way-apex"
+ to="/my/p/gci-toscana-warisan-3-way-apex-maroon-glazed-water-3799587069/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-toscana-warisan%C2%AE-v-pipe-set"
+ to="/my/p/gci-toscana-warisan-v-pipe-set-red-natural-water-3031227382/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-s-pantile-toplight"
+ to="/my/p/gci-marseille-12-toplight-pmma-128315640/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-s-pantile-eaves-standard-tile"
+ to="/my/p/gci-s-pantile-eaves-standard-tile-coral-glazed-water-3047361518/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-ventilation-tile"
+ to="/my/p/gci-marseille-12-ventilation-tile-autumn-antique-water-3050082841/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-v-pipe-set"
+ to="/my/p/gci-marseille-12-v-pipe-set-coral-glazed-water-48571540/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-toplight"
+ to="/my/p/gci-marseille-12-toplight-pmma-128315640/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-standard-tile"
+ to="/my/p/gci-marseille-12-standard-tile-autumn-antique-water-1404670815/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-right-hand-verge"
+ to="/my/p/gci-marseille-12-right-hand-verge-autumn-antique-water-1965053307/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-right-hand-sword"
+ to="/my/p/gci-marseille-12-right-hand-sword-autumn-antique-water-1747801795/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-mono-ridge-tile"
+ to="/my/p/gci-marseille-12-mono-ridge-tile-autumn-antique-water-1928459418/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-left-hand-sword"
+ to="/my/p/gci-marseille-12-left-hand-sword-coral-glazed-water-3433437278/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-lantern-cap"
+ to="/my/p/gci-marseille-12-lantern-cap-brown-earthy-water-675511981/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-half-tile"
+ to="/my/p/gci-marseille-12-half-tile-autumn-antique-water-2192959020/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-half-right-hand-verge"
+ to="/my/p/gci-marseille-12-half-right-hand-verge-autumn-antique-water-3204886770/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-ridge-tile"
+ to="/my/p/gci-marseille-12-angular-ridge-tile-autumn-antique-water-216942490/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-ridge-end-cap"
+ to="/my/p/gci-marseille-12-angular-ridge-end-cap-autumn-antique-water-2848786766/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-ridge-end"
+ to="/my/p/gci-marseille-12-angular-ridge-end-autumn-antique-water-1647346189/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-ridge-elbow"
+ to="/my/p/gci-marseille-12-angular-ridge-elbow-black-earthy-water-4237544964/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-4-way-apex"
+ to="/my/p/gci-marseille-12-angular-4-way-apex-dark-green-glazed-water-127010777/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-marseille-12-angular-3-way-apex"
+ to="/my/p/gci-marseille-12-angular-3-way-apex-autumn-antique-water-3368281691/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-heritage-v-standard-tile"
+ to="/my/p/gci-heritage-v-standard-tile-red-natural-water-1448549847/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-heritage-v-angular-ridge-tile"
+ to="/my/p/gci-heritage-v-angular-ridge-tile-red-natural-water-260271841/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-heritage-v-angular-ridge-end-cap"
+ to="/my/p/gci-heritage-v-angular-ridge-end-cap-red-natural-water-4224560882/"
+ force=true
+
+[[redirects]]
+ from="/my/products/gci/gci-heritage-v-angular-ridge-end"
+ to="/my/p/gci-heritage-v-angular-ridge-end-red-natural-water-2586146060/"
+ force=true
+
+[[redirects]]
+ from="/my/products/flat-roof/sealoflex"
+ to="/my/bmi-sealoflex/"
+ force=true
+
+[[redirects]]
+ from="/my/products/flat-roof/products/synthetic"
+ to="/my/product-and-system/flat-roof/synthetic-waterproofing-membrane/"
+ force=true
+
+[[redirects]]
+ from="/my/products/flat-roof/everguard"
+ to="/my/bmi-everguard/"
+ force=true
+
+[[redirects]]
+ from="/my/products/flat-roof"
+ to="/my/product-and-system/flat-roof/"
+ force=true
+
+[[redirects]]
+ from="/my/products/everguard/bmi-everguard-tpo-60mil-membrane"
+ to="/my/p/bmi-everguard-tpo-60mil-membrane-grey-smooth-tpo-1849261179/"
+ force=true
+
+[[redirects]]
+ from="/my/products/everguard/bmi-everguard-tpo-60mil-fleece-back-membrane"
+ to="/my/p/bmi-everguard-tpo-60mil-fleeceback-membrane-grey-smooth-2125012275/"
+ force=true
+
+[[redirects]]
+ from="/my/products/everguard/bmi-everguard-tpo-45mil-tpo-fleece-back-membrane"
+ to="/my/p/bmi-everguard-tpo-45mil-fleeceback-membrane-grey-smooth-2804151040/"
+ force=true
+
+[[redirects]]
+ from="/my/products/everguard/bmi-everguard-tpo-45mil-membrane"
+ to="/my/p/bmi-everguard-tpo-45mil-grey-smooth-tpo-2146611598/"
+ force=true
+
+[[redirects]]
+ from="/my/products/easyflash-plus-280mm"
+ to="/my/p/easyflash-plus-280mm-anthracite-butyl-2399966765/"
+ force=true
+
+[[redirects]]
+ from="/my/products/cut-tile-clip"
+ to="/my/p/cut-tiles-clip-stainless-steel-2578453386/"
+ force=true
+
+[[redirects]]
+ from="/my/products/compactroll-plus-340mm"
+ to="/my/p/compactroll-plus-340-antracite-butyl-2953393168/"
+ force=true
+
+[[redirects]]
+ from="/my/products/compactroll-plus-340"
+ to="/my/p/compactroll-plus-340-antracite-butyl-2953393168/"
+ force=true
+
+[[redirects]]
+ from="/my/products/bmi-everguard-tpo-45mils-white"
+ to="/my/p/bmi-everguard-tpo-45mil-white-smooth-tpo-2126328971/"
+ force=true
+
+[[redirects]]
+ from="/my/products/bmi-everguard-tpo-45mils-grey"
+ to="/my/p/bmi-everguard-tpo-45mil-grey-smooth-tpo-2146611598/"
+ force=true
+
+[[redirects]]
+ from="/my/products"
+ to="/my/product-and-system/"
+ force=true
+
+[[redirects]]
+ from="/my/imprint"
+ to="/my/imprint"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/warrantyinfo"
+ to="/my/for-professionals/bmi-guarantees/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/start-a-project"
+ to="/my/for-professionals/project-ideas/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/faq-and-supports/general-questions-and-answer"
+ to="/my/for-professionals/faq/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/faq-and-supports"
+ to="/my/for-professionals/faq/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/design-a-solution"
+ to="/my/for-professionals/design-a-project/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/bmiroofpro"
+ to="/my/for-homeowners/bmi-roofpro/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals/architects"
+ to="/my/for-professionals/architects/"
+ force=true
+
+[[redirects]]
+ from="/my/for-professionals"
+ to="/my/for-professionals"
+ force=true
+
+[[redirects]]
+ from="/my/for-homeowners/plan-a-new-roof"
+ to="/my/for-homeowners/"
+ force=true
+
+[[redirects]]
+ from="/my/for-homeowners/inspiration"
+ to="/my/inspiration/"
+ force=true
+
+[[redirects]]
+ from="/my/for-homeowners/find-a-professional-merchant"
+ to="/my/find-a-stockist/"
+ force=true
+
+[[redirects]]
+ from="/my/downloads/product-catalogs-brochures"
+ to="/my/downloads/product-catalogs-and-brochures/"
+ force=true
+
+[[redirects]]
+ from="/my/downloads/bim"
+ to="/my/for-professionals/bim-objects/"  
+ force=true
+
+[[redirects]]
+ from="/my/contact-us"
+ to="/my/contact/"
+ force=true
+
+[[redirects]]
+ from="/my/campaign/cool-school-programme"
+ to="/my/newsletters/cool-school-programme/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/news-and-events/news-2"
+ to="/my/newsletters/rebuilding-hope-for-child-refuge-centre/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/news-and-events/news-1"
+ to="/my/newsletters/archidex-exhibition/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/news-and-events"
+ to="/my/newsletters/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/careers/diversity"
+ to="/my/careers/values-and-culture/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/careers/career-development"
+ to="/my/career/career-development/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup/careers"
+ to="/my/career/"
+ force=true
+
+[[redirects]]
+ from="/my/about-bmigroup"
+ to="/my/about-bmi/"
+ force=true
+
+# Redirect root to /my.
+[[redirects]]
+  from = "/"
+  to = "/my"
+  status = 301
+  force = true

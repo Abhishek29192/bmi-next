@@ -19,6 +19,13 @@
   },
   "lastCompanyAdminError": "Você não pode remover o último administrador de uma empresa a menos que a BMI o tenha desativado.",
   "memberRemoved": "Membro removido com sucesso da empresa",
+  "projectTable": {
+    "endDate": "Data final",
+    "project": "Projeto",
+    "startDate": "Data de início",
+    "title": "Projetos",
+    "type": "Tipo"
+  },
   "report": "Descarregar lista de equipamentos",
   "sidePanel": {
     "inviteLabel": "Convidar membros da equipa",
@@ -43,10 +50,12 @@
   },
   "user_card": {
     "add_admin": "Atribuir como administrador da empresa",
+    "add_auditor": "Atribuir como auditor",
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "remove": "Remover da empresa",
     "remove_admin": "Remover como administrador da empresa",
+    "remove_auditor": "Remover como auditor",
     "remove_user_dialog": {
       "text": "Deseja remover este membro da empresa?",
       "title": "Excluir membro da empresa"
@@ -54,8 +63,6 @@
     "role_dialog": {
       "text": "Deseja alterar a função do usuário?",
       "title": "Alterar função do usuário"
-    },
-    "remove_auditor": "Remover como auditor",
-    "add_auditor": "Atribuir como auditor"
+    }
   }
 }

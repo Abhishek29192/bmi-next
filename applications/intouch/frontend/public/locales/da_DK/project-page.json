@@ -13,6 +13,7 @@
         "fields": {
           "description": "Projektbeskrivelse",
           "endDate": "Slutdato (forventet)",
+          "inspection": "Inspektion",
           "name": "Projektnavn",
           "roofArea": "Samlet tagareal (m2)",
           "siteAddress": {
@@ -117,7 +118,8 @@
       "MY_QUEUE": "Min kø",
       "NOT_STARTED": "Ikke startet",
       "PITCHED": "Skråt Tag",
-      "UNASSIGNED": "Ikke tildelt"
+      "UNASSIGNED": "Ikke tildelt",
+      "ARCHIVED": "Arkiveret"
     }
   },
   "guarantee": {

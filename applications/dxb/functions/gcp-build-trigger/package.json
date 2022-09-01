@@ -1,7 +1,7 @@
 {
   "name": "@bmi/gcp-build-trigger",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode=production",
@@ -12,7 +12,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.2.0",
+    "@bmi-digital/functions-logger": "^1.3.3",
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/monitoring": "^3.0.0",
     "node-fetch": "^2.6.1"

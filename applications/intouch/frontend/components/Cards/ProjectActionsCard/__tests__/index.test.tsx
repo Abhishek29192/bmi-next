@@ -8,6 +8,7 @@ import {
 import AccountProvider from "../../../../lib/tests/fixtures/account";
 import { generateAccount } from "../../../../lib/tests/factories/account";
 import { ProjectActionsCard } from "../";
+import { generateProject } from "../../../../lib/tests/factories/project";
 
 const addProjectNoteSpy = jest.fn();
 const restartSolutionGuaranteeSpy = jest.fn();
@@ -28,6 +29,7 @@ describe("ProjectActionsCard", () => {
     isArchived: false,
     guaranteeEventHandler: (event) => guaranteeEventHandlerSpy(event),
     isSolutionOrSystemGuaranteeExist: true,
+    project: generateProject(),
     ...props
   });
   const useMutationImplementation = () =>
@@ -44,6 +46,10 @@ describe("ProjectActionsCard", () => {
         restartSolutionGuaranteeSpy.mockImplementationOnce(() =>
           onCompleted(null)
         )
+      ])
+      .mockImplementationOnce((_, { onCompleted }): any => [
+        () =>
+          onCompleted({ updateProject: { project: { id: 1, hidden: true } } })
       ]);
 
   beforeEach(() => {
@@ -64,7 +70,7 @@ describe("ProjectActionsCard", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(useMutationSpy).toHaveBeenCalledTimes(3);
+    expect(useMutationSpy).toHaveBeenCalledTimes(4);
     expect(useProjectPageContextSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -105,8 +111,8 @@ describe("ProjectActionsCard", () => {
           <ProjectActionsCard {...initialProps()} />
         </AccountProvider>
       );
-      const archieveButton = screen.getByText("projectActions.cta.archive");
-      fireEvent.click(archieveButton);
+      const archiveButton = screen.getByText("projectActions.cta.archive");
+      fireEvent.click(archiveButton);
 
       expect(logSpy).toHaveBeenCalledWith({
         severity: "INFO",
@@ -123,7 +129,8 @@ describe("ProjectActionsCard", () => {
           addProjectNoteSpy,
           { loading: false }
         ])
-        .mockImplementationOnce((): any => [restartSolutionGuaranteeSpy]);
+        .mockImplementationOnce((): any => [restartSolutionGuaranteeSpy])
+        .mockImplementationOnce((): any => [() => jest.fn()]);
       renderWithUserProvider(
         <AccountProvider account={generateAccount()}>
           <ProjectActionsCard {...initialProps()} />
@@ -139,11 +146,51 @@ describe("ProjectActionsCard", () => {
     });
   });
 
+  describe("Inspection scenarios", () => {
+    it("normal case", () => {
+      useMutationImplementation();
+      renderWithUserProvider(
+        <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
+          <ProjectActionsCard {...initialProps()} />
+        </AccountProvider>
+      );
+
+      const inspection = screen.getByText(
+        "addProject.dialog.form.fields.inspection"
+      );
+      useMutationImplementation();
+      fireEvent.click(inspection);
+      expect(useMutationSpy).toHaveBeenCalledTimes(8);
+    });
+    it("reject case", () => {
+      useMutationSpy
+        .mockImplementationOnce((): any => [() => jest.fn()])
+        .mockImplementationOnce((): any => [
+          addProjectNoteSpy,
+          { loading: false }
+        ])
+        .mockImplementationOnce((): any => [restartSolutionGuaranteeSpy])
+        .mockImplementationOnce((_, { onError }: { onError: any }): any => [
+          () => onError("errorMessage")
+        ]);
+      renderWithUserProvider(
+        <AccountProvider account={generateAccount()}>
+          <ProjectActionsCard {...initialProps()} />
+        </AccountProvider>
+      );
+
+      expect(logSpy).toHaveBeenCalledWith({
+        severity: "ERROR",
+        message: `There was an error updating project inspection status: errorMessage`
+      });
+    });
+  });
+
   describe("render dialog", () => {
     it("when click on reject button", async () => {
       useMutationImplementation();
       renderWithUserProvider(
-        <AccountProvider account={generateAccount()}>
+        <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
           <ProjectActionsCard {...initialProps()} />
         </AccountProvider>
       );
@@ -173,7 +220,7 @@ describe("ProjectActionsCard", () => {
     it("when click on confirm button", async () => {
       useMutationImplementation();
       renderWithUserProvider(
-        <AccountProvider account={generateAccount()}>
+        <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
           <ProjectActionsCard {...initialProps()} />
         </AccountProvider>
       );
@@ -252,6 +299,10 @@ describe("ProjectActionsCard", () => {
           restartSolutionGuaranteeSpy.mockImplementationOnce(() =>
             onCompleted(null)
           )
+        ])
+        .mockImplementationOnce((_, { onCompleted }): any => [
+          () =>
+            onCompleted({ updateProject: { project: { id: 1, hidden: true } } })
         ]);
       renderWithUserProvider(
         <AccountProvider
@@ -294,7 +345,8 @@ describe("ProjectActionsCard", () => {
           ])
           .mockImplementationOnce((_, { onError }: { onError: any }): any => [
             onError(errorMessage)
-          ]);
+          ])
+          .mockImplementationOnce((): any => [() => jest.fn()]);
 
         renderWithUserProvider(
           <AccountProvider
@@ -326,7 +378,8 @@ describe("ProjectActionsCard", () => {
             restartSolutionGuaranteeSpy.mockImplementationOnce(() =>
               onCompleted(null)
             )
-          ]);
+          ])
+          .mockImplementationOnce((): any => [() => jest.fn()]);
 
         renderWithUserProvider(
           <AccountProvider

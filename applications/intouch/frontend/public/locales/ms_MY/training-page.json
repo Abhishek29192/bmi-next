@@ -1,0 +1,29 @@
+{
+  "Description": "Description",
+  "My courses": "My courses",
+  "See training": "See training",
+  "Training": "Training",
+  "completed": "Completed",
+  "enrolled": "Enrolled",
+  "filter": {
+    "labels": {
+      "all": "All"
+    }
+  },
+  "in_progress": "In progress",
+  "search": {
+    "inputLabel": "Search for a training"
+  },
+  "technology": {
+    "FLAT": "Flat",
+    "OTHER": "Other",
+    "PITCHED": "Pitched"
+  },
+  "type": {
+    "classroom": "Classroom",
+    "elearning": "E-Learning",
+    "webinar": "Webinar"
+  },
+  "viewTraining": "View training",
+  "waiting": "Waiting"
+}

@@ -96,6 +96,29 @@ describe("handleMessage", () => {
     process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
   });
 
+  it("should return 500 if LOCALE is not set", async () => {
+    const originalLocale = process.env.LOCALE;
+    delete process.env.LOCALE;
+
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "TEST",
+        type: "UPDATED"
+      })
+    });
+    const res = mockResponse();
+
+    await handleRequest(req, res);
+
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+    expect(res.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.LOCALE = originalLocale;
+  });
+
   it("should return 404 if request body not sent", async () => {
     const req = mockRequest("GET", {}, "/");
     const res = mockResponse();

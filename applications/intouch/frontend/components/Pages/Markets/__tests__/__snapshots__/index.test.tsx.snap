@@ -7,7 +7,7 @@ exports[`Market page should save the market 1`] = `
       Object {
         "variables": Object {
           "input": Object {
-            "id": 1,
+            "id": 2,
             "patch": Object {
               "cmsSpaceId": "opay6t6wwmup",
               "createdAt": "2021-08-23 18:05:17.659497",
@@ -21,6 +21,7 @@ exports[`Market page should save the market 1`] = `
               "locationBiasRadiusKm": 100,
               "name": "New Name",
               "nodeId": "1",
+              "projectsEnabled": true,
               "sendMailbox": "noreply@bmigroup.no",
               "sendName": "BMI Group Norway",
               "updatedAt": "2021-08-23 18:05:17.659497",

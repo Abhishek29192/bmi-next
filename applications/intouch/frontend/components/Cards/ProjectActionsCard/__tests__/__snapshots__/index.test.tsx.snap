@@ -19,6 +19,7 @@ exports[`ProjectActionsCard render correctly 1`] = `
     >
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        data-testid="archive-project-button"
         tabindex="0"
         type="button"
       >
@@ -26,34 +27,6 @@ exports[`ProjectActionsCard render correctly 1`] = `
           class="MuiButton-label buttonStyles-label-4"
         >
           projectActions.cta.archive
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-label buttonStyles-label-4"
-        >
-          projectActions.cta.requestInformation
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-label buttonStyles-label-4"
-        >
-          projectActions.cta.approveGuarantee
         </span>
         <span
           class="MuiTouchRipple-root"

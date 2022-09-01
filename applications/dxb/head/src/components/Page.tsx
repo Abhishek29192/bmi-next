@@ -13,6 +13,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
+import FallbackComponent from "./FallbackComponent";
 import { Head } from "./Head";
 import { generateGetMicroCopy } from "./MicroCopy";
 import CalculatorProvider from "./PitchedRoofCalcualtor";
@@ -77,8 +78,8 @@ const Page = ({
     menuUtilities,
     resources,
     headScripts,
-    scriptOnetrust,
-    regions
+    regions,
+    pitchedRoofCalculatorConfig
   } = siteData;
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
@@ -114,8 +115,7 @@ const Page = ({
         defer={false}
         ogImageUrl={ogImageUrl}
         scripts={{
-          headScripts,
-          scriptOnetrust
+          headScripts
         }}
         path={path}
         seo={seo}
@@ -165,6 +165,7 @@ const Page = ({
                     onError={() =>
                       navigate(getPathWithCountryCode(countryCode, "422"))
                     }
+                    calculatorConfig={pitchedRoofCalculatorConfig}
                   >
                     <BrandProvider brand={brand}>
                       <Content>{children}</Content>
@@ -186,12 +187,6 @@ const Page = ({
   );
 };
 
-const FallbackComponent = () => (
-  <div role="alert">
-    It&#39;s not you, it&#39;s us - something went wrong on our web server.
-  </div>
-);
-
 export default withErrorBoundary(Page, {
   FallbackComponent: FallbackComponent
   // Possible to log errors with onError method
@@ -199,7 +194,11 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    breadcrumbs
+    breadcrumbs {
+      id
+      label
+      slug
+    }
     signupBlock {
       ...SignupBlockFragment
     }

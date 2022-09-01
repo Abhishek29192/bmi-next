@@ -7,13 +7,13 @@ test_contentful-tagger:
         - $ROOT_DIR/**/*
         - jest/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/functions/contentful-tagger"
@@ -26,14 +26,14 @@ build_contentful-tagger:
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
@@ -48,9 +48,9 @@ package_contentful-tagger:
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
   variables:
     FUNCTION_NAME: "contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
@@ -65,13 +65,13 @@ deploy_contentful-tagger:
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
+        - applications/dxb/libraries/cms-consolidation-utility/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
