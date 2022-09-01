@@ -2813,6 +2813,30 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-174 iconButtonStyles-medium-180 iconButtonStyles-text-176 iconButtonStyles-textDark-177"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -6439,6 +6463,30 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButtonStyles-textDark-15"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -9832,6 +9880,30 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-text-95 iconButtonStyles-textDark-96"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -13464,6 +13536,30 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-147 iconButtonStyles-medium-153 iconButtonStyles-text-149 iconButtonStyles-textDark-150"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -17034,6 +17130,30 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-201 iconButtonStyles-medium-207 iconButtonStyles-text-203 iconButtonStyles-textDark-204"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -20649,6 +20769,30 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-text-41 iconButtonStyles-textDark-42"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -24242,6 +24386,30 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-text-68 iconButtonStyles-textDark-69"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -27863,6 +28031,30 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-120 iconButtonStyles-medium-126 iconButtonStyles-text-122 iconButtonStyles-textDark-123"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >
@@ -31493,6 +31685,30 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             <div
               class="SlideControls SlideControls--light controls"
             >
+              <button
+                aria-label="previous"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-228 iconButtonStyles-medium-234 iconButtonStyles-text-230 iconButtonStyles-textDark-231"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
               <span
                 class="middle-container"
               >

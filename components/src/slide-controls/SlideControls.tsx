@@ -107,7 +107,7 @@ const SlideControls = ({
         className
       )}
     >
-      {total > 2 && (
+      {total > 1 && (
         <Button
           variant="text"
           hasDarkBackground={isDarkThemed}
