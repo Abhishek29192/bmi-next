@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { CalculatorConfig, CalculatorSteps } from "../types";
-import { Data } from "../types/v2";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(
@@ -16,7 +15,6 @@ export type PitchedRoofCalculatorProps = {
   isOpen?: boolean;
   onClose: () => void;
   isDebugging?: boolean;
-  data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
   calculatorConfig: CalculatorConfig | null;
 };
@@ -36,7 +34,6 @@ const PitchedRoofCalculator = ({
   isOpen,
   onClose,
   isDebugging,
-  data,
   calculatorConfig,
   onAnalyticsEvent = () => {
     // no-op
@@ -103,19 +100,12 @@ const PitchedRoofCalculator = ({
         <div className={styles["dialogBody"]}>
           {!isSSR ? (
             <Suspense fallback={loading}>
-              {data ? (
-                <PitchedRoofCalculatorSteps
-                  {...{
-                    isDebugging,
-                    selected,
-                    setSelected,
-                    data,
-                    calculatorConfig
-                  }}
-                />
-              ) : (
-                loading
-              )}
+              <PitchedRoofCalculatorSteps
+                isDebugging={isDebugging}
+                selected={selected}
+                setSelected={setSelected}
+                calculatorConfig={calculatorConfig}
+              />
             </Suspense>
           ) : null}
         </div>

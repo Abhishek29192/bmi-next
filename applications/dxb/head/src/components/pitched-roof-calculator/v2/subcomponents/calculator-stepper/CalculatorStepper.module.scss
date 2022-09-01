@@ -116,4 +116,12 @@
     padding: 0 32px 32px;
     height: 100%;
   }
+
+  .spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px /* container margins and paddings */);
+  }
 }

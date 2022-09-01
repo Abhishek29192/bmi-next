@@ -12,16 +12,14 @@ import FormSection from "../../FormSection";
 import { useSiteContext } from "../../Site";
 import { SourceType } from "../../types/FormSectionTypes";
 import { AnalyticsContext } from "../helpers/analytics";
-import {
-  Guttering,
-  LengthBasedProduct,
-  ResultsObject as BasicResults,
-  ResultsRow,
-  Underlay,
-  VergeOption
-} from "../types";
+import { ResultsRow } from "../types";
 import { Line, LinesMap, Measurements } from "../types/roof";
-import { MainTileVariant, ResultsObject } from "../types/v2";
+import {
+  ResultsObject,
+  Tile,
+  TileOptionSelections,
+  Underlay
+} from "../types/v2";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -31,7 +29,6 @@ import FieldContainer from "./subcomponents/_FieldContainer";
 import { GutteringSelections } from "./_Guttering";
 import { createPdf } from "./_PDF";
 import styles from "./_Results.module.scss";
-import { TileOptionsSelections } from "./_TileOptions";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;
@@ -180,31 +177,17 @@ const EmailAddressCollection = ({
 
 type SetRows = React.Dispatch<React.SetStateAction<Array<ResultsRow>>>;
 
-const createEmptyResult = (): BasicResults => ({
-  tiles: [],
-  fixings: [],
-  sealing: [],
-  ventilation: [],
-  accessories: []
-});
-
 export type ResultProps = {
-  underlays: Underlay[];
-  gutters: Guttering[];
-  gutterHooks: LengthBasedProduct[];
   isDebugging?: boolean;
   measurements: Measurements;
-  variant: MainTileVariant;
-  tileOptions: TileOptionsSelections;
+  variant: Tile;
+  tileOptions: TileOptionSelections;
   underlay: Underlay;
   guttering?: GutteringSelections;
   hubSpotFormId: string | null;
 };
 
 const Results = ({
-  underlays,
-  gutters,
-  gutterHooks,
   isDebugging,
   measurements,
   variant,
@@ -218,63 +201,15 @@ const Results = ({
   const { faces, lines, area } = measurements;
 
   const results = useMemo(() => {
-    let vergeOption: VergeOption | undefined;
-
-    if (tileOptions.verge && tileOptions.verge !== "none") {
-      vergeOption = variant.vergeOptions.find(
-        ({ name }) => name === tileOptions.verge
-      );
-    }
-
-    const ridge = tileOptions.ridge
-      ? variant.ridgeOptions.find(
-          (i) => i.externalProductCode === tileOptions.ridge
-        )
-      : variant.ridgeOptions[0];
-
-    if (!ridge) {
-      return createEmptyResult();
-    }
-
-    const ventilationHoods = variant.ventilationHoodOptions.filter((v) =>
-      tileOptions.ventilation?.includes(v.externalProductCode)
-    );
-
-    let gutteringVariant, gutteringHook;
-
-    if (guttering?.gutteringVariant) {
-      gutteringVariant = gutters
-        .find(({ name }) => guttering.guttering === name)
-        ?.variants.find(
-          ({ externalProductCode }) =>
-            guttering.gutteringVariant === externalProductCode
-        );
-    }
-
-    if (guttering?.gutteringHook) {
-      gutteringHook = gutterHooks.find(
-        ({ externalProductCode }) =>
-          guttering.gutteringHook === externalProductCode
-      );
-    }
-
-    const selectedUnderlay = underlays.find(
-      (u) => u.externalProductCode === underlay.externalProductCode
-    );
-
-    if (!selectedUnderlay) {
-      return createEmptyResult();
-    }
-
     const quantitiesCalculator = new QuantitiesCalculator({
       measurements,
       mainTileVariant: variant,
-      vergeOption,
-      ridge,
-      ventilationHoods,
-      underlay: selectedUnderlay,
-      gutteringVariant,
-      gutteringHook,
+      vergeOption: tileOptions.verge,
+      ridge: tileOptions.ridge,
+      ventilationHoods: tileOptions.ventilationHoods,
+      underlay,
+      gutteringVariant: guttering?.gutteringVariant,
+      gutteringHook: guttering?.gutteringHook,
       downPipes: guttering?.downPipes,
       downPipeConnectors: guttering?.downPipeConnectors
     });
@@ -516,7 +451,7 @@ const Results = ({
             {faces.map((face, i) => (
               <li key={i}>
                 <b>face {i + 1} battens (width):</b>{" "}
-                {battenCalc(face.vertices, [face.pitch], variant)
+                {battenCalc(face.vertices, variant)
                   .map(({ width }) => width.toFixed(2))
                   .join(" | ")}
               </li>

@@ -1,5 +1,6 @@
 import { Button, Form, Typography } from "@bmi/components";
 import { useMediaQuery, useTheme } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Divider from "@material-ui/core/Divider";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import classnames from "classnames";
@@ -9,6 +10,7 @@ import styles from "./CalculatorStepper.module.scss";
 export type Props = {
   selected: string;
   children: React.ReactNode;
+  loading: boolean;
 };
 
 const isStepElement = (
@@ -19,13 +21,23 @@ const isStepElement = (
   "type" in element &&
   element.type === Step;
 
-const CalculatorStepper = ({ selected, children }: Props) => {
+const CalculatorStepper = ({ selected, children, loading }: Props) => {
   // TODO: add warnings for invalid items/keys
   const current = React.Children.toArray(children).filter((item) => {
     return isStepElement(item) && (item.key + "").substring(2) === selected;
   });
 
-  return <div className={styles["CalculatorStepper"]}>{current}</div>;
+  return (
+    <div className={styles["CalculatorStepper"]}>
+      {loading ? (
+        <div className={styles["spinnerContainer"]}>
+          <CircularProgress className={styles["spinner"]} />
+        </div>
+      ) : (
+        current
+      )}
+    </div>
+  );
 };
 
 export type StepProps = {

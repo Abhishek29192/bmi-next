@@ -18,7 +18,7 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -39,7 +39,7 @@ describe("CalculatorStepper component", () => {
 
   it("renders as a div", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           isForm={false}
           key="select-a-roof-shape"
@@ -61,7 +61,7 @@ describe("CalculatorStepper component", () => {
 
   it("ignores footer when there are no buttons", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -85,7 +85,7 @@ describe("CalculatorStepper component", () => {
     const nextLabel = "Calculate";
 
     const { getByText } = render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -117,7 +117,7 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with sm paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -141,7 +141,7 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with md paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -165,7 +165,7 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with large paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -200,7 +200,7 @@ describe("CalculatorStepper component", () => {
     const backButtonLabel = "Back button label";
 
     render(
-      <CalculatorStepper selected="select-a-roof-shape">
+      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
         <CalculatorStepper.Step
           key="select-a-roof-shape"
           title="This is the 2nd page"
@@ -222,5 +222,20 @@ describe("CalculatorStepper component", () => {
     expect(buttons[0].textContent).toBe(nextButtonLabel);
     expect(buttons[1].textContent).toBe(backButtonLabel);
     expect(buttons[2].textContent).toBe(linkLabel);
+  });
+
+  it("renders with loader", () => {
+    render(
+      <CalculatorStepper selected="select-a-roof-shape" loading={true}>
+        <CalculatorStepper.Step
+          key="select-a-roof-shape"
+          title="This is the 2nd page"
+          subtitle="Choose the closest to your roof shape"
+        >
+          <SelectingARoof />
+        </CalculatorStepper.Step>
+      </CalculatorStepper>
+    );
+    expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
 });
