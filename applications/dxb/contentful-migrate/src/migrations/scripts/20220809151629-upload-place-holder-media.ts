@@ -29,16 +29,7 @@ export const up: MigrationFunction = async (
       }
     );
     const imageStream = fs.createReadStream(
-      `${path.join(
-        __dirname,
-        "..",
-        "..",
-        "..",
-        "src",
-        "variables",
-        "media",
-        "1x1.png"
-      )}`
+      `${path.join(__dirname, "..", "..", "images", "1x1.png")}`
     );
 
     const client = createClient({
