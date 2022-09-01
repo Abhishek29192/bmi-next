@@ -42,21 +42,29 @@ variables:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
       when: never
 
+.run_for_preprod_release:
+  rules:
+    if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+-alpha\.[0-9]+$/'
+
+.run_for_prod_release:
+  rules:
+    if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
+
 install_yarn:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - modules-sha
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - modules-sha
 
 code_quality:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 eslint-sast:
   rules:
@@ -72,15 +80,15 @@ semgrep-sast:
 
 lint_yarn:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 secret_detection:
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
 
 release:
   stage: release
