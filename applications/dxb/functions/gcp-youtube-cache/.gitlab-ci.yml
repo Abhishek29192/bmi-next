@@ -32,8 +32,8 @@ build_gcp-youtube-cache:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -49,8 +49,8 @@ package_gcp-youtube-cache:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -68,10 +68,10 @@ deploy_gcp-youtube-cache:
         - applications/dxb/libraries/functions-firestore/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: $CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
