@@ -1,13 +1,30 @@
-import { fireEvent, render as rtlRender, screen } from "@testing-library/react";
+import {
+  fireEvent,
+  render as rtlRender,
+  screen,
+  waitFor
+} from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import RoofSelection, { RoofSelectionProps } from "../_RoofSelection";
 
 const defaultProps: RoofSelectionProps = {
-  select: jest.fn(),
   requiredRoofShapes: [{ roofShapeId: "1" }]
 };
+
+const pushEvent = jest.fn();
+jest.mock("../../helpers/analytics", () => {
+  const actual = jest.requireActual("../../helpers/analytics");
+  return {
+    ...actual,
+    useAnalyticsContext: () => pushEvent
+  };
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 const render = (props: Partial<RoofSelectionProps> = {}) => {
   const finalProps = { ...defaultProps, ...props };
@@ -25,13 +42,20 @@ describe("PitchedRoofCalculator RoofSelection component", () => {
     expect(screen.getAllByText("MC: roofSelection.roof").length).toBe(1);
   });
 
-  it("calls select function when user selects a roof shape", () => {
+  it("calls analytics event when user selects roof shape", () => {
     render();
-    fireEvent.click(screen.getAllByText("MC: roofSelection.roof")[0]);
-    expect(defaultProps.select).toBeCalledTimes(1);
+    fireEvent.click(screen.getByText("MC: roofSelection.roof"));
+    waitFor(() =>
+      expect(pushEvent).toBeCalledWith({
+        event: "dxb.button_click",
+        id: "rc-roof-type",
+        label: "MC: roofSelection.roof",
+        action: "selected"
+      })
+    );
   });
 
-  it("should not render roof shapes", () => {
+  it("renders correctly without roof shapes", () => {
     render({ requiredRoofShapes: [] });
     expect(screen.queryAllByRole("radio").length).toBe(0);
   });

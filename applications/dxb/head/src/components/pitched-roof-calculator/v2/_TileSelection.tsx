@@ -17,7 +17,6 @@ type TileSelectionRowProps = {
   title: string;
   allTiles: GroupedTiles;
   // TODO: Type when importing from Contentful
-  select: (tile: string) => void;
   selected?: string;
   options: Tile[];
 };
@@ -25,7 +24,6 @@ type TileSelectionRowProps = {
 const TileSelectionRow = ({
   title,
   options,
-  select,
   selected,
   allTiles
 }: TileSelectionRowProps) => {
@@ -38,7 +36,14 @@ const TileSelectionRow = ({
 
   return (
     <FieldContainer title={title}>
-      <CardRadioGroup name="tile" defaultValue={selected}>
+      <CardRadioGroup
+        name="tile"
+        defaultValue={selected}
+        isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
+      >
         {options.map((tile) => {
           const totalVariants = allTiles[tile.baseProduct.code].length;
           const colorsText = `${totalVariants} ${
@@ -60,7 +65,6 @@ const TileSelectionRow = ({
                   label: `${tile.name} - ${colorsText}`,
                   action: "selected"
                 });
-                select(tile.baseProduct.code);
               }}
             >
               <CardRadioGroup.Item.Paragraph>
@@ -76,14 +80,11 @@ const TileSelectionRow = ({
 
 const categories: MainTileCategory[] = ["concrete", "clay", "metal"];
 
-export type TileSelecionProps = Pick<
-  TileSelectionRowProps,
-  "select" | "selected"
-> & {
+export type TileSelecionProps = Pick<TileSelectionRowProps, "selected"> & {
   tiles: GroupedTiles;
 };
 
-const TileSelection = ({ select, selected, tiles }: TileSelecionProps) => {
+const TileSelection = ({ selected, tiles }: TileSelecionProps) => {
   const { getMicroCopy } = useSiteContext();
   const productCodes = Object.keys(tiles);
 
@@ -103,7 +104,7 @@ const TileSelection = ({ select, selected, tiles }: TileSelecionProps) => {
             options={sortedOptions.filter(
               (tile) => tile.category.toLowerCase() === category
             )}
-            {...{ select, selected }}
+            selected={selected}
           />
         ))
       ) : (

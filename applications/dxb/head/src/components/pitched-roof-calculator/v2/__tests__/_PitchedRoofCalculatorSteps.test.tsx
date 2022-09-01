@@ -431,7 +431,9 @@ describe("PitchedRoofCalculatorSteps component", () => {
 
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
 
-    act(() => componentProps["_RoofSelection"].select(roofs[0]));
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
+      roof: roofs[0].id
+    });
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.EnterDimensions);
 
@@ -442,15 +444,18 @@ describe("PitchedRoofCalculatorSteps component", () => {
       )
     );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe(CalculatorSteps.SelectTile);
+    await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
 
-    act(() =>
-      componentProps["_TileSelection"].select(tile.externalProductCode)
-    );
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
+      tile: tile.baseProduct.code
+    });
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.SelectVariant);
 
-    act(() => componentProps["_VariantSelection"].select(variant));
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: variant.externalProductCode }
+    );
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.TileOptions);
@@ -548,9 +553,9 @@ describe("PitchedRoofCalculatorSteps component", () => {
   it("shouldn't send second request if user selects the same tile twice", async () => {
     mockedES = jest
       .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValueOnce({ hits: { hits: mainProducts } })
       .mockResolvedValue({ hits: { hits: nestedProducts } });
 
-    selected = CalculatorSteps.SelectTile;
     const getComponent = (selected: CalculatorSteps) => (
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
@@ -562,22 +567,43 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     const { rerender } = render(getComponent(selected));
 
-    componentProps["_TileSelection"].select(tile.externalProductCode);
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
+      roof: roofs[0].id
+    });
     rerender(getComponent(selected));
 
-    componentProps["_VariantSelection"].select(variant);
-    expect(mockedES).toBeCalledTimes(1);
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+      createFormEvent(),
+      dimensions
+    );
+    await waitFor(() => expect(selected).toBe(CalculatorSteps.SelectTile));
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
+      tile: tile.baseProduct.code
+    });
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: variant.externalProductCode }
+    );
+    //first request to fetch main products and second two fetch nested products
+    expect(mockedES).toBeCalledTimes(2);
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
 
     rerender(getComponent(selected));
     stepProps[CalculatorSteps.TileOptions].backButtonOnClick();
     rerender(getComponent(selected));
 
-    componentProps["_VariantSelection"].select(variant);
-    expect(mockedES).toBeCalledTimes(1);
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: variant.externalProductCode }
+    );
+    expect(mockedES).toBeCalledTimes(2);
   });
 
-  it("shouldn't send second additional request if user selects the same gutter twice", async () => {
+  it("shouldn't send second request on gutter selection step if user selects the same gutter twice", async () => {
     mockedES = jest
       .spyOn(elasticSearch, "queryElasticSearch")
       .mockResolvedValueOnce({ hits: { hits: mainProducts } })
@@ -595,7 +621,9 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
     const { rerender } = render(getComponent(selected));
 
-    componentProps["_RoofSelection"].select(roofs[0]);
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
+      roof: roofs[0].id
+    });
     rerender(getComponent(selected));
     stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
       createFormEvent(),
@@ -603,12 +631,17 @@ describe("PitchedRoofCalculatorSteps component", () => {
     );
 
     rerender(getComponent(selected));
-    expect(renderedStep).toBe(CalculatorSteps.SelectTile);
+    await waitFor(() => expect(renderedStep).toBe(CalculatorSteps.SelectTile));
 
-    componentProps["_TileSelection"].select(tile.externalProductCode);
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
+      tile: tile.baseProduct.code
+    });
     rerender(getComponent(selected));
 
-    componentProps["_VariantSelection"].select(variant);
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: variant.externalProductCode }
+    );
     await waitFor(() => expect(selected).toBe(CalculatorSteps.TileOptions));
 
     rerender(getComponent(selected));

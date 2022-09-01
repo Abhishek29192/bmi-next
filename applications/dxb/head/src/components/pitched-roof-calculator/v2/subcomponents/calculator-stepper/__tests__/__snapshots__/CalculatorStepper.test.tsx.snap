@@ -220,7 +220,9 @@ exports[`CalculatorStepper component renders as a div 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
-        <div>
+        <div
+          class="skipAndNextButtons"
+        >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 footerButton footerButton--link MuiButton-textPrimary"
             tabindex="0"
@@ -322,7 +324,9 @@ exports[`CalculatorStepper component renders correctly 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
-        <div>
+        <div
+          class="skipAndNextButtons"
+        >
           <button
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 footerButton footerButton--link MuiButton-textPrimary"
             tabindex="0"

@@ -68,6 +68,10 @@
       }
     }
 
+    .skipAndNextButtons {
+      margin-left: auto;
+    }
+
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
       padding: 16px 24px;
