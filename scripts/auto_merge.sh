@@ -9,7 +9,7 @@ ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
 merge_preprod () {
   git checkout master && \
   git merge pre-production && \
-  git push origin master 
+  git push origin master
   if [ $? -ne 0 ];
     then
     echo "Will open merge request for pre-production in the next job..."
