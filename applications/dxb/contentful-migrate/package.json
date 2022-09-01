@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "scripts": {
-    "build": "tsc && copyfiles -u 1 ./src/images/**/* ./dist/contentful-migrate/src",
+    "build": "tsc && copyfiles './src/images/**/*' ./dist/contentful-migrate",
     "migrateCreate": "node ./dist/contentful-migrate/src/create.js",
     "debug": "node --inspect ./dist/contentful-migrate/src/index.js",
     "down": "node ./dist/contentful-migrate/src/down.js",
