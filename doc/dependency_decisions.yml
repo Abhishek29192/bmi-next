@@ -715,3 +715,9 @@
     :why: Our own project
     :versions: []
     :when: 2022-08-22 08:21:39.860951000 Z
+- - :approve
+  - "@bmi/intouch-graph-gateway"
+  - :who: Vladislav Sokolov
+    :why: Our own project
+    :versions: []
+    :when: 2022-09-01 10:47:42.860951000 Z
