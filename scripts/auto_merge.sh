@@ -41,8 +41,8 @@ git remote add origin https://auto-merge:$TOKEN_AUTO_MERGE@gitlab.com/bmi-digita
 git fetch
 git config user.email "gitlab-runner@not-existing.com"
 git config user.name "Gitlab Runner"
-git checkout preprod
-git checkout prod
+git checkout pre-production
+git checkout production
 
 if [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD" ];
 then
