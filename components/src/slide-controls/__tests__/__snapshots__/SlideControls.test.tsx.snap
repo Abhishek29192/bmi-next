@@ -89,6 +89,30 @@ exports[`SlideControls component getDirection execute correctly if total === 2 1
   <div
     class="SlideControls"
   >
+    <button
+      aria-label="previous"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-312 iconButtonStyles-medium-318 iconButtonStyles-text-314"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root chevron"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
     <span
       class="middle-container"
     >
@@ -118,7 +142,7 @@ exports[`SlideControls component getDirection execute correctly if total === 2 1
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-332 iconButtonStyles-medium-338 iconButtonStyles-text-334"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-312 iconButtonStyles-medium-318 iconButtonStyles-text-314"
       tabindex="0"
       type="button"
     >
@@ -309,7 +333,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-312 iconButtonStyles-medium-318 iconButtonStyles-text-314"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-332 iconButtonStyles-medium-338 iconButtonStyles-text-334"
       tabindex="0"
       type="button"
     >
@@ -355,7 +379,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-312 iconButtonStyles-medium-318 iconButtonStyles-text-314"
+      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-332 iconButtonStyles-medium-338 iconButtonStyles-text-334"
       tabindex="0"
       type="button"
     >
