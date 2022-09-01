@@ -9,7 +9,7 @@ ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
 merge_preprod () {
   git checkout master && \
   git merge pre-production && \
-  git push origin master 
+  git push origin master
   if [ $? -ne 0 ];
     then
     echo "Will open merge request for pre-production in the next job..."
@@ -44,10 +44,10 @@ git config user.name "Gitlab Runner"
 git checkout pre-production
 git checkout production
 
-if [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD" ];
+if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]];
 then
   merge_preprod
-elif [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD" ];
+elif [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]];
 then
   merge_prod
 else
