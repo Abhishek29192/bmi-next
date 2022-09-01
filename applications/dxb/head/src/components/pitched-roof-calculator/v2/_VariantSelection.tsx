@@ -7,16 +7,11 @@ import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 export type VariantSelectionProps = {
-  select: (tile: Tile) => void;
   selected?: Tile;
   options: Tile[];
 };
 
-const VariantSelection = ({
-  options,
-  select,
-  selected
-}: VariantSelectionProps) => {
+const VariantSelection = ({ options, selected }: VariantSelectionProps) => {
   const pushEvent = useContext(AnalyticsContext);
   const { getMicroCopy } = useSiteContext();
 
@@ -34,6 +29,10 @@ const VariantSelection = ({
       <CardRadioGroup
         name="variant"
         defaultValue={(selected || {}).externalProductCode}
+        isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
       >
         {sortedOptions.map((tile) => (
           <CardRadioGroup.Item
@@ -50,7 +49,6 @@ const VariantSelection = ({
                 )}: ${tile.externalProductCode}`,
                 action: "selected"
               });
-              select(tile);
             }}
           >
             <CardRadioGroup.Item.Paragraph>

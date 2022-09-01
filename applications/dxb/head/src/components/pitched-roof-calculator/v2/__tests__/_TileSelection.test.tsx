@@ -1,5 +1,5 @@
 import { FormContext } from "@bmi/components";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import { createProduct } from "../../helpers/products";
@@ -34,10 +34,21 @@ const tiles: GroupedTiles = {
   Nova_main_tile_engobed_black: [{ ...secondTile }]
 };
 
-describe("PitchedRoofCalculator TileSelection component", () => {
-  it("calls select function", () => {
-    const select = jest.fn();
+const pushEvent = jest.fn();
+jest.mock("../../helpers/analytics", () => {
+  const actual = jest.requireActual("../../helpers/analytics");
+  return {
+    ...actual,
+    useAnalyticsContext: () => pushEvent
+  };
+});
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+describe("PitchedRoofCalculator TileSelection component", () => {
+  it("calls analytics event", () => {
     render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
@@ -48,7 +59,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection select={select} selected={undefined} tiles={tiles} />
+          <TileSelection selected={undefined} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -56,9 +67,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     fireEvent.click(
       screen.getByText(tiles.zanda_minster_main_tile[0].baseProduct.name)
     );
-    expect(select).toBeCalledWith(
-      tiles.zanda_minster_main_tile[0].baseProduct.code
-    );
+    waitFor(() => expect(pushEvent).toBeCalledTimes(1));
   });
 
   it("renders with no tiles", () => {
@@ -72,7 +81,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection select={jest.fn()} selected={undefined} tiles={{}} />
+          <TileSelection selected={undefined} tiles={{}} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -104,11 +113,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection
-            select={jest.fn()}
-            selected={undefined}
-            tiles={tiles}
-          />
+          <TileSelection selected={undefined} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -131,11 +136,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection
-            select={jest.fn()}
-            selected={undefined}
-            tiles={tiles}
-          />
+          <TileSelection selected={undefined} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -163,11 +164,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection
-            select={jest.fn()}
-            selected={undefined}
-            tiles={tiles}
-          />
+          <TileSelection selected={undefined} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );

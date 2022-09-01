@@ -38,6 +38,7 @@ import { AnalyticsContext } from "./../helpers/analytics";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
+import roofs from "./calculation/roofs";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
 import Guttering, { GutteringSelections } from "./_Guttering";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
@@ -97,7 +98,7 @@ const PitchedRoofCalculatorSteps = ({
       const pitchValues = getPitchValues(dimensions);
       const res = await queryElasticSearch(
         getProductsQuery(pitchValues),
-        "dxb_no_product" || esIndexNameProduct
+        esIndexNameProduct
       );
       const hits = res.hits.hits.map((hit) => hit._source);
       setData(prepareProducts(hits));
@@ -117,7 +118,12 @@ const PitchedRoofCalculatorSteps = ({
     setGuttering(undefined);
   };
 
-  const selectRoof = (newRoof: Roof) => {
+  const selectRoof = (
+    e: React.FormEvent,
+    { roof: newRoofId }: { roof: string }
+  ) => {
+    e.preventDefault();
+    const newRoof = roofs.find((roof) => roof.id === newRoofId);
     setSelected(CalculatorSteps.EnterDimensions);
     if (newRoof === roof) return;
     setRoof(newRoof);
@@ -146,29 +152,34 @@ const PitchedRoofCalculatorSteps = ({
     setSelected(CalculatorSteps.SelectTile);
   };
 
-  const selectTile = (externalProductCode: string) => {
+  const selectTile = (_, { tile: newTileCode }: { tile: string }) => {
     setSelected(CalculatorSteps.SelectVariant);
-    if (externalProductCode === mainTileCode) return;
-    setMainTileCode(externalProductCode);
+    if (newTileCode === mainTileCode) return;
+    setMainTileCode(newTileCode);
     setVariant(undefined);
   };
 
-  const onVariantSelect = async (newVariant: Tile) => {
-    if (newVariant.externalProductCode === variant?.externalProductCode) {
+  const selectVariant = async (
+    _,
+    { variant: newVariantCode }: { variant: string }
+  ) => {
+    if (newVariantCode === variant?.externalProductCode) {
       setSelected(CalculatorSteps.TileOptions);
       return;
     }
+    // eslint-disable-next-line security/detect-object-injection
+    const newVariant = data.tiles[mainTileCode].find(
+      (variant) => variant.externalProductCode === newVariantCode
+    );
 
+    setVariant(newVariant);
     setTileOptions(undefined);
     try {
       setLoading(true);
       const query = constructQueryForProductReferences(
         newVariant.productReferences
       );
-      const res = await queryElasticSearch(
-        query,
-        "dxb_no_product" || esIndexNameProduct
-      );
+      const res = await queryElasticSearch(query, esIndexNameProduct);
       const hits = res.hits.hits.map((hit) => hit._source);
       const productReferences =
         transformProductReferences<ReferencedTileProducts>(
@@ -323,7 +334,7 @@ const PitchedRoofCalculatorSteps = ({
     try {
       const res = await queryElasticSearch(
         constructQueryForProductReferences(referencesToFetch),
-        "dxb_no_product" || esIndexNameProduct
+        esIndexNameProduct
       );
       const hits = res.hits.hits.map((hit) => hit._source);
       const preparedData = transformProductReferences<NestedProductReferences>(
@@ -366,10 +377,11 @@ const PitchedRoofCalculatorSteps = ({
           key={CalculatorSteps.SelectRoof}
           title={getMicroCopy(microCopy.ROOF_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.ROOF_SELECTION_SUBTITLE)}
+          nextLabel={getMicroCopy(microCopy.ROOF_SELECTION_NEXT_LABEL)}
+          nextButtonOnClick={selectRoof}
         >
           <RoofSelection
             requiredRoofShapes={calculatorConfig?.roofShapes}
-            select={selectRoof}
             selected={roof}
           />
         </CalculatorStepper.Step>
@@ -397,6 +409,7 @@ const PitchedRoofCalculatorSteps = ({
           title={getMicroCopy(microCopy.TILE_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.TILE_SELECTION_SUBTITLE)}
           backLabel={getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL)}
+          nextLabel={getMicroCopy(microCopy.TILE_SELECTION_NEXT_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
@@ -406,18 +419,16 @@ const PitchedRoofCalculatorSteps = ({
             });
             setSelected(CalculatorSteps.EnterDimensions);
           }}
+          nextButtonOnClick={selectTile}
         >
-          <TileSelection
-            tiles={data.tiles}
-            select={selectTile}
-            selected={mainTileCode}
-          />
+          <TileSelection tiles={data.tiles} selected={mainTileCode} />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key={CalculatorSteps.SelectVariant}
           title={getMicroCopy(microCopy.VARIANT_SELECTION_TITLE)}
           subtitle={getMicroCopy(microCopy.VARIANT_SELECTION_SUBTITLE)}
           backLabel={getMicroCopy(microCopy.VARIANT_SELECTION_BACK_LABEL)}
+          nextLabel={getMicroCopy(microCopy.VARIANT_SELECTION_NEXT_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
@@ -427,10 +438,10 @@ const PitchedRoofCalculatorSteps = ({
             });
             setSelected(CalculatorSteps.SelectTile);
           }}
+          nextButtonOnClick={selectVariant}
         >
           {mainTileCode ? (
             <VariantSelection
-              select={onVariantSelect}
               selected={variant}
               // eslint-disable-next-line security/detect-object-injection
               options={data.tiles[mainTileCode]}
@@ -530,6 +541,7 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.GUTTERING_SKIP_LABEL),
               action: "selected"
             });
+            setGuttering(undefined);
             setSelected(CalculatorSteps.YourSolutionContains);
           }}
         >

@@ -120,7 +120,7 @@ const Step = ({
       ) : (
         <>
           {backButton}
-          <div>
+          <div className={styles["skipAndNextButtons"]}>
             {link}
             {nextButton}
           </div>

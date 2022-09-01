@@ -209,6 +209,7 @@ export const microCopy = {
   ROOF_SELECTION_TITLE: "roofSelection.title",
   ROOF_SELECTION_SUBTITLE: "roofSelection.subtitle",
   ROOF_SELECTION_ROOF: "roofSelection.roof",
+  ROOF_SELECTION_NEXT_LABEL: "roofSelection.nextLabel",
 
   ROOF_DIMENSIONS_NEXT_LABEL: "roofDimensions.nextLabel",
   ROOF_DIMENSIONS_TITLE: "roofDimensions.title",
@@ -220,6 +221,7 @@ export const microCopy = {
   ROOF_DIMENSIONS_PROTRUSIONS_TITLE: "roofDimensions.protrusions.title",
   ROOF_DIMENSIONS_PROTRUSIONS_ADD: "roofDimensions.protrusions.add",
 
+  TILE_SELECTION_NEXT_LABEL: "tileSelection.nextLabel",
   TILE_SELECTION_TITLE: "tileSelection.title",
   TILE_SELECTION_SUBTITLE: "tileSelection.subtitle",
   TILE_SELECTION_BACK_LABEL: "tileSelection.backLabel",
@@ -241,6 +243,7 @@ export const microCopy = {
   TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL:
     "tileOptions.ventilationHood.noneLabel",
 
+  VARIANT_SELECTION_NEXT_LABEL: "variantSelection.nextLabel",
   VARIANT_SELECTION_TITLE: "variantSelection.title",
   VARIANT_SELECTION_SUBTITLE: "variantSelection.subtitle",
   VARIANT_SELECTION_BACK_LABEL: "variantSelection.backLabel",

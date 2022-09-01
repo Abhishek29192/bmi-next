@@ -1,5 +1,5 @@
 import { FormContext } from "@bmi/components";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import { createProduct } from "../../helpers/products";
@@ -22,10 +22,21 @@ const tiles: Tile[] = [
   }
 ];
 
-describe("PitchedRoofCalculator VariantSelection component", () => {
-  it("calls select function", () => {
-    const select = jest.fn();
+const pushEvent = jest.fn();
+jest.mock("../../helpers/analytics", () => {
+  const actual = jest.requireActual("../../helpers/analytics");
+  return {
+    ...actual,
+    useAnalyticsContext: () => pushEvent
+  };
+});
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+describe("PitchedRoofCalculator VariantSelection component", () => {
+  it("calls analytics event", () => {
     render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
@@ -36,18 +47,16 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
             values: {}
           }}
         >
-          <VariantSelection select={select} options={tiles} />
+          <VariantSelection options={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
     fireEvent.click(screen.getByText(tiles[0].color));
-    expect(select).toBeCalledWith(tiles[0]);
+    waitFor(() => expect(pushEvent).toBeCalledTimes(1));
   });
 
   it("renders with no variants", () => {
-    const select = jest.fn();
-
     const { container } = render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
@@ -58,7 +67,7 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
             values: {}
           }}
         >
-          <VariantSelection select={select} selected={undefined} options={[]} />
+          <VariantSelection selected={undefined} options={[]} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );

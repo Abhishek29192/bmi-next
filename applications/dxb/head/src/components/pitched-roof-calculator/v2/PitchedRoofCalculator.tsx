@@ -20,13 +20,13 @@ export type PitchedRoofCalculatorProps = {
 };
 
 const stepProgress: { [key in CalculatorSteps]: number } = {
-  [CalculatorSteps.SelectRoof]: 14.28,
-  [CalculatorSteps.EnterDimensions]: 14.28,
-  [CalculatorSteps.SelectTile]: 28.56,
-  [CalculatorSteps.SelectVariant]: 42.84,
-  [CalculatorSteps.TileOptions]: 57.12,
-  [CalculatorSteps.SelectUnderlay]: 71.4,
-  [CalculatorSteps.Guttering]: 85.68,
+  [CalculatorSteps.SelectRoof]: 12.5,
+  [CalculatorSteps.EnterDimensions]: 25,
+  [CalculatorSteps.SelectTile]: 37.5,
+  [CalculatorSteps.SelectVariant]: 50,
+  [CalculatorSteps.TileOptions]: 62.5,
+  [CalculatorSteps.SelectUnderlay]: 75,
+  [CalculatorSteps.Guttering]: 87.5,
   [CalculatorSteps.YourSolutionContains]: 100
 };
 
