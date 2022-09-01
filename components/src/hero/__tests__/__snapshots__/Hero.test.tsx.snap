@@ -61,7 +61,7 @@ exports[`Hero component Hero component with keyline renders level 0 with keyline
             </div>
           </div>
           <div
-            class="SlideControls SlideControls--light controls"
+            class="SlideControls SlideControls--light SlideControls--hide controls"
           >
             <span
               class="middle-container"
@@ -224,7 +224,7 @@ exports[`Hero component Hero component with keyline renders with no underline 1`
             </div>
           </div>
           <div
-            class="SlideControls SlideControls--light controls"
+            class="SlideControls SlideControls--light SlideControls--hide controls"
           >
             <span
               class="middle-container"

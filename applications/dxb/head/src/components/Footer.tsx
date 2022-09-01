@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import {
   getClickableActionFromUrl,
@@ -60,7 +61,12 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const main = parseNavigation(mainNavigation?.links, countryCode);
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
+  const main = isSpaEnabled
+    ? []
+    : parseNavigation(mainNavigation?.links, countryCode);
   const secondary = parseNavigation(secondaryNavigation?.links, countryCode);
   const secondaryWithSitemap = [
     ...secondary,

@@ -424,7 +424,7 @@ exports[`homepage render correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="SlideControls SlideControls--light controls"
+                    class="SlideControls SlideControls--light SlideControls--hide controls"
                   >
                     <span
                       class="middle-container"

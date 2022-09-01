@@ -31,7 +31,7 @@ import {
 import { renderHero } from "../../../utils/heroTypesUI";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
-} from "./LeadBlockSection";
+} from "../../../components/LeadBlockSection";
 
 export type Data = PageInfoData &
   PageData & {

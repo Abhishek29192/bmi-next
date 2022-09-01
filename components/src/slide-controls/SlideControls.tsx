@@ -102,7 +102,8 @@ const SlideControls = ({
         {
           [styles["SlideControls--full-size"]!]: isFullSize && !isVertical,
           [styles["SlideControls--vertical"]!]: isVertical,
-          [styles["SlideControls--light"]!]: isDarkThemed
+          [styles["SlideControls--light"]!]: isDarkThemed,
+          [styles["SlideControls--hide"]!]: total === 1
         },
         className
       )}
@@ -169,7 +170,6 @@ const SlideControls = ({
     </div>
   );
 };
-
 export default SlideControls;
 
 export const StateSlideControls = ({

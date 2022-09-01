@@ -1,6 +1,7 @@
 import { TableOfContent } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
+import { useConfig } from "../contexts/ConfigProvider";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "./CardCollectionSection";
@@ -38,6 +39,7 @@ import SystemConfiguratorSection, {
 } from "./SystemConfiguratorSection";
 import SampleBasketSection from "./SampleBasketSection";
 import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
+import LeadBlockSection, { Data as LeadBlockData } from "./LeadBlockSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -55,7 +57,8 @@ export type SectionData =
   | IframeSectionData
   | SystemConfiguratorSectionData
   | TeamSectionData
-  | SignupBlockData;
+  | SignupBlockData
+  | LeadBlockData;
 
 export type Data = SectionData[];
 
@@ -76,7 +79,8 @@ export const sectionsMap = {
   ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
   ContentfulTeamSection: TeamSection,
   ContentfulSampleBasketSection: SampleBasketSection,
-  ContentfulSignupBlock: SignupBlock
+  ContentfulSignupBlock: SignupBlock,
+  ContentfulLeadBlockSection: LeadBlockSection
 };
 
 type DisplayProps = {
@@ -110,6 +114,9 @@ const Sections = ({
   startIndex?: number;
   pageTypename?: string;
 }) => {
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {
@@ -124,7 +131,7 @@ const Sections = ({
           return {
             ...carry,
             [id]: {
-              isReversed: true,
+              isReversed: isSpaEnabled ? false : true,
               backgroundColor: backgroundColor || "White"
             }
           };
@@ -208,6 +215,7 @@ export const query = graphql`
     ...TeamSectionFragment
     ...SampleBasketSectionFragment
     ...SignupBlockFragment
+    ...LeadBlockSectionFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename

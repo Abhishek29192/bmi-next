@@ -9,14 +9,13 @@ import {
 import { BLOCKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
 import React from "react";
-import Link, { Data as LinkData } from "../../../components/Link";
-import RichText, {
-  parseReachDataRawFields,
-  RichTextData
-} from "../../../components/RichText";
-import { useSiteContext } from "../../../components/Site";
-import { microCopy } from "../../../constants/microCopies";
-import withGTM from "../../../utils/google-tag-manager";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
+import Link, { Data as LinkData } from "./Link";
+import RichText, { parseReachDataRawFields, RichTextData } from "./RichText";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";
@@ -34,6 +33,9 @@ const LeadBlockSection = ({
   data: Data;
 }) => {
   const { getMicroCopy } = useSiteContext();
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
 
   return (
     <Section backgroundColor="white">
@@ -49,7 +51,12 @@ const LeadBlockSection = ({
           </LeadBlock.Content.Section>
           {link && (
             <LeadBlock.Content.Section>
-              <Link component={Button} data={link}>
+              <Link
+                component={Button}
+                data={link}
+                endIcon={isSpaEnabled ? <ArrowForwardIcon /> : null}
+                variant="opaqueOutlined"
+              >
                 {link.label}
               </Link>
             </LeadBlock.Content.Section>
@@ -61,6 +68,7 @@ const LeadBlockSection = ({
               <RichText
                 document={postItCard}
                 underlineHeadings={["h2", "h3", "h4"]}
+                hyperlinkColor={isSpaEnabled ? "default" : "black"}
                 gtmLabel={
                   parseReachDataRawFields(postItCard)[BLOCKS.HEADING_4] ||
                   parseReachDataRawFields(postItCard)[BLOCKS.HEADING_5]

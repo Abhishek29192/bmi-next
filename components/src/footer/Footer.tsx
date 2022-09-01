@@ -80,26 +80,27 @@ const MainNavigation = ({
 }) => {
   return (
     <Grid container spacing={3} justifyContent="space-between">
-      {menu.map((menuItem, index) => {
-        return (
-          <Grid key={index} item>
-            <Typography variant="h4">{menuItem.label}</Typography>
-            {menuItem.menu && menuItem.menu.length && (
-              <nav>
-                <ul className={styles["list"]}>
-                  {menuItem.menu.map((subMenuItem, index) => (
-                    <NavigationItem
-                      key={index}
-                      component={buttonComponent}
-                      {...subMenuItem}
-                    />
-                  ))}
-                </ul>
-              </nav>
-            )}
-          </Grid>
-        );
-      })}
+      {menu &&
+        menu.map((menuItem, index) => {
+          return (
+            <Grid key={index} item>
+              <Typography variant="h4">{menuItem.label}</Typography>
+              {menuItem.menu && menuItem.menu.length && (
+                <nav>
+                  <ul className={styles["list"]}>
+                    {menuItem.menu.map((subMenuItem, index) => (
+                      <NavigationItem
+                        key={index}
+                        component={buttonComponent}
+                        {...subMenuItem}
+                      />
+                    ))}
+                  </ul>
+                </nav>
+              )}
+            </Grid>
+          );
+        })}
     </Grid>
   );
 };
@@ -149,13 +150,20 @@ const Footer = ({
   secondaryNavigation,
   logo
 }: Props) => {
+  console.log(!mainNavigation.length);
   return (
-    <div className={styles["Footer"]}>
+    <div
+      className={classnames(styles["Footer"], {
+        [styles["Footer-no-border"]!]: mainNavigation.length === 0
+      })}
+    >
       <Container>
-        <MainNavigation
-          menu={mainNavigation}
-          buttonComponent={buttonComponent}
-        />
+        {!!mainNavigation.length && (
+          <MainNavigation
+            menu={mainNavigation}
+            buttonComponent={buttonComponent}
+          />
+        )}
         <SecondaryNavigation
           menu={secondaryNavigation}
           logo={logo}

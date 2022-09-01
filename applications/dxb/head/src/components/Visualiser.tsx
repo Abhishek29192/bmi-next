@@ -41,7 +41,7 @@ export const VisualiserContext = createContext<Context>({
   open: () => {
     if (!process.env.GATSBY_VISUALISER_ASSETS_URL) {
       devLog(
-        "Visualiser: Make sure you define GATSBY_VISUALISER_ASSETS_URL in the .env file."
+        "Visualiser: Make sure you define GATSBY_VISUALISER_ASSETS_URL in the .env.development file."
       );
       return;
     }

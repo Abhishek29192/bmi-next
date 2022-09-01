@@ -4,6 +4,7 @@ import { Button } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { Villain, VillainProps, transformHyphens } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
@@ -27,7 +28,9 @@ const SyndicateSection = ({
   position: number;
 }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
   const villainsData = villains?.map((data) => {
     const callToAction = React.useMemo(() => {
       const cta = getCTA(
@@ -38,13 +41,18 @@ const SyndicateSection = ({
 
       if (data.__typename == "ContentfulPromo" && data.cta) {
         return (
-          <Link component={Button} variant="opaqueOutlined" data={data.cta}>
+          <Link
+            component={Button}
+            variant={isSpaEnabled ? "contained" : "opaqueOutlined"}
+            data={data.cta}
+          >
             {data.cta.label}
           </Link>
         );
       }
 
       if (cta && cta.action) {
+        console.log(2);
         return (
           <Button action={cta.action} variant="opaqueOutlined">
             {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
@@ -81,7 +89,13 @@ const SyndicateSection = ({
       );
     }
 
-    return <Villain {...villainProperties} isFullWidth={true} />;
+    return (
+      <Villain
+        {...villainProperties}
+        isFullWidth={true}
+        isReversed={isReversed}
+      />
+    );
   }
 
   return (
