@@ -219,7 +219,6 @@ export const microCopy = {
     "roofDimensions.protrusions.addAnother",
   ROOF_DIMENSIONS_PROTRUSIONS_REMOVE: "roofDimensions.protrusions.remove",
   ROOF_DIMENSIONS_PROTRUSIONS_TITLE: "roofDimensions.protrusions.title",
-  ROOF_DIMENSIONS_PROTRUSIONS_ADD: "roofDimensions.protrusions.add",
 
   TILE_SELECTION_NEXT_LABEL: "tileSelection.nextLabel",
   TILE_SELECTION_TITLE: "tileSelection.title",
@@ -271,7 +270,6 @@ export const microCopy = {
   PDP_UNAVAILABLE_TEXTUREFAMILY: "pdp.unavailable.texturefamily",
 
   CALCULATOR_NOBB_LABEL: "calculator.nobb.label",
-  ROOF_DIMENSIONS_PROTRUSIONS_PROMPT: "roofDimensions.protrusions.prompt",
 
   VALIDATION_ERRORS_POSITIVE_NUMBERS_ONLY:
     "validation.errors.positiveNumberOnly",

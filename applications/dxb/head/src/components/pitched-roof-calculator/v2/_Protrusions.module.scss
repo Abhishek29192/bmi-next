@@ -1,28 +1,52 @@
 @import "~@bmi-digital/styles";
 
 .Protrusions {
+  .title {
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 24px;
+  }
+
   .protrusion {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .protrusionsList {
+  .fieldsContainer {
     width: 100%;
+    margin-bottom: 32px;
   }
 
   .dimensions {
-    display: flex;
-    flex-flow: column nowrap;
+    width: 66%;
+    margin-bottom: 48px;
 
-    @media (min-width: $breakpoint-lg) {
-      flex-flow: row-reverse nowrap;
-      justify-content: center;
-      align-items: center;
+    @media (max-width: $breakpoint-sm) {
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      width: 100%;
     }
   }
 
-  .showOnLarge {
-    display: none;
+  .dimensionsIllustration {
+    margin: 50px 0 20px;
+    max-height: 160px;
+    width: auto;
+
+    @media (max-width: $breakpoint-sm) {
+      margin-top: 20px;
+    }
+  }
+
+  .addAnotherButton {
+    margin-left: 24px;
+
+    &:disabled {
+      border: 1px solid rgba($color-cyan-500, 0.38);
+      color: rgba($color-cyan-500, 0.38);
+    }
   }
 }
