@@ -44,10 +44,10 @@ git config user.name "Gitlab Runner"
 git checkout pre-production
 git checkout production
 
-if [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD" ];
+if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]];
 then
   merge_preprod
-elif [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD" ];
+elif [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]];
 then
   merge_prod
 else
