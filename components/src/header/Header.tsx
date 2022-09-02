@@ -75,8 +75,8 @@ type HeaderProps = {
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
   SampleBasketDialog?: React.ElementType;
-  isGatsbyDisabledElasticSearch?: boolean;
   isSpaEnabled?: boolean;
+  isGatsbyDisabledElasticSearch?: boolean;
 };
 
 const Header = ({
@@ -506,10 +506,14 @@ const Header = ({
             menu={!isSpaEnabled ? navigation : []}
             initialDepth={typeof value === "number" ? 1 : 0}
             initialValue={value}
-            buttonComponent={!isSpaEnabled ? navigationButtonComponent : null}
-            promoButtonComponent={!isSpaEnabled ? promoButtonComponent : null}
+            buttonComponent={
+              !isSpaEnabled ? navigationButtonComponent : undefined
+            }
+            promoButtonComponent={
+              !isSpaEnabled ? promoButtonComponent : undefined
+            }
             toggleLanguageSelection={toggleLanguageSelection}
-            utilities={!isSpaEnabled ? utilities : null}
+            utilities={!isSpaEnabled ? utilities : []}
             setRootValue={setValue}
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
