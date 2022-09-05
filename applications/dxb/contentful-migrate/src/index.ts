@@ -8,6 +8,7 @@ import { cleanupOldEnvironments } from "./cleanup";
 
 const {
   CONTENTFUL_ENVIRONMENT,
+  CONTENTFUL_ALIAS,
   DELETE_OLD_ENVIRONMENTS,
   MANAGEMENT_ACCESS_TOKEN,
   MIGRATION_DRY_RUN,
@@ -47,7 +48,8 @@ const buildContentful = async (
   managementAccessToken: string,
   deleteOldEnvironments: boolean,
   isDryRun: boolean,
-  newEnvironmentName?: string
+  newEnvironmentName?: string,
+  contentfulAlias?: string
 ) => {
   if (!newEnvironmentName) {
     await runMigrationScripts(
@@ -83,14 +85,18 @@ const buildContentful = async (
 
   let alias;
   try {
-    alias = await space.getEnvironmentAlias(contentfulEnvironment);
+    alias = await space.getEnvironmentAlias(
+      contentfulAlias || contentfulEnvironment
+    );
   } catch (error) {
     if (
       types.isNativeError(error) &&
       JSON.parse(error.message).status === 404
     ) {
       throw new Error(
-        `You must have the alias ${contentfulEnvironment} created in Contentful`
+        `You must have the alias ${
+          contentfulAlias || contentfulEnvironment
+        } created in Contentful`
       );
     }
     throw error;
@@ -172,7 +178,8 @@ export const main = async () => {
     MANAGEMENT_ACCESS_TOKEN,
     DELETE_OLD_ENVIRONMENTS === "true",
     MIGRATION_DRY_RUN === "true",
-    NEW_ENVIRONMENT_NAME
+    NEW_ENVIRONMENT_NAME,
+    CONTENTFUL_ALIAS
   );
 };
 

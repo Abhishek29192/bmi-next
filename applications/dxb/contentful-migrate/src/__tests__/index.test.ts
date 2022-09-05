@@ -25,6 +25,7 @@ beforeEach(() => {
   jest.resetModules();
   process.env.SPACE_ID = "spaceId";
   process.env.CONTENTFUL_ENVIRONMENT = "contentfulEnvironment";
+  process.env.CONTENTFUL_ALIAS = "contentfulAlias";
   process.env.MANAGEMENT_ACCESS_TOKEN = "managementAccessToken";
   process.env.DELETE_OLD_ENVIRONMENTS = "false";
   process.env.MIGRATION_DRY_RUN = "false";
@@ -158,6 +159,43 @@ describe("main", () => {
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
+        `You must have the alias ${process.env.CONTENTFUL_ALIAS} created in Contentful`
+      );
+    }
+
+    expect(mockCreateClient).toHaveBeenCalledWith({
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN
+    });
+    expect(mockClient.getSpace).toHaveBeenCalledWith(process.env.SPACE_ID);
+    expect(mockSpace.getEnvironment).toHaveBeenCalledWith(
+      process.env.NEW_ENVIRONMENT_NAME
+    );
+    expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ALIAS
+    );
+    expect(mockRunMigrationScripts).not.toHaveBeenCalled();
+    expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
+  });
+
+  it("should not create new environment, run migration scripts or point alias to it if the alias cannot be found using the environment name when alias is not provided", async () => {
+    delete process.env.CONTENTFUL_ALIAS;
+
+    const mockSpace = {
+      getEnvironment: jest
+        .fn()
+        .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 }))),
+      getEnvironmentAlias: jest
+        .fn()
+        .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
+    };
+    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
+    mockCreateClient.mockReturnValueOnce(mockClient);
+
+    try {
+      await main();
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual(
         `You must have the alias ${process.env.CONTENTFUL_ENVIRONMENT} created in Contentful`
       );
     }
@@ -168,6 +206,9 @@ describe("main", () => {
     expect(mockClient.getSpace).toHaveBeenCalledWith(process.env.SPACE_ID);
     expect(mockSpace.getEnvironment).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME
+    );
+    expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ENVIRONMENT
     );
     expect(mockRunMigrationScripts).not.toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
@@ -230,13 +271,70 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockRunMigrationScripts).not.toHaveBeenCalled();
     expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
   });
 
   it("should create new environment, run migration scripts and point alias to it if new environment name is provided", async () => {
+    const mockAlias = {
+      environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
+      update: jest.fn()
+    };
+    const mockSpace = {
+      getEnvironment: jest
+        .fn()
+        .mockRejectedValueOnce(new Error(JSON.stringify({ status: 404 })))
+        .mockResolvedValueOnce({
+          sys: {
+            status: {
+              sys: {
+                id: "ready"
+              }
+            }
+          }
+        }),
+      getEnvironmentAlias: jest.fn().mockResolvedValueOnce(mockAlias),
+      createEnvironmentWithId: jest.fn().mockResolvedValueOnce({
+        sys: {
+          id: mockAlias.environment.sys.id
+        }
+      })
+    };
+    const mockClient = { getSpace: jest.fn().mockResolvedValueOnce(mockSpace) };
+    mockCreateClient.mockReturnValueOnce(mockClient);
+
+    await main();
+
+    expect(mockCreateClient).toHaveBeenCalledWith({
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN
+    });
+    expect(mockClient.getSpace).toHaveBeenCalledWith(process.env.SPACE_ID);
+    expect(mockSpace.getEnvironment).toHaveBeenCalledWith(
+      process.env.NEW_ENVIRONMENT_NAME
+    );
+    expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_ALIAS
+    );
+    expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
+      process.env.NEW_ENVIRONMENT_NAME,
+      { name: process.env.NEW_ENVIRONMENT_NAME },
+      process.env.CONTENTFUL_ENVIRONMENT
+    );
+    expect(mockRunMigrationScripts).toHaveBeenCalledWith(
+      process.env.SPACE_ID,
+      process.env.NEW_ENVIRONMENT_NAME,
+      process.env.MANAGEMENT_ACCESS_TOKEN,
+      false
+    );
+    expect(mockAlias.update).toHaveBeenCalled();
+    expect(mockCleanupOldEnvironments).not.toHaveBeenCalled();
+  });
+
+  it("should create new environment, run migration scripts and point alias (as the environment name) to it if new environment name is provided and alias is not provided", async () => {
+    delete process.env.CONTENTFUL_ALIAS;
+
     const mockAlias = {
       environment: { sys: { id: process.env.NEW_ENVIRONMENT_NAME } },
       update: jest.fn()
@@ -331,7 +429,7 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
@@ -395,7 +493,7 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
@@ -463,7 +561,7 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
@@ -530,7 +628,7 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
@@ -594,7 +692,7 @@ describe("main", () => {
       process.env.NEW_ENVIRONMENT_NAME
     );
     expect(mockSpace.getEnvironmentAlias).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ALIAS
     );
     expect(mockSpace.createEnvironmentWithId).toHaveBeenCalledWith(
       process.env.NEW_ENVIRONMENT_NAME,
