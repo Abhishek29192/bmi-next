@@ -28,6 +28,9 @@ beforeEach(() => {
   }));
 });
 
+const productsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
+const systemsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
+
 describe("createElasticSearchIndex", () => {
   it("should error if getEsClient throws error", async () => {
     getEsClient.mockRejectedValue(Error("Expected error"));
@@ -69,7 +72,7 @@ describe("createElasticSearchIndex", () => {
     );
 
     try {
-      await createElasticSearchIndex(ElasticsearchIndexes.Products);
+      await createElasticSearchIndex(productsIndex);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -78,27 +81,21 @@ describe("createElasticSearchIndex", () => {
     }
 
     expect(getEsClient).toHaveBeenCalled();
-    expect(esCreate).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
-    });
+    expect(esCreate).toHaveBeenCalledWith({ index: productsIndex });
   });
 
   it("should return if creating products index", async () => {
-    await createElasticSearchIndex(ElasticsearchIndexes.Products);
+    await createElasticSearchIndex(productsIndex);
 
     expect(getEsClient).toHaveBeenCalled();
-    expect(esCreate).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`
-    });
+    expect(esCreate).toHaveBeenCalledWith({ index: productsIndex });
   });
 
   it("should return if creating systems index", async () => {
-    await createElasticSearchIndex(ElasticsearchIndexes.Systems);
+    await createElasticSearchIndex(systemsIndex);
 
     expect(getEsClient).toHaveBeenCalled();
-    expect(esCreate).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`
-    });
+    expect(esCreate).toHaveBeenCalledWith({ index: systemsIndex });
   });
 });
 
@@ -107,7 +104,7 @@ describe("deleteElasticSearchIndex", () => {
     getEsClient.mockRejectedValue(Error("Expected error"));
 
     try {
-      await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
+      await deleteElasticSearchIndex(productsIndex);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -149,7 +146,7 @@ describe("deleteElasticSearchIndex", () => {
     );
 
     try {
-      await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
+      await deleteElasticSearchIndex(productsIndex);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -159,27 +156,27 @@ describe("deleteElasticSearchIndex", () => {
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`,
+      index: productsIndex,
       ignore_unavailable: true
     });
   });
 
   it("should return if deleting products index", async () => {
-    await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
+    await deleteElasticSearchIndex(productsIndex);
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`,
+      index: productsIndex,
       ignore_unavailable: true
     });
   });
 
   it("should return if deleting systems index", async () => {
-    await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
+    await deleteElasticSearchIndex(systemsIndex);
 
     expect(getEsClient).toHaveBeenCalled();
     expect(esDelete).toHaveBeenCalledWith({
-      index: `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`,
+      index: systemsIndex,
       ignore_unavailable: true
     });
   });
