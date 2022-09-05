@@ -590,7 +590,7 @@ const config = {
     ...(process.env.HUBSPOT_API_KEY
       ? [
           {
-            resolve: "gatsby-source-hubspot-forms",
+            resolve: "@bmi/gatsby-source-hubspot-forms",
             options: {
               apiKey: process.env.HUBSPOT_API_KEY
             }
