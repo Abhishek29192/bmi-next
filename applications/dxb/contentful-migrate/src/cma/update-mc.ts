@@ -1,11 +1,11 @@
-/* 
+/*
   This script compares Micro Copies @bmi/head <---> Contentful. In case
   new Micro Copies are found - creates new for every locale that is used
-  in a specific environment. By default, creates draft Micro Copies with 
+  in a specific environment. By default, creates draft Micro Copies with
   an empty value
-  
-  Can use option --publish. Provide this option to publish all just created 
-  Micro Copies. In this case, the value of each will be the same as the value 
+
+  Can use option --publish. Provide this option to publish all just created
+  Micro Copies. In this case, the value of each will be the same as the value
 */
 import { microCopy } from "../../../head/src/constants/microCopies";
 import { getEnvironment, waitFor } from "../utils";
@@ -177,4 +177,7 @@ const main = async () => {
   console.log("Done");
 };
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
