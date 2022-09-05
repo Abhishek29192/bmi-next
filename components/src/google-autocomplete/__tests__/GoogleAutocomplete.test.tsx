@@ -196,8 +196,8 @@ describe("GoogleAutocomplete component", () => {
       expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
     });
     it("renders correctly if options are strings", async () => {
-      const google = getGoogleMock(["Diakonveien"] as never);
-      const search = "Diakonveien";
+      const option = "Diakonveien";
+      const google = getGoogleMock([option] as never);
 
       render(
         <GoogleApi.Provider value={google as unknown as Google}>
@@ -206,13 +206,17 @@ describe("GoogleAutocomplete component", () => {
       );
 
       fireEvent.change(screen.getByRole("textbox"), {
-        target: { value: search }
+        target: { value: "Di" }
       });
       act(() => {
         jest.advanceTimersByTime(500);
       });
 
-      expect(screen.queryByRole("listbox")).toMatchSnapshot();
+      const options = screen.getAllByRole("option");
+
+      fireEvent.click(options[0]);
+
+      expect(screen.getByRole("textbox").value).toBe(option);
     });
   });
 });
