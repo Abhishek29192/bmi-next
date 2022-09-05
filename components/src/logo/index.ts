@@ -2,7 +2,11 @@ import Logo from "./Logo";
 import AeroDek from "./svgs/AeroDek.svg";
 import Awak from "./svgs/Awak.svg";
 import BMI from "./svgs/BMI.svg";
-import BMIAcademy from "./svgs/BMIAcademy.svg";
+import {
+  default as BMIAcademy,
+  default as BMI_Academy_EN
+} from "./svgs/BMIAcademy.svg";
+import BMI_Academy_DE from "./svgs/BMI_Academy_DE.svg";
 import Braas from "./svgs/Braas.svg";
 import Bramac from "./svgs/Bramac.svg";
 import Cobert from "./svgs/Cobert.svg";
@@ -15,6 +19,7 @@ import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
 import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
 import Icopal from "./svgs/Icopal.svg";
 import IcopalKatto from "./svgs/IcopalKatto.svg";
+import Klober from "./svgs/Klober.svg";
 import Monarflex from "./svgs/Monarflex.svg";
 import Monarplan from "./svgs/Monarplan.svg";
 import Monier from "./svgs/Monier.svg";
@@ -38,9 +43,6 @@ import Villas from "./svgs/Villas.svg";
 import Wierer from "./svgs/Wierer.svg";
 import Wolfin from "./svgs/Wolfin.svg";
 import Zanda from "./svgs/Zanda.svg";
-
-import BMI_Academy_EN from "./svgs/BMIAcademy.svg";
-import BMI_Academy_DE from "./svgs/BMI_Academy_DE.svg";
 
 export {
   AeroDek,
@@ -83,7 +85,8 @@ export {
   Villas,
   Wierer,
   Wolfin,
-  Zanda
+  Zanda,
+  Klober
 };
 
 export const iconMap = {
@@ -105,6 +108,7 @@ export const iconMap = {
   GuaranteeSystem,
   Icopal,
   IcopalKatto,
+  Klober,
   Monarflex,
   Monarplan,
   Monier,
