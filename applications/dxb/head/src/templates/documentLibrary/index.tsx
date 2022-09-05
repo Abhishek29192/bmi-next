@@ -22,7 +22,7 @@ import { Data as SiteData } from "../../components/Site";
 import filterStyles from "../../components/styles/Filters.module.scss";
 import { microCopy } from "../../constants/microCopies";
 import { useConfig } from "../../contexts/ConfigProvider";
-import { DocumentsWithFilters } from "../../types/documentsWithFilters";
+import { DocumentsFilters } from "../../schema/resolvers/types/DocumentsFilters";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
 import { filterDocuments, ResultType, Source } from "../../utils/filters";
@@ -43,7 +43,7 @@ export type Data = PageInfoData &
     breadcrumbs: BreadcrumbsData;
     categoryCodes: string[];
     breadcrumbTitle: string;
-    documentsWithFilters: DocumentsWithFilters;
+    documentsFilters: DocumentsFilters | null;
   };
 
 type Props = {
@@ -98,9 +98,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     breadcrumbs,
     breadcrumbTitle,
     seo,
-    documentsWithFilters
+    documentsFilters
   } = data.contentfulDocumentLibraryPage;
-  const initialDocuments = documentsWithFilters.documents;
+  const initialDocuments = []; //TODO: get documents from Elastic Search
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
@@ -129,7 +129,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const [filters, setFilters] = useState(documentsWithFilters.filters);
+  const [filters, setFilters] = useState(documentsFilters.filters);
 
   const maxSize = documentDownloadMaxLimit * 1048576;
 
@@ -292,10 +292,7 @@ export const pageQuery = graphql`
       categoryCodes
       allowFilterBy
       resultsType
-      documentsWithFilters {
-        documents {
-          ...DocumentResultsFragment
-        }
+      documentsFilters {
         filters {
           filterCode
           label

@@ -603,7 +603,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulTag] @link(from: "tags___NODE")
-  documentsWithFilters: DocumentsWithFiltersResponse!
+  documentsFilters: DocumentsFiltersResponse!
   pimCodes: [String]
   allowFilterBy: [String!]
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -829,10 +829,10 @@ type Feature {
   value: String!
 }
 
-type DocumentsWithFiltersResponse {
+type DocumentsFiltersResponse {
   filters: [PLPFilter]!
-  documents: [Document]!
-}
+} 
+
 
 type PIMDocument {
   title: String!

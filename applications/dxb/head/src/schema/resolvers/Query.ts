@@ -1,40 +1,14 @@
 import { Product } from "@bmi/firestore-types";
 import { PLPFilterResponse } from "../../types/pim";
 import {
-  ContentfulAssetType,
   ContentfulPromoCard,
   ContentfulSite,
   FourOFourResponse
 } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
-import { ProductDocument } from "./types/pim";
-import { resolveDocumentsFromProducts } from "./utils/documents";
 import { getPlpFilters } from "./utils/filters";
 
 export default {
-  allPIMDocument: {
-    type: ["PIMDocument"],
-    async resolve(
-      source: Node,
-      args: ResolveArgs,
-      context: Context
-    ): Promise<ProductDocument[]> {
-      const { entries } = await context.nodeModel.findAll<ContentfulAssetType>(
-        { query: {}, type: "ContentfulAssetType" },
-        { connectionType: "ContentfulAssetType" }
-      );
-      const allAssetTypes = [...entries];
-      const result = await resolveDocumentsFromProducts(
-        allAssetTypes,
-        {
-          source: {},
-          context
-        },
-        null
-      );
-      return result.documents;
-    }
-  },
   plpFilters: {
     type: "PLPFilterResponse",
     args: {

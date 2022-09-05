@@ -4,11 +4,11 @@
  * main types, but with any "link" fields and without any resolver created
  * fields.
  */
-import { Node } from "gatsby";
 import { Region } from "../../../components/Header";
 import { Data as ContentfulImage } from "../../../components/Image";
 import { RichTextData } from "../../../components/RichText";
 import { Data as ContentfulVideo } from "../../../components/Video";
+import { Node } from "./Gatsby";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;

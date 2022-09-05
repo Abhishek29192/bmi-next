@@ -20,66 +20,6 @@ if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
   useCountryCode = false;
 }
 
-const allContentfulDocumentFilter = process.env.MARKET_TAG_NAME
-  ? `{
-        metadata: {
-          tags: {
-            elemMatch: {
-              contentful_id: {
-                eq: "${process.env.MARKET_TAG_NAME}"
-              }
-            }
-          }
-        }
-      }`
-  : `{}`;
-
-const documentsQuery = `{
-  allPIMDocument {
-    __typename
-    id
-    title
-    url
-    fileSize
-    format
-    extension
-    realFileName
-    assetType {
-      name
-      code
-      pimCode
-    }
-  }
-  allContentfulDocument (
-    filter: ${allContentfulDocumentFilter}
-  ) {
-    edges {
-      node {
-        __typename
-        id
-        title
-        asset {
-          file {
-            fileName
-            url
-            details {
-              size
-            }
-            contentType
-          }
-        }
-        noIndex
-        assetType {
-          name
-          code
-          pimCode
-        }
-      }
-    }
-  }
-}
-`;
-
 const pagePathsQuery = `{
   allSitePage {
     totalCount
@@ -165,41 +105,6 @@ const queries = [
         }
       }
     }
-  },
-  process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
-    query: documentsQuery,
-    transformer: ({ data }) => {
-      function isLinkDocument(document) {
-        return !!document.url && !document.fileSize && !document.realFileName;
-      }
-
-      if (!data) {
-        throw new Error("No data");
-      }
-
-      const { allPIMDocument, allContentfulDocument } = data;
-
-      return [
-        ...allPIMDocument.map((item) => ({
-          titleAndSize: `${item.title}_${item.fileSize}`,
-          isLinkDocument: isLinkDocument(item),
-          noIndex: false,
-          ...item
-        })),
-        ...allContentfulDocument.edges
-          .filter(({ node }) => node.asset)
-          .map(({ node }) => {
-            return {
-              titleAndSize: `${node.title}_${node.asset.file.details.size}`,
-              realFileName: `${node.asset.file.fileName}`,
-              isLinkDocument: isLinkDocument(node),
-              noIndex: node.noIndex || false,
-              ...node
-            };
-          })
-      ];
-    },
-    indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
   }
 ].filter(Boolean);
 
