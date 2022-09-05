@@ -52,7 +52,7 @@ export type UpdateSystemMessage = {
 export type UpdateCategoryMessage = {
   type: "UPDATED";
   itemType: "CATEGORIES";
-  item: unknown;
+  item: any;
 };
 
 export type DeleteProductMessage = {

@@ -8,7 +8,7 @@ export type MessageFunction = (
       data: Message;
     };
   }
-) => Promise<any>;
+) => Promise<void>;
 
 export type DeleteOperation = {
   delete: {
@@ -23,3 +23,7 @@ export type IndexOperation = {
     _id: string;
   };
 };
+
+export type ProductDocumentNameMap =
+  | "Product name + asset type"
+  | "Document name";

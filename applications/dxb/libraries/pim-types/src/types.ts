@@ -78,6 +78,48 @@ export type Mime =
   | "image/svg+xml"
   | "image/webp";
 
+export type PIMDocumentProduct = Pick<
+  Product,
+  "code" | "name" | "categories" | "classifications"
+>;
+
+export type RichTextData = {
+  raw: string;
+  references: { __typename: string; contentful_id: string }[];
+};
+
+export type AssetTypeData = {
+  __typename: "ContentfulAssetType";
+  id: string;
+  name: string;
+  code: string;
+  description: RichTextData | null;
+  pimCode: string | null;
+};
+
+export type PIMDocumentBase = {
+  id: string;
+  title: string;
+  product: PIMDocumentProduct;
+  relatedProducts?: PIMDocumentProduct[];
+  url: string;
+  assetType: AssetTypeData;
+  isLinkDocument?: boolean;
+  docName?: string;
+};
+
+export type PIMLinkDocumentData = PIMDocumentBase & {
+  __typename: "PIMLinkDocument";
+};
+
+export type PIMDocumentData = PIMDocumentBase & {
+  __typename: "PIMDocument";
+  fileSize: number;
+  format: Mime | string;
+  extension: string;
+  realFileName: string;
+};
+
 export type Asset = {
   allowedToDownload: boolean;
   assetType?: AssetAssetType;

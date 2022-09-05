@@ -1,7 +1,6 @@
 process.env.SECRET_MAN_GCP_PROJECT_NAME = "TEST_SECRET_MAN_GCP_PROJECT_NAME";
 process.env.CONTENTFUL_MANAGEMENT_TOKEN = "management-token-secret";
 process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";
-process.env.CONTENTFUL_ENVIRONMENT = "TEST_CONTENTFUL_ENVIRONMENT";
 process.env.CONTENTFUL_DELIVERY_TOKEN = "contentful-delivery-token";
 
 process.env.APSIS_API_BASE_URL = "https://api.apsis.one";
@@ -64,6 +63,9 @@ process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
 process.env.ES_INDEX_PREFIX = "es-index-prefix";
 process.env.ES_INDEX_NAME_DOCUMENTS = "es-index-name-documents";
 process.env.PIM_OAUTH_CLIENT_SECRET = "pim-client-secret";
+process.env.ES_INDEX_NAME_DOCUMENTS = "es-index-name-documents";
+process.env.MANAGEMENT_ACCESS_TOKEN_SECRET = "token";
+process.env.PIM_CLIENT_SECRET = "pim-client-secret";
 process.env.FULL_FETCH_ENDPOINT = "http://localhost:9090";
 process.env.PIM_CLIENT_ID = "TEST_PIM_CLIENT_ID";
 
@@ -81,6 +83,7 @@ process.env.TAGGER_REQUEST = "some secret";
 process.env.MANAGEMENT_ACCESS_TOKEN = "token";
 process.env.SPACE_ID = "space_id";
 process.env.CONTENTFUL_ENVIRONMENT = "environment_1";
+process.env.MARKET_LOCALE = "en-GB";
 
 process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
