@@ -1,0 +1,19 @@
+{
+  "sys": {
+    "type": "DeletedEntry",
+    "id": "glEWMKm8tx9BjU0CZrBI4",
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "xd0cdgm332jz" }
+    },
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "document" }
+    },
+    "revision": 5,
+    "createdAt": "2022-05-19T18:55:08.037Z",
+    "updatedAt": "2022-05-19T18:55:08.037Z",
+    "deletedAt": "2022-05-19T18:55:08.037Z"
+  }
+}
