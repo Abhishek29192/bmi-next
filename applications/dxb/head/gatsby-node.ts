@@ -182,7 +182,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         if (!component) {
           // eslint-disable-next-line no-console
           console.warn(
-            "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
+            `CreatePage: Could not map the page to any component. Make sure you handle the __typename ${page.__typename} with a template.`
           );
           return;
         }
