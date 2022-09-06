@@ -43,9 +43,12 @@ const getContentfulKeys = async (
     limit: KEYS_REQUEST_PAGE_SIZE
   });
 
-  const keys = resources.items.map(
-    (resource) => Object.values(resource.fields.key)[0]
-  );
+  const keys = resources.items
+    .map((resource) => {
+      if (!resource.fields.key) return;
+      return Object.values(resource.fields.key)[0];
+    })
+    .filter(Boolean);
 
   const result = [...fetched, ...keys];
 
