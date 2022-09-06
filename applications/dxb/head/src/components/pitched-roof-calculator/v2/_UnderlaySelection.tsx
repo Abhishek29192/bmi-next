@@ -92,7 +92,7 @@ const UnderlaySelection = ({ options, selected }: UnderlaySelectionProps) => {
       {sortedOptions.length ? (
         <UnderlaySelectionRow options={sortedOptions} {...{ selected }} />
       ) : (
-        <Typography variant="h4">
+        <Typography variant="h4" align="center">
           {getMicroCopy(microCopy.UNDERLAY_SELECTION_EMPTY)}
         </Typography>
       )}

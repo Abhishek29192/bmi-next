@@ -108,7 +108,7 @@ const TileSelection = ({ selected, tiles }: TileSelecionProps) => {
           />
         ))
       ) : (
-        <Typography variant="h4">
+        <Typography variant="h4" align="center">
           {getMicroCopy(microCopy.TILE_SELECTION_EMPTY)}
         </Typography>
       )}

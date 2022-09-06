@@ -68,7 +68,7 @@ const Step = ({
   children
 }: StepProps) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const backButton = backLabel ? (
     <Button
