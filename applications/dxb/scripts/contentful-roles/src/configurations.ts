@@ -172,24 +172,6 @@ export const getRolesPermissionsToCreate = (
           effect: "deny",
           constraint: {
             and: [
-              {
-                equals: [
-                  {
-                    doc: "sys.type"
-                  },
-                  "Entry"
-                ]
-              },
-              { equals: [{ doc: "sys.contentType.sys.id" }, "resource"] },
-              { paths: [{ doc: "fields.key.%" }] }
-            ]
-          },
-          actions: ["update"]
-        },
-        {
-          effect: "deny",
-          constraint: {
-            and: [
               { equals: [{ doc: "sys.type" }, "Entry"] },
               {
                 equals: [
@@ -511,24 +493,6 @@ export const getRolesPermissionsToCreate = (
             ]
           },
           actions: ["read"]
-        },
-        {
-          effect: "deny",
-          constraint: {
-            and: [
-              {
-                equals: [
-                  {
-                    doc: "sys.type"
-                  },
-                  "Entry"
-                ]
-              },
-              { equals: [{ doc: "sys.contentType.sys.id" }, "resource"] },
-              { paths: [{ doc: "fields.key.%" }] }
-            ]
-          },
-          actions: ["update"]
         },
         {
           effect: "deny",
