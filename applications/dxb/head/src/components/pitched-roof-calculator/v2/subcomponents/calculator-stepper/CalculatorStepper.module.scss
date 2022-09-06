@@ -72,7 +72,7 @@
       margin-left: auto;
     }
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: $breakpoint-md - 1px) {
       flex-direction: column;
       padding: 16px 24px;
 
