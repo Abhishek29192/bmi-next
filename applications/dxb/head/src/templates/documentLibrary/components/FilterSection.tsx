@@ -17,7 +17,7 @@ import withGTM from "../../../utils/google-tag-manager";
 
 export type Props = {
   filters: Filter[];
-  handleFiltersChange: (resetList: () => void) => FilterProps["onChange"];
+  handleFiltersChange: FilterProps["onChange"];
   clearFilters: () => void;
 };
 
@@ -47,7 +47,7 @@ const DocumentLibraryFilter = ({
         {({ resetList }) => (
           <Filters
             filters={filters}
-            onChange={handleFiltersChange(resetList)}
+            onChange={handleFiltersChange}
             checkboxComponent={(props: CheckboxProps) => (
               <GTMCheckbox
                 gtm={{

@@ -29,10 +29,10 @@ const ResultSection = ({
     <>
       {results.length ? (
         <>
-          <DocumentResults data={results} format={format} page={page} />
+          <DocumentResults data={results} format={format} page={1} />
           <div className={filterStyles["results"]}>
             <DocumentResultsFooter
-              page={page}
+              page={page + 1}
               count={pageCount}
               isDownloadButton={
                 format === "cards" || (!matches && format === "technicalTable")
