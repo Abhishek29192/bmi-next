@@ -4,10 +4,12 @@ import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { Response } from "node-fetch";
+import { processContentfulDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
   deleteElasticSearchIndex,
-  ElasticsearchIndexes
+  ElasticsearchIndexes,
+  performBulkIndexing
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
@@ -17,7 +19,9 @@ const {
   FULL_FETCH_ENDPOINT,
   ES_INDEX_PREFIX,
   ES_INDEX_NAME_DOCUMENTS,
-  LOCALE
+  LOCALE,
+  MANAGEMENT_ACCESS_TOKEN,
+  SPACE_ID
 } = process.env;
 
 const triggerFullFetch = async (
@@ -95,6 +99,16 @@ const handleRequest: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
+  if (!MANAGEMENT_ACCESS_TOKEN) {
+    logger.error({ message: "Management access token is not set." });
+    return res.sendStatus(500);
+  }
+
+  if (!SPACE_ID) {
+    logger.error({ message: "Space id is not set." });
+    return res.sendStatus(500);
+  }
+
   logger.info({ message: "Clearing out data..." });
 
   const productsIndex = `${ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
@@ -107,12 +121,17 @@ const handleRequest: HttpFunction = async (req, res) => {
   await createElasticSearchIndex(productsIndex);
   await createElasticSearchIndex(systemsIndex);
   await createElasticSearchIndex(documentsIndex);
-
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
 
   await triggerFullFetchBatch(PimTypes.Products);
   await triggerFullFetchBatch(PimTypes.Systems);
+
+  const esDocuments = await processContentfulDocuments();
+
+  if (esDocuments?.length) {
+    await performBulkIndexing(esDocuments);
+  }
 
   fetch(BUILD_TRIGGER_ENDPOINT, {
     method: "POST",

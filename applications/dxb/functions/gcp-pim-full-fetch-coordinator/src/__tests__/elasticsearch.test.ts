@@ -1,17 +1,29 @@
 import { ResponseError } from "@elastic/elasticsearch/lib/errors";
 import mockConsole from "jest-mock-console";
+import { ESContentfulDocument } from "../contentful";
 import {
   createElasticSearchIndex,
   deleteElasticSearchIndex,
-  ElasticsearchIndexes
+  ElasticsearchIndexes,
+  performBulkIndexing
 } from "../elasticsearch";
+import { getEsDocumentMock } from "../__mocks__/contentful.mock";
 
 const getEsClient = jest.fn();
 const esCreate = jest.fn();
 const esDelete = jest.fn();
+const esBulkMethodMock = jest.fn();
 jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: any[]) => getEsClient(...args) };
 });
+const loggerError = jest.fn();
+const loggerInfo = jest.fn();
+const loggerDebug = jest.fn();
+jest.mock("@bmi-digital/functions-logger", () => ({
+  error: (message: any) => loggerError(message),
+  info: (message: any) => loggerInfo(message),
+  debug: (message: any) => loggerDebug(message)
+}));
 
 beforeAll(() => {
   mockConsole();
@@ -24,12 +36,14 @@ beforeEach(() => {
     indices: {
       create: (...args: any) => esCreate(...args),
       delete: (...args: any) => esDelete(...args)
-    }
+    },
+    bulk: (...args: any) => esBulkMethodMock(...args)
   }));
 });
 
 const productsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
 const systemsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
+const documentIndex = process.env.ES_INDEX_NAME_DOCUMENTS;
 
 describe("createElasticSearchIndex", () => {
   it("should error if getEsClient throws error", async () => {
@@ -178,6 +192,72 @@ describe("deleteElasticSearchIndex", () => {
     expect(esDelete).toHaveBeenCalledWith({
       index: systemsIndex,
       ignore_unavailable: true
+    });
+  });
+});
+
+describe("performBulkIndexing", () => {
+  it("should perform bulk operation and log a count of items", async () => {
+    esBulkMethodMock.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    const items = Array.from(Array(2)).map((_, index) =>
+      getEsDocumentMock(String(index))
+    );
+    await performBulkIndexing(items as ESContentfulDocument[]);
+    expect(esBulkMethodMock).toBeCalledWith({
+      index: documentIndex,
+      refresh: true,
+      body: [
+        {
+          index: {
+            _index: documentIndex,
+            _id: items[0].id
+          }
+        },
+        items[0],
+        {
+          index: {
+            _index: documentIndex,
+            _id: items[1].id
+          }
+        },
+        items[1]
+      ]
+    });
+  });
+  it("should log error if bulk response with error", async () => {
+    const responseMock = {
+      _id: "test id",
+      status: 400,
+      error: {
+        type: "document_missing_exception",
+        reason: "[_doc][6]: document missing",
+        index_uuid: "aAsFqTI0Tc2W0LCWgPNrOA",
+        shard: "0",
+        index: "index1"
+      }
+    };
+    esBulkMethodMock.mockResolvedValue({
+      body: {
+        errors: true,
+        items: [
+          {
+            index: { ...responseMock }
+          }
+        ]
+      }
+    });
+    const items = [getEsDocumentMock("1")];
+    await performBulkIndexing(items as ESContentfulDocument[]);
+    expect(loggerError).toBeCalledWith({
+      message: `Failed to index ${responseMock._id} with error ${JSON.stringify(
+        responseMock.error,
+        null,
+        2
+      )}`
     });
   });
 });
