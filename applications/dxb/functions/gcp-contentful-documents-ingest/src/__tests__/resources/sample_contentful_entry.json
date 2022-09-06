@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "tags": []
+  },
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "id": "5wc5afPFlTvapaBCzn9AdG",
+    "type": "Entry",
+    "createdAt": "2022-01-24T09:58:02.885Z",
+    "updatedAt": "2022-01-24T09:58:54.630Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 6,
+    "publishedAt": "2022-01-24T09:58:54.630Z",
+    "firstPublishedAt": "2022-01-24T09:58:54.630Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "4SyQ0oAjQ7DK5MOzLagDLC"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "4SyQ0oAjQ7DK5MOzLagDLC"
+      }
+    },
+    "publishedCounter": 1,
+    "version": 7,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "4SyQ0oAjQ7DK5MOzLagDLC"
+      }
+    },
+    "contentType": {
+      "sys": {
+        "type": "Link",
+        "linkType": "ContentType",
+        "id": "assetType"
+      }
+    }
+  },
+  "fields": {
+    "name": {
+      "en-GB": "Asset Type Name (Iryna)"
+    },
+    "code": {
+      "en-GB": "TDS"
+    },
+    "pimCode": {
+      "en-GB": "DATA_SHEETS"
+    }
+  }
+}
