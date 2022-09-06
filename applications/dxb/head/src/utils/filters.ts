@@ -1,20 +1,16 @@
 import { Filter } from "@bmi/components";
 import QueryString from "query-string";
 import { useEffect, useState } from "react";
-import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
-import { ContentfulDocument as ContentfulDocumentData } from "../types/Document";
-import {
-  ProductDocument as PIMDocument,
-  ProductFilter,
-  SystemDocument as PIMSystemDocument
-} from "../types/pim";
+import { ProductFilter } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import { removePLPFilterPrefix } from "./product-filters";
 
-export type URLProductFilter = {
+export type URLFilter = {
   name: string;
   value: string[];
 };
+
+export type URLProductFilter = URLFilter;
 
 export type ResultType = "Simple" | "Technical" | "Card Collection";
 
@@ -26,14 +22,8 @@ export enum SourceEnum {
   ALL = "ALL"
 }
 
-const isPIMDocument = (
-  item: DocumentResultData
-): item is PIMDocument | PIMSystemDocument => {
-  return ["PIMDocument", "PIMSystemDocument"].includes(item.__typename);
-};
-
 export const convertToURLFilters = (
-  filters: readonly ProductFilter[]
+  filters: readonly Filter[]
 ): URLProductFilter[] => {
   return filters.reduce((carry, { name, value }) => {
     if (value && value.length) {
@@ -91,173 +81,6 @@ export const clearFilterValues = (filters) => {
     ...filter,
     value: []
   }));
-};
-
-//TODO: this should be done with ES query!!
-// there is a card for this task in backlog
-// this will be done when documents are indexed in ES with products
-export const filterDocuments = (
-  documents: (PIMDocument | ContentfulDocumentData)[],
-  filters: Array<Filter>
-): (PIMDocument | ContentfulDocumentData)[] => {
-  const valueMatcher = {
-    // TODO: Replace productFilters usage with productBrandCode
-    brand: (document: DocumentResultData, valuesToMatch: string[]): boolean => {
-      const isPimDoc = isPIMDocument(document);
-      if (isPimDoc) {
-        const brandFilterValues = (document as PIMDocument).productFilters
-          .filter((productFilter) => productFilter.filterCode === "Brand")
-          .map((filter) => filter.value);
-        if (!brandFilterValues || brandFilterValues.length === 0) {
-          return false;
-        } else {
-          return brandFilterValues.some((filterValue) =>
-            valuesToMatch.includes(filterValue)
-          );
-        }
-      } else {
-        //contentful documents have brand property to match with
-        const documentBrand = document["brand"];
-        return valuesToMatch.includes(documentBrand);
-      }
-    },
-    // TODO: Replace productFilters usage with productProductFamily
-    productfamily: (
-      document: DocumentResultData,
-      valuesToMatch: string[]
-    ): boolean => {
-      const isPimDoc = isPIMDocument(document);
-      if (isPimDoc) {
-        const productFamilyFilter = (document as PIMDocument).productFilters
-          .filter(
-            (productFilter) => productFilter.filterCode === "ProductFamily"
-          )
-          .map((filter) => filter.value);
-        if (!productFamilyFilter || productFamilyFilter.length === 0) {
-          return false;
-        } else {
-          return productFamilyFilter.some((filterValue) =>
-            valuesToMatch.includes(filterValue)
-          );
-        }
-      }
-      //cater for other types of documents!!
-      return false;
-    },
-    contentfulassettype: (
-      document: DocumentResultData,
-      valuesToMatch: string[]
-    ): boolean => {
-      return valuesToMatch.includes(document["assetType"]["code"]);
-    },
-    genericCategory: (
-      document: DocumentResultData,
-      filterName: string,
-      valuesToMatch: string[]
-    ): boolean => {
-      const isPimDoc = isPIMDocument(document);
-      if (isPimDoc) {
-        const categoryCodes = (document as PIMDocument).productCategories.map(
-          (category) => category.code
-        );
-        const result = categoryCodes.some((code) =>
-          valuesToMatch.includes(code)
-        );
-
-        if (!result) {
-          const categoryWithName = (
-            document as PIMDocument
-          ).productCategories.find(
-            (category) =>
-              category.parentCategoryCode === filterName ||
-              category.code === filterName
-          );
-          if (categoryWithName) {
-            if (valuesToMatch.includes(categoryWithName.code)) {
-              return true;
-            } else {
-              return false;
-            }
-          }
-        } else {
-          return result;
-        }
-      }
-      //cater for other types of documents!!
-      return false;
-    },
-    "filterlabels.assettype": (
-      document: DocumentResultData,
-      valuesToMatch: string[],
-      filterName: string
-    ): boolean => {
-      return (valuesToMatch || []).some(
-        (value) => (document as ContentfulDocumentData).assetType.code === value
-      );
-    },
-    genericProductFilters: (
-      document: DocumentResultData,
-      filterName: string,
-      valuesToMatch: string[]
-    ): boolean => {
-      const isPimDoc = isPIMDocument(document);
-      if (isPimDoc) {
-        const productFilterWithName = (document as PIMDocument).productFilters
-          .filter(
-            // TODO: Remove lower caseing as part of DXB-3449
-            (productFilter) =>
-              productFilter.filterCode.toLowerCase() ===
-              filterName.toLowerCase()
-          )
-          .map((filter) => filter.code || filter.value);
-
-        if (productFilterWithName) {
-          if (
-            productFilterWithName.some((value) => valuesToMatch.includes(value))
-          ) {
-            return true;
-          } else {
-            return false;
-          }
-        } else {
-          return false;
-        }
-      }
-      //cater for other types of documents!!
-      return false;
-    }
-  };
-  const filtersWithValues = filters.filter(
-    ({ value }) => value && value.length !== 0
-  );
-  //user clears ALL filters then return all documents
-  if (filtersWithValues.length === 0) return documents;
-
-  const result = documents.filter((document) => {
-    return filtersWithValues.some((filter) => {
-      const filterMatcherName = filter.name.trim().toLowerCase();
-      // eslint-disable-next-line security/detect-object-injection
-      const matcher = valueMatcher[filterMatcherName];
-      if (matcher) {
-        return matcher(document, filter.value || []);
-      } else {
-        const genericProductFilterMatcher =
-          valueMatcher["genericProductFilters"];
-        const result = genericProductFilterMatcher(document, filter.name, [
-          ...(filter.value || [])
-        ]);
-        if (!result) {
-          const genericMatcher = valueMatcher["genericCategory"];
-          return genericMatcher(document, filter.name, [
-            ...(filter.value || [])
-          ]);
-        } else {
-          return result;
-        }
-      }
-    });
-  });
-  return result;
 };
 
 export const FILTER_KEY = "filters";

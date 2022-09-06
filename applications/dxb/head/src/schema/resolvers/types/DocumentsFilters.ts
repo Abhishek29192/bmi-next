@@ -1,5 +1,5 @@
-import { ProductFilter } from "../../../types/pim";
+import { Filter } from "@bmi/components/src";
 
 export type DocumentsFilters = {
-  filters: ProductFilter[];
+  filters: Filter[];
 };
