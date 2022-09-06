@@ -68,7 +68,7 @@ export const createProduct = (product?: Partial<Product>): Product => ({
     createLinkAsset({ assetType: "GUARANTIES" }),
     createLinkAsset({ assetType: "WARRANTIES" })
   ],
-  masterImages: [createImage()],
+  masterImage: createImage(),
   hashedCode: "id",
   isSampleOrderAllowed: true,
   materials: "Materials",

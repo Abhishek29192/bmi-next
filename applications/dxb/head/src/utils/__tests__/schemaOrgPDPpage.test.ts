@@ -26,7 +26,7 @@ describe("createSchemaOrgDataForPdpPage", () => {
       groups: [],
       guaranteesAndWarrantiesImages: [],
       guaranteesAndWarrantiesLinks: [],
-      masterImages: [],
+      masterImage: undefined,
       hashedCode: "id",
       isSampleOrderAllowed: false,
       materials: null,

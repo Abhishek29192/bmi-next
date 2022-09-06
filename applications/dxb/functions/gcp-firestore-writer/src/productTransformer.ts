@@ -1,3 +1,4 @@
+import logger from "@bmi-digital/functions-logger";
 import type {
   CategoryGroup,
   Classification,
@@ -19,7 +20,6 @@ import type {
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
-import logger from "@bmi-digital/functions-logger";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -246,7 +246,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
           (variant.isSampleOrderAllowed ??
             product.isSampleOrderAllowed ??
             false),
-        masterImages: mapImages(groupedImages, "MASTER_IMAGE"),
+        masterImage: mapImages(groupedImages, "MASTER_IMAGE")[0],
         materials,
         measurements: {
           length,

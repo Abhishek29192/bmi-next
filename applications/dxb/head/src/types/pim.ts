@@ -86,7 +86,7 @@ export type Product = Omit<
   | "externalProductCode"
   | "fixingToolIframeUrl"
   | "galleryImages"
-  | "masterImages"
+  | "masterImage"
   | "materials"
   | "measurements"
   | "productBenefits"
@@ -107,7 +107,7 @@ export type Product = Omit<
   externalProductCode: string | null;
   fixingToolIframeUrl: string | null;
   galleryImages: Image[];
-  masterImages: readonly Image[];
+  masterImage: Image | null;
   materials: string | null;
   // Can be null as Firestore doesn't store empty dictionaries
   measurements: Measurements | null;
@@ -214,7 +214,7 @@ export type RelatedProduct = Pick<
   | "colour"
   | "colourFamily"
   | "externalProductCode"
-  | "masterImages"
+  | "masterImage"
   | "measurements"
   | "textureFamily"
   | "name"

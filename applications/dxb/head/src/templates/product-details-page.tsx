@@ -71,7 +71,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   }, [location]);
 
   const images = transformImages(
-    [product.masterImages[0], ...product.galleryImages].filter(Boolean)
+    [product.masterImage, ...product.galleryImages].filter(Boolean)
   );
 
   return (
@@ -81,7 +81,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={product.masterImages[0]?.mainSource}
+      ogImageUrl={product.masterImage?.mainSource}
       variantProduct={product}
     >
       {({ siteContext: { getMicroCopy } }) => {
@@ -281,7 +281,7 @@ export const pageQuery = graphql`
           ...PIMDocumentFragment
         }
       }
-      masterImages {
+      masterImage {
         ...PIMImageFragment
       }
       isSampleOrderAllowed

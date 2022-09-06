@@ -757,7 +757,7 @@ type Product implements Node @dontInfer {
   hashedCode: String!
   isSampleOrderAllowed: Boolean
   keyAssetDocuments: [KeyAssetDocument]
-  masterImages: [PIMImage]!
+  masterImage: PIMImage
   materials: String
   measurements: Measurements
   name: String

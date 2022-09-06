@@ -1,5 +1,5 @@
-import { Product as ProductSchema, QuantitativeValue } from "schema-dts";
 import { UnitValue } from "@bmi/firestore-types";
+import { Product as ProductSchema, QuantitativeValue } from "schema-dts";
 import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 
@@ -27,7 +27,7 @@ export const createSchemaOrgDataForPdpPage = (
   width: asQuantitativeValue(variant.measurements?.width),
   height: asQuantitativeValue(variant.measurements?.height),
   size: getSize(variant),
-  image: variant.masterImages[0]?.mainSource,
+  image: variant.masterImage?.mainSource,
   productID: variant.code,
   pattern: variant.textureFamily || undefined,
   model: variant.name,

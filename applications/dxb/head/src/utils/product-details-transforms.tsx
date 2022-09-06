@@ -329,9 +329,9 @@ export const getProductAttributes = (
           label: colour,
           isSelected,
           thumbnail:
-            variant?.thumbnail || product?.masterImages?.[0]?.thumbnail || null,
+            variant?.thumbnail || product?.masterImage?.thumbnail || null,
           media:
-            !variant?.thumbnail && !product?.masterImages?.[0]?.thumbnail ? (
+            !variant?.thumbnail && !product?.masterImage?.thumbnail ? (
               <DefaultImage />
             ) : null,
           availability: checkColourAvailability(colour),
