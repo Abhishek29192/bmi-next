@@ -9563,11 +9563,6 @@ axobject-query@^2.2.0:
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
 
-axois@0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/axois/-/axois-0.0.1-security.tgz#372b4659c6a059ec4a6c6786f81fbf6cb5f892d2"
-  integrity sha512-8Nui4fwwyxHfjAfpDlg3Jt66EJA4i1D1eJch3D+wM/Oe+qhpyp7yfiszko/O5/adYu20wc37RG9/Eg8QIJHcvA==
-
 babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -16522,13 +16517,6 @@ gatsby-source-filesystem@^4.13.0:
     progress "^2.0.3"
     valid-url "^1.0.9"
     xstate "^4.26.1"
-
-gatsby-source-hubspot-forms@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-hubspot-forms/-/gatsby-source-hubspot-forms-3.0.1.tgz#cccbfdaf48461d0710f5d76ea5067d38331bfe0e"
-  integrity sha512-9EJOCPcM0k/EtUWNiHZ+K9A1GQPZsBYah9CRe1WnQy1LhGe0LgSOru1buVC9CPJ56/3vmuSeejIV6l5kY1SHVQ==
-  dependencies:
-    axois "0.0.1-security"
 
 gatsby-telemetry@^3.11.1:
   version "3.11.1"

@@ -40,10 +40,11 @@ const GoogleAutocomplete = ({
       (
         request: AutocompletionRequest,
         callback: (result: AutocompletePrediction[]) => void
-      ) =>
-        googleAutocomplete.current
-          ? googleAutocomplete.current.getPlacePredictions(request, callback)
-          : undefined,
+      ) => {
+        if (googleAutocomplete.current) {
+          googleAutocomplete.current.getPlacePredictions(request, callback);
+        }
+      },
     []
   );
 
@@ -52,10 +53,11 @@ const GoogleAutocomplete = ({
       (
         request: GeocoderRequest,
         callback: (results: GeocoderResult[]) => void
-      ) =>
-        googleGeocoder.current
-          ? googleGeocoder.current.geocode(request, callback)
-          : undefined,
+      ) => {
+        if (googleGeocoder.current) {
+          googleGeocoder.current.geocode(request, callback);
+        }
+      },
     []
   );
 
@@ -82,7 +84,7 @@ const GoogleAutocomplete = ({
   }, [value, inputValue]);
 
   useEffect(() => {
-    if (value?.place_id) {
+    if (value && value.place_id) {
       getGeocode({ placeId: value.place_id }, (result) => {
         onPlaceChange && onPlaceChange(result[0]);
       });
@@ -92,13 +94,13 @@ const GoogleAutocomplete = ({
   useEffect(() => {
     if (controlledValue) {
       getGeocode(controlledValue, (result) => {
-        if (JSON.stringify(result[0]) !== JSON.stringify(value)) {
+        if (JSON.stringify(result[0]) !== JSON.stringify(value) && result[0]) {
           const newValue = {
             ...result[0],
             structured_formatting: {
-              main_text: result[0]?.formatted_address
+              main_text: result[0].formatted_address
             },
-            description: result[0]?.formatted_address
+            description: result[0].formatted_address
           };
           setValue(newValue);
         }

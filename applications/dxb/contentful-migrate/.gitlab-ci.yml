@@ -435,6 +435,24 @@ deploy_gatsby_cloud_belgium_nl:
     DXB_MARKET_ID: "BE"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_switzerland_de:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "CH"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_switzerland_de:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_switzerland_de
+  variables:
+    DXB_MARKET_ID: "CH"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_group:
   extends: .migrate_content
   rules:
@@ -611,6 +629,11 @@ update_mc_poland:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "PL"
+
+update_mc_switzerland_de:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "CH"
 
 update_mc_group:
   extends: .update_mc

@@ -118,10 +118,7 @@ const elasticSearchPlugin =
           resolve: `@bmi/gatsby-plugin-elasticsearch`,
           options: {
             node: process.env.GATSBY_ES_ENDPOINT,
-            auth: {
-              username: process.env.ES_ADMIN_USERNAME,
-              password: process.env.ES_ADMIN_PASSWORD
-            },
+            apiKey: process.env.ES_ADMIN_APIKEY,
             queries,
             chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
           }
@@ -495,7 +492,7 @@ const config = {
     ...(process.env.HUBSPOT_API_KEY
       ? [
           {
-            resolve: "gatsby-source-hubspot-forms",
+            resolve: "@bmi/gatsby-source-hubspot-forms",
             options: {
               apiKey: process.env.HUBSPOT_API_KEY
             }

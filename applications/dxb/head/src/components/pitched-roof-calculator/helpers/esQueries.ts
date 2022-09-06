@@ -29,7 +29,7 @@ export const getProductsQuery = (pitches: number[]) => ({
               { exists: { field: "TILESATTRIBUTES.EAVEGAUGE" } },
               { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } }
             ],
-            filter: pitches.map((pitchValue) => [
+            filter: pitches.flatMap((pitchValue) => [
               {
                 range: {
                   "TILESATTRIBUTES.EAVEGAUGEENDANGLE.value": {
