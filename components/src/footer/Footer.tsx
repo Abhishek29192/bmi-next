@@ -150,7 +150,6 @@ const Footer = ({
   secondaryNavigation,
   logo
 }: Props) => {
-  console.log(!mainNavigation.length);
   return (
     <div
       className={classnames(styles["Footer"], {

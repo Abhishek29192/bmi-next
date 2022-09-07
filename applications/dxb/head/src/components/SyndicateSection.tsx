@@ -52,7 +52,6 @@ const SyndicateSection = ({
       }
 
       if (cta && cta.action) {
-        console.log(2);
         return (
           <Button action={cta.action} variant="opaqueOutlined">
             {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
