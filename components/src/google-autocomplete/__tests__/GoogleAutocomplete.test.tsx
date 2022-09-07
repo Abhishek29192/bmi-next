@@ -216,7 +216,9 @@ describe("GoogleAutocomplete component", () => {
 
       fireEvent.click(options[0]);
 
-      expect(screen.getByRole("textbox").value).toBe(option);
+      expect((screen.getByRole("textbox") as HTMLInputElement).value).toBe(
+        option
+      );
     });
   });
 });
