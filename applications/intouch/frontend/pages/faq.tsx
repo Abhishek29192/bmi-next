@@ -23,10 +23,13 @@ const FaqPage = ({ faqTopicCollection, globalPageData }) => {
       id: faqItem || ""
     },
     onCompleted: ({ faqItemCollection }) => {
-      setLoadedItems((prevState) => ({
-        ...prevState,
-        [faqItem]: faqItemCollection.items[0].body
-      }));
+      // eslint-disable-next-line security/detect-object-injection
+      if (!loadedItems[faqItem]) {
+        setLoadedItems((prevState) => ({
+          ...prevState,
+          [faqItem]: faqItemCollection.items[0].body
+        }));
+      }
     }
   });
 
