@@ -168,6 +168,16 @@ const recaptchaContent_CH_DE: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=de-ch"
 };
 
+const recaptchaContent_CN_ZH: RecaptchaPolicyContentType = {
+  startText: "本网站受 reCAPTCHA 保护，适用 Google ",
+  privacyPloicyText: "隐私政策",
+  andText: " 和 ",
+  termsOfServiceText: "服务条款",
+  endText: " 。",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=zh-cn",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=zh-cn"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -185,6 +195,7 @@ RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
 RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
 RecaptchaPrivacyContentMap["ch"] = recaptchaContent_CH_DE;
+RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
