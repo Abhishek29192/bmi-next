@@ -1,0 +1,2988 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-pt-es-blogs run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+# PORTUGAL: Redirects from https://blog.bmigroup.com/pt to https://www.bmigroup.com/pt
+
+[[redirects]]
+ from="/pt/wakaflex-um-material-livre-de-chumbo"
+ to="https://www.bmigroup.com/pt/blog/wakaflex-um-material-livre-de-chumbo/"
+ force=true
+
+[[redirects]]
+ from="/pt/tudo-o-que-precisa-saber-sobre-reabilitacao-telhados"
+ to="https://www.bmigroup.com/pt/blog/tudo-o-que-precisa-saber-sobre-reabilitacao-telhados/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/vídeos"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-plana"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluções-de-cobertura-inclinada"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/soluciones-cubierta-inclinada"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/9"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/8"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/7"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/12"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/11"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/10"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/profissionais"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/plana"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/8"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/7"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/particulares"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/inclinadas"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-plana"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/8"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/7"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/cobertura-inclinada"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/tag/casos-de-sucesso"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/sistema-tectum-plus-a-solucao-para-coberturas-de-baixa-inclinacao"
+ to="https://www.bmigroup.com/pt/blog/sistema-tectum-plus-a-solucao-para-coberturas-de-baixa-inclinacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sistemas-como-se-adaptaram-a-industrializacao-da-construcao"
+ to="https://www.bmigroup.com/pt/blog/sistemas-como-se-adaptaram-a-industrializacao-da-construcao/"
+ force=true
+
+[[redirects]]
+ from="/pt/sistemas-com-inclinacao-pendente-com-telha-curva-para-centros-historicos"
+ to="https://www.bmigroup.com/pt/blog/sistemas-com-inclinacao-pendente-com-telha-curva-para-centros-historicos/"
+ force=true
+
+[[redirects]]
+ from="/pt/renovacao-coberturas-com-drenagem-succao"
+ to="https://www.bmigroup.com/pt/blog/renovacao-coberturas-com-drenagem-succao/"
+ force=true
+
+[[redirects]]
+ from="/pt/refletancia-solar-como-os-materiais-nos-protegem-do-calor"
+ to="https://www.bmigroup.com/pt/blog/refletancia-solar-como-os-materiais-nos-protegem-do-calor/"
+ force=true
+
+[[redirects]]
+ from="/pt/reabilitacao-mosteiro-leca-balio-com-tectum-pro"
+ to="https://www.bmigroup.com/pt/blog/reabilitacao-mosteiro-leca-balio-com-tectum-pro/"
+ force=true
+
+[[redirects]]
+ from="/pt/quer-desfrutar-do-conforto-termico-do-melhor-isolamento-mas-com-menos-espessura"
+ to="https://www.bmigroup.com/pt/blog/quer-desfrutar-do-conforto-termico-do-melhor-isolamento-mas-com-menos-espessura/"
+ force=true
+
+[[redirects]]
+ from="/pt/quando-deve-ser-utilizada-telha-ceramica-hidrofugada"
+ to="https://www.bmigroup.com/pt/blog/quando-deve-ser-utilizada-telha-ceramica-hidrofugada/"
+ force=true
+
+[[redirects]]
+ from="/pt/qual-o-melhor-material-para-fixacao-de-telhas"
+ to="https://www.bmigroup.com/pt/blog/qual-o-melhor-material-para-fixacao-de-telhas/"
+ force=true
+
+[[redirects]]
+ from="/pt/quais-sao-os-requisitos-para-uma-cobertura-verde-eficiente"
+ to="https://www.bmigroup.com/pt/blog/quais-sao-os-requisitos-para-uma-cobertura-verde-eficiente/"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/ventilacao-do-telhado-no-verao-com-telha-de-cimento"
+ to="https://www.bmigroup.com/pt/blog/ventilacao-do-telhado-no-verao-com-telha-de-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/um-jardim-no-telhado-tudo-o-que-precisa-de-saber"
+ to="https://www.bmigroup.com/pt/blog/um-jardim-no-telhado-tudo-o-que-precisa-de-saber"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/tpo-muito-mais-que-impermeabilizacao"
+ to="https://www.bmigroup.com/pt/blog/tpo-muito-mais-que-impermeabilizacao"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/telhados-microventilados-as-vantagens-da-montagem-a-seco"
+ to="https://www.bmigroup.com/pt/blog/telhados-microventilados-as-vantagens-da-montagem-a-seco"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/telhado-cimento-ceramica-sabe-diferencia-los"
+ to="https://www.bmigroup.com/pt/blog/telhado-cimento-ceramica-sabe-diferencia-los"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/teletrabalho-5-conselhos-para-gerir-melhor-o-seu-dia"
+ to="https://www.bmigroup.com/pt/blog/teletrabalho-5-conselhos-para-gerir-melhor-o-seu-dia"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/tectum-pro-tao-facil-de-montar-em-4-passos"
+ to="https://www.bmigroup.com/pt/blog/tectum-pro-tao-facil-de-montar-em-4-passos"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/tectum-first-da-bmi-o-primeiro-sistema-de-cobertura-inclinada-com-certificacao-passivhaus-em-portugal"
+ to="https://www.bmigroup.com/pt/blog/tectum-first-da-bmi-o-primeiro-sistema-de-cobertura-inclinada-com-certificacao-passivhaus-em-portugal"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/sustentabilidade-da-telha-cimento"
+ to="https://www.bmigroup.com/pt/blog/sustentabilidade-da-telha-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/sistemas-tectum-a-melhor-opcao-para-coberturas-inclinadas"
+ to="https://www.bmigroup.com/pt/blog/sistemas-tectum-a-melhor-opcao-para-coberturas-inclinadas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/sistemas-para-economizar-tempo-e-dinheiro"
+ to="https://www.bmigroup.com/pt/blog/sistemas-para-economizar-tempo-e-dinheiro"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/saiba-como-evitar-danos-da-geada-na-cobertura"
+ to="https://www.bmigroup.com/pt/blog/saiba-como-evitar-danos-da-geada-na-cobertura"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/sabe-tudo-o-que-uma-cobertura-pode-fazer"
+ to="https://www.bmigroup.com/pt/blog/sabe-tudo-o-que-uma-cobertura-pode-fazer"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/resumo-medidas-excecionais-para-mitigacao-dos-efeitos-economico-sociais-covid-19"
+ to="https://www.bmigroup.com/pt/blog/resumo-medidas-excecionais-para-mitigacao-dos-efeitos-economico-sociais-covid-19"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/reabilitar-para-isolar-como-conseguir-da-melhor-forma"
+ to="https://www.bmigroup.com/pt/blog/reabilitar-para-isolar-como-conseguir-da-melhor-forma"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/reabilitar-com-telha-de-cimento-chaves-para-um-bom-resultado"
+ to="https://www.bmigroup.com/pt/blog/reabilitar-com-telha-de-cimento-chaves-para-um-bom-resultado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/reabilitacao-telha-cimento-pontos-a-ter-em-conta"
+ to="https://www.bmigroup.com/pt/blog/reabilitacao-telha-cimento-pontos-a-ter-em-conta"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/quem-disse-que-as-telhas-so-podem-ser-usadas-no-telhado"
+ to="https://www.bmigroup.com/pt/blog/quem-disse-que-as-telhas-so-podem-ser-usadas-no-telhado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/que-materiais-devo-escolher-para-evitar-infiltracoes-nas-coberturas-e-telhadosas-no-telhado"
+ to="https://www.bmigroup.com/pt/blog/que-materiais-devo-escolher-para-evitar-infiltracoes-nas-coberturas-e-telhadosas-no-telhado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/quando-e-recomendado-o-uso-de-membranas-liquidas"
+ to="https://www.bmigroup.com/pt/blog/quando-e-recomendado-o-uso-de-membranas-liquidas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/quais-as-vantagens-de-fazer-uma-cobertura-a-seco"
+ to="https://www.bmigroup.com/pt/blog/quais-as-vantagens-de-fazer-uma-cobertura-a-seco"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/proteccao-anti-queda-o-que-deve-usar"
+ to="https://www.bmigroup.com/pt/blog/proteccao-anti-queda-o-que-deve-usar"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/primeira-obra-bmi-everguard-tpo-em-portugal"
+ to="https://www.bmigroup.com/pt/blog/primeira-obra-bmi-everguard-tpo-em-portugal"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/preparados-para-o-novo-normal"
+ to="https://www.bmigroup.com/pt/blog/preparados-para-o-novo-normal"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/porque-instalar-cimento-num-clima-frio"
+ to="https://www.bmigroup.com/pt/blog/porque-instalar-cimento-num-clima-frio"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/porque-escolher-telhas-cimento"
+ to="https://www.bmigroup.com/pt/blog/porque-escolher-telhas-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/pecas-essenciais-para-completar-o-seu-telhado-de-cimento"
+ to="https://www.bmigroup.com/pt/blog/pecas-essenciais-para-completar-o-seu-telhado-de-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/passivhaus-a-construcao-sustentavel-que-permite-poupar-mais-de-75-na-fatura-energetica"
+ to="https://www.bmigroup.com/pt/blog/passivhaus-a-construcao-sustentavel-que-permite-poupar-mais-de-75-na-fatura-energetica"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/os-10-principios-da-construcao-sustentavel"
+ to="https://www.bmigroup.com/pt/blog/os-10-principios-da-construcao-sustentavel"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/o-que-e-o-pir-e-porque-e-isso-importante"
+ to="https://www.bmigroup.com/pt/blog/o-que-e-o-pir-e-porque-e-isso-importante"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/nox-activ"
+ to="https://www.bmigroup.com/pt/blog/nox-activ"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/novo-site-da-bmi-portugal-reune-mais-de-3000-produtos-e-partilha-know-how-de-coberturas"
+ to="https://www.bmigroup.com/pt/blog/novo-site-da-bmi-portugal-reune-mais-de-3000-produtos-e-partilha-know-how-de-coberturas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/muito-mais-que-um-telhado"
+ to="https://www.bmigroup.com/pt/blog/muito-mais-que-um-telhado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/membrana-sintetica-de-pvc-versus-tpo-qual-se-adapta-melhor-as-grandes-coberturas"
+ to="https://www.bmigroup.com/pt/blog/membrana-sintetica-de-pvc-versus-tpo-qual-se-adapta-melhor-as-grandes-coberturas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/medidas-proteccao-e-prevencao-no-sector-da-construcao"
+ to="https://www.bmigroup.com/pt/blog/medidas-proteccao-e-prevencao-no-sector-da-construcao"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/materiais-isolantes-como-aumentar-o-conforto-no-interior-da-casa"
+ to="https://www.bmigroup.com/pt/blog/materiais-isolantes-como-aumentar-o-conforto-no-interior-da-casa"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/longa-vida-para-a-telha"
+ to="https://www.bmigroup.com/pt/blog/longa-vida-para-a-telha"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/lancamento-everguard-tpo-extreme"
+ to="https://www.bmigroup.com/pt/blog/lancamento-everguard-tpo-extreme"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/instalacao-fotovoltaica-em-cobertura-plana"
+ to="https://www.bmigroup.com/pt/blog/instalacao-fotovoltaica-em-cobertura-plana"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/filmes-impermeaveis-o-que-sao-e-para-que-servem"
+ to="https://www.bmigroup.com/pt/blog/filmes-impermeaveis-o-que-sao-e-para-que-servem"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/exemplo-de-interpretacao-da-ficha-de-certificacao-aenor"
+ to="https://www.bmigroup.com/pt/blog/exemplo-de-interpretacao-da-ficha-de-certificacao-aenor"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/exemplo-de-casa-com-standard-passivhaus-em-las-rozas-madrid"
+ to="https://www.bmigroup.com/pt/blog/exemplo-de-casa-com-standard-passivhaus-em-las-rozas-madrid"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/eu-fico-em-casa-numa-casa-saudavel"
+ to="https://www.bmigroup.com/pt/blog/eu-fico-em-casa-numa-casa-saudavel"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/ensaios-tecnicos-a-melhor-garantia-da-sua-cobertura"
+ to="https://www.bmigroup.com/pt/blog/ensaios-tecnicos-a-melhor-garantia-da-sua-cobertura"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/elementos-necessarios-para-sistemas-de-cobertura-com-telha-de-cimento"
+ to="https://www.bmigroup.com/pt/blog/elementos-necessarios-para-sistemas-de-cobertura-com-telha-de-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/eficiencia-energetica-como-se-calcula-a-cobertura-termica-do-telhado"
+ to="https://www.bmigroup.com/pt/blog/eficiencia-energetica-como-se-calcula-a-cobertura-termica-do-telhado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/edificios-sustentaveis-com-divoroll-biolaytec"
+ to="https://www.bmigroup.com/pt/blog/edificios-sustentaveis-com-divoroll-biolaytec"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/diga-nos-qual-e-a-sua-cobertura-plana-e-nos-dizemos-lhe-que-impermeabilizacao-necessita"
+ to="https://www.bmigroup.com/pt/blog/diga-nos-qual-e-a-sua-cobertura-plana-e-nos-dizemos-lhe-que-impermeabilizacao-necessita"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/descubra-a-gama-de-telhas-evolution"
+ to="https://www.bmigroup.com/pt/blog/descubra-a-gama-de-telhas-evolution"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/desafio-tectum-first-trabalho-de-reabilitacao-em-evora-2"
+ to="https://www.bmigroup.com/pt/blog/everguard-tpo-base-logistica-intermache"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/desafio-tectum-first-trabalho-de-reabilitacao-em-evora"
+ to="https://www.bmigroup.com/pt/blog/desafio-tectum-first-trabalho-de-reabilitacao-em-evora"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/construir-ou-reabilitar-uma-cobertura-o-que-devo-ter-em-conta"
+ to="https://www.bmigroup.com/pt/blog/construir-ou-reabilitar-uma-cobertura-o-que-devo-ter-em-conta"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/como-reduzir-a-poluicao-e-o-calor-com-coberturas-verdes"
+ to="https://www.bmigroup.com/pt/blog/como-reduzir-a-poluicao-e-o-calor-com-coberturas-verdes"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/como-manter-uma-cobertura-plana-e-evitar-o-motim-dos-vizinhos-do-ultimo-andar"
+ to="https://www.bmigroup.com/pt/blog/como-manter-uma-cobertura-plana-e-evitar-o-motim-dos-vizinhos-do-ultimo-andar"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/como-colocar-ripas-para-evitar-rupturas"
+ to="https://www.bmigroup.com/pt/blog/como-colocar-ripas-para-evitar-rupturas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/como-as-pecas-cimento-ajudam-a-integrar-o-telhado"
+ to="https://www.bmigroup.com/pt/blog/como-as-pecas-cimento-ajudam-a-integrar-o-telhado"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/como-adaptar-a-atividade-da-sua-empresa-de-construcao-ao-coronavirus"
+ to="https://www.bmigroup.com/pt/blog/como-adaptar-a-atividade-da-sua-empresa-de-construcao-ao-coronavirus"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/coberturas-ajardinadas-extensivas-ou-intensivas-qual-e-a-sua-solucao"
+ to="https://www.bmigroup.com/pt/blog/coberturas-ajardinadas-extensivas-ou-intensivas-qual-e-a-sua-solucao"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/cobertura-passivhaus-o-que-e-e-como-pode-consegui-la"
+ to="https://www.bmigroup.com/pt/blog/cobertura-passivhaus-o-que-e-e-como-pode-consegui-la"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/calculo-da-densidade-das-fixacoes-em-funcao-da-acao-do-vento"
+ to="https://www.bmigroup.com/pt/blog/calculo-da-densidade-das-fixacoes-em-funcao-da-acao-do-vento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/bim-a-ferramenta-que-se-tornou-imprescindivel-para-os-arquitetos"
+ to="https://www.bmigroup.com/pt/blog/bim-a-ferramenta-que-se-tornou-imprescindivel-para-os-arquitetos"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/beneficios-montagem-a-seco-com-telha-de-cimento"
+ to="https://www.bmigroup.com/pt/blog/beneficios-montagem-a-seco-com-telha-de-cimento"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/beneficios-basicos-para-a-sua-cobertura"
+ to="https://www.bmigroup.com/pt/blog/beneficios-basicos-para-a-sua-cobertura"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/a-telha-ceramica-como-referencia-cultural-durabilidade-e-seguranca"
+ to="https://www.bmigroup.com/pt/blog/a-telha-ceramica-como-referencia-cultural-durabilidade-e-seguranca"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/a-importancia-do-telhado-um-heroi-escondido-a-vista-de-todos"
+ to="https://www.bmigroup.com/pt/blog/a-importancia-do-telhado-um-heroi-escondido-a-vista-de-todos"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/a-importancia-de-alcancar-o-maximo-isolamento-termico"
+ to="https://www.bmigroup.com/pt/blog/a-importancia-de-alcancar-o-maximo-isolamento-termico"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/a-cobertura-da-sua-casa"
+ to="https://www.bmigroup.com/pt/blog/a-cobertura-da-sua-casa"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/5-vantagens-utilizar-telha-cimento-em-zonas-costeiras"
+ to="https://www.bmigroup.com/pt/blog/5-vantagens-utilizar-telha-cimento-em-zonas-costeiras"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/5-tipos-coberturas-contra-alteracoes-climaticas"
+ to="https://www.bmigroup.com/pt/blog/5-tipos-coberturas-contra-alteracoes-climaticas"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/5-leituras-para-aproveitar-a-quarentena"
+ to="https://www.bmigroup.com/pt/blog/5-leituras-para-aproveitar-a-quarentena"
+ force=true
+
+[[redirects]]
+ from="/pt/pt/10-razoes-para-reabilitar-a-sua-cobertura-no-verao"
+ to="https://www.bmigroup.com/pt/blog/blog/10-razoes-para-reabilitar-a-sua-cobertura-no-verao"
+ force=true
+
+[[redirects]]
+ from="/pt/prepare-a-sua-cobertura-para-o-inverno"
+ to="https://www.bmigroup.com/pt/blog/prepare-a-sua-cobertura-para-o-inverno/"
+ force=true
+
+[[redirects]]
+ from="/pt/por-que-e-importante-utilizar-a-barreira-de-vapor-na-cobertura"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/passivhaus-certificacoes-sustentabilidade-conhece-estes-conceitos"
+ to="https://www.bmigroup.com/pt/blog/passivhaus-certificacoes-sustentabilidade-conhece-estes-conceitos/"
+ force=true
+
+[[redirects]]
+ from="/pt/passadeiras-de-transito-caminhar-seguramente"
+ to="https://www.bmigroup.com/pt/blog/passadeiras-de-transito-caminhar-seguramente/"
+ force=true
+
+[[redirects]]
+ from="/pt/paineis-fotovoltaicos-em-coberturas-uma-solucao-para-reduzir-a-fatura-da-eletricidade"
+ to="https://www.bmigroup.com/pt/blog/paineis-fotovoltaicos-em-coberturas-uma-solucao-para-reduzir-a-fatura-da-eletricidade/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/9"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/8"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/7"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/16"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/15"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/14"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/13"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/12"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/11"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/10"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/o-que-e-a-certificacao-leed-dos-edificios"
+ to="https://www.bmigroup.com/pt/blog/o-que-e-a-certificacao-leed-dos-edificios/"
+ force=true
+
+[[redirects]]
+ from="/pt/o-presente-imediato-a-arquitetura-bioclimatica"
+ to="https://www.bmigroup.com/pt/blog/o-presente-imediato-a-arquitetura-bioclimatica/"
+ force=true
+
+[[redirects]]
+ from="/pt/nox-activ-o-que-e-quais-são-as-suas-vantagens"
+ to="https://www.bmigroup.com/pt/blog/nox-activ-o-que-e-quais-sao-as-suas-vantagens"
+ force=true
+
+[[redirects]]
+ from="/pt/nox-activ"
+ to="https://www.bmigroup.com/pt/blog/nox-activ/"
+ force=true
+
+[[redirects]]
+ from="/pt/novos-modelos-telhas-s10-e-piemontesa"
+ to="https://www.bmigroup.com/pt/blog/novos-modelos-telhas-s10-e-piemontesa/"
+ force=true
+
+[[redirects]]
+ from="/pt/no-dia-mundial-da-eficiencia-energetica-reabilitacao-reabilitacao-e-reabilitacao"
+ to="https://www.bmigroup.com/pt/blog/no-dia-mundial-da-eficiencia-energetica-reabilitacao-reabilitacao-e-reabilitacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/mini-guia-actualizacao-linhas-de-underlays-ou-laminas-sob-telha"
+ to="https://www.bmigroup.com/pt/blog/mini-guia-actualizacao-linhas-de-underlays-ou-laminas-sob-telha/"
+ force=true
+
+[[redirects]]
+ from="/pt/logica-emotions-a-telha-premium-que-combinar-estetica-e-sustentabilidade"
+ to="https://www.bmigroup.com/pt/cobertura-inclinada/telhas-logica-emotions/"
+ force=true
+
+[[redirects]]
+ from="/pt/junte-se-tendencia-em-2021-coberturas-sustentaveis-e-eficazes"
+ to="https://www.bmigroup.com/pt/blog/junte-se-tendencia-em-2021-coberturas-sustentaveis-e-eficazes/"
+ force=true
+
+[[redirects]]
+ from="/pt/inovacao-no-design-das-coberturas-a-nova-gama-de-telhas-logica-emotions"
+ to="https://www.bmigroup.com/pt/blog/inovacao-no-design-das-coberturas-a-nova-gama-de-telhas-logica-emotions/"
+ force=true
+
+[[redirects]]
+ from="/pt/importancia-suporte-tecnico-projetos-cobertura"
+ to="https://www.bmigroup.com/pt/blog/importancia-suporte-tecnico-projetos-cobertura/"
+ force=true
+
+[[redirects]]
+ from="/pt/impermeabilizacao-mediante-membranas-liquidas-liquid-applied-waterproofing-law"
+ to="https://www.bmigroup.com/pt/blog/impermeabilizacao-mediante-membranas-liquidas-liquid-applied-waterproofing-law/"
+ force=true
+
+[[redirects]]
+ from="/pt/impermeabilizacao-de-cobertura-plana-pontos-singulares-com-sealoflex-ultima"
+ to="https://www.bmigroup.com/pt/blog/impermeabilizacao-de-cobertura-plana-pontos-singulares-com-sealoflex-ultima/"
+ force=true
+
+[[redirects]]
+ from="/pt/fundos-europeus-e-moradias-a-aposta-de-bmi"
+ to="https://www.bmigroup.com/pt/blog/fundos-europeus-e-moradias-a-aposta-de-bmi/"
+ force=true
+
+[[redirects]]
+ from="/pt/fixacao-mista-em-coberturas-com-tpo"
+ to="https://www.bmigroup.com/pt/blog/fixacao-mista-em-coberturas-com-tpo/"
+ force=true
+
+[[redirects]]
+ from="/pt/filmes-debaixo-da-telha-como-avaliar-a-sua-qualidade-e-desempenho"
+ to="https://www.bmigroup.com/pt/blog/filmes-debaixo-da-telha-como-avaliar-a-sua-qualidade-e-desempenho/"
+ force=true
+
+[[redirects]]
+ from="/pt/everguard-extreme-tpo-a-lamina-de-impermeabilizacao-resistente-a-condicoes-extremas"
+ to="https://www.bmigroup.com/pt/blog/everguard-extreme-tpo-a-lamina-de-impermeabilizacao-resistente-a-condicoes-extremas/"
+ force=true
+
+[[redirects]]
+ from="/pt/dois-aliados-perfeitos-sistema-tectum-pro-e-portfolio-de-telha-bmi-cobert"
+ to="https://www.bmigroup.com/pt/blog/dois-aliados-perfeitos-sistema-tectum-pro-e-portfolio-de-telha-bmi-cobert/"
+ force=true
+
+[[redirects]]
+ from="/pt/diga-nos-onde-vive-e-nos-dizemos-lhe-que-cobertura-necessita"
+ to="https://www.bmigroup.com/pt/blog/diga-nos-onde-vive-e-nos-dizemos-lhe-que-cobertura-necessita/"
+ force=true
+
+[[redirects]]
+ from="/pt/diga-nos-em-que-zona-vive-e-dizemos-lhe-que-telha-deve-utilizar"
+ to="https://www.bmigroup.com/pt/blog/diga-nos-em-que-zona-vive-e-dizemos-lhe-que-telha-deve-utilizar/"
+ force=true
+
+[[redirects]]
+ from="/pt/descubra-os-materiais-que-ajudam-a-prevenir-o-gas-radao"
+ to="https://www.bmigroup.com/pt/blog/descubra-os-materiais-que-ajudam-a-prevenir-o-gas-radao/"
+ force=true
+
+[[redirects]]
+ from="/pt/descubra-os-detalhes-construtivos-do-sistema-bmi-everguard"
+ to="https://www.bmigroup.com/pt/blog/descubra-os-detalhes-construtivos-do-sistema-bmi-everguard/"
+ force=true
+
+[[redirects]]
+ from="/pt/cursos-gratuitos-para-instaladores-de-coberturas-inclinadas-na-bmi-academy-sistema-tectum-pro-e-tectum-first"
+ to="https://www.bmigroup.com/pt/blog/cursos-gratuitos-para-instaladores-de-coberturas-inclinadas-na-bmi-academy-sistema-tectum-pro-e-tectum-first/"
+ force=true
+
+[[redirects]]
+ from="/pt/construir-materiais-reciclaveis-ods-12-producao-consumo-responsavel"
+ to="https://www.bmigroup.com/pt/blog/construir-materiais-reciclaveis-ods-12-producao-consumo-responsavel/"
+ force=true
+
+[[redirects]]
+ from="/pt/conhece-a-historia-das-telhas-ceramicas"
+ to="https://www.bmigroup.com/pt/blog/conhece-a-historia-das-telhas-ceramicas/"
+ force=true
+
+[[redirects]]
+ from="/pt/conforto-higrotermico-e-arquitetura-como-realizar-calculos-higrotermicos"
+ to="https://www.bmigroup.com/pt/blog/conforto-higrotermico-e-arquitetura-como-realizar-calculos-higrotermicos/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-reduzir-os-riscos-de-incendio-nas-coberturas-com-paineis-fotovoltaicos"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-reabilitar-incorporando-paineis-fotovoltaicos-na-cobertura"
+ to="https://www.bmigroup.com/pt/blog/como-reabilitar-incorporando-paineis-fotovoltaicos-na-cobertura/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-nao-falhar-no-remate-da-chamine-"
+ to="https://www.bmigroup.com/pt/blog/como-nao-falhar-no-remate-da-chamine"
+ force=true
+
+[[redirects]]
+ from="/pt/como-instalar-tpo-na-sua-cobertura"
+ to="https://www.bmigroup.com/pt/blog/como-instalar-tpo-na-sua-cobertura/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-escolher-a-solucao-de-sistema-de-cobertura-mais-adequada"
+ to="https://www.bmigroup.com/pt/blog/como-escolher-a-solucao-de-sistema-de-cobertura-mais-adequada/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-eleger-o-isolamento-mais-sustentavel-para-envolvente-termica"
+ to="https://www.bmigroup.com/pt/blog/como-eleger-o-isolamento-mais-sustentavel-para-envolvente-termica/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-e-definida-a-inclinacao-mínima-para-telhados-inclinados-em-portugal"
+ to="https://www.bmigroup.com/pt/blog/como-e-definida-a-inclinacao-minima-para-telhados-inclinados-em-portugal/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-e-definida-a-inclinacao-m%C3%ADnima-para-telhados-inclinados-em-portugal"
+ to="https://www.bmigroup.com/pt/blog/como-e-definida-a-inclinacao-minima-para-telhados-inclinados-em-portugal/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-cuidar-da-sua-cobertura-no-verao"
+ to="https://www.bmigroup.com/pt/blog/como-cuidar-da-sua-cobertura-no-verao/"
+ force=true
+
+[[redirects]]
+ from="/pt/como-andar-sobre-uma-cobertura-de-forma-segura"
+ to="https://www.bmigroup.com/pt/blog/como-andar-sobre-uma-cobertura-de-forma-segura/"
+ force=true
+
+[[redirects]]
+ from="/pt/coberturas-sustentaveis-o-que-deve-ter-em-conta-no-seu-design"
+ to="https://www.bmigroup.com/pt/blog/coberturas-sustentaveis-o-que-deve-ter-em-conta-no-seu-design/"
+ force=true
+
+[[redirects]]
+ from="/pt/coberturas-a-prova-de-chuva-o-que-deve-ter-em-conta-para-reparar-o-sistema-de-impermeabilizacao"
+ to="https://www.bmigroup.com/pt/blog/coberturas-a-prova-de-chuva-o-que-deve-ter-em-conta-para-reparar-o-sistema-de-impermeabilizacao/"
+ force=true
+
+[[redirects]]
+ from="/pt/certificado-fll-anti-raizes-para-everguard-tpo-em-cobertura-ajardinada"
+ to="https://www.bmigroup.com/pt/blog/certificado-fll-anti-raizes-para-everguard-tpo-em-cobertura-ajardinada/"
+ force=true
+
+[[redirects]]
+ from="/pt/ccoberturas-ecologicas-passivas-arrefecimento-passivo"
+ to="https://www.bmigroup.com/pt/blog/ccoberturas-ecologicas-passivas-arrefecimento-passivo/"
+ force=true
+
+[[redirects]]
+ from="/pt/casa-na-ericeira-ganha-visual-moderno-com-tectum-pro"
+ to="https://www.bmigroup.com/pt/blog/casa-na-ericeira-ganha-visual-moderno-com-tectum-pro/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-roofmate-impermeabiliza-e-melhora-termicamente-a-sua-cobertura"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-expert-o-nosso-gabinete-tecnico-sua-disposicaoa"
+ to="https://www.bmigroup.com/pt/blog/bmi-expert-o-nosso-gabinete-tecnico-sua-disposicao/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-everguard-actualiza-se-com-a-certificacao-breeam-e-lead"
+ to="https://www.bmigroup.com/pt/blog/bmi-everguard-actualiza-se-com-a-certificacao-breeam-e-lead/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-aposta-no-talento-feminino"
+ to="https://www.bmigroup.com/pt/blog/bmi-aposta-no-talento-feminino/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-academy-cursos-presenciais-gratuitos-para-instaladores-de-coberturas-bmi"
+ to="https://www.bmigroup.com/pt/blog/bmi-academy-cursos-presenciais-gratuitos-para-instaladores-de-coberturas-bmi/"
+ force=true
+
+[[redirects]]
+ from="/pt/bmi-academy-convida-comerciais-e-clientes-para-formacoes-gratuitas"
+ to="https://www.bmigroup.com/pt/blog/bmi-academy-convida-comerciais-e-clientes-para-formacoes-gratuitas/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quiero-renovar-el-tejado"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/9"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/8"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/7"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/6"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/5"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/4"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/11"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/10"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/quero-renovar-o-meu-telhado"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/patricia-medina"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/juan-del-amo"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/jose-hermindo-prieto"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/jesus-huerta"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/isabel-alonso"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/ignacio-mora"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/bmi-portugal/page/3"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/bmi-portugal/page/2"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/bmi-portugal/page/1"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/bmi-portugal/page/0"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/bmi-portugal"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/author/agustin-dorado"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/arquitectura-bioclimatica-desenho-de-um-edificio-em-climatologia-adversa"
+ to="https://www.bmigroup.com/pt/blog/arquitectura-bioclimatica-desenho-de-um-edificio-em-climatologia-adversa/"
+ force=true
+
+[[redirects]]
+ from="/pt/archi-summit-2022-como-os-lancamentos-da-bmi-fomentam-o-design-e-a-inovacao"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+[[redirects]]
+ from="/pt/a-gama-de-telhas-da-bmi-atualiza-se-com-as-certificacoes-de-produtos-ceramicos"
+ to="https://www.bmigroup.com/pt/blog/a-gama-de-telhas-da-bmi-atualiza-se-com-as-certificacoes-de-produtos-ceramicos/"
+ force=true
+
+[[redirects]]
+ from="/pt/aerotermica-como-funciona-e-quanto-se-pode-economizar"
+ to="https://www.bmigroup.com/pt/blog/aerotermica-como-funciona-e-quanto-se-pode-economizar/"
+ force=true
+
+[[redirects]]
+ from="/pt/5-graus-inclinacao-determinam-tipo-cobertura"
+ to="https://www.bmigroup.com/pt/blog/5-graus-inclinacao-determinam-tipo-cobertura/"
+ force=true
+
+[[redirects]]
+ from="/pt/3-fatores-a-considerar-na-inclinacao-minima-de-uma-cobertura"
+ to="https://www.bmigroup.com/pt/blog/3-fatores-a-considerar-na-inclinacao-minima-de-uma-cobertura/"
+ force=true
+
+[[redirects]]
+ from="/pt/2022-e-visto-como-o-ano-de-ouro-da-reabilitacaoo-de-edificios"
+ to="https://www.bmigroup.com/pt/blog/2022-e-visto-como-o-ano-de-ouro-da-reabilitacaoo-de-edificios/"
+ force=true
+
+[[redirects]]
+ from="/pt/10-telhados-em-destaque-no-cinema"
+ to="https://www.bmigroup.com/pt/blog/10-telhados-em-destaque-no-cinema/"
+ force=true
+
+# if no redirects are found for PT, fall back to relevant root page
+
+[[redirects]]
+ from="/pt"
+ to="https://www.bmigroup.com/pt/blog/"
+ force=true
+
+
+# SPAIN: Redirects from https://blog.bmigroup.com/es to https://www.bmigroup.com/es
+
+[[redirects]]
+ from="/es/yo-me-quedo-en-casa-en-una-casa-sana"
+ to="https://www.bmigroup.com/es/blog/yo-me-quedo-en-casa-en-una-casa-sana/"
+ force=true
+
+[[redirects]]
+ from="/es/wakaflex-un-material-libre-de-plomo"
+ to="https://www.bmigroup.com/es/blog/wakaflex-un-material-libre-de-plomo/"
+ force=true
+
+[[redirects]]
+ from="/es/wakaflex-el-componente-estrella-en-la-impermeabilizacion"
+ to="https://www.bmigroup.com/es/blog/wakaflex-el-componente-estrella-en-la-impermeabilizacion/"
+ force=true
+
+[[redirects]]
+ from="/es/un-jardin-en-tu-tejado-todo-lo-que-debes-saber-para-instalar-y-mantener-tu-cubierta-ajardinada"
+ to="https://www.bmigroup.com/es/blog/un-jardin-en-tu-tejado-todo-lo-que-debes-saber-para-instalar-y-mantener-tu-cubierta-ajardinada"
+ force=true
+
+[[redirects]]
+ from="/es/tpo-mucho-mas-que-impermeabilizacion"
+ to="https://www.bmigroup.com/es/blog/tpo-mucho-mas-que-impermeabilizacion"
+ force=true
+
+[[redirects]]
+ from="/es/top-3-tejas-de-hormigon-mas-vendidas"
+ to="https://www.bmigroup.com/es/blog/top-3-tejas-de-hormigon-mas-vendidas/"
+ force=true
+
+[[redirects]]
+ from="/es/todo-lo-que-hay-que-saber-sobre-los-edificios-de-consumo-de-energia-casi-nula-y-sus-cubiertas"
+ to="https://www.bmigroup.com/es/blog/todo-lo-que-hay-que-saber-sobre-los-edificios-de-consumo-de-energia-casi-nula-y-sus-cubiertas"
+ force=true
+
+[[redirects]]
+ from="/es/todo-lo-que-debes-saber-sobre-una-cubierta-verde-inclinada"
+ to="https://www.bmigroup.com/es/blog/todo-lo-que-debes-saber-sobre-una-cubierta-verde-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/es/todo-lo-que-debes-saber-para-la-rehabilitacion-de-tejados?hs_amp=true"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/te-vienes-de-ruta"
+ to="https://www.bmigroup.com/es/blog/te-vienes-de-ruta/"
+ force=true
+
+[[redirects]]
+ from="/es/tejas-s10-y-piemontesa-formato-de-teja-curva-pequena"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tejados-con-sindrome-post-vacacional-con-el-otono-a-la-vuelta-de-la-esquina-preparalos-para-la-nueva-estacion/"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tejados-con-sindrome-post-vacacional-con-el-otono-a-la-vuelta-de-la-esquina-preparalos-para-la-nueva-estacion"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tectum-first-primer-y-unico-sistema-con-certificacion-passivhaus-en-espa%C3%B1a"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/te-animas-a-colocar-placas-solares-en-tu-cubierta-te-damos-algunos-motivos-y-consejos-para-hacerlo-correctamente"
+ to="https://www.bmigroup.com/es/blog/te-animas-a-colocar-placas-solares-en-tu-cubierta-te-damos-algunos-motivos-y-consejos-para-hacerlo-correctamente"
+ force=true
+
+[[redirects]]
+ from="/es/tag/v%C3%ADdeos"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-plana/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-plana/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-plana/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-plana/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-plana"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-inclinada/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-inclinada/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-inclinada/page/1"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/soluciones-cubierta-inclinada"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/9"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/8"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/6"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/17"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/16"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/14"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/11"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales/page/1"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/profesionales"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/9"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/8"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/6"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/12"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/11"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares/page/10"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/particulares"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/inclinadas"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/6"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana/page/1"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-plana"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/9"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/8"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/6"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada/page/11"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/cubierta-inclinada"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/casos-exito-internacionales"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/casos-de-%C3%A9xito-nacionales"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/casos-de-%C3%A9xito-internacionales"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/casos-de-%C3%A9xito/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/tag/casos-de-%C3%A9xito"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/sumate-a-la-tendencia-en-2021-cubiertas-sostenibles-y-eficientes"
+ to="https://www.bmigroup.com/es/blog/sumate-a-la-tendencia-en-2021-cubiertas-sostenibles-y-eficientes/"
+ force=true
+
+[[redirects]]
+ from="/es/sostenibilidad-de-la-teja-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/sostenibilidad-de-la-teja-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/soluciones-para-que-tu-cubierta-gane-en-eficiencia-energetica"
+ to="https://www.bmigroup.com/es/blog/soluciones-para-que-tu-cubierta-gane-en-eficiencia-energetica/"
+ force=true
+
+[[redirects]]
+ from="/es/soluciones-para-cubierta-con-las-que-luchar-contra-el-cambio-climatico/"
+ to="https://www.bmigroup.com/es/blog/soluciones-para-cubierta-con-las-que-luchar-contra-el-cambio-climatico"
+ force=true
+
+[[redirects]]
+ from="/es/soluciones-para-cubierta-con-las-que-luchar-contra-el-cambio-climatico"
+ to="https://www.bmigroup.com/es/blog/soluciones-para-cubierta-con-las-que-luchar-contra-el-cambio-climatico"
+ force=true
+
+[[redirects]]
+ from="/es/sistema-tectum-plus-la-solucion-para-cubiertas-de-baja-pendiente"
+ to="https://www.bmigroup.com/es/blog/sistema-tectum-plus-la-solucion-para-cubiertas-de-baja-pendiente/"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-tectum-la-mejor-opcion-para-cubiertas-inclinadas"
+ to="https://www.bmigroup.com/es/blog/sistemas-tectum-la-mejor-opcion-para-cubiertas-inclinadas/"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-fotovoltaicos-una-tendencia-en-alza"
+ to="https://www.bmigroup.com/es/blog/sistemas-fotovoltaicos-una-tendencia-en-alza/"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-de-fijacion-de-la-teja-a-la-cubierta-hablamos-de-la-fijacion-mecanica"
+ to="https://www.bmigroup.com/es/blog/sistemas-de-fijacion-de-la-teja-a-la-cubierta-hablamos-de-la-fijacion-mecanica"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-de-cubiertas-para-ahorrar-tiempo-y-dinero"
+ to="https://www.bmigroup.com/es/blog/sistemas-de-cubiertas-para-ahorrar-tiempo-y-dinero/"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-como-se-adaptaron-a-la-industrializacion-de-la-construccion?hs_amp=true"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/sistemas-como-se-adaptaron-a-la-industrializacion-de-la-construccion"
+ to="https://www.bmigroup.com/es/blog/sistemas-como-se-adaptaron-a-la-industrializacion-de-la-construccion/"
+ force=true
+
+[[redirects]]
+ from="/es/se-buscan-instaladores-cualificados-profesionales-y-especializados"
+ to="https://www.bmigroup.com/es/blog/se-buscan-instaladores-cualificados-profesionales-especializados"
+ force=true
+
+[[redirects]]
+ from="/es/sealoflex-como-concepto-cool-roof"
+ to="https://www.bmigroup.com/es/blog/sealoflex-como-concepto-cool-roof/"
+ force=true
+
+[[redirects]]
+ from="/es/sabes-todo-lo-que-una-cubierta-puede-ser"
+ to="https://www.bmigroup.com/es/blog/sabes-todo-lo-que-una-cubierta-puede-ser/"
+ force=true
+
+[[redirects]]
+ from="/es/sabes-lo-que-es-el-pir"
+ to="https://www.bmigroup.com/es/blog/sabes-lo-que-es-el-pir"
+ force=true
+
+[[redirects]]
+ from="/es/sabes-cuales-han-son-las-tendencias-en-cubierta-que-estan-en-el-top5-de-2018"
+ to="https://www.bmigroup.com/es/blog/top-5-tendencias-en-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/resumen-de-las-modificaciones-del-cte"
+ to="https://www.bmigroup.com/es/blog/resumen-de-las-modificaciones-del-cte/"
+ force=true
+
+[[redirects]]
+ from="/es/resumen-de-las-medidas-adoptadas-en-espana-frente-al-impacto-economico-y-social-del-covid-19"
+ to="https://www.bmigroup.com/es/blog/resumen-de-las-medidas-adoptadas-en-espana-frente-al-impacto-economico-y-social-del-covid-19/"
+ force=true
+
+[[redirects]]
+ from="/es/reparacion-cubiertas-como-corregir-anomalias-en-tejados-tras-las-nevadas"
+ to="https://www.bmigroup.com/es/blog/reparacion-cubiertas-como-corregir-anomalias-en-tejados-tras-las-nevadas/"
+ force=true
+
+[[redirects]]
+ from="/es/remates-cubierta-como-nos-ayudan-a-integrar-el-tejado-las-piezas-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/remates-cubierta-como-nos-ayudan-a-integrar-el-tejado-las-piezas-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitar-para-mejorar-el-aislamiento-termico-en-edificios-como-conseguirlo-de-la-mejor-forma"
+ to="https://www.bmigroup.com/es/blog/rehabilitar-para-mejorar-el-aislamiento-termico-en-edificios-como-conseguirlo-de-la-mejor-forma/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-del-tejado-del-convento-madre-de-dios-en-sevilla"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-del-tejado-del-convento-madre-de-dios-en-sevilla/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-del-tejado-de-la-diputacion-de-jaen-con-tectum-pro"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-del-tejado-de-la-diputacion-de-jaen-con-tectum-pro/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-del-pabellon-del-hospital-de-basurto-en-bilbao?hs_amp=true"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-del-pabellon-del-hospital-de-basurto-en-bilbao"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-del-pabellon-del-hospital-de-basurto-en-bilbao/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-del-molino-de-enmedio-tradicion-y-eficiencia-energetica-en-el-dia-mundial-de-la-arquitectura"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-del-molino-de-enmedio-tradicion-y-eficiencia-energetica-en-el-dia-mundial-de-la-arquitectura"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-de-la-cubierta-plana-del-ikea-de-zaragoza"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-de-la-cubierta-plana-del-ikea-de-zaragoza/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-de-edificios-historicos-tejados-que-son-arte"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-de-edificios-historicos-tejados-que-son-arte/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-de-cubierta-plana-en-caceres-con-parafor"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-de-cubierta-plana-en-caceres-con-parafor/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-de-cubierta-plana-con-paradiene-en-vigo"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-de-cubierta-plana-con-paradiene-en-vigo/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-de-cubierta-con-sistemas-de-evacuacion-por-succion"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-de-cubierta-con-sistemas-de-evacuacion-por-succion/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-con-teja-de-hormigon-puntos-a-tener-en-cuenta"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-con-teja-de-hormigon-puntos-a-tener-en-cuenta/"
+ force=true
+
+[[redirects]]
+ from="/es/rehabilitacion-con-teja-de-hormigon-claves-un-buen-resultado"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-con-teja-de-hormigon-claves-un-buen-resultado/"
+ force=true
+
+[[redirects]]
+ from="/es/reflectancia-solar-materiales-que-absorben-el-calor-y-proporcionan-confort-a-tu-vivienda-2"
+ to="https://www.bmigroup.com/es/blog/reflectancia-solar-materiales-que-absorben-el-calor-y-proporcionan-confort"
+ force=true
+
+[[redirects]]
+ from="/es/reflectancia-solar-materiales-que-absorben-el-calor-y-proporcionan-confort-a-tu-vivienda"
+ to="https://www.bmigroup.com/es/blog/reflectancia-solar-materiales-que-absorben-el-calor-y-proporcionan-confort"
+ force=true
+
+[[redirects]]
+ from="/es/recuperacion-de-producto-rechazado-en-teja-de-hormigon-la-permacultura-aplicada"
+ to="https://www.bmigroup.com/es/blog/recuperacion-de-producto-rechazado-en-teja-de-hormigon-la-permacultura-aplicada/"
+ force=true
+
+[[redirects]]
+ from="/es/recomendaciones-para-la-colocacion-de-tejas-de-hormigon-rastreles"
+ to="https://www.bmigroup.com/es/blog/recomendaciones-para-la-colocacion-de-tejas-de-hormigon-rastreles/"
+ force=true
+
+[[redirects]]
+ from="/es/reciclado-de-tejas-del-tejado-de-la-iglesia-a-la-pista-en-la-que-triunfa-rafa-nadal"
+ to="https://www.bmigroup.com/es/blog/reciclado-de-tejas-del-tejado-de-la-iglesia-a-la-pista-en-la-que-triunfa-rafa-nadal/"
+ force=true
+
+[[redirects]]
+ from="/es/rebuild-2022-novedades-de-bmi-y-como-impulsamos-el-cambio-del-sector"
+ to="https://www.bmigroup.com/es/blog/rebuild-2022-novedades-de-bmi-y-como-impulsamos-el-cambio-del-sector/"
+ force=true
+
+[[redirects]]
+ from="/es/quieres-disfrutar-del-confort-termico-del-mejor-aislamiento-pero-con-menor-espesor-con-tectum-first-menos-es-mas"
+ to="https://www.bmigroup.com/es/blog/quieres-disfrutar-del-confort-termico-del-mejor-aislamiento-pero-con-menor-espesor-con-tectum-first-menos-es-mas"
+ force=true
+
+[[redirects]]
+ from="/es/quien-dijo-que-las-tejas-solo-podian-ir-en-el-tejado-teja-plana-en-fachada"
+ to="https://www.bmigroup.com/es/blog/quien-dijo-que-las-tejas-solo-podian-ir-en-el-tejado-teja-plana-en-fachada"
+ force=true
+
+[[redirects]]
+ from="/es/que-necesita-una-cubierta-para-ser-passivhaus"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/que-hay-que-tener-en-cuenta-para-establecer-la-pendiente-minima-de-la-cubierta"
+ to="https://www.bmigroup.com/es/blog/que-hay-que-tener-en-cuenta-para-establecer-la-pendiente-minima-de-la-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/que-es-la-heladicidad-como-puedo-evitar-que-dane-mi-cubierta"
+ to="https://www.bmigroup.com/es/blog/que-es-la-heladicidad-como-puedo-evitar-que-dane-mi-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/que-es-la-certificacion-leed-de-edificios"
+ to="https://www.bmigroup.com/es/blog/que-es-la-certificacion-leed-de-edificios/"
+ force=true
+
+[[redirects]]
+ from="/es/que-es-el-gas-radon-y-los-sistemas-de-proteccion-monarflex"
+ to="https://www.bmigroup.com/es/blog/que-es-el-gas-radon-y-los-sistemas-de-proteccion-monarflex/"
+ force=true
+
+[[redirects]]
+ from="/es/que-es-el-efecto-isla-de-calor-y-como-reducirlo-gracias-a-tu-cubierta"
+ to="https://www.bmigroup.com/es/blog/que-es-el-efecto-isla-de-calor-y-como-reducirlo-gracias-a-tu-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/que-es-el-confort-termico-y-como-lograrlo"
+ to="https://www.bmigroup.com/es/blog/que-es-el-confort-termico-y-cómo-lograrlo"
+ force=true
+
+[[redirects]]
+ from="/es/puntos-clave-para-el-mantenimiento-de-la-cubierta-en-invierno"
+ to="https://www.bmigroup.com/es/blog/puntos-clave-para-el-mantenimiento-de-la-cubierta-en-invierno/"
+ force=true
+
+[[redirects]]
+ from="/es/principales-incentivos-fiscales-en-la-compra-y-rehabilitacion-de-viviendas"
+ to="https://www.bmigroup.com/es/blog/principales-incentivos-fiscales"
+ force=true
+
+[[redirects]]
+ from="/es/prestaciones-basicas-para-tu-cubierta"
+ to="https://www.bmigroup.com/es/blog/prestaciones-basicas-para-tu-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/por-que-instalar-hormigon-en-un-clima-frio"
+ to="https://www.bmigroup.com/es/blog/por-que-instalar-hormigon-en-un-clima-frio/"
+ force=true
+
+[[redirects]]
+ from="/es/por-que-elegir-tejas-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/por-que-elegir-tejas-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/piezas-imprescindibles-para-completar-tu-tejado-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/piezas-imprescindibles-para-completar-tu-tejado-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/pasillos-de-transito-caminar-sobre-seguro"
+ to="https://www.bmigroup.com/es/blog/pasillos-de-transito-caminar-sobre-seguro"
+ force=true
+
+[[redirects]]
+ from="/es/participacion-de-carlos-hernandez-en-was-action"
+ to="https://www.bmigroup.com/es/blog/participacion-de-carlos-hernandez-en-was-action/"
+ force=true
+
+[[redirects]]
+ from="/es/participacion-de-carlos-hernandez-en-capital-radio?hs_amp=true"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/participacion-de-carlos-hernandez-en-capital-radio"
+ to="https://www.bmigroup.com/es/blog/participacion-de-carlos-hernandez-en-capital-radio/"
+ force=true
+
+[[redirects]]
+ from="/es/paneles-fotovoltaicos-en-cubiertas-la-solucion-para-ahorrar-en-tu-factura-de-luz"
+ to="https://www.bmigroup.com/es/blog/paneles-fotovoltaicos-en-cubiertas-la-solucion-para-ahorrar-en-tu-factura-de-luz/"
+ force=true
+
+[[redirects]]
+ from="/es/paletizado-vertical-id-al-servicio-del-cliente"
+ to="https://www.bmigroup.com/es/blog/paletizado-vertical-i+d-al-servicio-del-cliente"
+ force=true
+
+[[redirects]]
+ from="/es/page/9"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/8"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/6"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/26"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/25"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/24"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/23"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/22"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/20"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/2"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/19"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/18"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/17"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/16"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/15"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/14"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/13"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/12"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/11"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/10"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/page/0"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/ondatherm-deck-everguard-un-nuevo-sistema-de-cubierta-deck"
+ to="https://www.bmigroup.com/es/blog/ondatherm-deck-everguard-un-nuevo-sistema-de-cubierta-deck"
+ force=true
+
+[[redirects]]
+ from="/es/obra-nueva-en-gernika-con-el-sistema-tectum-first"
+ to="https://www.bmigroup.com/es/blog/obra-nueva-en-gernika-con-el-sistema-tectum-first/"
+ force=true
+
+[[redirects]]
+ from="/es/nuevos-modelos-tejas-s10-y-piemontesa"
+ to="https://www.bmigroup.com/es/blog/nuevos-modelos-tejas-s10-y-piemontesa/"
+ force=true
+
+[[redirects]]
+ from="/es/nueva-teja-logica-plana"
+ to="https://www.bmigroup.com/es/blog/nueva-teja-logica-plana/"
+ force=true
+
+[[redirects]]
+ from="/es/nox-activ-y-la-fotocatalisis-soluciones-de-cubierta-que-descontaminan"
+ to="https://www.bmigroup.com/es/blog/nox-activ-y-la-fotocatalisis-soluciones-de-cubierta-que-descontaminan/"
+ force=true
+
+[[redirects]]
+ from="/es/nox-activ-que-es-y-para-que-sirve"
+ to="https://www.bmigroup.com/es/blog/nox-activ-que-es-y-para-que-sirve/"
+ force=true
+
+[[redirects]]
+ from="/es/mortero-vs-montaje-en-seco-cual-es-la-mejor-opcion-para-mi-cubierta"
+ to="https://www.bmigroup.com/es/blog/mortero-vs-montaje-en-seco-cual-es-la-mejor-opcion-para-mi-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/mi-tejado-esta-garantizado-estas-seguro"
+ to="https://www.bmigroup.com/es/blog/mi-tejado-esta-garantizado-estas-seguro"
+ force=true
+
+[[redirects]]
+ from="/es/mini-guia-actualizacion-lineas-de-underlays-o-laminas-bajo-teja"
+ to="https://www.bmigroup.com/es/blog/mini-guia-actualizacion-lineas-de-underlays-o-laminas-bajo-teja/"
+ force=true
+
+[[redirects]]
+ from="/es/metaroll-maximas-prestaciones-en-lineas-de-cumbrera-para-tejados-vanguardistas"
+ to="https://www.bmigroup.com/es/blog/metaroll-maximas-prestaciones-en-lineas-de-cumbrera-para-tejados-vanguardistas/"
+ force=true
+
+[[redirects]]
+ from="/es/medidas-de-proteccion-y-prevencion-en-el-sector-de-la-construccion"
+ to="https://www.bmigroup.com/es/blog/medidas-de-proteccion-y-prevencion-en-el-sector-de-la-construccion/"
+ force=true
+
+[[redirects]]
+ from="/es/mayor-eficiencia-energetica-en-el-nuevo-cte-que-tambien-afecta-a-las-cubiertas"
+ to="https://www.bmigroup.com/es/blog/mayor-eficiencia-energetica-en-el-nuevo-cte-que-tambien-afecta-a-las-cubiertas/"
+ force=true
+
+[[redirects]]
+ from="/es/materiales-reciclables-para-construir-como-contribucion-al-ods-12-produccion-y-consumo-responsable"
+ to="https://www.bmigroup.com/es/blog/materiales-reciclables-para-construir-como-contribucion-al-ods-12-produccion-y-consumo-responsable/"
+ force=true
+
+[[redirects]]
+ from="/es/materiales-aislantes-para-aumentar-el-confort"
+ to="https://www.bmigroup.com/es/blog/materiales-aislantes-para-aumentar-el-confort"
+ force=true
+
+[[redirects]]
+ from="/es/los-tejados-tradicionales-se-rinden-ante-tectum-pro"
+ to="https://www.bmigroup.com/es/blog/los-tejados-tradicionales-se-rinden-ante-tectum-pro/"
+ force=true
+
+[[redirects]]
+ from="/es/los-edificios-nos-ponen-malos-hablamos-del-sindrome-del-edificio-enfermo"
+ to="https://www.bmigroup.com/es/blog/síndrome-del-edificio-enfermo"
+ force=true
+
+[[redirects]]
+ from="/es/llega-llega-la-navidad-consejos-para-instalar-la-decoracion-sobre-la-cubierta"
+ to="https://www.bmigroup.com/es/blog/consejos-para-instalar-la-decoración-sobre-la-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/llega-a-la-bmi-academy-el-programa-de-formacion-sobre-membranas-bituminosas"
+ to="https://www.bmigroup.com/es/blog/llega-a-la-bmi-academy-el-programa-de-formacion-sobre-membranas-bituminosas/"
+ force=true
+
+[[redirects]]
+ from="/es/lista-de-regalos-para-papa-noel/"
+ to="https://www.bmigroup.com/es/blog/lista-de-regalos-para-papa-noel"
+ force=true
+
+[[redirects]]
+ from="/es/lista-de-regalos-para-papa-noel"
+ to="https://www.bmigroup.com/es/blog/lista-de-regalos-para-papa-noel"
+ force=true
+
+[[redirects]]
+ from="/es/levantamiento-de-restricciones-en-obras-de-rehabilitacion-y-reforma"
+ to="https://www.bmigroup.com/es/blog/levantamiento-de-restricciones-en-obras-de-rehabilitacion-y-reforma/"
+ force=true
+
+[[redirects]]
+ from="/es/larga-vida-a-la-teja"
+ to="https://www.bmigroup.com/es/blog/larga-vida-a-la-teja/"
+ force=true
+
+[[redirects]]
+ from="/es/la-rehabilitacion-protagonista-de-la-transformacion-del-sector"
+ to="https://www.bmigroup.com/es/blog/la-rehabilitacion-protagonista-de-la-transformacion-del-sector/"
+ force=true
+
+[[redirects]]
+ from="/es/lanzamiento-everguard-tpo-extreme"
+ to="https://www.bmigroup.com/es/blog/lanzamiento-everguard-tpo-extreme/"
+ force=true
+
+[[redirects]]
+ from="/es/laminas-sinteticas-de-pvc-frente-a-tpo-cual-se-adapta-mejor-a-las-necesidades-de-mi-cubierta"
+ to="https://www.bmigroup.com/es/blog/laminas-sintticas-de-pvc-frente-a-tpo"
+ force=true
+
+[[redirects]]
+ from="/es/laminas-de-drenaje-en-cubiertas-vegetales"
+ to="https://www.bmigroup.com/es/blog/laminas-de-drenaje-en-cubiertas-vegetales/"
+ force=true
+
+[[redirects]]
+ from="/es/laminas-bajo-teja-como-valorar-su-calidad-y-sus-mejores-prestaciones"
+ to="https://www.bmigroup.com/es/blog/laminas-bajo-teja-como-valorar-su-calidad-y-sus-mejores-prestaciones/"
+ force=true
+
+[[redirects]]
+ from="/es/la-importancia-de-las-definiciones-en-memorias-descriptivas"
+ to="https://www.bmigroup.com/es/blog/la-importancia-de-las-definiciones-en-memorias-descriptivas/"
+ force=true
+
+[[redirects]]
+ from="/es/la-historia-de-las-tejas-de-ceramica"
+ to="https://www.bmigroup.com/es/blog/ceramica-u-hormigon-que-teja-es-la-mas-resistente"
+ force=true
+
+[[redirects]]
+ from="/es/la-gama-de-tejas-de-bmi-se-actualiza-con-las-certificaciones-de-productos-cer%C3%A1micos"
+ to="https://www.bmigroup.com/es/blog/la-gama-de-tejas-de-bmi-se-actualiza-con-las-certificaciones-de-productos-cer%C3%A1micos/"
+ force=true
+
+[[redirects]]
+ from="/es/la-evolucion-esta-aqui-cubiertas-microventiladas-de-teja-ceramica"
+ to="https://www.bmigroup.com/es/blog/la-evolucion-esta-aqui-cubiertas-microventiladas-de-teja-ceramica"
+ force=true
+
+[[redirects]]
+ from="/es/la-cubierta-de-tu-casa-antes-durante-y-despues-del-proyecto"
+ to="https://www.bmigroup.com/es/blog/la-cubierta-de-tu-casa-antes-durante-y-despues-del-proyecto/"
+ force=true
+
+[[redirects]]
+ from="/es/la-apuesta-de-bmi-por-la-industrializacion-y-su-ingreso-en-la-plataforma-de-industrializacion-de-la-vivienda"
+ to="https://www.bmigroup.com/es/blog/la-apuesta-de-bmi-por-la-industrializacion-y-su-ingreso-en-la-plataforma-de-industrializacion-de-la-vivienda/"
+ force=true
+
+[[redirects]]
+ from="/es/la-agenda-otonal-se-llena-de-eventos-sobre-edificacion-sostenible"
+ to="https://www.bmigroup.com/es/blog/la-agenda-otonal-se-llena-de-eventos-sobre-edificacion-sostenible"
+ force=true
+
+[[redirects]]
+ from="/es/instalacion-fotovoltaica-en-cubierta-plana"
+ to="https://www.bmigroup.com/es/blog/instalacion-fotovoltaica-en-cubierta-plana/"
+ force=true
+
+[[redirects]]
+ from="/es/instalaciones-solares-y-autoconsumo-que-dice-la-normativa-al-respecto"
+ to="https://www.bmigroup.com/es/blog/instalaciones-solares-y-autoconsumo-normativa"
+ force=true
+
+[[redirects]]
+ from="/es/instalacion-de-la-cubierta-plana-de-puy-du-fou-espa%C3%B1a-con-lamina-de-pvc"
+ to="https://www.bmigroup.com/es/blog/instalacion-de-la-cubierta-plana-de-puy-du-fou-espa%C3%B1a-con-lamina-de-pvc/"
+ force=true
+
+[[redirects]]
+ from="/es/innovacion-en-dise%C3%B1o-de-cubiertas-nueva-gama-de-tejas-logica-emotions"
+ to="https://www.bmigroup.com/es/blog/innovacion-en-diseño-de-cubiertas-nueva-gama-de-tejas-logica-emotions"
+ force=true
+
+[[redirects]]
+ from="/es/innotech-una-teja-para-el-siglo-xxi"
+ to="https://www.bmigroup.com/es/blog/innotech-una-teja-para-el-siglo-xxi/"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizar-para-ahorrar-energia"
+ to="https://www.bmigroup.com/es/blog/impermeabilizar-para-ahorrar-energia"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-mediante-membranas-liquidas-liquid-applied-waterproofing-law/"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-mediante-membranas-líquidas"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-mediante-membranas-liquidas-liquid-applied-waterproofing-law"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-mediante-membranas-líquidas"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-liquida-en-tu-tejado-cuando-y-como-usarla"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-liquida-en-tu-tejado-cuando-y-como-usarla"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-de-las-cubiertas-de-la-base-naval-de-rota-una-rehabilitacion-win-to-win"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-de-las-cubiertas-de-la-base-naval-de-rota-una-rehabilitacion"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-de-cubiertas"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-de-cubiertas"
+ force=true
+
+[[redirects]]
+ from="/es/impermeabilizacion-de-cubierta-plana-puntos-singulares-con-sealoflex-ultima"
+ to="https://www.bmigroup.com/es/blog/impermeabilizacion-de-cubierta-plana-puntos-singulares-con-sealoflex-ultima/"
+ force=true
+
+[[redirects]]
+ from="/es/hostal-la-salle-rehabilitacion-de-una-cubierta-singular-en-pleno-casco-historico-de-santiago-de-compostela"
+ to="https://www.bmigroup.com/es/blog/hostal-la-salle-rehabilitacion-de-una-cubierta-singular-en-pleno-casco-historico-de-santiago-de-compostela"
+ force=true
+
+[[redirects]]
+ from="/es/herramientas-de-calculo-y-ventajas-del-soporte-tecnico-en-proyectos-de-cubierta"
+ to="https://www.bmigroup.com/es/blog/herramientas-de-calculo-y-ventajas-del-soporte-tecnico-en-proyectos-de-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/hablamos-de-lambdas-que-nos-dicen-la-conductividad-y-la-resistencia-termicas-sobre-un-material-aislante"
+ to="https://www.bmigroup.com/es/blog/hablamos-de-lambdas-que-nos-dicen-la-conductividad-y-la-resistencia-termicas-sobre-un-material-aislante."
+ force=true
+
+[[redirects]]
+ from="/es/gas-radon-que-es-y-como-puedo-proteger-mi-vivienda-frente-a-el"
+ to="https://www.bmigroup.com/es/blog/gas-radon-que-es-y-como-puedo-proteger-mi-vivienda-frente-a-el/"
+ force=true
+
+[[redirects]]
+ from="/es/gama-bmi-sealoflex-lo-ultimo-en-impermeabilizacion-liquida"
+ to="https://www.bmigroup.com/es/blog/gama-bmi-sealoflex-impermeabilizacion-liquida"
+ force=true
+
+[[redirects]]
+ from="/es/formacion-antes-durante-y-despues-el-gran-reto-del-sector-de-la-construccion"
+ to="https://www.bmigroup.com/es/blog/formacion-antes-durante-y-despues-el-gran-reto-del-sector-de-la-construccion/"
+ force=true
+
+[[redirects]]
+ from="/es/fondos-europeos-y-vivienda-la-apuesta-de-bmi"
+ to="https://www.bmigroup.com/es/blog/fondos-europeos-y-vivienda-la-apuesta-de-bmi/"
+ force=true
+
+[[redirects]]
+ from="/es/fijacion-mixta-en-cubiertas-con-everguard-tpo"
+ to="https://www.bmigroup.com/es/blog/fijacion-mixta-en-cubiertas-con-everguard-tpo/"
+ force=true
+
+[[redirects]]
+ from="/es/esta-preparado-tu-tejado-para-el-invierno-te-lo-contamos/"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/esta-preparado-tu-tejado-para-el-invierno-te-lo-contamos"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/es-obligatorio-el-uso-de-la-linea-de-vida"
+ to="https://www.bmigroup.com/es/blog/es-obligatorio-el-uso-de-la-linea-de-vida/"
+ force=true
+
+[[redirects]]
+ from="/es/en-el-dia-mundial-de-la-eficiencia-energetica-rehabilitacion-rehabilitacion-rehabilitacion"
+ to="https://www.bmigroup.com/es/blog/rehabilitacion-del-molino-de-enmedio-tradicion-y-eficiencia-energetica-en-el-dia-mundial-de-la-arquitectura"
+ force=true
+
+[[redirects]]
+ from="/es/en-cubiertas-apuesta-al-verde/"
+ to="https://www.bmigroup.com/es/blog/cubiertas-apuesta-al-verde"
+ force=true
+
+[[redirects]]
+ from="/es/en-cubiertas-apuesta-al-verde"
+ to="https://www.bmigroup.com/es/blog/cubiertas-apuesta-al-verde"
+ force=true
+
+[[redirects]]
+ from="/es/el-sistema-bmi-everguard-en-edifica21"
+ to="https://www.bmigroup.com/es/blog/el-sistema-bmi-everguard-en-edifica21/"
+ force=true
+
+[[redirects]]
+ from="/es/el-presente-inmediato-la-arquitectura-bioclimatica"
+ to="https://www.bmigroup.com/es/blog/el-presente-inmediato-la-arquitectura-bioclimatica/"
+ force=true
+
+[[redirects]]
+ from="/es/el-poder-de-las-laminas-de-drenaje"
+ to="https://www.bmigroup.com/es/blog/poder-de-las-láminas-de-drenaje"
+ force=true
+
+[[redirects]]
+ from="/es/elijo-un-panel-de-chapa-metalica-o-un-sistema-de-cubierta-completo-te-explicamos-todas-las-ventajas-e-inconvenientes-para-que-aciertes-con-tu-decisi"
+ to="https://www.bmigroup.com/es/blog/elijo-un-panel-de-chapa-metalica-o-un-sistema-de-cubierta-completo"
+ force=true
+
+[[redirects]]
+ from="/es/elementos-necesarios-para-sistemas-de-cubierta-con-teja-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/elementos-necesarios-para-sistemas-de-cubierta-con-teja-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/el-dit-el-documento-de-calidad-en-la-construccion"
+ to="https://www.bmigroup.com/es/blog/el-dit-el-documento-de-calidad-en-la-construccion"
+ force=true
+
+[[redirects]]
+ from="/es/el-diccionario-de-los-elementos-de-mi-cubierta-de-la-a-de-aislante-a-t-de-teja-ceramica"
+ to="https://www.bmigroup.com/es/blog/el-diccionario-de-los-elementos-de-mi-cubierta-de-la-a-de-aislante-a-t-de-teja-ceramica"
+ force=true
+
+[[redirects]]
+ from="/es/ejemplo-de-interpretacion-de-la-ficha-de-certificacion-aenor"
+ to="https://www.bmigroup.com/es/blog/ejemplo-de-interpretacion-de-la-ficha-de-certificacion-aenor/"
+ force=true
+
+[[redirects]]
+ from="/es/ejemplo-de-casa-con-estandar-passivhaus-en-las-rozas-madrid"
+ to="https://www.bmigroup.com/es/blog/ejemplo-de-casa-con-estandar-passivhaus-en-las-rozas-madrid/"
+ force=true
+
+[[redirects]]
+ from="/es/eficiencia-energetica-y-sostenibilidad-arquitectura-sostenible"
+ to="https://www.bmigroup.com/es/blog/eficiencia-energetica-y-sostenibilidad-arquitectura-sostenible/"
+ force=true
+
+[[redirects]]
+ from="/es/eficiencia-energetica-como-se-calcula-la-envolvente-termica-de-la-cubierta"
+ to="https://www.bmigroup.com/es/blog/eficiencia-energetica-como-se-calcula-la-envolvente-termica-de-la-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/edificios-sostenibles-con-divoroll-biolaytec"
+ to="https://www.bmigroup.com/es/blog/edificios-sostenibles-con-divoroll-biolaytec/"
+ force=true
+
+[[redirects]]
+ from="/es/drones-en-la-edificacion-la-ayuda-que-llega-volando"
+ to="https://www.bmigroup.com/es/blog/drones-en-la-edificacion-la-ayuda-que-llega-volando"
+ force=true
+
+[[redirects]]
+ from="/es/dos-aliados-perfectos-sistema-tectum-pro-y-portfolio-de-tejas-bmi-cobert"
+ to="https://www.bmigroup.com/es/blog/dos-aliados-perfectos-sistema-tectum-pro-y-portfolio-de-tejas-bmi-cobert/"
+ force=true
+
+[[redirects]]
+ from="/es/dinos-que-tipo-de-cubierta-plana-tienes-y-te-diremos-que-tipo-de-impermeabilizacion-necesitas"
+ to="https://www.bmigroup.com/es/blog/que-tipo-de-cubierta-plana-tienes-y-te-diremos-que-tipo-de-impermeabilizacion-necesitas"
+ force=true
+
+[[redirects]]
+ from="/es/dime-en-que-zona-vives-y-te-dire-que-tipo-de-teja-usar"
+ to="https://www.bmigroup.com/es/blog/dime-en-que-zona-vives-y-te-dire-que-tipo-de-teja-usar/"
+ force=true
+
+[[redirects]]
+ from="/es/dime-en-que-zona-vives-y-te-dire-que-cubierta-necesitas"
+ to="https://www.bmigroup.com/es/blog/dime-en-que-zona-vives-y-te-dire-que-cubierta-necesitas"
+ force=true
+
+[[redirects]]
+ from="/es/despresurizacion-del-terreno-como-solucion-para-el-gas-radon"
+ to="https://www.bmigroup.com/es/blog/despresurizacion-del-terreno-como-solucion-para-el-gas-radon/"
+ force=true
+
+[[redirects]]
+ from="/es/descubre-la-gama-de-tejas-de-hormigon-evolution"
+ to="https://www.bmigroup.com/es/blog/descubre-la-gama-de-tejas-de-hormigon-evolution/"
+ force=true
+
+[[redirects]]
+ from="/es/desarrollo-sostenible-y-bmi-dos-piezas-perfectamente-alineadas"
+ to="https://www.bmigroup.com/es/blog/desarrollo-sostenible-y-bmi-dos-piezas-perfectamente-alineadas"
+ force=true
+
+[[redirects]]
+ from="/es/de-900e-a-200e-como-ahorrar-un-785-en-calefaccion-con-una-vivienda-passivhaus"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/cursos-gratuitos-para-instaladores-de-cubierta-inclinada-en-bmi-academy-sistema-tectum-pro-y-tectum-first"
+ to="https://www.bmigroup.com/es/blog/cursos-gratuitos-para-instaladores-de-cubierta-inclinada-en-bmi-academy-sistema-tectum-pro-y-tectum-first/"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-sostenibles-que-debo-de-tener-en-cuenta-en-su-diseno"
+ to="https://www.bmigroup.com/es/blog/cubiertas-sostenibles-que-debo-de-tener-en-cuenta-en-su-diseño"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-inclinadas-vs-cubiertas-planas-el-debate-final"
+ to="https://www.bmigroup.com/es/blog/cubiertas-inclinadas-vs-cubiertas-planas-el-debate-final/"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-eficientes-passivhaus-invertir-para-ahorrar"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-ecologicas-extensivas-enfriamiento-pasivo"
+ to="https://www.bmigroup.com/es/blog/cubiertas-ecologicas-extensivas-enfriamiento-pasivo"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-a-prueba-de-lluvia-que-debo-de-tener-en-cuenta-para-reparar-el-sistema-de-impermeabilizacion"
+ to="https://www.bmigroup.com/es/blog/cubiertas-a-prueba-de-lluvia-que-debo-de-tener-en-cuenta-para-reparar-el-sistema-de-impermeabilizacion"
+ force=true
+
+[[redirects]]
+ from="/es/cubiertas-ajardinadas-extensivas-e-intensivas-cual-es-tu-solucion"
+ to="https://www.bmigroup.com/es/blog/cubiertas-ajardinadas"
+ force=true
+
+[[redirects]]
+ from="/es/cubierta-passivhaus"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/cubierta-inclinada-y-sistemas-fotovoltaicos-una-pareja-ganadora"
+ to="https://www.bmigroup.com/es/blog/cubierta-inclinada-y-sistemas-fotovoltaicos-una-pareja-ganadora/"
+ force=true
+
+[[redirects]]
+ from="/es/cubierta-aljibe-aprovecha-el-agua-de-lluvia-y-mejora-la-eficiencia-de-tu-edificio"
+ to="https://www.bmigroup.com/es/blog/cubierta-aljibe"
+ force=true
+
+[[redirects]]
+ from="/es/cuando-debe-usarse-la-teja-ceramica-siliconada"
+ to="https://www.bmigroup.com/es/blog/cuando-debe-usarse-la-teja-ceramica-siliconada/"
+ force=true
+
+[[redirects]]
+ from="/es/cual-es-el-mejor-material-para-la-fijacion-de-tejas"
+ to="https://www.bmigroup.com/es/blog/cual-es-el-mejor-material-para-la-fijacion-de-tejas/"
+ force=true
+
+[[redirects]]
+ from="/es/cu%C3%A1les-son-los-requisitos-para-que-una-cubierta-ajardinada-sea-eficiente"
+ to="https://www.bmigroup.com/es/blog/cu%C3%A1les-son-los-requisitos-para-que-una-cubierta-ajardinada-sea-eficiente/"
+ force=true
+
+[[redirects]]
+ from="/es/construir-o-rehabilitar-una-cubierta-que-debo-tener-en-cuenta"
+ to="https://www.bmigroup.com/es/blog/construir-o-rehabilitar-una-cubierta-que-debo-tener-en-cuenta"
+ force=true
+
+[[redirects]]
+ from="/es/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad"
+ to="https://www.bmigroup.com/es/blog/conoces-los-conceptos-passivhaus-y-certificaciones-de-sostenibilidad/"
+ force=true
+
+[[redirects]]
+ from="/es/confort-higrotermico-y-arquitectura-como-realizar-calculos-higrotermicos"
+ to="https://www.bmigroup.com/es/blog/confort-higrotermico-y-arquitectura-como-realizar-calculos-higrotermicos/"
+ force=true
+
+[[redirects]]
+ from="/es/como-te-diferencia-profesionalmente-formar-parte-de-bmi-roofpro"
+ to="https://www.bmigroup.com/es/blog/como-te-diferencia-profesionalmente-formar-parte-de-bmi-roofpro"
+ force=true
+
+[[redirects]]
+ from="/es/como-se-define-la-pendiente-minima-para-cubiertas-inclinadas-en-espana"
+ to="https://www.bmigroup.com/es/blog/como-se-define-la-pendiente-minima-para-cubiertas-inclinadas-en-espana/"
+ force=true
+
+[[redirects]]
+ from="/es/como-retirar-el-hielo-y-la-nieve-en-cubierta-plana"
+ to="https://www.bmigroup.com/es/blog/como-retirar-el-hielo-y-la-nieve-en-cubierta-plana/"
+ force=true
+
+[[redirects]]
+ from="/es/como-resolver-la-altura-de-peto-en-los-pasos-de-terraza"
+ to="https://www.bmigroup.com/es/blog/como-resolver-la-altura-de-peto-en-los-pasos-de-terraza"
+ force=true
+
+[[redirects]]
+ from="/es/como-rehabilitar-incorporando-paneles-fotovoltaicos-en-cubierta"
+ to="https://www.bmigroup.com/es/blog/como-rehabilitar-incorporando-paneles-fotovoltaicos-en-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/como-puedo-saber-si-mi-cubierta-cumple-con-todas-las-garantias"
+ to="https://www.bmigroup.com/es/blog/como-puedo-saber-si-mi-cubierta-cumple-con-todas-las-garantias"
+ force=true
+
+[[redirects]]
+ from="/es/como-puede-ayudar-la-nueva-web-al-arquitecto-en-su-dia-a-dia"
+ to="https://www.bmigroup.com/es/blog/como-puede-ayudar-la-nueva-web-al-arquitecto-en-su-dia-a-dia/"
+ force=true
+
+[[redirects]]
+ from="/es/como-no-fallar-al-rematar-una-chimenea"
+ to="https://www.bmigroup.com/es/blog/como-no-fallar-al-rematar-una-chimenea/"
+ force=true
+
+[[redirects]]
+ from="/es/como-instalar-tpo-en-tu-cubierta"
+ to="https://www.bmigroup.com/es/blog/como-instalar-tpo-en-tu-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/como-elegir-la-solucion-de-sistema-de-cubierta-mas-adecuada"
+ to="https://www.bmigroup.com/es/blog/como-elegir-la-solucion-de-sistema-de-cubierta-mas-adecuada/"
+ force=true
+
+[[redirects]]
+ from="/es/como-elegir-el-aislamiento-mas-sostenible-para-la-envolvente-termica"
+ to="https://www.bmigroup.com/es/blog/como-elegir-el-aislamiento-mas-sostenible-para-la-envolvente-termica/"
+ force=true
+
+[[redirects]]
+ from="/es/como-cuidar-tu-cubierta-en-verano"
+ to="https://www.bmigroup.com/es/blog/como-cuidar-tu-cubierta-en-verano"
+ force=true
+
+[[redirects]]
+ from="/es/como-colocar-rastreles-para-evitar-roturas"
+ to="https://www.bmigroup.com/es/blog/como-colocar-rastreles-para-evitar-roturas/"
+ force=true
+
+[[redirects]]
+ from="/es/como-andar-sobre-una-cubierta-de-manera-segura"
+ to="https://www.bmigroup.com/es/blog/como-andar-sobre-una-cubierta-de-manera-segura"
+ force=true
+
+[[redirects]]
+ from="/es/como-adaptar-la-actividad-de-tu-empresa-de-construccion-ante-el-coronavirus"
+ to="https://www.bmigroup.com/es/blog/como-adaptar-la-actividad-de-tu-empresa-de-construccion-ante-el-coronavirus/"
+ force=true
+
+[[redirects]]
+ from="/es/clic-clic-clic-conoce-la-nueva-web-de-bmi"
+ to="https://www.bmigroup.com/es/blog/clic-clic-clic-conoce-la-nueva-web-de-bmi"
+ force=true
+
+[[redirects]]
+ from="/es/claves-para-la-transformacion-del-sector-gracias-a-la-rehabilitacion"
+ to="https://www.bmigroup.com/es/blog/claves-para-la-transformacion-del-sector-gracias-a-la-rehabilitacion/"
+ force=true
+
+[[redirects]]
+ from="/es/cinco-propositos-de-ano-nuevo-para-que-tu-vivienda-sea-mas-sostenible"
+ to="https://www.bmigroup.com/es/blog/cinco-propositos-de-ano-nuevo-para-que-tu-vivienda-sea-mas-sostenible"
+ force=true
+
+[[redirects]]
+ from="/es/cinco-lecturas-para-aprovechar-la-cuarentena"
+ to="https://www.bmigroup.com/es/blog/cinco-lecturas-para-aprovechar-la-cuarentena/"
+ force=true
+
+[[redirects]]
+ from="/es/certificado-fll-antirraices-para-everguard-tpo-en-cubierta-ajardinada"
+ to="https://www.bmigroup.com/es/blog/certificado-fll-antirraices-para-everguard-tpo-en-cubierta-ajardinada/"
+ force=true
+
+[[redirects]]
+ from="/es/ceramica-u-hormigon-que-teja-es-la-mas-resistente"
+ to="https://www.bmigroup.com/es/blog/ceramica-u-hormigon-que-teja-es-la-mas-resistente"
+ force=true
+
+[[redirects]]
+ from="/es/cambio-climatico-economia-circular-calentamiento-global-tendencias-en-cubierta-2020"
+ to="https://www.bmigroup.com/es/blog/cambio-climatico-economia-circular-calentamiento-global-tendencias-en-cubierta-2020"
+ force=true
+
+[[redirects]]
+ from="/es/calculo-de-densidad-de-fijaciones-en-funcion-de-la-carga-de-viento"
+ to="https://www.bmigroup.com/es/blog/calculo-de-densidad-de-fijaciones-en-funcion-de-la-carga-de-viento/"
+ force=true
+
+[[redirects]]
+ from="/es/calculador-de-presupuesto-para-cubiertas-de-bmi"
+ to="https://www.bmigroup.com/es/blog/calculador-de-presupuesto-para-cubiertas-de-bmi/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-roofpro-formaciones-para-instaladores-de-cubierta"
+ to="https://www.bmigroup.com/es/blog/bmi-roofpro-formaciones-para-instaladores-de-cubierta/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-roofpro-el-nuevo-programa-de-instaladores-certificados-que-llevara-la-industria-de-las-cubiertas-a-nuevos-horizontes"
+ to="https://www.bmigroup.com/es/blog/bmi-roofpro-el-nuevo-programa-de-instaladores-certificados-que-llevara-la-industria-de-las-cubiertas-a-nuevos-horizontes"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-lanza-su-informe-the-architect-effect"
+ to="https://www.bmigroup.com/es/blog/bmi-lanza-su-informe-the-architect-effect/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-expert-la-oficina-tecnica-de-proyectos-al-servicio-de-los-clientes"
+ to="https://www.bmigroup.com/es/blog/bmi-expert-la-oficina-tecnica-de-proyectos-al-servicio-de-los-clientes/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-everguard-y-el-hospital-de-pandemias-isabel-zendal"
+ to="https://www.bmigroup.com/es/blog/bmi-everguard-y-el-hospital-de-pandemias-isabel-zendal/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-everguard-por-que-el-mayor-operador-de-venta-online-del-mundo-apuesta-por-este-sistema"
+ to="https://www.bmigroup.com/es/blog/bmi-everguard-por-que-el-mayor-operador-de-venta-online-del-mundo-apuesta-por-este-sistema"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-apuesta-por-el-talento-femenino"
+ to="https://www.bmigroup.com/es/blog/bmi-apuesta-por-el-talento-femenino/"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-academy-formacion-practica-al-alcance-de-los-instaladores-de-cubiertas"
+ to="https://www.bmigroup.com/es/blog/bmi-academy-formación-práctica-al-alcance-de-los-instaladores-de-cubiertas"
+ force=true
+
+[[redirects]]
+ from="/es/bmi-academy-cursos-gratuitos-para-instaladores-de-cubierta-de-bmi"
+ to="https://www.bmigroup.com/es/blog/bmi-academy-cursos-gratuitos-para-instaladores-de-cubierta-de-bmi/"
+ force=true
+
+[[redirects]]
+ from="/es/bimadictos-te-explicamos-por-que-esta-tecnologia-se-ha-convertido-en-imprescindible-para-los-arquitectos"
+ to="https://www.bmigroup.com/es/blog/bimadictos"
+ force=true
+
+[[redirects]]
+ from="/es/bimabetterworld-un-concurso-para-construir-un-mundo-mejor"
+ to="https://www.bmigroup.com/es/blog/bimabetterworld-concurso-para-construir-un-mundo-mejor"
+ force=true
+
+[[redirects]]
+ from="/es/beneficios-del-montaje-en-seco-con-teja-de-hormigon"
+ to="https://www.bmigroup.com/es/blog/beneficios-del-montaje-en-seco-con-teja-de-hormigon/"
+ force=true
+
+[[redirects]]
+ from="/es/ayudas-para-la-rehabilitacion-de-viviendas-segun-el-plan-estatal-de-vivienda-2018-2021"
+ to="https://www.bmigroup.com/es/blog/ayudas-para-la-rehabilitacion-de-viviendas-segun-el-plan-estatal-de-vivienda-2018-2021/"
+ force=true
+
+[[redirects]]
+ from="/es/ayudas-ico-para-el-sector-de-la-construccion"
+ to="https://www.bmigroup.com/es/blog/ayudas-ico-para-el-sector-de-la-construccion/"
+ force=true
+
+[[redirects]]
+ from="/es/ayudas-a-la-rehabilitacion-de-vivienda-residencial?hs_amp=true"
+ to="https://www.bmigroup.com/es/blog/ayudas-a-la-rehabilitacion-de-vivienda-residencial/"
+ force=true
+
+[[redirects]]
+ from="/es/ayudas-a-la-rehabilitacion-de-vivienda-residencial"
+ to="https://www.bmigroup.com/es/blog/ayudas-a-la-rehabilitacion-de-vivienda-residencial/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/8"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/20"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/17"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/16"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/15"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/14"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/13"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado/page/10"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/quiero-renovar-el-tejado"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/juan-del-amo/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/juan-del-amo"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/jesus-huerta"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/hubspot-system"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/7"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/5"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/4"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/3"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/22"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/20"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/16"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/15"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/14"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena/page/11"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/helena"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/bmi-espa%C3%B1a"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/author/agustin-dorado"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
+
+[[redirects]]
+ from="/es/atencion-instalador-5-pasos-perfectamente-ilustrados-para-calcular-perfectamente-el-paso-entre-rastreles"
+ to="https://www.bmigroup.com/es/blog/atencion-instalador-5-pasos-perfectamente-ilustrados-para-calcular-perfectamente-el-paso-entre-rastreles"
+ force=true
+
+[[redirects]]
+ from="/es/asi-tienes-que-mantener-tu-cubierta-plana-y-evitar-el-motin-de-los-vecinos-de-la-ultima-planta/"
+ to="https://www.bmigroup.com/es/blog/asi-tienes-que-mantener-tu-cubierta-plana-y-evitar-el-motin-de-los-vecinos-de-la-ultima-planta"
+ force=true
+
+[[redirects]]
+ from="/es/asi-tienes-que-mantener-tu-cubierta-plana-y-evitar-el-motin-de-los-vecinos-de-la-ultima-planta"
+ to="https://www.bmigroup.com/es/blog/asi-tienes-que-mantener-tu-cubierta-plana-y-evitar-el-motin-de-los-vecinos-de-la-ultima-planta"
+ force=true
+
+[[redirects]]
+ from="/es/arquitectura-bioclimatica-dise%C3%B1o-de-un-edificio-en-climatologia-adversa"
+ to="https://www.bmigroup.com/es/blog/arquitectura-bioclimatica-dise%C3%B1o-de-un-edificio-en-climatologia-adversa/"
+ force=true
+
+[[redirects]]
+ from="/es/ano-de-nieves-ano-de-bienes-pero-ojo-con-tu-cubierta"
+ to="https://www.bmigroup.com/es/blog/nieve-en-la-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/aislamiento-bajo-teja-para-mejorar-la-eficiencia-energetica-de-tu-hogar"
+ to="https://www.bmigroup.com/es/blog/aislamiento-bajo-teja-para-mejorar-la-eficiencia-energetica-de-tu-hogar/"
+ force=true
+
+[[redirects]]
+ from="/es/aerotermia-como-funciona-y-cuanto-ahorra"
+ to="https://www.bmigroup.com/es/blog/aerotermia-como-funciona-y-cuanto-ahorra"
+ force=true
+
+[[redirects]]
+ from="/es/8-motivos-por-los-que-no-debes-perderte-cevisama-2019"
+ to="https://www.bmigroup.com/es/blog/8-motivos-por-los-que-no-debes-perderte-cevisama-2019"
+ force=true
+
+[[redirects]]
+ from="/es/5-ventajas-de-utilizar-teja-de-hormigon-en-zonas-costeras"
+ to="https://www.bmigroup.com/es/blog/5-ventajas-de-utilizar-teja-de-hormigon-en-zonas-costeras/"
+ force=true
+
+[[redirects]]
+ from="/es/5-tipos-de-cubiertas-contra-el-cambio-climatico"
+ to="https://www.bmigroup.com/es/blog/5-tipos-de-cubiertas-contra-el-cambio-climatico/"
+ force=true
+
+[[redirects]]
+ from="/es/5-grados-de-inclinacion-determina-tu-tipo-de-cubierta/"
+ to="https://www.bmigroup.com/es/blog/5-grados-de-inclinacion-determina-tu-tipo-de-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/5-grados-de-inclinacion-determina-tu-tipo-de-cubierta"
+ to="https://www.bmigroup.com/es/blog/5-grados-de-inclinacion-determina-tu-tipo-de-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/5-consejos-para-trabajar-desde-casa"
+ to="https://www.bmigroup.com/es/blog/5-consejos-para-trabajar-desde-casa/"
+ force=true
+
+[[redirects]]
+ from="/es/5-consejos-a-tener-en-cuenta-si-quieres-hacer-de-manitas-con-tu-cubierta"
+ to="https://www.bmigroup.com/es/blog/5-consejos-a-tener-en-cuenta-si-quieres-hacer-de-manitas-con-tu-cubierta"
+ force=true
+
+[[redirects]]
+ from="/es/2022-se-vislumbra-como-el-ano-dorado-de-la-rehabilitacion-de-viviendas"
+ to="https://www.bmigroup.com/es/blog/2022-se-vislumbra-como-el-ano-dorado-de-la-rehabilitacion-de-viviendas/"
+ force=true
+
+[[redirects]]
+ from="/es/10-ventajas-de-rehabilitar-la-cubierta-en-verano/"
+ to="https://www.bmigroup.com/es/blog/10-ventajas-de-rehabilitar-la-cubierta-en-verano/"
+ force=true
+
+[[redirects]]
+ from="/es/10-ventajas-de-rehabilitar-la-cubierta-en-verano"
+ to="https://www.bmigroup.com/es/blog/10-ventajas-de-rehabilitar-la-cubierta-en-verano/"
+ force=true
+
+[[redirects]]
+ from="/es/10-tejados-de-pelicula"
+ to="https://www.bmigroup.com/es/blog/10-tejados-de-pelicula/"
+ force=true
+
+# if no redirects are found for ES, fall back to relevant root page
+
+[[redirects]]
+ from="/es"
+ to="https://www.bmigroup.com/es/blog/"
+ force=true
