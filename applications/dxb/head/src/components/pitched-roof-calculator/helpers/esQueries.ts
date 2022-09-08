@@ -27,7 +27,8 @@ export const getProductsQuery = (pitches: number[]) => ({
               { exists: { field: "TILESATTRIBUTES.MAXIMUMBATTENSPACING" } },
               { exists: { field: "TILESATTRIBUTES.RIDGESPACE" } },
               { exists: { field: "TILESATTRIBUTES.EAVEGAUGE" } },
-              { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } }
+              { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } },
+              { exists: { field: "APPEARANCEATTRIBUTES.COLOUR" } }
             ],
             filter: pitches.flatMap((pitchValue) => [
               {

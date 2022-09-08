@@ -245,8 +245,8 @@ class QuantitiesCalculator {
     }
   }
 
-  isMetalFlushVerge(vergeOption) {
-    return Boolean(vergeOption.leftStart && vergeOption.rightStart);
+  isMetalFlushVerge(vergeOption?: VergeOption) {
+    return Boolean(vergeOption?.leftStart && vergeOption?.rightStart);
   }
 
   addVergeMetalFlush(vergeOption: VergeOption) {

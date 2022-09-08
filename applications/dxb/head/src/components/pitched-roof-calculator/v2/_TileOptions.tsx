@@ -200,20 +200,25 @@ export type TileOptionsProps = {
 };
 
 const TileOptions = ({ variant, selections }: TileOptionsProps) => {
+  const selectedVerge =
+    selections?.verge === "none"
+      ? "none"
+      : selections?.verge?.left?.externalProductCode;
+
+  const selectedVentilation =
+    selections?.ventilationHoods === "none"
+      ? ["none"]
+      : selections?.ventilationHoods?.map((v) => v.externalProductCode);
+
   return (
     <div>
-      <VergeOptions
-        selected={selections?.verge?.left?.externalProductCode}
-        verge={variant.vergeOption}
-      />
+      <VergeOptions selected={selectedVerge} verge={variant.vergeOption} />
       <RidgeOptions
         selected={selections?.ridge?.externalProductCode}
         options={variant.ridgeOptions}
       />
       <VentilationHoodOptions
-        selected={selections?.ventilationHoods?.map(
-          (v) => v.externalProductCode
-        )}
+        selected={selectedVentilation}
         options={variant.ventilationHoodOptions}
       />
     </div>

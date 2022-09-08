@@ -679,6 +679,25 @@ describe("PitchedRoofCalculator Results component", () => {
       screen.queryByText("MC: results.edited.products.title")
     ).not.toBeInTheDocument();
   });
+
+  it("renders correctly without ventilationHood and verge tile", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results
+          {...resultsProps}
+          tileOptions={{
+            ...resultsProps.tileOptions,
+            ventilationHoods: "none",
+            verge: "none"
+          }}
+        />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.categories.ventilation")
+    ).not.toBeInTheDocument();
+  });
 });
 
 describe("replaceImageURLWithImage", () => {

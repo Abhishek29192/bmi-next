@@ -126,8 +126,8 @@ export interface Data {
 
 export interface TileOptionSelections {
   ridge?: RidgeOption;
-  verge?: VergeOption;
-  ventilationHoods: VentilationHood[];
+  verge?: VergeOption | "none";
+  ventilationHoods: VentilationHood[] | "none";
 }
 
 export type GutteringFormSelection = {
