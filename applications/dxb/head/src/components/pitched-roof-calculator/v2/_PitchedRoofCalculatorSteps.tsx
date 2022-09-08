@@ -279,12 +279,17 @@ const PitchedRoofCalculatorSteps = ({
       (ridge) => ridge.externalProductCode === selection.ridge
     );
 
-    const verge = selection.verge !== "none" ? variant.vergeOption : undefined;
+    const verge = selection.verge !== "none" ? variant.vergeOption : "none";
     const ventilationHoods = variant.ventilationHoodOptions.filter(
       (ventilationHood) =>
         selection.ventilation?.includes(ventilationHood.externalProductCode)
     );
-    setTileOptions({ ridge, verge, ventilationHoods });
+    setTileOptions({
+      ridge,
+      verge,
+      ventilationHoods:
+        ventilationHoods.length === 0 ? "none" : ventilationHoods
+    });
   };
 
   useEffect(() => {

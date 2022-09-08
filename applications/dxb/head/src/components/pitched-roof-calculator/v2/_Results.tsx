@@ -201,12 +201,18 @@ const Results = ({
   const { faces, lines, area } = measurements;
 
   const results = useMemo(() => {
+    const verge = tileOptions.verge === "none" ? undefined : tileOptions.verge;
+    const ventilationHoods =
+      tileOptions.ventilationHoods === "none"
+        ? []
+        : tileOptions.ventilationHoods;
+
     const quantitiesCalculator = new QuantitiesCalculator({
       measurements,
       mainTileVariant: variant,
-      vergeOption: tileOptions.verge,
+      vergeOption: verge,
       ridge: tileOptions.ridge,
-      ventilationHoods: tileOptions.ventilationHoods,
+      ventilationHoods: ventilationHoods,
       underlay,
       gutteringVariant: guttering?.gutteringVariant,
       gutteringHook: guttering?.gutteringHook,

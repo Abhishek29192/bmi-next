@@ -136,12 +136,12 @@ const GutteringHookSelection = ({
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, image, externalProductCode }) => (
+        {options.map(({ name, mainImage, externalProductCode }) => (
           <CardRadioGroup.Item
             key={externalProductCode}
             value={externalProductCode}
             title={name}
-            imageSource={image}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",

@@ -240,4 +240,66 @@ describe("PitchedRoofCalculator TileOptions component", () => {
       })
     );
   });
+
+  it("selects 'none' option for ventilation hoods", () => {
+    const updateFormState = jest.fn();
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: updateFormState,
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <TileOptions
+            selections={{ ventilationHoods: "none" }}
+            variant={{
+              ...tileVariant,
+              vergeOption: undefined,
+              ridgeOptions: [],
+              ventilationHoodOptions: [ventilationHood]
+            }}
+          />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    waitFor(() =>
+      expect(updateFormState).toBeCalledWith({ ventilation: ["none"] }, {})
+    );
+  });
+
+  it("selects 'none' option for verge tiles", () => {
+    const updateFormState = jest.fn();
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: updateFormState,
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <TileOptions
+            selections={{ verge: "none", ventilationHoods: [] }}
+            variant={{
+              ...tileVariant,
+              vergeOption: verge,
+              ridgeOptions: [],
+              ventilationHoodOptions: []
+            }}
+          />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    waitFor(() =>
+      expect(updateFormState).toBeCalledWith({ verge: "none" }, {})
+    );
+  });
 });
