@@ -20,7 +20,7 @@ const {
   ES_INDEX_PREFIX,
   ES_INDEX_NAME_DOCUMENTS,
   LOCALE,
-  MANAGEMENT_ACCESS_TOKEN,
+  CONTENTFUL_DELIVERY_TOKEN,
   SPACE_ID
 } = process.env;
 
@@ -99,13 +99,13 @@ const handleRequest: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!MANAGEMENT_ACCESS_TOKEN) {
-    logger.error({ message: "Management access token is not set." });
+  if (!SPACE_ID) {
+    logger.error({ message: "SPACE_ID is not set." });
     return res.sendStatus(500);
   }
 
-  if (!SPACE_ID) {
-    logger.error({ message: "Space id is not set." });
+  if (!CONTENTFUL_DELIVERY_TOKEN) {
+    logger.error({ message: "CONTENTFUL_DELIVERY_TOKEN is not set." });
     return res.sendStatus(500);
   }
 

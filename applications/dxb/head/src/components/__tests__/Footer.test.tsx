@@ -107,4 +107,84 @@ describe("Footer component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+  it("renders without brand logo Icon if it is presented in link", () => {
+    const { container } = render(
+      <MockSiteContext>
+        <Footer
+          mainNavigation={{
+            __typename: "ContentfulNavigation",
+            label: "Main",
+            link: null,
+            links: [
+              {
+                __typename: "ContentfulNavigation",
+                label: "Get in touch",
+                link: null,
+                links: [
+                  {
+                    __typename: "ContentfulLink",
+                    id: "",
+                    label: "+44 (0) 1234567890",
+                    url: "tel:+4401234567890",
+                    isLabelHidden: null,
+                    icon: "Phone",
+                    linkedPage: null,
+                    type: null,
+                    parameters: null,
+                    dialogContent: null,
+                    hubSpotCTAID: null
+                  }
+                ]
+              },
+              {
+                __typename: "ContentfulNavigation",
+                label: "About BMI",
+                link: null,
+                links: [
+                  {
+                    __typename: "ContentfulLink",
+                    id: "",
+                    label: "Our story",
+                    url: null,
+                    isLabelHidden: null,
+                    icon: null,
+                    linkedPage: {
+                      path: "landing-page"
+                    },
+                    type: null,
+                    parameters: null,
+                    dialogContent: null,
+                    hubSpotCTAID: null
+                  }
+                ]
+              }
+            ]
+          }}
+          secondaryNavigation={{
+            __typename: "ContentfulNavigation",
+            label: "Brands",
+            link: null,
+            links: [
+              {
+                __typename: "ContentfulLink",
+                id: "",
+                label: "Icopal brand",
+                url: null,
+                isLabelHidden: null,
+                icon: "Icopal",
+                linkedPage: {
+                  path: "landing-page"
+                },
+                type: null,
+                parameters: null,
+                dialogContent: null,
+                hubSpotCTAID: null
+              }
+            ]
+          }}
+        />
+      </MockSiteContext>
+    );
+    expect(container).toMatchSnapshot();
+  });
 });

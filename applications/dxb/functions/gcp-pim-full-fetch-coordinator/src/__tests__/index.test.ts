@@ -93,7 +93,7 @@ describe("handleRequest", () => {
     "FULL_FETCH_ENDPOINT",
     "SPACE_ID",
     "LOCALE",
-    "MANAGEMENT_ACCESS_TOKEN",
+    "CONTENTFUL_DELIVERY_TOKEN",
     "ES_INDEX_PREFIX",
     "ES_INDEX_NAME_DOCUMENTS"
   ])("Returns 500, when %s is not set", async (name) => {
