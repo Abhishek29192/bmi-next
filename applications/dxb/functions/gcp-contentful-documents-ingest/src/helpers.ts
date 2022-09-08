@@ -1,5 +1,4 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import { ApiError, ApiResponse } from "@elastic/elasticsearch";
 import { Request, Response } from "@google-cloud/functions-framework";
 import { createClient, Entry, Environment, Space } from "contentful-management";
@@ -65,12 +64,12 @@ export const checkEnvVariables = (response: Response) => {
     response.sendStatus(500);
     return true;
   }
-  if (!process.env.ES_DOCUMENTS_INDEX_NAME) {
+  if (!process.env.ES_INDEX_NAME_DOCUMENTS) {
     logger.error({ message: "ES_INDEX_NAME has not been set." });
     response.sendStatus(500);
     return true;
   }
-  if (!process.env.MANAGEMENT_ACCESS_TOKEN_SECRET) {
+  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
     logger.error({ message: "Management access token is not set." });
     response.sendStatus(500);
     return true;
@@ -91,7 +90,7 @@ export const checkAuthorization = async (
   request: Request,
   response: Response
 ) => {
-  const reqSecret = await getSecret(process.env.ES_DOCUMENTS_INGEST_SECRET!);
+  const reqSecret = process.env.ES_DOCUMENTS_INGEST_SECRET!;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||
     request.headers.authorization?.substring("Bearer ".length) !== reqSecret
@@ -114,7 +113,7 @@ export const checkHttpMethod = (request: Request, response: Response) => {
 
 const getSpace = async (): Promise<Space> => {
   const client = createClient({
-    accessToken: await getSecret(process.env.MANAGEMENT_ACCESS_TOKEN_SECRET!)
+    accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
   });
 
   return await client.getSpace(process.env.SPACE_ID!);

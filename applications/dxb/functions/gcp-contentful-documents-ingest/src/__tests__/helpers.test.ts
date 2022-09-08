@@ -1,4 +1,3 @@
-// import { render, screen } from "@testing-library/react";
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import { ApiError, ApiResponse } from "@elastic/elasticsearch";
 import { Request, Response } from "@google-cloud/functions-framework";
@@ -9,8 +8,6 @@ import SampleContentfulWebhook from "./resources/sample_contentfulWebhook_entry.
 import SampleContentfulAsset from "./resources/sample_contentful_asset.json";
 import SampleContentfulEntry from "./resources/sample_contentful_entry.json";
 
-const REQUEST_SECRET = "some secret";
-const getSecret = jest.fn();
 const getSpace = jest.fn();
 const getEsClient = jest.fn();
 const getEnvironment = jest.fn();
@@ -22,10 +19,6 @@ const getEntry = jest.fn().mockReturnValue({
   sys: SampleContentfulEntry.sys,
   fields: SampleContentfulEntry.fields
 });
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
-getSecret.mockReturnValue(REQUEST_SECRET);
 
 getEnvironment.mockResolvedValue({ getAsset: getAsset, getEntry: getEntry });
 getSpace.mockResolvedValue({ getEnvironment: getEnvironment });
@@ -114,8 +107,8 @@ describe("helpers", () => {
   describe("checkEnvVariables", () => {
     it.each([
       "ES_DOCUMENTS_INGEST_SECRET",
-      "ES_DOCUMENTS_INDEX_NAME",
-      "MANAGEMENT_ACCESS_TOKEN_SECRET",
+      "ES_INDEX_NAME_DOCUMENTS",
+      "MANAGEMENT_ACCESS_TOKEN",
       "SPACE_ID",
       "CONTENTFUL_ENVIRONMENT"
     ])("Returns 500, when %s is not set", async (name) => {
@@ -155,7 +148,6 @@ describe("helpers", () => {
     });
 
     it("Returns 401 when Bearer token is missing", async () => {
-      getSecret.mockReturnValueOnce("");
       const mockReq = mockRequest("POST", { authorization: "Bearer " });
       const mockRes = mockResponse();
 
@@ -166,7 +158,6 @@ describe("helpers", () => {
 
     it("Returns 401 when Bearer token is less than 10 characters long", async () => {
       const shortSecret = "123";
-      getSecret.mockReturnValueOnce(shortSecret);
       const mockReq = mockRequest("POST", {
         authorization: `Bearer ${shortSecret}`
       });

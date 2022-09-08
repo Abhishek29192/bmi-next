@@ -77,7 +77,7 @@ const mockESDocument = {
 
 describe("updateESDocumentsIndex", () => {
   beforeEach(() => {
-    process.env.ES_DOCUMENTS_INDEX_NAME = "es_test_index";
+    process.env.ES_INDEX_NAME_DOCUMENTS = "es_test_index";
     transformDocument.mockResolvedValue(mockESDocument);
   });
 
@@ -182,11 +182,11 @@ describe("updateESDocumentsIndex", () => {
     await updateESDocumentsIndex(request, response);
 
     expect(index).toBeCalledWith({
-      index: process.env.ES_DOCUMENTS_INDEX_NAME,
+      index: process.env.ES_INDEX_NAME_DOCUMENTS,
       id: SampleContentfulEntryWebhook.sys.id,
       body: mockESDocument
     });
-    delete process.env.ES_DOCUMENTS_INDEX_NAME;
+    delete process.env.ES_INDEX_NAME_DOCUMENTS;
   });
   it("should call ES delete method if webhook has 'DeletedEntry' type", async () => {
     const request = mockRequest(
@@ -202,10 +202,10 @@ describe("updateESDocumentsIndex", () => {
     await updateESDocumentsIndex(request, response);
 
     expect(mockDelete).toBeCalledWith({
-      index: process.env.ES_DOCUMENTS_INDEX_NAME,
+      index: process.env.ES_INDEX_NAME_DOCUMENTS,
       id: SampleContentfulDeleteWebhook.sys.id
     });
-    delete process.env.ES_DOCUMENTS_INDEX_NAME;
+    delete process.env.ES_INDEX_NAME_DOCUMENTS;
   });
   it("shouldn't perform index operation if document wasn't transformed", async () => {
     transformDocument.mockResolvedValueOnce(undefined);

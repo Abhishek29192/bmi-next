@@ -33,7 +33,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
     });
     return response.sendStatus(400);
   }
-  const index = `${process.env.ES_DOCUMENTS_INDEX_NAME}`;
+  const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`;
   const client = await getEsClient();
 
   switch (request.body.sys.type) {
