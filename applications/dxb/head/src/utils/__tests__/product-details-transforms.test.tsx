@@ -15,6 +15,16 @@ import {
   transformImages
 } from "../product-details-transforms";
 
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
+});
+
 describe("product-details-transforms tests", () => {
   describe("getProductAttributes tests", () => {
     const getProductAttributesWithCommonParams = (product) =>
@@ -1670,14 +1680,33 @@ describe("product-details-transforms tests", () => {
   });
 
   describe("getDefaultPreviewImage", () => {
-    it("should return correct image source if url provided", () => {
-      expect(getDefaultPreviewImage(`https://youtu.be/youtubeId `)).toEqual(
-        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-      );
+    it("should return correct image source if url provided and this image exists on youtube", async () => {
+      fetchMock.mockResolvedValueOnce({
+        status: 200
+      });
+      expect(
+        await getDefaultPreviewImage(`https://youtu.be/youtubeId `)
+      ).toEqual("https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg");
     });
 
-    it("should return correct image source if id provided", () => {
-      expect(getDefaultPreviewImage("youtubeId")).toEqual(
+    it("should return next image if first image does not exist on youtube", async () => {
+      fetchMock
+        .mockResolvedValueOnce({
+          status: 404
+        })
+        .mockResolvedValueOnce({
+          status: 200
+        });
+      expect(
+        await getDefaultPreviewImage(`https://youtu.be/youtubeId `)
+      ).toEqual("https://i.ytimg.com/vi/youtubeId/hqdefault.jpg");
+    });
+
+    it("should return correct image source if id provided and this image exists on youtube", async () => {
+      fetchMock.mockResolvedValueOnce({
+        status: 200
+      });
+      expect(await getDefaultPreviewImage("youtubeId")).toEqual(
         "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       );
     });

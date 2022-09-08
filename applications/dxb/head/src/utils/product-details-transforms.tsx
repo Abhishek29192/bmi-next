@@ -1,5 +1,6 @@
 import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import { Link } from "gatsby";
+import fetch from "node-fetch";
 import React from "react";
 import { getYoutubeId, isDefined } from "../../../libraries/utils/src";
 import DefaultImage from "../images/DefaultImage.svg";
@@ -488,8 +489,32 @@ export const mapClassificationValues = (
     .join(", ");
 };
 
-export const getDefaultPreviewImage = (videoUrl: string) =>
-  `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;
+export const getDefaultPreviewImage = async (videoUrl: string) => {
+  const baseUrl = `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}`;
+  const listOfImages = [
+    `${baseUrl}/maxresdefault.jpg`,
+    `${baseUrl}/hqdefault.jpg`,
+    `${baseUrl}/mqdefault.jpg`,
+    `${baseUrl}/sqsdefault.jpg`,
+    `${baseUrl}/default.jpg`
+  ];
+
+  let validUrl = "";
+
+  for (const imageUrl of listOfImages) {
+    try {
+      const res = await fetch(imageUrl);
+      if (res.status === 200) {
+        validUrl = imageUrl;
+        break;
+      }
+    } catch (error) {
+      console.log((error as Error).message);
+    }
+  }
+
+  return validUrl;
+};
 
 const generateVariantPathWithQuery = (
   variant: RelatedVariant,
