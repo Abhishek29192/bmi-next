@@ -232,6 +232,7 @@ type ContentfulWebToolCalculator implements Node {
   id: ID!
   roofShapes: [ContentfulCalculatorRoofShape!]! @link(from: "roofShapes___NODE")
   hubSpotFormId: String
+  needHelpSection: ContentfulTitleWithContent! @link(from: "needHelpSection___NODE")
 }
 
 type ContentfulCardCollectionSection implements Node {

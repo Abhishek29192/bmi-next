@@ -278,6 +278,7 @@ export const microCopy = {
   VALIDATION_RANGE: "validation.errors.range",
 
   RESULTS_DOWNLOAD_PDF_LABEL: "results.downloadPdfLabel",
+  RESULTS_DOWNLOAD_PDF_HELP: "results.download.pdf.help",
   RESULTS_CATEGORIES_TITLES: "results.categories.tiles",
   RESULTS_CATEGORIES_VENTILATION: "results.categories.ventilation",
 

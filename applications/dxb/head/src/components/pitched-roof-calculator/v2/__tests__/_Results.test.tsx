@@ -189,6 +189,21 @@ const selectedVentilationHood = createProduct<VentilationHood>({
 
 const resultsProps: ResultProps = {
   hubSpotFormId: "mock",
+  setIsHubSpotFormAvailable: jest.fn(),
+  isHubSpotFormAvailable: true,
+  needHelpSection: {
+    __typename: "ContentfulTitleWithContent",
+    title: "",
+    name: "",
+    content: {
+      raw: JSON.stringify({
+        nodeType: "document",
+        data: {},
+        content: []
+      }),
+      references: null
+    }
+  },
   measurements: {
     faces: [
       {
@@ -680,6 +695,33 @@ describe("PitchedRoofCalculator Results component", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("renders correctly without HubSpot form", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} isHubSpotFormAvailable={false} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.getByText("MC: results.download.pdf.help")
+    ).toBeInTheDocument();
+  });
+
+  it("renders need help section with title", () => {
+    const title = "Need help title";
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results
+          {...resultsProps}
+          isHubSpotFormAvailable
+          needHelpSection={{ ...resultsProps.needHelpSection, title }}
+        />
+      </MicroCopy.Provider>
+    );
+
+    waitFor(() => expect(screen.getByText(title)).toBeInTheDocument());
+  });
+
   it("renders correctly without ventilationHood and verge tile", () => {
     render(
       <MicroCopy.Provider values={en}>
@@ -693,7 +735,6 @@ describe("PitchedRoofCalculator Results component", () => {
         />
       </MicroCopy.Provider>
     );
-
     expect(
       screen.queryByText("MC: results.categories.ventilation")
     ).not.toBeInTheDocument();

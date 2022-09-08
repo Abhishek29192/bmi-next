@@ -1,3 +1,5 @@
+import { AnchorLink } from "@bmi/components";
+import { Grid } from "@material-ui/core";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
@@ -78,6 +80,9 @@ const PitchedRoofCalculatorSteps = ({
   const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
   const [guttering, setGuttering] = useState<GutteringSelections | undefined>(
     undefined
+  );
+  const [isHubSpotFormAvailable, setIsHubSpotFormAvailable] = useState<boolean>(
+    Boolean(calculatorConfig?.hubSpotFormId)
   );
 
   const [data, setData] = useState<Data>({
@@ -560,9 +565,21 @@ const PitchedRoofCalculatorSteps = ({
           isForm={false}
           key={CalculatorSteps.YourSolutionContains}
           title={getMicroCopy(microCopy.RESULTS_TITLE)}
-          subtitle={getMicroCopy(microCopy.RESULTS_SUBTITLE, {
-            contingency: CONTINGENCY_PERCENTAGE_TEXT
-          })}
+          subtitle={
+            <Grid container className={styles["resultsSubTitle"]}>
+              {getMicroCopy(microCopy.RESULTS_SUBTITLE, {
+                contingency: CONTINGENCY_PERCENTAGE_TEXT
+              })}
+              {!isHubSpotFormAvailable && (
+                <AnchorLink
+                  action={{ href: "#print-calculations-report" }}
+                  className={styles["calculationReportAnchor"]}
+                >
+                  {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
+                </AnchorLink>
+              )}
+            </Grid>
+          }
           paragraph={
             <span>
               {`${getMicroCopy(
@@ -602,6 +619,9 @@ const PitchedRoofCalculatorSteps = ({
               underlay={underlay}
               guttering={guttering}
               hubSpotFormId={calculatorConfig?.hubSpotFormId}
+              setIsHubSpotFormAvailable={setIsHubSpotFormAvailable}
+              isHubSpotFormAvailable={isHubSpotFormAvailable}
+              needHelpSection={calculatorConfig?.needHelpSection}
             />
           )}
         </CalculatorStepper.Step>

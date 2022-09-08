@@ -122,5 +122,8 @@ export const query = graphql`
     roofShapes {
       roofShapeId
     }
+    needHelpSection {
+      ...TitleWithContentFragment
+    }
   }
 `;

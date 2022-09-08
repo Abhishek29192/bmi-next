@@ -419,7 +419,13 @@ describe("PitchedRoofCalculatorSteps component", () => {
           setSelected={setSelected}
           calculatorConfig={{
             hubSpotFormId: "mock",
-            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }],
+            needHelpSection: {
+              __typename: "ContentfulTitleWithContent",
+              title: "",
+              name: "",
+              content: { raw: "", references: [] }
+            }
           }}
         />
       </MicroCopy.Provider>
@@ -537,7 +543,13 @@ describe("PitchedRoofCalculatorSteps component", () => {
           setSelected={setSelected}
           calculatorConfig={{
             hubSpotFormId: "mock",
-            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }]
+            roofShapes: [{ roofShapeId: "1" }, { roofShapeId: "2" }],
+            needHelpSection: {
+              __typename: "ContentfulTitleWithContent",
+              title: "",
+              name: "",
+              content: { raw: "", references: [] }
+            }
           }}
         />
       </MicroCopy.Provider>
