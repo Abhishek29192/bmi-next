@@ -247,7 +247,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders next question and answer block when answer clicked", async () => {
-    fetchMock.mockReturnValue(getFetchResponse({ data: question }));
+    fetchMock.mockReturnValue(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -482,7 +482,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders an expanded panel when previous panel is clicked", async () => {
-    fetchMock.mockResolvedValue(getFetchResponse({ data: question }));
+    fetchMock.mockResolvedValue(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText, getByText } =
       render(
@@ -526,7 +526,7 @@ describe("SystemConfiguratorSection component", () => {
         ]
       })
     );
-    fetchMock.mockResolvedValueOnce(getFetchResponse({ question }));
+    fetchMock.mockResolvedValueOnce(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -566,7 +566,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders toggled closed configurator panel", async () => {
-    fetchMock.mockResolvedValueOnce(getFetchResponse({ question }));
+    fetchMock.mockResolvedValueOnce(getFetchResponse(question));
     fetchMock.mockResolvedValueOnce(getFetchResponse({ initialQuestion }));
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =

@@ -148,7 +148,7 @@ const SystemConfiguratorQuestion = ({
 
     try {
       const response: Response = await fetch(
-        `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=locale`,
+        `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
         {
           method: "GET",
           headers: { "X-Recaptcha-Token": recaptchaToken },
