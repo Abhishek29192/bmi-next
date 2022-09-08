@@ -14,10 +14,7 @@ const createContentfulAssetType = (
   id: "contentful-asset-type",
   name: "Contentful Asset Type",
   code: "code",
-  description: {
-    raw: "raw description",
-    references: []
-  },
+  description: null,
   pimCode: "pim-code",
   ...contentfulAssetType
 });

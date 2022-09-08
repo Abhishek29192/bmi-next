@@ -6,7 +6,6 @@ import type {
 } from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
-  Category,
   Classification,
   Feature,
   Product as PIMProduct,
@@ -20,12 +19,12 @@ import {
   findProductBrandLogoCode,
   generateSubtitleValues,
   getSizeLabel,
-  groupBy,
   IndexedItemGroup,
   indexFeatures,
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
+import { getCategoryFilters } from "./utils/getCategoryFilters";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -156,46 +155,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
-  const categoryGroups: IndexedItemGroup<Category> = groupBy(
-    product.categories || [],
-    "categoryType"
-  );
-  const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
-    product.categories || [],
-    "parentCategoryCode"
-  );
-
-  const allGroupsOfCategories = {
-    ...categoryGroups,
-    ...groupsByParentCategoryCodes
-  };
-
-  logger.info({
-    message: `allGroupsOfCategories: ${allGroupsOfCategories}`
-  });
-
-  //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
-    allGroupsOfCategories
-  )
-    .filter((key) => key.length > 0 && key !== "undefined")
-    .reduce((categoryAsProps, catName) => {
-      const origialCatName = catName;
-      const catNameCapitalised = catName.toUpperCase();
-      // eslint-disable-next-line security/detect-object-injection
-      const nameAndCodeValues = allGroupsOfCategories[origialCatName].map(
-        (cat) => {
-          return {
-            code: cat.code,
-            name: cat.name
-          };
-        }
-      );
-      return {
-        ...categoryAsProps,
-        [catNameCapitalised]: nameAndCodeValues
-      };
-    }, {});
+  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> =
+    getCategoryFilters(product.categories || []);
 
   logger.info({
     message: `allCategoriesAsProps: ${allCategoriesAsProps}`

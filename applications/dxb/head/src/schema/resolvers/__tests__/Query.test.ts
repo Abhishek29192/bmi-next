@@ -36,29 +36,6 @@ const args: ResolveArgs = {
 };
 
 describe("Query resolver", () => {
-  describe("allPIMDocument", () => {
-    it("should contain specific type", () => {
-      expect(Query.allPIMDocument.type).toEqual(["PIMDocument"]);
-    });
-    it("should resolve pim documents without filters", async () => {
-      const result = { filters: [], documents: [] };
-      resolveDocumentsFromProducts.mockResolvedValue(result);
-
-      expect(await Query.allPIMDocument.resolve(null, null, context)).toEqual(
-        []
-      );
-
-      expect(resolveDocumentsFromProducts).toHaveBeenCalledWith(
-        [],
-        {
-          source: {},
-          context
-        },
-        null
-      );
-    });
-  });
-
   describe("plpFilters", () => {
     it("should contain specific type", () => {
       expect(Query.plpFilters.type).toEqual("PLPFilterResponse");

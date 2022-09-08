@@ -3,27 +3,18 @@ import {
   ContentfulAssetType,
   ContentfulDocumentLibraryPage
 } from "./types/Contentful";
-import {
-  ContentfulDocumentsWithFilters,
-  DocumentsWithFilters,
-  ProductDocumentsWithFilters
-} from "./types/DocumentsWithFilters";
+import { DocumentsFilters } from "./types/DocumentsFilters";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import {
-  sortAllDocuments,
-  sortCmsDocuments,
-  sortPimDocuments
-} from "./utils/documentLibrarySort";
-import {
-  resolveDocumentsFromContentful,
-  resolveDocumentsFromProducts
+  resolveDocumentsFiltersFromContentful,
+  resolveDocumentsFiltersFromProducts
 } from "./utils/documents";
 
-const getProductDocuments = async (
+const getProductDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,
   context: Context,
   assetTypes: ContentfulAssetType[]
-): Promise<ProductDocumentsWithFilters> => {
+): Promise<ProductFilter[]> => {
   if (source.source === "PIM" || source.source === "ALL") {
     let allowFilterBy = (source.allowFilterBy || []) as string[];
     switch (source.resultsType) {
@@ -43,7 +34,7 @@ const getProductDocuments = async (
         allowFilterBy = ["Brand"];
     }
 
-    const pimDocuments = await resolveDocumentsFromProducts(
+    const filters = await resolveDocumentsFiltersFromProducts(
       assetTypes,
       {
         source,
@@ -51,22 +42,16 @@ const getProductDocuments = async (
       },
       allowFilterBy
     );
-    return {
-      filters: pimDocuments.filters,
-      documents: pimDocuments.documents
-    };
+    return filters;
   }
-  return {
-    filters: [],
-    documents: []
-  };
+  return [];
 };
 
-const getContentfulDocuments = async (
+const getContentfulDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,
   context: Context,
   assetTypes: ContentfulAssetType[]
-): Promise<ContentfulDocumentsWithFilters> => {
+): Promise<ProductFilter[]> => {
   if (source.source === "CMS" || source.source === "ALL") {
     let allowFilterBy: string[];
     switch (source.resultsType) {
@@ -76,24 +61,21 @@ const getContentfulDocuments = async (
       default:
         allowFilterBy = ["Brand"];
     }
-    return await resolveDocumentsFromContentful(
+    return await resolveDocumentsFiltersFromContentful(
       assetTypes,
       { source, context },
       allowFilterBy
     );
   }
-  return {
-    filters: [],
-    documents: []
-  };
+  return [];
 };
 
-const getDocumentsWithFilters = async (
+const getDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,
   context: Context,
   assetTypes: ContentfulAssetType[]
-): Promise<DocumentsWithFilters> => {
-  const pimDocumentsWithFilters = await getProductDocuments(
+): Promise<DocumentsFilters> => {
+  const pimDocumentsFilters = await getProductDocumentsFilters(
     source,
     context,
     assetTypes
@@ -101,12 +83,11 @@ const getDocumentsWithFilters = async (
 
   if (source.source === "PIM") {
     return {
-      filters: pimDocumentsWithFilters.filters,
-      documents: sortPimDocuments(pimDocumentsWithFilters.documents)
+      filters: pimDocumentsFilters
     };
   }
 
-  const cmsDocumentsWithFilters = await getContentfulDocuments(
+  const cmsDocumentsFilters = await getContentfulDocumentsFilters(
     source,
     context,
     assetTypes
@@ -114,20 +95,11 @@ const getDocumentsWithFilters = async (
 
   if (source.source === "CMS") {
     return {
-      filters: cmsDocumentsWithFilters.filters,
-      documents: sortCmsDocuments(cmsDocumentsWithFilters.documents)
+      filters: cmsDocumentsFilters
     };
   }
 
-  const allDocs = [
-    ...cmsDocumentsWithFilters.documents,
-    ...pimDocumentsWithFilters.documents
-  ];
-
-  const allFilters = [
-    ...pimDocumentsWithFilters.filters,
-    ...cmsDocumentsWithFilters.filters
-  ];
+  const allFilters = [...pimDocumentsFilters, ...cmsDocumentsFilters];
   const mergedFilters = allFilters
     .reduce<ProductFilter[]>((allFilters, currFilter) => {
       const existingFilter = allFilters.find(
@@ -154,19 +126,18 @@ const getDocumentsWithFilters = async (
       options: filter.options.sort((a, b) => (a.label > b.label ? 1 : -1))
     }));
   return {
-    filters: mergedFilters,
-    documents: sortAllDocuments(allDocs, assetTypes)
+    filters: mergedFilters
   };
 };
 
 export default {
-  documentsWithFilters: {
-    type: "DocumentsWithFiltersResponse",
+  documentsFilters: {
+    type: "DocumentsFiltersResponse",
     async resolve(
       source: ContentfulDocumentLibraryPage,
       args: ResolveArgs,
       context: Context
-    ): Promise<DocumentsWithFilters> {
+    ): Promise<DocumentsFilters> {
       let assetTypes = [];
       if (source.assetTypes___NODE && source.assetTypes___NODE.length) {
         assetTypes = await Promise.all(
@@ -185,7 +156,7 @@ export default {
         assetTypes = entries ? [...entries] : [];
       }
 
-      return await getDocumentsWithFilters(source, context, assetTypes);
+      return await getDocumentsFilters(source, context, assetTypes);
     }
   }
 };

@@ -181,6 +181,7 @@ export type SystemDocument = Document;
 export type ProductDocument = Document & {
   productBaseCode: string;
   productName: string;
+  docName?: string;
   // TODO: remove when document filtering is done with Elastic search
   productCategories: {
     code: Category["code"];

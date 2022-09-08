@@ -1,0 +1,32 @@
+test_gcp-contentful-documents-ingest:
+  extends: .test_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
+    ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+
+build_gcp-contentful-documents-ingest:
+  extends: .build_function_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/gcp-contentful-documents-ingest"
+    ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+
+package_gcp-contentful-documents-ingest:
+  extends: .package_function_yarn_workspace
+  needs:
+    - build_gcp-contentful-documents-ingest
+  dependencies:
+    - build_gcp-contentful-documents-ingest
+  variables:
+    FUNCTION_NAME: "gcp-contentful-documents-ingest"
+    ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"
+
+# Deploy to QA or Pre-Production or Production Storage
+deploy_gcp-contentful-documents-ingest:
+  extends: .deploy_function_yarn_workspace
+  needs:
+    - package_gcp-contentful-documents-ingest
+  dependencies:
+    - package_gcp-contentful-documents-ingest
+  variables:
+    FUNCTION_NAME: "gcp-contentful-documents-ingest"
+    ROOT_DIR: "applications/dxb/functions/gcp-contentful-documents-ingest"

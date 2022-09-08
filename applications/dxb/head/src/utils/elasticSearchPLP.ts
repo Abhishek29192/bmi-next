@@ -1,8 +1,7 @@
 import { Filter } from "@bmi/components";
-import { ProductFilter } from "../types/pim";
 
 export const xferFilterValue = (
-  source: ProductFilter[],
+  source: Filter[],
   target: Filter[]
 ): Filter[] => {
   return target.map((tFilter) => {

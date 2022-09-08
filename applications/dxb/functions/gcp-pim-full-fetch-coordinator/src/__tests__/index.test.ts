@@ -12,9 +12,12 @@ import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import { ElasticsearchIndexes } from "../elasticsearch";
 import { FirestoreCollections } from "../firestoreCollections";
+import { getEsDocumentMock } from "../__mocks__/contentful.mock";
 
 const createElasticSearchIndex = jest.fn();
 const deleteElasticSearchIndex = jest.fn();
+const processContentfulDocuments = jest.fn();
+const performBulkIndexing = jest.fn();
 jest.mock("../elasticsearch", () => {
   // Throws "ReferenceError: setImmediate is not defined" with jest.requireActual
   enum ElasticsearchIndexes {
@@ -27,7 +30,14 @@ jest.mock("../elasticsearch", () => {
     createElasticSearchIndex: (...args: any) =>
       createElasticSearchIndex(...args),
     deleteElasticSearchIndex: (...args: any) =>
-      deleteElasticSearchIndex(...args)
+      deleteElasticSearchIndex(...args),
+    performBulkIndexing: (...args: any) => performBulkIndexing(...args)
+  };
+});
+jest.mock("../contentful", () => {
+  return {
+    processContentfulDocuments: (...args: any) =>
+      processContentfulDocuments(...args)
   };
 });
 
@@ -73,10 +83,24 @@ const handleRequest = async (
     response as Response
   );
 
+const productsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Products}`;
+const systemsIndex = `${process.env.ES_INDEX_PREFIX}${ElasticsearchIndexes.Systems}`;
+const documentsIndex = process.env.ES_INDEX_NAME_DOCUMENTS;
+
 describe("handleRequest", () => {
-  it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {
-    const originalBuildTriggerEndpoint = process.env.BUILD_TRIGGER_ENDPOINT;
-    delete process.env.BUILD_TRIGGER_ENDPOINT;
+  it.each([
+    "BUILD_TRIGGER_ENDPOINT",
+    "FULL_FETCH_ENDPOINT",
+    "SPACE_ID",
+    "LOCALE",
+    "MANAGEMENT_ACCESS_TOKEN",
+    "ES_INDEX_PREFIX",
+    "ES_INDEX_NAME_DOCUMENTS"
+  ])("Returns 500, when %s is not set", async (name) => {
+    // eslint-disable-next-line security/detect-object-injection
+    const original = process.env[name];
+    // eslint-disable-next-line security/detect-object-injection
+    delete process.env[name];
 
     const request = mockRequest("GET");
     const response = mockResponse();
@@ -90,45 +114,8 @@ describe("handleRequest", () => {
     expect(fetchMock).not.toHaveFetched();
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
-    process.env.BUILD_TRIGGER_ENDPOINT = originalBuildTriggerEndpoint;
-  });
-
-  it("should return 500 if FULL_FETCH_ENDPOINT is not set", async () => {
-    const originalFullFetchEndpoint = process.env.FULL_FETCH_ENDPOINT;
-    delete process.env.FULL_FETCH_ENDPOINT;
-
-    const request = mockRequest("GET");
-    const response = mockResponse();
-
-    await handleRequest(request, response);
-
-    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
-    expect(createElasticSearchIndex).not.toHaveBeenCalled();
-    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
-    expect(fetchData).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveFetched();
-    expect(response.sendStatus).toHaveBeenCalledWith(500);
-
-    process.env.FULL_FETCH_ENDPOINT = originalFullFetchEndpoint;
-  });
-
-  it("should return 500 if LOCALE is not set", async () => {
-    const originalLocale = process.env.LOCALE;
-    delete process.env.LOCALE;
-
-    const request = mockRequest("GET");
-    const response = mockResponse();
-
-    await handleRequest(request, response);
-
-    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
-    expect(createElasticSearchIndex).not.toHaveBeenCalled();
-    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
-    expect(fetchData).not.toHaveBeenCalled();
-    expect(fetchMock).not.toHaveFetched();
-    expect(response.sendStatus).toHaveBeenCalledWith(500);
-
-    process.env.LOCALE = originalLocale;
+    // eslint-disable-next-line security/detect-object-injection
+    process.env[name] = original;
   });
 
   it("should error if deleting products Elasticsearch index throws error", async () => {
@@ -143,12 +130,9 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).not.toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
     expect(createElasticSearchIndex).not.toHaveBeenCalled();
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
@@ -171,12 +155,35 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should error if deleting documents Elasticsearch index throws error", async () => {
+    deleteElasticSearchIndex
+      .mockResolvedValueOnce({})
+      .mockResolvedValueOnce({})
+      .mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(createElasticSearchIndex).not.toHaveBeenCalled();
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
@@ -197,18 +204,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
     expect(fetchData).not.toHaveBeenCalledWith("systems");
@@ -230,18 +231,40 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).not.toHaveBeenCalledWith(documentsIndex);
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should error if creating documents Elasticsearch index throws error", async () => {
+    createElasticSearchIndex
+      .mockResolvedValueOnce({})
+      .mockResolvedValueOnce({})
+      .mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).not.toHaveBeenCalled();
     expect(fetchData).not.toHaveBeenCalledWith("products");
     expect(fetchData).not.toHaveBeenCalledWith("systems");
@@ -261,18 +284,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -299,18 +316,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -336,18 +347,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -381,18 +386,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -450,18 +449,12 @@ describe("handleRequest", () => {
       );
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -519,18 +512,12 @@ describe("handleRequest", () => {
       );
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -589,18 +576,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -668,18 +649,12 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -749,18 +724,12 @@ describe("handleRequest", () => {
       );
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -830,18 +799,12 @@ describe("handleRequest", () => {
       );
     }
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -902,24 +865,21 @@ describe("handleRequest", () => {
         method: "POST"
       }
     );
+    processContentfulDocuments.mockResolvedValueOnce([getEsDocumentMock()]);
 
     const request = mockRequest("GET");
     const response = mockResponse();
 
     await handleRequest(request, response);
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(processContentfulDocuments).toBeCalled();
+    expect(performBulkIndexing).toBeCalled();
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -989,18 +949,12 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -1070,18 +1024,12 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -1172,18 +1120,12 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(createElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Products
     );
@@ -1229,5 +1171,194 @@ describe("handleRequest", () => {
       method: "POST"
     });
     expect(response.status).toHaveBeenCalledWith(200);
+  });
+
+  it("should error if fetching contentful documents throws error", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    processContentfulDocuments.mockRejectedValueOnce(
+      Error("Somothing goes wrong.")
+    );
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Somothing goes wrong.");
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(processContentfulDocuments).toBeCalled();
+    expect(performBulkIndexing).not.toBeCalled();
+    expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).not.toBeCalled();
+  });
+  it("shouldn't perform elasticsearch bulk operation if list of contenful documents is empty", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    processContentfulDocuments.mockResolvedValueOnce([]);
+    const request = mockRequest("GET");
+    const response = mockResponse();
+    await handleRequest(request, response);
+    expect(processContentfulDocuments).toBeCalled();
+    expect(performBulkIndexing).not.toBeCalled();
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).toBeCalledWith(200);
+  });
+
+  it("should error if elasticsearch bulk operation throw an error", async () => {
+    performBulkIndexing.mockRejectedValueOnce(Error("Expected error"));
+    processContentfulDocuments.mockResolvedValueOnce([getEsDocumentMock()]);
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+    const request = mockRequest("GET");
+    const response = mockResponse();
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(productsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(systemsIndex);
+    expect(createElasticSearchIndex).toHaveBeenCalledWith(documentsIndex);
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(fetchData).toHaveBeenCalledWith("products", process.env.LOCALE);
+    expect(fetchData).toHaveBeenCalledWith("systems", process.env.LOCALE);
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(processContentfulDocuments).toBeCalled();
+    expect(performBulkIndexing).toBeCalled();
+    expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).not.toBeCalled();
   });
 });
