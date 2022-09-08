@@ -352,7 +352,7 @@ const createProduct = (product?: Partial<Product>): Product => ({
   ],
   hashedCode: "1853176582",
   isSampleOrderAllowed: true,
-  masterImages: [createImage()],
+  masterImage: createImage(),
   materials: "Concrete",
   measurements: createMeasurements(),
   name: "name",

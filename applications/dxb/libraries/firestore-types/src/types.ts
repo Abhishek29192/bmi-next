@@ -93,7 +93,7 @@ export type Product = {
   groups: readonly CategoryGroup[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
-  masterImages: readonly Image[];
+  masterImage?: Image;
   hashedCode: string;
   isSampleOrderAllowed: boolean;
   materials?: string;
