@@ -234,6 +234,13 @@ type ContentfulWebToolCalculator implements Node {
   hubSpotFormId: String
 }
 
+type ContentfulVisualiserHouseType implements Node {
+  id: ID!
+  name: String!
+  previewImage: ContentfulAsset! @link(by: "id", from: "previewImage___NODE")
+  houseModel: ContentfulAsset! @link(by: "id", from: "houseModel___NODE")
+}
+
 type ContentfulCardCollectionSection implements Node {
   id: ID!
   title: String
@@ -515,6 +522,7 @@ type ContentfulSite implements Node {
   headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
+  visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
 }
 
 type contentfulSiteHeadScriptsTextNode implements Node {

@@ -99,6 +99,7 @@ describe("General Error", () => {
       },
       headScripts: null,
       pitchedRoofCalculatorConfig: null,
+      visualiserHouseTypes: null,
       regions: [
         {
           label: "Europe",

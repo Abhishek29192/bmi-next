@@ -14,7 +14,7 @@ import { useSiteContext } from "./Site";
 import no from "./visualiser/data/copy/no.json";
 import sidingsSetData from "./visualiser/data/sidings.json";
 import tilesSetData from "./visualiser/data/tiles.json";
-import { Tile } from "./visualiser/Types";
+import { HouseType, Tile } from "./visualiser/Types";
 import { Parameters } from "./visualiser/Visualiser";
 
 const isVisualiserV2Enabled =
@@ -54,6 +54,7 @@ type Props = {
   contentSource?: string;
   variantCodeToPathMap: Record<string, string>;
   shareWidgetData?: ShareWidgetSectionData;
+  houseTypes: HouseType[] | null;
 };
 
 const mapParameters = (params: any): Partial<Parameters> => {
@@ -84,7 +85,8 @@ const VisualiserProvider = ({
   children,
   contentSource,
   variantCodeToPathMap = {},
-  shareWidgetData
+  shareWidgetData,
+  houseTypes
 }: Props) => {
   const location = useLocation();
 
@@ -176,6 +178,7 @@ const VisualiserProvider = ({
       onClose={handleOnClose}
       tiles={tilesSetData.tiles as Tile[]}
       sidings={sidingsSetData.sidings}
+      houseTypes={houseTypes}
       {...parsedQueryParameters}
       {...parameters}
       shareWidget={

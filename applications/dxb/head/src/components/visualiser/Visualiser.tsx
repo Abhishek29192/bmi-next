@@ -35,7 +35,7 @@ import HouseViewer from "./HouseViewer";
 import HouseViewerOld from "./HouseViewerOld";
 import styles from "./styles/Visualiser.module.scss";
 import TileViewer from "./TileViewer";
-import { Colour, Material, Siding, Tile } from "./Types";
+import { Colour, HouseType, Material, Siding, Tile } from "./Types";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;
@@ -60,6 +60,7 @@ type Props = {
   onClose: () => any;
   onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   shareWidget?: React.ReactNode;
+  houseTypes: HouseType[] | null;
   onClick: (
     params: Partial<Parameters> & {
       type: string;
@@ -452,7 +453,8 @@ const Visualiser = ({
   shareWidget,
   onClose,
   onChange,
-  onClick
+  onClick,
+  houseTypes
 }: Props) => {
   const [isTileSelectorOpen, setIsTileSelectorOpen] = useState<boolean>(false);
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] =
@@ -536,6 +538,17 @@ const Visualiser = ({
     [sidings, sidingId, state.sidingId]
   );
 
+  const viewerProps = {
+    tile: activeTile,
+    colour: activeColour,
+    options: { contentSource },
+    siding: activeSiding,
+    setIsLoading: (isLoading: boolean) => setIsLoading(isLoading),
+    ...(state.viewMode === "roof"
+      ? { houseModelUrl: houseTypes?.[0]?.houseModel.url }
+      : {})
+  };
+
   const Viewer = viewerComponentMap[state.viewMode || "tile"];
 
   return (
@@ -605,15 +618,7 @@ const Visualiser = ({
             )}
           </div>
         </div>
-        {viewMode && (
-          <Viewer
-            tile={activeTile}
-            colour={activeColour}
-            options={{ contentSource }}
-            siding={activeSiding}
-            setIsLoading={(isLoading: boolean) => setIsLoading(isLoading)}
-          />
-        )}
+        {viewMode && <Viewer {...viewerProps} />}
         <TileSectorDialog
           open={isTileSelectorOpen}
           onCloseClick={setIsTileSelectorOpen}

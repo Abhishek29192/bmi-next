@@ -14,16 +14,24 @@ export default (url: string) => {
     return cache[url];
   }
 
-  const promise = new Promise<GLTF>((success) => {
+  const promise = new Promise<GLTF>((resolve, reject) => {
     const pieces = url.split("/");
     const name = pieces.pop()!;
     const path = pieces.join("/") + "/";
 
     const loader = new GLTFLoader().setPath(path);
 
-    loader.load(name, (tileGltf: GLTF) => {
-      success(tileGltf);
-    });
+    loader.load(
+      name,
+      function onLoad(tileGltf: GLTF) {
+        resolve(tileGltf);
+      },
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      function onProgress() {},
+      function onError(err) {
+        reject(err);
+      }
+    );
   });
 
   // eslint-disable-next-line security/detect-object-injection
