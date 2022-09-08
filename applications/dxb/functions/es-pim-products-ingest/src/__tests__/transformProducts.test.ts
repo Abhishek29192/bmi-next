@@ -500,6 +500,13 @@ describe("transformProduct", () => {
       expect(transformedProduct[0]["totalVariantCount"]).toEqual(1);
     });
 
+    it("transforms product without a name correctly", async () => {
+      const product = createPimProduct({ name: undefined });
+
+      const transformedProduct = await transformProduct(product);
+      expect(transformedProduct).toEqual([]);
+    });
+
     it("should not transform full product without Variant products", async () => {
       const product = createPimProduct();
       product.variantOptions = [];
