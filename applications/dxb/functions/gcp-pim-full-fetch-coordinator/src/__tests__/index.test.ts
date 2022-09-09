@@ -93,6 +93,7 @@ describe("handleRequest", () => {
     "FULL_FETCH_ENDPOINT",
     "SPACE_ID",
     "LOCALE",
+    "MARKET_LOCALE",
     "CONTENTFUL_DELIVERY_TOKEN",
     "ES_INDEX_PREFIX",
     "ES_INDEX_NAME_DOCUMENTS"

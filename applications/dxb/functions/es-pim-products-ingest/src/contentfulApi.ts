@@ -3,8 +3,12 @@ import type { AssetTypeData } from "@bmi/pim-types";
 import { createClient, Environment, Space } from "contentful-management";
 import { ProductDocumentNameMap } from "./types";
 
-const { LOCALE, MANAGEMENT_ACCESS_TOKEN, SPACE_ID, CONTENTFUL_ENVIRONMENT } =
-  process.env;
+const {
+  MARKET_LOCALE,
+  MANAGEMENT_ACCESS_TOKEN,
+  SPACE_ID,
+  CONTENTFUL_ENVIRONMENT
+} = process.env;
 
 let spaceCache: Space | undefined;
 const getSpace = async (): Promise<Space> => {
@@ -41,8 +45,8 @@ const getSpaceEnvironment = async (): Promise<Environment | undefined> => {
     logger.error({ message: "CONTENTFUL_ENVIRONMENT has not been set." });
     return;
   }
-  if (!process.env.LOCALE) {
-    logger.error({ message: "LOCALE has not been set." });
+  if (!process.env.MARKET_LOCALE) {
+    logger.error({ message: "MARKET_LOCALE has not been set." });
     return;
   }
   const space = await getSpace();
@@ -63,9 +67,9 @@ const getAssetTypes = async (): Promise<
     return assetType.items
       .filter(({ fields: { name, code, pimCode } }) => name && code && pimCode)
       .map(({ fields: { name, code, pimCode } }) => ({
-        name: name[`${LOCALE}`],
-        code: code[`${LOCALE}`],
-        pimCode: pimCode[`${LOCALE}`]
+        name: name[`${MARKET_LOCALE}`],
+        code: code[`${MARKET_LOCALE}`],
+        pimCode: pimCode[`${MARKET_LOCALE}`]
       }));
   }
 };
@@ -81,7 +85,7 @@ const getProductDocumentNameMap = async (): Promise<
     const productDocumentNameMap =
       resources.items[0].fields["productDocumentNameMap"];
     if (productDocumentNameMap) {
-      return productDocumentNameMap[`${LOCALE}`];
+      return productDocumentNameMap[`${MARKET_LOCALE}`];
     }
     return "Document name";
   }

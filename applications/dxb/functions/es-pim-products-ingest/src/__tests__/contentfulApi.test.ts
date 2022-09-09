@@ -7,7 +7,7 @@ import {
 } from "contentful-management";
 import { getAssetTypes, getProductDocumentNameMap } from "../contentfulApi";
 
-const { LOCALE } = process.env;
+const { MARKET_LOCALE } = process.env;
 
 const getEntries = jest.fn();
 jest.mock("contentful-management", () => ({
@@ -35,22 +35,22 @@ describe("contentfulApi", () => {
         items: [
           {
             fields: {
-              name: { [`${LOCALE}`]: "Test_name1" },
-              code: { [`${LOCALE}`]: "Test_code1" },
-              pimCode: { [`${LOCALE}`]: "Test_pimCode1" }
+              name: { [`${MARKET_LOCALE}`]: "Test_name1" },
+              code: { [`${MARKET_LOCALE}`]: "Test_code1" },
+              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode1" }
             }
           },
           {
             fields: {
-              name: { [`${LOCALE}`]: "Test_name2" },
-              code: { [`${LOCALE}`]: "Test_code2" },
-              pimCode: { [`${LOCALE}`]: "Test_pimCode2" }
+              name: { [`${MARKET_LOCALE}`]: "Test_name2" },
+              code: { [`${MARKET_LOCALE}`]: "Test_code2" },
+              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode2" }
             }
           },
           {
             fields: {
-              name: { [`${LOCALE}`]: "Test_name3" },
-              code: { [`${LOCALE}`]: "Test_code3" }
+              name: { [`${MARKET_LOCALE}`]: "Test_name3" },
+              code: { [`${MARKET_LOCALE}`]: "Test_code3" }
             }
           }
         ]
@@ -107,16 +107,16 @@ describe("contentfulApi", () => {
       expect(result).toEqual(undefined);
       process.env.CONTENTFUL_ENVIRONMENT = token;
     });
-    it("sholud return undefined if LOCALE is NOT provided", async () => {
-      const token = process.env.LOCALE;
-      delete process.env.LOCALE;
+    it("sholud return undefined if MARKET_LOCALE is NOT provided", async () => {
+      const token = process.env.MARKET_LOCALE;
+      delete process.env.MARKET_LOCALE;
 
-      console.log(process.env.LOCALE);
+      console.log(process.env.MARKET_LOCALE);
 
       const result = await getAssetTypes();
 
       expect(result).toEqual(undefined);
-      process.env.LOCALE = token;
+      process.env.MARKET_LOCALE = token;
     });
   });
 
@@ -127,7 +127,7 @@ describe("contentfulApi", () => {
           {
             fields: {
               productDocumentNameMap: {
-                [`${LOCALE}`]: "Product name + asset type"
+                [`${MARKET_LOCALE}`]: "Product name + asset type"
               }
             }
           }

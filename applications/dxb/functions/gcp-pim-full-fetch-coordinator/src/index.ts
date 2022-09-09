@@ -20,6 +20,7 @@ const {
   ES_INDEX_PREFIX,
   ES_INDEX_NAME_DOCUMENTS,
   LOCALE,
+  MARKET_LOCALE,
   CONTENTFUL_DELIVERY_TOKEN,
   SPACE_ID
 } = process.env;
@@ -101,6 +102,11 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   if (!SPACE_ID) {
     logger.error({ message: "SPACE_ID is not set." });
+    return res.sendStatus(500);
+  }
+
+  if (!MARKET_LOCALE) {
+    logger.error({ message: "MARKET_LOCALE has not been set." });
     return res.sendStatus(500);
   }
 
