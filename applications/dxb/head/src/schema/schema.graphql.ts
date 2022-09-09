@@ -36,7 +36,7 @@ interface ContentfulPage implements Node {
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
@@ -94,7 +94,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   shareWidget: ContentfulShareWidgetSection @link(from: "shareWidget___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
   exploreBar: ContentfulNavigation @link(from: "exploreBar___NODE")
   linkColumns: ContentfulLinkColumnsSection @link(from: "linkColumns___NODE")
@@ -121,7 +121,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   queriesTitle: String
   queriesSubtitle: String
   locationsTitle: String
@@ -146,7 +146,7 @@ type ContentfulHomePage implements Node {
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
   sections: [ContentfulSection] @link(from: "sections___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
@@ -167,7 +167,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
   cta: ContentfulLink @link(from: "cta___NODE")
@@ -183,27 +183,27 @@ type ContentfulPromo implements Node {
   brandLogo: String
   subtitle: String
   body: ContentfulRichText
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   cta: ContentfulLink @link(from: "cta___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   backgroundColor: String
 }
 
-type ContentfulTag implements Node {
+type ContentfulCategory implements Node {
   id: ID!
   title: String!
   type: String!
 }
 
 union ContentfulPromoOrPage =
-    ContentfulPromo
+  ContentfulPromo
   | ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
 union ContentfulRichTextReference =
-    ContentfulAsset
+  ContentfulAsset
   | ContentfulTable
   | ContentfulLink
   | ContentfulHomePage
@@ -353,7 +353,7 @@ type ContentfulVideoSection implements Node {
 }
 
 union ContentfulNavigationEntity =
-    ContentfulNavigation
+  ContentfulNavigation
   | ContentfulNavigationItem
   | ContentfulLink
 
@@ -413,7 +413,7 @@ type ContentfulTeamCategory implements Node {
 }
 
 union ContentfulSection =
-    ContentfulCardCollectionSection
+  ContentfulCardCollectionSection
   | ContentfulCarouselSection
   | ContentfulFormSection
   | ContentfulNavigation
@@ -476,7 +476,7 @@ type ContentfulResources implements Node {
 }
 
 union ContentfulContactDetailsOrTitleWithContent =
-    ContentfulContactDetails
+  ContentfulContactDetails
   | ContentfulTitleWithContent
 
 type ContentfulContactTopic implements Node {
@@ -521,7 +521,7 @@ type contentfulSiteHeadScriptsTextNode implements Node {
 }
 
 union LinkedPage =
-    ContentfulContactUsPage
+  ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
@@ -601,7 +601,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   assetTypes: [ContentfulAssetType] @link(from: "assetTypes___NODE")
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   documentsWithFilters: DocumentsWithFiltersResponse!
   pimCodes: [String]
   allowFilterBy: [String!]
@@ -933,7 +933,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
-  tags: [ContentfulTag] @link(from: "tags___NODE")
+  tags: [ContentfulCategory] @link(from: "tags___NODE")
   parentPage: LinkedPage @link(from: "parentPage___NODE")
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
