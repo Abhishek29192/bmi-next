@@ -9,13 +9,15 @@ export type RequirementDialogProps = {
   description: Document;
   onCloseClick: () => void;
   onUploadButtonClick: () => void;
+  canUploadAction: boolean;
 };
 
 const RequirementDialog = ({
   isOpen,
   description,
   onCloseClick,
-  onUploadButtonClick
+  onUploadButtonClick,
+  canUploadAction
 }: RequirementDialogProps) => {
   const { t } = useTranslation("project-page");
 
@@ -26,9 +28,11 @@ const RequirementDialog = ({
       </Dialog.Title>
       <Dialog.Content data-testid="requirement-modal-content">
         <RichText content={description} />
-        <Button variant="outlined" onClick={onUploadButtonClick}>
-          {t("upload_tab.header")}
-        </Button>
+        {canUploadAction && (
+          <Button variant="outlined" onClick={onUploadButtonClick}>
+            {t("upload_tab.header")}
+          </Button>
+        )}
       </Dialog.Content>
     </Dialog>
   );
