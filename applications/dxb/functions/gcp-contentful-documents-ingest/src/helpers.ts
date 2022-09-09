@@ -9,7 +9,7 @@ const SECRET_MIN_LENGTH = 10;
 export const transformDocument = async (
   entryData: Entry
 ): Promise<ESContentfulDocument> => {
-  const locale = process.env.LOCALE;
+  const locale = process.env.MARKET_LOCALE;
   const environment = await getEnvironment();
   const { title, asset, assetType, brand, noIndex } = entryData.fields;
 
@@ -81,6 +81,11 @@ export const checkEnvVariables = (response: Response) => {
   }
   if (!process.env.CONTENTFUL_ENVIRONMENT) {
     logger.error({ message: "Contentful environment is not set." });
+    response.sendStatus(500);
+    return true;
+  }
+  if (!process.env.MARKET_LOCALE) {
+    logger.error({ message: "MARKET_LOCALE is not set." });
     response.sendStatus(500);
     return true;
   }

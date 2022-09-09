@@ -41,7 +41,7 @@ const client = contentful.createClient({
 
 export const getContenfulDocuments = () =>
   client
-    .getEntries({ content_type: "document", locale: process.env.LOCALE })
+    .getEntries({ content_type: "document", locale: process.env.MARKET_LOCALE })
     .then((response) => response.items);
 
 export const processContentfulDocuments = async () => {

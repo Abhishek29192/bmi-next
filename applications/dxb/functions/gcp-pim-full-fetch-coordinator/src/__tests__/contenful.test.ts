@@ -34,7 +34,7 @@ describe("processContentfulDocuments", () => {
     const result = await processContentfulDocuments();
     expect(getEntriesMock).toBeCalledWith({
       content_type: "document",
-      locale: process.env.LOCALE
+      locale: process.env.MARKET_LOCALE
     });
     expect(loggerInfo).toBeCalled();
     expect(result).toEqual([getEsDocumentMock()]);
@@ -51,7 +51,7 @@ describe("processContentfulDocuments", () => {
     }
     expect(getEntriesMock).toBeCalledWith({
       content_type: "document",
-      locale: process.env.LOCALE
+      locale: process.env.MARKET_LOCALE
     });
     expect(loggerInfo).not.toBeCalledWith({
       message: "Received 1 contentful documents."

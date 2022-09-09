@@ -83,6 +83,7 @@ process.env.TAGGER_REQUEST = "some secret";
 process.env.MANAGEMENT_ACCESS_TOKEN = "token";
 process.env.SPACE_ID = "space_id";
 process.env.CONTENTFUL_ENVIRONMENT = "environment_1";
+process.env.MARKET_LOCALE = "en-GB";
 
 process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });

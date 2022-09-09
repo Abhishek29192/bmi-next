@@ -69,7 +69,7 @@ const handleEsClientError = async (
 describe("helpers", () => {
   beforeEach(() => {
     mockConsole();
-    process.env.LOCALE = "en-GB";
+    process.env.MARKET_LOCALE = "en-GB";
   });
   describe("transformDocument", () => {
     it("should transform Contentful document to ES document", async () => {
@@ -110,7 +110,8 @@ describe("helpers", () => {
       "ES_INDEX_NAME_DOCUMENTS",
       "MANAGEMENT_ACCESS_TOKEN",
       "SPACE_ID",
-      "CONTENTFUL_ENVIRONMENT"
+      "CONTENTFUL_ENVIRONMENT",
+      "MARKET_LOCALE"
     ])("Returns 500, when %s is not set", async (name) => {
       // eslint-disable-next-line security/detect-object-injection
       const original = process.env[name];
