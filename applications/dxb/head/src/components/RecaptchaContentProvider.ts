@@ -178,6 +178,16 @@ const recaptchaContent_CN_ZH: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=zh-cn"
 };
 
+const recaptchaContent_HU: RecaptchaPolicyContentType = {
+  startText: "Ezt a webhelyet a reCAPTCHA védi, és a Google ",
+  privacyPloicyText: "adatvédelmi irányelvei",
+  andText: " és ",
+  termsOfServiceText: "szolgáltatási feltételei",
+  endText: " érvényesek.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=hu",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=hu"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -196,6 +206,7 @@ RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
 RecaptchaPrivacyContentMap["ch"] = recaptchaContent_CH_DE;
 RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
+RecaptchaPrivacyContentMap["hu"] = recaptchaContent_HU;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
