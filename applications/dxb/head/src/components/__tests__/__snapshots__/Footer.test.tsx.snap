@@ -169,3 +169,173 @@ exports[`Footer component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Footer component renders without brand logo Icon if it is presented in link 1`] = `
+<div>
+  <div
+    class="HidePrint"
+  >
+    <div
+      class="Footer"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item"
+            >
+              <h4
+                class="MuiTypography-root Typography MuiTypography-h4"
+              >
+                Get in touch
+              </h4>
+              <nav>
+                <ul
+                  class="list"
+                >
+                  <li
+                    class="list-item"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
+                      href="tel:+4401234567890"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-24"
+                      >
+                        <span
+                          class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                            />
+                          </svg>
+                        </span>
+                        +44 (0) 1234567890
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item"
+            >
+              <h4
+                class="MuiTypography-root Typography MuiTypography-h4"
+              >
+                About BMI
+              </h4>
+              <nav>
+                <ul
+                  class="list"
+                >
+                  <li
+                    class="list-item"
+                  >
+                    <a
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
+                      href="/uk/landing-page/"
+                      role="button"
+                      tabindex="0"
+                    >
+                      <span
+                        class="MuiButton-label buttonStyles-label-24"
+                      >
+                        Our story
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div
+            class="secondary-navigation"
+          >
+            <div
+              class="logo"
+            >
+              <svg />
+            </div>
+            <ul
+              class="list list--inline"
+            >
+              <li
+                class="list-item"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Icopal brand\\",\\"action\\":\\"/uk/landing-page/\\"}"
+                  href="/uk/landing-page/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-24"
+                  >
+                    Icopal brand
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
+              <li
+                class="list-item"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
+                  href="/uk/sitemap/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-24"
+                  >
+                    global.sitemap
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </li>
+            </ul>
+            <div
+              class="standard-logo"
+            >
+              <svg />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

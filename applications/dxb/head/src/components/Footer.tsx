@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@bmi/components";
+import { Button, ButtonProps, logoIconMap } from "@bmi/components";
 import { Footer, FooterMenuItem, BMI as BmiIcon } from "@bmi/components";
 import { HidePrint } from "@bmi/components";
 import { graphql } from "gatsby";
@@ -41,7 +41,7 @@ const parseNavigation = (
     return {
       label,
       // eslint-disable-next-line security/detect-object-injection
-      icon: iconName ? iconMap[iconName] : undefined,
+      icon: iconName && !logoIconMap[iconName] ? iconMap[iconName] : undefined,
       isLabelHidden,
       action: getClickableActionFromUrl(
         linkedPage,
