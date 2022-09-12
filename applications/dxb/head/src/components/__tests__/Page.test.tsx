@@ -101,6 +101,7 @@ const siteData: SiteData = {
   menuUtilities: mockNavigation,
   resources: null,
   pitchedRoofCalculatorConfig: null,
+  visualiserHouseTypes: [],
   regions: [
     {
       label: "Europe",

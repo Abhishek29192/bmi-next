@@ -79,7 +79,8 @@ const Page = ({
     resources,
     headScripts,
     regions,
-    pitchedRoofCalculatorConfig
+    pitchedRoofCalculatorConfig,
+    visualiserHouseTypes
   } = siteData;
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
@@ -165,6 +166,7 @@ const Page = ({
                   contentSource={visualizerAssetUrl}
                   variantCodeToPathMap={variantCodeToPathMap}
                   shareWidgetData={resources?.visualiserShareWidget}
+                  houseTypes={visualiserHouseTypes}
                 >
                   <CalculatorProvider
                     onError={() =>

@@ -37,6 +37,7 @@ describe("HouseViewer", () => {
         options={{
           contentSource: "url"
         }}
+        houseModelUrl="https://house_model"
       />
     );
 

@@ -1,3 +1,4 @@
+import { graphql } from "gatsby";
 import {
   AmbientLight,
   AxesHelper,
@@ -16,6 +17,7 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { devLog } from "../../utils/devLog";
 import { maxDistanceHouse, minDistanceHouse } from "./constants/visualiser";
 import house from "./data/house.json";
 import getRef from "./GetRef";
@@ -28,6 +30,7 @@ import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
 
 interface Props extends ViewerProps {
   siding: Siding;
+  houseModelUrl: string;
 }
 
 interface State extends ViewerState {
@@ -391,6 +394,11 @@ export default class HouseViewer extends Viewer<Props, State> {
   }
 
   load() {
+    if (!this.props.houseModelUrl) {
+      this.setIsLoading(false);
+      return;
+    }
+
     if (!this.container) {
       // Dom not ready yet
       return;
@@ -462,12 +470,8 @@ export default class HouseViewer extends Viewer<Props, State> {
     if (!this.houseLoader) {
       const { options } = this.props;
       const { contentSource } = options;
-      let housePath = getRef("public:models/house/v6", {
-        contentSource
-      });
-      housePath = housePath?.substring(0, housePath.length - 10) + "/";
-      this.houseLoader = modelCache(housePath + house.modelName).then(
-        (gltf) => {
+      this.houseLoader = modelCache(this.props.houseModelUrl)
+        .then((gltf) => {
           // Mark everything as shadow casting:
           this.houseScene = gltf.scene;
           gltf.scene.traverse((node) => {
@@ -514,8 +518,11 @@ export default class HouseViewer extends Viewer<Props, State> {
             .filter(Boolean) as Object3D[];
 
           this.loadModel(this.props);
-        }
-      );
+        })
+        .catch((err) => {
+          this.setIsLoading(false);
+          devLog("Failed to fetch house model - ", err);
+        });
 
       textureCache(`${contentSource}/content/whiteBackdrop.png`).then((tex) => {
         // '/content/HDRI_2k_8bit_graded.jpg' (field image)
@@ -561,3 +568,11 @@ export default class HouseViewer extends Viewer<Props, State> {
     obj?.parent?.remove(obj);
   }
 }
+
+export const query = graphql`
+  fragment VisualiserHouseFragment on ContentfulVisualiserHouseType {
+    houseModel {
+      url
+    }
+  }
+`;

@@ -5,6 +5,7 @@ import { NavigationData } from "./Link";
 import { fallbackGetMicroCopy, GetMicroCopy } from "./MicroCopy";
 import { CalculatorConfig } from "./pitched-roof-calculator/types";
 import { Data as ResourcesData } from "./Resources";
+import { HouseType } from "./visualiser/Types";
 
 export type Context = {
   node_locale: string;
@@ -46,6 +47,7 @@ export type Data = {
   } | null;
   regions: Region[];
   pitchedRoofCalculatorConfig: CalculatorConfig | null;
+  visualiserHouseTypes: HouseType[] | null;
 };
 
 export const query = graphql`
@@ -78,6 +80,9 @@ export const query = graphql`
     }
     pitchedRoofCalculatorConfig {
       ...PitchedRoofCalculatorFragment
+    }
+    visualiserHouseTypes {
+      ...VisualiserHouseFragment
     }
   }
 `;
