@@ -150,6 +150,10 @@ const combineProductReferences = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
+  if (!product.name) {
+    return [];
+  }
+
   const mappedClassifications = mapProductClassifications(
     product,
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE

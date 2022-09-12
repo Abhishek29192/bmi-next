@@ -30,6 +30,12 @@ describe("transformProduct", () => {
     expect(transformedProducts).toEqual([]);
   });
 
+  it("ignores products without a name", async () => {
+    const product = createProduct({ name: undefined });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual([]);
+  });
+
   it("transforms a single variant option with minimal data", async () => {
     const product: Product = {
       approvalStatus: "approved",

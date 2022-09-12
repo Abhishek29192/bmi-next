@@ -37,7 +37,7 @@ import {
 } from "./transformerUtils";
 
 export const transformProduct = (product: PimProduct): Product[] => {
-  if (product.approvalStatus !== "approved") {
+  if (product.approvalStatus !== "approved" || !product.name) {
     return [];
   }
   return (product.variantOptions || [])
