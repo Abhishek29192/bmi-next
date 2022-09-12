@@ -561,6 +561,24 @@ deploy_gatsby_cloud_slovakia:
     DXB_MARKET_ID: "SK"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_czechia:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "CZ"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_czechia:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_czechia
+  variables:
+    DXB_MARKET_ID: "CZ"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_group:
   extends: .migrate_content
   rules:
@@ -757,6 +775,11 @@ update_mc_slovakia:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "SK"
+
+update_mc_czechia:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "CZ"
 
 update_mc_group:
   extends: .update_mc
