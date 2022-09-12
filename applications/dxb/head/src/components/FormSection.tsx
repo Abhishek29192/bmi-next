@@ -331,6 +331,7 @@ const HubspotForm = ({
   description,
   onSuccess,
   onFormReady,
+  onFormLoadError,
   additionalValues,
   className,
   isDialog = false
@@ -342,7 +343,8 @@ const HubspotForm = ({
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
-  onFormReady: FormSectionProps["onFormReady"];
+  onFormReady?: FormSectionProps["onFormReady"];
+  onFormLoadError?: FormSectionProps["onFormLoadError"];
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
   isDialog?: boolean;
@@ -399,6 +401,10 @@ const HubspotForm = ({
       if (event.data.eventName === "onFormSubmitted") {
         onSuccess?.();
       }
+
+      if (event.data.eventName === "onFormDefinitionFetchError") {
+        onFormLoadError?.();
+      }
     };
 
     if (typeof window !== "undefined") {
@@ -450,6 +456,7 @@ type FormSectionProps = {
     event: MessageEvent,
     hsForm: HTMLIFrameElement | HTMLFormElement
   ) => void;
+  onFormLoadError?: () => void;
   className?: string;
   isDialog?: boolean;
 };
@@ -474,6 +481,7 @@ const FormSection = ({
   gtmOverride,
   onSuccess,
   onFormReady,
+  onFormLoadError,
   className,
   isDialog = false
 }: FormSectionProps) => {
@@ -662,6 +670,7 @@ const FormSection = ({
         description={description}
         onSuccess={onSuccess}
         onFormReady={onFormReady}
+        onFormLoadError={onFormLoadError}
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}

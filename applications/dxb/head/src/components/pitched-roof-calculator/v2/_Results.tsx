@@ -6,6 +6,8 @@ import React, {
   useMemo,
   useState
 } from "react";
+import { Section } from "@bmi/components";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { microCopy } from "../../../constants/microCopies";
 import { devLog } from "../../../utils/devLog";
 import FormSection from "../../FormSection";
@@ -20,6 +22,8 @@ import {
   TileOptionSelections,
   Underlay
 } from "../types/v2";
+import { Data as TitleWithContentType } from "../../TitleWithContent";
+import RichText from "../../RichText";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -30,10 +34,14 @@ import { GutteringSelections } from "./_Guttering";
 import { createPdf } from "./_PDF";
 import styles from "./_Results.module.scss";
 
-type EmailAddressCollectionProps = {
+type PrintReportSectionProps = {
   results: ResultsObject;
   area: number;
   hubSpotFormId: string | null;
+  setIsHubSpotFormAvailable: (value: boolean) => void;
+  isHubSpotFormAvailable: boolean;
+  needHelpSection: TitleWithContentType;
+  setLoading: (value: boolean) => void;
 };
 
 const ALLOWED_CONTENT_TYPES = ["image/jpeg", "image/png"];
@@ -67,11 +75,15 @@ export const replaceImageURLWithImage = async (
   };
 };
 
-const EmailAddressCollection = ({
+const PrintReportSection = ({
   results,
   area,
-  hubSpotFormId
-}: EmailAddressCollectionProps) => {
+  hubSpotFormId,
+  setIsHubSpotFormAvailable,
+  isHubSpotFormAvailable,
+  needHelpSection,
+  setLoading
+}: PrintReportSectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
   const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
@@ -128,7 +140,7 @@ const EmailAddressCollection = ({
     }
   };
 
-  const onSuccess = async () => {
+  const openPdfReport = async () => {
     pushEvent({
       event: "dxb.button_click",
       id: "rc-solution",
@@ -141,6 +153,7 @@ const EmailAddressCollection = ({
   };
 
   const onFormReady = (_, hsForm: HTMLIFrameElement) => {
+    setLoading(false);
     setHubSpotForm(hsForm);
     const styles = document.createElement("style");
     // Hides file input inside the iframe form.
@@ -148,12 +161,18 @@ const EmailAddressCollection = ({
     hsForm.contentDocument.head.appendChild(styles);
   };
 
-  return (
+  const onFormLoadError = () => {
+    setIsHubSpotFormAvailable(false);
+    setLoading(false);
+  };
+
+  return isHubSpotFormAvailable ? (
     <FormSection
       id="webtool-calculator-form-id"
       backgroundColor="white"
-      onSuccess={onSuccess}
+      onSuccess={openPdfReport}
       onFormReady={onFormReady}
+      onFormLoadError={onFormLoadError}
       className={styles["FormSection"]}
       data={{
         __typename: "ContentfulFormSection",
@@ -172,6 +191,36 @@ const EmailAddressCollection = ({
         successRedirect: null
       }}
     />
+  ) : (
+    <div
+      className={styles["printReportSection"]}
+      id="print-calculations-report"
+    >
+      <div>
+        <Typography variant="h4" hasUnderline>
+          {getMicroCopy(microCopy.RESULTS_EMAIL_TITLE)}
+        </Typography>
+        <Typography className={styles["help"]}>
+          {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_HELP)}
+        </Typography>
+        <Button onClick={openPdfReport}>
+          {getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL)}
+        </Button>
+      </div>
+      <Section
+        spacing="none"
+        backgroundColor="pearl"
+        hasNoPadding
+        className={styles["needHelpSection"]}
+      >
+        {needHelpSection.title && (
+          <Section.Title className={styles["needHelpTitle"]}>
+            {needHelpSection.title}
+          </Section.Title>
+        )}
+        <RichText document={needHelpSection.content} />
+      </Section>
+    </div>
   );
 };
 
@@ -185,6 +234,9 @@ export type ResultProps = {
   underlay: Underlay;
   guttering?: GutteringSelections;
   hubSpotFormId: string | null;
+  setIsHubSpotFormAvailable: (value: boolean) => void;
+  isHubSpotFormAvailable: boolean;
+  needHelpSection: TitleWithContentType;
 };
 
 const Results = ({
@@ -194,9 +246,13 @@ const Results = ({
   tileOptions,
   underlay,
   guttering,
-  hubSpotFormId
+  hubSpotFormId,
+  setIsHubSpotFormAvailable,
+  isHubSpotFormAvailable,
+  needHelpSection
 }: ResultProps) => {
   const { getMicroCopy } = useSiteContext();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { faces, lines, area } = measurements;
 
@@ -299,173 +355,184 @@ const Results = ({
     };
 
   return (
-    <div className={styles["Results"]}>
-      {tileRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setTileRows)}
-            onChangeQuantity={changeQuantity(setTileRows)}
-            rows={tileRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {fixingRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setFixingRows)}
-            onChangeQuantity={changeQuantity(setFixingRows)}
-            rows={fixingRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {ventilationRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setVentilationRows)}
-            onChangeQuantity={changeQuantity(setVentilationRows)}
-            rows={ventilationRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {sealingRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setSealingRows)}
-            onChangeQuantity={changeQuantity(setSealingRows)}
-            rows={sealingRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {accessoryRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setAccessoryRows)}
-            onChangeQuantity={changeQuantity(setAccessoryRows)}
-            rows={accessoryRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {updatedProducts?.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_EDITED_PRODUCTS_TITLE)}
-          className={styles["fieldContainer"]}
-        >
-          <QuantityTable
-            onDelete={deleteRow(setUpdatedProducts, true)}
-            onChangeQuantity={changeQuantity(setUpdatedProducts, false)}
-            rows={updatedProducts}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
-      {updatedProducts ? (
-        <Alert
-          type="warning"
-          title={getMicroCopy(
-            microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TITLE
-          )}
-          first
-        >
-          {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT)}{" "}
-          <Button
-            onClick={resetProducts}
-            classes={{
-              root: styles["resetLink"],
-              text: styles["resetLink--text"]
-            }}
-            variant="text"
-          >
-            {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_RESET_BUTTON)}
-          </Button>
-          .
-        </Alert>
-      ) : (
-        <Alert
-          type="warning"
-          title={getMicroCopy(
-            microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TITLE
-          )}
-          first
-        >
-          {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TEXT)}
-        </Alert>
+    <>
+      {loading && (
+        <div className={styles["spinnerContainer"]}>
+          <CircularProgress />
+        </div>
       )}
-      <Alert
-        title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}
-        last
-      >
-        {getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TEXT, {
-          contingency: CONTINGENCY_PERCENTAGE_TEXT
-        })}
-      </Alert>
-      <EmailAddressCollection
-        {...{
-          results: {
-            tiles: tileRows,
-            fixings: fixingRows,
-            sealing: sealingRows,
-            ventilation: ventilationRows,
-            accessories: accessoryRows,
-            extras: updatedProducts || []
-          },
-          area: area || 0,
-          hubSpotFormId
-        }}
-      />
-      {isDebugging ? (
-        <FieldContainer>
-          <Typography variant="h3">
-            Measurements (showing because debugging mode is ON)
-          </Typography>
-          <Typography variant="h4">Lines</Typography>
-          <ul>
-            {Object.keys(lines).map((l) =>
-              // eslint-disable-next-line security/detect-object-injection
-              lines[l as keyof LinesMap].length ? (
-                <li key={l}>
-                  <b>{l}:</b>{" "}
-                  {/* eslint-disable-next-line security/detect-object-injection */}
-                  {(lines[l as keyof LinesMap] as Line[])
-                    .map((v) => v.length.toFixed(2))
+      <div className={styles["Results"]}>
+        {tileRows.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setTileRows)}
+              onChangeQuantity={changeQuantity(setTileRows)}
+              rows={tileRows}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {fixingRows.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setFixingRows)}
+              onChangeQuantity={changeQuantity(setFixingRows)}
+              rows={fixingRows}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {ventilationRows.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setVentilationRows)}
+              onChangeQuantity={changeQuantity(setVentilationRows)}
+              rows={ventilationRows}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {sealingRows.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setSealingRows)}
+              onChangeQuantity={changeQuantity(setSealingRows)}
+              rows={sealingRows}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {accessoryRows.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setAccessoryRows)}
+              onChangeQuantity={changeQuantity(setAccessoryRows)}
+              rows={accessoryRows}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {updatedProducts?.length ? (
+          <FieldContainer
+            title={getMicroCopy(microCopy.RESULTS_EDITED_PRODUCTS_TITLE)}
+            className={styles["fieldContainer"]}
+          >
+            <QuantityTable
+              onDelete={deleteRow(setUpdatedProducts, true)}
+              onChangeQuantity={changeQuantity(setUpdatedProducts, false)}
+              rows={updatedProducts}
+              {...tableLabels}
+            />
+          </FieldContainer>
+        ) : null}
+        {updatedProducts ? (
+          <Alert
+            type="warning"
+            title={getMicroCopy(
+              microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TITLE
+            )}
+            first
+          >
+            {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT)}{" "}
+            <Button
+              onClick={resetProducts}
+              classes={{
+                root: styles["resetLink"],
+                text: styles["resetLink--text"]
+              }}
+              variant="text"
+            >
+              {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_RESET_BUTTON)}
+            </Button>
+            .
+          </Alert>
+        ) : (
+          <Alert
+            type="warning"
+            title={getMicroCopy(
+              microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TITLE
+            )}
+            first
+          >
+            {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TEXT)}
+          </Alert>
+        )}
+        <Alert
+          title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}
+          last
+        >
+          {getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TEXT, {
+            contingency: CONTINGENCY_PERCENTAGE_TEXT
+          })}
+        </Alert>
+        <PrintReportSection
+          {...{
+            results: {
+              tiles: tileRows,
+              fixings: fixingRows,
+              sealing: sealingRows,
+              ventilation: ventilationRows,
+              accessories: accessoryRows,
+              extras: updatedProducts || []
+            },
+            area: area || 0,
+            hubSpotFormId,
+            setIsHubSpotFormAvailable,
+            isHubSpotFormAvailable,
+            needHelpSection,
+            setLoading
+          }}
+        />
+        {isDebugging ? (
+          <FieldContainer>
+            <Typography variant="h3">
+              Measurements (showing because debugging mode is ON)
+            </Typography>
+            <Typography variant="h4">Lines</Typography>
+            <ul>
+              {Object.keys(lines).map((l) =>
+                // eslint-disable-next-line security/detect-object-injection
+                lines[l as keyof LinesMap].length ? (
+                  <li key={l}>
+                    <b>{l}:</b>{" "}
+                    {/* eslint-disable-next-line security/detect-object-injection */}
+                    {(lines[l as keyof LinesMap] as Line[])
+                      .map((v) => v.length.toFixed(2))
+                      .join(" | ")}
+                  </li>
+                ) : null
+              )}
+            </ul>
+            <Typography variant="h4">Faces</Typography>
+            <ul>
+              {faces.map((face, i) => (
+                <li key={i}>
+                  <b>face {i + 1} battens (width):</b>{" "}
+                  {battenCalc(face.vertices, variant)
+                    .map(({ width }) => width.toFixed(2))
                     .join(" | ")}
                 </li>
-              ) : null
-            )}
-          </ul>
-          <Typography variant="h4">Faces</Typography>
-          <ul>
-            {faces.map((face, i) => (
-              <li key={i}>
-                <b>face {i + 1} battens (width):</b>{" "}
-                {battenCalc(face.vertices, variant)
-                  .map(({ width }) => width.toFixed(2))
-                  .join(" | ")}
-              </li>
-            ))}
-          </ul>
-        </FieldContainer>
-      ) : null}
-    </div>
+              ))}
+            </ul>
+          </FieldContainer>
+        ) : null}
+      </div>
+    </>
   );
 };
 

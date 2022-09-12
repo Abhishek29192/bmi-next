@@ -650,6 +650,26 @@ describe("Hubspot FormSection component", () => {
     expect(onFormReady).toHaveBeenCalledTimes(1);
   });
 
+  it("calls onFormLoadError function", () => {
+    const onFormLoadError = jest.fn();
+    const onFormLoadErrorEvent = new MessageEvent("message", {
+      data: {
+        type: "hsFormCallback",
+        eventName: "onFormDefinitionFetchError"
+      }
+    });
+
+    render(
+      <FormSection
+        data={dataHubSpot}
+        backgroundColor="white"
+        onFormLoadError={onFormLoadError}
+      />
+    );
+    window.dispatchEvent(onFormLoadErrorEvent);
+    expect(onFormLoadError).toHaveBeenCalledTimes(1);
+  });
+
   it("renders correctly for dialog", () => {
     const { container } = render(
       <FormSection data={dataHubSpot} backgroundColor="white" isDialog />

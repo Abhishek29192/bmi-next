@@ -1,3 +1,5 @@
+import { Data as TitleWithContentProps } from "../../TitleWithContent";
+
 export type RangeValue = {
   start: number;
   end: number;
@@ -148,4 +150,5 @@ export enum CalculatorSteps {
 export type CalculatorConfig = {
   hubSpotFormId: string | null;
   roofShapes: { roofShapeId: string }[];
+  needHelpSection: TitleWithContentProps;
 };

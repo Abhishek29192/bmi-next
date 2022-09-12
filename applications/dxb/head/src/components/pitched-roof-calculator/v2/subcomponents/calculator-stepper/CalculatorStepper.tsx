@@ -43,7 +43,7 @@ const CalculatorStepper = ({ selected, children, loading }: Props) => {
 export type StepProps = {
   isForm?: boolean;
   title: string;
-  subtitle: string;
+  subtitle: React.ReactNode;
   paragraph?: React.ReactNode;
   backLabel?: string;
   backButtonOnClick?: () => void;
