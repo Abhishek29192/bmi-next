@@ -500,7 +500,7 @@ describe("transformProduct", () => {
       expect(transformedProduct[0]["totalVariantCount"]).toEqual(1);
     });
 
-    it("transforms product without a name correctly", async () => {
+    it("ignores products without a name", async () => {
       const product = createPimProduct({ name: undefined });
 
       const transformedProduct = await transformProduct(product);

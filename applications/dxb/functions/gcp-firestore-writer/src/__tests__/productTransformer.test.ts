@@ -30,7 +30,7 @@ describe("transformProduct", () => {
     expect(transformedProducts).toEqual([]);
   });
 
-  it("transforms a product without a name", async () => {
+  it("ignores products without a name", async () => {
     const product = createProduct({ name: undefined });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toEqual([]);
