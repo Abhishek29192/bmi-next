@@ -552,9 +552,6 @@ const FormSection = ({
       });
 
       if (!response.ok) {
-        logger.error({
-          message: `Request to send form data failed with status ${response.status} ${response.statusText}`
-        });
         throw new Error(response.statusText);
       }
 
@@ -661,9 +658,6 @@ const FormSection = ({
       );
 
       if (!response.ok) {
-        logger.error({
-          message: `Request to send form data failed with status ${response.status} ${response.statusText}`
-        });
         throw new Error(response.statusText);
       }
 

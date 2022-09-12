@@ -151,7 +151,9 @@ const SystemConfiguratorQuestion = ({
         `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
         {
           method: "GET",
-          headers: { "X-Recaptcha-Token": recaptchaToken },
+          headers: {
+            "X-Recaptcha-Token": recaptchaToken
+          },
           signal: controller.signal
         }
       );

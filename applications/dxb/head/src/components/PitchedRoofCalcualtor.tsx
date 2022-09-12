@@ -88,9 +88,6 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         });
 
         if (!response.ok) {
-          logger.error({
-            message: `Request to get pitched roof calculator data failed with status ${response.status} ${response.statusText}`
-          });
           throw new Error(response.statusText);
         }
 
