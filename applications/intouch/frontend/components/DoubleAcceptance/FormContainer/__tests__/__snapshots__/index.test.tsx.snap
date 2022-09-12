@@ -5,11 +5,28 @@ exports[`FormContainer render correctly 1`] = `
   <div
     class="container"
   >
-    <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
-      title
-    </h4>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <h4
+          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        >
+          title
+        </h4>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <div>
+          <div>
+            description
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="body"
     >

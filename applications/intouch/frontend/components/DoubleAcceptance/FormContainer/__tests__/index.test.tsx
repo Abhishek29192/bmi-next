@@ -93,7 +93,7 @@ describe("FormContainer", () => {
       },
       mailBody: "mailBody",
       mailSubject: "mailSubject",
-      guaranteeScopeDescription: "guaranteeScopeDescription"
+      guaranteeScope: "guaranteeScopeDescription"
     },
     ...doubleAcceptance
   });
