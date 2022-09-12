@@ -188,6 +188,16 @@ const recaptchaContent_HU: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=hu"
 };
 
+const recaptchaContent_CZ: RecaptchaPolicyContentType = {
+  startText: "Tato stránka je chráněna reCAPTCHA a platí ",
+  privacyPloicyText: "zásady ochrany osobních údajů",
+  andText: " a ",
+  termsOfServiceText: "smluvní podmínky",
+  endText: " společnosti Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=cs",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=cs"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -207,6 +217,7 @@ RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
 RecaptchaPrivacyContentMap["ch"] = recaptchaContent_CH_DE;
 RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
 RecaptchaPrivacyContentMap["hu"] = recaptchaContent_HU;
+RecaptchaPrivacyContentMap["cz"] = recaptchaContent_CZ;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
