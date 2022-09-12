@@ -117,6 +117,7 @@ describe("double acceptance server side props", () => {
         props: {
           baseUrl: "en.local.intouch:3000",
           market: "en",
+          environment: null,
           doubleAcceptance: {
             id: getDoubleAcceptanceByValidTempToken.id,
             completed: !!getDoubleAcceptanceByValidTempToken.acceptanceDate,
@@ -133,7 +134,11 @@ describe("double acceptance server side props", () => {
   it("render form correctly when completed is false", async () => {
     const props = { ...doubleAcceptance, completed: false };
     renderWithI18NProvider(
-      <DoubleAcceptancePage doubleAcceptance={props} market={"en"} />
+      <DoubleAcceptancePage
+        doubleAcceptance={props}
+        baseUrl={context.req.host}
+        environment={null}
+      />
     );
 
     expect(screen.queryByTestId("double-acceptance-form")).toBeTruthy();
@@ -145,7 +150,11 @@ describe("double acceptance server side props", () => {
 
   it("render confirmation page correctly when completed is true", async () => {
     renderWithI18NProvider(
-      <DoubleAcceptancePage doubleAcceptance={doubleAcceptance} market={"en"} />
+      <DoubleAcceptancePage
+        doubleAcceptance={doubleAcceptance}
+        baseUrl={context.req.host}
+        environment={null}
+      />
     );
 
     expect(screen.queryByTestId("double-acceptance-confirmation")).toBeTruthy();
