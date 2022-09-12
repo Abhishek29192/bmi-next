@@ -16,14 +16,14 @@ package_gcp-cron-auto-reject-double-acceptance:
     - job: build_gcp-cron-auto-reject-double-acceptance
       artifacts: true
   variables:
-    FUNCTION_NAME: pubsub-auto-reject-double-acceptance
+    FUNCTION_NAME: pubsub-cron-auto-reject-double-acceptance
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-reject-double-acceptance
 
 # Deploy to BMI environments
 deploy_gcp-cron-auto-reject-double-acceptance_bmi:
   extends: .deploy_intouch_function
   variables:
-    FUNCTION_NAME: pubsub-auto-reject-double-acceptance
+    FUNCTION_NAME: pubsub-cron-auto-reject-double-acceptance
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-reject-double-acceptance
   needs:
     - job: package_gcp-cron-auto-reject-double-acceptance
