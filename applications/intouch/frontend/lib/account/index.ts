@@ -25,6 +25,7 @@ export const queryAccountByEmail = gql`
         projectsEnabled
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
       }
       companyMembers {
         nodes {

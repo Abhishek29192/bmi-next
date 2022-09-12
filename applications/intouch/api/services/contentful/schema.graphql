@@ -98,6 +98,12 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): EntryCollection
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): MediaToolCollection
   guaranteeTemplateCollection(
     skip: Int = 0
     limit: Int = 100
@@ -116,12 +122,6 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): CarouselItemCollection
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): MediaToolCollection
   trainingContentCollection(
     skip: Int = 0
     limit: Int = 100
@@ -1844,6 +1844,7 @@ type MediaTool implements Entry {
   thumbnail(preview: Boolean, locale: String): Asset
   media(preview: Boolean, locale: String): Asset
   url(locale: String): String
+  cta(locale: String): String
 }
 
 type MediaToolCollection {
@@ -1872,6 +1873,13 @@ input MediaToolFilter {
   url_not_in: [String]
   url_contains: String
   url_not_contains: String
+  cta_exists: Boolean
+  cta: String
+  cta_not: String
+  cta_in: [String]
+  cta_not_in: [String]
+  cta_contains: String
+  cta_not_contains: String
   OR: [MediaToolFilter]
   AND: [MediaToolFilter]
 }
@@ -1896,6 +1904,8 @@ enum MediaToolOrder {
   name_DESC
   url_ASC
   url_DESC
+  cta_ASC
+  cta_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -1915,7 +1925,6 @@ type MessageTemplate implements Entry {
   linkedFrom(allowedLocales: [String]): MessageTemplateLinkingCollections
   event(locale: String): String
   format(locale: String): [String]
-  emailRecipient(locale: String): String
   subject(locale: String): String
   notificationBody(locale: String): String
   emailBody(locale: String): String
@@ -1942,13 +1951,6 @@ input MessageTemplateFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
-  emailRecipient_exists: Boolean
-  emailRecipient: String
-  emailRecipient_not: String
-  emailRecipient_in: [String]
-  emailRecipient_not_in: [String]
-  emailRecipient_contains: String
-  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String
@@ -1992,8 +1994,6 @@ type MessageTemplateLinkingCollections {
 enum MessageTemplateOrder {
   event_ASC
   event_DESC
-  emailRecipient_ASC
-  emailRecipient_DESC
   subject_ASC
   subject_DESC
   notificationBody_ASC
@@ -2247,19 +2247,15 @@ type Query {
     where: AssetFilter
     order: [AssetOrder]
   ): AssetCollection
-  messageTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): MessageTemplate
-  messageTemplateCollection(
+  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
+  mediaToolCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
-    where: MessageTemplateFilter
-    order: [MessageTemplateOrder]
-  ): MessageTemplateCollection
+    where: MediaToolFilter
+    order: [MediaToolOrder]
+  ): MediaToolCollection
   operationType(id: String!, preview: Boolean, locale: String): OperationType
   operationTypeCollection(
     skip: Int = 0
@@ -2282,6 +2278,19 @@ type Query {
     where: GuaranteeTemplateFilter
     order: [GuaranteeTemplateOrder]
   ): GuaranteeTemplateCollection
+  messageTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): MessageTemplate
+  messageTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MessageTemplateFilter
+    order: [MessageTemplateOrder]
+  ): MessageTemplateCollection
   faqTopic(id: String!, preview: Boolean, locale: String): FaqTopic
   faqTopicCollection(
     skip: Int = 0
@@ -2804,13 +2813,6 @@ input cfMessageTemplateNestedFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
-  emailRecipient_exists: Boolean
-  emailRecipient: String
-  emailRecipient_not: String
-  emailRecipient_in: [String]
-  emailRecipient_not_in: [String]
-  emailRecipient_contains: String
-  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String

@@ -1,0 +1,2 @@
+ALTER TABLE market
+  ADD COLUMN merchandise_sso BOOLEAN DEFAULT FALSE;

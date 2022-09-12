@@ -1322,7 +1322,7 @@ describe("permissions/gates", () => {
       });
 
       it("role is INSTALLER ", () => {
-        expect(gates.home.CTA_MERCHANDISE[ROLES.INSTALLER]).toBe(true);
+        expect(gates.home.CTA_MERCHANDISE[ROLES.INSTALLER]).toBe(false);
       });
 
       it("role is AUDITOR ", () => {

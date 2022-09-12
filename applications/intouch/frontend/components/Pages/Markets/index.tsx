@@ -9,12 +9,13 @@ import { Form } from "@bmi/components";
 import { Grid } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import classnames from "classnames";
-import { SidePanel } from "../../../components/SidePanel";
+import { SidePanel } from "../../SidePanel";
 import { FilterResult } from "../../FilterResult";
 import { formatDate } from "../../../lib/utils";
 import {
   useUpdateMarketMutation,
-  useUpdateDoceboTiersByMarketMutation
+  useUpdateDoceboTiersByMarketMutation,
+  useUpdateMerchandiseTiersByMarketMutation
 } from "../../../graphql/generated/hooks";
 import {
   MarketsQuery,
@@ -27,9 +28,10 @@ import { marketKeys } from "./config";
 type Props = {
   markets: MarketsQuery["markets"];
   doceboTiers: MarketsQuery["doceboTiers"];
+  merchandiseTiers: MarketsQuery["merchandiseTiers"];
 };
 
-type DoceboTeirs = {
+type DoceboTiers = {
   T1?: number;
   T2?: number;
   T3?: number;
@@ -39,10 +41,20 @@ type DoceboTeirs = {
   T7?: number;
 };
 
+type MerchandiseTiers = {
+  merchandiseT1?: number;
+  merchandiseT2?: number;
+  merchandiseT3?: number;
+  merchandiseT4?: number;
+  merchandiseT5?: number;
+  merchandiseT6?: number;
+  merchandiseT7?: number;
+};
+
 type MarketList =
   | MarketsQuery["markets"]
   | UpdateMarketMutation["updateMarket"]["query"]["markets"];
-type _Market = MarketList["nodes"][0] & DoceboTeirs;
+type _Market = MarketList["nodes"][0] & DoceboTiers & MerchandiseTiers;
 
 type ResultProps = {
   severity: "error" | "warning" | "info" | "success" | null;
@@ -65,7 +77,7 @@ const getValue = (t, type, value) => {
   }
 };
 
-const MarketPage = ({ markets, doceboTiers }: Props) => {
+const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
   const { t } = useTranslation("admin-markets");
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [result, setResult] = useState<ResultProps>({
@@ -82,7 +94,7 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
   });
   const [selectedItem, setSelectedItem] = useState<_Market>();
 
-  const [udpateMarket, { loading: updateMarketLoading }] =
+  const [updateMarket, { loading: updateMarketLoading }] =
     useUpdateMarketMutation({
       onError: ({ networkError }) => {
         setResult({
@@ -105,6 +117,7 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
         });
       }
     });
+
   const [updateDoceboTiers, { loading: updateDoceboTiersLoading }] =
     useUpdateDoceboTiersByMarketMutation({
       onError: ({ networkError, message }) => {
@@ -124,10 +137,35 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
             [cur.tier_code]: cur.docebo_catalogue_id
           }),
           {}
-        ) as DoceboTeirs;
+        ) as DoceboTiers;
         setItems({ ...items, ...doceboTiers });
       }
     });
+
+  const [updateMerchandiseTiers, { loading: updateMerchandiseTiersLoading }] =
+    useUpdateMerchandiseTiersByMarketMutation({
+      onError: ({ networkError, message }) => {
+        const errors = networkError
+          ? networkError["result"].errors.map(({ message }) => message)
+          : [message];
+        setResult({
+          severity: "error",
+          title: t("error"),
+          messages: [...result.messages, ...errors]
+        });
+      },
+      onCompleted: (data) => {
+        const merchandiseTiers = data.updateMerchandiseTiersByMarket.reduce(
+          (prev, cur) => ({
+            ...prev,
+            [`merchandise${cur.tier_code}`]: cur.merchandise_division_id
+          }),
+          {}
+        ) as MerchandiseTiers;
+        setItems({ ...items, ...merchandiseTiers });
+      }
+    });
+
   const onItemChange = useCallback(
     (name, value, type) => {
       setSelectedItem((prev) => ({
@@ -141,8 +179,26 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
   const onMarketSubmit = useCallback(
     async (event) => {
       event.preventDefault();
-      const { id, __typename, T1, T2, T3, T4, T5, T6, T7, ...rest } =
-        selectedItem;
+      const {
+        id,
+        __typename,
+        T1,
+        T2,
+        T3,
+        T4,
+        T5,
+        T6,
+        T7,
+        merchandiseT1,
+        merchandiseT2,
+        merchandiseT3,
+        merchandiseT4,
+        merchandiseT5,
+        merchandiseT6,
+        merchandiseT7,
+        ...rest
+      } = selectedItem;
+
       const catalogueToUpdate = {
         T1,
         T2,
@@ -153,8 +209,18 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
         T7
       };
 
+      const merchandiseToUpdate = {
+        merchandiseT1,
+        merchandiseT2,
+        merchandiseT3,
+        merchandiseT4,
+        merchandiseT5,
+        merchandiseT6,
+        merchandiseT7
+      };
+
       setResult({ severity: null, title: null, messages: [] });
-      await udpateMarket({
+      await updateMarket({
         variables: {
           input: {
             id,
@@ -172,8 +238,16 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
           }
         }
       });
+      await updateMerchandiseTiers({
+        variables: {
+          input: {
+            marketId: id,
+            ...merchandiseToUpdate
+          }
+        }
+      });
     },
-    [udpateMarket, updateDoceboTiers, selectedItem]
+    [updateMarket, updateDoceboTiers, updateMerchandiseTiers, selectedItem]
   );
 
   const onSearch = (value: string): void => {
@@ -199,18 +273,29 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
   }, [filterState]);
 
   useEffect(() => {
-    const catalogueIds: DoceboTeirs = doceboTiers.nodes
+    const catalogueIds: DoceboTiers = doceboTiers.nodes
       .filter(({ marketId }) => marketId === selectedMarketId)
       .reduce(
         (prev, cur) => ({ ...prev, [cur.tierCode]: cur.doceboCatalogueId }),
         {}
       );
+    const divisionIds: MerchandiseTiers = merchandiseTiers.nodes
+      .filter(({ marketId }) => marketId === selectedMarketId)
+      .reduce(
+        (prev, cur) => ({
+          ...prev,
+          [`merchandise${cur.tierCode}`]: cur.merchandiseDivisionId
+        }),
+        {}
+      );
     const item = {
       ...markets.nodes.find(({ id }) => id === selectedMarketId),
-      ...catalogueIds
+      ...catalogueIds,
+      ...divisionIds
     };
     setSelectedItem(item);
   }, [selectedMarketId]);
+
   return (
     <div
       className={classnames(layoutStyles.searchPanelWrapper, styles.container)}
@@ -252,7 +337,7 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
                       spacing={0}
                       direction="row"
                       alignItems="flex-start"
-                      justify="space-between"
+                      justifyContent="space-between"
                       style={{ display: "flex" }}
                     >
                       <Grid item xs={10}>
@@ -309,7 +394,8 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
               </Form>
               {result.severity &&
                 !updateMarketLoading &&
-                !updateDoceboTiersLoading && (
+                !updateDoceboTiersLoading &&
+                !updateMerchandiseTiersLoading && (
                   <div style={{ marginTop: 15 }}>
                     <AlertBanner severity={result.severity}>
                       <AlertBanner.Title>{result.title}</AlertBanner.Title>
@@ -333,7 +419,7 @@ const MarketPage = ({ markets, doceboTiers }: Props) => {
                 spacing={0}
                 direction="row"
                 alignItems="flex-start"
-                justify="space-between"
+                justifyContent="space-between"
                 style={{ display: "flex" }}
               >
                 <Grid item xs={10}>
@@ -398,6 +484,7 @@ export const updateMarket = gql`
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
             merchandisingUrl
+            merchandiseSso
             projectsEnabled
             locationBiasRadiusKm
             gtag
@@ -414,6 +501,19 @@ export const updateDoceboTiersByMarket = gql`
     updateDoceboTiersByMarket(input: $input) {
       id
       docebo_catalogue_id
+      market_id
+      tier_code
+    }
+  }
+`;
+
+export const updateMerchandiseTiersByMarket = gql`
+  mutation updateMerchandiseTiersByMarket(
+    $input: UpdateMerchandiseTiersByMarketInput!
+  ) {
+    updateMerchandiseTiersByMarket(input: $input) {
+      id
+      merchandise_division_id
       market_id
       tier_code
     }

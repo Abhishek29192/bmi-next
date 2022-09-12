@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "../../../lib/tests/utils";
 import { MediaItem } from "../../../lib/media/types";
 import { META_TYPES } from "../../../lib/media/utils";
 import { MediaTile } from "../";
+import { generateAccount } from "../../../lib/tests/factories/account";
 
 const onMediaItemClickMock = jest.fn();
 
@@ -34,6 +35,18 @@ describe("MediaTile", () => {
       }
     }
   });
+  const SsoMediaTool: MediaItem = {
+    __typename: "MediaTool",
+    name: "mediaTool",
+    url: "http://www.external.com",
+    sys: {
+      __typename: "Sys",
+      id: "2"
+    },
+    cta: "MERCHANDISE"
+  };
+
+  const account = generateAccount({ role: "SUPER_ADMIN" });
 
   beforeEach(() => {
     jest.resetAllMocks();
@@ -45,6 +58,8 @@ describe("MediaTile", () => {
       <MediaTile
         mediaItem={initialProps}
         onMediaItemClick={onMediaItemClickMock}
+        account={account}
+        merchandiseSso={true}
       />
     );
 
@@ -62,6 +77,8 @@ describe("MediaTile", () => {
       <MediaTile
         mediaItem={initialProps}
         onMediaItemClick={onMediaItemClickMock}
+        account={account}
+        merchandiseSso={true}
       />
     );
 
@@ -85,6 +102,8 @@ describe("MediaTile", () => {
         <MediaTile
           mediaItem={initialProps}
           onMediaItemClick={onMediaItemClickMock}
+          account={account}
+          merchandiseSso={true}
         />
       );
       fireEvent.click(screen.getByText("mediaFolder"));
@@ -98,11 +117,39 @@ describe("MediaTile", () => {
         <MediaTile
           mediaItem={initialProps}
           onMediaItemClick={onMediaItemClickMock}
+          account={account}
+          merchandiseSso={true}
         />
       );
       fireEvent.click(screen.getByText(`contentTypes.${META_TYPES.FOLDER}`));
 
       expect(onMediaItemClickMock).toHaveBeenCalledTimes(1);
+    });
+
+    it("check merchandise cta for SUPER_ADMIN", async () => {
+      render(
+        <MediaTile
+          mediaItem={SsoMediaTool}
+          onMediaItemClick={onMediaItemClickMock}
+          account={account}
+          merchandiseSso={true}
+        />
+      );
+
+      expect(screen.getByText("mediaTool")).toBeTruthy();
+    });
+
+    it("check merchandise cta for INSTALLER", async () => {
+      render(
+        <MediaTile
+          mediaItem={SsoMediaTool}
+          onMediaItemClick={onMediaItemClickMock}
+          account={generateAccount({ role: "INSTALLER" })}
+          merchandiseSso={true}
+        />
+      );
+
+      expect(screen.getByText("mediaTool")).toBeTruthy();
     });
   });
 });
