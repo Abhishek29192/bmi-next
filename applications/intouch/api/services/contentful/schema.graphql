@@ -98,18 +98,18 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): EntryCollection
-  guaranteeTypeCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): GuaranteeTypeCollection
   guaranteeTemplateCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
   ): GuaranteeTemplateCollection
+  guaranteeTypeCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): GuaranteeTypeCollection
   carouselItemCollection(
     skip: Int = 0
     limit: Int = 100
@@ -910,6 +910,8 @@ type GuaranteeTemplate implements Entry {
   mailSubject(locale: String): String
   mailBody(locale: String): String
   filenamePrefix(locale: String): String
+  onerousConditionsSummary(locale: String): String
+  onerousConditionsText(locale: String): GuaranteeTemplateOnerousConditionsText
 }
 
 type GuaranteeTemplateCollection {
@@ -1132,6 +1134,16 @@ input GuaranteeTemplateFilter {
   filenamePrefix_not_in: [String]
   filenamePrefix_contains: String
   filenamePrefix_not_contains: String
+  onerousConditionsSummary_exists: Boolean
+  onerousConditionsSummary: String
+  onerousConditionsSummary_not: String
+  onerousConditionsSummary_in: [String]
+  onerousConditionsSummary_not_in: [String]
+  onerousConditionsSummary_contains: String
+  onerousConditionsSummary_not_contains: String
+  onerousConditionsText_exists: Boolean
+  onerousConditionsText_contains: String
+  onerousConditionsText_not_contains: String
   OR: [GuaranteeTemplateFilter]
   AND: [GuaranteeTemplateFilter]
 }
@@ -1149,6 +1161,27 @@ type GuaranteeTemplateLinkingCollections {
     preview: Boolean
     locale: String
   ): GuaranteeTypeCollection
+}
+
+type GuaranteeTemplateOnerousConditionsText {
+  json: JSON!
+  links: GuaranteeTemplateOnerousConditionsTextLinks!
+}
+
+type GuaranteeTemplateOnerousConditionsTextAssets {
+  hyperlink: [Asset]!
+  block: [Asset]!
+}
+
+type GuaranteeTemplateOnerousConditionsTextEntries {
+  inline: [Entry]!
+  hyperlink: [Entry]!
+  block: [Entry]!
+}
+
+type GuaranteeTemplateOnerousConditionsTextLinks {
+  entries: GuaranteeTemplateOnerousConditionsTextEntries!
+  assets: GuaranteeTemplateOnerousConditionsTextAssets!
 }
 
 enum GuaranteeTemplateOrder {
@@ -2141,6 +2174,32 @@ type Query {
     where: AssetFilter
     order: [AssetOrder]
   ): AssetCollection
+  guaranteeTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): GuaranteeTemplate
+  guaranteeTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: GuaranteeTemplateFilter
+    order: [GuaranteeTemplateOrder]
+  ): GuaranteeTemplateCollection
+  messageTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): MessageTemplate
+  messageTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MessageTemplateFilter
+    order: [MessageTemplateOrder]
+  ): MessageTemplateCollection
   faqTopic(id: String!, preview: Boolean, locale: String): FaqTopic
   faqTopicCollection(
     skip: Int = 0
@@ -2177,19 +2236,6 @@ type Query {
     where: GuaranteeTypeFilter
     order: [GuaranteeTypeOrder]
   ): GuaranteeTypeCollection
-  guaranteeTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): GuaranteeTemplate
-  guaranteeTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: GuaranteeTemplateFilter
-    order: [GuaranteeTemplateOrder]
-  ): GuaranteeTemplateCollection
   carouselItem(id: String!, preview: Boolean, locale: String): CarouselItem
   carouselItemCollection(
     skip: Int = 0
@@ -2199,19 +2245,6 @@ type Query {
     where: CarouselItemFilter
     order: [CarouselItemOrder]
   ): CarouselItemCollection
-  messageTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): MessageTemplate
-  messageTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MessageTemplateFilter
-    order: [MessageTemplateOrder]
-  ): MessageTemplateCollection
   evidenceCategory(
     id: String!
     preview: Boolean

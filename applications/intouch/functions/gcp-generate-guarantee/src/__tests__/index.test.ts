@@ -2,6 +2,7 @@ process.env.GATEWAY_API_URL = "GATEWAY_API_URL";
 process.env.GCP_PRIVATE_BUCKET_NAME = "GCP_PRIVATE_BUCKET_NAME";
 process.env.GCP_SECRET_PROJECT = "GCP_SECRET_PROJECT";
 process.env.NODE_ENV = "dev";
+process.env.MAIL_FROM = "MAIL_FROM";
 
 import { sendGuaranteePdf } from "..";
 import { mockGuarantee, mockSolutionGuarantee } from "../../mocks/guarantee";
@@ -13,20 +14,28 @@ jest.mock("@google-cloud/storage", () => ({
   Storage: jest.fn().mockImplementation(() => true)
 }));
 
+const createDoubleAcceptanceSpy = jest.fn();
 jest.mock("../GatewayClient", () => ({
   create: () => ({
     updateGuaranteeFileStorage: (id: any, fileName: any) =>
-      updateGuaranteeFileStorageSpy(id, fileName)
+      updateGuaranteeFileStorageSpy(id, fileName),
+    createDoubleAcceptance: createDoubleAcceptanceSpy
   })
 }));
 
 const createGuaranteeMock = jest
   .fn()
   .mockImplementation(() => ({ name: "test", data: "some data" }));
+const getPdfFromUrlMock = jest
+  .fn()
+  .mockImplementation(() => [new ArrayBuffer(8)]);
+const mergePdfMock = jest.fn().mockImplementation(() => new Uint8Array(8));
 jest.mock("../GuaranteePdf", () => {
   return jest.fn().mockImplementation(() => {
     return {
-      create: createGuaranteeMock
+      create: createGuaranteeMock,
+      getPdfFromUrl: getPdfFromUrlMock,
+      mergePdf: mergePdfMock
     };
   });
 });
@@ -63,10 +72,12 @@ jest.mock("@sendgrid/mail", () => {
 
 describe("sendGuaranteePdf", () => {
   const OLD_ENV = process.env;
+  const event = {
+    data: Buffer.from(JSON.stringify(mockSolutionGuarantee)).toString("base64")
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.resetModules();
     process.env = { ...OLD_ENV };
   });
 
@@ -114,11 +125,6 @@ describe("sendGuaranteePdf", () => {
   it("SG Failure", async () => {
     const status = 500;
     const statusText = "statusText";
-    const event = {
-      data: Buffer.from(JSON.stringify(mockSolutionGuarantee)).toString(
-        "base64"
-      )
-    };
 
     uploadFileSpy.mockImplementationOnce(() => Promise.resolve(true));
     updateGuaranteeFileStorageSpy.mockImplementationOnce(() =>
@@ -140,11 +146,7 @@ describe("sendGuaranteePdf", () => {
   describe("local", () => {
     it("normal case", async () => {
       process.env.NODE_ENV = "local";
-      const event = {
-        data: Buffer.from(JSON.stringify(mockSolutionGuarantee)).toString(
-          "base64"
-        )
-      };
+
       uploadFileSpy.mockImplementationOnce(() => Promise.resolve(true));
       updateGuaranteeFileStorageSpy.mockImplementationOnce(() =>
         Promise.resolve({ ok: true })
@@ -168,11 +170,7 @@ describe("sendGuaranteePdf", () => {
 
     it("mkdir return error", async () => {
       process.env.NODE_ENV = "local";
-      const event = {
-        data: Buffer.from(JSON.stringify(mockSolutionGuarantee)).toString(
-          "base64"
-        )
-      };
+
       const error = { code: "test" };
       uploadFileSpy.mockImplementationOnce(() => Promise.resolve(true));
       updateGuaranteeFileStorageSpy.mockImplementationOnce(() =>
@@ -192,6 +190,108 @@ describe("sendGuaranteePdf", () => {
       await sendGuaranteePdf(event);
 
       expect(loggerError).toHaveBeenCalledWith(error);
+    });
+  });
+
+  describe("Solution Guarantee", () => {
+    describe("should run createDoubleAcceptance if no fileStorageId and signedFileStorageUrl", () => {
+      beforeEach(() => {
+        uploadFileSpy.mockImplementationOnce(() => Promise.resolve(true));
+        updateGuaranteeFileStorageSpy.mockImplementationOnce(() =>
+          Promise.resolve({ ok: true })
+        );
+        mockAccessSecretVersion.mockImplementationOnce(() =>
+          Promise.resolve([
+            {
+              payload: { data: "" }
+            }
+          ])
+        );
+        setApiKey.mockImplementationOnce(() => {});
+        send.mockImplementationOnce(() => {});
+        mkdirSpy.mockImplementationOnce((_, cb) => cb({ code: "EEXIST" }));
+      });
+
+      it("normal case", async () => {
+        createDoubleAcceptanceSpy.mockImplementationOnce(() =>
+          Promise.resolve({
+            ok: true,
+            json: () => ({
+              data: {
+                createDoubleAcceptance: {
+                  doubleAcceptance: {
+                    id: 2
+                  }
+                }
+              }
+            })
+          })
+        );
+
+        await sendGuaranteePdf(event);
+
+        expect(uploadFileSpy).toHaveBeenCalledTimes(1);
+        expect(createDoubleAcceptanceSpy).toHaveBeenCalledWith(
+          mockSolutionGuarantee.id
+        );
+        expect(loggerInfo).toHaveBeenLastCalledWith({
+          message: `successfully created double acceptance with ID: 2`
+        });
+      });
+
+      it("Fails to create double acceptance", async () => {
+        createDoubleAcceptanceSpy.mockImplementationOnce(() =>
+          Promise.resolve({
+            ok: false
+          })
+        );
+
+        await sendGuaranteePdf(event);
+
+        expect(loggerError).toHaveBeenLastCalledWith({
+          message: `failed to creat double acceptance for guarantee with ID: 1`
+        });
+      });
+    });
+
+    it("should send guarantee email if fileStorageId and signedFileStorageUrl exist and status is not DECLINED ", async () => {
+      const event = {
+        data: Buffer.from(
+          JSON.stringify({
+            ...mockSolutionGuarantee,
+            fileStorageId: "fileStorageId",
+            signedFileStorageUrl: "signedFileStorageUrl"
+          })
+        ).toString("base64")
+      };
+      await sendGuaranteePdf(event);
+
+      expect(getPdfFromUrlMock).toHaveBeenCalledWith("signedFileStorageUrl");
+      expect(mergePdfMock).toHaveBeenCalledTimes(1);
+      expect(send).toHaveBeenCalledWith({
+        to: mockSolutionGuarantee.project?.buildingOwnerMail,
+        from: "MAIL_FROM",
+        replyTo: "no-reply@intouch.bmigroup.com",
+        subject: expect.any(String),
+        text: expect.any(String),
+        attachments: expect.any(Array)
+      });
+    });
+
+    it("should not send guarantee email if fileStorageId and signedFileStorageUrl exist but status is DECLINED ", async () => {
+      const event = {
+        data: Buffer.from(
+          JSON.stringify({
+            ...mockSolutionGuarantee,
+            status: "DECLINED",
+            fileStorageId: "fileStorageId",
+            signedFileStorageUrl: "signedFileStorageUrl"
+          })
+        ).toString("base64")
+      };
+      await sendGuaranteePdf(event);
+
+      expect(send).toHaveBeenCalledTimes(0);
     });
   });
 });

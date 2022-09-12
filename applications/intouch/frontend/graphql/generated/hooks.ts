@@ -166,6 +166,76 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
   ${ProjectDetailsProductFragmentFragmentDoc}
   ${ProjectMemberDetailsFragmentFragmentDoc}
 `;
+export const DoubleAcceptanceFragmentFragmentDoc = gql`
+  fragment DoubleAcceptanceFragment on DoubleAcceptance {
+    id
+    tempToken
+    expiryDate
+    guaranteeId
+    acceptanceDate
+  }
+`;
+export const GuaranteeTemplateDetailFragmentFragmentDoc = gql`
+  fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
+    displayName
+    technology
+    coverage
+    languageCode
+    languageDescriptor
+    approvalMessage {
+      event
+      subject
+      notificationBody
+      emailBody
+    }
+    rejectionMessage {
+      event
+      subject
+      notificationBody
+      emailBody
+    }
+    logo {
+      title
+      url
+    }
+    maintenanceTemplate {
+      fileName
+      url
+    }
+    terms {
+      fileName
+      url
+    }
+    guaranteeScope
+    signatory
+    headingGuarantee
+    headingScope
+    headingProducts
+    headingBeneficiary
+    headingBuildingOwnerName
+    headingBuildingAddress
+    headingRoofArea
+    headingRoofType
+    headingContractor
+    headingContractorName
+    headingContractorId
+    headingStartDate
+    headingGuaranteeId
+    headingValidity
+    headingExpiry
+    footer
+    mailSubject
+    mailBody
+    filenamePrefix
+    titleLine1
+    titleLine2
+    roofType
+    onerousConditionsSummary
+    onerousConditionsText {
+      json
+    }
+  }
+`;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
     sys {
@@ -3063,84 +3133,6 @@ export type DeleteEvidenceItemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteEvidenceItemMutation,
   OperationTypes.DeleteEvidenceItemMutationVariables
 >;
-export const GetGuaranteeTemplatesDocument = gql`
-  query getGuaranteeTemplates(
-    $technology: String!
-    $coverage: String!
-    $language: String
-  ) {
-    guaranteeTemplateCollection(
-      where: {
-        coverage: $coverage
-        technology: $technology
-        languageCode: $language
-      }
-    ) {
-      items {
-        sys {
-          id
-        }
-        displayName
-        languageCode
-        languageDescriptor
-        coverage
-      }
-    }
-  }
-`;
-
-/**
- * __useGetGuaranteeTemplatesQuery__
- *
- * To run a query within a React component, call `useGetGuaranteeTemplatesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetGuaranteeTemplatesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetGuaranteeTemplatesQuery({
- *   variables: {
- *      technology: // value for 'technology'
- *      coverage: // value for 'coverage'
- *      language: // value for 'language'
- *   },
- * });
- */
-export function useGetGuaranteeTemplatesQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.GetGuaranteeTemplatesQuery,
-    OperationTypes.GetGuaranteeTemplatesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.GetGuaranteeTemplatesQuery,
-    OperationTypes.GetGuaranteeTemplatesQueryVariables
-  >(GetGuaranteeTemplatesDocument, options);
-}
-export function useGetGuaranteeTemplatesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetGuaranteeTemplatesQuery,
-    OperationTypes.GetGuaranteeTemplatesQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.GetGuaranteeTemplatesQuery,
-    OperationTypes.GetGuaranteeTemplatesQueryVariables
-  >(GetGuaranteeTemplatesDocument, options);
-}
-export type GetGuaranteeTemplatesQueryHookResult = ReturnType<
-  typeof useGetGuaranteeTemplatesQuery
->;
-export type GetGuaranteeTemplatesLazyQueryHookResult = ReturnType<
-  typeof useGetGuaranteeTemplatesLazyQuery
->;
-export type GetGuaranteeTemplatesQueryResult = Apollo.QueryResult<
-  OperationTypes.GetGuaranteeTemplatesQuery,
-  OperationTypes.GetGuaranteeTemplatesQueryVariables
->;
 export const SearchProductsDocument = gql`
   query searchProducts($query: String!, $technology: Technology!) {
     searchProducts(query: $query, technology: $technology, first: 20) {
@@ -3915,6 +3907,247 @@ export type QueryDoceboTiersByMarketIdLazyQueryHookResult = ReturnType<
 export type QueryDoceboTiersByMarketIdQueryResult = Apollo.QueryResult<
   OperationTypes.QueryDoceboTiersByMarketIdQuery,
   OperationTypes.QueryDoceboTiersByMarketIdQueryVariables
+>;
+export const GetDoubleAcceptanceByValidTempTokenDocument = gql`
+  mutation getDoubleAcceptanceByValidTempToken(
+    $input: GetDoubleAcceptanceByValidTempTokenInput!
+  ) {
+    getDoubleAcceptanceByValidTempToken(input: $input) {
+      id
+      tempToken
+      expiryDate
+      guaranteeId
+      acceptanceDate
+      maximumValidityYears
+      technology
+      languageCode
+      coverage
+    }
+  }
+`;
+export type GetDoubleAcceptanceByValidTempTokenMutationFn =
+  Apollo.MutationFunction<
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutation,
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutationVariables
+  >;
+
+/**
+ * __useGetDoubleAcceptanceByValidTempTokenMutation__
+ *
+ * To run a mutation, you first call `useGetDoubleAcceptanceByValidTempTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useGetDoubleAcceptanceByValidTempTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [getDoubleAcceptanceByValidTempTokenMutation, { data, loading, error }] = useGetDoubleAcceptanceByValidTempTokenMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGetDoubleAcceptanceByValidTempTokenMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutation,
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutation,
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutationVariables
+  >(GetDoubleAcceptanceByValidTempTokenDocument, options);
+}
+export type GetDoubleAcceptanceByValidTempTokenMutationHookResult = ReturnType<
+  typeof useGetDoubleAcceptanceByValidTempTokenMutation
+>;
+export type GetDoubleAcceptanceByValidTempTokenMutationResult =
+  Apollo.MutationResult<OperationTypes.GetDoubleAcceptanceByValidTempTokenMutation>;
+export type GetDoubleAcceptanceByValidTempTokenMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutation,
+    OperationTypes.GetDoubleAcceptanceByValidTempTokenMutationVariables
+  >;
+export const UpdateDoubleAcceptanceDocument = gql`
+  mutation updateDoubleAcceptance($input: UpdateDoubleAcceptanceInput!) {
+    updateDoubleAcceptance(input: $input) {
+      doubleAcceptance {
+        ...DoubleAcceptanceFragment
+      }
+    }
+  }
+  ${DoubleAcceptanceFragmentFragmentDoc}
+`;
+export type UpdateDoubleAcceptanceMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateDoubleAcceptanceMutation,
+  OperationTypes.UpdateDoubleAcceptanceMutationVariables
+>;
+
+/**
+ * __useUpdateDoubleAcceptanceMutation__
+ *
+ * To run a mutation, you first call `useUpdateDoubleAcceptanceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateDoubleAcceptanceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateDoubleAcceptanceMutation, { data, loading, error }] = useUpdateDoubleAcceptanceMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateDoubleAcceptanceMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateDoubleAcceptanceMutation,
+    OperationTypes.UpdateDoubleAcceptanceMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateDoubleAcceptanceMutation,
+    OperationTypes.UpdateDoubleAcceptanceMutationVariables
+  >(UpdateDoubleAcceptanceDocument, options);
+}
+export type UpdateDoubleAcceptanceMutationHookResult = ReturnType<
+  typeof useUpdateDoubleAcceptanceMutation
+>;
+export type UpdateDoubleAcceptanceMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateDoubleAcceptanceMutation>;
+export type UpdateDoubleAcceptanceMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateDoubleAcceptanceMutation,
+  OperationTypes.UpdateDoubleAcceptanceMutationVariables
+>;
+export const ReleaseGuaranteePdfDocument = gql`
+  mutation releaseGuaranteePdf($input: ReleaseGuaranteePdfInput!) {
+    releaseGuaranteePdf(input: $input) {
+      messageId
+    }
+  }
+`;
+export type ReleaseGuaranteePdfMutationFn = Apollo.MutationFunction<
+  OperationTypes.ReleaseGuaranteePdfMutation,
+  OperationTypes.ReleaseGuaranteePdfMutationVariables
+>;
+
+/**
+ * __useReleaseGuaranteePdfMutation__
+ *
+ * To run a mutation, you first call `useReleaseGuaranteePdfMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useReleaseGuaranteePdfMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [releaseGuaranteePdfMutation, { data, loading, error }] = useReleaseGuaranteePdfMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useReleaseGuaranteePdfMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ReleaseGuaranteePdfMutation,
+    OperationTypes.ReleaseGuaranteePdfMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ReleaseGuaranteePdfMutation,
+    OperationTypes.ReleaseGuaranteePdfMutationVariables
+  >(ReleaseGuaranteePdfDocument, options);
+}
+export type ReleaseGuaranteePdfMutationHookResult = ReturnType<
+  typeof useReleaseGuaranteePdfMutation
+>;
+export type ReleaseGuaranteePdfMutationResult =
+  Apollo.MutationResult<OperationTypes.ReleaseGuaranteePdfMutation>;
+export type ReleaseGuaranteePdfMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ReleaseGuaranteePdfMutation,
+  OperationTypes.ReleaseGuaranteePdfMutationVariables
+>;
+export const GetGuaranteeTemplatesDocument = gql`
+  query getGuaranteeTemplates(
+    $technology: String!
+    $coverage: String!
+    $language: String
+  ) {
+    guaranteeTemplateCollection(
+      where: {
+        coverage: $coverage
+        technology: $technology
+        languageCode: $language
+      }
+    ) {
+      items {
+        sys {
+          id
+        }
+        ...GuaranteeTemplateDetailFragment
+      }
+    }
+  }
+  ${GuaranteeTemplateDetailFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetGuaranteeTemplatesQuery__
+ *
+ * To run a query within a React component, call `useGetGuaranteeTemplatesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGuaranteeTemplatesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGuaranteeTemplatesQuery({
+ *   variables: {
+ *      technology: // value for 'technology'
+ *      coverage: // value for 'coverage'
+ *      language: // value for 'language'
+ *   },
+ * });
+ */
+export function useGetGuaranteeTemplatesQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >(GetGuaranteeTemplatesDocument, options);
+}
+export function useGetGuaranteeTemplatesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGuaranteeTemplatesQuery,
+    OperationTypes.GetGuaranteeTemplatesQueryVariables
+  >(GetGuaranteeTemplatesDocument, options);
+}
+export type GetGuaranteeTemplatesQueryHookResult = ReturnType<
+  typeof useGetGuaranteeTemplatesQuery
+>;
+export type GetGuaranteeTemplatesLazyQueryHookResult = ReturnType<
+  typeof useGetGuaranteeTemplatesLazyQuery
+>;
+export type GetGuaranteeTemplatesQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGuaranteeTemplatesQuery,
+  OperationTypes.GetGuaranteeTemplatesQueryVariables
 >;
 export const GetMarketsByDomainDocument = gql`
   query getMarketsByDomain($domain: String!) {

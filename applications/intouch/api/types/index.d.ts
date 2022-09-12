@@ -4135,6 +4135,8 @@ export type ContentfulGuaranteeTemplate = {
   mailBody?: Maybe<Scalars["String"]>;
   mailSubject?: Maybe<Scalars["String"]>;
   maintenanceTemplate?: Maybe<ContentfulAsset>;
+  onerousConditionsSummary?: Maybe<Scalars["String"]>;
+  onerousConditionsText?: Maybe<ContentfulGuaranteeTemplateOnerousConditionsText>;
   rejectionMessage?: Maybe<ContentfulMessage>;
   roofType?: Maybe<Scalars["String"]>;
   signatory?: Maybe<Scalars["String"]>;
@@ -4142,6 +4144,11 @@ export type ContentfulGuaranteeTemplate = {
   terms?: Maybe<ContentfulAsset>;
   titleLine1?: Maybe<Scalars["String"]>;
   titleLine2?: Maybe<Scalars["String"]>;
+};
+
+export type ContentfulGuaranteeTemplateOnerousConditionsText = {
+  __typename?: "ContentfulGuaranteeTemplateOnerousConditionsText";
+  json: Scalars["JSON"];
 };
 
 export type ContentfulGuaranteeTemplatesCollection = {
@@ -5596,6 +5603,40 @@ export type CreateDoceboTierPayloadDoceboTierEdgeArgs = {
   orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
 };
 
+/** All input for the create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` to be created by this mutation. */
+  doubleAcceptance: DoubleAcceptanceInput;
+};
+
+/** The output of our create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptancePayload = {
+  __typename?: "CreateDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` that was created by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the create `EvidenceItem` mutation. */
 export type CreateEvidenceItemInput = {
   /**
@@ -6815,6 +6856,61 @@ export type DeleteDoceboTierPayloadDoceboTierEdgeArgs = {
   orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
 };
 
+/** All input for the `deleteDoubleAcceptanceByNodeId` mutation. */
+export type DeleteDoubleAcceptanceByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoubleAcceptance` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteDoubleAcceptanceByTempToken` mutation. */
+export type DeleteDoubleAcceptanceByTempTokenInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  tempToken: Scalars["String"];
+};
+
+/** All input for the `deleteDoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `DoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptancePayload = {
+  __typename?: "DeleteDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedDoubleAcceptanceNodeId?: Maybe<Scalars["ID"]>;
+  /** The `DoubleAcceptance` that was deleted by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `DoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the `deleteEvidenceItemByNodeId` mutation. */
 export type DeleteEvidenceItemByNodeIdInput = {
   /**
@@ -7505,6 +7601,287 @@ export type DoceboTiersOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type DoubleAcceptance = Node & {
+  __typename?: "DoubleAcceptance";
+  acceptance?: Maybe<Scalars["Boolean"]>;
+  acceptanceDate?: Maybe<Scalars["Datetime"]>;
+  createdAt: Scalars["Datetime"];
+  expiryDate: Scalars["Datetime"];
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  guaranteeId: Scalars["Int"];
+  id: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  signature?: Maybe<Scalars["String"]>;
+  tempToken?: Maybe<Scalars["String"]>;
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `DoubleAcceptance` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type DoubleAcceptanceCondition = {
+  /** Checks for equality with the object’s `guaranteeId` field. */
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `tempToken` field. */
+  tempToken?: InputMaybe<Scalars["String"]>;
+};
+
+/** The fields on `doubleAcceptance` to look up the row to connect. */
+export type DoubleAcceptanceDoubleAcceptancePkeyConnect = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `doubleAcceptance` to look up the row to delete. */
+export type DoubleAcceptanceDoubleAcceptancePkeyDelete = {
+  id: Scalars["Int"];
+};
+
+/** A filter to be used against `DoubleAcceptance` object types. All fields are combined with a logical ‘and.’ */
+export type DoubleAcceptanceFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DoubleAcceptanceFilter>>;
+  /** Filter by the object’s `guaranteeId` field. */
+  guaranteeId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DoubleAcceptanceFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DoubleAcceptanceFilter>>;
+  /** Filter by the object’s `tempToken` field. */
+  tempToken?: InputMaybe<StringFilter>;
+};
+
+/** The `doubleAcceptance` to be created by this mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate: Scalars["Datetime"];
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput = {
+  accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
+  accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  coverage?: InputMaybe<GuaranteeCoverage>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
+  expiryDate?: InputMaybe<Scalars["Datetime"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
+  /** Primary key - starts at 6100 */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  languageCode?: InputMaybe<Language>;
+  /** fk */
+  productBmiRef?: InputMaybe<Scalars["String"]>;
+  productToProductBmiRef?: InputMaybe<GuaranteeProductBmiRefFkeyInput>;
+  /** fk */
+  projectId?: InputMaybe<Scalars["Int"]>;
+  projectToProjectId?: InputMaybe<GuaranteeProjectIdFkeyInput>;
+  /** fk */
+  requestorAccountId?: InputMaybe<Scalars["Int"]>;
+  /** fk */
+  reviewerAccountId?: InputMaybe<Scalars["Int"]>;
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
+  startDate?: InputMaybe<Scalars["Datetime"]>;
+  /** ek */
+  status?: InputMaybe<RequestStatus>;
+  /** fk */
+  systemBmiRef?: InputMaybe<Scalars["String"]>;
+  systemToSystemBmiRef?: InputMaybe<GuaranteeSystemBmiRefFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `DoubleAcceptanceInput` mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyInput = {
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: InputMaybe<GuaranteeGuaranteeBmiReferenceIdKeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: InputMaybe<GuaranteeGuaranteePkeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<GuaranteeNodeIdConnect>;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: InputMaybe<GuaranteeGuaranteeBmiReferenceIdKeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: InputMaybe<GuaranteeGuaranteePkeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<GuaranteeNodeIdDelete>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: InputMaybe<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: InputMaybe<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `doubleAcceptance` in the `GuaranteeInput` mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyInverseInput = {
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DoubleAcceptanceDoubleAcceptancePkeyConnect>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DoubleAcceptanceNodeIdConnect>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectByTempToken?: InputMaybe<Array<DoubleAcceptanceTempTokenKeyConnect>>;
+  /** A `DoubleAcceptanceInput` object that will be created and connected to this object. */
+  create?: InputMaybe<
+    Array<DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput>
+  >;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DoubleAcceptanceDoubleAcceptancePkeyDelete>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DoubleAcceptanceNodeIdDelete>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteByTempToken?: InputMaybe<Array<DoubleAcceptanceTempTokenKeyDelete>>;
+  /** Flag indicating whether all other `doubleAcceptance` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate>
+  >;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateByTempToken?: InputMaybe<
+    Array<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate>
+  >;
+};
+
+/** An input for mutations affecting `DoubleAcceptance` */
+export type DoubleAcceptanceInput = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate: Scalars["Datetime"];
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DoubleAcceptanceNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `doubleAcceptance` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DoubleAcceptanceNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `doubleAcceptance` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: GuaranteePatch;
+  };
+
+/** The fields on `doubleAcceptance` to look up the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
+
+/** The fields on `doubleAcceptance` to look up the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+    tempToken: Scalars["String"];
+  };
+
+/** Represents an update to a `DoubleAcceptance`. Fields that are set will be updated. */
+export type DoubleAcceptancePatch = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate?: InputMaybe<Scalars["Datetime"]>;
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The fields on `doubleAcceptance` to look up the row to connect. */
+export type DoubleAcceptanceTempTokenKeyConnect = {
+  tempToken: Scalars["String"];
+};
+
+/** The fields on `doubleAcceptance` to look up the row to delete. */
+export type DoubleAcceptanceTempTokenKeyDelete = {
+  tempToken: Scalars["String"];
+};
+
+/** A connection to a list of `DoubleAcceptance` values. */
+export type DoubleAcceptancesConnection = {
+  __typename?: "DoubleAcceptancesConnection";
+  /** A list of edges which contains the `DoubleAcceptance` and cursor to aid in pagination. */
+  edges: Array<DoubleAcceptancesEdge>;
+  /** A list of `DoubleAcceptance` objects. */
+  nodes: Array<DoubleAcceptance>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DoubleAcceptance` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `DoubleAcceptance` edge in the connection. */
+export type DoubleAcceptancesEdge = {
+  __typename?: "DoubleAcceptancesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `DoubleAcceptance` at the end of the edge. */
+  node: DoubleAcceptance;
+};
+
+/** Methods to use when ordering `DoubleAcceptance`. */
+export type DoubleAcceptancesOrderBy =
+  | "GUARANTEE_ID_ASC"
+  | "GUARANTEE_ID_DESC"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC"
+  | "TEMP_TOKEN_ASC"
+  | "TEMP_TOKEN_DESC";
+
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
   sys: Sys;
@@ -7789,6 +8166,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8568,6 +8946,25 @@ export type FindRoofersEdge = {
 /** Methods to use when ordering `FindRoofer`. */
 export type FindRoofersOrderBy = "NATURAL";
 
+export type GetDoubleAcceptanceByValidTempToken = {
+  __typename?: "GetDoubleAcceptanceByValidTempToken";
+  acceptance?: Maybe<Scalars["Boolean"]>;
+  acceptanceDate?: Maybe<Scalars["Datetime"]>;
+  coverage?: Maybe<GuaranteeCoverage>;
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  guaranteeId?: Maybe<Scalars["Int"]>;
+  id?: Maybe<Scalars["Int"]>;
+  languageCode?: Maybe<Scalars["String"]>;
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  signature?: Maybe<Scalars["String"]>;
+  technology?: Maybe<Technology>;
+  tempToken?: Maybe<Scalars["String"]>;
+};
+
+export type GetDoubleAcceptanceByValidTempTokenInput = {
+  tempToken?: InputMaybe<Scalars["String"]>;
+};
+
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
   __typename?: "Guarantee";
@@ -8577,6 +8974,8 @@ export type Guarantee = Node & {
   /** ek */
   coverage?: Maybe<GuaranteeCoverage>;
   createdAt: Scalars["Datetime"];
+  /** Reads and enables pagination through a set of `DoubleAcceptance`. */
+  doubleAcceptances: DoubleAcceptancesConnection;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems: EvidenceItemsConnection;
   /**
@@ -8622,6 +9021,18 @@ export type Guarantee = Node & {
   /** Reads a single `System` that is related to this `Guarantee`. */
   systemBySystemBmiRef?: Maybe<System>;
   updatedAt: Scalars["Datetime"];
+};
+
+/** Starts life as request for a gurantee and becomes an actual issued guarantee */
+export type GuaranteeDoubleAcceptancesArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<DoubleAcceptanceCondition>;
+  filter?: InputMaybe<DoubleAcceptanceFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
@@ -8725,6 +9136,7 @@ export type GuaranteeInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8770,6 +9182,33 @@ export type GuaranteeNodeIdDelete = {
   /** The globally unique `ID` which identifies a single `guarantee` to be deleted. */
   nodeId: Scalars["ID"];
 };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `doubleAcceptance` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: DoubleAcceptancePatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
@@ -8940,6 +9379,7 @@ export type GuaranteePatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8984,6 +9424,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9115,6 +9556,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9265,6 +9707,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9373,6 +9816,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9481,6 +9925,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9630,6 +10075,8 @@ export type GuaranteeTemplate = Entry & {
   mailBody?: Maybe<Scalars["String"]>;
   mailSubject?: Maybe<Scalars["String"]>;
   maintenanceTemplate?: Maybe<Asset>;
+  onerousConditionsSummary?: Maybe<Scalars["String"]>;
+  onerousConditionsText?: Maybe<GuaranteeTemplateOnerousConditionsText>;
   rejectionMessage?: Maybe<MessageTemplate>;
   roofType?: Maybe<Scalars["String"]>;
   signatory?: Maybe<Scalars["String"]>;
@@ -9781,6 +10228,16 @@ export type GuaranteeTemplateMailSubjectArgs = {
 export type GuaranteeTemplateMaintenanceTemplateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateOnerousConditionsSummaryArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateOnerousConditionsTextArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 /** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
@@ -10012,6 +10469,20 @@ export type GuaranteeTemplateFilter = {
   mailSubject_not_contains?: InputMaybe<Scalars["String"]>;
   mailSubject_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   maintenanceTemplate_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsSummary?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsSummary_in?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  onerousConditionsSummary_not?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_not_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  onerousConditionsText_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsText_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsText_not_contains?: InputMaybe<Scalars["String"]>;
   rejectionMessage?: InputMaybe<CfMessageTemplateNestedFilter>;
   rejectionMessage_exists?: InputMaybe<Scalars["Boolean"]>;
   roofType?: InputMaybe<Scalars["String"]>;
@@ -10071,6 +10542,31 @@ export type GuaranteeTemplateLinkingCollectionsGuaranteeTypeCollectionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
   skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type GuaranteeTemplateOnerousConditionsText = {
+  __typename?: "GuaranteeTemplateOnerousConditionsText";
+  json: Scalars["JSON"];
+  links: GuaranteeTemplateOnerousConditionsTextLinks;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextAssets = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextAssets";
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextEntries = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextEntries";
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextLinks = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextLinks";
+  assets: GuaranteeTemplateOnerousConditionsTextAssets;
+  entries: GuaranteeTemplateOnerousConditionsTextEntries;
 };
 
 export type GuaranteeTemplateOrder =
@@ -12152,6 +12648,7 @@ export type Mutation = {
   __typename?: "Mutation";
   annualProjectsInspection?: Maybe<Scalars["String"]>;
   archiveProjects?: Maybe<Scalars["String"]>;
+  autoRejectDoubleAcceptance?: Maybe<Scalars["String"]>;
   bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
@@ -12190,6 +12687,8 @@ export type Mutation = {
   /** Creates a single `DoceboTier`. */
   createDoceboTier?: Maybe<CreateDoceboTierPayload>;
   createDoceboUser?: Maybe<UserCreateResponse>;
+  /** Creates a single `DoubleAcceptance`. */
+  createDoubleAcceptance?: Maybe<CreateDoubleAcceptancePayload>;
   /** Creates a single `EvidenceItem`. */
   createEvidenceItem?: Maybe<CreateEvidenceItemPayload>;
   /** Creates a single `Guarantee`. */
@@ -12292,6 +12791,12 @@ export type Mutation = {
   deleteDoceboTierByMarketIdAndTierCode?: Maybe<DeleteDoceboTierPayload>;
   /** Deletes a single `DoceboTier` using its globally unique id. */
   deleteDoceboTierByNodeId?: Maybe<DeleteDoceboTierPayload>;
+  /** Deletes a single `DoubleAcceptance` using a unique key. */
+  deleteDoubleAcceptance?: Maybe<DeleteDoubleAcceptancePayload>;
+  /** Deletes a single `DoubleAcceptance` using its globally unique id. */
+  deleteDoubleAcceptanceByNodeId?: Maybe<DeleteDoubleAcceptancePayload>;
+  /** Deletes a single `DoubleAcceptance` using a unique key. */
+  deleteDoubleAcceptanceByTempToken?: Maybe<DeleteDoubleAcceptancePayload>;
   /** Deletes a single `EvidenceItem` using a unique key. */
   deleteEvidenceItem?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `EvidenceItem` using its globally unique id. */
@@ -12350,12 +12855,14 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  getDoubleAcceptanceByValidTempToken?: Maybe<GetDoubleAcceptanceByValidTempToken>;
   importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
+  releaseGuaranteePdf?: Maybe<PublishOutput>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
   restartGuarantee?: Maybe<Scalars["String"]>;
@@ -12445,6 +12952,12 @@ export type Mutation = {
     Array<Maybe<UpdateDoceboTiersByMarketResult>>
   >;
   updateDoceboUser?: Maybe<UserUpdateResponse>;
+  /** Updates a single `DoubleAcceptance` using a unique key and a patch. */
+  updateDoubleAcceptance?: Maybe<UpdateDoubleAcceptancePayload>;
+  /** Updates a single `DoubleAcceptance` using its globally unique id and a patch. */
+  updateDoubleAcceptanceByNodeId?: Maybe<UpdateDoubleAcceptancePayload>;
+  /** Updates a single `DoubleAcceptance` using a unique key and a patch. */
+  updateDoubleAcceptanceByTempToken?: Maybe<UpdateDoubleAcceptancePayload>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
@@ -12628,6 +13141,11 @@ export type MutationCreateDoceboTierArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateDoceboUserArgs = {
   input?: InputMaybe<UserCreateInput>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDoubleAcceptanceArgs = {
+  input: CreateDoubleAcceptanceInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12893,6 +13411,21 @@ export type MutationDeleteDoceboTierByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceArgs = {
+  input: DeleteDoubleAcceptanceInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceByNodeIdArgs = {
+  input: DeleteDoubleAcceptanceByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceByTempTokenArgs = {
+  input: DeleteDoubleAcceptanceByTempTokenInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteEvidenceItemArgs = {
   input: DeleteEvidenceItemInput;
 };
@@ -13044,6 +13577,11 @@ export type MutationEvidenceItemsAddArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationGetDoubleAcceptanceByValidTempTokenArgs = {
+  input: GetDoubleAcceptanceByValidTempTokenInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationImportAccountsCompaniesFromCvsArgs = {
   input: ImportAccountsCompaniesFromCsvInput;
 };
@@ -13071,6 +13609,11 @@ export type MutationProjectMembersAddArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationPublishMessageArgs = {
   input: PublishInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationReleaseGuaranteePdfArgs = {
+  input: ReleaseGuaranteePdfInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13297,6 +13840,21 @@ export type MutationUpdateDoceboTiersByMarketArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDoceboUserArgs = {
   input?: InputMaybe<UserUpdateInput>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceArgs = {
+  input: UpdateDoubleAcceptanceInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceByNodeIdArgs = {
+  input: UpdateDoubleAcceptanceByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceByTempTokenArgs = {
+  input: UpdateDoubleAcceptanceByTempTokenInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -15875,6 +16433,12 @@ export type Query = Node & {
   doceboTierByNodeId?: Maybe<DoceboTier>;
   /** Reads and enables pagination through a set of `DoceboTier`. */
   doceboTiers?: Maybe<DoceboTiersConnection>;
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** Reads a single `DoubleAcceptance` using its globally unique `ID`. */
+  doubleAcceptanceByNodeId?: Maybe<DoubleAcceptance>;
+  doubleAcceptanceByTempToken?: Maybe<DoubleAcceptance>;
+  /** Reads and enables pagination through a set of `DoubleAcceptance`. */
+  doubleAcceptances?: Maybe<DoubleAcceptancesConnection>;
   entryCollection?: Maybe<EntryCollection>;
   evidenceCategory?: Maybe<EvidenceCategory>;
   evidenceCategoryCollection?: Maybe<EvidenceCategoryCollection>;
@@ -16467,6 +17031,33 @@ export type QueryDoceboTiersArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceByTempTokenArgs = {
+  tempToken: Scalars["String"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptancesArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<DoubleAcceptanceCondition>;
+  filter?: InputMaybe<DoubleAcceptanceFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -17086,8 +17677,21 @@ export type QueryUserByEmailArgs = {
   email?: InputMaybe<Scalars["String"]>;
 };
 
+export type ReleaseGuaranteePdfInput = {
+  id?: InputMaybe<Scalars["Int"]>;
+  template?: InputMaybe<ReleaseGuaranteePdfTemplateInput>;
+};
+
+export type ReleaseGuaranteePdfTemplateInput = {
+  mailBody?: InputMaybe<Scalars["String"]>;
+  mailSubject?: InputMaybe<Scalars["String"]>;
+};
+
 export type RequestStatus =
   | "APPROVED"
+  | "DECLINED"
+  | "EXPIRED"
+  | "ISSUED"
   | "NEW"
   | "REJECTED"
   | "REVIEW"
@@ -19557,6 +20161,66 @@ export type UpdateDoceboTiersByMarketResult = {
   tier_code?: Maybe<Tier>;
 };
 
+/** All input for the `updateDoubleAcceptanceByNodeId` mutation. */
+export type UpdateDoubleAcceptanceByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoubleAcceptance` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+};
+
+/** All input for the `updateDoubleAcceptanceByTempToken` mutation. */
+export type UpdateDoubleAcceptanceByTempTokenInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+  tempToken: Scalars["String"];
+};
+
+/** All input for the `updateDoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+};
+
+/** The output of our update `DoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptancePayload = {
+  __typename?: "UpdateDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` that was updated by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `DoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the `updateEvidenceItemByNodeId` mutation. */
 export type UpdateEvidenceItemByNodeIdInput = {
   /**
@@ -20293,6 +20957,7 @@ export type _Entity =
   | CourseSyncConfiguration
   | CourseTemp
   | DoceboTier
+  | DoubleAcceptance
   | EvidenceItem
   | Guarantee
   | Invitation
@@ -21581,6 +22246,20 @@ export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFk
     updatedAt?: InputMaybe<Scalars["Datetime"]>;
   };
 
+/** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+export type UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch =
+  {
+    acceptance?: InputMaybe<Scalars["Boolean"]>;
+    acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    expiryDate?: InputMaybe<Scalars["Datetime"]>;
+    guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+    id?: InputMaybe<Scalars["Int"]>;
+    signature?: InputMaybe<Scalars["String"]>;
+    tempToken?: InputMaybe<Scalars["String"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
 export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch =
   {
@@ -21652,6 +22331,52 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkey
   };
 
 /** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch =
+  {
+    accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
+    accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+    approvedAt?: InputMaybe<Scalars["Datetime"]>;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId?: InputMaybe<Scalars["String"]>;
+    /** ek */
+    coverage?: InputMaybe<GuaranteeCoverage>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
+    evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+    /**
+     * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+     * The date is stored in UTC.
+     */
+    expiryDate?: InputMaybe<Scalars["Datetime"]>;
+    /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+    fileStorageId?: InputMaybe<Scalars["String"]>;
+    /** ek */
+    guaranteeReferenceCode?: InputMaybe<GuaranteeReferenceCode>;
+    /** Primary key - starts at 6100 */
+    id?: InputMaybe<Scalars["Int"]>;
+    /** ek */
+    languageCode?: InputMaybe<Language>;
+    /** fk */
+    productBmiRef?: InputMaybe<Scalars["String"]>;
+    productToProductBmiRef?: InputMaybe<GuaranteeProductBmiRefFkeyInput>;
+    /** fk */
+    projectId?: InputMaybe<Scalars["Int"]>;
+    projectToProjectId?: InputMaybe<GuaranteeProjectIdFkeyInput>;
+    /** fk */
+    requestorAccountId?: InputMaybe<Scalars["Int"]>;
+    /** fk */
+    reviewerAccountId?: InputMaybe<Scalars["Int"]>;
+    /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
+    startDate?: InputMaybe<Scalars["Datetime"]>;
+    /** ek */
+    status?: InputMaybe<RequestStatus>;
+    /** fk */
+    systemBmiRef?: InputMaybe<Scalars["String"]>;
+    systemToSystemBmiRef?: InputMaybe<GuaranteeSystemBmiRefFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
 export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
@@ -21661,6 +22386,7 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21705,6 +22431,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21747,6 +22474,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21790,6 +22518,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     /** ek */
     coverage?: InputMaybe<GuaranteeCoverage>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
+    doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
     evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
     /**
      * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21832,6 +22561,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21874,6 +22604,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.

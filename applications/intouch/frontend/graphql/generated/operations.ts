@@ -2068,27 +2068,6 @@ export type DeleteEvidenceItemMutation = {
   } | null;
 };
 
-export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
-  technology: SchemaTypes.Scalars["String"];
-  coverage: SchemaTypes.Scalars["String"];
-  language?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
-}>;
-
-export type GetGuaranteeTemplatesQuery = {
-  __typename?: "Query";
-  guaranteeTemplateCollection?: {
-    __typename?: "GuaranteeTemplateCollection";
-    items: Array<{
-      __typename?: "GuaranteeTemplate";
-      displayName?: string | null;
-      languageCode?: string | null;
-      languageDescriptor?: string | null;
-      coverage?: string | null;
-      sys: { __typename?: "Sys"; id: string };
-    } | null>;
-  } | null;
-};
-
 export type SearchProductsQueryVariables = SchemaTypes.Exact<{
   query: SchemaTypes.Scalars["String"];
   technology: SchemaTypes.Technology;
@@ -2363,6 +2342,214 @@ export type QueryDoceboTiersByMarketIdQuery = {
       tierCode: SchemaTypes.Tier;
       doceboCatalogueId?: number | null;
     }>;
+  } | null;
+};
+
+export type DoubleAcceptanceFragmentFragment = {
+  __typename?: "DoubleAcceptance";
+  id: number;
+  tempToken?: string | null;
+  expiryDate: any;
+  guaranteeId: number;
+  acceptanceDate?: any | null;
+};
+
+export type GetDoubleAcceptanceByValidTempTokenMutationVariables =
+  SchemaTypes.Exact<{
+    input: SchemaTypes.GetDoubleAcceptanceByValidTempTokenInput;
+  }>;
+
+export type GetDoubleAcceptanceByValidTempTokenMutation = {
+  __typename?: "Mutation";
+  getDoubleAcceptanceByValidTempToken?: {
+    __typename?: "GetDoubleAcceptanceByValidTempToken";
+    id?: number | null;
+    tempToken?: string | null;
+    expiryDate?: any | null;
+    guaranteeId?: number | null;
+    acceptanceDate?: any | null;
+    maximumValidityYears?: number | null;
+    technology?: SchemaTypes.Technology | null;
+    languageCode?: string | null;
+    coverage?: SchemaTypes.GuaranteeCoverage | null;
+  } | null;
+};
+
+export type UpdateDoubleAcceptanceMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateDoubleAcceptanceInput;
+}>;
+
+export type UpdateDoubleAcceptanceMutation = {
+  __typename?: "Mutation";
+  updateDoubleAcceptance?: {
+    __typename?: "UpdateDoubleAcceptancePayload";
+    doubleAcceptance?: {
+      __typename?: "DoubleAcceptance";
+      id: number;
+      tempToken?: string | null;
+      expiryDate: any;
+      guaranteeId: number;
+      acceptanceDate?: any | null;
+    } | null;
+  } | null;
+};
+
+export type ReleaseGuaranteePdfMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.ReleaseGuaranteePdfInput;
+}>;
+
+export type ReleaseGuaranteePdfMutation = {
+  __typename?: "Mutation";
+  releaseGuaranteePdf?: {
+    __typename?: "PublishOutput";
+    messageId?: string | null;
+  } | null;
+};
+
+export type GuaranteeTemplateDetailFragmentFragment = {
+  __typename?: "GuaranteeTemplate";
+  displayName?: string | null;
+  technology?: string | null;
+  coverage?: string | null;
+  languageCode?: string | null;
+  languageDescriptor?: string | null;
+  guaranteeScope?: string | null;
+  signatory?: string | null;
+  headingGuarantee?: string | null;
+  headingScope?: string | null;
+  headingProducts?: string | null;
+  headingBeneficiary?: string | null;
+  headingBuildingOwnerName?: string | null;
+  headingBuildingAddress?: string | null;
+  headingRoofArea?: string | null;
+  headingRoofType?: string | null;
+  headingContractor?: string | null;
+  headingContractorName?: string | null;
+  headingContractorId?: string | null;
+  headingStartDate?: string | null;
+  headingGuaranteeId?: string | null;
+  headingValidity?: string | null;
+  headingExpiry?: string | null;
+  footer?: string | null;
+  mailSubject?: string | null;
+  mailBody?: string | null;
+  filenamePrefix?: string | null;
+  titleLine1?: string | null;
+  titleLine2?: string | null;
+  roofType?: string | null;
+  onerousConditionsSummary?: string | null;
+  approvalMessage?: {
+    __typename?: "MessageTemplate";
+    event?: string | null;
+    subject?: string | null;
+    notificationBody?: string | null;
+    emailBody?: string | null;
+  } | null;
+  rejectionMessage?: {
+    __typename?: "MessageTemplate";
+    event?: string | null;
+    subject?: string | null;
+    notificationBody?: string | null;
+    emailBody?: string | null;
+  } | null;
+  logo?: {
+    __typename?: "Asset";
+    title?: string | null;
+    url?: string | null;
+  } | null;
+  maintenanceTemplate?: {
+    __typename?: "Asset";
+    fileName?: string | null;
+    url?: string | null;
+  } | null;
+  terms?: {
+    __typename?: "Asset";
+    fileName?: string | null;
+    url?: string | null;
+  } | null;
+  onerousConditionsText?: {
+    __typename?: "GuaranteeTemplateOnerousConditionsText";
+    json: any;
+  } | null;
+};
+
+export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
+  technology: SchemaTypes.Scalars["String"];
+  coverage: SchemaTypes.Scalars["String"];
+  language?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type GetGuaranteeTemplatesQuery = {
+  __typename?: "Query";
+  guaranteeTemplateCollection?: {
+    __typename?: "GuaranteeTemplateCollection";
+    items: Array<{
+      __typename?: "GuaranteeTemplate";
+      displayName?: string | null;
+      technology?: string | null;
+      coverage?: string | null;
+      languageCode?: string | null;
+      languageDescriptor?: string | null;
+      guaranteeScope?: string | null;
+      signatory?: string | null;
+      headingGuarantee?: string | null;
+      headingScope?: string | null;
+      headingProducts?: string | null;
+      headingBeneficiary?: string | null;
+      headingBuildingOwnerName?: string | null;
+      headingBuildingAddress?: string | null;
+      headingRoofArea?: string | null;
+      headingRoofType?: string | null;
+      headingContractor?: string | null;
+      headingContractorName?: string | null;
+      headingContractorId?: string | null;
+      headingStartDate?: string | null;
+      headingGuaranteeId?: string | null;
+      headingValidity?: string | null;
+      headingExpiry?: string | null;
+      footer?: string | null;
+      mailSubject?: string | null;
+      mailBody?: string | null;
+      filenamePrefix?: string | null;
+      titleLine1?: string | null;
+      titleLine2?: string | null;
+      roofType?: string | null;
+      onerousConditionsSummary?: string | null;
+      sys: { __typename?: "Sys"; id: string };
+      approvalMessage?: {
+        __typename?: "MessageTemplate";
+        event?: string | null;
+        subject?: string | null;
+        notificationBody?: string | null;
+        emailBody?: string | null;
+      } | null;
+      rejectionMessage?: {
+        __typename?: "MessageTemplate";
+        event?: string | null;
+        subject?: string | null;
+        notificationBody?: string | null;
+        emailBody?: string | null;
+      } | null;
+      logo?: {
+        __typename?: "Asset";
+        title?: string | null;
+        url?: string | null;
+      } | null;
+      maintenanceTemplate?: {
+        __typename?: "Asset";
+        fileName?: string | null;
+        url?: string | null;
+      } | null;
+      terms?: {
+        __typename?: "Asset";
+        fileName?: string | null;
+        url?: string | null;
+      } | null;
+      onerousConditionsText?: {
+        __typename?: "GuaranteeTemplateOnerousConditionsText";
+        json: any;
+      } | null;
+    } | null>;
   } | null;
 };
 

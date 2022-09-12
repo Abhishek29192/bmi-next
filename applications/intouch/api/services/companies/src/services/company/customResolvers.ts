@@ -93,6 +93,10 @@ export const guaranteeResolver = async ({
     titleLine1
     titleLine2
     roofType
+    onerousConditionsSummary
+    onerousConditionsText {
+      json
+    }
   }
   
   `;
@@ -177,6 +181,8 @@ export const guaranteeResolver = async ({
             }
           }
         }
+        fileStorageId
+        signedFileStorageUrl
       }
     }
     ${CONTENTFUL_GUARANTEE_TEMPLATE_DETAIL_FRAGMENT}
