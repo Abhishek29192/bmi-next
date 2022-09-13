@@ -127,6 +127,9 @@ export const guaranteeResolver = async ({
             id
             name
             referenceNumber
+            market {
+              domain
+            }
           }
           siteAddress {
             firstLine

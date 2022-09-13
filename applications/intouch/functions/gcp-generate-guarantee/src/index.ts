@@ -55,7 +55,9 @@ export const sendGuaranteePdf = async (postEvent: any) => {
         system
       })
     };
-    const gatewayClient = await GatewayClient.create();
+    const gatewayClient = await GatewayClient.create(
+      project.company.market.domain
+    );
     const storageClient = new StorageClient();
     const guaranteePdf = new GuaranteePdfGenerator(payload);
     const sendgridClient = await getSendGridClient();

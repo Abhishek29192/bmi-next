@@ -2,6 +2,7 @@ import { Company } from "@bmi/intouch-api-types";
 import { mockCompanyAddress } from "./address";
 import { mockProject } from "./project";
 import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";
+import { mockMarket } from "./market";
 
 export const mockCompany: Company = {
   id: 2,
@@ -23,5 +24,6 @@ export const mockCompany: Company = {
     edges: [],
     pageInfo: singlePageInfo,
     totalCount: 1
-  }
+  },
+  market: mockMarket
 };
