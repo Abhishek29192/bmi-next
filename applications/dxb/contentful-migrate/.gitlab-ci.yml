@@ -1,7 +1,7 @@
 build_contentful_migrate:
   stage: build
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -27,7 +27,7 @@ build_contentful_migrate:
 .migrate_content:
   stage: pre deploy
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   needs:
     - job: install_yarn
@@ -69,12 +69,12 @@ build_contentful_migrate:
 .deploy_gatsby_cloud:
   stage: deploy
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
     ROOT_DIR: "applications/dxb/contentful-migrate"
-  cache: { }
+  cache: {}
   script:
     - |
       apt-get update
@@ -91,8 +91,6 @@ build_contentful_migrate:
       DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
-
-
 ############################################################################
 # Templates used by each consolidated market to run microcopy update
 #
@@ -104,6 +102,7 @@ build_contentful_migrate:
   stage: pre deploy
   variables:
     DXB_MARKET_ID: "" # Market ID - i.e. NO
+    IS_CONSOLIDATED: "false" # not consolidated
   needs:
     - job: install_yarn
       optional: true
@@ -127,7 +126,7 @@ build_contentful_migrate:
       apt-get update && apt-get install -y jq
       export MANAGEMENT_ACCESS_TOKEN=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
-      cd applications/dxb/contentful-migrate && yarn build && yarn dxb-update-mc:publish
+      cd applications/dxb/contentful-migrate && yarn build && yarn dxb-update-mc:publish --isConsolidated=$IS_CONSOLIDATED
 
 ##############################################################
 # Market specific migration, microcopy and deploy jobs start from here
@@ -136,7 +135,7 @@ build_contentful_migrate:
 migrate_content_qa:
   extends: .migrate_content
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     CONTENTFUL_ENVIRONMENT: staging
     DXB_MARKET_ID: "NO"
@@ -145,7 +144,7 @@ migrate_content_qa:
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   needs:
     - migrate_content_qa
   variables:
@@ -161,7 +160,7 @@ deploy_gatsby_cloud_qa:
 migrate_content_one_page_qa:
   extends: .migrate_content
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     CONTENTFUL_ENVIRONMENT: one-page-qa
     DXB_MARKET_ID: "NO"
@@ -170,7 +169,7 @@ migrate_content_one_page_qa:
 deploy_gatsby_cloud_one_page_qa:
   extends: .deploy_gatsby_cloud
   rules:
-    - !reference [ .run_for_changes_on_main, rules ]
+    - !reference [.run_for_changes_on_main, rules]
   needs:
     - migrate_content_one_page_qa
   variables:
@@ -657,6 +656,7 @@ update_mc_poc:
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
   variables:
     DXB_MARKET_ID: "POC"
+    IS_CONSOLIDATED: "true"
 
 update_mc_qa:
   extends: .update_mc

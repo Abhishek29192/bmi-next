@@ -15491,6 +15491,11 @@
  force=true
 
 [[redirects]]
+ from="/de/Gaszuschlag/"
+ to="/de/gaszuschlag-dachziegel/"
+ force=true
+
+[[redirects]]
  from="/de/alle-metallplattendatenblatt"
  to="/de/services-downloads-im-ueberblick/alle-downloads/"
  force=true

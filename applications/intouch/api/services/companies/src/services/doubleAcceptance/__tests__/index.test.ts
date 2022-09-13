@@ -41,6 +41,11 @@ describe("DoubleAcceptance", () => {
     protocol: "http",
     storageClient: {
       getPrivateAssetSignedUrl: mockGetPrivateAssetSignedUrl
+    },
+    user: {
+      market: {
+        domain: "en"
+      }
     }
   };
   const resolve = jest.fn();
@@ -65,7 +70,7 @@ describe("DoubleAcceptance", () => {
   describe("createDoubleAcceptance", () => {
     const input = { id: 1 };
     it("normal case", async () => {
-      const domain = "en";
+      const domain = "no";
       const resolvedData = {
         data: {
           $guaranteeId: 1,
@@ -100,7 +105,7 @@ describe("DoubleAcceptance", () => {
         resolveInfo
       );
       expect(sendMessageWithTemplateSpy).toHaveBeenCalledWith([
-        context,
+        { ...context, user: { market: { domain } } },
         "DOUBLE_ACCEPTANCE",
         {
           email: "building_owner_mail",
@@ -142,6 +147,53 @@ describe("DoubleAcceptance", () => {
           doubleAcceptanceLink: ""
         }
       ]);
+    });
+
+    it("it do not change user doamin to guarantee market domain when user has no market in context", async () => {
+      const domain = "no";
+      const resolvedData = {
+        data: {
+          $guaranteeId: 1,
+          $tempToken: "tempToken"
+        }
+      };
+      const noUserMarketContext = { ...context, user: {} };
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
+        }))
+        .mockImplementationOnce(() => ({
+          rows: [{ domain }]
+        }));
+      resolve.mockResolvedValueOnce(resolvedData);
+      const result = await createDoubleAcceptance(
+        resolve,
+        source,
+        args(input),
+        noUserMarketContext,
+        resolveInfo
+      );
+
+      expect(resolve).toHaveBeenCalledWith(
+        source,
+        {
+          input: {
+            ...input
+          }
+        },
+        noUserMarketContext,
+        resolveInfo
+      );
+      expect(sendMessageWithTemplateSpy).toHaveBeenCalledWith([
+        noUserMarketContext,
+        "DOUBLE_ACCEPTANCE",
+        {
+          email: "building_owner_mail",
+          doubleAcceptanceLink: `${context.protocol}://dev-${domain}.${process.env.FRONTEND_URL}/double-acceptance/tempToken`
+        }
+      ]);
+      expect(result).toBe(resolvedData);
     });
 
     it("throw error when insert into db", async () => {

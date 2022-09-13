@@ -26,6 +26,10 @@ const sendMessage = async (
     [guarantee.market_id]
   );
 
+  if (context.user?.market) {
+    context.user.market.domain = markets[0].domain;
+  }
+
   await sendMessageWithTemplate(context, template, {
     email: guarantee.building_owner_mail,
     doubleAcceptanceLink: emailBody.tempToken
