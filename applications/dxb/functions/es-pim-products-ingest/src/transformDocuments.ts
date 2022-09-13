@@ -1,3 +1,4 @@
+import path from "path";
 import logger from "@bmi-digital/functions-logger";
 import {
   EsPIMDocumentData,
@@ -9,7 +10,6 @@ import {
   Product as PIMProduct,
   System
 } from "@bmi/pim-types";
-import path from "path";
 import { v4 } from "uuid";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
 import { ProductDocumentNameMap } from "./types";
