@@ -20,8 +20,7 @@ export type EventMessage =
   | "REQUEST_SUBMITTED"
   | "TEAM_JOINED"
   | "ANNUAL_INSPECTION1"
-  | "DOUBLE_ACCEPTANCE"
-  | "DOUBLE_ACCEPTANCE_CONFIRMATION";
+  | "DOUBLE_ACCEPTANCE";
 
 export const getGuaranteeTypeCollection = async (
   client,
