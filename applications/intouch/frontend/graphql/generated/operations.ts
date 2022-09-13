@@ -89,6 +89,7 @@ export type MarkAllNotificationsAsReadMutation = {
 
 export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetGlobalDataQuery = {

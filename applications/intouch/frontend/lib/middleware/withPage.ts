@@ -16,7 +16,7 @@ import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { userRegistration } from "../redirects/userRegistration";
 import { withLogger } from "../middleware/withLogger";
-import { getMarketAndEnvFromReq } from "../utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../utils";
 
 type PageContext = GetServerSidePropsContext & {
   auth0: any;
@@ -157,12 +157,13 @@ export const innerGetServerSideProps = async (
     if (redirect) return redirect;
 
     market = markets[0];
+    const contentfulTag = parseMarketTag(market.domain);
 
     // TODO: get all in 1 query (the previous one)?
     const {
       props: { data }
     } = await getServerPageGetGlobalData(
-      { variables: { accountId: account.id } },
+      { variables: { accountId: account.id, tag: contentfulTag } },
       apolloClient
     );
 
