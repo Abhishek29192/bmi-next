@@ -36,6 +36,7 @@ export interface ESContentfulDocument {
 
 const client = contentful.createClient({
   space: process.env.SPACE_ID!,
+  environment: process.env.CONTENTFUL_ENVIRONMENT!,
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN!
 });
 

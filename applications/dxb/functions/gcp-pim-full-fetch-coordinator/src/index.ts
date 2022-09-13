@@ -22,7 +22,8 @@ const {
   LOCALE,
   MARKET_LOCALE,
   CONTENTFUL_DELIVERY_TOKEN,
-  SPACE_ID
+  SPACE_ID,
+  CONTENTFUL_ENVIRONMENT
 } = process.env;
 
 const triggerFullFetch = async (
@@ -102,6 +103,11 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   if (!SPACE_ID) {
     logger.error({ message: "SPACE_ID is not set." });
+    return res.sendStatus(500);
+  }
+
+  if (!CONTENTFUL_ENVIRONMENT) {
+    logger.error({ message: "CONTENTFUL_ENVIRONMENT is not set." });
     return res.sendStatus(500);
   }
 

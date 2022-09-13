@@ -92,6 +92,7 @@ describe("handleRequest", () => {
     "BUILD_TRIGGER_ENDPOINT",
     "FULL_FETCH_ENDPOINT",
     "SPACE_ID",
+    "CONTENTFUL_ENVIRONMENT",
     "LOCALE",
     "MARKET_LOCALE",
     "CONTENTFUL_DELIVERY_TOKEN",
