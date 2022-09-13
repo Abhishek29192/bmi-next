@@ -875,7 +875,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -896,7 +896,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1030,7 +1030,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1051,7 +1051,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1134,7 +1134,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1155,7 +1155,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1258,7 +1258,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1279,7 +1279,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1851,7 +1851,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -1872,7 +1872,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2016,7 +2016,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -2037,7 +2037,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2104,7 +2104,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2125,7 +2125,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4537,7 +4537,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4558,7 +4558,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4692,7 +4692,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4713,7 +4713,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4796,7 +4796,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4817,7 +4817,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4920,7 +4920,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4941,7 +4941,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5513,7 +5513,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5534,7 +5534,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5678,7 +5678,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5699,7 +5699,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5766,7 +5766,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5787,7 +5787,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -7954,7 +7954,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -7975,7 +7975,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -8109,7 +8109,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -8130,7 +8130,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -8213,7 +8213,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -8234,7 +8234,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -8337,7 +8337,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -8358,7 +8358,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -8930,7 +8930,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -8951,7 +8951,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -9095,7 +9095,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -9116,7 +9116,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -9183,7 +9183,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9204,7 +9204,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -11593,7 +11593,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -11614,7 +11614,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -11748,7 +11748,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -11769,7 +11769,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -11852,7 +11852,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -11873,7 +11873,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -11976,7 +11976,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -11997,7 +11997,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -12569,7 +12569,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -12590,7 +12590,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -12734,7 +12734,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -12755,7 +12755,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -12822,7 +12822,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -12843,7 +12843,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -15206,7 +15206,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -15227,7 +15227,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -15361,7 +15361,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -15382,7 +15382,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -15465,7 +15465,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -15486,7 +15486,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -15589,7 +15589,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -15610,7 +15610,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -16182,7 +16182,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -16203,7 +16203,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -16347,7 +16347,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -16368,7 +16368,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -16435,7 +16435,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -16456,7 +16456,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18843,7 +18843,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18864,7 +18864,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18998,7 +18998,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19019,7 +19019,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -19102,7 +19102,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19123,7 +19123,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -19226,7 +19226,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19247,7 +19247,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -19819,7 +19819,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -19840,7 +19840,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -19984,7 +19984,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -20005,7 +20005,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -20072,7 +20072,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -20093,7 +20093,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22460,7 +22460,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22481,7 +22481,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22615,7 +22615,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22636,7 +22636,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22719,7 +22719,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22740,7 +22740,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22843,7 +22843,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22864,7 +22864,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -23436,7 +23436,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -23457,7 +23457,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -23601,7 +23601,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -23622,7 +23622,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -23689,7 +23689,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23710,7 +23710,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26105,7 +26105,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26126,7 +26126,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26260,7 +26260,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26281,7 +26281,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26364,7 +26364,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26385,7 +26385,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26488,7 +26488,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26509,7 +26509,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -27081,7 +27081,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -27102,7 +27102,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -27246,7 +27246,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -27267,7 +27267,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -27334,7 +27334,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -27355,7 +27355,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -29744,7 +29744,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -29765,7 +29765,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -29899,7 +29899,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -29920,7 +29920,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30003,7 +30003,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30024,7 +30024,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30127,7 +30127,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30148,7 +30148,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30720,7 +30720,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -30741,7 +30741,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -30885,7 +30885,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -30906,7 +30906,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -30973,7 +30973,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30994,7 +30994,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
