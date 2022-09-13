@@ -252,7 +252,7 @@ const Results = ({
   needHelpSection
 }: ResultProps) => {
   const { getMicroCopy } = useSiteContext();
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(isHubSpotFormAvailable);
 
   const { faces, lines, area } = measurements;
 
