@@ -149,7 +149,7 @@ export const getDoubleAcceptanceByValidTempToken = async (
         }
       ]
     } = await pgRootPool.query(
-      `SELECT d.*, p.maximum_validity_years, p.technology, g.language_code, g.coverage FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN product p ON g.product_bmi_ref = p.bmi_ref WHERE d.temp_token = $1`,
+      `SELECT d.*, p.maximum_validity_years, p.technology, g.language_code, g.coverage FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN system_member s ON g.system_bmi_ref = s.system_bmi_ref JOIN product p ON s.product_bmi_ref = p.bmi_ref WHERE d.temp_token = $1`,
       [tempToken]
     );
 
