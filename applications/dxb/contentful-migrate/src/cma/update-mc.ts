@@ -423,7 +423,13 @@ const publishMicroCopies = async (nodes: any) => {
 const main = async () => {
   const projectKeys = Object.values(microCopy);
 
-  const allContentfulMicrocopies = await getContentfulMicroCopies([], -1);
+  let allContentfulMicrocopies = await await getContentfulMicroCopies([], -1);
+
+  if (TO_BE_PUBLISHED) {
+    allContentfulMicrocopies = allContentfulMicrocopies.filter((mc) =>
+      mc.isPublished()
+    );
+  }
 
   const microCopiesWithMultipleTags = allContentfulMicrocopies.filter(
     (mc) => mc.metadata && mc.metadata.tags.length > 1
@@ -473,7 +479,9 @@ const main = async () => {
     console.log(
       `The environment '${environment.name}' is expected to be Consolidated space, however NO public tags prefix with 'market__' are present.`
     );
-    throw Error(`Check configuration in CI/CD pipeline`);
+    throw Error(
+      `Check configuration in CI/CD pipeline for environment: '${environment.name}'`
+    );
   }
 
   let newNodes: any[] = [];
@@ -490,12 +498,13 @@ const main = async () => {
   }
 
   if (TO_BE_PUBLISHED) {
-    console.log(
-      `Publishing ${
-        newNodes.length + nodesForExistingMicrocopies.length
-      } entries`
-    );
-    await publishMicroCopies([...newNodes, ...nodesForExistingMicrocopies]);
+    const totalEntriesToPublish = [...newNodes, ...nodesForExistingMicrocopies];
+    if (totalEntriesToPublish.length > 0) {
+      console.log(`Publishing ${totalEntriesToPublish.length} entries`);
+      await publishMicroCopies(totalEntriesToPublish);
+    } else {
+      console.log(`Nothing to publish`);
+    }
   }
 
   console.log("Done");
