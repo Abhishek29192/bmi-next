@@ -50,6 +50,7 @@ const getSpaceEnvironment = async (): Promise<Environment | undefined> => {
     return;
   }
   const space = await getSpace();
+  logger.info({ message: `space: ${JSON.stringify(space, null, 2)}` });
   const environment = await getEnvironment(space);
 
   return environment;
@@ -59,6 +60,9 @@ const getAssetTypes = async (): Promise<
   Pick<AssetTypeData, "name" | "code" | "pimCode">[] | undefined
 > => {
   const environment = await getSpaceEnvironment();
+  logger.info({
+    message: `Env in getAssetTypes: ${JSON.stringify(environment, null, 2)}`
+  });
   if (environment) {
     const assetType = await environment.getEntries({
       content_type: "assetType"
@@ -78,6 +82,13 @@ const getProductDocumentNameMap = async (): Promise<
   ProductDocumentNameMap | undefined
 > => {
   const environment = await getSpaceEnvironment();
+  logger.info({
+    message: `Env in getProductDocumentNameMap: ${JSON.stringify(
+      environment,
+      null,
+      2
+    )}`
+  });
   if (environment) {
     const resources = await environment.getEntries({
       content_type: "resources"
