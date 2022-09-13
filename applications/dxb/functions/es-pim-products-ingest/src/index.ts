@@ -93,9 +93,9 @@ export const handleMessage: MessageFunction = async (data, context) => {
     message: `Assets: ${JSON.stringify(assets, null, 2)}`
   });
 
-  if (type !== "UPDATED" && !assets?.length) {
+  if (type === "UPDATED" && !assets?.length) {
     logger.warning({
-      message: `Didn't find any assets.`
+      message: `Didn't find any assets on update event.`
     });
   }
   const itemCode: string = "code" in item ? item.code : "";

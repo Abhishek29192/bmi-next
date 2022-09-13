@@ -1,4 +1,3 @@
-import path from "path";
 import logger from "@bmi-digital/functions-logger";
 import {
   EsPIMDocumentData,
@@ -10,6 +9,7 @@ import {
   Product as PIMProduct,
   System
 } from "@bmi/pim-types";
+import path from "path";
 import { v4 } from "uuid";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
 import { ProductDocumentNameMap } from "./types";
@@ -51,6 +51,21 @@ export const transformDocuments = async (
     | undefined = await getAssetTypes();
   const productDocumentNameMap: ProductDocumentNameMap | undefined =
     await getProductDocumentNameMap();
+
+  logger.info({
+    message: `AssetTypes in transformDocuments ${JSON.stringify(
+      assetTypes,
+      null,
+      2
+    )}`
+  });
+  logger.info({
+    message: `productDocumentNameMap in transformDocuments ${JSON.stringify(
+      productDocumentNameMap,
+      null,
+      2
+    )}`
+  });
 
   if (assetTypes && productDocumentNameMap) {
     const esPimDocuments = (item.assets || [])

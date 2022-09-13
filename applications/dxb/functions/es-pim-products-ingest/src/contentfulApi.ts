@@ -50,6 +50,7 @@ const getSpaceEnvironment = async (): Promise<Environment | undefined> => {
     return;
   }
   const space = await getSpace();
+  logger.info({ message: `space: ${JSON.stringify(space, null, 2)}` });
   const environment = await getEnvironment(space);
 
   return environment;
@@ -71,6 +72,14 @@ const getAssetTypes = async (): Promise<
         code: code[`${MARKET_LOCALE}`],
         pimCode: pimCode[`${MARKET_LOCALE}`]
       }));
+  } else {
+    logger.info({
+      message: `Env in getAssetTypes is not set: ${JSON.stringify(
+        environment,
+        null,
+        2
+      )}`
+    });
   }
 };
 
@@ -88,6 +97,14 @@ const getProductDocumentNameMap = async (): Promise<
       return productDocumentNameMap[`${MARKET_LOCALE}`];
     }
     return "Document name";
+  } else {
+    logger.info({
+      message: `Env in getProductDocumentNameMap is not set: ${JSON.stringify(
+        environment,
+        null,
+        2
+      )}`
+    });
   }
 };
 export { getAssetTypes, getProductDocumentNameMap };
