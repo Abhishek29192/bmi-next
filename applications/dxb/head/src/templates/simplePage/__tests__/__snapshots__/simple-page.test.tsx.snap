@@ -875,7 +875,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -896,7 +896,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1030,7 +1030,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1051,7 +1051,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1134,7 +1134,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1155,7 +1155,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1258,7 +1258,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1279,7 +1279,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1851,7 +1851,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -1872,7 +1872,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2016,7 +2016,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -2037,7 +2037,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2104,7 +2104,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2125,7 +2125,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4347,7 +4347,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4368,7 +4368,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4502,7 +4502,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4523,7 +4523,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4606,7 +4606,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4627,7 +4627,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4730,7 +4730,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4751,7 +4751,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5323,7 +5323,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5344,7 +5344,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5488,7 +5488,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5509,7 +5509,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5576,7 +5576,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5597,7 +5597,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
