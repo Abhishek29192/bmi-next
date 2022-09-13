@@ -60,6 +60,9 @@ const getAssetTypes = async (): Promise<
   Pick<AssetTypeData, "name" | "code" | "pimCode">[] | undefined
 > => {
   const environment = await getSpaceEnvironment();
+  logger.info({
+    message: `Env in getAssetTypes: ${JSON.stringify(environment, null, 2)}`
+  });
   if (environment) {
     const assetType = await environment.getEntries({
       content_type: "assetType"
@@ -72,14 +75,6 @@ const getAssetTypes = async (): Promise<
         code: code[`${MARKET_LOCALE}`],
         pimCode: pimCode[`${MARKET_LOCALE}`]
       }));
-  } else {
-    logger.info({
-      message: `Env in getAssetTypes is not set: ${JSON.stringify(
-        environment,
-        null,
-        2
-      )}`
-    });
   }
 };
 
@@ -87,6 +82,13 @@ const getProductDocumentNameMap = async (): Promise<
   ProductDocumentNameMap | undefined
 > => {
   const environment = await getSpaceEnvironment();
+  logger.info({
+    message: `Env in getProductDocumentNameMap: ${JSON.stringify(
+      environment,
+      null,
+      2
+    )}`
+  });
   if (environment) {
     const resources = await environment.getEntries({
       content_type: "resources"
@@ -98,13 +100,6 @@ const getProductDocumentNameMap = async (): Promise<
     }
     return "Document name";
   } else {
-    logger.info({
-      message: `Env in getProductDocumentNameMap is not set: ${JSON.stringify(
-        environment,
-        null,
-        2
-      )}`
-    });
   }
 };
 export { getAssetTypes, getProductDocumentNameMap };
