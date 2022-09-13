@@ -26,7 +26,9 @@ export const updateESDocumentsIndex: HttpFunction = async (
     return;
   }
 
-  if (request.body.sys.contentType.sys.id !== "document") {
+  logger.info({ message: `request: ${JSON.stringify(request)}` });
+
+  if (request.body?.sys?.contentType?.sys?.id !== "document") {
     logger.warning({
       message:
         "Function doesn't support webhooks with contentType ID other then 'document.'"
@@ -36,7 +38,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
   const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`;
   const client = await getEsClient();
 
-  switch (request.body.sys.type) {
+  switch (request.body?.sys?.type) {
     case EntryType.ENTRY: {
       const eSDocument = await transformDocument(request.body);
       if (!eSDocument) {
@@ -57,7 +59,7 @@ export const updateESDocumentsIndex: HttpFunction = async (
       await client.delete(
         {
           index,
-          id: request.body.sys.id
+          id: request.body?.sys?.id
         },
         handleEsClientError
       );

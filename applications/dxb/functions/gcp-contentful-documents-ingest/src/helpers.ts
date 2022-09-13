@@ -9,22 +9,33 @@ const SECRET_MIN_LENGTH = 10;
 export const transformDocument = async (
   entryData: Entry
 ): Promise<ESContentfulDocument> => {
+  logger.info({ message: "transformDocument start" });
   const locale = process.env.MARKET_LOCALE;
   const environment = await getEnvironment();
-  const { title, asset, assetType, brand, noIndex } = entryData.fields;
-
+  const { title, asset, assetType, brand, noIndex } = entryData?.fields;
+  logger.info({
+    message: `title, asset, assetType, brand, noIndex: ${{
+      title,
+      asset,
+      assetType,
+      brand
+    }}`
+  });
   const {
     fields: { file }
   } = await environment.getAsset(
     // eslint-disable-next-line security/detect-object-injection
     asset[`${locale}`].sys.id
   );
+  logger.info({ message: `file: ${file}` });
   const {
     fields: { name, code, pimCode }
   } = await environment.getEntry(
     // eslint-disable-next-line security/detect-object-injection
     assetType[`${locale}`].sys.id
   );
+
+  logger.info({ message: `name, code, pimCode:  ${{ name, code, pimCode }}` });
 
   return {
     __typename: "ContentfulDocument",
@@ -59,6 +70,7 @@ export const transformDocument = async (
 };
 
 export const checkEnvVariables = (response: Response) => {
+  logger.info({ message: "Check Env variables" });
   if (!process.env.ES_DOCUMENTS_INGEST_SECRET) {
     logger.error({ message: "Request secret is not set." });
     response.sendStatus(500);
@@ -91,10 +103,8 @@ export const checkEnvVariables = (response: Response) => {
   }
 };
 
-export const checkAuthorization = async (
-  request: Request,
-  response: Response
-) => {
+export const checkAuthorization = (request: Request, response: Response) => {
+  logger.info({ message: "Check Authorization" });
   const reqSecret = process.env.ES_DOCUMENTS_INGEST_SECRET!;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||
@@ -107,6 +117,7 @@ export const checkAuthorization = async (
 };
 
 export const checkHttpMethod = (request: Request, response: Response) => {
+  logger.info({ message: "Check Http Method" });
   if (request.method !== "POST") {
     logger.warning({
       message: `Request method ${request.method} is not allowed.`
