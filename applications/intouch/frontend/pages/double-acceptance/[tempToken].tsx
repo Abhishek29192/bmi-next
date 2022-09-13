@@ -21,14 +21,10 @@ export type Props = {
       completed: boolean;
       guaranteeTemplate: Partial<GuaranteeTemplate>;
     };
-  baseUrl: string;
-  environment?: string;
 };
 
 const DoubleAcceptancePage = ({
   doubleAcceptance: doubleAcceptanceProp,
-  baseUrl,
-  environment,
   ...props
 }: Props) => {
   const { t } = useTranslation("double-acceptance");
@@ -41,7 +37,7 @@ const DoubleAcceptancePage = ({
   return (
     <Layout title={t("title")}>
       {doubleAcceptance.completed ? (
-        <Confirmation baseUrl={baseUrl} environment={environment} />
+        <Confirmation />
       ) : (
         <FormContainer
           doubleAcceptance={doubleAcceptance}
@@ -55,7 +51,7 @@ const DoubleAcceptancePage = ({
 
 export const getServerSideProps = withPublicPage(
   async ({ locale, req, res, query, globalPageData }) => {
-    const { currentHost, environment, market } = getMarketAndEnvFromReq(req);
+    const { currentHost, market } = getMarketAndEnvFromReq(req);
     const { tempToken } = query;
     const headers = {
       "x-request-id": v4(),
@@ -117,7 +113,6 @@ export const getServerSideProps = withPublicPage(
           "common",
           "double-acceptance"
         ])),
-        environment,
         market,
         doubleAcceptance: {
           id: id,

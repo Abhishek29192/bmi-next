@@ -28,31 +28,14 @@ jest.mock("../../../../context/MarketContext", () => {
 });
 
 describe("Confirmation", () => {
-  const baseUrl = "www.bmigroup.com";
   it("render correctly", () => {
-    const { container } = renderWithI18NProvider(
-      <Confirmation baseUrl={baseUrl} environment={"dev"} />
-    );
+    const { container } = renderWithI18NProvider(<Confirmation />);
 
     expect(container).toMatchSnapshot();
     expect(screen.queryByText("confirmation.title")).toBeTruthy();
     expect(optionSpy).toHaveBeenCalledWith(
       expect.objectContaining({
-        website: `<a href="/">www.bmigroup.com</a>`
-      })
-    );
-  });
-
-  it("change website link with correctly", () => {
-    const { container } = renderWithI18NProvider(
-      <Confirmation baseUrl={baseUrl} environment={null} />
-    );
-
-    expect(container).toMatchSnapshot();
-    expect(screen.queryByText("confirmation.title")).toBeTruthy();
-    expect(optionSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        website: `<a href="/en">www.bmigroup.com/en</a>`
+        website: `<a href="https://www.bmigroup.com/en">www.bmigroup.com/en</a>`
       })
     );
   });
