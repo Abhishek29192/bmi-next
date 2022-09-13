@@ -99,7 +99,6 @@ const getProductDocumentNameMap = async (): Promise<
       return productDocumentNameMap[`${MARKET_LOCALE}`];
     }
     return "Document name";
-  } else {
   }
 };
 export { getAssetTypes, getProductDocumentNameMap };
