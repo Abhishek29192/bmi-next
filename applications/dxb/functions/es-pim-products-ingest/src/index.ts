@@ -89,7 +89,11 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   const assets = await getAssets();
 
-  if (type === "UPDATED" && !assets?.length) {
+  logger.info({
+    message: `Assets: ${JSON.stringify(assets, null, 2)}`
+  });
+
+  if (type !== "UPDATED" && !assets?.length) {
     logger.warning({
       message: `Didn't find any assets.`
     });
