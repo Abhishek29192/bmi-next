@@ -15,14 +15,14 @@
   When processing existing micro copy entry, it checks, 
   
   a) If an exitsing entry has NO tag, it will create a new entry for each global tag (market)
-  E.g. If the environment on which this process is executed has 2 Global Tags (UK + Finland) then, 
+  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) then, 
   end result will be : 3 identical entries i.e. 1 original + 2 new entries (one per tag)
   
   b) If an existing entry has `single` tag applied,then it will create 
   a new micro copy entry for the remaining tags and sync every micro copy entry 
   for each public tag.
   
-  E.g. If the environment on which this process is executed has 2 Global Tags (UK + Finland) 
+  E.g. If the environment on which this process is executed has 2 Global public Tags (market__uk + market__finland) 
   And existing entry is tagged with `UK` market, then, 
   end result will be : 2 identical entries i.e. 1 original + 1 new entry for Finland tag
   
@@ -222,7 +222,7 @@ const updateExistingMicrocopies = async (
           );
 
       if (IS_CONSOLIDATED) {
-        return tagsToBeApplied.flatMap((tagItem) => {
+        return tagsToBeApplied.map((tagItem) => {
           return {
             metadata: {
               tags: [
@@ -285,7 +285,7 @@ const processNewMicrocopies = async (
           };
 
       if (IS_CONSOLIDATED) {
-        return allTagCodes.flatMap((tagItem) => {
+        return allTagCodes.map((tagItem) => {
           return {
             metadata: {
               tags: [
@@ -330,7 +330,7 @@ const tagExistingContentfulMicrocopies = async (
   const environment = await getEnvironment();
   const allTags = await getValidMarketTags(environment);
   console.log(
-    `Starting to process existing microcopies in the environment : ${environment.name}`
+    `Starting to tag existing microcopies in the environment : ${environment.name}`
   );
 
   const allLocales = await environment.getLocales();
