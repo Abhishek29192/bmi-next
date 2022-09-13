@@ -32,10 +32,9 @@ describe("GatewayClient", () => {
     });
   });
 
-  describe("create", () => {
-    it("normal case", async () => {
-      await GatewayClient.create();
-    });
+  const raw = JSON.stringify({
+    source: "pdf-generator-function",
+    market: "en"
   });
 
   it("updateGuaranteeFileStorage", async () => {
@@ -56,11 +55,9 @@ describe("GatewayClient", () => {
         fileStorageId
       }
     };
-    const raw = JSON.stringify({
-      source: "pdf-generator-function"
-    });
+
     const userinfo = Buffer.from(raw).toString("base64");
-    const gateway = await GatewayClient.create();
+    const gateway = await GatewayClient.create("en");
     await gateway.updateGuaranteeFileStorage(1, "2");
 
     expect(requestSpy).toHaveBeenNthCalledWith(1, [
@@ -70,7 +67,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       }
     ]);
@@ -81,7 +79,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       },
       {
@@ -116,11 +115,9 @@ describe("GatewayClient", () => {
           .toString()
       }
     };
-    const raw = JSON.stringify({
-      source: "pdf-generator-function"
-    });
+
     const userinfo = Buffer.from(raw).toString("base64");
-    const gateway = await GatewayClient.create();
+    const gateway = await GatewayClient.create("en");
     await gateway.createDoubleAcceptance(1);
 
     expect(requestSpy).toHaveBeenNthCalledWith(1, [
@@ -130,7 +127,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       }
     ]);
@@ -141,7 +139,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       },
       {
@@ -167,11 +166,8 @@ describe("GatewayClient", () => {
         id
       }
     };
-    const raw = JSON.stringify({
-      source: "pdf-generator-function"
-    });
     const userinfo = Buffer.from(raw).toString("base64");
-    const gateway = await GatewayClient.create();
+    const gateway = await GatewayClient.create("en");
     await gateway.updateGuaranteeStatus(1);
 
     expect(requestSpy).toHaveBeenNthCalledWith(1, [
@@ -181,7 +177,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       }
     ]);
@@ -192,7 +189,8 @@ describe("GatewayClient", () => {
           "Content-Type": "application/json",
           "x-apigateway-api-userinfo": userinfo,
           authorization: "bearer undefined",
-          "x-api-key": "bearer"
+          "x-api-key": "bearer",
+          "x-request-market-domain": "en"
         }
       },
       {

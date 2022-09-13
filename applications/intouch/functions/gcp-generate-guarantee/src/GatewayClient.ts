@@ -10,10 +10,11 @@ export interface ICourseSyncConfiguration {
 export default class GatewayClient {
   private client: Request;
 
-  private constructor(bearer: string) {
+  private constructor(bearer: string, market: string) {
     const userinfo = Buffer.from(
       JSON.stringify({
-        source: "pdf-generator-function"
+        source: "pdf-generator-function",
+        market: market
       })
     ).toString("base64");
 
@@ -22,14 +23,15 @@ export default class GatewayClient {
         "Content-Type": "application/json",
         authorization: "bearer undefined",
         "x-api-key": bearer,
-        "x-apigateway-api-userinfo": userinfo
+        "x-apigateway-api-userinfo": userinfo,
+        "x-request-market-domain": market
       }
     });
   }
 
-  public static async create(): Promise<GatewayClient> {
+  public static async create(market: string): Promise<GatewayClient> {
     const bearer = process.env.GATEWAY_API_KEY;
-    return new GatewayClient(bearer);
+    return new GatewayClient(bearer, market);
   }
 
   async updateGuaranteeFileStorage(id: number, fileStorageId: string) {
