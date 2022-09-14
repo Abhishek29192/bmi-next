@@ -106,8 +106,8 @@ export type GutterHook = LengthBasedProduct;
 
 export interface GutterVariant extends BaseProduct {
   length: number;
-  downpipe?: Accessory;
-  downpipeConnector?: Accessory;
+  downPipe?: Accessory;
+  downPipeConnector?: Accessory;
 }
 
 export enum ProductType {

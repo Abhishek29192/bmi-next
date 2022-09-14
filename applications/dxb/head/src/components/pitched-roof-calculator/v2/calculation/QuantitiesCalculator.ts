@@ -384,18 +384,18 @@ class QuantitiesCalculator {
       }
     });
 
-    if (gutteringVariant?.downpipe) {
+    if (gutteringVariant?.downPipe) {
       this.addProduct(
         ProductCategory.Accessories,
-        gutteringVariant.downpipe,
+        gutteringVariant.downPipe,
         downPipes
       );
     }
 
-    if (gutteringVariant?.downpipeConnector) {
+    if (gutteringVariant?.downPipeConnector) {
       this.addProduct(
         ProductCategory.Accessories,
-        gutteringVariant.downpipeConnector,
+        gutteringVariant.downPipeConnector,
         downPipeConnectors
       );
     }
