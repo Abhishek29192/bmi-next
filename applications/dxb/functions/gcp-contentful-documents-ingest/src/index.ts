@@ -26,8 +26,6 @@ export const updateESDocumentsIndex: HttpFunction = async (
     return;
   }
 
-  logger.info({ message: `request: ${request.body}` });
-
   if (request.body?.sys?.contentType?.sys?.id !== "document") {
     logger.warning({
       message:
