@@ -8,8 +8,9 @@ import { ContentfulDocumentLibraryPage, DocumentType } from "../types";
 // Test coverage should be provided after refactoring
 
 export const filterKey = (currentFilter: Filter) =>
-  currentFilter.filterCode === "assetType"
-    ? currentFilter.filterCode
+  currentFilter.filterCode === "assetType" ||
+  currentFilter.filterCode === "AssetType"
+    ? "assetType"
     : currentFilter.filterCode.toUpperCase();
 
 export const generateFiltersAggs = (filters: Filter[] = []) => {
