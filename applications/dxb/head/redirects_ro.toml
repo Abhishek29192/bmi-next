@@ -235,7 +235,7 @@
 
 [[redirects]]
  from="/ro/solutii/products/icopal/siplast-foundation"
- to="/ro/solutii/acoperisuri-plane/produse-acoperisuri-plane//"
+ to="/ro/solutii/acoperisuri-plane/produse-acoperisuri-plane/"
  force=true
 
 [[redirects]]
@@ -740,12 +740,12 @@
 
 [[redirects]]
  from="/ro/solutii/products/bramac/grilaj-metalic-paraz%C4%83pad%C4%83-uni"
- to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/accesorii-acoperis-inclinat/"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/"
  force=true
 
 [[redirects]]
  from="/ro/solutii/products/bramac/grilaj-metalic-paraz%C4%83pad%C4%83-eco"
- to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/accesorii-acoperis-inclinat/"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/"
  force=true
 
 [[redirects]]
@@ -975,7 +975,7 @@
 
 [[redirects]]
  from="/ro/solutii/products/bramac/bramac-opal-standard-%C8%9Bigl%C4%83-aerisire-sanitar%C4%83"
- to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton/"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/beton/"
  force=true
 
 [[redirects]]
@@ -1215,7 +1215,7 @@
 
 [[redirects]]
  from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/ceramică"
- to="https://www.bmigroup.com/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton"
  force=true
 
 [[redirects]]
@@ -1320,7 +1320,7 @@
 
 [[redirects]]
  from="/ro/pentru-specialisti/proiecte-de-referinta/tigla-alpina-clasic-bmi-bramac"
- to="/ro/proiecte-de-referinta//tigla-alpina-clasic-bmi-bramac"
+ to="/ro/proiecte-de-referinta/tigla-alpina-clasic-bmi-bramac"
  force=true
 
 [[redirects]]
@@ -1360,17 +1360,17 @@
 
 [[redirects]]
  from="/ro/despre-bmi-romania/stiri/suprafata-glazuron-bmi-bramac"
- to="/ro/blog/suprafata-protector-bmi-bramac/"
+ to="/ro/blog/suprafata-glazuron-bmi-bramac/"
  force=true
 
 [[redirects]]
  from="/ro/despre-bmi-romania/stiri/greutate-bmi-bramac"
- to="/ro/blog/acoperisul-solar-bmi-bramac/"
+ to="/ro/blog/greutate-bmi-bramac/"
  force=true
 
 [[redirects]]
  from="/ro/despre-bmi-romania/stiri/acoperisul-solar-bmi-bramac"
- to="/ro/blog/greutate-bmi-bramac/"
+ to="/ro/blog/acoperisul-solar-bmi-bramac/"
  force=true
 
 [[redirects]]
