@@ -47,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "babel-jest": "^27.5.1",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.5",
     "babel-preset-minify": "^0.5.1",
     "cross-env": "^7.0.3",
     "fetch-mock-jest": "^1.5.1",
