@@ -426,7 +426,7 @@ const input: QuantitiesCalculatorProps = {
     mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
     length: 600,
-    downpipe: createProduct<Accessory>({
+    downPipe: createProduct<Accessory>({
       code: "Downpipe",
       name: "Downpipe",
       mainImage:
@@ -434,7 +434,7 @@ const input: QuantitiesCalculatorProps = {
       externalProductCode: "33332",
       category: ProductCategory.Accessories
     }),
-    downpipeConnector: createProduct<Accessory>({
+    downPipeConnector: createProduct<Accessory>({
       code: "Downpipe_Connector",
       name: "Downpipe Connector",
       mainImage:

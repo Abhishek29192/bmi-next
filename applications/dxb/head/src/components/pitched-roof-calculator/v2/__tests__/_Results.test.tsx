@@ -504,7 +504,7 @@ const resultsProps: ResultProps = {
       externalProductCode: "4391",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       length: 600,
-      downpipe: createProduct<Accessory>({
+      downPipe: createProduct<Accessory>({
         code: "Downpipe",
         name: "Downpipe",
         image:
@@ -512,7 +512,7 @@ const resultsProps: ResultProps = {
         externalProductCode: "33332",
         category: ProductCategory.Accessories
       }),
-      downpipeConnector: createProduct<Accessory>({
+      downPipeConnector: createProduct<Accessory>({
         code: "Downpipe_Connector",
         name: "Downpipe Connector",
         image:
