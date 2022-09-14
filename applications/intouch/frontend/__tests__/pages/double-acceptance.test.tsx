@@ -3,7 +3,11 @@ import DoubleAcceptancePage, {
   getServerSideProps,
   Props as DoubleAcceptanceProps
 } from "../../pages/double-acceptance/[tempToken]";
-import { renderWithI18NProvider, screen } from "../../lib/tests/utils";
+import {
+  fireEvent,
+  renderWithI18NProvider,
+  screen
+} from "../../lib/tests/utils";
 import { genereateDoubleAcceptanceByValidTempToken } from "../../lib/tests/factories/doubleAcceptance";
 import { getDoubleAcceptanceByValidTempToken as getDoubleAcceptanceByValidTempTokenQuery } from "../../lib/doubleAcceptance";
 
@@ -32,7 +36,19 @@ jest.mock("../../lib/apolloClient", () => {
 });
 const formContainerMock = jest
   .fn()
-  .mockReturnValue(<div data-testid="double-acceptance-form" />);
+  .mockImplementation(
+    ({ doubleAcceptance, onUpdateDoubleAcceptanceCompleted }) => (
+      <div
+        data-testid="double-acceptance-form"
+        onClick={() =>
+          onUpdateDoubleAcceptanceCompleted({
+            ...doubleAcceptance,
+            completed: true
+          })
+        }
+      />
+    )
+  );
 const confirmationMock = jest
   .fn()
   .mockReturnValue(<div data-testid="double-acceptance-confirmation" />);
@@ -117,7 +133,6 @@ describe("double acceptance server side props", () => {
         props: {
           baseUrl: "en.local.intouch:3000",
           market: "en",
-          environment: null,
           doubleAcceptance: {
             id: getDoubleAcceptanceByValidTempToken.id,
             completed: !!getDoubleAcceptanceByValidTempToken.acceptanceDate,
@@ -131,15 +146,39 @@ describe("double acceptance server side props", () => {
     );
   });
 
+  it("redirect to not found when double acceptance expired", async () => {
+    const getDoubleAcceptanceByValidTempToken = {
+      ...genereateDoubleAcceptanceByValidTempToken(),
+      expiryDate: "2021-10-10 09:38:09.577"
+    };
+    const guaranteeTemplate = { guaranteeTemplate: "guaranteeTemplate" };
+    mutateSpy.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {
+          getDoubleAcceptanceByValidTempToken
+        }
+      })
+    );
+    getServerPageGetGuaranteeTemplatesMock.mockReturnValueOnce({
+      props: {
+        data: {
+          guaranteeTemplateCollection: {
+            items: [guaranteeTemplate]
+          }
+        }
+      }
+    });
+
+    const result = await getServerSideProps(context);
+
+    expect(result).toEqual({
+      notFound: true
+    });
+  });
+
   it("render form correctly when completed is false", async () => {
     const props = { ...doubleAcceptance, completed: false };
-    renderWithI18NProvider(
-      <DoubleAcceptancePage
-        doubleAcceptance={props}
-        baseUrl={context.req.host}
-        environment={null}
-      />
-    );
+    renderWithI18NProvider(<DoubleAcceptancePage doubleAcceptance={props} />);
 
     expect(screen.queryByTestId("double-acceptance-form")).toBeTruthy();
     expect(formContainerMock.mock.calls[0][0]).toEqual({
@@ -148,13 +187,18 @@ describe("double acceptance server side props", () => {
     });
   });
 
+  it("run onUpdateDoubleAcceptanceCompleted currently", async () => {
+    const props = { ...doubleAcceptance, completed: false };
+    renderWithI18NProvider(<DoubleAcceptancePage doubleAcceptance={props} />);
+
+    fireEvent.click(screen.getByTestId("double-acceptance-form"));
+
+    expect(screen.queryByTestId("double-acceptance-confirmation")).toBeTruthy();
+  });
+
   it("render confirmation page correctly when completed is true", async () => {
     renderWithI18NProvider(
-      <DoubleAcceptancePage
-        doubleAcceptance={doubleAcceptance}
-        baseUrl={context.req.host}
-        environment={null}
-      />
+      <DoubleAcceptancePage doubleAcceptance={doubleAcceptance} />
     );
 
     expect(screen.queryByTestId("double-acceptance-confirmation")).toBeTruthy();

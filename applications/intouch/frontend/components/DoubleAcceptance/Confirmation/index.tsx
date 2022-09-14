@@ -4,17 +4,10 @@ import { Typography, Grid } from "@bmi/components";
 import styles from "../styles.module.scss";
 import { useMarketContext } from "../../../context/MarketContext";
 
-type Props = {
-  baseUrl: string;
-  environment?: string;
-};
-
-const Confirmation = ({ baseUrl, environment }: Props) => {
+const Confirmation = () => {
   const { t } = useTranslation("double-acceptance");
   const { market } = useMarketContext();
-  const website = `<a href="${environment ? "/" : `/${market}`}">${baseUrl}${
-    environment ? "" : `/${market}`
-  }</a>`;
+  const website = `<a href="https://www.bmigroup.com/${market}">www.bmigroup.com/${market}</a>`;
 
   return (
     <div className={styles.container}>

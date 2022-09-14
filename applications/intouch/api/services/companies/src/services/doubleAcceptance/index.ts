@@ -254,7 +254,7 @@ export const releaseGuaranteePdf = async (
         }
       ]
     } = await pgRootPool.query(
-      `SELECT g.*, p.building_owner_mail, pt.name as product_name, s.name as system_name FROM guarantee g JOIN project p ON g.project_id = p.id JOIN product pt ON g.product_bmi_ref = pt.bmi_ref JOIN system s ON g.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
+      `SELECT g.*, p.building_owner_mail, pt.name as product_name, s.name as system_name FROM guarantee g JOIN project p ON g.project_id = p.id JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref JOIN product pt ON sm.product_bmi_ref = pt.bmi_ref WHERE g.id = $1`,
       [id]
     );
     const signedFileStorageUrl =
