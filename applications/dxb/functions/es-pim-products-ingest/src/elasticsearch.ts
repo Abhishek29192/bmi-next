@@ -213,10 +213,6 @@ export const updateElasticSearch = async (
 
   await updateEsProducts(client, itemType, esProducts, action);
 
-  logger.info({
-    message: `Assets in updateElasticSearch: ${JSON.stringify(assets, null, 2)}`
-  });
-
   if (assets && assets.length) {
     await updateEsDocuments(client, assets, itemCode);
   }
