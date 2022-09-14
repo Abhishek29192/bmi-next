@@ -5,3 +5,4 @@ include:
   - local: "/applications/dxb/head/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/.gitlab-ci.yml"
   - local: "/applications/dxb/redirects-checker/.gitlab-ci.yml"
+  - local: "/applications/dxb/scripts/.gitlab-ci.yml"
