@@ -85,7 +85,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu"
-  to = "/at/dach-tipps/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+  to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
   status = 301
   force = true
 
@@ -103,7 +103,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/almdorf-seinerzeit-neu"
-  to = "/at/dach-tipps/almdorf-seinerzeit-neu/"
+  to = "/at/referenzen/almdorf-seinerzeit-neu/"
   status = 301
   force = true
 
@@ -271,7 +271,7 @@
 
 [[redirects]]
   from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-x-1-1-normalstein"
-  to = "/at/p/bramac-classic-x-1-1-normalstein-brilliantschwarz-protector-plus-beton-3064423322"
+  to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
   status = 301
   force = true
 
@@ -397,7 +397,7 @@
 
 [[redirects]]
   from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-x-1-1-normalstein"
-  to = "/at/p/bramac-montero-x-1-1-normalstein-bordeaux-granuliert-beton-2582677218"
+  to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
   status = 301
   force = true
 
@@ -1213,7 +1213,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/greencity-graz"
-  to = "/at/dach-tipps/greencity-graz/"
+  to = "/at/referenzen/greencity-graz/"
   status = 301
   force = true
 
@@ -1297,7 +1297,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/maria-taferl"
-  to = "/at/dach-tipps/maria-taferl/"
+  to = "/at/referenzen/maria-taferl/"
   status = 301
   force = true
 
@@ -1369,7 +1369,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/house-of-brands"
-  to = "/at/dach-tipps/house-of-brands/"
+  to = "/at/referenzen/house-of-brands/"
   status = 301
   force = true
 
@@ -1429,7 +1429,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/wohnanlage-the-view2"
-  to = "/at/dach-tipps/wohnanlage-the-view2/"
+  to = "/at/referenzen/wohnanlage-the-view2/"
   status = 301
   force = true
 
@@ -1621,7 +1621,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/almlust-flachau"
-  to = "/at/dach-tipps/almlust-flachau/"
+  to = "/at/referenzen/almlust-flachau/"
   status = 301
   force = true
 
@@ -1723,7 +1723,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/infineon-villach"
-  to = "/at/dach-tipps/infineon-villach/"
+  to = "/at/referenzen/infineon-villach/"
   status = 301
   force = true
 
@@ -1735,19 +1735,19 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/museum-liaunig"
-  to = "/at/dach-tipps/museum-liaunig/"
+  to = "/at/referenzen/museum-liaunig/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/edelweiss-salzburg"
-  to = "/at/dach-tipps/edelweiss-salzburg/"
+  to = "/at/referenzen/edelweiss-salzburg/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/historisches-gebaeude-pottenbrunn"
-  to = "/at/dach-tipps/historisches-gebaeude-pottenbrunn/"
+  to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
   status = 301
   force = true
 
@@ -1837,7 +1837,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/luerzerhof-untertauern"
-  to = "/at/dach-tipps/luerzerhof-untertauern/"
+  to = "/at/referenzen/luerzerhof-untertauern/"
   status = 301
   force = true
 
@@ -2023,7 +2023,7 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/spa-vitalressort-eggerwirt-neu"
-  to = "/at/dach-tipps/spa-vitalressort-eggerwirt/"
+  to = "/at/referenzen/spa-vitalressort-eggerwirt/"
   status = 301
   force = true
 
@@ -2137,79 +2137,79 @@
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/gipfelhaus-magdalensberg-neu"
-  to = "/at/dach-tipps/gipfelhaus-magdalensberg/"
+  to = "/at/referenzen/gipfelhaus-magdalensberg/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/grizzly-resort-st-margarethen"
-  to = "/at/dach-tipps/grizzly-resort-st-margarethen/"
+  to = "/at/referenzen/grizzly-resort-st-margarethen/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/hoho-wien"
-  to = "/at/dach-tipps/hoho-wien/"
+  to = "/at/referenzen/hoho-wien/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/hotel-central-flachau"
-  to = "/at/dach-tipps/hotel-central-flachau/"
+  to = "/at/referenzen/hotel-central-flachau/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/kohlmaisbahn-saalbach-hinterglemm"
-  to = "/at/dach-tipps/kohlmaisbahn-saalbach-hinterglemm/"
+  to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/landesklinikum-baden"
-  to = "/at/dach-tipps/landesklinikum-baden/"
+  to = "/at/referenzen/landesklinikum-baden/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/motto-am-fluss"
-  to = "/at/dach-tipps/motto-am-fluss/"
+  to = "/at/referenzen/motto-am-fluss/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/mountain-resort-feuerberg-gerlitzen"
-  to = "/at/dach-tipps/mountain-resort-feuerberg-gerlitzen/"
+  to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/mq-libelle"
-  to = "/at/dach-tipps/mq-libelle/"
+  to = "/at/referenzen/mq-libelle/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/paracelsusbad-salzburg"
-  to = "/at/dach-tipps/paracelsusbad-salzburg/"
+  to = "/at/referenzen/paracelsusbad-salzburg/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/schloassalmbahn-bad-hofgastein"
-  to = "/at/dach-tipps/schloassalmbahn-bad-hofgastein/"
+  to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/silverjet-katschberg"
-  to = "/at/dach-tipps/silverjet-katschberg/"
+  to = "/at/referenzen/silverjet-katschberg/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/services-fuer-profis/projekte-und-referenzen/stadthaus-bischofshofen"
-  to = "/at/dach-tipps/stadthaus-bischofshofen/"
+  to = "/at/referenzen/stadthaus-bischofshofen/"
   status = 301
   force = true
 
@@ -2269,7 +2269,7 @@
 
 [[redirects]]
   from = "/at/ueber-bmi-oesterreich/presse-und-news/fotostar-2021"
-  to = "/at/dach-tipps/fotostar-2021/"
+  to = "/at/news/fotostar-2021/"
   status = 301
   force = true
 
