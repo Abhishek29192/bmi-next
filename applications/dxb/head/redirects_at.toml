@@ -2372,6 +2372,539 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/at/dach-tipps/homestory-handler-posch-bramac-tegalit/"
+  to = "/at/homestory/homestory-handler-posch-bramac-tegalit/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/homestory-haller-bramac-classic/"
+  to = "/at/homestory/homestory-haller-bramac-classic/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/homestory-linder-bramac-classic/"
+  to = "/at/homestory/homestory-linder-bramac-classic/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bmi-homestory-h%C3%A4usler/"
+  to = "/at/homestory/bmi-homestory-h%C3%A4usler/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bmi-gr%C3%BCndachpaket/"
+  to = "/at/news/bmi-gr%C3%BCndachpaket/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bmi-roofing-award/"
+  to = "/at/news/bmi-roofing-award/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bramac-superbrand-2020-2021/"
+  to = "/at/news/bramac-superbrand/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bramac.dach.foto.star-unsere-gewinner-2021/"
+  to = "/at/news/bramac.dach.foto.star-unsere-gewinner-2021/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/fotostar-2021/"
+  to = "/at/news/fotostar-2021/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/quality-award-2021/"
+  to = "/at/news/quality-award/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/quality-award/"
+  to = "/at/news/quality-award/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/rooftop-talk-2022/"
+  to = "/at/news/rooftop-talk-2022/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/baustellen-corona/"
+  to = "/at/news/baustellen-corona/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/soforthilfe-bei-unwetter-und-sturmschaeden/"
+  to = "/at/news/soforthilfe-bei-unwetter-und-sturmschaeden/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/unternehmensupdate-2020-04-10/"
+  to = "/at/news/unternehmensupdate-2020-04-10/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/almdorf-seinerzeit-neu/"
+  to = "/at/referenzen/almdorf-seinerzeit-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/almlust-flachau/"
+  to = "/at/referenzen/almlust-flachau/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/architektenhaus-ronacher-new/"
+  to = "/at/referenzen/architektenhaus-ronacher-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/architektur-vision-und-technik/"
+  to = "/at/referenzen/architektur-vision-und-technik/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/autohaus-hinterbauer/"
+  to = "/at/referenzen/autohaus-hinterbauer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/berufsschule-schaerding/"
+  to = "/at/referenzen/berufsschule-schaerding/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bmi-experten-talk-mag-michael-dell/"
+  to = "/at/referenzen/bmi-experten-talk-mag-michael-dell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bmi-experten-talk-thomas-freunschlag/"
+  to = "/at/referenzen/bmi-experten-talk-thomas-freunschlag/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/bushalle-klagenfurt-neu/"
+  to = "/at/referenzen/bushalle-klagenfurt-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/edelweiss-salzburg/"
+  to = "/at/referenzen/edelweiss-salzburg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/festspielhaus-st-p%C3%B6lten/"
+  to = "/at/referenzen/festspielhaus-st-p%C3%B6lten/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/firmenzentrale-doppelmayr/"
+  to = "/at/referenzen/firmenzentrale-doppelmayr/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/fit-fabrik-plus-ternitz/"
+  to = "/at/referenzen/fit-fabrik-plus-ternitz/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/futurebase/"
+  to = "/at/referenzen/futurebase/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/gemeindeamt-wernberg-new/"
+  to = "/at/referenzen/gemeindeamt-wernberg-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/genussufer-unterach-am-attersee/"
+  to = "/at/referenzen/genussufer-unterach-am-attersee/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/gipfelhaus-magdalensberg/"
+  to = "/at/referenzen/gipfelhaus-magdalensberg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/greencity-graz/"
+  to = "/at/referenzen/greencity-graz/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/grizzly-resort-st-margarethen/"
+  to = "/at/referenzen/grizzly-resort-st-margarethen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/historisches-gebaeude-pottenbrunn/"
+  to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/hoho-wien/"
+  to = "/at/referenzen/hoho-wien/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/holzfaltatelier-gmuend-neu-1/"
+  to = "/at/referenzen/holzfaltatelier-gmuend-neu-1/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/hotel-central-flachau/"
+  to = "/at/referenzen/hotel-central-flachau/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/hotel-gmachl-bergheim/"
+  to = "/at/referenzen/hotel-gmachl-bergheim/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/house-of-brands/"
+  to = "/at/referenzen/house-of-brands/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/infineon-villach/"
+  to = "/at/referenzen/infineon-villach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/interspar-mistelbach/"
+  to = "/at/referenzen/interspar-mistelbach/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/kindergarten-stra%C3%9F/"
+  to = "/at/referenzen/kindergarten-stra%C3%9F/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/kohlmaisbahn-saalbach-hinterglemm/"
+  to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/laabacher-weinschenke/"
+  to = "/at/referenzen/laabacher-weinschenke/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/landesberufsschulzentrum-stpeter/"
+  to = "/at/referenzen/landesberufsschulzentrum-stpeter/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/landesklinikum-baden/"
+  to = "/at/referenzen/landesklinikum-baden/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/landsitz-villas-landskron-neu/"
+  to = "/at/referenzen/landsitz-villas-landskron-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/lkh-graz-energiezentrale-new/"
+  to = "/at/referenzen/lkh-graz-energiezentrale-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/loacker-werk-osttirol/"
+  to = "/at/referenzen/loacker-werk-osttirol/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/luerzerhof-untertauern/"
+  to = "/at/referenzen/luerzerhof-untertauern/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/mandlbauer-gleichenberg/"
+  to = "/at/referenzen/mandlbauer-gleichenberg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/maria-taferl/"
+  to = "/at/referenzen/maria-taferl/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/motto-am-fluss/"
+  to = "/at/referenzen/motto-am-fluss/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/mountain-resort-feuerberg-gerlitzen/"
+  to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/mq-libelle/"
+  to = "/at/referenzen/mq-libelle/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/museum-liaunig/"
+  to = "/at/referenzen/museum-liaunig/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/paracelsusbad-salzburg/"
+  to = "/at/referenzen/paracelsusbad-salzburg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/parkapartments-montleart/"
+  to = "/at/referenzen/parkapartments-montleart/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/post-am-rochus-new/"
+  to = "/at/referenzen/post-am-rochus-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/qness-neu/"
+  to = "/at/referenzen/qness-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/robinson-club-amade-kleinarl/"
+  to = "/at/referenzen/robinson-club-amade-kleinarl/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+  to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/salzkammergut-klinikum-gmunden/"
+  to = "/at/referenzen/salzkammergut-klinikum-gmunden/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/schloassalmbahn-bad-hofgastein/"
+  to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/silverjet-katschberg/"
+  to = "/at/referenzen/silverjet-katschberg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/spa-vitalressort-eggerwirt/"
+  to = "/at/referenzen/spa-vitalressort-eggerwirt/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/stadthaus-bischofshofen/"
+  to = "/at/referenzen/stadthaus-bischofshofen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/steiermarkhof/"
+  to = "/at/referenzen/steiermarkhof/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/therme-sankt-kathrein/"
+  to = "/at/referenzen/therme-sankt-kathrein/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/turnsaal-musikvereinshaus-kirchberg/"
+  to = "/at/referenzen/turnsaal-musikvereinshaus-kirchberg/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/vgp-park-graz/"
+  to = "/at/referenzen/vgp-park-graz/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wipur-bildungszentrum-new/"
+  to = "/at/referenzen/wipur-bildungszentrum-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wohnanlage-riferside/"
+  to = "/at/referenzen/wohnanlage-riferside/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wohnanlage-the-view2/"
+  to = "/at/referenzen/wohnanlage-the-view2/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wohnhausanlage-stetten-new/"
+  to = "/at/referenzen/wohnhausanlage-stetten-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wohnhausanlage-teichweg-altenmarkt-new/"
+  to = "/at/referenzen/wohnhausanlage-teichweg-altenmarkt-new/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/dach-tipps/wohnhausanlage-tenscherstrasse-neu-1/"
+  to = "/at/referenzen/wohnhausanlage-tenscherstrasse-neu-1/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-brilliantschwarz-protector-plus-beton-3064423322"
+  to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-dunkelbraun-protector-plus-beton-2500864991"
+  to = "/at/p/bramac-classic-1-1-normalstein-dunkelbraun-protector-plus-beton-1848886905"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-rotbraun-protector-plus-beton-3886973280/"
+  to = "/at/p/bramac-classic-1-1-normalstein-rotbraun-protector-plus-beton-2990321837/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-rubinrot-protector-plus-beton-3855872020/"
+  to = "/at/p/bramac-classic-1-1-normalstein-rubinrot-protector-plus-beton-760843353/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-schiefer-protector-plus-beton-3281118669/"
+  to = "/at/p/bramac-classic-1-1-normalstein-schiefer-protector-plus-beton-3342360383"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-classic-x-1-1-normalstein-ziegelrot-protector-plus-sand-513283530"
+  to = "/at/p/bramac-classic-1-1-normalstein-ziegelrot-protector-plus-sand-4221712421/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-montero-x-1-1-normalstein-bordeaux-granuliert-beton-2582677218"
+  to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-montero-x-1-1-normalstein-canyon-granuliert-beton-3559388590"
+  to = "/at/p/bramac-montero-1-1-normalstein-canyon-granuliert-beton-837425957/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-montero-x-1-1-normalstein-granit-granuliert-beton-427258348"
+  to = "/at/p/bramac-montero-1-1-normalstein-granit-granuliert-beton-1163390606"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-montero-x-1-1-normalstein-rubinrot-granuliert-beton-1947361787"
+  to = "/at/p/bramac-montero-1-1-normalstein-rubinrot-granuliert-beton-1522446397"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-montero-x-1-1-normalstein-terra-granuliert-beton-3140364328"
+  to = "/at/p/bramac-montero-1-1-normalstein-terra-granuliert-beton-94918540"
+  status = 301
+  force = true
 
 
 
