@@ -110,7 +110,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: 1,
-            tag: "non_existing_tag",
+            tag: "market__endor",
             userId: "doceboUserId"
           }
         },
@@ -170,7 +170,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: 3,
-            tag: "non_existing_tag",
+            tag: "market__endor",
             userId: "doceboUserId"
           }
         },
@@ -230,7 +230,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: 3,
-            tag: "non_existing_tag",
+            tag: "market__endor",
             userId: "doceboUserId"
           }
         },
@@ -277,7 +277,7 @@ describe("Training Page", () => {
         {
           variables: {
             catalogueId: 1,
-            tag: "non_existing_tag",
+            tag: "market__endor",
             userId: "doceboUserId"
           }
         },

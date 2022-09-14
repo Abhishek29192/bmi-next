@@ -8,7 +8,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { v4 } from "uuid";
 import { withPublicPage } from "../../lib/middleware/withPublicPage";
-import { getMarketAndEnvFromReq } from "../../lib/utils";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 import { Layout } from "../../components/Layout/Unauthenticated";
 import { FormContainer, Confirmation } from "../../components/DoubleAcceptance";
 import { getDoubleAcceptanceByValidTempToken } from "../../lib/doubleAcceptance";
@@ -57,6 +57,7 @@ export const getServerSideProps = withPublicPage(
   async ({ locale, req, res, query, globalPageData }) => {
     const { currentHost, environment, market } = getMarketAndEnvFromReq(req);
     const { tempToken } = query;
+    const contentfulTag = parseMarketTag(market);
     const headers = {
       "x-request-id": v4(),
       "x-authenticated-user-id": req.headers["x-authenticated-user-id"],
@@ -98,7 +99,8 @@ export const getServerSideProps = withPublicPage(
         variables: {
           technology,
           language: languageCode,
-          coverage
+          coverage,
+          tag: contentfulTag
         }
       },
       apolloClient

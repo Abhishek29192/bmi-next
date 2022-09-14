@@ -1762,7 +1762,7 @@ export type GetEvidenceItemsReportQuery = {
 };
 
 export type GetTierBenefitQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetTierBenefitQuery = {
@@ -2129,6 +2129,7 @@ export type SearchSystemsQuery = {
 
 export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
   technology?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetProductGuaranteeTypesQuery = {
@@ -2477,6 +2478,7 @@ export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
   technology: SchemaTypes.Scalars["String"];
   coverage: SchemaTypes.Scalars["String"];
   language?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetGuaranteeTemplatesQuery = {
@@ -3044,6 +3046,7 @@ export type CompanyPageDetailsFragmentFragment = {
 
 export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
   marketId: SchemaTypes.Scalars["Int"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetCompaniesByMarketQuery = {
@@ -3149,6 +3152,7 @@ export type GetCompaniesByMarketQuery = {
 
 export type GetCompanyQueryVariables = SchemaTypes.Exact<{
   companyId: SchemaTypes.Scalars["Int"];
+  tag: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetCompanyQuery = {

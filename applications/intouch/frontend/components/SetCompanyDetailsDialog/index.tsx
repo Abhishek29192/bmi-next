@@ -24,6 +24,8 @@ import {
 } from "../../lib/validations/utils";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
+import { useAccountContext } from "../../context/AccountContext";
+import { parseMarketTag } from "../../lib/utils";
 import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
@@ -55,7 +57,11 @@ export const SetCompanyDetailsDialog = ({
   loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-  const { data: getTierBenefit } = useGetTierBenefitQuery();
+  const { account } = useAccountContext();
+  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { data: getTierBenefit } = useGetTierBenefitQuery({
+    variables: { tag: contentfulTag }
+  });
   const { market } = useMarketContext();
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
@@ -380,8 +386,15 @@ export const SetCompanyDetailsDialog = ({
 };
 
 export const GET_TIER_BENEFIT = gql`
-  query getTierBenefit {
-    tierBenefitCollection {
+  query getTierBenefit($tag: String!) {
+    tierBenefitCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         tier
         name

@@ -10,6 +10,8 @@ import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import { OnCompanyUpdateSuccess } from "../../../SetCompanyDetailsDialog";
 import { EditCompanyButton } from "../EditCompany/Button";
+import { useAccountContext } from "../../../../context/AccountContext";
+import { parseMarketTag } from "../../../../lib/utils";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
@@ -52,7 +54,11 @@ export const CompanyRegisteredDetails = ({
     taxNumber,
     tier
   } = company;
-  const { data: getTierBenefit } = useGetTierBenefitQuery();
+  const { account } = useAccountContext();
+  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { data: getTierBenefit } = useGetTierBenefitQuery({
+    variables: { tag: contentfulTag }
+  });
   const operations = companyOperationsByCompany.nodes.map(
     (node) => node.operation
   );

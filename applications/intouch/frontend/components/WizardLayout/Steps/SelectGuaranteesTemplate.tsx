@@ -4,10 +4,14 @@ import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
 import { useWizardContext } from "../WizardContext";
+import { useAccountContext } from "../../../context/AccountContext";
+import { parseMarketTag } from "../../../lib/utils";
 
 const SelectGuaranteesTemplate = () => {
   const { data, setData, previousStep, gotoNext, gotoBack } =
     useWizardContext();
+  const { account } = useAccountContext();
+  const contentfulTag = parseMarketTag(account.market?.domain);
   const { t } = useTranslation("project-page");
 
   const {
@@ -42,7 +46,8 @@ const SelectGuaranteesTemplate = () => {
     getGuaranteeTemplates({
       variables: {
         technology: technology,
-        coverage: coverage
+        coverage: coverage,
+        tag: contentfulTag
       }
     });
   }, [technology, coverage]);
@@ -64,6 +69,7 @@ const SelectGuaranteesTemplate = () => {
           style={{ margin: "10px" }}
           onChange={onChangeHandler}
           value={selectedTemplate || ""}
+          data-testid="templates-select"
         >
           {guaranteeTemplates.map((template) => (
             <SelectMenuItem value={template.sys.id} key={template.sys.id}>

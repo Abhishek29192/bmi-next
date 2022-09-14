@@ -43,10 +43,16 @@ const WizardOverlay = ({
 export default WizardOverlay;
 
 export const GET_PRODUCT_GUARANTEE_TYPES = gql`
-  query getProductGuaranteeTypes($technology: String) {
+  query getProductGuaranteeTypes($technology: String, $tag: String!) {
     guaranteeTypeCollection(
       order: ranking_ASC
-      where: { technology: $technology }
+      where: {
+        technology: $technology
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
       limit: 10
     ) {
       items {
