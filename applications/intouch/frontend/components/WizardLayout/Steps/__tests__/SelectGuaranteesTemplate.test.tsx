@@ -5,17 +5,17 @@ import { generateProject } from "../../../../lib/tests/factories/project";
 import { generateProduct } from "../../../../lib/tests/factories/product";
 import { projectMembers } from "../../../../fixtures/projectMembers";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
-import { useAccountContext } from "../../../../context/AccountContext";
 import Apollo from "../../../../lib/tests/fixtures/apollo";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 import { fireEvent, screen } from "../../../../lib/tests/utils";
+import { useMarketContext } from "../../../../context/MarketContext";
 
 const useWizardContextSpy = jest.fn();
 jest.mock("../../WizardContext", () => ({
   useWizardContext: () => useWizardContextSpy()
 }));
-jest.mock("../../../../context/AccountContext", () => ({
-  useAccountContext: jest.fn()
+jest.mock("../../../../context/MarketContext", () => ({
+  useMarketContext: jest.fn()
 }));
 
 const mockApolloData = {
@@ -96,8 +96,8 @@ describe("SelectGuaranteesTemplate", () => {
   });
 
   it("should render correct", () => {
-    (useAccountContext as jest.Mock).mockImplementation(() => ({
-      account: { id: 1, role: "COMPANY_ADMIN" }
+    (useMarketContext as jest.Mock).mockImplementation(() => ({
+      market: { id: 1, domain: "en" }
     }));
     useWizardContextSpy.mockReturnValue({
       project: mockProject,
@@ -119,8 +119,8 @@ describe("SelectGuaranteesTemplate", () => {
   });
 
   it("should proceed with GoBack button", () => {
-    (useAccountContext as jest.Mock).mockImplementation(() => ({
-      account: { id: 1, role: "COMPANY_ADMIN" }
+    (useMarketContext as jest.Mock).mockImplementation(() => ({
+      market: { id: 1, domain: "en" }
     }));
     useWizardContextSpy.mockReturnValue({
       project: mockProject,
