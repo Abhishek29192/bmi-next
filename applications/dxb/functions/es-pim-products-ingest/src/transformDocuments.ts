@@ -55,21 +55,6 @@ export const transformDocuments = async (
   const productDocumentNameMap: ProductDocumentNameMap | undefined =
     await getProductDocumentNameMap();
 
-  logger.info({
-    message: `AssetTypes in transformDocuments ${JSON.stringify(
-      assetTypes,
-      null,
-      2
-    )}`
-  });
-  logger.info({
-    message: `productDocumentNameMap in transformDocuments ${JSON.stringify(
-      productDocumentNameMap,
-      null,
-      2
-    )}`
-  });
-
   if (assetTypes && productDocumentNameMap) {
     const esPimDocuments = (item.assets || [])
       .map((asset) => {
