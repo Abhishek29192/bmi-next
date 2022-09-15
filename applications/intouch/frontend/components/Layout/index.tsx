@@ -18,9 +18,17 @@ export type LayoutProps = {
 };
 
 export const GET_PAGE_DATA = gql`
-  query GetGlobalData($accountId: Int!) {
+  query GetGlobalData($accountId: Int!, $tag: String!) {
     # Only one Market Content is expected to be available for user
-    marketContentCollection(limit: 1) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         footerLinksCollection {
           items {

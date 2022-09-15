@@ -633,8 +633,16 @@ export type MarkAllNotificationsAsReadMutationOptions =
     OperationTypes.MarkAllNotificationsAsReadMutationVariables
   >;
 export const GetGlobalDataDocument = gql`
-  query GetGlobalData($accountId: Int!) {
-    marketContentCollection(limit: 1) {
+  query GetGlobalData($accountId: Int!, $tag: String!) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         footerLinksCollection {
           items {
@@ -674,6 +682,7 @@ export const GetGlobalDataDocument = gql`
  * const { data, loading, error } = useGetGlobalDataQuery({
  *   variables: {
  *      accountId: // value for 'accountId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */

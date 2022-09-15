@@ -8,17 +8,6 @@ jest.mock("../../../lib/config", () => ({
   isSingleMarket: false
 }));
 
-jest.mock("../../auth0", () => ({
-  getAuth0Instance: () => ({
-    withPageAuthRequired: () => jest.fn(),
-    getSession: () => ({
-      user: {
-        sub: "123"
-      }
-    })
-  })
-}));
-
 const mockQuery = jest.fn();
 jest.mock("../../apolloClient", () => ({
   initializeApollo: () => ({
@@ -30,6 +19,24 @@ jest.mock("../../../graphql/generated/page", () => ({
     props: { data: {} }
   })
 }));
+
+const withPageAuthRequiredSpy = jest.fn();
+
+jest.mock("../../auth0", () => {
+  const origin = jest.requireActual("../../auth0");
+  return {
+    ...origin,
+    __esModule: true,
+    getAuth0Instance: () => ({
+      withPageAuthRequired: (params) => withPageAuthRequiredSpy(params),
+      getSession: () => ({
+        user: {
+          sub: "123"
+        }
+      })
+    })
+  };
+});
 
 describe("Middleware withPage", () => {
   let ctx;
@@ -64,6 +71,11 @@ describe("Middleware withPage", () => {
   });
 
   it("should add the logger to the request", async () => {
+    withPageAuthRequiredSpy.mockImplementationOnce(
+      ({ getServerSideProps }) =>
+        () =>
+          getServerSideProps(ctx)
+    );
     await withPage(getServerSideProps)(ctx);
 
     expect(ctx.req.logger).not.toBeNull();
@@ -155,6 +167,44 @@ describe("Middleware withPage", () => {
               })
             ]
           }
+        }
+      });
+
+    const result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/user-registration"
+      }
+    });
+  });
+
+  it("check empty markets case and redirect to user registration", async () => {
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            account: {
+              firstName: "Name",
+              lastName: null
+            },
+            market: {
+              domain: "es"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {}
         }
       });
 
@@ -352,6 +402,25 @@ describe("Middleware withPage", () => {
     });
   });
 
+  it("should redirect to error page", async () => {
+    mockQuery.mockRejectedValueOnce({
+      networkError: { result: {} }
+    });
+
+    const result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/api-error?message=genericError"
+      }
+    });
+  });
+
   it("should redirect to api error page if generic error", async () => {
     mockQuery.mockRejectedValueOnce({
       networkError: { result: { message: "generic_error" } }
@@ -368,6 +437,80 @@ describe("Middleware withPage", () => {
         permanent: false,
         destination: "/api-error?message=genericError"
       }
+    });
+  });
+
+  it("should redirect if session expired", async () => {
+    jest.useFakeTimers().setSystemTime(new Date("2050-01-01"));
+    const auth0Mock = {
+      getSession: () => ({
+        idToken: "123",
+        user: {
+          foo: "bar"
+        },
+        accessTokenExpiresAt: 600
+      })
+    };
+
+    const result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: { permanent: false, destination: "/api/auth/logout" }
+    });
+  });
+
+  it("should redirect to proper page after auth0 token refresh", async () => {
+    jest.useFakeTimers().setSystemTime(new Date("2050-01-01"));
+    const auth0Mock = {
+      getSession: () => ({
+        idToken: "123",
+        user: {
+          foo: "bar"
+        },
+        accessTokenExpiresAt: 600
+      }),
+      getAccessToken: () => ({
+        accessToken: "tokenX4356"
+      })
+    };
+    mockQuery
+      .mockResolvedValueOnce({
+        data: {
+          accountByEmail: generateAccount({
+            hasCompany: true,
+            market: {
+              domain: "en"
+            },
+            company: {
+              status: "NEW"
+            }
+          })
+        }
+      })
+      .mockResolvedValueOnce({
+        data: {
+          markets: {
+            nodes: [
+              generateMarketContext({
+                domain: "en"
+              })
+            ]
+          }
+        }
+      });
+
+    const result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: { permanent: false, destination: "http://en.local.intouch" }
     });
   });
 });
