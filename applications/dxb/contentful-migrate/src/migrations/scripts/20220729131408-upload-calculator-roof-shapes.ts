@@ -11,7 +11,7 @@ import {
   VersionedLink
 } from "contentful-management";
 import type { MigrationFunction } from "contentful-migration";
-import { getEnvironment, waitFor } from "../../utils";
+import { getEnvironment, waitFor } from "@bmi/utils";
 
 export const description = "Upload WebTool Calculator Roof Shapes";
 
