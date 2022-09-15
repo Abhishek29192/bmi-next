@@ -1,5 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
 import { getEsClient } from "@bmi/functions-es-client";
+import { ApiError } from "@elastic/elasticsearch";
 import { HttpFunction } from "@google-cloud/functions-framework";
 import {
   checkAuthorization,
@@ -18,8 +19,8 @@ export const updateESDocumentsIndex: HttpFunction = async (
   request,
   response
 ) => {
-  const isAuthorizationFaild = await checkAuthorization(request, response);
   const isEnvVariablesMissed = checkEnvVariables(response);
+  const isAuthorizationFaild = checkAuthorization(request, response);
   const isHttpWrongMethod = checkHttpMethod(request, response);
 
   if (isEnvVariablesMissed || isAuthorizationFaild || isHttpWrongMethod) {
@@ -43,24 +44,28 @@ export const updateESDocumentsIndex: HttpFunction = async (
         logger.error({ message: "Nothing to index" });
         return;
       }
-      await client.index(
-        {
+      try {
+        const esResponse = await client.index({
           index,
           id: eSDocument.id,
           body: eSDocument
-        },
-        handleEsClientError
-      );
+        });
+        handleEsClientError({ response: esResponse });
+      } catch (error) {
+        handleEsClientError({ error: error as ApiError });
+      }
       break;
     }
     case EntryType.DELETED_ENTRY: {
-      await client.delete(
-        {
+      try {
+        const esResponse = await client.delete({
           index,
           id: request.body?.sys?.id
-        },
-        handleEsClientError
-      );
+        });
+        handleEsClientError({ response: esResponse });
+      } catch (error) {
+        handleEsClientError({ error: error as ApiError });
+      }
       break;
     }
     default:

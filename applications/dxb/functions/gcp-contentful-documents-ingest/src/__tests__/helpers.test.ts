@@ -57,13 +57,15 @@ const checkHttpMethod = async (
     response as Response
   );
 
-const handleEsClientError = async (
-  error: Partial<ApiError>,
-  response: Partial<ApiResponse>
-) =>
+const handleEsClientError = async (response: {
+  error?: Partial<ApiError>;
+  response?: Partial<ApiResponse>;
+}) =>
   (await import("../helpers")).handleEsClientError(
-    error as ApiError,
-    response as ApiResponse
+    response as {
+      error?: ApiError;
+      response?: ApiResponse;
+    }
   );
 
 describe("helpers", () => {
@@ -191,22 +193,20 @@ describe("helpers", () => {
   });
 
   describe("handleEsClientError", () => {
-    it("should log messages twice if error occure", async () => {
-      await handleEsClientError(
-        { name: "test error", message: "test error message" },
-        { statusCode: 400 }
-      );
+    it("should log messages if error occure", async () => {
+      await handleEsClientError({
+        error: { name: "test error", message: "test error message" }
+      });
 
       expect(console.log).toBeCalledTimes(1);
     });
     it("should print message with successfully indexed document", async () => {
-      await handleEsClientError(
-        {},
-        {
+      await handleEsClientError({
+        response: {
           statusCode: 200,
           body: { _id: "test id", result: "created" }
         }
-      );
+      });
 
       expect(console.log).toBeCalledWith(
         JSON.stringify({

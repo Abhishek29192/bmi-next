@@ -18,6 +18,7 @@ const checkEnvVariables = jest.fn();
 const checkAuthorization = jest.fn();
 const checkHttpMethod = jest.fn();
 const transformDocument = jest.fn();
+const handleEsClientError = jest.fn();
 
 jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: any[]) => getEsClient(...args) };
@@ -29,7 +30,8 @@ jest.mock("../helpers", () => {
       checkHttpMethod(request, response),
     checkAuthorization: (request: Request, response: Response) =>
       checkAuthorization(request, response),
-    transformDocument: (data: Entry) => transformDocument(data)
+    transformDocument: (data: Entry) => transformDocument(data),
+    handleEsClientError: (params: any) => handleEsClientError(params)
   };
 });
 
@@ -227,6 +229,48 @@ describe("updateESDocumentsIndex", () => {
       })
     );
     expect(index).not.toBeCalled();
+  });
+  it("should print error if index operation return error", async () => {
+    const mockErrorMessage = "test error";
+    index.mockImplementationOnce(() => {
+      throw new Error(mockErrorMessage);
+    });
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      SampleContentfulEntryWebhook
+    );
+    const response = mockResponse();
+
+    await updateESDocumentsIndex(request, response);
+    expect(index).toBeCalled();
+    expect(handleEsClientError).toBeCalledWith({
+      error: Error(mockErrorMessage)
+    });
+  });
+  it("should print error if delete operation return error", async () => {
+    const mockErrorMessage = "test error";
+    mockDelete.mockImplementationOnce(() => {
+      throw new Error(mockErrorMessage);
+    });
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      SampleContentfulDeleteWebhook
+    );
+    const response = mockResponse();
+
+    await updateESDocumentsIndex(request, response);
+    expect(mockDelete).toBeCalled();
+    expect(handleEsClientError).toBeCalledWith({
+      error: Error(mockErrorMessage)
+    });
   });
   it("should print warning message if webhook provides wrong entity type", async () => {
     const request = mockRequest(
