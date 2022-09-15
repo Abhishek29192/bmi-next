@@ -22,7 +22,7 @@ export const getProductsQuery = (pitches: number[]) => ({
                 }
               },
               { exists: { field: "MEASUREMENTS.WIDTH" } },
-              { exists: { field: "MEASUREMENTS.HEIGHT" } },
+              { exists: { field: "MEASUREMENTS.LENGTH" } },
               { exists: { field: "TILESATTRIBUTES.MINIMUMBATTENSPACING" } },
               { exists: { field: "TILESATTRIBUTES.MAXIMUMBATTENSPACING" } },
               { exists: { field: "TILESATTRIBUTES.RIDGESPACE" } },

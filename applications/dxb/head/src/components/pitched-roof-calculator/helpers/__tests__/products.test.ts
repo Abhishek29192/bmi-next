@@ -18,7 +18,7 @@ describe("prepareProducts", () => {
     "APPEARANCEATTRIBUTES.COLOUR": [{ code: "black", name: "black" }],
     "GENERALINFORMATION.CLASSIFICATION": [{ code: "clay", name: "clay" }],
     "MEASUREMENTS.WIDTH": [{ value: "300", code: "300mm" }],
-    "MEASUREMENTS.HEIGHT": [{ value: "30", code: "30cm" }],
+    "MEASUREMENTS.LENGTH": [{ value: "30", code: "30cm" }],
     "TILESATTRIBUTES.MINIMUMBATTENSPACING": [{ value: "10", code: "30cm" }],
     "TILESATTRIBUTES.MAXIMUMBATTENSPACING": [{ value: "20", code: "30cm" }],
     "TILESATTRIBUTES.RIDGESPACE": [{ value: "30", code: "30cm" }],
@@ -41,7 +41,7 @@ describe("prepareProducts", () => {
       expect(tile.color).toBe("black");
       expect(tile.category).toBe("clay");
       expect(tile.width).toBe(30);
-      expect(tile.height).toBe(30);
+      expect(tile.length).toBe(30);
       expect(tile.minBattenSpacing).toBe(10);
       expect(tile.maxBattenSpacing).toBe(20);
       expect(tile.ridgeSpacing).toBe(30);
