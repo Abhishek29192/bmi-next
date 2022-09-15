@@ -3,25 +3,28 @@ import { useTranslation } from "next-i18next";
 import { Checkbox, Dialog, Grid, Form, TextField } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Document } from "@contentful/rich-text-types";
-import {
-  useUpdateDoubleAcceptanceMutation,
-  useReleaseGuaranteePdfMutation
-} from "../../../graphql/generated/hooks";
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import log from "../../../lib/logger";
 import styles from "../styles.module.scss";
 import { Props as DoubleAcceptanceProps } from "../../../pages/double-acceptance/[tempToken]";
 import { RichText } from "../../../components/RichText";
+import {
+  updateDoubleAcceptance,
+  releaseGuaranteePdf
+} from "../../../lib/doubleAcceptance";
 
 type Props = {
   doubleAcceptance: DoubleAcceptanceProps["doubleAcceptance"];
   onUpdateDoubleAcceptanceCompleted: (
     doubleAcceptance: DoubleAcceptanceProps["doubleAcceptance"]
   ) => void;
+  apolloClient: ApolloClient<NormalizedCacheObject>;
 };
 
 const FormContainer = ({
   doubleAcceptance,
-  onUpdateDoubleAcceptanceCompleted
+  onUpdateDoubleAcceptanceCompleted,
+  apolloClient
 }: Props) => {
   const { t } = useTranslation(["double-acceptance", "common"]);
   const [formData, setFormData] = useState({
@@ -30,55 +33,50 @@ const FormContainer = ({
     lastName: null
   });
   const [showDialog, setShowDialog] = useState({ open: false, title: "" });
-  const [releaseGuaranteePdfMutation] = useReleaseGuaranteePdfMutation();
-  const [updateDoubleAcceptance, { loading }] =
-    useUpdateDoubleAcceptanceMutation({
-      onError: (error) => {
-        log({
-          severity: "ERROR",
-          message: `There was an error updating the double Acceptance: ${error.toString()}`
-        });
-      },
-      onCompleted: () => {
-        log({
-          severity: "INFO",
-          message: `Updated company - id: ${doubleAcceptance.id}`
-        });
-        releaseGuaranteePdfMutation({
+  const handleSubmit = useCallback(
+    async (event, { firstName, lastName, acceptance }) => {
+      event.preventDefault();
+      try {
+        const { data } = await apolloClient.mutate({
+          mutation: updateDoubleAcceptance,
           variables: {
             input: {
-              id: doubleAcceptance.guaranteeId,
-              template: {
-                mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
-                mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+              id: doubleAcceptance.id,
+              patch: {
+                signature: `${firstName} ${lastName}`,
+                acceptance,
+                acceptanceDate: new Date()
+                  .toISOString()
+                  .slice(0, 19)
+                  .replace("T", " ")
               }
             }
           }
         });
-        onUpdateDoubleAcceptanceCompleted({
-          ...doubleAcceptance,
-          completed: true
+        if (data) {
+          await apolloClient.mutate({
+            mutation: releaseGuaranteePdf,
+            variables: {
+              input: {
+                id: doubleAcceptance.guaranteeId,
+                template: {
+                  mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
+                  mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+                }
+              }
+            }
+          });
+          onUpdateDoubleAcceptanceCompleted({
+            ...doubleAcceptance,
+            completed: true
+          });
+        }
+      } catch (error) {
+        log({
+          severity: "ERROR",
+          message: `There was an error updating the double Acceptance: ${error.toString()}`
         });
       }
-    });
-  const handleSubmit = useCallback(
-    (event, { firstName, lastName, acceptance }) => {
-      event.preventDefault();
-      updateDoubleAcceptance({
-        variables: {
-          input: {
-            id: doubleAcceptance.id,
-            patch: {
-              signature: `${firstName} ${lastName}`,
-              acceptance,
-              acceptanceDate: new Date()
-                .toISOString()
-                .slice(0, 19)
-                .replace("T", " ")
-            }
-          }
-        }
-      });
     },
     [doubleAcceptance, updateDoubleAcceptance]
   );
@@ -268,7 +266,6 @@ const FormContainer = ({
                 type="submit"
                 form="double-acceptance-form"
                 data-testid="double-acceptance-dialog-submit"
-                disabled={loading}
               >
                 {t("dialog.cta.confirm")}
               </Form.SubmitButton>

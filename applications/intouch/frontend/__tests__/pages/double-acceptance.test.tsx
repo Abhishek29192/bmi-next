@@ -185,7 +185,8 @@ describe("double acceptance server side props", () => {
     expect(screen.queryByTestId("double-acceptance-form")).toBeTruthy();
     expect(formContainerMock.mock.calls[0][0]).toEqual({
       doubleAcceptance: props,
-      onUpdateDoubleAcceptanceCompleted: expect.any(Function)
+      onUpdateDoubleAcceptanceCompleted: expect.any(Function),
+      apolloClient: expect.anything()
     });
   });
 

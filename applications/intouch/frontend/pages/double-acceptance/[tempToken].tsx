@@ -7,7 +7,6 @@ import {
   Product
 } from "@bmi/intouch-api-types";
 import { v4 } from "uuid";
-import { ApolloProvider } from "@apollo/client";
 import { withPublicPage } from "../../lib/middleware/withPublicPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 import { Layout } from "../../components/Layout/Unauthenticated";
@@ -54,15 +53,12 @@ const DoubleAcceptancePage = ({
       {doubleAcceptance.completed ? (
         <Confirmation />
       ) : (
-        <ApolloProvider client={apolloClient}>
-          <FormContainer
-            doubleAcceptance={doubleAcceptance}
-            onUpdateDoubleAcceptanceCompleted={
-              onUpdateDoubleAcceptanceCompleted
-            }
-            {...props}
-          />
-        </ApolloProvider>
+        <FormContainer
+          apolloClient={apolloClient}
+          doubleAcceptance={doubleAcceptance}
+          onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
+          {...props}
+        />
       )}
     </Layout>
   );

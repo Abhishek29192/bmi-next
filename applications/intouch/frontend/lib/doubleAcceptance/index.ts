@@ -36,6 +36,7 @@ export const updateDoubleAcceptance = gql`
       }
     }
   }
+  ${doubleAcceptanceFragment}
 `;
 
 export const releaseGuaranteePdf = gql`

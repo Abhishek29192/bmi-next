@@ -1,5 +1,6 @@
 import React from "react";
 import { BLOCKS } from "@contentful/rich-text-types";
+import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
 import FormContainer from "../";
 import {
   renderWithI18NProvider,
@@ -8,6 +9,10 @@ import {
   waitFor,
   createEvent
 } from "../../../../lib/tests/utils";
+import {
+  updateDoubleAcceptance,
+  releaseGuaranteePdf
+} from "../../../../lib/doubleAcceptance";
 
 jest.mock("react-i18next", () => {
   const original = jest.requireActual("react-i18next");
@@ -58,6 +63,10 @@ const richTextspy = jest
 jest.mock("../../../../components/RichText", () => ({
   RichText: (...props) => richTextspy(props)
 }));
+const mockApolloClientMutate = jest.fn();
+const apolloClient = {
+  mutate: mockApolloClientMutate
+} as unknown as ApolloClient<NormalizedCacheObject>;
 
 describe("FormContainer", () => {
   beforeEach(() => {
@@ -103,6 +112,7 @@ describe("FormContainer", () => {
   it("render correctly", () => {
     const { container } = renderWithI18NProvider(
       <FormContainer
+        apolloClient={apolloClient}
         doubleAcceptance={doubleAcceptanceFactory()}
         onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
       />
@@ -132,6 +142,7 @@ describe("FormContainer", () => {
   it("show acceptance block when clicked on checkbox and input both firstname and lastname", async () => {
     const { container } = renderWithI18NProvider(
       <FormContainer
+        apolloClient={apolloClient}
         doubleAcceptance={doubleAcceptanceFactory()}
         onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
       />
@@ -163,6 +174,7 @@ describe("FormContainer", () => {
     it("show accept dialog", async () => {
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptanceFactory()}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -188,6 +200,7 @@ describe("FormContainer", () => {
     it("show reject dialog", async () => {
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptanceFactory()}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -214,11 +227,12 @@ describe("FormContainer", () => {
   describe("submit form", () => {
     it("normal case", async () => {
       const doubleAcceptance = doubleAcceptanceFactory();
-      mockUpdateDoubleAcceptance.mockImplementationOnce(() =>
-        mockUpdateDoubleAcceptanceOnCompleted({})
-      );
+      mockApolloClientMutate
+        .mockImplementationOnce(() => Promise.resolve({ data: {} }))
+        .mockImplementationOnce(() => Promise.resolve({ data: {} }));
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -234,7 +248,8 @@ describe("FormContainer", () => {
       fireEvent.click(screen.getByText("accept"));
       fireEvent.click(screen.getByText("dialog.cta.confirm"));
 
-      expect(mockUpdateDoubleAcceptance).toHaveBeenCalledWith({
+      expect(mockApolloClientMutate).toHaveBeenNthCalledWith(1, {
+        mutation: updateDoubleAcceptance,
         variables: {
           input: {
             id: doubleAcceptance.id,
@@ -246,35 +261,35 @@ describe("FormContainer", () => {
           }
         }
       });
-      expect(logSpy).toHaveBeenCalledWith({
-        severity: "INFO",
-        message: `Updated company - id: ${doubleAcceptance.id}`
-      });
-      expect(mockReleaseGuaranteePdf).toHaveBeenCalledWith({
-        variables: {
-          input: {
-            id: doubleAcceptance.guaranteeId,
-            template: {
-              mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
-              mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+      await waitFor(() => {
+        expect(mockApolloClientMutate).toHaveBeenNthCalledWith(2, {
+          mutation: releaseGuaranteePdf,
+          variables: {
+            input: {
+              id: doubleAcceptance.guaranteeId,
+              template: {
+                mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
+                mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+              }
             }
           }
-        }
-      });
-      expect(onUpdateDoubleAcceptanceCompleted).toHaveBeenCalledWith({
-        ...doubleAcceptance,
-        completed: true
+        });
+        expect(onUpdateDoubleAcceptanceCompleted).toHaveBeenCalledWith({
+          ...doubleAcceptance,
+          completed: true
+        });
       });
     });
 
     it("Failed to update double acceptance", async () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const error = new Error("error");
-      mockUpdateDoubleAcceptance.mockImplementationOnce(() =>
-        mockUpdateDoubleAcceptanceOnError(error)
+      mockApolloClientMutate.mockImplementationOnce(() =>
+        Promise.reject(error)
       );
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -290,9 +305,11 @@ describe("FormContainer", () => {
       fireEvent.click(screen.getByText("accept"));
       fireEvent.click(screen.getByText("dialog.cta.confirm"));
 
-      expect(logSpy).toHaveBeenCalledWith({
-        severity: "ERROR",
-        message: `There was an error updating the double Acceptance: ${error.toString()}`
+      await waitFor(() => {
+        expect(logSpy).toHaveBeenCalledWith({
+          severity: "ERROR",
+          message: `There was an error updating the double Acceptance: ${error.toString()}`
+        });
       });
     });
 
@@ -300,6 +317,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -329,6 +347,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -353,6 +372,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
+          apolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
