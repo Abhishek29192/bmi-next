@@ -22,7 +22,7 @@ import {
   generatePageError,
   withPageError
 } from "../../lib/error";
-import { sortArrayByField } from "../../lib/utils/";
+import { parseMarketTag, sortArrayByField } from "../../lib/utils/";
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
 import { Layout } from "../../components/Layout";
 import layoutStyles from "../../components/Layout/styles.module.scss";
@@ -49,11 +49,13 @@ const CompaniesPage = ({
   const [company, setCompany] = useState(companySSR);
   const [companiesList, setCompaniesList] = useState(companies);
   const router = useRouter();
+  const contentfulTag = parseMarketTag(market?.domain);
   const [updateCompaniesList] = useGetCompaniesByMarketLazyQuery({
     // we need the updated list for the profile complete status & name, we don't want cached results
     fetchPolicy: "no-cache",
     variables: {
-      marketId: market.id
+      marketId: market.id,
+      tag: contentfulTag
     },
     onCompleted: ({ companies }) => {
       setCompaniesList(sortArrayByField([...companies.nodes], "name"));
@@ -97,7 +99,7 @@ const CompaniesPage = ({
 
   return (
     <Layout
-      title={t(isSuperOrMarketAdmin ? "titleAdmin" : "titleMember")}
+      title={t(isSuperOrMarketAdmin(account) ? "titleAdmin" : "titleMember")}
       pageData={globalPageData}
     >
       <div className={layoutStyles.sidePanelWrapper}>
@@ -133,25 +135,39 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
 `;
 
 export const GET_COMPANIES_BY_MARKET = gql`
-  query GetCompaniesByMarket($marketId: Int!) {
+  query GetCompaniesByMarket($marketId: Int!, $tag: String!) {
     companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
         updatedAt
       }
     }
-    contactDetailsCollection {
+    contactDetailsCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       ...ContactDetailsCollectionFragment
     }
   }
 `;
 
 export const GET_COMPANY_PAGE = gql`
-  query GetCompany($companyId: Int!) {
+  query GetCompany($companyId: Int!, $tag: String!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
-    contactDetailsCollection {
+    contactDetailsCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       ...ContactDetailsCollectionFragment
     }
   }
@@ -174,6 +190,8 @@ export const getServerSideProps = withPage(
       "company-page",
       "error-page"
     ]);
+    const contentfulTag = parseMarketTag(market?.domain);
+
     if (params.companyId) {
       const companyId = parseInt(params.companyId);
 
@@ -191,7 +209,7 @@ export const getServerSideProps = withPage(
           data: { company, contactDetailsCollection }
         }
       } = await getServerPageGetCompany(
-        { variables: { companyId } },
+        { variables: { companyId, tag: contentfulTag } },
         apolloClient
       );
 
@@ -202,7 +220,7 @@ export const getServerSideProps = withPage(
           }
         }
       } = await getServerPageGetCompaniesByMarket(
-        { variables: { marketId: market.id } },
+        { variables: { marketId: market.id, tag: contentfulTag } },
         apolloClient
       );
 
@@ -238,7 +256,7 @@ export const getServerSideProps = withPage(
         }
       }
     } = await getServerPageGetCompaniesByMarket(
-      { variables: { marketId: market.id } },
+      { variables: { marketId: market.id, tag: contentfulTag } },
       apolloClient
     );
 

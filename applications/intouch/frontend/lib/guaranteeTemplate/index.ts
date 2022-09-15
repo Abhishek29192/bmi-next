@@ -69,12 +69,17 @@ export const getGuaranteeTemplates = gql`
     $technology: String!
     $coverage: String!
     $language: String
+    $tag: String!
   ) {
     guaranteeTemplateCollection(
       where: {
         coverage: $coverage
         technology: $technology
         languageCode: $language
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
       }
     ) {
       items {

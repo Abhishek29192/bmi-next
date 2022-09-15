@@ -2391,8 +2391,15 @@ export type GetEvidenceItemsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetEvidenceItemsReportQueryVariables
 >;
 export const GetTierBenefitDocument = gql`
-  query getTierBenefit {
-    tierBenefitCollection {
+  query getTierBenefit($tag: String!) {
+    tierBenefitCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       items {
         tier
         name
@@ -2413,11 +2420,12 @@ export const GetTierBenefitDocument = gql`
  * @example
  * const { data, loading, error } = useGetTierBenefitQuery({
  *   variables: {
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useGetTierBenefitQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetTierBenefitQuery,
     OperationTypes.GetTierBenefitQueryVariables
   >
@@ -3289,10 +3297,16 @@ export type SearchSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.SearchSystemsQueryVariables
 >;
 export const GetProductGuaranteeTypesDocument = gql`
-  query getProductGuaranteeTypes($technology: String) {
+  query getProductGuaranteeTypes($technology: String, $tag: String!) {
     guaranteeTypeCollection(
       order: ranking_ASC
-      where: { technology: $technology }
+      where: {
+        technology: $technology
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
       limit: 10
     ) {
       items {
@@ -3331,11 +3345,12 @@ export const GetProductGuaranteeTypesDocument = gql`
  * const { data, loading, error } = useGetProductGuaranteeTypesQuery({
  *   variables: {
  *      technology: // value for 'technology'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
 export function useGetProductGuaranteeTypesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetProductGuaranteeTypesQuery,
     OperationTypes.GetProductGuaranteeTypesQueryVariables
   >
@@ -4087,12 +4102,17 @@ export const GetGuaranteeTemplatesDocument = gql`
     $technology: String!
     $coverage: String!
     $language: String
+    $tag: String!
   ) {
     guaranteeTemplateCollection(
       where: {
         coverage: $coverage
         technology: $technology
         languageCode: $language
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
       }
     ) {
       items {
@@ -4121,6 +4141,7 @@ export const GetGuaranteeTemplatesDocument = gql`
  *      technology: // value for 'technology'
  *      coverage: // value for 'coverage'
  *      language: // value for 'language'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4929,14 +4950,21 @@ export type ValidateSignupUserMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.ValidateSignupUserMutationVariables
 >;
 export const GetCompaniesByMarketDocument = gql`
-  query GetCompaniesByMarket($marketId: Int!) {
+  query GetCompaniesByMarket($marketId: Int!, $tag: String!) {
     companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
         updatedAt
       }
     }
-    contactDetailsCollection {
+    contactDetailsCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       ...ContactDetailsCollectionFragment
     }
   }
@@ -4957,6 +4985,7 @@ export const GetCompaniesByMarketDocument = gql`
  * const { data, loading, error } = useGetCompaniesByMarketQuery({
  *   variables: {
  *      marketId: // value for 'marketId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */
@@ -4995,11 +5024,18 @@ export type GetCompaniesByMarketQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompaniesByMarketQueryVariables
 >;
 export const GetCompanyDocument = gql`
-  query GetCompany($companyId: Int!) {
+  query GetCompany($companyId: Int!, $tag: String!) {
     company(id: $companyId) {
       ...CompanyPageDetailsFragment
     }
-    contactDetailsCollection {
+    contactDetailsCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+    ) {
       ...ContactDetailsCollectionFragment
     }
   }
@@ -5020,6 +5056,7 @@ export const GetCompanyDocument = gql`
  * const { data, loading, error } = useGetCompanyQuery({
  *   variables: {
  *      companyId: // value for 'companyId'
+ *      tag: // value for 'tag'
  *   },
  * });
  */

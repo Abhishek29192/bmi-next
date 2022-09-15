@@ -28,6 +28,7 @@ import {
   useGetTierBenefitQuery
 } from "../../graphql/generated/hooks";
 import AccessControl from "../../lib/permissions/AccessControl";
+import { parseMarketTag } from "../../lib/utils";
 import styles from "./styles.module.scss";
 
 type HeaderLink = {
@@ -51,7 +52,10 @@ export const Header = ({
 }: HeaderProps) => {
   const { t } = useTranslation("common");
   const { account } = useAccountContext();
-  const { data: getTierBenefit } = useGetTierBenefitQuery();
+  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { data: getTierBenefit } = useGetTierBenefitQuery({
+    variables: { tag: contentfulTag }
+  });
   // NOTE: workaround to client not being aware of cache to re-render from.
   const [notifications, setNotifications] = useState(initialNotifications);
 

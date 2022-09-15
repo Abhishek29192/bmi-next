@@ -123,7 +123,8 @@ describe("double acceptance server side props", () => {
         variables: {
           technology: getDoubleAcceptanceByValidTempToken.technology,
           language: getDoubleAcceptanceByValidTempToken.languageCode,
-          coverage: getDoubleAcceptanceByValidTempToken.coverage
+          coverage: getDoubleAcceptanceByValidTempToken.coverage,
+          tag: "market__endor"
         }
       },
       expect.any(Object)
