@@ -134,12 +134,18 @@ export const getEnvironment = async (): Promise<Environment> => {
   return environmentCache;
 };
 
-export const handleEsClientError = (error: ApiError, response: ApiResponse) => {
+export const handleEsClientError = ({
+  error,
+  response
+}: {
+  error?: ApiError;
+  response?: ApiResponse;
+}) => {
   if (error?.message) {
     logger.error({ message: `[ERROR]: ${error?.message}` });
   } else {
     logger.info({
-      message: `Document with ID = "${response.body._id}" was ${response.body.result}.`
+      message: `Document with ID = "${response?.body._id}" was ${response?.body.result}.`
     });
   }
 };
