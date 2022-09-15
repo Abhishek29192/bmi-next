@@ -134,6 +134,7 @@ describe("double acceptance server side props", () => {
         props: {
           baseUrl: "en.local.intouch:3000",
           market: "en",
+          "x-authenticated-user-id": "x-authenticated-user-id",
           doubleAcceptance: {
             id: getDoubleAcceptanceByValidTempToken.id,
             completed: !!getDoubleAcceptanceByValidTempToken.acceptanceDate,
