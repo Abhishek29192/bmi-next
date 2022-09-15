@@ -24,7 +24,6 @@ import {
 } from "../../lib/validations/utils";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
-import { useAccountContext } from "../../context/AccountContext";
 import { parseMarketTag } from "../../lib/utils";
 import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
@@ -57,12 +56,11 @@ export const SetCompanyDetailsDialog = ({
   loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-  const { account } = useAccountContext();
-  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { market } = useMarketContext();
+  const contentfulTag = parseMarketTag(market?.domain);
   const { data: getTierBenefit } = useGetTierBenefitQuery({
     variables: { tag: contentfulTag }
   });
-  const { market } = useMarketContext();
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
   const [logoUpload, setLogoUpload] = useState(undefined);
