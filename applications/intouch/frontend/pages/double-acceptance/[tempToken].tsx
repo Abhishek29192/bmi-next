@@ -7,6 +7,7 @@ import {
   Product
 } from "@bmi/intouch-api-types";
 import { v4 } from "uuid";
+import { ApolloProvider } from "@apollo/client";
 import { withPublicPage } from "../../lib/middleware/withPublicPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 import { Layout } from "../../components/Layout/Unauthenticated";
@@ -14,8 +15,11 @@ import { FormContainer, Confirmation } from "../../components/DoubleAcceptance";
 import { getDoubleAcceptanceByValidTempToken } from "../../lib/doubleAcceptance";
 import { initializeApollo } from "../../lib/apolloClient";
 import { getServerPageGetGuaranteeTemplates } from "../../graphql/generated/page";
+import { useApollo } from "../../lib/apolloClient";
 
 export type Props = {
+  initialApolloState?: any;
+  pageProps?: any;
   doubleAcceptance: Pick<DoubleAcceptance, "id" | "guaranteeId"> &
     Pick<Product, "maximumValidityYears"> & {
       completed: boolean;
@@ -33,17 +37,32 @@ const DoubleAcceptancePage = ({
   const onUpdateDoubleAcceptanceCompleted = (
     doubleAcceptance: Props["doubleAcceptance"]
   ) => setDoubleAcceptance(doubleAcceptance);
-
+  const headers = {
+    "x-request-id": v4(),
+    "x-authenticated-user-id": props["x-authenticated-user-id"],
+    "x-api-key": process.env.GATEWAY_API_KEY,
+    authorization: "Bearer undefined"
+  };
+  const apolloClient = useApollo(props?.initialApolloState, {
+    Component: FormContainer,
+    pageProps: props?.pageProps,
+    ...props,
+    headers
+  });
   return (
     <Layout title={t("title")}>
       {doubleAcceptance.completed ? (
         <Confirmation />
       ) : (
-        <FormContainer
-          doubleAcceptance={doubleAcceptance}
-          onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
-          {...props}
-        />
+        <ApolloProvider client={apolloClient}>
+          <FormContainer
+            doubleAcceptance={doubleAcceptance}
+            onUpdateDoubleAcceptanceCompleted={
+              onUpdateDoubleAcceptanceCompleted
+            }
+            {...props}
+          />
+        </ApolloProvider>
       )}
     </Layout>
   );
@@ -106,7 +125,7 @@ export const getServerSideProps = withPublicPage(
         notFound: true
       };
     }
-
+    console.log(globalPageData);
     return {
       props: {
         baseUrl: currentHost,
@@ -115,6 +134,8 @@ export const getServerSideProps = withPublicPage(
           "common",
           "double-acceptance"
         ])),
+        ["x-authenticated-user-id"]:
+          req.headers["x-authenticated-user-id"] || null,
         market,
         doubleAcceptance: {
           id: id,
