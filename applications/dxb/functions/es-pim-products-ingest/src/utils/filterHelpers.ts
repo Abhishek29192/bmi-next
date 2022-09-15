@@ -1,5 +1,10 @@
 import logger from "@bmi-digital/functions-logger";
-import { Category } from "@bmi/pim-types";
+import {
+  Category,
+  FeatureValue,
+  Product as PIMProduct,
+  VariantOption
+} from "@bmi/pim-types";
 import { ESIndexObject, groupBy, IndexedItemGroup } from "../CLONE";
 
 export const getCategoryFilters = (categories: readonly Category[]) => {
@@ -45,4 +50,42 @@ export const getCategoryFilters = (categories: readonly Category[]) => {
     }, {});
 
   return allCategoriesAsProps;
+};
+
+export const getClassificationsFilters = (product: PIMProduct) => {
+  let classifications = product.classifications
+    ? [...product.classifications]
+    : [];
+  product.variantOptions?.forEach((variant: VariantOption) => {
+    if (variant.classifications) {
+      classifications = [...classifications, ...variant.classifications];
+    }
+  });
+  const appearanceAttributes = classifications.filter(
+    (classification) => classification.code === "appearanceAttributes"
+  );
+  const listOfFilters = appearanceAttributes.reduce(
+    (filters: FeatureValue[], appearanceAttribute) => {
+      const textureFamily = appearanceAttribute?.features?.find((feature) =>
+        feature.code.includes("appearanceAttributes.textureFamily")
+      );
+      if (textureFamily) {
+        filters = [...filters, ...textureFamily.featureValues];
+      }
+
+      return filters;
+    },
+    []
+  );
+  if (listOfFilters.length) {
+    return {
+      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [
+        ...new Set(
+          listOfFilters.map(({ code, value }) =>
+            JSON.stringify({ code, name: value })
+          )
+        )
+      ].map((item) => JSON.parse(item))
+    };
+  } else return {};
 };

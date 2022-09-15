@@ -24,7 +24,7 @@ import {
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
-import { getCategoryFilters } from "./utils/getCategoryFilters";
+import { getCategoryFilters } from "./utils/filterHelpers";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {

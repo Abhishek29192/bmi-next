@@ -13,7 +13,10 @@ import {
 import { v4 } from "uuid";
 import { getAssetTypes, getProductDocumentNameMap } from "./contentfulApi";
 import { ProductDocumentNameMap } from "./types";
-import { getCategoryFilters } from "./utils/getCategoryFilters";
+import {
+  getCategoryFilters,
+  getClassificationsFilters
+} from "./utils/filterHelpers";
 
 const MAX_SIZE_ALLOWED_BYTES = 41943040; // 40MB
 
@@ -89,7 +92,11 @@ export const transformDocuments = async (
           "Document name": name || `${item.name} ${assetType.name}`
         }[`${productDocumentNameMap}`];
 
-        const filters = getCategoryFilters(item.categories || []);
+        const categoryFilters = getCategoryFilters(item.categories || []);
+        let classificationFilters = {};
+        if ("variantOptions" in item) {
+          classificationFilters = getClassificationsFilters(item);
+        }
 
         if (isPimLinkDocument(asset)) {
           return {
@@ -103,7 +110,8 @@ export const transformDocuments = async (
             noIndex: false,
             docName: name,
             assetType,
-            ...filters
+            ...categoryFilters,
+            ...classificationFilters
           };
         }
 
@@ -130,7 +138,8 @@ export const transformDocuments = async (
           format: mime || getFormatFromFileName(realFileName),
           extension: path.extname(realFileName).substring(1),
           realFileName,
-          ...filters
+          ...categoryFilters,
+          ...classificationFilters
         };
       })
       .filter(Boolean);

@@ -4,7 +4,10 @@ import {
   createAsset,
   createProduct,
   Product,
-  System
+  System,
+  createClassification,
+  createVariantOption,
+  createFeature
 } from "@bmi/pim-types";
 import {
   EsPIMDocumentData,
@@ -459,6 +462,143 @@ describe("transformDocuments", () => {
         realFileName: "real-file-name.pdf",
         title: "TEST name2",
         titleAndSize: "_10",
+        url: "http://localhost:8000"
+      }
+    ];
+    expect(result).toEqual(expectedResult);
+  });
+
+  it("should transform asset into PimDocument with classification filters", async () => {
+    const assetTypes = [
+      {
+        name: "name1",
+        code: "code1",
+        pimCode: "ASSEMBLY_INSTRUCTIONS"
+      },
+      {
+        name: "name2",
+        code: "code2",
+        pimCode: "AWARDS"
+      }
+    ];
+    getAssetTypes.mockReturnValue(assetTypes);
+    getProductDocumentNameMap.mockReturnValue("Product name + asset type");
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      categories,
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const result = await transformDocuments(product);
+    const expectedResult = [
+      {
+        __typename: "PIMDocument",
+        assetType: { code: "code2", name: "name2", pimCode: "AWARDS" },
+        docName: "name",
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: `uniqueId`,
+        isLinkDocument: false,
+        CATEGORY: [
+          {
+            code: "parent-category-code",
+            name: "name"
+          }
+        ],
+        "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [
+          {
+            code: "code",
+            name: "value"
+          }
+        ],
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "name",
+        realFileName: "real-file-name.pdf",
+        title: "name name2",
+        titleAndSize: "name_10",
+        url: "http://localhost:8000"
+      }
+    ];
+    expect(result).toEqual(expectedResult);
+  });
+
+  it("should transform asset into PimDocument with classification filters even if base product does NOT have classifications", async () => {
+    const assetTypes = [
+      {
+        name: "name1",
+        code: "code1",
+        pimCode: "ASSEMBLY_INSTRUCTIONS"
+      },
+      {
+        name: "name2",
+        code: "code2",
+        pimCode: "AWARDS"
+      }
+    ];
+    getAssetTypes.mockReturnValue(assetTypes);
+    getProductDocumentNameMap.mockReturnValue("Product name + asset type");
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      categories,
+      classifications: undefined,
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const result = await transformDocuments(product);
+    const expectedResult = [
+      {
+        __typename: "PIMDocument",
+        assetType: { code: "code2", name: "name2", pimCode: "AWARDS" },
+        docName: "name",
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: `uniqueId`,
+        isLinkDocument: false,
+        CATEGORY: [
+          {
+            code: "parent-category-code",
+            name: "name"
+          }
+        ],
+        "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [
+          {
+            code: "code",
+            name: "value"
+          }
+        ],
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "name",
+        realFileName: "real-file-name.pdf",
+        title: "name name2",
+        titleAndSize: "name_10",
         url: "http://localhost:8000"
       }
     ];
