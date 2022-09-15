@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
 import { useWizardContext } from "../WizardContext";
-import { useAccountContext } from "../../../context/AccountContext";
 import { parseMarketTag } from "../../../lib/utils";
+import { useMarketContext } from "../../../context/MarketContext";
 
 const SelectGuaranteesTemplate = () => {
   const { data, setData, previousStep, gotoNext, gotoBack } =
     useWizardContext();
-  const { account } = useAccountContext();
-  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { market } = useMarketContext();
+  const contentfulTag = parseMarketTag(market?.domain);
   const { t } = useTranslation("project-page");
 
   const {

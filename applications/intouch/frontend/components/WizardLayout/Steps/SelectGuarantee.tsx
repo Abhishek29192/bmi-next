@@ -7,8 +7,8 @@ import { ActionTile } from "../../ActionTile";
 import { useWizardContext } from "../WizardContext";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated/hooks";
-import { useAccountContext } from "../../../context/AccountContext";
 import { parseMarketTag } from "../../../lib/utils";
+import { useMarketContext } from "../../../context/MarketContext";
 
 export type SelectGuaranteeType = {
   guaranteeType: GuaranteeType;
@@ -19,8 +19,8 @@ export type SelectGuaranteeType = {
 const SelectGuarantee = () => {
   const { data, project, setData } = useWizardContext();
   const { t } = useTranslation("project-page");
-  const { account } = useAccountContext();
-  const contentfulTag = parseMarketTag(account.market?.domain);
+  const { market } = useMarketContext();
+  const contentfulTag = parseMarketTag(market?.domain);
 
   const { technology } = project;
   const [guaranteeTypes, setGuaranteeTypes] = useState<SelectGuaranteeType[]>(
