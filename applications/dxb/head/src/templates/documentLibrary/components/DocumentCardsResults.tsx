@@ -40,7 +40,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                 title={title}
                 media={renderImage(featuredMedia) || undefined}
                 // eslint-disable-next-line security/detect-object-injection
-                brandImageSource={iconMap[brand] || iconMap[BRAND.name]}
+                brandImageSource={iconMap[brand] || iconMap[BRAND?.name]}
                 action={{
                   model: "download",
                   href: `https:${asset.file.url}`,
