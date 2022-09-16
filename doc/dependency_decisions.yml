@@ -727,3 +727,15 @@
     :why: Our own project
     :versions: []
     :when: 2022-09-05 16:31:03.942848000 Z
+- - :approve
+  - "@bmi/contentful-roles"
+  - :who: Nikita Makarov
+    :why: Our own project
+    :versions: []
+    :when: 2022-09-16 17:43:03.988615000 Z
+- - :approve
+  - "@bmi/gcp-cron-auto-reject-double-acceptance"
+  - :who: Nikita Makarov
+    :why: Our own project
+    :versions: []
+    :when: 2022-09-16 17:43:03.988615000 Z
