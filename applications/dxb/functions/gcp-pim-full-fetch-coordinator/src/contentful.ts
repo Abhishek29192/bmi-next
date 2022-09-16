@@ -1,5 +1,6 @@
 import contentful = require("contentful");
 import logger from "@bmi-digital/functions-logger";
+import { extractFeatureMediaData } from "./helpers";
 
 export type ContentfulAsset = {
   file: {
@@ -11,6 +12,8 @@ export type ContentfulAsset = {
 };
 
 export type ContentfulAssetType = {
+  __typename: "ContentfulAssetType";
+  id: string;
   name: string;
   code: string;
   description?: string;
@@ -20,6 +23,28 @@ interface Brand {
   code: string;
   name: string;
 }
+
+type ImageData = {
+  file: {
+    fileName: string;
+    url: string;
+  };
+};
+
+export type FeaturedMediaData = {
+  __typename: "ContentfulImage";
+  altText: string | null;
+  type: "Decorative" | "Descriptive" | null;
+  image: ImageData;
+  caption: {
+    caption: string;
+  } | null;
+  focalPoint: {
+    x: number;
+    y: number;
+  } | null;
+  thumbnail?: ImageData;
+};
 
 export interface ESContentfulDocument {
   __typename: string;
@@ -32,6 +57,7 @@ export interface ESContentfulDocument {
   noIndex?: boolean;
   BRAND?: Brand;
   description?: contentful.RichTextContent;
+  featuredMedia?: FeaturedMediaData;
 }
 
 const client = contentful.createClient({
@@ -65,8 +91,11 @@ export const processContentfulDocuments = async () => {
 
 const transformDocuments = (documents: any[]): ESContentfulDocument[] => {
   const result = documents.map(
-    ({ sys, fields: { assetType, asset, title, noIndex, brand } }) => {
-      const { code, name } = assetType.fields;
+    ({
+      sys,
+      fields: { assetType, asset, title, noIndex, brand, featuredMedia }
+    }) => {
+      const { code, name, description } = assetType.fields;
       const { file } = asset.fields;
 
       return {
@@ -81,14 +110,23 @@ const transformDocuments = (documents: any[]): ESContentfulDocument[] => {
           }
         },
         assetType: {
+          __typename: "ContentfulAssetType",
+          id: assetType.sys.id,
           code,
-          name
+          name,
+          ...(description && { description })
         },
         noIndex: noIndex || false,
         ...(brand && {
           BRAND: {
             name: brand,
             code: brand
+          }
+        }),
+        ...(featuredMedia && {
+          featuredMedia: {
+            __typename: "ContentfulImage",
+            ...extractFeatureMediaData(featuredMedia)
           }
         })
       };

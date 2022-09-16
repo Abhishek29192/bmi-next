@@ -206,7 +206,7 @@ describe("performBulkIndexing", () => {
     const items = Array.from(Array(2)).map((_, index) =>
       getEsDocumentMock(String(index))
     );
-    await performBulkIndexing(items as ESContentfulDocument[]);
+    await performBulkIndexing(items as unknown as ESContentfulDocument[]);
     expect(esBulkMethodMock).toBeCalledWith({
       index: documentIndex,
       refresh: true,
@@ -251,7 +251,7 @@ describe("performBulkIndexing", () => {
       }
     });
     const items = [getEsDocumentMock("1")];
-    await performBulkIndexing(items as ESContentfulDocument[]);
+    await performBulkIndexing(items as unknown as ESContentfulDocument[]);
     expect(loggerError).toBeCalledWith({
       message: `Failed to index ${responseMock._id} with error ${JSON.stringify(
         responseMock.error,
