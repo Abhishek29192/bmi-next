@@ -250,11 +250,12 @@ export const releaseGuaranteePdf = async (
           file_storage_id,
           product_name,
           system_name,
-          coverage
+          coverage,
+          domain
         }
       ]
     } = await pgRootPool.query(
-      `SELECT g.*, p.building_owner_mail, pt.name as product_name, s.name as system_name FROM guarantee g JOIN project p ON g.project_id = p.id JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref JOIN product pt ON sm.product_bmi_ref = pt.bmi_ref WHERE g.id = $1`,
+      `SELECT g.*, p.building_owner_mail, pt.name as product_name, s.name as system_name, m.domain FROM guarantee g JOIN project p ON g.project_id = p.id JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref JOIN product pt ON sm.product_bmi_ref = pt.bmi_ref JOIN company c ON p.company_id = c.id JOIN market m ON c.market_id = m.id WHERE g.id = $1`,
       [id]
     );
     const signedFileStorageUrl =
@@ -263,7 +264,12 @@ export const releaseGuaranteePdf = async (
       id,
       status,
       project: {
-        buildingOwnerMail: building_owner_mail
+        buildingOwnerMail: building_owner_mail,
+        company: {
+          market: {
+            domain
+          }
+        }
       },
       guaranteeType: {
         coverage,

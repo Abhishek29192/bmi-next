@@ -25,7 +25,9 @@ const mutateSpy = jest.fn();
 const initializeApolloSpy = jest
   .fn()
   .mockImplementation(() => ({ mutate: (query) => mutateSpy(query) }));
-const createApolloClientSpy = jest.fn();
+const createApolloClientSpy = jest
+  .fn()
+  .mockImplementation(() => ({ mutate: (query) => mutateSpy(query) }));
 jest.mock("../../lib/apolloClient", () => {
   const original = jest.requireActual("../../lib/apolloClient");
   return {
@@ -183,6 +185,7 @@ describe("double acceptance server side props", () => {
     renderWithI18NProvider(<DoubleAcceptancePage doubleAcceptance={props} />);
 
     expect(screen.queryByTestId("double-acceptance-form")).toBeTruthy();
+    expect(createApolloClientSpy).toHaveBeenCalledTimes(1);
     expect(formContainerMock.mock.calls[0][0]).toEqual({
       doubleAcceptance: props,
       onUpdateDoubleAcceptanceCompleted: expect.any(Function),

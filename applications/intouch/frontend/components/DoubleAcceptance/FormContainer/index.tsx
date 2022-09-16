@@ -36,6 +36,7 @@ const FormContainer = ({
   const handleSubmit = useCallback(
     async (event, { firstName, lastName, acceptance }) => {
       event.preventDefault();
+
       try {
         const { data } = await customApolloClient.mutate({
           mutation: updateDoubleAcceptance,
@@ -96,12 +97,12 @@ const FormContainer = ({
   return (
     <div className={styles.container}>
       <Grid container>
-        <Grid item xs={12} spacing={3}>
+        <Grid item xs={12}>
           <Typography variant="h4" hasUnderline>
             {t("title")}
           </Typography>
         </Grid>
-        <Grid item xs={12} spacing={3}>
+        <Grid item xs={12}>
           <div>
             {(
               t("description", {
@@ -115,19 +116,19 @@ const FormContainer = ({
       </Grid>
       <div className={styles.body}>
         <Grid container>
-          <Grid item xs={12} spacing={3}>
+          <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("warantyPeriod")}
             </Typography>
             <div>{`${doubleAcceptance.maximumValidityYears}`}</div>
           </Grid>
-          <Grid item xs={12} spacing={3}>
+          <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("guaranteeScope")}
             </Typography>
             <div>{doubleAcceptance.guaranteeTemplate.guaranteeScope}</div>
           </Grid>
-          <Grid item xs={12} spacing={3}>
+          <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("guaranteeConditions")}
             </Typography>
