@@ -67,7 +67,7 @@ const getAssetTypes = async (): Promise<AssetTypeData[] | undefined> => {
       .map(({ fields: { description, name, code, pimCode }, sys: { id } }) => ({
         __typename: "ContentfulAssetType",
         id,
-        description: description?.[`${MARKET_LOCALE}`] || null,
+        description: description ? description[`${MARKET_LOCALE}`] : null,
         name: name[`${MARKET_LOCALE}`],
         code: code[`${MARKET_LOCALE}`],
         pimCode: pimCode[`${MARKET_LOCALE}`]
