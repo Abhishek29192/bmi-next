@@ -49,9 +49,7 @@ const getFormatFromFileName = (filename: string): string =>
 export const transformDocuments = async (
   item: PIMProduct | System
 ): Promise<(EsPIMDocumentData | EsPIMLinkDocumentData)[] | undefined> => {
-  const assetTypes:
-    | Pick<AssetTypeData, "name" | "code" | "pimCode">[]
-    | undefined = await getAssetTypes();
+  const assetTypes: AssetTypeData[] | undefined = await getAssetTypes();
   const productDocumentNameMap: ProductDocumentNameMap | undefined =
     await getProductDocumentNameMap();
 

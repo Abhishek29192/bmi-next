@@ -34,21 +34,33 @@ describe("contentfulApi", () => {
       getEntries.mockReturnValue({
         items: [
           {
+            sys: {
+              id: "Test_id1"
+            },
             fields: {
+              description: { [`${MARKET_LOCALE}`]: "Test_description1" },
               name: { [`${MARKET_LOCALE}`]: "Test_name1" },
               code: { [`${MARKET_LOCALE}`]: "Test_code1" },
               pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode1" }
             }
           },
           {
+            sys: {
+              id: "Test_id2"
+            },
             fields: {
+              description: { [`${MARKET_LOCALE}`]: "Test_description2" },
               name: { [`${MARKET_LOCALE}`]: "Test_name2" },
               code: { [`${MARKET_LOCALE}`]: "Test_code2" },
               pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode2" }
             }
           },
           {
+            sys: {
+              id: "Test_id3"
+            },
             fields: {
+              description: { [`${MARKET_LOCALE}`]: "Test_description3" },
               name: { [`${MARKET_LOCALE}`]: "Test_name3" },
               code: { [`${MARKET_LOCALE}`]: "Test_code3" }
             }
@@ -60,11 +72,17 @@ describe("contentfulApi", () => {
 
       const expectedResult = [
         {
+          __typename: "ContentfulAssetType",
+          id: "Test_id1",
+          description: "Test_description1",
           name: "Test_name1",
           code: "Test_code1",
           pimCode: "Test_pimCode1"
         },
         {
+          __typename: "ContentfulAssetType",
+          id: "Test_id2",
+          description: "Test_description2",
           name: "Test_name2",
           code: "Test_code2",
           pimCode: "Test_pimCode2"

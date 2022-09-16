@@ -55,9 +55,7 @@ const getSpaceEnvironment = async (): Promise<Environment | undefined> => {
   return environment;
 };
 
-const getAssetTypes = async (): Promise<
-  Pick<AssetTypeData, "name" | "code" | "pimCode">[] | undefined
-> => {
+const getAssetTypes = async (): Promise<AssetTypeData[] | undefined> => {
   const environment = await getSpaceEnvironment();
   if (environment) {
     const assetType = await environment.getEntries({
@@ -66,7 +64,10 @@ const getAssetTypes = async (): Promise<
 
     return assetType.items
       .filter(({ fields: { name, code, pimCode } }) => name && code && pimCode)
-      .map(({ fields: { name, code, pimCode } }) => ({
+      .map(({ fields: { description, name, code, pimCode }, sys: { id } }) => ({
+        __typename: "ContentfulAssetType",
+        id,
+        description: description[`${MARKET_LOCALE}`],
         name: name[`${MARKET_LOCALE}`],
         code: code[`${MARKET_LOCALE}`],
         pimCode: pimCode[`${MARKET_LOCALE}`]
