@@ -112,7 +112,7 @@ describe("FormContainer", () => {
   it("render correctly", () => {
     const { container } = renderWithI18NProvider(
       <FormContainer
-        apolloClient={apolloClient}
+        customApolloClient={apolloClient}
         doubleAcceptance={doubleAcceptanceFactory()}
         onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
       />
@@ -142,7 +142,7 @@ describe("FormContainer", () => {
   it("show acceptance block when clicked on checkbox and input both firstname and lastname", async () => {
     const { container } = renderWithI18NProvider(
       <FormContainer
-        apolloClient={apolloClient}
+        customApolloClient={apolloClient}
         doubleAcceptance={doubleAcceptanceFactory()}
         onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
       />
@@ -174,7 +174,7 @@ describe("FormContainer", () => {
     it("show accept dialog", async () => {
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptanceFactory()}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -200,7 +200,7 @@ describe("FormContainer", () => {
     it("show reject dialog", async () => {
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptanceFactory()}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -232,7 +232,7 @@ describe("FormContainer", () => {
         .mockImplementationOnce(() => Promise.resolve({ data: {} }));
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -289,7 +289,7 @@ describe("FormContainer", () => {
       );
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -317,7 +317,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -347,7 +347,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />
@@ -372,7 +372,7 @@ describe("FormContainer", () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       const { container } = renderWithI18NProvider(
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={apolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
         />

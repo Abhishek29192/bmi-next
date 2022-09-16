@@ -134,7 +134,7 @@ describe("double acceptance server side props", () => {
         props: {
           baseUrl: "en.local.intouch:3000",
           market: "en",
-          "x-authenticated-user-id": "x-authenticated-user-id",
+          headers: context.req.headers,
           doubleAcceptance: {
             id: getDoubleAcceptanceByValidTempToken.id,
             completed: !!getDoubleAcceptanceByValidTempToken.acceptanceDate,
@@ -186,7 +186,7 @@ describe("double acceptance server side props", () => {
     expect(formContainerMock.mock.calls[0][0]).toEqual({
       doubleAcceptance: props,
       onUpdateDoubleAcceptanceCompleted: expect.any(Function),
-      apolloClient: expect.anything()
+      customApolloClient: expect.anything()
     });
   });
 
