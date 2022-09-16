@@ -92,6 +92,57 @@ describe("contentfulApi", () => {
       expect(result).toEqual(expectedResult);
     });
 
+    it("sholud return correct data if description is not provided", async () => {
+      getEntries.mockReturnValue({
+        items: [
+          {
+            sys: {
+              id: "Test_id1"
+            },
+            fields: {
+              description: { [`${MARKET_LOCALE}`]: "Test_description1" },
+              name: { [`${MARKET_LOCALE}`]: "Test_name1" },
+              code: { [`${MARKET_LOCALE}`]: "Test_code1" },
+              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode1" }
+            }
+          },
+          {
+            sys: {
+              id: "Test_id2"
+            },
+            fields: {
+              name: { [`${MARKET_LOCALE}`]: "Test_name2" },
+              code: { [`${MARKET_LOCALE}`]: "Test_code2" },
+              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode2" }
+            }
+          }
+        ]
+      });
+
+      const result = await getAssetTypes();
+
+      const expectedResult = [
+        {
+          __typename: "ContentfulAssetType",
+          id: "Test_id1",
+          description: "Test_description1",
+          name: "Test_name1",
+          code: "Test_code1",
+          pimCode: "Test_pimCode1"
+        },
+        {
+          __typename: "ContentfulAssetType",
+          id: "Test_id2",
+          description: null,
+          name: "Test_name2",
+          code: "Test_code2",
+          pimCode: "Test_pimCode2"
+        }
+      ];
+
+      expect(result).toEqual(expectedResult);
+    });
+
     it("sholud return undefined if MANAGEMENT_ACCESS_TOKEN is NOT provided", async () => {
       const token = process.env.MANAGEMENT_ACCESS_TOKEN;
       delete process.env.MANAGEMENT_ACCESS_TOKEN;
