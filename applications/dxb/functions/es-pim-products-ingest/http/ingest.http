@@ -44,7 +44,7 @@ Content-Type: application/json
 
 ### 200327_Primo_S_foot-_or_ridge_plate_Black
 
-POST {{"http://localhost:9049"}}
+POST {{host}}
 Content-Type: application/json
 
 {
