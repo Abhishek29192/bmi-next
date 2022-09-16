@@ -18,13 +18,13 @@ type Props = {
   onUpdateDoubleAcceptanceCompleted: (
     doubleAcceptance: DoubleAcceptanceProps["doubleAcceptance"]
   ) => void;
-  apolloClient: ApolloClient<NormalizedCacheObject>;
+  customApolloClient: ApolloClient<NormalizedCacheObject>;
 };
 
 const FormContainer = ({
   doubleAcceptance,
   onUpdateDoubleAcceptanceCompleted,
-  apolloClient
+  customApolloClient
 }: Props) => {
   const { t } = useTranslation(["double-acceptance", "common"]);
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const FormContainer = ({
     async (event, { firstName, lastName, acceptance }) => {
       event.preventDefault();
       try {
-        const { data } = await apolloClient.mutate({
+        const { data } = await customApolloClient.mutate({
           mutation: updateDoubleAcceptance,
           variables: {
             input: {
@@ -54,7 +54,7 @@ const FormContainer = ({
           }
         });
         if (data) {
-          await apolloClient.mutate({
+          await customApolloClient.mutate({
             mutation: releaseGuaranteePdf,
             variables: {
               input: {
@@ -78,7 +78,7 @@ const FormContainer = ({
         });
       }
     },
-    [doubleAcceptance, updateDoubleAcceptance]
+    [doubleAcceptance, updateDoubleAcceptance, customApolloClient]
   );
   const onItemChange = useCallback(
     (name, value) => {

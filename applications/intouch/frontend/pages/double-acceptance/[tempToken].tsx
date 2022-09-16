@@ -6,7 +6,6 @@ import {
   GuaranteeTemplate,
   Product
 } from "@bmi/intouch-api-types";
-import { v4 } from "uuid";
 import { withPublicPage } from "../../lib/middleware/withPublicPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 import { Layout } from "../../components/Layout/Unauthenticated";
@@ -14,7 +13,6 @@ import { FormContainer, Confirmation } from "../../components/DoubleAcceptance";
 import { getDoubleAcceptanceByValidTempToken } from "../../lib/doubleAcceptance";
 import { initializeApollo } from "../../lib/apolloClient";
 import { getServerPageGetGuaranteeTemplates } from "../../graphql/generated/page";
-import { useApollo } from "../../lib/apolloClient";
 
 export type Props = {
   initialApolloState?: any;
@@ -24,6 +22,7 @@ export type Props = {
       completed: boolean;
       guaranteeTemplate: Partial<GuaranteeTemplate>;
     };
+  headers?: any;
 };
 
 const DoubleAcceptancePage = ({
@@ -36,16 +35,21 @@ const DoubleAcceptancePage = ({
   const onUpdateDoubleAcceptanceCompleted = (
     doubleAcceptance: Props["doubleAcceptance"]
   ) => setDoubleAcceptance(doubleAcceptance);
+  const raw = JSON.stringify({
+    source: "auto-reject-double-acceptance-function",
+    sub: ""
+  });
+  const userinfo = Buffer.from(raw).toString("base64");
   const headers = {
-    "x-request-id": v4(),
-    "x-authenticated-user-id": props["x-authenticated-user-id"],
+    "x-authenticated-user-id": props["x-authenticated-user-id"] || "",
     "x-api-key": process.env.GATEWAY_API_KEY,
-    authorization: "Bearer undefined"
+    authorization: "Bearer undefined",
+    "x-apigateway-api-userinfo": userinfo
   };
-  const apolloClient = useApollo(props?.initialApolloState, {
-    Component: FormContainer,
-    pageProps: props?.pageProps,
-    ...props,
+  const customApolloClient = initializeApollo(null, {
+    req: {
+      headers: props.headers
+    },
     headers
   });
   return (
@@ -54,7 +58,7 @@ const DoubleAcceptancePage = ({
         <Confirmation />
       ) : (
         <FormContainer
-          apolloClient={apolloClient}
+          customApolloClient={customApolloClient}
           doubleAcceptance={doubleAcceptance}
           onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
           {...props}
@@ -70,7 +74,6 @@ export const getServerSideProps = withPublicPage(
     const { tempToken } = query;
     const contentfulTag = parseMarketTag(market);
     const headers = {
-      "x-request-id": v4(),
       "x-authenticated-user-id": req.headers["x-authenticated-user-id"],
       "x-api-key": process.env.GATEWAY_API_KEY,
       authorization: "Bearer undefined"
@@ -121,7 +124,6 @@ export const getServerSideProps = withPublicPage(
         notFound: true
       };
     }
-    console.log(globalPageData);
     return {
       props: {
         baseUrl: currentHost,
@@ -130,8 +132,7 @@ export const getServerSideProps = withPublicPage(
           "common",
           "double-acceptance"
         ])),
-        ["x-authenticated-user-id"]:
-          req.headers["x-authenticated-user-id"] || null,
+        headers: req.headers,
         market,
         doubleAcceptance: {
           id: id,
