@@ -11,7 +11,7 @@ import { getMarketAndEnvFromReq, parseMarketTag } from "../../lib/utils";
 import { Layout } from "../../components/Layout/Unauthenticated";
 import { FormContainer, Confirmation } from "../../components/DoubleAcceptance";
 import { getDoubleAcceptanceByValidTempToken } from "../../lib/doubleAcceptance";
-import { initializeApollo } from "../../lib/apolloClient";
+import { initializeApollo, createApolloClient } from "../../lib/apolloClient";
 import { getServerPageGetGuaranteeTemplates } from "../../graphql/generated/page";
 
 export type Props = {
@@ -35,20 +35,13 @@ const DoubleAcceptancePage = ({
   const onUpdateDoubleAcceptanceCompleted = (
     doubleAcceptance: Props["doubleAcceptance"]
   ) => setDoubleAcceptance(doubleAcceptance);
-  const raw = JSON.stringify({
-    source: "auto-reject-double-acceptance-function",
-    sub: ""
-  });
-  const userinfo = Buffer.from(raw).toString("base64");
   const headers = {
-    "x-authenticated-user-id": props["x-authenticated-user-id"] || "",
-    "x-api-key": process.env.GATEWAY_API_KEY,
-    authorization: "Bearer undefined",
-    "x-apigateway-api-userinfo": userinfo
+    "x-authenticated-user-id": props.headers?.["x-authenticated-user-id"],
+    "x-api-key": process.env.GATEWAY_API_KEY
   };
-  const customApolloClient = initializeApollo(null, {
+  const customApolloClient = createApolloClient({
     req: {
-      headers: props.headers
+      headers: { ...props.headers }
     },
     headers
   });
@@ -124,6 +117,7 @@ export const getServerSideProps = withPublicPage(
         notFound: true
       };
     }
+
     return {
       props: {
         baseUrl: currentHost,

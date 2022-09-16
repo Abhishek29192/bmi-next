@@ -458,13 +458,19 @@ describe("DoubleAcceptance", () => {
         file_storage_id: "file_storage_id",
         product_name: "product_name",
         system_name: "system_name",
-        coverage: "SOLUTION"
+        coverage: "SOLUTION",
+        domain: "en"
       };
       const data = {
         id: input.id,
         status: guarantee.status,
         project: {
-          buildingOwnerMail: guarantee.building_owner_mail
+          buildingOwnerMail: guarantee.building_owner_mail,
+          company: {
+            market: {
+              domain: guarantee.domain
+            }
+          }
         },
         guaranteeType: {
           coverage: guarantee.coverage,
