@@ -23,6 +23,10 @@ export type ContentfulDocument = {
   description: RichTextData | null;
   brand: string;
   noIndex: boolean;
+  BRAND?: {
+    code: string;
+    name: string;
+  };
 };
 
 export const query = graphql`
