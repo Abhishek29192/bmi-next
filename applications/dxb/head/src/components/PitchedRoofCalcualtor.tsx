@@ -1,5 +1,6 @@
+import logger from "@bmi-digital/functions-logger";
 import { MicroCopy } from "@bmi/components";
-import axios from "axios";
+import fetch from "node-fetch";
 import React, {
   createContext,
   Suspense,
@@ -71,7 +72,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
       return;
     }
 
-    const cancelTokenSouce = axios.CancelToken.source();
+    const controller = new AbortController();
 
     const fetchAndSetData = async () => {
       if (!webtoolsCalculatorDataUrl) {
@@ -81,20 +82,27 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
       }
 
       try {
-        const response = await axios.get(webtoolsCalculatorDataUrl, {
-          cancelToken: cancelTokenSouce.token
+        const response = await fetch(webtoolsCalculatorDataUrl, {
+          method: "GET",
+          signal: controller.signal
         });
 
-        setData(response.data);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        setData(data);
       } catch (error) {
-        devLog(error);
+        logger.error({ message: error.message });
         onError();
       }
     };
 
     fetchAndSetData();
 
-    return () => cancelTokenSouce.cancel();
+    return () => controller.abort();
   }, [isOpen]);
 
   const calculatorProps = useMemo(
@@ -113,11 +121,18 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         const token = await executeRecaptcha();
 
         try {
-          await axios.post(webToolsCalculatorApsisEndpoint, values, {
+          const response = await fetch(webToolsCalculatorApsisEndpoint, {
+            method: "POST",
+            body: JSON.stringify(values),
             headers: {
-              "X-Recaptcha-Token": token
+              "X-Recaptcha-Token": token,
+              "Content-Type": "application/json"
             }
           });
+
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
         } catch (error) {
           // Ignore errors if any as this isn't necessary for PDF download to proceed
           devLog("WebTools calculator api endpoint error", error);

@@ -5,7 +5,6 @@ import {
   LocationProvider
 } from "@reach/router";
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import axios from "axios";
 import mockConsole from "jest-mock-console";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -26,24 +25,20 @@ jest.mock("react-google-recaptcha-v3", () => {
   };
 });
 
-jest.mock("axios");
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
+});
 
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-type Canceler = (message?: string) => void;
-
-class CancelToken {
-  public static source() {
-    const cancel: Canceler = jest.fn();
-    const token = new CancelToken();
-    return {
-      cancel,
-      token
-    };
-  }
-}
-
-// Type cast otherwise need to implmenet Jest mock core functions
-mockedAxios.CancelToken = CancelToken as any;
+const getFetchResponse = (response) => ({
+  ok: true,
+  json: () => response
+});
 
 const { location } = window;
 
@@ -252,7 +247,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders next question and answer block when answer clicked", async () => {
-    mockedAxios.get.mockResolvedValue({ data: question });
+    fetchMock.mockReturnValue(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -271,15 +266,15 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders a result section when answer clicked", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
         recommendedSystems: ["abcd", "efgh"]
-      }
-    });
+      })
+    );
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <SiteContextProvider value={getSiteContext()}>
@@ -302,13 +297,13 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders a no result section when answer clicked", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulTitleWithContent",
         title: "No Result Title",
         content: { raw: JSON.stringify(richTextRaw), references: null }
-      }
-    });
+      })
+    );
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -327,8 +322,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section with the correct image url", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulTitleWithContent",
         title: "No Result Title",
         content: {
@@ -364,8 +359,8 @@ describe("SystemConfiguratorSection component", () => {
             }
           ]
         }
-      }
-    });
+      })
+    );
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -384,8 +379,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section while ignoring assets other than image", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulTitleWithContent",
         title: "No Result Title",
         content: {
@@ -421,8 +416,8 @@ describe("SystemConfiguratorSection component", () => {
             }
           ]
         }
-      }
-    });
+      })
+    );
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -441,8 +436,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders no result section while ignoring invalid asset references", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulTitleWithContent",
         title: "No Result Title",
         content: {
@@ -467,8 +462,8 @@ describe("SystemConfiguratorSection component", () => {
           }),
           references: []
         }
-      }
-    });
+      })
+    );
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -487,7 +482,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders an expanded panel when previous panel is clicked", async () => {
-    mockedAxios.get.mockResolvedValue({ data: question });
+    fetchMock.mockResolvedValue(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText, getByText } =
       render(
@@ -514,8 +509,8 @@ describe("SystemConfiguratorSection component", () => {
   it("renders skipping a block with only one answer", async () => {
     const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
 
-    mockedAxios.get.mockResolvedValueOnce({
-      data: {
+    fetchMock.mockResolvedValueOnce(
+      getFetchResponse({
         __typename: "ContentfulSystemConfiguratorBlock",
         title: "Skipped Title",
         description: null,
@@ -529,9 +524,9 @@ describe("SystemConfiguratorSection component", () => {
             type: "Answer"
           }
         ]
-      }
-    });
-    mockedAxios.get.mockResolvedValueOnce({ data: question });
+      })
+    );
+    fetchMock.mockResolvedValueOnce(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -547,12 +542,12 @@ describe("SystemConfiguratorSection component", () => {
     await findByText(question.title);
 
     expect(container).toMatchSnapshot();
-    expect(mockedAxios.get).toBeCalledTimes(2);
+    expect(fetchMock).toBeCalledTimes(2);
     expect(mockPushToDataLayer).toHaveBeenCalledTimes(2);
   });
 
   it("throws error", async () => {
-    mockedAxios.get.mockRejectedValue("Function error");
+    fetchMock.mockRejectedValue("Function error");
 
     const { container, findByLabelText, findByRole } = render(
       <ErrorBoundary fallbackRender={() => <>Something went wrong</>}>
@@ -571,8 +566,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders toggled closed configurator panel", async () => {
-    mockedAxios.get.mockResolvedValueOnce({ data: question });
-    mockedAxios.get.mockResolvedValueOnce({ data: initialQuestion });
+    fetchMock.mockResolvedValueOnce(getFetchResponse(question));
+    fetchMock.mockResolvedValueOnce(getFetchResponse({ initialQuestion }));
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =
       render(
@@ -601,15 +596,15 @@ describe("SystemConfiguratorSection component", () => {
   describe("When returning from valid referer", () => {
     it("removes query string from path", async () => {
       const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
-      mockedAxios.get.mockResolvedValue({
-        data: {
+      fetchMock.mockResolvedValue(
+        getFetchResponse({
           __typename: "ContentfulSystemConfiguratorBlock",
           title: "Result Title",
           description: { raw: JSON.stringify(richTextRaw), references: null },
           type: "Result",
           recommendedSystems: ["abcd", "efgh"]
-        }
-      });
+        })
+      );
 
       const route = "/jest-test-page?referer=sys_details";
       const history = createHistory(createMemorySource(route));
@@ -639,15 +634,15 @@ describe("SystemConfiguratorSection component", () => {
     });
 
     it("highlights last selected system", async () => {
-      mockedAxios.get.mockResolvedValue({
-        data: {
+      fetchMock.mockResolvedValue(
+        getFetchResponse({
           __typename: "ContentfulSystemConfiguratorBlock",
           title: "Result Title",
           description: { raw: JSON.stringify(richTextRaw), references: null },
           type: "Result",
           recommendedSystems: ["abcd", "efgh"]
-        }
-      });
+        })
+      );
 
       const route = "/jest-test-page?referer=sys_details";
       const history = createHistory(createMemorySource(route));
@@ -673,15 +668,15 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders only the recommendedSystems that match the pimSystem list from contentful", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
         recommendedSystems: ["abcd", "ijkl", "efgh"]
-      }
-    });
+      })
+    );
     mockQueryES.mockResolvedValueOnce({
       hits: {
         hits: [
@@ -732,15 +727,15 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders only max of 4 recommendedSystems", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
         recommendedSystems: ["ijkl", "efgh", "abcd", "mnop", "qrst"]
-      }
-    });
+      })
+    );
     mockQueryES.mockResolvedValueOnce({
       hits: {
         hits: [
@@ -807,15 +802,15 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("redirect to 404 page if no matches to pimSystem code", async () => {
-    mockedAxios.get.mockResolvedValue({
-      data: {
+    fetchMock.mockResolvedValue(
+      getFetchResponse({
         __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
         type: "Result",
         recommendedSystems: ["efgh", "ijkl"]
-      }
-    });
+      })
+    );
     const redirection = jest.spyOn(ReactRoter, "navigate");
     mockQueryES.mockResolvedValueOnce({
       hits: {

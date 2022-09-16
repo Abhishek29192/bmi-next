@@ -9,8 +9,8 @@ import {
   iconMap,
   Table
 } from "@bmi/components";
-import axios from "axios";
 import classnames from "classnames";
+import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
@@ -132,12 +132,22 @@ const DesktopDocumentTechnicalTableResults = ({
                   index
                 )
         }));
-        const response = await axios.post(
-          documentDownloadEndpoint,
-          { documents: documents },
-          { responseType: "text", headers: { "X-Recaptcha-Token": token } }
-        );
-        await downloadAs(response.data.url, zipFileName);
+
+        const response: Response = await fetch(documentDownloadEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Recaptcha-Token": token
+          },
+          body: JSON.stringify({ documents })
+        });
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+        await downloadAs(data.url, zipFileName);
       } catch (error) {
         console.error("Download multiple documents", error); // eslint-disable-line
       }

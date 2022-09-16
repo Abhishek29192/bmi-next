@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import axios from "axios";
 import * as Gatsby from "gatsby";
 import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
@@ -29,6 +28,7 @@ const data: Data = {
   showTitle: null,
   description: null,
   recipients: "recipient@mail.com",
+  emailSubjectFormat: "emailSubjectFormat",
   inputs: [
     {
       label: "Text",
@@ -147,14 +147,17 @@ jest.mock("react-google-recaptcha-v3", () => ({
   })
 }));
 
-jest.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
-axios.CancelToken.source = jest.fn().mockReturnValue({
-  token: "this",
-  cancel: () => {}
+
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
 });
 
 afterEach(() => {
@@ -354,21 +357,28 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
+    fetchMock.mockReturnValueOnce({ ok: true });
+
     await waitFor(() =>
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
         {
-          locale: "en-GB",
-          recipients: "recipient@mail.com",
-          title: "Test form",
-          values: { text: "text value" }
-        },
-        {
-          cancelToken: "this",
-          headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json"
+          }
         }
       )
     );
+
     expect(onSuccess).toHaveBeenCalled();
     expect(Gatsby.navigate).toBeCalledWith("link-to-page");
   });
@@ -408,17 +418,23 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
-    expect(await waitFor(() => mockedAxios.post)).toHaveBeenCalledWith(
+    fetchMock.mockReturnValueOnce({ ok: true });
+
+    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
       "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
       {
-        locale: "en-GB",
-        recipients: "recipient@mail.com",
-        title: "Test form",
-        values: { text: "text value" }
-      },
-      {
-        cancelToken: "this",
-        headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+        method: "POST",
+        body: JSON.stringify({
+          locale: "en-GB",
+          title: "Test form",
+          recipients: "recipient@mail.com",
+          values: { text: "text value" },
+          emailSubjectFormat: "emailSubjectFormat"
+        }),
+        headers: {
+          "X-Recaptcha-Token": "RECAPTCHA",
+          "Content-Type": "application/json"
+        }
       }
     );
 
@@ -449,7 +465,7 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
-    mockedAxios.post.mockRejectedValueOnce(new Error("Async error"));
+    fetchMock.mockRejectedValueOnce(new Error("Async error"));
     const consoleSpy = jest
       .spyOn(console, "error")
       .mockImplementation(() => {});
@@ -555,18 +571,21 @@ describe("FormSection component", () => {
     fireEvent.click(checkboxes[2]);
     fireEvent.click(checkboxes[0]);
     fireEvent.submit(container.querySelector("form"));
-    expect(await waitFor(() => mockedAxios.post)).toHaveBeenCalledWith(
+    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
       "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
       {
-        emailSubjectFormat: undefined,
-        locale: "en-GB",
-        recipients: "recipient@mail.com",
-        title: "Test form",
-        values: { pizza: ["Margarita", "Parma"] }
-      },
-      {
-        cancelToken: "this",
-        headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+        method: "POST",
+        body: JSON.stringify({
+          locale: "en-GB",
+          title: "Test form",
+          recipients: "recipient@mail.com",
+          values: { pizza: ["Margarita", "Parma"] },
+          emailSubjectFormat: "emailSubjectFormat"
+        }),
+        headers: {
+          "X-Recaptcha-Token": "RECAPTCHA",
+          "Content-Type": "application/json"
+        }
       }
     );
   });
