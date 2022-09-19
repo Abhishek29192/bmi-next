@@ -86,5 +86,7 @@ export const createGallerySectionVideo = (): GallerySectionVideo => ({
         url: "//video-images.asset.jpg"
       }
     }
-  }
+  },
+  defaultYouTubePreviewImage:
+    "https://i.ytimg.com/vi/youtube-id/maxresdefault.jpg"
 });

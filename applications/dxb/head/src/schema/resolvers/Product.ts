@@ -12,6 +12,7 @@ import groupBy from "../../utils/groupBy";
 import { Resource } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import { getUrlFromPath, Path, resolvePath } from "./utils/path";
+import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 
 const getSlugAttributes = (source: Product) =>
   [source.colour, source.textureFamily].filter(isDefined);
@@ -306,10 +307,17 @@ export default {
   video: {
     type: ["PimVideo"],
     async resolve(source: Product, args: ResolveArgs, context: Context) {
-      return source.videos.map((video) => ({
-        __typename: "PimVideo",
-        ...video
-      }));
+      return await Promise.all(
+        source.videos.map(async (video) => {
+          const defaultYouTubePreviewImage =
+            await getDefaultYoutubePreviewImage(video.videoUrl);
+          return {
+            __typename: "PimVideo",
+            defaultYouTubePreviewImage,
+            ...video
+          };
+        })
+      );
     }
   }
 };

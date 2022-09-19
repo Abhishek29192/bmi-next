@@ -92,6 +92,8 @@ describe("MediaGallerySection component", () => {
             width: 16,
             height: 9
           },
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/youtube-id/maxresdefault.jpg",
           previewMedia: {
             __typename: "ContentfulImage",
             type: null,

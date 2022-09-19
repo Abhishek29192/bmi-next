@@ -42,7 +42,9 @@ describe("Brand Landing Page Template", () => {
       subtitle: null,
       videoUrl: "https://www.youtube.com/watch?v=youtubeId",
       previewMedia: null,
-      videoRatio: null
+      videoRatio: null,
+      defaultYouTubePreviewImage:
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
     },
     backgroundColor: null
   };
@@ -66,7 +68,9 @@ describe("Brand Landing Page Template", () => {
         subtitle: null,
         videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       },
       heroType: null,
       cta: null,
@@ -124,7 +128,9 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         }
       },
       {
@@ -139,7 +145,9 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         }
       }
     ];

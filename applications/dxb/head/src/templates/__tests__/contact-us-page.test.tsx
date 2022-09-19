@@ -53,7 +53,9 @@ describe("Contact us page", () => {
         subtitle: null,
         videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       },
       breadcrumbs: [
         {
@@ -218,7 +220,9 @@ describe("Contact us page", () => {
                   "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
                 videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
                 previewMedia: null,
-                videoRatio: { width: 17776, height: 9999 }
+                videoRatio: { width: 17776, height: 9999 },
+                defaultYouTubePreviewImage:
+                  "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
               },
               backgroundColor: null
             }

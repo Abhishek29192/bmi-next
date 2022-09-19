@@ -83,6 +83,8 @@ describe("transformMediaSrc function", () => {
           },
           focalPoint: null
         },
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         videoRatio: null
       },
 
@@ -93,7 +95,9 @@ describe("transformMediaSrc function", () => {
         label: "PimVideoLabel",
         subtitle: "subtitle",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg"
       }
     ];
     const expectResult = transformMediaSrc(mockMedia);
@@ -133,7 +137,9 @@ describe("transformMediaSrc function", () => {
         subtitle: "ContentfulVideoSubtitle",
         videoUrl: "https://youtu.be/01SUXJmB9Ik",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg"
       }
     ];
     const expectResult = transformMediaSrc(mockMedia);
@@ -175,6 +181,8 @@ describe("transformMediaSrc function", () => {
           },
           focalPoint: null
         },
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         videoRatio: null
       }
     ];

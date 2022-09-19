@@ -1009,6 +1009,7 @@ type ContentfulVideo implements Node {
   youtubeId: String!
   previewMedia: ContentfulImage @link(by: "id", from: "previewMedia___NODE")
   videoRatio: VideoRatio
+  defaultYouTubePreviewImage: String!
 }
 
 type contentfulImageCaptionTextNode implements Node {

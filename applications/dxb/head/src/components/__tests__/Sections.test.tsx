@@ -276,7 +276,9 @@ describe("Sections component", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=abc123",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
         },
         backgroundColor: null
       },
@@ -445,7 +447,9 @@ describe("Sections component", () => {
           videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
           subtitle: null,
           previewMedia: null,
-          videoRatio: { width: 16, height: 9 }
+          videoRatio: { width: 16, height: 9 },
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
         }
       },
       {

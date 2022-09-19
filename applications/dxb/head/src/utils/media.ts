@@ -1,7 +1,6 @@
 import { MediaData } from "@bmi/components";
 import { Data as ImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
-import { getDefaultPreviewImage } from "./product-details-transforms";
 
 export const getJpgImage = (ogImageUrl: string) => {
   if (
@@ -61,7 +60,7 @@ export const transformMediaSrc = (
           media: renderVideo(item),
           thumbnail:
             item.previewMedia?.image?.thumbnail?.src ||
-            getDefaultPreviewImage(item.videoUrl),
+            item.defaultYouTubePreviewImage,
           caption: item.subtitle || undefined,
           altText: item.label,
           isVideo: true
@@ -69,7 +68,7 @@ export const transformMediaSrc = (
       case "PimVideo":
         return {
           media: renderVideo(item),
-          thumbnail: getDefaultPreviewImage(item.videoUrl),
+          thumbnail: item.defaultYouTubePreviewImage,
           caption: item.title,
           isVideo: true
         };
