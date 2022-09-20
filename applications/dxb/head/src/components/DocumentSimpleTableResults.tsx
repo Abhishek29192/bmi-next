@@ -1,3 +1,4 @@
+import logger from "@bmi-digital/functions-logger";
 import {
   Button,
   ButtonProps,
@@ -11,9 +12,9 @@ import {
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { GetApp } from "@material-ui/icons";
-import axios from "axios";
 import classnames from "classnames";
 import filesize from "filesize";
+import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "../constants/microCopies";
@@ -266,14 +267,25 @@ export const MultipleAssetToFileDownload = ({
                 index
               )
       }));
-      const response = await axios.post(
-        documentDownloadEndpoint,
-        { documents: documents },
-        { responseType: "text", headers: { "X-Recaptcha-Token": token } }
-      );
-      await downloadAs(response.data.url, zipFileName);
+
+      const response: Response = await fetch(documentDownloadEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Recaptcha-Token": token
+        },
+        body: JSON.stringify({ documents })
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      const data = await response.json();
+
+      await downloadAs(data.url, zipFileName);
     } catch (error) {
-      console.error("Download multipleDocuments documents", error); // eslint-disable-line
+      logger.error({ message: error.message });
     }
   };
   if (isMobile) {

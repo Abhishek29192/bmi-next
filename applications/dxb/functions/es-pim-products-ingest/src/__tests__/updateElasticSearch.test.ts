@@ -9,14 +9,16 @@ import { ItemType } from "@bmi/pub-sub-types";
 import { RequestParams } from "@elastic/elasticsearch";
 import { updateElasticSearch } from "../elasticsearch";
 import { buildEsProducts, buildEsSystems } from "../index";
+import { createPimDocument } from "./helpers/PimDocumentHelper";
 
-const { ES_INDEX_PREFIX } = process.env;
+const { ES_INDEX_PREFIX, ES_INDEX_NAME_DOCUMENTS } = process.env;
 
 const getEsClient = jest.fn();
 const bulk = jest.fn();
 const count = jest.fn();
+const deleteByQuery = jest.fn();
 jest.mock("@bmi/functions-es-client", () => {
-  return { getEsClient: (...args: any[]) => getEsClient(...args) };
+  return { getEsClient: (...args: []) => getEsClient(...args) };
 });
 
 const getEsTransformedProductDocumentsMock = (product?: Partial<Product>) =>
@@ -25,22 +27,31 @@ const getEsTransformedProductDocumentsMock = (product?: Partial<Product>) =>
 const getEsTransformedSystemDocumentsMock = (system?: Partial<System>) =>
   buildEsSystems(createSystem(system));
 
+const productCode = "TEST_CODE_PRODUCT";
+const systemCode = "TEST_CODE_SYSTEM";
+const documents = [createPimDocument()];
+
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
 
   getEsClient.mockImplementation(() => ({
     bulk: (params: RequestParams.Bulk) => bulk(params),
-    count: (params: RequestParams.Count) => count(params)
+    count: (params: RequestParams.Count) => count(params),
+    deleteByQuery: (params: RequestParams.DeleteByQuery) =>
+      deleteByQuery(params)
   }));
 });
 
-describe("", () => {
-  it("should perform a bulk update for approved variants on updated message", async () => {
+describe("updateElasticSearch", () => {
+  it("should perform a bulk update for approved variants and related documents on updated message", async () => {
     const itemType: ItemType = "PRODUCTS";
     const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+    const documentIndex = `${ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+    const product = createPimProduct({ code: productCode });
     const esTransformedProductDocumentsMock =
-      getEsTransformedProductDocumentsMock();
+      getEsTransformedProductDocumentsMock(product);
+
     bulk.mockResolvedValue({
       body: {
         status: "OK"
@@ -54,8 +65,18 @@ describe("", () => {
         }
       }
     });
+    deleteByQuery.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -71,13 +92,43 @@ describe("", () => {
         esTransformedProductDocumentsMock[0]
       ]
     });
+    expect(deleteByQuery).toBeCalledWith({
+      index: documentIndex,
+      body: {
+        query: {
+          match: {
+            productBaseCode: productCode
+          }
+        }
+      }
+    });
+    expect(bulk).toBeCalledWith({
+      index: documentIndex,
+      refresh: true,
+      body: [
+        {
+          index: {
+            _index: documentIndex,
+            _id: documents[0].id
+          }
+        },
+        documents[0]
+      ]
+    });
     expect(count).toBeCalledWith({ index });
+    expect(count).toBeCalledWith({ index: documentIndex });
   });
-  it("should perform a bulk update for approved systems on updated message", async () => {
-    const itemType: ItemType = "SYSTEMS";
-    const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-    const esTransformedSystemDocumentsMock =
-      getEsTransformedSystemDocumentsMock();
+
+  it("should NOT perform a bulk update for approved variants on updated message if ES_INDEX_PREFIX is NOT provided", async () => {
+    const itemType: ItemType = "PRODUCTS";
+    const documentIndex =
+      `${process.env.ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+    const product = createPimProduct({ code: productCode });
+    const esTransformedProductDocumentsMock =
+      getEsTransformedProductDocumentsMock(product);
+    const originalEsIndexprefix = process.env.ES_INDEX_PREFIX;
+    delete process.env.ES_INDEX_PREFIX;
+    console.log(process.env.ES_INDEX_PREFIX);
 
     bulk.mockResolvedValue({
       body: {
@@ -92,8 +143,136 @@ describe("", () => {
         }
       }
     });
+    deleteByQuery.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
+
+    expect(getEsClient).toBeCalled();
+    expect(bulk).toBeCalledTimes(1);
+    expect(deleteByQuery).toBeCalledWith({
+      index: documentIndex,
+      body: {
+        query: {
+          match: {
+            productBaseCode: productCode
+          }
+        }
+      }
+    });
+    expect(bulk).toBeCalledWith({
+      index: documentIndex,
+      refresh: true,
+      body: [
+        {
+          index: {
+            _index: documentIndex,
+            _id: documents[0].id
+          }
+        },
+        documents[0]
+      ]
+    });
+    expect(count).toBeCalledWith({ index: documentIndex });
+    process.env.ES_INDEX_PREFIX = originalEsIndexprefix;
+  });
+
+  it("should NOT perform a bulk update for documents on updated message if ES_INDEX_NAME_DOCUMENTS is NOT provided", async () => {
+    const itemType: ItemType = "PRODUCTS";
+    const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+    const product = createPimProduct({ code: productCode });
+    const esTransformedProductDocumentsMock =
+      getEsTransformedProductDocumentsMock(product);
+    const originalEsIndexNameDocuments = process.env.ES_INDEX_NAME_DOCUMENTS;
+    delete process.env.ES_INDEX_NAME_DOCUMENTS;
+
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+    deleteByQuery.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
+
+    expect(getEsClient).toBeCalled();
+    expect(bulk).toBeCalledTimes(1);
+    expect(bulk).toBeCalledWith({
+      index: index,
+      refresh: true,
+      body: [
+        {
+          index: {
+            _index: index,
+            _id: esTransformedProductDocumentsMock[0].code
+          }
+        },
+        esTransformedProductDocumentsMock[0]
+      ]
+    });
+    expect(deleteByQuery).not.toBeCalled();
+
+    expect(count).toBeCalledWith({ index });
+    process.env.ES_INDEX_NAME_DOCUMENTS = originalEsIndexNameDocuments;
+  });
+
+  it("should perform a bulk update for approved systems and related documents on updated message", async () => {
+    const itemType: ItemType = "SYSTEMS";
+    const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+    const documentIndex = `${ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+    const system = createSystem({ code: systemCode });
+    const esTransformedSystemDocumentsMock =
+      getEsTransformedSystemDocumentsMock(system);
+    bulk.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+    count.mockResolvedValue({
+      body: {
+        count: {
+          count: 1,
+          _shards: { total: 1, successful: 1, skipped: 0, failed: 0 }
+        }
+      }
+    });
+    deleteByQuery.mockResolvedValue({
+      body: {
+        status: "OK"
+      }
+    });
+
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -109,6 +288,29 @@ describe("", () => {
         esTransformedSystemDocumentsMock[0]
       ]
     });
+    expect(deleteByQuery).toBeCalledWith({
+      index: documentIndex,
+      body: {
+        query: {
+          match: {
+            productBaseCode: systemCode
+          }
+        }
+      }
+    });
+    expect(bulk).toBeCalledWith({
+      index: documentIndex,
+      refresh: true,
+      body: [
+        {
+          index: {
+            _index: documentIndex,
+            _id: documents[0].id
+          }
+        },
+        documents[0]
+      ]
+    });
     expect(count).toBeCalledWith({ index });
   });
   it("should perform a bulk delete for check variants on updated message", async () => {
@@ -118,6 +320,7 @@ describe("", () => {
       getEsTransformedProductDocumentsMock({
         variantOptions: [createVariantOption({ approvalStatus: "check" })]
       });
+
     bulk.mockResolvedValue({
       body: {
         status: "OK"
@@ -132,7 +335,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -168,7 +376,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -206,7 +419,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -242,7 +460,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -281,6 +504,8 @@ describe("", () => {
     await updateElasticSearch(
       itemType,
       esTransformedProductDocumentsMock,
+      documents,
+      productCode,
       "delete"
     );
 
@@ -318,7 +543,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
       index: index,
@@ -355,7 +585,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -391,7 +626,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -429,7 +669,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
       index: index,
@@ -464,7 +709,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedSystemDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedSystemDocumentsMock,
+      documents,
+      systemCode
+    );
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledWith({
@@ -487,7 +737,7 @@ describe("", () => {
     const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
     const esTransformedProductDocumentsMock =
       getEsTransformedProductDocumentsMock();
-    bulk.mockResolvedValue({
+    bulk.mockResolvedValueOnce({
       body: {
         errors: true,
         items: [
@@ -515,7 +765,12 @@ describe("", () => {
       }
     });
 
-    await updateElasticSearch(itemType, esTransformedProductDocumentsMock);
+    await updateElasticSearch(
+      itemType,
+      esTransformedProductDocumentsMock,
+      documents,
+      productCode
+    );
 
     const indexingError = consoleSpy.mock.calls.filter((item) =>
       item[0].includes("Failed to index")
@@ -544,7 +799,7 @@ describe("", () => {
     const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
     const esTransformedProductDocumentsMock =
       getEsTransformedProductDocumentsMock();
-    bulk.mockResolvedValue({
+    bulk.mockResolvedValueOnce({
       body: {
         errors: true,
         items: [
@@ -575,6 +830,8 @@ describe("", () => {
     await updateElasticSearch(
       itemType,
       esTransformedProductDocumentsMock,
+      documents,
+      productCode,
       "delete"
     );
 
@@ -632,6 +889,8 @@ describe("", () => {
     await updateElasticSearch(
       itemType,
       esTransformedProductDocumentsMock,
+      documents,
+      productCode,
       "delete"
     );
     expect(getEsClient).toBeCalled();

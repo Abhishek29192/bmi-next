@@ -280,6 +280,8 @@ exports[`SampleBasketSection component should render form after complete button 
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                   data-shrink="false"
+                  for="text"
+                  id="text-label"
                 >
                   Text
                 </label>
@@ -289,6 +291,7 @@ exports[`SampleBasketSection component should render form after complete button 
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="text"
                     name="text"
                     type="text"
                     value=""
@@ -313,9 +316,9 @@ exports[`SampleBasketSection component should render form after complete button 
             class="ButtonWrapper"
           >
             <button
-              aria-action="sample-1-green-rough-1x2x3 mm"
               aria-label="samples ordering basket form submitted"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+              data-action="sample-1-green-rough-1x2x3 mm"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green-rough-1x2x3 mm\\"}"
               tabindex="0"
               type="submit"

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from "react";
+import { useSiteContext } from "../components/Site";
 import { Product } from "../types/pim";
 import { local } from "../utils/storage";
-import { useSiteContext } from "../components/Site";
 
 //action type
 export enum ACTION_TYPES {
@@ -35,7 +35,7 @@ export const createSample = (product: Product): Sample => ({
   colour: product.colour,
   textureFamily: product.textureFamily,
   measurements: product.measurements?.label,
-  image: product.masterImages.find((image) => !!image.mainSource)?.mainSource
+  image: product.masterImage?.mainSource
 });
 
 export interface BasketAction {

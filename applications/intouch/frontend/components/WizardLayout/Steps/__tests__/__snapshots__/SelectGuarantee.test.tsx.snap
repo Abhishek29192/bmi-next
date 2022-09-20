@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectGuarantee should render correct 1`] = `
+<div>
+  <div>
+    <div
+      class="Tooltip"
+      style="padding: 5px;"
+      title="guarantee_tab.apply_guarantee.message.guarantee_exists_error"
+    >
+      <div
+        class="main"
+      >
+        <button
+          class="MuiButtonBase-root MuiCardActionArea-root clickable Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <svg
+            class="logo"
+          />
+          <div
+            class="text"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              test
+            </h5>
+            <h6
+              class="MuiTypography-root Typography MuiTypography-subtitle2"
+            >
+              test
+            </h6>
+          </div>
+          <span
+            class="MuiCardActionArea-focusHighlight"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

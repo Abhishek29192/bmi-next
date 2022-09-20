@@ -78,6 +78,48 @@ export type Mime =
   | "image/svg+xml"
   | "image/webp";
 
+export type PIMDocumentProduct = Pick<
+  Product,
+  "code" | "name" | "categories" | "classifications"
+>;
+
+export type RichTextData = {
+  raw: string;
+  references: { __typename: string; contentful_id: string }[];
+};
+
+export type AssetTypeData = {
+  __typename: "ContentfulAssetType";
+  id: string;
+  name: string;
+  code: string;
+  description: RichTextData | null;
+  pimCode: string | null;
+};
+
+export type PIMDocumentBase = {
+  id: string;
+  title: string;
+  product: PIMDocumentProduct;
+  relatedProducts?: PIMDocumentProduct[];
+  url: string;
+  assetType: AssetTypeData;
+  isLinkDocument?: boolean;
+  docName?: string;
+};
+
+export type PIMLinkDocumentData = PIMDocumentBase & {
+  __typename: "PIMLinkDocument";
+};
+
+export type PIMDocumentData = PIMDocumentBase & {
+  __typename: "PIMDocument";
+  fileSize: number;
+  format: Mime | string;
+  extension: string;
+  realFileName: string;
+};
+
 export type Asset = {
   allowedToDownload: boolean;
   assetType?: AssetAssetType;
@@ -184,6 +226,8 @@ export type ClassificationCode =
   | "squareMeterUomAttributes"
   | "systemAttributes"
   | "weightAttributes"
+  | "tilesAttributes"
+  | "underlayAttributes"
   | string;
 
 export type Feature = {
@@ -199,11 +243,26 @@ export type FeatureCode =
   | "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily"
   | "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute"
   | "bmiClassificationCatalog/1.0/generalInformation.materials"
+  | "bmiClassificationCatalog/1.0/generalInformation.productType"
+  | "bmiClassificationCatalog/1.0/generalInformation.classification"
   | "bmiClassificationCatalog/1.0/measurements.length"
   | "bmiClassificationCatalog/1.0/measurements.width"
   | "bmiClassificationCatalog/1.0/measurements.height"
   | "bmiClassificationCatalog/1.0/measurements.thickness"
   | "bmiClassificationCatalog/1.0/measurements.volume"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.brokenBond"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.maximumBattenSpacing"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.minimumBattenSpacing"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle"
+  | "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace"
+  | "bmiClassificationCatalog/1.0/underlayAttributes.overlap"
+  | "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch"
   | "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight"
   | "bmiClassificationCatalog/1.0/weightAttributes.netweight"
   | "bmiClassificationCatalog/1.0/weightAttributes.grossweight"
@@ -417,14 +476,53 @@ export type SystemLayer = {
   type?: string;
 };
 
-export type SystemReferenceTarget = {
+export type ReferenceTarget = {
   code: string;
   name?: string;
 };
 
 export type SystemReference = {
   referenceType: "CROSSELLING" | "UPSELLING";
-  target: SystemReferenceTarget;
+  target: ReferenceTarget;
+  preselected: boolean;
+};
+
+export type ProductReferenceType =
+  | "HALF_TILE"
+  | "ACCESSORIES"
+  | "DOWN_PIPE"
+  | "DOWN_PIPE_CONNECTOR"
+  | "RIDGE_TILE"
+  | "RIDGE_END_TILE"
+  | "T_RIDGE"
+  | "Y_RIDGE"
+  | "LEFT_START"
+  | "RIGHT_START"
+  | "LEFT_VERGE_TILE"
+  | "LEFT_VERGE_HALF_TILE"
+  | "RIGHT_VERGE_TILE"
+  | "RIGHT_VERGE_HALF_TILE"
+  | "HIP"
+  | "VALLEY_METAL_FLUSH_START"
+  | "VALLEY_METAL_FLUSH"
+  | "VALLEY_METAL_FLUSH_END"
+  | "VALLEY_METAL_FLUSH_TOP"
+  | "VALLEY_METAL_FLUSH_DORMER_START"
+  | "EAVE_ACCESSORIES"
+  | "VENTILATION_HOOD"
+  | "CLIP"
+  | "RIDGE_AND_HIP_SCREW"
+  | "LONG_SCREW"
+  | "SCREW"
+  | "STORM_BRACKET"
+  | "FINISHING_KIT"
+  | "FINISHING_KIT"
+  | "CROSSELLING"
+  | "UPSELLING";
+
+export type ProductReference = {
+  referenceType: ProductReferenceType;
+  target: ReferenceTarget;
   preselected: boolean;
 };
 
@@ -438,6 +536,7 @@ export type VariantOption = {
   longDescription?: HTML;
   shortDescription: string;
   productBenefits?: string[];
+  productReferences?: ProductReference[];
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -458,6 +557,7 @@ export type Product = {
   shortDescription: string;
   summary: string;
   variantOptions?: readonly VariantOption[];
+  productReferences?: ProductReference[];
 };
 
 export enum PimTypes {

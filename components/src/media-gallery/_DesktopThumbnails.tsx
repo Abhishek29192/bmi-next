@@ -3,26 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 import ThumbScrollerButton from "../thumb-scroller-button/ThumbScrollerButton";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
 import styles from "./MediaGallery.module.scss";
-import { Media as MediaData } from "./types";
-
-type Props = {
-  images: readonly MediaData[];
-  /** The index to identify the active thumbnail */
-  activeImageIndex: number;
-  onThumbnailClick: (e: Event, index: number) => void;
-  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>, index: number) => void;
-  component?: React.ComponentType<any>; // TODO
-};
+import { ThumbnailsProps } from "./types";
 
 const THUMBNAIL_WIDTH = 86;
 
 const Thumbnails = ({
-  images,
+  media: mediaData,
   activeImageIndex,
   onThumbnailClick,
   openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
-}: Props) => {
+}: ThumbnailsProps) => {
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const [visibleArrows, setVisibleArrows] = useState<{
@@ -30,7 +21,7 @@ const Thumbnails = ({
     right: boolean;
   }>({ left: false, right: false });
   const [scrollerPosition, setScrollerPosition] = useState<number>(0);
-  const thumbnailsWidth = images.length * THUMBNAIL_WIDTH;
+  const thumbnailsWidth = mediaData.length * THUMBNAIL_WIDTH;
 
   const handleThumbScrollerClick = (direction: "left" | "right") => {
     if (!thumbnailsRef.current || isTransitioning) {
@@ -103,7 +94,7 @@ const Thumbnails = ({
           marginRight: `${scrollerPosition}%`
         }}
       >
-        {images.map(
+        {mediaData.map(
           (
             { thumbnail, isVideo, altText, media, visualiserParameters },
             index

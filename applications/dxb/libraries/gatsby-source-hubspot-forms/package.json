@@ -1,0 +1,20 @@
+{
+  "name": "@bmi/gatsby-source-hubspot-forms",
+  "description": "Gatsby source plugin",
+  "repository": "https://github.com/jamaljeantobias/gatsby-source-hubspot-forms",
+  "author": "Jamal Jean <jamal.tobias@gmail.com>",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "hubspot",
+    "forms"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": ">=3"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "version": "0.0.0"
+}

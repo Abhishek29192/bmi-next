@@ -1452,13 +1452,6 @@
   resolved "https://registry.yarnpkg.com/@bmi-digital/functions-logger/-/functions-logger-1.3.3.tgz#43957208bfbe32e55f2f54226c430d27d763f12b"
   integrity sha512-uBn9QegrpW47oc34HCBHBsibNLr4wArmH6LBoHZMpt8w9L+5/84T/fjgQMekvQjHprMM9nVJitxOLMZK3myaww==
 
-"@bmi-digital/functions-secret-client@^1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/functions-secret-client/-/functions-secret-client-1.3.3.tgz#cac03dc6ae14a6f4971bf3aedddb79da0d308426"
-  integrity sha512-RHQM0/R1tqK24ip30vAXFXACu85d+kjTlSRlTmnVZ9q5rDDfWwqJi2eUuCOMw4Q4f1kQdCbwqMQFVGCAo1aHFA==
-  dependencies:
-    "@google-cloud/secret-manager" "^3.7.1"
-
 "@bmi-digital/logger@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.11.tgz#7dec7c18475ec6ec183f569f5498a6cfa715c541"
@@ -2315,13 +2308,6 @@
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
 
-"@google-cloud/secret-manager@^3.7.1":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.12.0.tgz#ff975190e45da3aaa762905f2b7c679c06a0f4a3"
-  integrity sha512-nFNm5lYgH2RRAn1x8vPKt1c+MBMJtBXqkYB5Jpi68PjN7Emjcu7/kl+0/+FamFLp3qJUU7RKRCwETFNNZAOkuw==
-  dependencies:
-    google-gax "^2.30.0"
-
 "@google-cloud/storage@^5.3.0", "@google-cloud/storage@^5.7.0":
   version "5.18.3"
   resolved "https://registry.yarnpkg.com/@google-cloud/storage/-/storage-5.18.3.tgz#becacb909b2abf4bb54500a0efd65ceb51ef8eab"
@@ -3091,17 +3077,6 @@
     lodash.camelcase "^4.3.0"
     long "^4.0.0"
     protobufjs "^6.10.0"
-    yargs "^16.2.0"
-
-"@grpc/proto-loader@^0.6.12":
-  version "0.6.13"
-  resolved "https://registry.yarnpkg.com/@grpc/proto-loader/-/proto-loader-0.6.13.tgz#008f989b72a40c60c96cd4088522f09b05ac66bc"
-  integrity sha512-FjxPYDRTn6Ec3V0arm1FtSpmP6V50wuph2yILpyvTKzjc76oDdoihXqM1DzOW5ubvCC8GivfCnNtfaRE8myJ7g==
-  dependencies:
-    "@types/long" "^4.0.1"
-    lodash.camelcase "^4.3.0"
-    long "^4.0.0"
-    protobufjs "^6.11.3"
     yargs "^16.2.0"
 
 "@grpc/proto-loader@^0.7.0":
@@ -9575,7 +9550,7 @@ axios@^0.26.0:
   dependencies:
     follow-redirects "^1.14.8"
 
-axios@^0.27.1:
+axios@^0.27.0, axios@^0.27.1:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
   integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
@@ -9587,11 +9562,6 @@ axobject-query@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
-
-axois@0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/axois/-/axois-0.0.1-security.tgz#372b4659c6a059ec4a6c6786f81fbf6cb5f892d2"
-  integrity sha512-8Nui4fwwyxHfjAfpDlg3Jt66EJA4i1D1eJch3D+wM/Oe+qhpyp7yfiszko/O5/adYu20wc37RG9/Eg8QIJHcvA==
 
 babel-eslint@^10.1.0:
   version "10.1.0"
@@ -12143,6 +12113,17 @@ contentful@^8.1.7, contentful@^8.5.8:
     axios "^0.21.1"
     contentful-resolve-response "^1.3.0"
     contentful-sdk-core "^6.8.5"
+    fast-copy "^2.1.0"
+    json-stringify-safe "^5.0.1"
+
+contentful@^9.1.33:
+  version "9.1.33"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-9.1.33.tgz#1305254c647578ad981eae59fae1abdb07b50b6a"
+  integrity sha512-iiu2cC/9JvDrTK6cfSHhZ1iW6dOq+NmYMA2p5Thpv+9h2pEOyoHm1Un9Xir5XZSB11bu4POmo6JazGAn9N0tqg==
+  dependencies:
+    axios "^0.27.0"
+    contentful-resolve-response "^1.3.0"
+    contentful-sdk-core "^7.0.1"
     fast-copy "^2.1.0"
     json-stringify-safe "^5.0.1"
 
@@ -16547,13 +16528,6 @@ gatsby-source-filesystem@^4.13.0:
     valid-url "^1.0.9"
     xstate "^4.26.1"
 
-gatsby-source-hubspot-forms@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-hubspot-forms/-/gatsby-source-hubspot-forms-3.0.1.tgz#cccbfdaf48461d0710f5d76ea5067d38331bfe0e"
-  integrity sha512-9EJOCPcM0k/EtUWNiHZ+K9A1GQPZsBYah9CRe1WnQy1LhGe0LgSOru1buVC9CPJ56/3vmuSeejIV6l5kY1SHVQ==
-  dependencies:
-    axois "0.0.1-security"
-
 gatsby-telemetry@^3.11.1:
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.11.1.tgz#87caed899143276056e9af20ab38c15ad9dcdf52"
@@ -17310,25 +17284,6 @@ google-gax@^2.24.1:
     object-hash "^3.0.0"
     proto3-json-serializer "^0.1.8"
     protobufjs "6.11.2"
-    retry-request "^4.0.0"
-
-google-gax@^2.30.0:
-  version "2.30.5"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.30.5.tgz#e836f984f3228900a8336f608c83d75f9cb73eff"
-  integrity sha512-Jey13YrAN2hfpozHzbtrwEfEHdStJh1GwaQ2+Akh1k0Tv/EuNVSuBtHZoKSBm5wBMvNsxTsEIZ/152NrYyZgxQ==
-  dependencies:
-    "@grpc/grpc-js" "~1.6.0"
-    "@grpc/proto-loader" "^0.6.12"
-    "@types/long" "^4.0.0"
-    abort-controller "^3.0.0"
-    duplexify "^4.0.0"
-    fast-text-encoding "^1.0.3"
-    google-auth-library "^7.14.0"
-    is-stream-ended "^0.1.4"
-    node-fetch "^2.6.1"
-    object-hash "^3.0.0"
-    proto3-json-serializer "^0.1.8"
-    protobufjs "6.11.3"
     retry-request "^4.0.0"
 
 google-gax@^3.0.1:
@@ -25818,25 +25773,6 @@ protobufjs@6.11.2, protobufjs@^6.10.0, protobufjs@^6.11.2, protobufjs@^6.8.6:
   version "6.11.2"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-6.11.2.tgz#de39fabd4ed32beaa08e9bb1e30d08544c1edf8b"
   integrity sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw==
-  dependencies:
-    "@protobufjs/aspromise" "^1.1.2"
-    "@protobufjs/base64" "^1.1.2"
-    "@protobufjs/codegen" "^2.0.4"
-    "@protobufjs/eventemitter" "^1.1.0"
-    "@protobufjs/fetch" "^1.1.0"
-    "@protobufjs/float" "^1.0.2"
-    "@protobufjs/inquire" "^1.1.0"
-    "@protobufjs/path" "^1.1.2"
-    "@protobufjs/pool" "^1.1.0"
-    "@protobufjs/utf8" "^1.1.0"
-    "@types/long" "^4.0.1"
-    "@types/node" ">=13.7.0"
-    long "^4.0.0"
-
-protobufjs@6.11.3, protobufjs@^6.11.3:
-  version "6.11.3"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-6.11.3.tgz#637a527205a35caa4f3e2a9a4a13ddffe0e7af74"
-  integrity sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"

@@ -17,6 +17,7 @@
     flex-direction: column;
   }
 
+
   .sliding-slot {
     height: 28px;
   }
@@ -32,6 +33,10 @@
     margin: 10px 0;
     padding: 10px 0;
     overflow: hidden;
+  }
+
+  &--hide .middle-container {
+    display: none;
   }
 
   .chevron {

@@ -30,6 +30,12 @@ describe("transformProduct", () => {
     expect(transformedProducts).toEqual([]);
   });
 
+  it("ignores products without a name", async () => {
+    const product = createProduct({ name: undefined });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toEqual([]);
+  });
+
   it("transforms a single variant option with minimal data", async () => {
     const product: Product = {
       approvalStatus: "approved",
@@ -86,7 +92,7 @@ describe("transformProduct", () => {
         groups: [],
         hashedCode: "3464354221",
         isSampleOrderAllowed: false,
-        masterImages: [],
+        masterImage: undefined,
         materials: undefined,
         measurements: {
           length: undefined,
@@ -893,13 +899,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Concrete",
           "measurements": Object {
             "height": Object {
@@ -1882,13 +1886,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Concrete",
           "measurements": Object {
             "height": Object {
@@ -2765,13 +2767,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3903870044",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Concrete",
           "measurements": Object {
             "height": Object {
@@ -3670,13 +3670,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "2671178359",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Concrete",
           "measurements": Object {
             "height": Object {
@@ -4932,23 +4930,19 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].masterImages).toEqual([
-      {
-        mainSource: "http://localhost:8000/variant1-main",
-        thumbnail: "http://localhost:8000/variant1-thumbnail",
-        altText: "Variant 1 Image"
-      }
-    ]);
+    expect(transformedProducts[0].masterImage).toEqual({
+      mainSource: "http://localhost:8000/variant1-main",
+      thumbnail: "http://localhost:8000/variant1-thumbnail",
+      altText: "Variant 1 Image"
+    });
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000/variant2-thumbnail"
     );
-    expect(transformedProducts[1].masterImages).toEqual([
-      {
-        mainSource: "http://localhost:8000/variant2-main",
-        thumbnail: "http://localhost:8000/variant2-thumbnail",
-        altText: "Variant 2 Image"
-      }
-    ]);
+    expect(transformedProducts[1].masterImage).toEqual({
+      mainSource: "http://localhost:8000/variant2-main",
+      thumbnail: "http://localhost:8000/variant2-thumbnail",
+      altText: "Variant 2 Image"
+    });
     expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000/variant1-thumbnail"
     );
@@ -4980,23 +4974,19 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].masterImages).toEqual([
-      {
-        mainSource: "http://localhost:8000/main",
-        thumbnail: "http://localhost:8000/thumbnail",
-        altText: "Image"
-      }
-    ]);
+    expect(transformedProducts[0].masterImage).toEqual({
+      mainSource: "http://localhost:8000/main",
+      thumbnail: "http://localhost:8000/thumbnail",
+      altText: "Image"
+    });
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000/thumbnail"
     );
-    expect(transformedProducts[1].masterImages).toEqual([
-      {
-        mainSource: "http://localhost:8000/main",
-        thumbnail: "http://localhost:8000/thumbnail",
-        altText: "Image"
-      }
-    ]);
+    expect(transformedProducts[1].masterImage).toEqual({
+      mainSource: "http://localhost:8000/main",
+      thumbnail: "http://localhost:8000/thumbnail",
+      altText: "Image"
+    });
     expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000/thumbnail"
     );
@@ -5017,11 +5007,11 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].masterImages).toEqual([]);
+    expect(transformedProducts[0].masterImage).toEqual(undefined);
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       undefined
     );
-    expect(transformedProducts[1].masterImages).toEqual([]);
+    expect(transformedProducts[1].masterImage).toEqual(undefined);
     expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
       undefined
     );
@@ -5069,13 +5059,11 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].masterImages).toEqual([
-      {
-        mainSource: "http://localhost:8000",
-        thumbnail: "http://localhost:8000",
-        altText: undefined
-      }
-    ]);
+    expect(transformedProducts[0].masterImage).toEqual({
+      mainSource: "http://localhost:8000",
+      thumbnail: "http://localhost:8000",
+      altText: undefined
+    });
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       "http://localhost:8000"
     );
@@ -7174,13 +7162,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Clay",
           "measurements": Object {
             "height": Object {
@@ -8168,13 +8154,11 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
-          "masterImages": Array [
-            Object {
-              "altText": "name",
-              "mainSource": "http://localhost:8000",
-              "thumbnail": "http://localhost:8000",
-            },
-          ],
+          "masterImage": Object {
+            "altText": "name",
+            "mainSource": "http://localhost:8000",
+            "thumbnail": "http://localhost:8000",
+          },
           "materials": "Concrete",
           "measurements": Object {
             "height": Object {
@@ -8251,5 +8235,59 @@ describe("transformProduct", () => {
         },
       ]
     `);
+  });
+
+  it("ignore bimAttributes classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "bimAttributes",
+              name: "bimAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/bimAttributes.productPageURL",
+                  name: "bimAttributes"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore bimAttributes classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "bimAttributes",
+          name: "bimAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/bimAttributes.productPageURL",
+              name: "bimAttributes"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
   });
 });

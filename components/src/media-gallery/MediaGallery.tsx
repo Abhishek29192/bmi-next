@@ -149,7 +149,7 @@ const MediaGallery = ({
       )}
       {currentMedias && currentMedias.length > 1 && (
         <Thumbnails
-          images={currentMedias}
+          media={currentMedias}
           component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
           onThumbnailClick={onThumbnailClick}

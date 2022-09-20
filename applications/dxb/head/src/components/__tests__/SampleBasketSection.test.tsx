@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import axios from "axios";
 import mockConsole from "jest-mock-console";
 import React from "react";
 import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
@@ -91,12 +90,14 @@ const data: Data = {
   }
 };
 
-jest.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-axios.CancelToken.source = jest.fn().mockReturnValue({
-  token: "this",
-  cancel: () => {}
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
 });
 
 jest.mock("react-google-recaptcha-v3", () => ({
@@ -172,22 +173,27 @@ describe("SampleBasketSection with form", () => {
 
     fireEvent.submit(container.querySelector("form"));
 
+    fetchMock.mockResolvedValueOnce({ ok: true });
+
     await waitFor(() =>
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
         {
-          locale: "en-GB",
-          recipients: "recipient@mail.com",
-          title: "Complete form",
-          values: {
-            samples:
-              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/<br>color: green<br>texture: rough<br>measurements: 1x2x3 mm",
-            text: "Text"
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Complete form",
+            recipients: "recipient@mail.com",
+            values: {
+              text: "Text",
+              samples:
+                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/<br>color: green<br>texture: rough<br>measurements: 1x2x3 mm"
+            }
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json"
           }
-        },
-        {
-          cancelToken: "this",
-          headers: { "X-Recaptcha-Token": "RECAPTCHA" }
         }
       )
     );
@@ -230,22 +236,27 @@ describe("SampleBasketSection with form", () => {
 
     fireEvent.submit(container.querySelector("form"));
 
+    fetchMock.mockResolvedValueOnce({ ok: true });
+
     await waitFor(() =>
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
         {
-          locale: "en-GB",
-          recipients: "recipient@mail.com",
-          title: "Complete form",
-          values: {
-            samples:
-              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/",
-            text: "Text"
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Complete form",
+            recipients: "recipient@mail.com",
+            values: {
+              text: "Text",
+              samples:
+                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/"
+            }
+          }),
+          headers: {
+            "X-Recaptcha-Token": "RECAPTCHA",
+            "Content-Type": "application/json"
           }
-        },
-        {
-          cancelToken: "this",
-          headers: { "X-Recaptcha-Token": "RECAPTCHA" }
         }
       )
     );

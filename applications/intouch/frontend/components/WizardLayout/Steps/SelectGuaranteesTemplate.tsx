@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Select, SelectMenuItem } from "@bmi/components";
-import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
 import { useWizardContext } from "../WizardContext";
+import { parseMarketTag } from "../../../lib/utils";
+import { useMarketContext } from "../../../context/MarketContext";
 
 const SelectGuaranteesTemplate = () => {
   const { data, setData, previousStep, gotoNext, gotoBack } =
     useWizardContext();
+  const { market } = useMarketContext();
+  const contentfulTag = parseMarketTag(market?.domain);
   const { t } = useTranslation("project-page");
 
   const {
@@ -43,7 +46,8 @@ const SelectGuaranteesTemplate = () => {
     getGuaranteeTemplates({
       variables: {
         technology: technology,
-        coverage: coverage
+        coverage: coverage,
+        tag: contentfulTag
       }
     });
   }, [technology, coverage]);
@@ -65,6 +69,7 @@ const SelectGuaranteesTemplate = () => {
           style={{ margin: "10px" }}
           onChange={onChangeHandler}
           value={selectedTemplate || ""}
+          data-testid="templates-select"
         >
           {guaranteeTemplates.map((template) => (
             <SelectMenuItem value={template.sys.id} key={template.sys.id}>
@@ -78,29 +83,3 @@ const SelectGuaranteesTemplate = () => {
 };
 
 export default SelectGuaranteesTemplate;
-
-export const GET_GUARANTEE_TEMPLATES = gql`
-  query getGuaranteeTemplates(
-    $technology: String!
-    $coverage: String!
-    $language: String
-  ) {
-    guaranteeTemplateCollection(
-      where: {
-        coverage: $coverage
-        technology: $technology
-        languageCode: $language
-      }
-    ) {
-      items {
-        sys {
-          id
-        }
-        displayName
-        languageCode
-        languageDescriptor
-        coverage
-      }
-    }
-  }
-`;

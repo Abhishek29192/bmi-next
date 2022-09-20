@@ -23,11 +23,14 @@ export interface EnvConfig {
     documentDownloadMaxLimit?: number;
     googleApiKey?: string;
     esIndexNameSystem?: string;
+    esIndexNameProduct?: string;
     isDevMode?: boolean;
     gcpSystemConfiguratorEndpoint?: string;
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
     isV2WebToolsCalculatorEnabled?: boolean;
+    isSpaEnabled?: boolean;
+    isGatsbyDisabledElasticSearch?: boolean;
     oneTrustId?: string;
   };
 }
@@ -67,10 +70,15 @@ export const envConfig: EnvConfig = {
       +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100,
     googleApiKey: process.env.GATSBY_GOOGLE_API_KEY,
     esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
+    esIndexNameProduct: process.env.GATSBY_ES_INDEX_NAME_PRODUCTS,
     isDevMode: process.env.NODE_ENV === "development",
     gcpSystemConfiguratorEndpoint:
       process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
-    oneTrustId: process.env.ONETRUST_ID
+    oneTrustId: process.env.ONETRUST_ID,
+    isSpaEnabled: convertStrToBool(process.env.GATSBY_IS_SPA_ENABLED),
+    isGatsbyDisabledElasticSearch: convertStrToBool(
+      process.env.GATSBY_DISABLE_SEARCH
+    )
   }
 };
 

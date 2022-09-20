@@ -3,6 +3,7 @@
 exports[`Thumbnail component renders correctly 1`] = `
 <div>
   <button
+    aria-label="Blue"
     class="MuiButtonBase-root Thumbnail"
     style="background-color: rgb(51, 178, 233);"
     tabindex="0"
@@ -23,6 +24,7 @@ exports[`Thumbnail component renders correctly 1`] = `
 exports[`Thumbnail component renders disabled 1`] = `
 <div>
   <button
+    aria-label="Black"
     class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
     disabled=""
     tabindex="-1"
@@ -40,6 +42,7 @@ exports[`Thumbnail component renders disabled 1`] = `
 exports[`Thumbnail component renders selected 1`] = `
 <div>
   <button
+    aria-label="Black"
     class="MuiButtonBase-root Thumbnail Thumbnail--selected"
     tabindex="0"
     type="button"
@@ -56,6 +59,7 @@ exports[`Thumbnail component renders selected 1`] = `
 exports[`Thumbnail component renders with an image 1`] = `
 <div>
   <button
+    aria-label="Black"
     class="MuiButtonBase-root Thumbnail Thumbnail--disabled Mui-disabled"
     disabled=""
     style="background-image: url(path-to-image);"
@@ -74,6 +78,7 @@ exports[`Thumbnail component renders with an image 1`] = `
 exports[`Thumbnail component renders with large size 1`] = `
 <div>
   <button
+    aria-label="Black"
     class="MuiButtonBase-root Thumbnail Thumbnail--large"
     style="background-color: rgb(0, 0, 0);"
     tabindex="0"

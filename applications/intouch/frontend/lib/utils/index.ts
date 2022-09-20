@@ -66,12 +66,18 @@ export const getOneTrustToken = (str: string, lang: string) => {
 };
 
 export const parseMarketTag = (market: string) => {
-  const { CONTENTFUL_TAGS = "{}" } = process.env;
-  try {
-    const marketsContentfulMap = JSON.parse(CONTENTFUL_TAGS);
-    // eslint-disable-next-line security/detect-object-injection
-    return marketsContentfulMap[market] || "non_existing_tag";
-  } catch (e) {
-    return "non_existing_tag";
-  }
+  // TODO: Change tags system names in contentful in future to be same as domain. market__my
+  const tags = {
+    en: "market__endor",
+    dk: "market__denmark",
+    de: "market__germany",
+    it: "market__italy",
+    no: "market__norway",
+    pt: "market__portugal",
+    es: "market__spain",
+    fi: "market__finland",
+    my: "market__malaysia"
+  };
+  // eslint-disable-next-line security/detect-object-injection
+  return tags[market] || "non_existing_tag";
 };

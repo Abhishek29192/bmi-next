@@ -30,6 +30,7 @@ import {
   getGuaranteeStatus
 } from "../../../lib/utils/project";
 import AccessControl from "../../../lib/permissions/AccessControl";
+import can from "../../../lib/permissions/can";
 import { DeepPartial } from "../../../lib/utils/types";
 import { getMappedEvidenceCategory } from "../../../lib/utils/uploads";
 import { useAccountContext } from "../../../context/AccountContext";
@@ -426,6 +427,9 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
           description={selectedEvidenceCollection?.description}
           onCloseClick={() => setRequirementOpen(false)}
           onUploadButtonClick={uploadButtonClickHandler}
+          canUploadAction={can(account, "project", "addEvidence", {
+            isArchived: project.hidden
+          })}
         />
       </div>
     </>

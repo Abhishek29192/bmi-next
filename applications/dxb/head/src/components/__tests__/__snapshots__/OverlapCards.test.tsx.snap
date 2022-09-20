@@ -233,6 +233,7 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                     <button
                       aria-label="video label"
                       class="thumbnail"
+                      data-testid="thumbnail"
                       type="button"
                     >
                       <div
@@ -289,7 +290,9 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                       </span>
                       <div
                         aria-disabled="false"
+                        aria-label="video label"
                         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+                        data-testid="thumbnail-button"
                         role="button"
                         tabindex="0"
                       >
@@ -557,6 +560,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                     <button
                       aria-label="video label"
                       class="thumbnail"
+                      data-testid="thumbnail"
                       type="button"
                     >
                       <div
@@ -613,7 +617,9 @@ exports[`OverlapCards component renders correctly 1`] = `
                       </span>
                       <div
                         aria-disabled="false"
+                        aria-label="video label"
                         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                        data-testid="thumbnail-button"
                         role="button"
                         tabindex="0"
                       >

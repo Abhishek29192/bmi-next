@@ -38,9 +38,7 @@ const Search = ({
   isSubmitDisabled,
   ...formProps
 }: Props) => {
-  const [value, setValue] = useState<string | undefined>(
-    valueProp || defaultValue || undefined
-  );
+  const [value, setValue] = useState<string>(valueProp || defaultValue || "");
   const Button = buttonComponent || DefaultButton;
 
   const handleOnChange = (newValue: string) => {
@@ -54,7 +52,7 @@ const Search = ({
   const clearSearch = () => handleOnChange("");
 
   useEffect(() => {
-    setValue(valueProp);
+    setValue(valueProp || "");
   }, [valueProp]);
 
   return (
@@ -73,7 +71,6 @@ const Search = ({
         }
         input={
           <TextField
-            defaultValue={defaultValue}
             label={placeholder}
             name={fieldName}
             onChange={handleOnChange}

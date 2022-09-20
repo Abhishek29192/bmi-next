@@ -3,10 +3,12 @@ import { Tooltip } from "@bmi/components";
 import { GuaranteeType } from "@bmi/intouch-api-types";
 import { AlertBanner } from "@bmi/components";
 import { useTranslation } from "next-i18next";
-import { ActionTile } from "../../../components/ActionTile";
+import { ActionTile } from "../../ActionTile";
 import { useWizardContext } from "../WizardContext";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated/hooks";
+import { parseMarketTag } from "../../../lib/utils";
+import { useMarketContext } from "../../../context/MarketContext";
 
 export type SelectGuaranteeType = {
   guaranteeType: GuaranteeType;
@@ -17,6 +19,8 @@ export type SelectGuaranteeType = {
 const SelectGuarantee = () => {
   const { data, project, setData } = useWizardContext();
   const { t } = useTranslation("project-page");
+  const { market } = useMarketContext();
+  const contentfulTag = parseMarketTag(market?.domain);
 
   const { technology } = project;
   const [guaranteeTypes, setGuaranteeTypes] = useState<SelectGuaranteeType[]>(
@@ -37,7 +41,8 @@ const SelectGuarantee = () => {
   useEffect(() => {
     productGuaranteeTypes({
       variables: {
-        technology: technology
+        technology: technology,
+        tag: contentfulTag
       }
     });
   }, [technology]);
@@ -93,15 +98,15 @@ const SelectGuarantee = () => {
 
 const getProductGuarantees = (
   project: GetProjectQuery["project"],
-  quaranteeTypes: GuaranteeType[]
+  guaranteeTypes: GuaranteeType[]
 ): SelectGuaranteeType[] => {
   const { company, guarantees } = project;
 
-  const isproductGuaranteeExist: boolean = guarantees.nodes.some(
+  const isProductGuaranteeExist: boolean = guarantees.nodes.some(
     (k) => k.status == "APPROVED" && k.guaranteeType.coverage === "PRODUCT"
   );
 
-  return quaranteeTypes.map((guaranteeType) => {
+  return guaranteeTypes.map((guaranteeType) => {
     const isTierAvailable: boolean = guaranteeType.tiersAvailable.includes(
       company?.tier
     );
@@ -115,7 +120,7 @@ const getProductGuarantees = (
     }
 
     if (
-      isproductGuaranteeExist &&
+      isProductGuaranteeExist &&
       ["SYSTEM", "SOLUTION"].includes(guaranteeType.coverage)
     ) {
       return {

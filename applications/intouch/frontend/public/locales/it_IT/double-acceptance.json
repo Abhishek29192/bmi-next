@@ -1,0 +1,46 @@
+{
+  "title": "La tua Garanzia BMI è in attesa di essere richiesta!",
+  "reject": "Declino",
+  "accept": "Accettare",
+  "dialog": {
+    "title": "Sei sicuro di voler {{acceptance}} della Garanzia BMI?",
+    "description": "Se rifiuti la garanzia BMI, scegli di non ricevere la garanzia offerta e verrà annullata.",
+    "cta": {
+      "back": "Indietro",
+      "confirm": "Confermare"
+    }
+  },
+  "description": [
+    "Siamo lieti di confermare che una nuova Garanzia BMI è disponibile per te da richiedere, per offrire tranquillità e protezione alla tua proprietà e ai suoi occupanti.",
+    "Questa offerta di garanzia è disponibile per un periodo limitato, quindi controlla i dettagli di seguito e fai clic per accettare o declino questa offerta."
+  ],
+  "warantyPeriod": "Periodo di garanzia:",
+  "guaranteeScope": "Scopo della garanzia:",
+  "guaranteeConditions": "Condizioni di garanzia:",
+  "guaranteeConditionsDescription": "Cliccando su 'Accettare', accetti questa garanzia e dichiari di aver letto attentamente e di approvare specificamente le seguenti condizioni:",
+  "acceptanceTitle": "Conferma di seguito per accettare o rifiutare l'offerta di garanzia BMI",
+  "acceptanceDescription": [
+    "Se scegli di accettare, la documentazione della garanzia BMI seguirà in un'e-mail separata, insieme a una copia completa dei termini e delle condizioni.",
+    "Se si sceglie di declino, l'offerta di garanzia BMI verrà annullata e l'appaltatore verrà informato."
+  ],
+  "form": {
+    "fields": {
+      "acceptance": {
+        "label": "Spuntando questa casella confermo di aver letto, compreso e di accettare le condizioni di garanzia."
+      },
+      "firstname": {
+        "label": "Nome"
+      },
+      "lastname": {
+        "label": "Cognome"
+      }
+    }
+  },
+  "confirmation": {
+    "title": "Grazie per aver scelto BMI per coprire il tuo tetto!",
+    "description": [
+      "BMI lavora a stretto contatto con gli impresa per assicurarti di ricevere i più alti standard di lavorazione, maggiori garanzie e il supporto continuo e i servizi necessari per mantenere il tuo tetto nelle migliori condizioni possibili.",
+      "Per ulteriori informazioni sull'IMC e se hai bisogno di metterti in contatto, visita {{website}}."
+    ]
+  }
+}

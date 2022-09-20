@@ -102,12 +102,13 @@ const SlideControls = ({
         {
           [styles["SlideControls--full-size"]!]: isFullSize && !isVertical,
           [styles["SlideControls--vertical"]!]: isVertical,
-          [styles["SlideControls--light"]!]: isDarkThemed
+          [styles["SlideControls--light"]!]: isDarkThemed,
+          [styles["SlideControls--hide"]!]: total === 1
         },
         className
       )}
     >
-      {total > 2 && (
+      {total > 1 && (
         <Button
           variant="text"
           hasDarkBackground={isDarkThemed}
@@ -169,7 +170,6 @@ const SlideControls = ({
     </div>
   );
 };
-
 export default SlideControls;
 
 export const StateSlideControls = ({

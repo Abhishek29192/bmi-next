@@ -17,10 +17,7 @@ const createContentfulDocument = (
   featuredMedia___Node: "featured-media",
   asset___Node: "asset",
   // TODO: add validations for this Rich Text field in CMS
-  description: {
-    raw: "raw description",
-    references: []
-  },
+  description: null,
   brand: "brand",
   noIndex: false,
   ...contentfulDocument

@@ -4,7 +4,6 @@ import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import no from "../../samples/copy/no.json";
-import data from "../../samples/v2/data.json";
 import PitchedRoofCalculator from "../PitchedRoofCalculator";
 
 const LOADED_TEXT = "loaded";
@@ -20,15 +19,12 @@ beforeEach(() => {
 
 describe("PitchedRoofCalculator component", () => {
   it("renders correctly", async () => {
-    expect(data).toBeTruthy();
-
     const { container, findByText } = render(
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculator
           isOpen
           onClose={jest.fn()}
           isDebugging
-          data={data as any}
           calculatorConfig={null}
         />
       </MicroCopy.Provider>
@@ -46,7 +42,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
-          data={data as any}
           calculatorConfig={null}
         />
       </MicroCopy.Provider>
@@ -68,7 +63,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
-          data={data as any}
           calculatorConfig={null}
         />
       </MicroCopy.Provider>
@@ -95,7 +89,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
-          data={data as any}
           calculatorConfig={null}
         />
       </MicroCopy.Provider>

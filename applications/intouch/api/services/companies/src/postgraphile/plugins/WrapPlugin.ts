@@ -6,7 +6,9 @@ import {
   DeleteEvidenceItemInput,
   UpdateCompanyInput,
   UpdateGuaranteeInput,
-  UpdateProjectMemberInput
+  UpdateProjectMemberInput,
+  CreateDoubleAcceptanceInput,
+  UpdateDoubleAcceptanceInput
 } from "@bmi/intouch-api-types";
 import {
   createCompany,
@@ -26,6 +28,7 @@ import { createNote } from "../../services/note";
 import Auth0 from "../../services/auth0";
 import * as companyDocumentMutation from "../../services/companyDocument";
 import * as doceboTierMutation from "../../services/doceboTier";
+import * as doubleAcceptanceMutation from "../../services/doubleAcceptance";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -180,7 +183,51 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         }
       },
       ...companyDocumentMutation,
-      ...doceboTierMutation
+      ...doceboTierMutation,
+      ...{
+        ...doubleAcceptanceMutation,
+        createDoubleAcceptance: {
+          requires: {
+            childColumns: [
+              { column: "id", alias: "$id" },
+              { column: "guarantee_id", alias: "$guaranteeId" },
+              { column: "temp_token", alias: "$tempToken" }
+            ]
+          },
+          async resolve(
+            resolve,
+            source: Source | string,
+            args: { input: CreateDoubleAcceptanceInput },
+            context: PostGraphileContext,
+            resolveInfo
+          ) {
+            return doubleAcceptanceMutation.createDoubleAcceptance(
+              resolve,
+              source,
+              args,
+              context,
+              resolveInfo
+            );
+          }
+        },
+        updateDoubleAcceptance: {
+          async resolve(
+            resolve,
+            source: Source | string,
+            args: { input: UpdateDoubleAcceptanceInput },
+            context: PostGraphileContext,
+            resolveInfo
+          ) {
+            return doubleAcceptanceMutation.updateDoubleAcceptance(
+              resolve,
+              source,
+              args,
+              context,
+              resolveInfo
+            );
+          }
+        }
+      }
     }
   };
 });

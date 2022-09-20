@@ -49,6 +49,7 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
               class="Tooltip"
             >
               <button
+                aria-label="Black"
                 class="MuiButtonBase-root Thumbnail"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
@@ -73,6 +74,7 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
             >
               <a
                 aria-disabled="false"
+                aria-label="Brown"
                 class="MuiButtonBase-root Thumbnail Thumbnail--selected"
                 href="#"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
@@ -384,6 +386,7 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
               class="Tooltip"
             >
               <button
+                aria-label="Black"
                 class="MuiButtonBase-root Thumbnail"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
@@ -408,6 +411,7 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
             >
               <a
                 aria-disabled="false"
+                aria-label="Brown"
                 class="MuiButtonBase-root Thumbnail Thumbnail--selected"
                 href="#"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"

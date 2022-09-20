@@ -3,5 +3,10 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "dist"
-  }
+  },
+  "references": [
+    {
+      "path": "../libraries/utils"
+    }
+  ]
 }

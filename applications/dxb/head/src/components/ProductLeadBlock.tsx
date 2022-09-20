@@ -294,7 +294,7 @@ const ProductLeadBlock = ({
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
           >
-            <AssetsIframe url={product.bimIframeUrl} />
+            <AssetsIframe url={product.bimIframeUrl} title={"BIM iFrame"} />
           </Tabs.TabPanel>
         )}
         {product.techDrawings.length > 0 && (
@@ -330,6 +330,7 @@ const ProductLeadBlock = ({
             <AssetsIframe
               url={product.specificationIframeUrl}
               className={styles["specification-tab-iframe"]}
+              title={`${pdpSpecificationTitle} iFrame`}
             />
           </Tabs.TabPanel>
         )}
@@ -351,6 +352,7 @@ const ProductLeadBlock = ({
             <AssetsIframe
               url={product.fixingToolIframeUrl}
               className={styles["fixing-tool-iframe"]}
+              title={`${pdpFixingToolTitle} iFrame`}
             />
           </Tabs.TabPanel>
         )}

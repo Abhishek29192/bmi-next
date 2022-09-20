@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "tags": []
+  },
+  "sys": {
+    "type": "Entry",
+    "id": "postman ID",
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "contentType": {
+      "sys": {
+        "type": "Link",
+        "linkType": "ContentType",
+        "id": "document"
+      }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "6CM7y3b8r1ga39KskCMnjB"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "6CM7y3b8r1ga39KskCMnjB"
+      }
+    },
+    "revision": 6,
+    "createdAt": "2022-05-18T13:59:57.011Z",
+    "updatedAt": "2022-05-19T18:55:24.465Z"
+  },
+  "fields": {
+    "title": {
+      "en-GB": "Test Document DS 2"
+    },
+    "asset": {
+      "en-GB": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Asset",
+          "id": "4P2uy14Y5aalE9bL8sblGA"
+        }
+      }
+    },
+    "description": {
+      "en-GB": {
+        "data": {},
+        "content": [
+          {
+            "data": {},
+            "content": [
+              {
+                "data": {},
+                "marks": [],
+                "value": "test description",
+                "nodeType": "text"
+              }
+            ],
+            "nodeType": "paragraph"
+          }
+        ],
+        "nodeType": "document"
+      }
+    },
+    "assetType": {
+      "en-GB": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "5wc5afPFlTvapaBCzn9AdG"
+        }
+      }
+    },
+    "noIndex": {
+      "en-GB": false
+    },
+    "brand": {
+      "en-GB": "icopal"
+    }
+  }
+}

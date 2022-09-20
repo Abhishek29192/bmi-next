@@ -43,36 +43,38 @@ export type GallerySectionMedias =
   | GallerySectionVideo
   | GalleryPimVideo;
 
-export const transformMediaSrc = (
+export const transformMediaSrc = async (
   media: readonly GallerySectionMedias[] = []
-): MediaData[] => {
-  return media.map((item) => {
-    switch (item.__typename) {
-      case "ContentfulImage":
-        return {
-          media: renderImage(item),
-          thumbnail: item.image.thumbnail.src || null,
-          caption: item.caption?.caption || undefined,
-          altText: item.altText || undefined,
-          isVideo: false
-        };
-      case "ContentfulVideo":
-        return {
-          media: renderVideo(item),
-          thumbnail:
-            item.previewMedia?.image?.thumbnail?.src ||
-            getDefaultPreviewImage(item.videoUrl),
-          caption: item.subtitle || undefined,
-          altText: item.previewMedia?.altText || undefined,
-          isVideo: true
-        };
-      case "PimVideo":
-        return {
-          media: renderVideo(item),
-          thumbnail: getDefaultPreviewImage(item.videoUrl),
-          caption: item.title,
-          isVideo: true
-        };
-    }
-  });
+): Promise<MediaData[]> => {
+  return await Promise.all(
+    media.map(async (item) => {
+      switch (item.__typename) {
+        case "ContentfulImage":
+          return {
+            media: renderImage(item),
+            thumbnail: item.image.thumbnail.src || null,
+            caption: item.caption?.caption || undefined,
+            altText: item.altText || undefined,
+            isVideo: false
+          };
+        case "ContentfulVideo":
+          return {
+            media: renderVideo(item),
+            thumbnail:
+              item.previewMedia?.image?.thumbnail?.src ||
+              (await getDefaultPreviewImage(item.videoUrl)),
+            caption: item.subtitle || undefined,
+            altText: item.label,
+            isVideo: true
+          };
+        case "PimVideo":
+          return {
+            media: renderVideo(item),
+            thumbnail: await getDefaultPreviewImage(item.videoUrl),
+            caption: item.title,
+            isVideo: true
+          };
+      }
+    })
+  );
 };

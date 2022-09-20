@@ -1,7 +1,8 @@
 {% assign language = user.user_metadata.market %} 
 {% assign blocked_access = "Blocked Access Attempt" %} 
 {% assign suspicious_activity_detect = "We detected suspicious activity from the ip:" %} 
-{% assign from = "from" %} {% assign is_your_ip = "If that is your IP address" %} 
+{% assign from = "from" %}
+{% assign is_your_ip = "If that is your IP address" %}
 {% assign click_here = "click here" %} 
 {% assign unblock_account_message = "to unblock your account. Otherwise disregard this email." %} 
 {% assign thanks = "Thanks!" %} 
@@ -60,6 +61,24 @@
 {% assign unblock_account_message = "para desbloquear sua conta. Caso contrário, ignore este correio eletronico" %}
 {% assign thanks = "Obrigado!" %}
 {% assign warning_message = "Se você não fez essa solicitação, entre em contato conosco respondendo a este correio." %}
+{% if language == "my" %}
+{% assign blocked_access = "Blocked Access Attempt" %}
+{% assign suspicious_activity_detect = "We detected suspicious activity from the ip:" %}
+{% assign from = "from" %}
+{% assign is_your_ip = "If that is your IP address" %}
+{% assign click_here = "click here" %}
+{% assign unblock_account_message = "to unblock your account. Otherwise disregard this email." %}
+{% assign thanks = "Thanks!" %}
+{% assign warning_message = "If you did not make this request, please contact us by replying to this mail." %}
+{% if language == "fi" %}
+{% assign blocked_access = "Estetty pääsyyritys" %}
+{% assign suspicious_activity_detect = "Havaitsimme epäilyttävää toimintaa IP:stä:" %}
+{% assign from = "alkaen" %}
+{% assign is_your_ip = "Jos se on IP-osoitteesi" %}
+{% assign click_here = "klikkaa tästä" %}
+{% assign unblock_account_message = "poistaaksesi tilisi eston. Muussa tapauksessa jätä tämä sähköposti huomioimatta." %}
+{% assign thanks = "Kiitos!" %}
+{% assign warning_message = "Jos et tehnyt tätä pyyntöä, ota yhteyttä BMI:hen vastaamalla tähän sähköpostiin." %}
 {% endif %}
 
 <html>

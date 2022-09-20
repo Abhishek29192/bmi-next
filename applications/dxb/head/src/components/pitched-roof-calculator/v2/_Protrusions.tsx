@@ -6,7 +6,7 @@ import {
   InputValue,
   RawTextField
 } from "@bmi/components";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "./../helpers/analytics";
@@ -31,33 +31,28 @@ const SelectProtrusion = ({
 
   const [selected, setSelected] = useState(defaultValue);
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
+  const handleOnChange = (newValue: string) => {
     setSelected(newValue);
     updateField(newValue, undefined);
   };
 
-  useEffect(() => {
-    updateField(selected, !selected ? "This field is required" : undefined);
-  }, []);
-
   return (
-    <FieldContainer>
-      <Grid container>
+    <FieldContainer className={styles["fieldsContainer"]}>
+      <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
           <Grid key={type} item xs={6} lg={2}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
               illustratedImage={illustration}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onChange={() => {
                 pushEvent({
                   event: "dxb.button_click",
                   id: "rc-dimensions-protrusions-type",
                   label: type,
                   action: "selected"
                 });
-                handleOnChange(e);
+                handleOnChange(type);
               }}
               checked={selected === type}
             />
@@ -155,69 +150,62 @@ const ProtrusionDimensions = ({
     // eslint-disable-next-line security/detect-object-injection
     protrusionTypes[protrusionType];
 
+  const isAddAnotherBtnDisabled = fields.some((field) => !values[field.name]);
+
   return (
-    <FieldContainer
-      title={getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_PROMPT)}
-    >
-      <Grid container className={styles["dimensions"]}>
-        <Grid item xs={12} lg={3}>
-          <DimensionsIllustration />
-        </Grid>
-        <Grid item md={1} className={styles["showOnLarge"]}></Grid>
-        <Grid item xs={12} lg={3}>
-          <Grid container>
-            {fields.map(({ name, type }: { name: string; type: Type }) => (
-              <Grid key={`protrusion-${id}-${name}`} item xs={12}>
-                <Input
-                  key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
-                  label={name}
-                  type={type}
-                  // eslint-disable-next-line security/detect-object-injection
-                  defaultValue={values[name]}
-                  updateField={createUpdateField(name)}
-                />
-              </Grid>
-            ))}
-            <Grid item xs={12}>
-              {onAddAnother ? (
-                <Button
-                  variant="text"
-                  onClick={() => {
-                    pushEvent({
-                      event: "dxb.button_click",
-                      id: "rc-dimensions-protrusions",
-                      label: getMicroCopy(
-                        microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
-                      ),
-                      action: "selected"
-                    });
-                    onAddAnother();
-                  }}
-                >
-                  {getMicroCopy(
-                    microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
-                  )}
-                </Button>
-              ) : null}
-              <Button
-                variant="text"
-                onClick={() => {
-                  pushEvent({
-                    event: "dxb.button_click",
-                    id: "rc-dimensions-protrusions",
-                    label: getMicroCopy(
-                      microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE
-                    ),
-                    action: "removed"
-                  });
-                  onRemove();
-                }}
-              >
-                {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
-              </Button>
+    <FieldContainer className={styles["fieldsContainer"]}>
+      <Grid container justifyContent="center" className={styles["dimensions"]}>
+        <DimensionsIllustration className={styles["dimensionsIllustration"]} />
+        <Grid container justifyContent="center">
+          {fields.map(({ name, type }: { name: string; type: Type }) => (
+            <Grid key={`protrusion-${id}-${name}`} item xs={12} lg={3}>
+              <Input
+                key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
+                label={name}
+                type={type}
+                // eslint-disable-next-line security/detect-object-injection
+                defaultValue={values[name]}
+                updateField={createUpdateField(name)}
+              />
             </Grid>
-          </Grid>
+          ))}
         </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <Button
+          variant="text"
+          onClick={() => {
+            pushEvent({
+              event: "dxb.button_click",
+              id: "rc-dimensions-protrusions",
+              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE),
+              action: "removed"
+            });
+            onRemove();
+          }}
+        >
+          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
+        </Button>
+        {onAddAnother ? (
+          <Button
+            variant="outlined"
+            className={styles["addAnotherButton"]}
+            disabled={isAddAnotherBtnDisabled}
+            onClick={() => {
+              pushEvent({
+                event: "dxb.button_click",
+                id: "rc-dimensions-protrusions",
+                label: getMicroCopy(
+                  microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
+                ),
+                action: "selected"
+              });
+              onAddAnother();
+            }}
+          >
+            {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER)}
+          </Button>
+        ) : null}
       </Grid>
     </FieldContainer>
   );
@@ -237,6 +225,7 @@ type ProtrusionProps = {
   ) => void;
   onRemove: () => void;
   values: Record<string, any>;
+  showRemoveButton: boolean;
 };
 
 const Protrusion = ({
@@ -244,7 +233,8 @@ const Protrusion = ({
   onAddAnother,
   onUpdate,
   onRemove,
-  values
+  values,
+  showRemoveButton
 }: ProtrusionProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
@@ -265,7 +255,7 @@ const Protrusion = ({
   const { type } = values;
 
   return (
-    <div>
+    <div className={styles["protrusion"]}>
       <SelectProtrusion
         id={id}
         defaultValue={type}
@@ -282,7 +272,8 @@ const Protrusion = ({
             type
           }}
         />
-      ) : (
+      ) : null}
+      {showRemoveButton ? (
         <Button
           variant="text"
           onClick={() => {
@@ -297,7 +288,7 @@ const Protrusion = ({
         >
           {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
         </Button>
-      )}
+      ) : null}
     </div>
   );
 };
@@ -306,19 +297,19 @@ let globalIndex = 0;
 const getNextId = () => globalIndex++ + "";
 
 const Protrusions = ({
-  defaultValue = []
+  defaultValue
 }: {
   defaultValue?: ReadonlyArray<ProtrusionItem["values"]>;
 }) => {
-  const pushEvent = useContext(AnalyticsContext);
+  const defaultProtrusions = defaultValue
+    ? defaultValue.map((values) => ({
+        id: getNextId(),
+        values: { ...values },
+        errors: {}
+      }))
+    : [{ id: getNextId(), values: {}, errors: {} }];
 
-  const [protrusions, setProtrusions] = useState(
-    defaultValue.map((values) => ({
-      id: getNextId(),
-      values: { ...values },
-      errors: {}
-    }))
-  );
+  const [protrusions, setProtrusions] = useState(defaultProtrusions);
   const { updateFormState } = useContext(FormContext);
   const { getMicroCopy } = useSiteContext();
 
@@ -336,25 +327,14 @@ const Protrusions = ({
       protrusions.map((p) => (p.id === id ? { ...p, ...getChange(p) } : p))
     );
 
-  const removeProtrusion = (id: string) =>
-    setProtrusions((protrusions) => protrusions.filter((p) => p.id !== id));
+  const removeProtrusion = (id: string) => {
+    if (protrusions.length === 1) {
+      setProtrusions([{ id: getNextId(), values: {}, errors: {} }]);
+      return;
+    }
 
-  const protrusionsElements = useMemo(
-    () =>
-      protrusions.map(({ id, values }, i) => (
-        <Protrusion
-          key={id}
-          id={id}
-          onAddAnother={
-            i + 1 === protrusions.length && i < 8 ? addProtrusion : undefined
-          }
-          onUpdate={(change) => updateProtrusion(id, change)}
-          onRemove={() => removeProtrusion(id)}
-          values={values}
-        />
-      )),
-    [protrusions]
-  );
+    setProtrusions((protrusions) => protrusions.filter((p) => p.id !== id));
+  };
 
   useEffect(() => {
     let error = false;
@@ -380,27 +360,22 @@ const Protrusions = ({
 
   return (
     <div className={styles["Protrusions"]}>
-      <FieldContainer
-        title={getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_TITLE)}
-      >
-        <Button
-          variant="outlined"
-          disabled={!!protrusions.length}
-          accessibilityLabel={"Add protrusions"}
-          onClick={() => {
-            pushEvent({
-              event: "dxb.button_click",
-              id: "rc-dimensions-protrusions",
-              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD),
-              action: "selected"
-            });
-            addProtrusion();
-          }}
-        >
-          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD)}
-        </Button>
-      </FieldContainer>
-      {protrusionsElements}
+      <h6 className={styles["title"]}>
+        {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_TITLE)}
+      </h6>
+      {protrusions.map(({ id, values }, i) => (
+        <Protrusion
+          key={id}
+          id={id}
+          onAddAnother={
+            i + 1 === protrusions.length && i < 8 ? addProtrusion : undefined
+          }
+          onUpdate={(change) => updateProtrusion(id, change)}
+          onRemove={() => removeProtrusion(id)}
+          values={values}
+          showRemoveButton={!values.type && protrusions.length > 1}
+        />
+      ))}
     </div>
   );
 };

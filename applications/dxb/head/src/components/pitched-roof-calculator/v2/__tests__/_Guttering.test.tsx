@@ -2,67 +2,78 @@ import { Form, FormContext } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
+import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/v2/data.json";
-import { Guttering as IGuttering } from "../../types";
+import { GroupedGutters, GutterHook, GutterVariant } from "../../types/v2";
 import Guttering from "../_Guttering";
+
+const gutterVariant = createProduct<GutterVariant>({
+  ...createProduct({
+    name: "Variant",
+    externalProductCode: "variant",
+    baseProduct: { name: "base product", code: "base_product_code" }
+  }),
+  length: 20
+});
+
+const gutters: GroupedGutters = {
+  base_product_code: [gutterVariant]
+};
+
+const gutterHook = createProduct<GutterHook>({
+  ...createProduct({ name: "Gutter hook", externalProductCode: "Gutter_hook" }),
+  length: 20
+});
 
 describe("PitchedRoofCalculator Guttering component", () => {
   it("renders with no options", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
-    const { container } = render(
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
-          <Guttering selections={{}} gutters={[]} gutterHooks={[]} />
+          <Guttering selections={{}} gutters={{}} gutterHooks={[]} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    expect(
+      screen.queryByText("MC: guttering.gutter.title")
+    ).not.toBeInTheDocument();
   });
 
   it("renders fields step by step", () => {
     render(
       <MicroCopy.Provider values={en}>
         <Form>
-          <Guttering
-            gutters={data.gutters as IGuttering[]}
-            gutterHooks={data.gutterHooks}
-          />
+          <Guttering gutters={gutters} gutterHooks={[gutterHook]} />
         </Form>
       </MicroCopy.Provider>
     );
 
-    const gutterVariant = data.gutters[0].variants[0].name;
-    expect(screen.queryByText(gutterVariant)).not.toBeInTheDocument();
+    expect(screen.queryByText(gutterVariant.name)).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByLabelText(data.gutters[0].name));
-    expect(screen.getByText(gutterVariant)).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText(gutterVariant.baseProduct.name));
+    expect(screen.getByText(gutterVariant.name)).toBeInTheDocument();
 
-    const gutterHook = data.gutterHooks[0].name;
-    expect(screen.queryByText(gutterHook)).not.toBeInTheDocument();
+    expect(screen.queryByText(gutterHook.name)).not.toBeInTheDocument();
 
     fireEvent.click(
-      screen.getByDisplayValue(data.gutters[0].variants[0].externalProductCode)
+      screen.getByDisplayValue(gutterVariant.externalProductCode)
     );
-    expect(screen.getByText(gutterHook)).toBeInTheDocument();
+    expect(screen.getByText(gutterHook.name)).toBeInTheDocument();
   });
 
   it("return null for GutteringSelection component", () => {
     render(
       <MicroCopy.Provider values={en}>
         <Form>
-          <Guttering gutters={[]} gutterHooks={[]} />
+          <Guttering gutters={{}} gutterHooks={[]} />
         </Form>
       </MicroCopy.Provider>
     );
@@ -72,33 +83,15 @@ describe("PitchedRoofCalculator Guttering component", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("returns null for GutteringVariantSelection component", () => {
-    render(
-      <MicroCopy.Provider values={en}>
-        <Form>
-          <Guttering
-            gutters={[{ ...data.gutters[0], variants: [] }]}
-            selections={{ guttering: data.gutters[0].name }}
-            gutterHooks={[]}
-          />
-        </Form>
-      </MicroCopy.Provider>
-    );
-
-    expect(
-      screen.queryByText("MC: guttering.gutterVariant.title")
-    ).not.toBeInTheDocument();
-  });
-
   it("returns null for GutteringHookSelection component", () => {
     render(
       <MicroCopy.Provider values={en}>
         <Form>
           <Guttering
-            gutters={data.gutters as IGuttering[]}
+            gutters={gutters}
             selections={{
-              guttering: data.gutters[0].name,
-              gutteringVariant: data.gutters[0].variants[0].externalProductCode
+              guttering: gutterVariant.baseProduct.code,
+              gutteringVariant: gutterVariant
             }}
             gutterHooks={[]}
           />
@@ -109,5 +102,44 @@ describe("PitchedRoofCalculator Guttering component", () => {
     expect(
       screen.queryByText("MC: guttering.gutterHook.title")
     ).not.toBeInTheDocument();
+  });
+
+  it("renders downPipe and downPipeConnector inputs", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Form>
+          <Guttering
+            gutters={{
+              base_product_code: [
+                {
+                  ...gutterVariant,
+                  baseProduct: { code: "base_product_code", name: undefined },
+                  productReferences: [
+                    { type: "DOWN_PIPE", code: "down_pipe", name: "Down Pipe" },
+                    {
+                      type: "DOWN_PIPE_CONNECTOR",
+                      code: "down_pipe_connector",
+                      name: "Down Pipe Connector"
+                    }
+                  ]
+                }
+              ]
+            }}
+            selections={{
+              guttering: gutterVariant.baseProduct.code,
+              gutteringVariant: gutterVariant
+            }}
+            gutterHooks={[]}
+          />
+        </Form>
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.getByText("MC: guttering.downPipe.title")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: guttering.downPipeConnectors.title")
+    ).toBeInTheDocument();
   });
 });

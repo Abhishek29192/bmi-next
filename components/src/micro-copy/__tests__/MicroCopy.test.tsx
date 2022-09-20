@@ -55,6 +55,16 @@ describe("MicroCopy tests", () => {
           );
           expect(result).toEqual("MC:test");
         });
+
+        it("renders correctly when values is undefined", () => {
+          const result = getMicroCopy(undefined, "test", {}, true);
+          expect(result).toEqual("MC:test");
+        });
+
+        it("renders correctly when placeholders is undefined", () => {
+          const result = getMicroCopy(undefined, "test", undefined, true);
+          expect(result).toEqual("MC:test");
+        });
       });
 
       describe("And function is called with prefixMC = false", () => {

@@ -96,6 +96,12 @@
     }
   }
 
+  &-no-border {
+    .secondary-navigation {
+      border: none;
+    }
+  }
+
   .logo {
     width: 70px;
 

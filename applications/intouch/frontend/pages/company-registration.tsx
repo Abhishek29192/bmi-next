@@ -7,6 +7,7 @@ import { GetCompanyQuery } from "../graphql/generated/operations";
 import { findAccountCompany } from "../lib/account";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 type Props = GlobalPageProps & {
   company: GetCompanyQuery["company"];
@@ -34,8 +35,10 @@ const CompanyRegistrationPage = ({ company, mapsApiKey }: Props) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account }) => {
+  async ({ apolloClient, locale, account, req }) => {
     const companyId = findAccountCompany(account)?.id;
+    const marketEnv = getMarketAndEnvFromReq(req);
+    const contentfulTag = parseMarketTag(marketEnv.market);
 
     if (!companyId) {
       return {
@@ -50,7 +53,7 @@ export const getServerSideProps = withPage(
         data: { company }
       }
     } = await getServerPageGetCompany(
-      { variables: { companyId } },
+      { variables: { companyId, tag: contentfulTag } },
       apolloClient
     );
 

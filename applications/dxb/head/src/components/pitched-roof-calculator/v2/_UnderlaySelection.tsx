@@ -1,23 +1,18 @@
-import { CardRadioGroup, Typography } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { useAnalyticsContext } from "../helpers/analytics";
-import getPitchValues from "../helpers/getPitchValues";
-import { Underlay } from "../types";
-import { DimensionsValues } from "../types/roof";
+import { Underlay } from "../types/v2";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
+import styles from "./_UnderlaySelection.module.scss";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful
   selected?: Underlay;
-  options: ReadonlyArray<Underlay>;
+  options: Underlay[];
 };
-
-const validateUnderlayForPitchValues = (
-  minSupportedPitch: number,
-  pitchValues: number[]
-): boolean => pitchValues.every((pitch) => pitch >= minSupportedPitch);
 
 const UnderlaySelectionRow = ({
   options,
@@ -27,8 +22,8 @@ const UnderlaySelectionRow = ({
   const pushEvent = useAnalyticsContext();
 
   const constructGTMLabel = (underlay: Underlay) => {
-    if (underlay.description) {
-      return `${underlay.name} - ${underlay.description} - ${getMicroCopy(
+    if (underlay.shortDescription) {
+      return `${underlay.name} - ${underlay.shortDescription} - ${getMicroCopy(
         microCopy.CALCULATOR_NOBB_LABEL
       )}: ${underlay.externalProductCode}`;
     }
@@ -53,7 +48,7 @@ const UnderlaySelectionRow = ({
             key={underlay.externalProductCode}
             value={underlay.externalProductCode}
             title={underlay.name}
-            imageSource={underlay.image}
+            imageSource={underlay.mainImage}
             onClick={() =>
               pushEvent({
                 event: "dxb.button_click",
@@ -63,9 +58,11 @@ const UnderlaySelectionRow = ({
               })
             }
           >
-            <CardRadioGroup.Item.Paragraph>
-              {underlay.description}
-            </CardRadioGroup.Item.Paragraph>
+            {underlay.shortDescription ? (
+              <CardRadioGroup.Item.Paragraph className={styles["description"]}>
+                {underlay.shortDescription}
+              </CardRadioGroup.Item.Paragraph>
+            ) : null}
             <CardRadioGroup.Item.Paragraph>
               {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
               {underlay.externalProductCode}
@@ -80,33 +77,22 @@ const UnderlaySelectionRow = ({
 export type UnderlaySelectionProps = Pick<
   UnderlaySelectionRowProps,
   "selected" | "options"
-> & {
-  dimensions: DimensionsValues;
-};
+>;
 
-const UnderlaySelection = ({
-  options,
-  dimensions,
-  selected
-}: UnderlaySelectionProps) => {
+const UnderlaySelection = ({ options, selected }: UnderlaySelectionProps) => {
   const { getMicroCopy } = useSiteContext();
 
-  const pitchValues = getPitchValues(dimensions);
-
-  const filteredOptions = options
-    .filter((underlay) =>
-      validateUnderlayForPitchValues(underlay.minSupportedPitch, pitchValues)
-    )
-    .sort(({ name: firstUnderlay }, { name: secondUnderlay }) =>
+  const sortedOptions = options.sort(
+    ({ name: firstUnderlay }, { name: secondUnderlay }) =>
       firstUnderlay.localeCompare(secondUnderlay)
-    );
+  );
 
   return (
-    <div>
-      {filteredOptions.length ? (
-        <UnderlaySelectionRow options={filteredOptions} {...{ selected }} />
+    <div className={styles["UnderlaySelection"]}>
+      {sortedOptions.length ? (
+        <UnderlaySelectionRow options={sortedOptions} {...{ selected }} />
       ) : (
-        <Typography variant="h4">
+        <Typography variant="h4" align="center">
           {getMicroCopy(microCopy.UNDERLAY_SELECTION_EMPTY)}
         </Typography>
       )}

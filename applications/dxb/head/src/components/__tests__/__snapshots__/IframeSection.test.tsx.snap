@@ -33,6 +33,7 @@ exports[`IframeSection component renders correctly 1`] = `
           class="iFrame"
           height="450px"
           src="https://google.co.uk"
+          title="iFrame Section"
           width="100%"
         />
       </div>

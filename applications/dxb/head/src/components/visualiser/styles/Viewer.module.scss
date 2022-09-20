@@ -50,6 +50,16 @@
   min-height: 0;
   position: relative;
 
+  @media (max-width: $breakpoint-sm) {
+    min-height: 472px;
+    max-height: 472px;
+  }
+
+  @media (max-width: 376px) {
+    min-height: 400px;
+    max-height: 400px;
+  }
+
   .controls {
     position: absolute;
     bottom: 24px;

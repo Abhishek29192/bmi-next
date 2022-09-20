@@ -1,7 +1,5 @@
 import useDimensions, { DimensionObject } from "@bmi-digital/use-dimensions";
-import { Fade } from "@material-ui/core";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
+import { Fade, useMediaQuery, useTheme } from "@material-ui/core";
 import classnames from "classnames";
 import React, { CSSProperties, useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
@@ -10,8 +8,8 @@ import Button from "../button/Button";
 import Clickable from "../clickable/Clickable";
 import ContainerDialog from "../container-dialog/ContainerDialog";
 import Icon, { iconMap } from "../icon";
-import Typography from "../typography/Typography";
 import { YoutubeContext } from "../media-gallery";
+import Typography from "../typography/Typography";
 import styles from "./YoutubeVideo.module.scss";
 
 export type GTM = {
@@ -139,10 +137,17 @@ const DialogVideo = ({
         onClick={(_) => {
           setDialogOpen(true);
         }}
+        data-testid={"thumbnail"}
       >
         {validImageComponent}
         <AlternativeContent>{label}</AlternativeContent>
-        <Button isIconButton className={styles["play-button"]} component="div">
+        <Button
+          isIconButton
+          className={styles["play-button"]}
+          component="div"
+          aria-label={label}
+          data-testid={"thumbnail-button"}
+        >
           <Icon source={iconMap.PlayArrow} />
         </Button>
       </Clickable>

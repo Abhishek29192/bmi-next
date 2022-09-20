@@ -875,7 +875,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -896,7 +896,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1030,7 +1030,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1051,7 +1051,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1134,7 +1134,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1155,7 +1155,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1258,7 +1258,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1279,7 +1279,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1851,7 +1851,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -1872,7 +1872,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2016,7 +2016,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -2037,7 +2037,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2104,7 +2104,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2125,7 +2125,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5137,7 +5137,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5158,7 +5158,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5292,7 +5292,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5313,7 +5313,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5396,7 +5396,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5417,7 +5417,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5520,7 +5520,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5541,7 +5541,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -6113,7 +6113,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -6134,7 +6134,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -6278,7 +6278,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -6299,7 +6299,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -6366,7 +6366,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -6387,7 +6387,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -9368,7 +9368,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9389,7 +9389,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -9523,7 +9523,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9544,7 +9544,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -9627,7 +9627,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9648,7 +9648,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -9751,7 +9751,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9772,7 +9772,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -10344,7 +10344,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -10365,7 +10365,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -10509,7 +10509,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -10530,7 +10530,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -10597,7 +10597,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -10618,7 +10618,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -13599,7 +13599,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -13620,7 +13620,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -13754,7 +13754,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -13775,7 +13775,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -13858,7 +13858,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -13879,7 +13879,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -13982,7 +13982,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14003,7 +14003,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -14575,7 +14575,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -14596,7 +14596,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -14740,7 +14740,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -14761,7 +14761,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -14828,7 +14828,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14849,7 +14849,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -17830,7 +17830,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -17851,7 +17851,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -17985,7 +17985,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18006,7 +18006,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18089,7 +18089,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18110,7 +18110,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18213,7 +18213,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18234,7 +18234,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18806,7 +18806,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -18827,7 +18827,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -18971,7 +18971,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -18992,7 +18992,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -19059,7 +19059,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19080,7 +19080,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22020,7 +22020,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22041,7 +22041,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22175,7 +22175,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22196,7 +22196,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22279,7 +22279,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22300,7 +22300,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22403,7 +22403,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -22424,7 +22424,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -22996,7 +22996,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -23017,7 +23017,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -23161,7 +23161,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -23182,7 +23182,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -23249,7 +23249,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23270,7 +23270,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26251,7 +26251,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26272,7 +26272,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26406,7 +26406,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26427,7 +26427,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26510,7 +26510,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26531,7 +26531,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -26634,7 +26634,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -26655,7 +26655,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -27227,7 +27227,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -27248,7 +27248,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -27392,7 +27392,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -27413,7 +27413,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -27480,7 +27480,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -27501,7 +27501,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30604,7 +30604,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30625,7 +30625,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30759,7 +30759,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30780,7 +30780,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30863,7 +30863,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -30884,7 +30884,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -30987,7 +30987,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -31008,7 +31008,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -31580,7 +31580,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -31601,7 +31601,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -31745,7 +31745,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -31766,7 +31766,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -31833,7 +31833,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -31854,7 +31854,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"

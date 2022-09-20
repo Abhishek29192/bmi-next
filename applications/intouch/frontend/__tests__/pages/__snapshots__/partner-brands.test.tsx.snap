@@ -54,6 +54,16 @@ exports[`Partner Brands server side props empty 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -354,6 +364,16 @@ exports[`Partner Brands server side props render correctly 1`] = `
               />
             </svg>
             Training
+          </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
           </a>
         </nav>
       </div>

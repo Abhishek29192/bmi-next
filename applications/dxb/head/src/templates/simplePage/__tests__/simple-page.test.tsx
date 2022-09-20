@@ -6,16 +6,18 @@ import {
 import { render, RenderResult } from "@testing-library/react";
 import React from "react";
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
+import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as NextBestActionsData } from "../../../components/NextBestActions";
 import { Data as SectionsData } from "../../../components/Sections";
 import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import { Data as SiteData } from "../../../components/Site";
+import { Data as VideoData } from "../../../components/Video";
+import { createMockedYoutubeVideo } from "../../../components/__tests__/helpers/mediaHelper";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import { Data as LeadBlockSectionData } from "../components/LeadBlockSection";
 import SimplePage, { Data, Props } from "../components/simple-page";
 import {
   cta,
@@ -29,6 +31,11 @@ import {
   shareWidgetData,
   signupBlock
 } from "../__mocks__/simplePage";
+
+const renderVideo = jest.fn();
+jest.mock("../../../components/Video", () => ({
+  renderVideo: (data: VideoData) => renderVideo(data)
+}));
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
@@ -99,7 +106,21 @@ describe("Simple page", () => {
     jest.resetModules();
   });
 
+  const mockedYoutubeVideo = createMockedYoutubeVideo({
+    label: "BMI Group VIDEO LABEL",
+    subtitle: null,
+    videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
+    previewImageSource: "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
+    dataGTM: {
+      id: "cta-click--video-youtube",
+      label:
+        "https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL",
+      action: "Play"
+    }
+  });
+
   it("renders correctly with full data", () => {
+    renderVideo.mockImplementation(() => mockedYoutubeVideo);
     const { container } = renderWithStylesAndLocationProvider(
       data,
       pageContext

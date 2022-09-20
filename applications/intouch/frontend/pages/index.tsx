@@ -142,7 +142,6 @@ const Homepage = ({
 
   return (
     <Layout title={pageTitle} pageData={globalPageData}>
-      {/* TODO: Hero doesn't have a way to disable the controls? */}
       {!!heroItems.length && (
         <Hero
           level={0}

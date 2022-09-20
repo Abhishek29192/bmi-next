@@ -1,9 +1,15 @@
 import type {
   ApprovalStatus,
+  AssetTypeData,
   BaseProduct,
   Category as PimCategory,
   Classification,
   Image as PimImage,
+  PIMDocumentBase,
+  PIMDocumentData,
+  PIMLinkDocumentData,
+  ProductReferenceType,
+  ReferenceTarget,
   System as PimSystem
 } from "@bmi/pim-types";
 
@@ -11,9 +17,29 @@ export type Operation = "index" | "delete" | "create" | "update";
 
 export type BulkOperationInstruction = any; // TODO
 
+export type EsPIMDocumenBase = Omit<
+  PIMDocumentBase,
+  "assetType" | "product"
+> & {
+  assetType: Pick<AssetTypeData, "code" | "name" | "pimCode">;
+  productBaseCode: string;
+  productName: string;
+  noIndex: boolean;
+} & {
+  [extractedFilter: string]: any;
+};
+
+export type EsPIMDocumentData = EsPIMDocumenBase &
+  PIMDocumentData & { titleAndSize: string };
+export type EsPIMLinkDocumentData = EsPIMDocumenBase & PIMLinkDocumentData;
+
 export type Category = {
   code: string;
   parentCategoryCode: string;
+};
+
+export type ProductReference = ReferenceTarget & {
+  type: ProductReferenceType;
 };
 
 export type Product = {
@@ -38,6 +64,7 @@ export type Product = {
   mainImage: string;
   path: string;
   subTitle: string;
+  productReferences?: ProductReference[];
 } & {
   [extractedFilter: string]: any;
 };

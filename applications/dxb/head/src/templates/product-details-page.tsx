@@ -21,13 +21,13 @@ import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { Product } from "../types/pim";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
-import { transformMediaSrc } from "../utils/media";
 import {
   getProductAttributes,
   transformImages,
   UnavailableMicroCopies,
   UnavailableMicroCopiesEnum
 } from "../utils/product-details-transforms";
+import { useTransformedMedias } from "../utils/useTransformedMedias";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -63,12 +63,17 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpSpecificationTitle,
     pdpSpecificationDescription
   } = resources;
+  const transformedMedias = useTransformedMedias(product.videos);
 
   const location = useLocation();
   const isSSR = typeof window === "undefined";
   const queryParams = useMemo<string>(() => {
     return isSSR ? "" : window.location.search;
   }, [location]);
+
+  const images = transformImages(
+    [product.masterImage, ...product.galleryImages].filter(Boolean)
+  );
 
   return (
     <Page
@@ -77,7 +82,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={product.masterImages[0]?.mainSource}
+      ogImageUrl={product.masterImage?.mainSource}
       variantProduct={product}
     >
       {({ siteContext: { getMicroCopy } }) => {
@@ -109,11 +114,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandCode: product.brand?.code,
                   nobb: product.externalProductCode,
-                  images: transformImages([
-                    ...product.masterImages,
-                    ...product.galleryImages
-                  ]),
-                  videos: transformMediaSrc(product.videos),
+                  images,
+                  videos: transformedMedias,
                   attributes: getProductAttributes(
                     product,
                     pageContext.countryCode,
@@ -280,7 +282,7 @@ export const pageQuery = graphql`
           ...PIMDocumentFragment
         }
       }
-      masterImages {
+      masterImage {
         ...PIMImageFragment
       }
       isSampleOrderAllowed

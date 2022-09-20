@@ -76,7 +76,6 @@ function renderOptions(links) {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         // find the asset in the assetMap by ID
         const asset = assetMap.get(node.data.target.sys.id);
-
         // render the asset accordingly
         return (
           <img

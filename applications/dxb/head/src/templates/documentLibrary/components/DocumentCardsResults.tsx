@@ -31,7 +31,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
     <Grid container spacing={3}>
       {paginatedDocuments.map(
         (
-          { title, description, featuredMedia, asset, brand, noIndex },
+          { title, description, featuredMedia, asset, brand, BRAND, noIndex },
           index
         ) => {
           return (
@@ -40,7 +40,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                 title={title}
                 media={renderImage(featuredMedia) || undefined}
                 // eslint-disable-next-line security/detect-object-injection
-                brandImageSource={iconMap[brand]}
+                brandImageSource={iconMap[brand] || iconMap[BRAND?.name]}
                 action={{
                   model: "download",
                   href: `https:${asset.file.url}`,

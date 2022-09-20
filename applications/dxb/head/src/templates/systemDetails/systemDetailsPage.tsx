@@ -12,8 +12,8 @@ import ShareWidgetSection, {
 import { Data as SiteData } from "../../components/Site";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import { transformMediaSrc } from "../../utils/media";
 import { transformImages } from "../../utils/product-details-transforms";
+import { useTransformedMedias } from "../../utils/useTransformedMedias";
 import LeadBlockSection from "./leadBlockSection";
 import styles from "./styles/systemDetailsPage.module.scss";
 import SystemLayersSection from "./systemLayersSection";
@@ -42,6 +42,7 @@ type Props = {
 const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, system } = data;
   const { countryCode, resources } = contentfulSite;
+  const transformedMedias = useTransformedMedias(system.videos);
 
   const breadcrumbs = (
     <Section backgroundColor="pearl" isSlim>
@@ -60,7 +61,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const media = [
     ...transformImages(system.images),
     //TODO: check if it doesnt work on system detals page!!!
-    ...transformMediaSrc(system.videos)
+    ...transformedMedias
   ];
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {

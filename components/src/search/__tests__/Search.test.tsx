@@ -28,11 +28,6 @@ describe("Search component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly if defaultValue provided", () => {
-    const { container } = render(<Search defaultValue="defaultValue" />);
-    expect(container).toMatchSnapshot();
-  });
-
   it("renders correctly if label provided", () => {
     const { container } = render(<Search label="label" />);
     expect(container).toMatchSnapshot();

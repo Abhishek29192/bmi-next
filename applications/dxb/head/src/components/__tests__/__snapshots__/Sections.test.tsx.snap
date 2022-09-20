@@ -807,6 +807,7 @@ HTMLCollection [
                   <button
                     aria-label="Video"
                     class="thumbnail"
+                    data-testid="thumbnail"
                     type="button"
                   >
                     <img
@@ -821,7 +822,9 @@ HTMLCollection [
                     </span>
                     <div
                       aria-disabled="false"
+                      aria-label="Video"
                       class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
+                      data-testid="thumbnail-button"
                       role="button"
                       tabindex="0"
                     >
@@ -934,95 +937,6 @@ HTMLCollection [
                 >
                   const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
                 </script>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    id="Gallery title"
-    style="margin-top: -150px; padding-top: 150px;"
-  >
-    <div
-      class="MediaGallerySection Section Section--alabaster"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
-        >
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-          >
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
-            >
-              <h2
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
-              >
-                Gallery title
-              </h2>
-            </div>
-            <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
-            >
-              <div
-                class="MediaGallery"
-              >
-                <div
-                  class="image-wrapper"
-                >
-                  <div
-                    class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
-                    data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
-                  >
-                    <div
-                      style="max-width: 948px; display: block;"
-                    >
-                      <img
-                        alt=""
-                        aria-hidden="true"
-                        role="presentation"
-                        src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='948' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
-                        style="max-width: 100%; display: block; position: static;"
-                      />
-                    </div>
-                    <div
-                      aria-hidden="true"
-                      data-placeholder-image=""
-                      style="height: 100%; left: 0px; position: absolute; top: 0px; width: 100%;"
-                    />
-                    <picture>
-                      <source
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        type="image/webp"
-                      />
-                      <img
-                        alt="Lorem ipsum"
-                        data-gatsby-image-ssr=""
-                        data-main-image=""
-                        data-src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
-                        data-srcset="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w"
-                        decoding="async"
-                        draggable="false"
-                        loading="lazy"
-                        sizes="(min-width: 948px) 948px, 100vw"
-                        style="height: 100%; left: 0px; position: absolute; top: 0px; transform: translateZ(0); transition: opacity 250ms linear; width: 100%; will-change: opacity; object-fit: cover; object-position: center; opacity: 0;"
-                      />
-                    </picture>
-                    <noscript />
-                    <script
-                      type="module"
-                    >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
-                    </script>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -2795,6 +2709,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="first-name"
+                    id="first-name-label"
                   >
                     First name
                     <span
@@ -2811,6 +2727,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="first-name"
                       name="first-name"
                       required=""
                       type="text"
@@ -2841,6 +2758,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="second-names"
+                    id="second-names-label"
                   >
                     Second name
                     <span
@@ -2857,6 +2776,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="second-names"
                       name="second-names"
                       required=""
                       type="text"
@@ -2887,6 +2807,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="email"
+                    id="email-label"
                   >
                     Email address
                     <span
@@ -2903,6 +2825,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="email"
                       name="email"
                       required=""
                       type="text"
@@ -2933,6 +2856,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                     data-shrink="false"
+                    for="company"
+                    id="company-label"
                   >
                     Company name(if Applicable)
                   </label>
@@ -2942,6 +2867,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="company"
                       name="company"
                       type="text"
                       value=""
@@ -2970,6 +2896,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                     data-shrink="false"
+                    for="telephone"
+                    id="telephone-label"
                   >
                     Telephone
                   </label>
@@ -2979,6 +2907,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="telephone"
                       name="telephone"
                       type="text"
                       value=""
@@ -3130,6 +3059,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="message"
+                    id="message-label"
                   >
                     Your message
                     <span
@@ -3146,6 +3077,7 @@ HTMLCollection [
                     <textarea
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                      id="message"
                       name="message"
                       required=""
                       rows="6"
@@ -3374,9 +3306,9 @@ HTMLCollection [
               class="ButtonWrapper"
             >
               <button
-                aria-action="Form section"
                 aria-label="children"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                data-action="Form section"
                 data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Form section\\"}"
                 disabled=""
                 tabindex="-1"

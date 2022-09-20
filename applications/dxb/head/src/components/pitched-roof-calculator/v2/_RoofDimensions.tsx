@@ -16,7 +16,7 @@ const RoofDimensions = ({ dimensions, roof }: RoofDimensionsProps) => {
     <div className={styles["RoofDimensions"]}>
       <div className={styles["form"]}>
         <Illustration className={styles["illustration"]} />
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center">
           {roof.fields.map(({ name, type }) => (
             <Grid key={name} item xs={12} lg={3}>
               <InputTextField

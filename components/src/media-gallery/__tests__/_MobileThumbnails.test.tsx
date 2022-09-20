@@ -19,7 +19,7 @@ beforeAll(() => {
 const renderComponent = (images = getImages(false)) => {
   return render(
     <MobileThumbnails
-      images={images}
+      media={images}
       component={(props) => (
         <Thumbnail data-testid="default-thumbnail" {...props} />
       )}
@@ -108,7 +108,7 @@ describe("_MobileThumbnails component", () => {
 
     const { container } = render(
       <MobileThumbnails
-        images={images}
+        media={images}
         component={(props) => (
           <Thumbnail data-testid="default-thumbnail" {...props} />
         )}

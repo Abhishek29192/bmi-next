@@ -1,6 +1,6 @@
 import { YoutubeVideo } from "@bmi/components";
 import { graphql } from "gatsby";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useGTM } from "../utils/google-tag-manager";
 import { getDefaultPreviewImage } from "../utils/product-details-transforms";
 import Image, { Data as ImageData } from "./Image";
@@ -24,6 +24,7 @@ const Video = ({ data }: { data: Data }) => {
 
 export const renderVideo = (data: Data) => {
   const { label, subtitle, videoUrl, previewMedia, videoRatio } = data;
+  const [defaulVideoImageUrl, setDefaulVideoImageUrl] = useState("");
 
   const gtm = useMemo(
     () => ({
@@ -36,6 +37,14 @@ export const renderVideo = (data: Data) => {
 
   const { dataGTM, pushGTMEvent } = useGTM(gtm);
 
+  useEffect(() => {
+    const getUrl = async () => {
+      const url = await getDefaultPreviewImage(videoUrl);
+      setDefaulVideoImageUrl(url);
+    };
+    getUrl();
+  }, []);
+
   return (
     <YoutubeVideo
       label={label}
@@ -44,11 +53,7 @@ export const renderVideo = (data: Data) => {
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
       previewImageSource={
-        previewMedia ? (
-          <Image data={previewMedia} />
-        ) : (
-          getDefaultPreviewImage(videoUrl)
-        )
+        previewMedia ? <Image data={previewMedia} /> : defaulVideoImageUrl
       }
       onGTMEvent={pushGTMEvent}
       dataGTM={dataGTM}

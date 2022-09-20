@@ -1,6 +1,6 @@
 import { Filter } from "@bmi/components";
 import { isDefined } from "@bmi/utils";
-import { devLog } from "../utils/devLog";
+import { devLog } from "./devLog";
 import {
   generateAllowFiltersAggs,
   generateUserSelectedFilterTerms,
@@ -309,6 +309,9 @@ export const getPageQueryObject = (
 export const queryElasticSearch = async (query = {}, indexName: string) => {
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
+  if (process.env.GATSBY_DISABLE_SEARCH === "true") {
+    return;
+  }
   if (window.fetch) {
     try {
       const response = await fetch(url, {

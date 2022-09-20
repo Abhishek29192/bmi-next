@@ -3,8 +3,8 @@ import { Asset, Category, Classification, VariantOption } from "@bmi/pim-types";
 import { Node as GatsbyNode } from "gatsby";
 import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 import { GraphQLOutputType } from "graphql-compose/lib/graphql";
-import { DocumentsWithFilters } from "../../../types/documentsWithFilters";
 import { HubspotFieldNames, HubspotFieldTypes } from "../ContentfulFormSection";
+import { DocumentsFilters } from "./DocumentsFilters";
 
 export interface MetaData {
   name: string;
@@ -32,6 +32,7 @@ export interface LegalConsent {
 */
 export interface Node extends GatsbyNode {
   site___NODE?: string[];
+  microCopy___NODE?: string[];
   menuNavigation___NODE?: string;
   parentPage___NODE?: string;
   links___NODE?: string[];
@@ -98,7 +99,8 @@ export interface Node extends GatsbyNode {
   productDocumentNameMap?: string;
   subtitle?: string;
   type?: string;
-  documentsWithFilters?: DocumentsWithFilters;
+  documentsFilters?: DocumentsFilters;
+  allowFilterBy?: string[];
 }
 
 export interface MicroCopy extends GatsbyNode {

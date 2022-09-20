@@ -1,76 +1,174 @@
 import { FormContext } from "@bmi/components";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
+import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/v2/data.json";
+import { GroupedTiles, Tile } from "../../types/v2";
 import TileSelection from "../_TileSelection";
 
-const dimensionsSample = {
-  A: "10",
-  B: "5",
-  P1: "20",
-  P2: "21"
+const firstTile = createProduct<Tile>({
+  baseProduct: {
+    name: "12345",
+    code: "zanda_minster_main_tile"
+  },
+  name: "first product",
+  brokenBond: false,
+  category: "clay",
+  packSize: 20
+});
+
+const secondTile = createProduct<Tile>({
+  baseProduct: {
+    name: "2345",
+    code: "Nova_main_tile_engobed_black"
+  },
+  name: "second product",
+  brokenBond: false,
+  category: "clay",
+  packSize: 15
+});
+
+const tiles: GroupedTiles = {
+  zanda_minster_main_tile: [{ ...firstTile }],
+  Nova_main_tile_engobed_black: [{ ...secondTile }]
 };
 
+const pushEvent = jest.fn();
+jest.mock("../../helpers/analytics", () => {
+  const actual = jest.requireActual("../../helpers/analytics");
+  return {
+    ...actual,
+    useAnalyticsContext: () => pushEvent
+  };
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 describe("PitchedRoofCalculator TileSelection component", () => {
-  it("renders correctly", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
-    const select = jest.fn();
-
-    const { container } = render(
+  it("calls analytics event", () => {
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
-          <TileSelection
-            select={select}
-            selected={undefined}
-            dimensions={dimensionsSample}
-            tiles={data.mainTiles as any[]}
-          />
+          <TileSelection selected={undefined} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    fireEvent.click(
+      screen.getByText(tiles.zanda_minster_main_tile[0].baseProduct.name)
+    );
+    waitFor(() => expect(pushEvent).toBeCalledTimes(1));
   });
 
   it("renders with no tiles", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
-    const select = jest.fn();
-
-    const { container } = render(
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
-          <TileSelection
-            select={select}
-            selected={undefined}
-            dimensions={dimensionsSample}
-            tiles={[]}
-          />
+          <TileSelection selected={undefined} tiles={{}} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    expect(screen.getByText("MC: tileSelection.empty")).toBeInTheDocument();
+  });
+
+  it("renders with title for multiple colors", () => {
+    const tiles = {
+      zanda_minster_main_tile: [
+        { ...firstTile },
+        {
+          ...secondTile,
+          baseProduct: {
+            name: "12345",
+            code: "zanda_minster_main_tile"
+          }
+        }
+      ]
+    };
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <TileSelection selected={undefined} tiles={tiles} />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    expect(screen.getByText("2 MC: tileSelection.colors")).toBeInTheDocument();
+  });
+
+  it("renders with title for one color", () => {
+    const tiles: GroupedTiles = {
+      zanda_minster_main_tile: [{ ...firstTile }]
+    };
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <TileSelection selected={undefined} tiles={tiles} />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    expect(screen.getByText("1 MC: tileSelection.color")).toBeInTheDocument();
+  });
+
+  it("renders with name of variant if base product name does not exist", () => {
+    const tiles: GroupedTiles = {
+      zanda_minster_main_tile: [
+        {
+          ...firstTile,
+          baseProduct: { name: undefined, code: "zanda_minster_main_tile" }
+        }
+      ]
+    };
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <TileSelection selected={undefined} tiles={tiles} />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    expect(screen.getByText(firstTile.name)).toBeInTheDocument();
   });
 });

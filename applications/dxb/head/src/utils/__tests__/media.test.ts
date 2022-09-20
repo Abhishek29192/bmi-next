@@ -39,7 +39,7 @@ describe("getJpgImage function", () => {
 });
 
 describe("transformMediaSrc function", () => {
-  it("should return correct data", () => {
+  it("should return correct data", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -96,7 +96,7 @@ describe("transformMediaSrc function", () => {
         videoRatio: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -111,7 +111,8 @@ describe("transformMediaSrc function", () => {
         thumbnail: "//images.asset.jpg",
         isVideo: true,
         caption: "ContentfulVideoSubtitle",
-        altText: "ContentfulVideoAltText"
+        altText: "label",
+        media: undefined
       })
     );
     expect(expectResult[2]).toEqual(
@@ -123,7 +124,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
+  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -135,19 +136,20 @@ describe("transformMediaSrc function", () => {
         videoRatio: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
         thumbnail: "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         isVideo: true,
         caption: "ContentfulVideoSubtitle",
-        altText: undefined
+        altText: "label",
+        media: undefined
       })
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", () => {
+  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -176,19 +178,20 @@ describe("transformMediaSrc function", () => {
         videoRatio: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
         thumbnail: "//images.asset.jpg",
         isVideo: true,
         caption: undefined,
-        altText: "ContentfulVideoAltText"
+        altText: "label",
+        media: undefined
       })
     );
   });
 
-  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
+  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -209,7 +212,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -221,7 +224,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item caption is null", () => {
+  it("shuold return correct object if typeName === ContentfulImage and item caption is null", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -240,7 +243,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -252,7 +255,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", () => {
+  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", async () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -273,7 +276,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = transformMediaSrc(mockMedia);
+    const expectResult = await transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -285,8 +288,8 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("should return empty array if data NOT passed", () => {
-    const expectResult = transformMediaSrc();
+  it("should return empty array if data NOT passed", async () => {
+    const expectResult = await transformMediaSrc();
 
     expect(expectResult).toEqual([]);
   });

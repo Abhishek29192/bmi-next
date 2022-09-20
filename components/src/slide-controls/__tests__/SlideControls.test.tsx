@@ -10,7 +10,6 @@ describe("SlideControls component", () => {
     const { container } = render(<SlideControls total={5} />);
     expect(container).toMatchSnapshot();
   });
-
   it("renders the total number when current is more than total", () => {
     const { container } = render(<SlideControls current={7} total={5} />);
 
@@ -193,6 +192,15 @@ describe("SlideControls component", () => {
 
     expect(container).toMatchSnapshot();
   });
+  it("getDirection execute correctly if total === 2", () => {
+    const { container, rerender } = render(
+      <SlideControls current={1} total={2} />
+    );
+
+    rerender(<SlideControls current={2} total={2} />);
+
+    expect(container).toMatchSnapshot();
+  });
   it("moves from first to last number", () => {
     const { container, rerender, getAllByText } = render(
       <SlideControls current={1} total={5} />
@@ -202,16 +210,6 @@ describe("SlideControls component", () => {
 
     // NOTE: Necessary because the total is the same as the current.
     fireEvent.animationEnd(getAllByText("05")[0]);
-
-    expect(container).toMatchSnapshot();
-  });
-
-  it("getDirection execute correctly if total === 2", () => {
-    const { container, rerender } = render(
-      <SlideControls current={1} total={2} />
-    );
-
-    rerender(<SlideControls current={2} total={2} />);
 
     expect(container).toMatchSnapshot();
   });

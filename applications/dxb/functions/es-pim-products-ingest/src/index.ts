@@ -4,10 +4,11 @@ import {
   System as EsSystem
 } from "@bmi/elasticsearch-types";
 import { getEsClient } from "@bmi/functions-es-client";
-import { Product as PIMProduct, System } from "@bmi/pim-types";
+import { Product as PIMProduct, System as PimSystem } from "@bmi/pim-types";
 import { Message } from "@bmi/pub-sub-types";
 import { deleteESItemByCode } from "./deleteESItemByCode";
 import { updateElasticSearch } from "./elasticsearch";
+import { transformDocuments } from "./transformDocuments";
 import { transformProduct } from "./transformProducts";
 import { transformSystem } from "./transformSystems";
 import { MessageFunction } from "./types";
@@ -28,7 +29,7 @@ export const buildEsProducts = (product: PIMProduct): EsProduct[] => {
   return transformProduct(product);
 };
 
-export const buildEsSystems = (system: System): EsSystem[] => {
+export const buildEsSystems = (system: PimSystem): EsSystem[] => {
   return [transformSystem(system)];
 };
 
@@ -59,9 +60,11 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   const getEsDocuments = (): (EsProduct | EsSystem)[] => {
     if (type === "UPDATED") {
-      return itemType === "PRODUCTS"
-        ? buildEsProducts(item as PIMProduct)
-        : buildEsSystems(item as System);
+      if (itemType === "PRODUCTS") {
+        return buildEsProducts(item as PIMProduct);
+      } else if (itemType === "SYSTEMS") {
+        return buildEsSystems(item as PimSystem);
+      }
     }
     return [];
   };
@@ -75,9 +78,26 @@ export const handleMessage: MessageFunction = async (data, context) => {
     return;
   }
 
+  const getAssets = async () => {
+    if (type === "UPDATED") {
+      if (itemType === "PRODUCTS" || itemType === "SYSTEMS") {
+        return await transformDocuments(item as PIMProduct | PimSystem);
+      }
+    }
+    return [];
+  };
+
+  const assets = await getAssets();
+
+  if (type === "UPDATED" && !assets?.length) {
+    logger.warning({
+      message: `Didn't find any assets on update event.`
+    });
+  }
+  const itemCode: string = "code" in item ? item.code : "";
   switch (type) {
     case "UPDATED":
-      await updateElasticSearch(itemType, esDocuments);
+      await updateElasticSearch(itemType, esDocuments, assets, itemCode);
       break;
     case "DELETED":
       await deleteESItemByCode(item, itemType);

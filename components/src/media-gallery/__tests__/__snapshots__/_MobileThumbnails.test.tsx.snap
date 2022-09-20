@@ -5,6 +5,7 @@ exports[`_DesktopThumbnails component renders correctly with media prop 1`] = `
   class="thumbnails"
 >
   <button
+    aria-label="Scroll left"
     class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
     tabindex="-1"
     type="button"
@@ -24,6 +25,7 @@ exports[`_DesktopThumbnails component renders correctly with media prop 1`] = `
     />
   </button>
   <button
+    aria-label="Scroll right"
     class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
     tabindex="-1"
     type="button"
@@ -47,6 +49,7 @@ exports[`_DesktopThumbnails component renders correctly with media prop 1`] = `
     style="margin-right: 0%;"
   >
     <button
+      aria-label="test alt text 1"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       tabindex="0"
@@ -62,6 +65,7 @@ exports[`_DesktopThumbnails component renders correctly with media prop 1`] = `
       />
     </button>
     <button
+      aria-label="test alt text 2"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       tabindex="0"
@@ -82,6 +86,7 @@ exports[`_DesktopThumbnails component renders correctly without media prop 1`] =
   class="thumbnails"
 >
   <button
+    aria-label="Scroll left"
     class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
     tabindex="-1"
     type="button"
@@ -101,6 +106,7 @@ exports[`_DesktopThumbnails component renders correctly without media prop 1`] =
     />
   </button>
   <button
+    aria-label="Scroll right"
     class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
     tabindex="-1"
     type="button"
@@ -124,6 +130,7 @@ exports[`_DesktopThumbnails component renders correctly without media prop 1`] =
     style="margin-right: 0%;"
   >
     <button
+      aria-label="test alt text 1"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -140,6 +147,7 @@ exports[`_DesktopThumbnails component renders correctly without media prop 1`] =
       />
     </button>
     <button
+      aria-label="test alt text 2"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -165,6 +173,7 @@ exports[`_MobileThumbnails component renders correctly 1`] = `
     style="width: 172px;"
   >
     <button
+      aria-label="test alt text 1"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -181,6 +190,7 @@ exports[`_MobileThumbnails component renders correctly 1`] = `
       />
     </button>
     <button
+      aria-label="test alt text 2"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -206,6 +216,7 @@ exports[`_MobileThumbnails component renders correctly with media prop component
     style="width: 172px;"
   >
     <button
+      aria-label="test alt text 1"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       tabindex="0"
@@ -221,6 +232,7 @@ exports[`_MobileThumbnails component renders correctly with media prop component
       />
     </button>
     <button
+      aria-label="test alt text 2"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       tabindex="0"
@@ -245,6 +257,7 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
     style="width: 172px;"
   >
     <button
+      aria-label="test alt text 1"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -261,6 +274,7 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
       />
     </button>
     <button
+      aria-label="test alt text 2"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
@@ -286,6 +300,7 @@ exports[`_MobileThumbnails component scroll correctly when parentScrollLeft, par
     style="width: 172px;"
   >
     <button
+      aria-label="test alt text"
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
       tabindex="0"

@@ -91,7 +91,7 @@ const ProductListing = ({
                 subtitleVariant="h6"
                 imageSize="contain"
                 media={
-                  renderMedia(product.masterImages[0]?.mainSource, altText) || (
+                  renderMedia(product.masterImage?.mainSource, altText) || (
                     <DefaultImage />
                   )
                 }
@@ -204,7 +204,7 @@ export const query = graphql`
     colour
     colourFamily
     externalProductCode
-    masterImages {
+    masterImage {
       ...PIMImageFragment
     }
     measurements {

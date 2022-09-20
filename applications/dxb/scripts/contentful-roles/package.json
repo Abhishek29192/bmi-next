@@ -1,0 +1,17 @@
+{
+  "name": "@bmi/contentful-roles",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "./src/index",
+  "scripts": {
+    "compile": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
+    "create-roles": "yarn compile && env-cmd node ./dist/create-roles.js",
+    "update-roles": "yarn compile && env-cmd node ./dist/update-roles.js"
+  },
+  "dependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}

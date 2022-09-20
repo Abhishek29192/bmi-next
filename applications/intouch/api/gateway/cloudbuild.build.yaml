@@ -6,7 +6,7 @@ steps:
         "build",
         ".",
         "-t",
-        "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}",
+        "gcr.io/$PROJECT_ID/intouch-graph-gateway:${_CI_COMMIT_SHORT_SHA}",
         "-f",
         "./applications/intouch/api/gateway/dockerfile",
         "--build-arg",
@@ -16,7 +16,7 @@ steps:
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
-      ["push", "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}"]
+      ["push", "gcr.io/$PROJECT_ID/intouch-graph-gateway:${_CI_COMMIT_SHORT_SHA}"]
 
 timeout: 1200s
 

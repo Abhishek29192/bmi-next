@@ -93,7 +93,7 @@ export type Product = {
   groups: readonly CategoryGroup[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
-  masterImages: readonly Image[];
+  masterImage?: Image;
   hashedCode: string;
   isSampleOrderAllowed: boolean;
   materials?: string;
@@ -181,6 +181,7 @@ export type SystemDocument = Document;
 export type ProductDocument = Document & {
   productBaseCode: string;
   productName: string;
+  docName?: string;
   // TODO: remove when document filtering is done with Elastic search
   productCategories: {
     code: Category["code"];

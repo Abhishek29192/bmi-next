@@ -3,9 +3,12 @@ import createSystem from "./SystemHelper";
 import type {
   BulkOperationInstruction,
   Category,
+  EsPIMDocumentData,
+  EsPIMLinkDocumentData,
   Image,
   Operation,
   Product,
+  ProductReference,
   System
 } from "./types";
 
@@ -16,5 +19,8 @@ export type {
   Image,
   Operation,
   Product,
-  System
+  ProductReference,
+  System,
+  EsPIMDocumentData,
+  EsPIMLinkDocumentData
 };

@@ -1,0 +1,2 @@
+include:
+  - local: "/applications/dxb/scripts/contentful-roles/.gitlab-ci.yml"
