@@ -39,7 +39,7 @@ describe("getJpgImage function", () => {
 });
 
 describe("transformMediaSrc function", () => {
-  it("should return correct data", async () => {
+  it("should return correct data", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -83,6 +83,8 @@ describe("transformMediaSrc function", () => {
           },
           focalPoint: null
         },
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         videoRatio: null
       },
 
@@ -93,10 +95,12 @@ describe("transformMediaSrc function", () => {
         label: "PimVideoLabel",
         subtitle: "subtitle",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg"
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -124,7 +128,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", async () => {
+  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -133,10 +137,12 @@ describe("transformMediaSrc function", () => {
         subtitle: "ContentfulVideoSubtitle",
         videoUrl: "https://youtu.be/01SUXJmB9Ik",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg"
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -149,7 +155,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", async () => {
+  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -175,10 +181,12 @@ describe("transformMediaSrc function", () => {
           },
           focalPoint: null
         },
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
         videoRatio: null
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -191,7 +199,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", async () => {
+  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -212,7 +220,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -224,7 +232,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item caption is null", async () => {
+  it("shuold return correct object if typeName === ContentfulImage and item caption is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -243,7 +251,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -255,7 +263,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", async () => {
+  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -276,7 +284,7 @@ describe("transformMediaSrc function", () => {
         focalPoint: null
       }
     ];
-    const expectResult = await transformMediaSrc(mockMedia);
+    const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
@@ -288,8 +296,8 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("should return empty array if data NOT passed", async () => {
-    const expectResult = await transformMediaSrc();
+  it("should return empty array if data NOT passed", () => {
+    const expectResult = transformMediaSrc();
 
     expect(expectResult).toEqual([]);
   });

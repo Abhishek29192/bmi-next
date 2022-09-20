@@ -1,7 +1,6 @@
 import { MediaData } from "@bmi/components";
 import { Data as ImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
-import { getDefaultPreviewImage } from "./product-details-transforms";
 
 export const getJpgImage = (ogImageUrl: string) => {
   if (
@@ -43,38 +42,36 @@ export type GallerySectionMedias =
   | GallerySectionVideo
   | GalleryPimVideo;
 
-export const transformMediaSrc = async (
+export const transformMediaSrc = (
   media: readonly GallerySectionMedias[] = []
-): Promise<MediaData[]> => {
-  return await Promise.all(
-    media.map(async (item) => {
-      switch (item.__typename) {
-        case "ContentfulImage":
-          return {
-            media: renderImage(item),
-            thumbnail: item.image.thumbnail.src || null,
-            caption: item.caption?.caption || undefined,
-            altText: item.altText || undefined,
-            isVideo: false
-          };
-        case "ContentfulVideo":
-          return {
-            media: renderVideo(item),
-            thumbnail:
-              item.previewMedia?.image?.thumbnail?.src ||
-              (await getDefaultPreviewImage(item.videoUrl)),
-            caption: item.subtitle || undefined,
-            altText: item.label,
-            isVideo: true
-          };
-        case "PimVideo":
-          return {
-            media: renderVideo(item),
-            thumbnail: await getDefaultPreviewImage(item.videoUrl),
-            caption: item.title,
-            isVideo: true
-          };
-      }
-    })
-  );
+): MediaData[] => {
+  return media.map((item) => {
+    switch (item.__typename) {
+      case "ContentfulImage":
+        return {
+          media: renderImage(item),
+          thumbnail: item.image.thumbnail.src || null,
+          caption: item.caption?.caption || undefined,
+          altText: item.altText || undefined,
+          isVideo: false
+        };
+      case "ContentfulVideo":
+        return {
+          media: renderVideo(item),
+          thumbnail:
+            item.previewMedia?.image?.thumbnail?.src ||
+            item.defaultYouTubePreviewImage,
+          caption: item.subtitle || undefined,
+          altText: item.label,
+          isVideo: true
+        };
+      case "PimVideo":
+        return {
+          media: renderVideo(item),
+          thumbnail: item.defaultYouTubePreviewImage,
+          caption: item.title,
+          isVideo: true
+        };
+    }
+  });
 };

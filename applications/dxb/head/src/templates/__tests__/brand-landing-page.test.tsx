@@ -1,19 +1,12 @@
-import { fireEvent } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum } from "../../components/Link";
-import { Data as SlideData } from "../../components/Promo";
-import { Data as VideoData } from "../../components/Video";
-import { createMockedYoutubeVideo } from "../../components/__tests__/helpers/mediaHelper";
-import { createMockSiteData } from "../../test/mockSiteData";
+import { fireEvent } from "@testing-library/react";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import BrandLandingPage, {
   Props as BrandLandingPageData
 } from "../brand-landing-page";
-
-const renderVideo = jest.fn();
-jest.mock("../../components/Video", () => ({
-  renderVideo: (data: VideoData) => renderVideo(data)
-}));
+import { createMockSiteData } from "../../test/mockSiteData";
+import { Data as SlideData } from "../../components/Promo";
+import { DataTypeEnum } from "../../components/Link";
 
 describe("Brand Landing Page Template", () => {
   const slide: SlideData = {
@@ -49,7 +42,9 @@ describe("Brand Landing Page Template", () => {
       subtitle: null,
       videoUrl: "https://www.youtube.com/watch?v=youtubeId",
       previewMedia: null,
-      videoRatio: null
+      videoRatio: null,
+      defaultYouTubePreviewImage:
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
     },
     backgroundColor: null
   };
@@ -73,7 +68,9 @@ describe("Brand Landing Page Template", () => {
         subtitle: null,
         videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       },
       heroType: null,
       cta: null,
@@ -95,20 +92,6 @@ describe("Brand Landing Page Template", () => {
       breadcrumbTitle: "breadcrumbTitle"
     }
   };
-
-  renderVideo.mockImplementation(() =>
-    createMockedYoutubeVideo({
-      label: "label",
-      subtitle: null,
-      videoUrl: "https://www.youtube.com/watch?v=youtubeId",
-      previewImageSource: "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
-      dataGTM: {
-        id: "cta-click--video-youtube",
-        label: "https://www.youtube.com/watch?v=youtubeId-label",
-        action: "Play"
-      }
-    })
-  );
 
   it("render correctly", () => {
     const { container, getByTestId } = renderWithRouter(
@@ -145,7 +128,9 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         }
       },
       {
@@ -160,7 +145,9 @@ describe("Brand Landing Page Template", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         }
       }
     ];

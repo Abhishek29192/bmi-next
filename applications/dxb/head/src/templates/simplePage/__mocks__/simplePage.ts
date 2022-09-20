@@ -64,6 +64,8 @@ export const sections = [
           videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
           previewMedia: null,
           videoRatio: { width: 17776, height: 9999 },
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
           className: null
         },
         backgroundColor: null
