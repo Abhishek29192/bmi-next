@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`helpers transformDocument should transform Contentful document to ES document 1`] = `
+Object {
+  "BRAND": Object {
+    "code": "icopal",
+    "name": "icopal",
+  },
+  "__typename": "ContentfulDocument",
+  "asset": Object {
+    "file": Object {
+      "contentType": "text/plain",
+      "details": Object {
+        "size": 172618,
+      },
+      "fileName": "hb-021_abk-017-bramac_entwurf.onlv",
+      "url": "//assets.ctfassets.net/18fop5x17y3g/52HeZc3FFBCgM7BBhKMx6P/55b522e07b34b22feba73d793b4f3b96/hb-021_abk-017-bramac_entwurf.onlv",
+    },
+  },
+  "assetType": Object {
+    "code": "ONLV",
+    "description": "description",
+    "id": "7nhYXPpP7WMxr06WueCmXO",
+    "name": "Invalid format file test 1",
+    "pimCode": "PIMCODE",
+  },
+  "featuredMedia": Object {
+    "altText": "test DS image",
+    "image": Object {
+      "description": "Roof #10",
+      "file": Object {
+        "contentType": "image/svg+xml",
+        "details": Object {
+          "image": Object {
+            "height": 300,
+            "width": 350,
+          },
+          "size": 2934,
+        },
+        "fileName": "Roof #10.svg",
+        "url": "//images.ctfassets.net/18fop5x17y3g/63LFNtI0mVjWRUf5uBYQB/418cdcd3429d8591db41d53f93d40f77/Roof__10.svg",
+      },
+      "title": "Roof #10",
+    },
+    "title": "Roof #10",
+  },
+  "id": "5cYdozfH5S2dybSFSK0bUy",
+  "noIndex": false,
+  "realFileName": "hb-021_abk-017-bramac_entwurf.onlv",
+  "title": "invalid format document testss",
+  "titleAndSize": "invalid format document testss_172618",
+}
+`;

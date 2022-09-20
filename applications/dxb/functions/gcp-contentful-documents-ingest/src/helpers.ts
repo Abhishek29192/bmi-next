@@ -1,30 +1,75 @@
 import logger from "@bmi-digital/functions-logger";
 import { ApiError, ApiResponse } from "@elastic/elasticsearch";
 import { Request, Response } from "@google-cloud/functions-framework";
-import { createClient, Entry, Environment, Space } from "contentful-management";
-import { ContentfulAsset, ESContentfulDocument } from "./es-model";
+import {
+  AssetProps,
+  createClient,
+  Entry,
+  EntryProps,
+  Environment,
+  Space
+} from "contentful-management";
+import { ESContentfulDocument } from "./es-model";
 
 const SECRET_MIN_LENGTH = 10;
+
+interface ContentfulReference {
+  Entry?: EntryProps[];
+  Asset?: AssetProps[];
+}
+
+type ReferenceType = "Entry" | "Asset";
+
+const getReferenceById = (
+  references: ContentfulReference,
+  referenceId: string,
+  referenceType: ReferenceType
+) => {
+  if (references) {
+    // eslint-disable-next-line security/detect-object-injection
+    return references[referenceType]?.find(
+      ({ sys: { id } }) => id === referenceId
+    )?.fields;
+  }
+};
 
 export const transformDocument = async (
   entryData: Entry
 ): Promise<ESContentfulDocument> => {
   const locale = process.env.MARKET_LOCALE;
   const environment = await getEnvironment();
-  const { title, asset, assetType, brand, noIndex } = entryData?.fields;
+  const { title, asset, assetType, brand, noIndex, featuredMedia } =
+    entryData?.fields;
 
-  const {
-    fields: { file }
-  } = await environment.getAsset(
-    // eslint-disable-next-line security/detect-object-injection
-    asset[`${locale}`].sys.id
+  const { includes: entryReferences } = await environment.getEntryReferences(
+    entryData.sys.id,
+    { include: 5 }
   );
-  const {
-    fields: { name, code, pimCode }
-  } = await environment.getEntry(
-    // eslint-disable-next-line security/detect-object-injection
-    assetType[`${locale}`].sys.id
+  const assetRefernce = getReferenceById(
+    entryReferences!,
+    asset[`${locale}`].sys.id,
+    asset[`${locale}`].sys.linkType
   );
+  const assetTypeReference = getReferenceById(
+    entryReferences!,
+    assetType[`${locale}`].sys.id,
+    assetType[`${locale}`].sys.linkType
+  );
+  const featuredMediaReference =
+    featuredMedia &&
+    getReferenceById(
+      entryReferences!,
+      featuredMedia[`${locale}`].sys.id,
+      featuredMedia[`${locale}`].sys.linkType
+    );
+
+  const featuredMediaReferenceAsset =
+    featuredMediaReference &&
+    getReferenceById(
+      entryReferences!,
+      featuredMediaReference.image[`${locale}`].sys.id,
+      featuredMediaReference.image[`${locale}`].sys.linkType
+    );
 
   return {
     __typename: "ContentfulDocument",
@@ -32,19 +77,24 @@ export const transformDocument = async (
     title: title[`${locale}`],
     titleAndSize: `${title[`${locale}`]}_${
       /* istanbul ignore next */
-      file[`${locale}`].details?.size
+      assetRefernce?.file[`${locale}`].details?.size
     }`,
-    realFileName: file[`${locale}`].fileName,
+    realFileName: assetRefernce?.file[`${locale}`].fileName,
     asset: {
       file: {
-        ...(file[`${locale}`] as ContentfulAsset["file"]),
-        contentType: "application/pdf"
+        ...assetRefernce?.file[`${locale}`]
       }
     },
     assetType: {
-      name: name[`${locale}`],
-      code: code[`${locale}`],
-      ...(pimCode && { pimCode: pimCode[`${locale}`] })
+      id: assetType[`${locale}`].sys.id,
+      name: assetTypeReference?.name[`${locale}`],
+      code: assetTypeReference?.code[`${locale}`],
+      ...(assetTypeReference?.pimCode && {
+        pimCode: assetTypeReference?.pimCode[`${locale}`]
+      }),
+      ...(assetTypeReference?.description && {
+        description: assetTypeReference?.description[`${locale}`]
+      })
     },
     ...(Object.prototype.hasOwnProperty.call(entryData.fields, "noIndex") && {
       noIndex: noIndex[`${locale}`]
@@ -53,6 +103,21 @@ export const transformDocument = async (
       BRAND: {
         name: brand[`${locale}`],
         code: brand[`${locale}`]
+      }
+    }),
+    ...(featuredMedia && {
+      featuredMedia: {
+        title: featuredMediaReference.title[`${locale}`],
+        altText: featuredMediaReference.altText[`${locale}`],
+        image: {
+          title: featuredMediaReferenceAsset.title[`${locale}`],
+          ...(featuredMediaReferenceAsset?.description && {
+            description: featuredMediaReferenceAsset.description[`${locale}`]
+          }),
+          file: {
+            ...featuredMediaReferenceAsset.file[`${locale}`]
+          }
+        }
       }
     })
   };
