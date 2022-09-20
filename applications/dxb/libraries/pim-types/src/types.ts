@@ -537,6 +537,7 @@ export type VariantOption = {
   shortDescription: string;
   productBenefits?: string[];
   productReferences?: ProductReference[];
+  name?: string;
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;

@@ -190,7 +190,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         });
       });
       const hashedCode = generateHashFromString(variant.code, false);
-      const name = product.name;
+      const name = variant.name || product.name;
 
       product.categories?.forEach((category) => {
         if (!category.name) {
