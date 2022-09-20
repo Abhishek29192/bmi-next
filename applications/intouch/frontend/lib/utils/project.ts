@@ -63,9 +63,15 @@ export const getProjectGuaranteeStatus = (
   }
 
   // Other known statuses are handled in microcopy, with a fallback:
-  return ["SUBMITTED", "REVIEW", "REJECTED", "APPROVED"].includes(
-    guarantee.status
-  )
+  return [
+    "SUBMITTED",
+    "REVIEW",
+    "REJECTED",
+    "APPROVED",
+    "DECLINED",
+    "EXPIRED",
+    "ISSUED"
+  ].includes(guarantee.status)
     ? guarantee.status
     : "NOT_APPLICABLE";
 };

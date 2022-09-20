@@ -135,7 +135,10 @@
       "REJECTED": "Returnert",
       "REVIEW": "Sendt inn",
       "STARTED": "Startet",
-      "SUBMITTED": "Sendt inn"
+      "SUBMITTED": "Sendt inn",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Produktgaranti",

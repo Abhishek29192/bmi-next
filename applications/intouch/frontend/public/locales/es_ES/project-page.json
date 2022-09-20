@@ -135,7 +135,10 @@
       "REJECTED": "Devuelto",
       "REVIEW": "Solicitud presentada",
       "STARTED": "Empezado",
-      "SUBMITTED": "Solicitud presentada"
+      "SUBMITTED": "Solicitud presentada",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Garantía del producto",

@@ -56,7 +56,7 @@ const SolutionGuaranteeCard = ({
     (member) => member.productByProductBmiRef
   );
 
-  const canGuaranteePdfDownload = signedFileStorageUrl && status === "APPROVED";
+  const canGuaranteePdfDownload = signedFileStorageUrl && status === "ISSUED";
   return (
     <div className={styles.body}>
       <div className={styles.body__title}>

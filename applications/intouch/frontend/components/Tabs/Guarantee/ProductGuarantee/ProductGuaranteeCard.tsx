@@ -10,10 +10,12 @@ import styles from "./styles.module.scss";
 type ProductGuaranteeCardProps = {
   product: ProjectDetailsProductFragmentFragment;
   guaranteeFileUrl?: string;
+  guaranteeStatus: string;
 };
 const ProductGuaranteeCard = ({
   product,
-  guaranteeFileUrl
+  guaranteeFileUrl,
+  guaranteeStatus
 }: ProductGuaranteeCardProps) => {
   const { t } = useTranslation(["common", "project-page"]);
   const { name, description } = product;
@@ -29,26 +31,30 @@ const ProductGuaranteeCard = ({
       </div>
       <ProductCard products={[product]} />
 
-      <div
-        className={styles.productCard__footer}
-        data-testid="guarantee-pdf-item"
-      >
-        <Button
-          variant="outlined"
-          action={{
-            model: "htmlLink",
-            href: guaranteeFileUrl,
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }}
-          disabled={!guaranteeFileUrl}
-          startIcon={
-            <Icon className={styles.productCard__logo} source={FilePDF} />
-          }
+      {guaranteeStatus === "ISSUED" && (
+        <div
+          className={styles.productCard__footer}
+          data-testid="guarantee-pdf-item"
         >
-          {guaranteeFileUrl ? t("common:Download") : t("common:generatingPdf")}
-        </Button>
-      </div>
+          <Button
+            variant="outlined"
+            action={{
+              model: "htmlLink",
+              href: guaranteeFileUrl,
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }}
+            disabled={!guaranteeFileUrl}
+            startIcon={
+              <Icon className={styles.productCard__logo} source={FilePDF} />
+            }
+          >
+            {guaranteeFileUrl
+              ? t("common:Download")
+              : t("common:generatingPdf")}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
