@@ -14,7 +14,7 @@
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=updateESDocumentsIndex --port=9061"
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "^1.3.3",
     "@elastic/elasticsearch": "^7.8.0",
     "@google-cloud/functions-framework": "^3.0.0"
   },

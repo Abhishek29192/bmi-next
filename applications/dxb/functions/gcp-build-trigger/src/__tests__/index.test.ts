@@ -8,6 +8,12 @@ import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 
+type TimeSeriesResponse = [
+  protos.google.monitoring.v3.ITimeSeries[],
+  protos.google.monitoring.v3.IListTimeSeriesRequest | null,
+  protos.google.monitoring.v3.IListTimeSeriesResponse
+];
+
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
@@ -28,6 +34,66 @@ jest.mock("@google-cloud/monitoring", () => {
   }));
   return { MetricServiceClient: mMetricServiceClient };
 });
+
+const documentsNotDeleted = [
+  [{ points: [{ value: { int64Value: 0 } }] }],
+  {},
+  {}
+];
+const documentsDeleted = [
+  [
+    { points: [{ value: { int64Value: 0 } }] },
+    { points: [{ value: { int64Value: 1 } }] }
+  ],
+  {},
+  {}
+];
+const documentsNotUpdated = [
+  [{ points: [{ value: { int64Value: 0 } }] }],
+  {},
+  {}
+];
+const documentsUpdated = [
+  [
+    { points: [{ value: { int64Value: 0 } }] },
+    { points: [{ value: { int64Value: 1 } }] }
+  ],
+  {},
+  {}
+];
+const functionsStillRunning: TimeSeriesResponse = [
+  [{ points: [{ value: { int64Value: 1 } }] }],
+  {},
+  {}
+];
+const functionsFinished: TimeSeriesResponse = [
+  [
+    { points: [{ value: { int64Value: 1 } }] },
+    { points: [{ value: { int64Value: 0 } }] }
+  ],
+  {},
+  {}
+];
+const pubSubmessagesFinished: TimeSeriesResponse = [
+  [
+    { points: [{ value: { int64Value: 1 } }] },
+    { points: [{ value: { int64Value: 0 } }] }
+  ],
+  {},
+  {}
+];
+const pubSubmessagesStillWaiting: TimeSeriesResponse = [
+  [{ points: [{ value: { int64Value: 1 } }] }],
+  {},
+  {}
+];
+const responseWithoutPointValue: TimeSeriesResponse = [
+  [{ points: [{}] }],
+  null,
+  {}
+];
+const responseWithoutPoints: TimeSeriesResponse = [[{}], null, {}];
+const emptyResponse: TimeSeriesResponse = [[], null, {}];
 
 const build = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).build(request as Request, response as Response);
@@ -173,28 +239,16 @@ describe("Invalid environment variables", () => {
   });
 });
 
-const populatedResponse = [
-  [{ points: [{ value: { int64Value: 1 } }] }],
-  {},
-  {}
-];
-const zeroValueResponse = [
-  [{ points: [{ value: { int64Value: 0 } }] }],
-  {},
-  {}
-];
-const responseWithoutPoints = [[{}], {}, {}];
-const emptyResponse = [[], {}, {}];
 describe("Making a POST request", () => {
   it("returns status code 200 when documents were deleted, functions are not running and no more messages are being sent", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -212,7 +266,7 @@ describe("Making a POST request", () => {
       `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
     );
     expectMonitorCheck(
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -224,10 +278,10 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -248,7 +302,7 @@ describe("Making a POST request", () => {
       `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
     );
     expectMonitorCheck(
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -260,10 +314,10 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -285,7 +339,7 @@ describe("Making a POST request", () => {
       `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
     );
     expectMonitorCheck(
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -297,14 +351,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -329,7 +383,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -345,7 +399,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -357,14 +411,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -389,7 +443,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -405,7 +459,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -417,14 +471,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -449,7 +503,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -465,7 +519,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -477,14 +531,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(emptyResponse);
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     mockResponses(fetchMock, {
       url: process.env.NETLIFY_BUILD_HOOK,
@@ -509,7 +563,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -525,7 +579,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveFetched(process.env.NETLIFY_BUILD_HOOK, {
       method: "POST"
@@ -540,14 +594,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
+      .mockResolvedValueOnce(documentsNotDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting);
 
     await build(req, res);
 
@@ -567,7 +621,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -583,7 +637,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -600,12 +654,12 @@ describe("Making a POST request", () => {
     listTimeSeries
       .mockResolvedValueOnce(responseWithoutPoints)
       .mockResolvedValueOnce(responseWithoutPoints)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
       .mockResolvedValueOnce(responseWithoutPoints)
       .mockResolvedValueOnce(responseWithoutPoints)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting);
 
     await build(req, res);
 
@@ -625,7 +679,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -641,7 +695,65 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
+  });
+
+  it("returns status code 500 if documents are never deleted or updated beyond timeout with response without point value when functions are no longer running and no more messages are being sent", async () => {
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000";
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    listTimeSeries
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting);
+
+    await build(req, res);
+
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    expectNthMonitorCheck(
+      1,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      2,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      3,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      4,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expectNthMonitorCheck(
+      5,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      6,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      7,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      8,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -658,12 +770,12 @@ describe("Making a POST request", () => {
     listTimeSeries
       .mockResolvedValueOnce(emptyResponse)
       .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
       .mockResolvedValueOnce(emptyResponse)
       .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting);
 
     await build(req, res);
 
@@ -683,7 +795,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -699,7 +811,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -714,14 +826,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsStillRunning)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     await build(req, res);
 
@@ -741,7 +853,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -757,7 +869,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -772,14 +884,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
       .mockResolvedValueOnce(responseWithoutPoints)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
       .mockResolvedValueOnce(responseWithoutPoints)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     await build(req, res);
 
@@ -799,7 +911,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -815,7 +927,65 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
+  });
+
+  it("returns status code 500 if functions never stop beyond timout with response without point value when documents have been deleted or updated and no more messages are being sent", async () => {
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000";
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    listTimeSeries
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
+
+    await build(req, res);
+
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    expectNthMonitorCheck(
+      1,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      2,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      3,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      4,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expectNthMonitorCheck(
+      5,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      6,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      7,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      8,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -830,14 +1000,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
       .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
       .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse);
+      .mockResolvedValueOnce(pubSubmessagesFinished);
 
     await build(req, res);
 
@@ -857,7 +1027,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -873,7 +1043,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -888,14 +1058,14 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(zeroValueResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(zeroValueResponse);
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesStillWaiting);
 
     await build(req, res);
 
@@ -915,7 +1085,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -931,7 +1101,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -946,13 +1116,13 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
       .mockResolvedValueOnce(responseWithoutPoints)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
       .mockResolvedValueOnce(responseWithoutPoints);
 
     await build(req, res);
@@ -973,7 +1143,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -989,7 +1159,65 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(0);
+
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
+  });
+
+  it("returns status code 500 if messages never stop being sent beyond timout with response without point value when documents have been deleted or updated and functions are finished", async () => {
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000";
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    listTimeSeries
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(responseWithoutPointValue)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(responseWithoutPointValue);
+
+    await build(req, res);
+
+    expect(res.sendStatus).toBeCalledWith(500);
+
+    expectNthMonitorCheck(
+      1,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      2,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      3,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      4,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expectNthMonitorCheck(
+      5,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      6,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      7,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      8,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
@@ -1004,13 +1232,13 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     listTimeSeries
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
       .mockResolvedValueOnce(emptyResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
-      .mockResolvedValueOnce(populatedResponse)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsUpdated)
+      .mockResolvedValueOnce(functionsFinished)
       .mockResolvedValueOnce(emptyResponse);
 
     await build(req, res);
@@ -1031,7 +1259,7 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       4,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expectNthMonitorCheck(
       5,
@@ -1047,11 +1275,86 @@ describe("Making a POST request", () => {
     );
     expectNthMonitorCheck(
       8,
-      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
     process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
+  });
+
+  it("waits for the METRIC_LATENCY_DELAY milliseconds before making any requests", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    listTimeSeries
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished)
+      .mockResolvedValueOnce(documentsDeleted)
+      .mockResolvedValueOnce(documentsNotUpdated)
+      .mockResolvedValueOnce(functionsFinished)
+      .mockResolvedValueOnce(pubSubmessagesFinished);
+
+    mockResponses(fetchMock, {
+      url: process.env.NETLIFY_BUILD_HOOK,
+      method: "POST"
+    });
+
+    const withoutDelayStart = new Date();
+    await build(req, res);
+    const withoutDelayDifference =
+      new Date().getTime() - withoutDelayStart.getTime();
+
+    jest.resetModules();
+
+    process.env.METRIC_LATENCY_DELAY = "1000";
+    const withDelayStart = new Date();
+    await build(req, res);
+    const withDelayDifference = new Date().getTime() - withDelayStart.getTime();
+    expect(withDelayDifference - withoutDelayDifference).toBeGreaterThanOrEqual(
+      900 // Allow for deviation in run time
+    );
+
+    expect(res.sendStatus).toBeCalledWith(200);
+
+    expectNthMonitorCheck(
+      1,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      2,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      3,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      4,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expectNthMonitorCheck(
+      5,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/delete_count"`
+    );
+    expectNthMonitorCheck(
+      6,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
+    );
+    expectNthMonitorCheck(
+      7,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${process.env.DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    );
+    expectNthMonitorCheck(
+      8,
+      `project = "${process.env.GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    );
+    expect(fetchMock).toHaveFetchedTimes(2, process.env.NETLIFY_BUILD_HOOK, {
+      method: "POST"
+    });
+
+    delete process.env.METRIC_LATENCY_DELAY;
   });
 });
 

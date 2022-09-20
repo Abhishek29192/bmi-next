@@ -1442,11 +1442,6 @@
   resolved "https://registry.yarnpkg.com/@bmi-digital/fetch-mocks/-/fetch-mocks-1.3.3.tgz#efc6565debead76aa8702519944f5e0cfcff412e"
   integrity sha512-rCIXtQ9Y8lw3Qge7XbW/joaiJ2aYDjFxG5nHQcf+r9YX2aB736UEgoncuujDzRKNRzuaWwWzLr9nFzAK5oUaow==
 
-"@bmi-digital/functions-logger@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/functions-logger/-/functions-logger-1.2.0.tgz#5299a7274fe8eca5d6b2ea363b0c2627fd8b9b41"
-  integrity sha512-18oMSkDNRYd5SYf5r+r6C/UWXfnZnu9XQcrLyhVZUdzO7goS4PXoXY+jBaKiMsd8LGZqTruiCUxS3s034QbSAA==
-
 "@bmi-digital/functions-logger@^1.3.3":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@bmi-digital/functions-logger/-/functions-logger-1.3.3.tgz#43957208bfbe32e55f2f54226c430d27d763f12b"
