@@ -36,27 +36,19 @@
   ii) It will publish newly created entries
   iii) `value` of each entry will same as its `key`
 */
+import { argv } from "process";
 import { getEnvironment, waitFor } from "@bmi/utils";
 import { Entry, Environment, Link, Locale, Tag } from "contentful-management";
 import { microCopy } from "../../../head/src/constants/microCopies";
+import {
+  BULK_SIZE,
+  CHUNK_SIZE,
+  KEYS_REQUEST_PAGE_SIZE,
+  TIMEOUT
+} from "./constants";
 
-/*
-  Contentful Management API have limitation to amount of requests
-  For more info https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/api-rate-limits
-*/
-const CHUNK_SIZE = 10;
-const TIMEOUT = 1000;
-
-/*
-  Contentful Management API have limitation to size of bulk operations
-  For more info https://www.contentful.com/developers/docs/references/content-management-api/#/reference/bulk-actions
-*/
-const BULK_SIZE = 200;
-
-const KEYS_REQUEST_PAGE_SIZE = 100;
-
-const TO_BE_PUBLISHED = process.argv.includes("--publish");
-const IS_CONSOLIDATED = process.argv.includes("--isConsolidated=true");
+let TO_BE_PUBLISHED = process.argv.includes("--publish");
+let IS_CONSOLIDATED = process.argv.includes("--isConsolidated=true");
 
 type PublishEntryPayload = {
   sys: {
@@ -148,7 +140,7 @@ const createEntriesAndReturnFulfilledResponse = async (
   results
     .filter(({ status }) => status === "rejected")
     .map((entries: any) => {
-      console.log(`Failed to upload: ${entries.reason}`);
+      console.log(`Failed to upload: ${JSON.stringify(entries.reason)}`);
     });
 
   console.log(`${fulfilled.length} entries created in contentful.`);
@@ -239,12 +231,14 @@ const updateExistingMicrocopies = async (
           };
         });
       } else {
+        /*istanbul ignore next:cant test*/
         return [];
       }
     }
   );
 
   if (allEntryPayloads.length === 0) {
+    /*istanbul ignore next:cant test*/
     return [];
   }
 
@@ -310,6 +304,7 @@ const processNewMicrocopies = async (
   );
 
   if (allEntryPayloads.length === 0) {
+    /*istanbul ignore next:cant test*/
     return [];
   }
 
@@ -420,7 +415,13 @@ const publishMicroCopies = async (nodes: any) => {
   await publishMicroCopies(nodes.slice(BULK_SIZE));
 };
 
-const main = async () => {
+export const main = async (
+  isToBePublished: boolean,
+  isConsolidated: boolean
+) => {
+  IS_CONSOLIDATED = isConsolidated;
+  TO_BE_PUBLISHED = isToBePublished;
+
   const projectKeys = Object.values(microCopy);
 
   let allContentfulMicrocopies = await await getContentfulMicroCopies([], -1);
@@ -510,7 +511,13 @@ const main = async () => {
   console.log("Done");
 };
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+// istanbul ignore if - can't override require.main
+if (require.main === module) {
+  main(
+    argv.includes("--publish"),
+    argv.includes("--isConsolidated=true")
+  ).catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
