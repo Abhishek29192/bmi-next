@@ -94,10 +94,9 @@ export const handleMessage: MessageFunction = async (data, context) => {
       message: `Didn't find any assets on update event.`
     });
   }
-  const itemCode: string = "code" in item ? item.code : "";
   switch (type) {
     case "UPDATED":
-      await updateElasticSearch(itemType, esDocuments, assets, itemCode);
+      await updateElasticSearch(itemType, esDocuments, assets, item.code);
       break;
     case "DELETED":
       await deleteESItemByCode(item, itemType);

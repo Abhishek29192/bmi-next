@@ -1,6 +1,7 @@
 import {
   Category,
   createClassification,
+  createImage,
   createSystem,
   System
 } from "@bmi/pim-types";
@@ -282,6 +283,43 @@ describe("transformSystem", () => {
       approvalStatus,
       type,
       images: [],
+      code,
+      name,
+      scoringWeight,
+      shortDescription,
+      hashedCode: "hashed-system-code",
+      path: "/s/generated-url"
+    });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
+  });
+
+  it("should transform system to object with image that only has thumbnail", () => {
+    const system = createSystem({
+      images: [
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: "Product-Color-Selector-Mobile"
+        })
+      ]
+    });
+    const { approvalStatus, type, code, name, shortDescription } = system;
+    const brand = getBrand(system);
+    const scoringWeight = getScoringWeight(system);
+    generateHashFromString.mockReturnValue("hashed-system-code");
+    generateUrl.mockReturnValue("generated-url");
+
+    expect(transformSystem(system)).toStrictEqual({
+      brand,
+      approvalStatus,
+      type,
+      images: [
+        {
+          altText: undefined,
+          mainSource: undefined,
+          thumbnail: "http://localhost:8000"
+        }
+      ],
       code,
       name,
       scoringWeight,
