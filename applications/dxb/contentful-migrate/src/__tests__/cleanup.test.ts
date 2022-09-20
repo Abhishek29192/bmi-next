@@ -125,4 +125,24 @@ describe("cleanupOldEnvironments", () => {
     expect(v12Alpha2Env.delete).not.toHaveBeenCalled();
     expect(v11Env.delete).not.toHaveBeenCalled();
   });
+
+  it("should handle only 0 old major version", async () => {
+    const v13Aplha1Env = { sys: { id: "v1.3.0-alpha.1" }, delete: jest.fn() };
+    const v13Alpha2Env = { sys: { id: "v1.3.0-alpha.2" }, delete: jest.fn() };
+    const v13Env = { sys: { id: "v1.3.0" }, delete: jest.fn() };
+    mockGetEnvironments.mockResolvedValueOnce({
+      items: [v13Aplha1Env, v13Alpha2Env, v13Env]
+    });
+    mockGetEnvironmentAliases.mockResolvedValueOnce({
+      items: []
+    });
+
+    await cleanupOldEnvironments(v13Env.sys.id, space);
+
+    expect(mockGetEnvironments).toHaveBeenCalled();
+    expect(mockGetEnvironmentAliases).toHaveBeenCalled();
+    expect(v13Aplha1Env.delete).toHaveBeenCalled();
+    expect(v13Alpha2Env.delete).toHaveBeenCalled();
+    expect(v13Env.delete).not.toHaveBeenCalled();
+  });
 });

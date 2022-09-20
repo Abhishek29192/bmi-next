@@ -20,7 +20,7 @@ export const cleanupOldEnvironments = async (tag: string, space: Space) => {
   if (majorEnvironments.length > 0) {
     console.log("Skipping previous major version:");
     console.log(majorEnvironments[0].sys.id);
-    console.log(majorEnvironments[1].sys.id);
+    console.log(majorEnvironments[1]?.sys.id);
   }
 
   if (sortedEnvVersions.length > 1) {
