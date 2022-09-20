@@ -553,7 +553,7 @@ export type Product = {
   images?: readonly Image[];
   isSampleOrderAllowed?: boolean;
   longDescription: HTML;
-  name: string;
+  name?: string;
   productBenefits?: string[];
   shortDescription: string;
   summary: string;
