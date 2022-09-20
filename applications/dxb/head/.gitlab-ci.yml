@@ -80,8 +80,8 @@ wait_until_head_deployed_to_gatsby:
         updated_at=$(date -u +%s --date=$(echo $note | jq -r '.updated_at'))
         body=$(echo $note | jq '.body')
         if [[ $(($updated_at - $commit_time)) -gt 0 ]]; then
-          if [[ $body == *"Your build was successful!"* ]]; then
-            sed -n 's/.*\[See the Deploy preview here.\](\(.*\))\\n\\n##.*/\1/p' <<< $body > deploy_head
+          if [[ $body == *"## :white_check_mark: DXB/QA deploy preview ready"* ]]; then
+            sed -n 's/.*\[Deploy preview\](\(.*\))\\n\*.*/\1/p' <<< $body > deploy_head
             exit 0
           fi
           echo "Latest Gatsby build failed to build."
