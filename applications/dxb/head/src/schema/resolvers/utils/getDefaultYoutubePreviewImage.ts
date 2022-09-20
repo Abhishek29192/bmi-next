@@ -1,5 +1,5 @@
-import { getYoutubeId } from "@bmi/utils";
 import fetch from "node-fetch";
+import { getYoutubeId } from "../../../../../libraries/utils/src/index";
 
 export const getDefaultYoutubePreviewImage = async (youtubeId: string) => {
   const baseUrl = `https://i.ytimg.com/vi/${getYoutubeId(youtubeId).trim()}`;
