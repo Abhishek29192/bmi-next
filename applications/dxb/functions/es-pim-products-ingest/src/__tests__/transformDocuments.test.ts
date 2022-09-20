@@ -1,18 +1,18 @@
 import {
-  AssetTypeData,
-  Category,
-  createAsset,
-  createProduct,
-  Product,
-  System,
-  createClassification,
-  createVariantOption,
-  createFeature
-} from "@bmi/pim-types";
-import {
   EsPIMDocumentData,
   EsPIMLinkDocumentData
 } from "@bmi/elasticsearch-types";
+import {
+  AssetTypeData,
+  Category,
+  createAsset,
+  createClassification,
+  createFeature,
+  createProduct,
+  createVariantOption,
+  Product,
+  System
+} from "@bmi/pim-types";
 import { ProductDocumentNameMap } from "../types";
 
 const transformDocuments = async (
@@ -593,6 +593,102 @@ describe("transformDocuments", () => {
             name: "value"
           }
         ],
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "name",
+        realFileName: "real-file-name.pdf",
+        title: "name name2",
+        titleAndSize: "name_10",
+        url: "http://localhost:8000"
+      }
+    ];
+    expect(result).toEqual(expectedResult);
+  });
+
+  it("should transform asset into PimDocument without classification filters when there are no classifications", async () => {
+    const assetTypes = [
+      {
+        name: "name1",
+        code: "code1",
+        pimCode: "ASSEMBLY_INSTRUCTIONS"
+      },
+      {
+        name: "name2",
+        code: "code2",
+        pimCode: "AWARDS"
+      }
+    ];
+    getAssetTypes.mockReturnValue(assetTypes);
+    getProductDocumentNameMap.mockReturnValue("Product name + asset type");
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      categories,
+      classifications: undefined,
+      variantOptions: [
+        createVariantOption({
+          classifications: undefined
+        })
+      ]
+    });
+    const result = await transformDocuments(product);
+    const expectedResult = [
+      {
+        __typename: "PIMDocument",
+        assetType: { code: "code2", name: "name2", pimCode: "AWARDS" },
+        docName: "name",
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: `uniqueId`,
+        isLinkDocument: false,
+        CATEGORY: [
+          {
+            code: "parent-category-code",
+            name: "name"
+          }
+        ],
+        noIndex: false,
+        productBaseCode: "base-code",
+        productName: "name",
+        realFileName: "real-file-name.pdf",
+        title: "name name2",
+        titleAndSize: "name_10",
+        url: "http://localhost:8000"
+      }
+    ];
+    expect(result).toEqual(expectedResult);
+  });
+
+  it("should transform asset into PimDocument without category filters when there are no categories", async () => {
+    const assetTypes = [
+      {
+        name: "name1",
+        code: "code1",
+        pimCode: "ASSEMBLY_INSTRUCTIONS"
+      },
+      {
+        name: "name2",
+        code: "code2",
+        pimCode: "AWARDS"
+      }
+    ];
+    getAssetTypes.mockReturnValue(assetTypes);
+    getProductDocumentNameMap.mockReturnValue("Product name + asset type");
+    const product = createProduct({
+      assets: [createAsset({ assetType: "AWARDS" })],
+      categories: undefined
+    });
+    const result = await transformDocuments(product);
+    const expectedResult = [
+      {
+        __typename: "PIMDocument",
+        assetType: { code: "code2", name: "name2", pimCode: "AWARDS" },
+        docName: "name",
+        extension: "pdf",
+        fileSize: 10,
+        format: "application/pdf",
+        id: `uniqueId`,
+        isLinkDocument: false,
         noIndex: false,
         productBaseCode: "base-code",
         productName: "name",
