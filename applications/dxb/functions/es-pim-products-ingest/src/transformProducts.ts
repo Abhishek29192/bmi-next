@@ -196,7 +196,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "externalProductCode",
       "code",
       "isSampleOrderAllowed",
-      "name",
       "summary",
       "description",
       "longDescription",
@@ -231,10 +230,13 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       name: product.name
     };
 
+    const name = variant.name || product.name!;
+
     const esProduct: ESProduct = {
       ...indexedFeatures,
       ...allCategoriesAsProps,
       ...baseAttributes,
+      name,
       externalProductCode: baseAttributes.externalProductCode || "",
       isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
       code: variant.code,
@@ -267,7 +269,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ]),
       productReferences: combineProductReferences(product, variant),
       path: `/p/${generateProductUrl(
-        baseAttributes.name,
+        name,
         generateHashFromString(variant.code, false),
         combinedClassifications
           .find(
