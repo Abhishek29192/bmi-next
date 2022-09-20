@@ -1,4 +1,3 @@
-/* eslint-disable security/detect-object-injection */
 import { Category, Classification, Image, Product } from "@bmi/pim-types";
 import { TwoOneIgnoreDictionary } from "./transformProducts";
 
@@ -136,11 +135,13 @@ export const mapProductClassifications = (
                 FEATURES.THICKNESS
               ].includes(code)
             ) {
+              // eslint-disable-next-line security/detect-object-injection
               const productObject = carry[productCode];
               const measurements = productObject
                 ? (productObject.measurements as TransformedMeasurementValue)
                 : {};
 
+              // eslint-disable-next-line security/detect-object-injection
               carry[productCode] = {
                 ...productObject,
                 measurements: {
@@ -187,6 +188,7 @@ export const generateSubtitleValues = (classifications: Classification[]) => {
     const allClassificationAttributes = classifications.find(
       ({ code }) => code === classificationCode
     );
+    // eslint-disable-next-line security/detect-object-injection
     const eligibleFeatures: string[] = subtitleFeatureMap[
       classificationCode
     ] as string[];
@@ -204,7 +206,7 @@ export const generateSubtitleValues = (classifications: Classification[]) => {
               .toLowerCase()
               .endsWith(eligibleFeatureCode.toLowerCase())
           )?.featureValues || []
-        ).flatMap((featureValue) => featureValue?.value || "");
+        ).flatMap((featureValue) => featureValue.value);
         allFetureValues = [...allFetureValues, ...featureValues];
       });
     }
@@ -254,8 +256,11 @@ export const groupBy = <T extends IndexedItem>(
   key: keyof T
 ): IndexedItemGroup<T> => {
   return array.reduce<IndexedItemGroup<T>>((map, item) => {
+    // eslint-disable-next-line security/detect-object-injection
     const itemKey = item[key];
+    // eslint-disable-next-line security/detect-object-injection
     map[itemKey] = map[itemKey] || [];
+    // eslint-disable-next-line security/detect-object-injection
     map[itemKey].push(item);
     return map;
   }, {});

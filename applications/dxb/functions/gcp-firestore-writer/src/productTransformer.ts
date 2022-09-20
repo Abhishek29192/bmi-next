@@ -190,7 +190,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         });
       });
       const hashedCode = generateHashFromString(variant.code, false);
-      const name = variant.name || product.name;
+      const name = variant.name || product.name!;
 
       product.categories?.forEach((category) => {
         if (!category.name) {
@@ -569,7 +569,7 @@ const mapRelatedVariants = (
         ...(product.images || [])
       ]);
       const hashedCode = generateHashFromString(variant.code);
-      const name = product.name;
+      const name = variant.name || product.name!;
       return {
         code: variant.code,
         name,
@@ -619,7 +619,7 @@ const mapProductDocuments = (product: PimProduct): ProductDocument[] =>
   mapDocuments(product.assets).map((document) => ({
     ...document,
     productBaseCode: product.code,
-    productName: product.name,
+    productName: product.name!,
     productCategories: (product.categories || []).map((category) => ({
       code: category.code,
       parentCategoryCode: category.parentCategoryCode

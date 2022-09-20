@@ -171,6 +171,7 @@ const createVariantOption = (
   images: [createImage()],
   isSampleOrderAllowed: true,
   longDescription: "<p>Long description</p>",
+  name: "variant-name",
   shortDescription: "Short description",
   productBenefits: ["product-benefits"],
   ...variantOption
