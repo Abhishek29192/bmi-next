@@ -5,22 +5,18 @@ import { Entry } from "contentful-management";
 import mockConsole from "jest-mock-console";
 import { ESContentfulDocument } from "../es-model";
 import SampleContentfulWebhook from "./resources/sample_contentfulWebhook_entry.json";
-import SampleContentfulAsset from "./resources/sample_contentful_asset.json";
 import SampleContentfulEntry from "./resources/sample_contentful_entry.json";
 
 const getSpace = jest.fn();
 const getEsClient = jest.fn();
 const getEnvironment = jest.fn();
-const getAsset = jest.fn().mockReturnValue({
-  sys: SampleContentfulAsset.sys,
-  fields: SampleContentfulAsset.fields
-});
-const getEntry = jest.fn().mockReturnValue({
-  sys: SampleContentfulEntry.sys,
-  fields: SampleContentfulEntry.fields
+const getEntryReferences = jest.fn().mockReturnValue({
+  ...SampleContentfulEntry
 });
 
-getEnvironment.mockResolvedValue({ getAsset: getAsset, getEntry: getEntry });
+getEnvironment.mockResolvedValue({
+  getEntryReferences: (...args: any) => getEntryReferences(...args)
+});
 getSpace.mockResolvedValue({ getEnvironment: getEnvironment });
 jest.mock("contentful-management", () => ({
   createClient: () => ({
@@ -71,38 +67,14 @@ const handleEsClientError = async (response: {
 describe("helpers", () => {
   beforeEach(() => {
     mockConsole();
-    process.env.MARKET_LOCALE = "en-GB";
+    process.env.MARKET_LOCALE = "en-US";
   });
   describe("transformDocument", () => {
     it("should transform Contentful document to ES document", async () => {
       const esDocument = await transformDocument(
         SampleContentfulWebhook as unknown as Entry
       );
-      expect(esDocument).toStrictEqual({
-        __typename: "ContentfulDocument",
-        id: SampleContentfulWebhook.sys.id,
-        title: SampleContentfulWebhook.fields.title[`en-GB`],
-        titleAndSize: `${SampleContentfulWebhook.fields.title[`en-GB`]}_${
-          SampleContentfulAsset.fields.file[`en-GB`].details?.size
-        }`,
-        realFileName: SampleContentfulAsset.fields.file[`en-GB`].fileName,
-        asset: {
-          file: {
-            ...SampleContentfulAsset.fields.file[`en-GB`],
-            contentType: "application/pdf"
-          }
-        },
-        noIndex: false,
-        BRAND: {
-          code: SampleContentfulWebhook.fields.brand[`en-GB`],
-          name: SampleContentfulWebhook.fields.brand[`en-GB`]
-        },
-        assetType: {
-          name: SampleContentfulEntry.fields.name[`en-GB`],
-          code: SampleContentfulEntry.fields.code[`en-GB`],
-          pimCode: SampleContentfulEntry.fields.pimCode[`en-GB`]
-        }
-      });
+      expect(esDocument).toMatchSnapshot();
     });
   });
 
