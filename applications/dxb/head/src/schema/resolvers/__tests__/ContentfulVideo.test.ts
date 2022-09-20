@@ -32,6 +32,11 @@ const videoRatioResolve = async (source: Node) =>
 const youtubeIdResolve = async (source: Node) =>
   (await import("../ContentfulVideo")).default.youtubeId.resolve(source);
 
+const defaultYouTubePreviewImageResolve = async (source: Node) =>
+  (
+    await import("../ContentfulVideo")
+  ).default.defaultYouTubePreviewImage.resolve(source);
+
 beforeEach(() => {
   process.env.NODE_ENV = "test";
   process.env.GOOGLE_YOUTUBE_API_KEY = "";
@@ -225,6 +230,18 @@ describe("ContentfulVideo", () => {
       };
       expect(await youtubeIdResolve(localSource)).toEqual(
         "https://youtu.be/01SUXJmB9Ik?utm_medium=cpc&utm_source=google_search&_bmitiles=uk"
+      );
+    });
+  });
+
+  describe("defaultYouTubePreviewImage resolver", () => {
+    it("should return correct image source if url provided and this image exists on youtube", async () => {
+      jest.mock("../utils/getDefaultYoutubePreviewImage", () => ({
+        getDefaultYoutubePreviewImage: () =>
+          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      }));
+      expect(await defaultYouTubePreviewImageResolve(source)).toEqual(
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       );
     });
   });

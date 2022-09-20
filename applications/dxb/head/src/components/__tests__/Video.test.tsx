@@ -1,8 +1,8 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
 import { YoutubeVideoProps } from "@bmi/components/src";
-import * as Video from "../Video";
+import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
 import { Data } from "../Image";
+import * as Video from "../Video";
 
 const VideoRenderComponent = Video.renderVideo;
 const VideoComponent = Video.default;
@@ -39,7 +39,8 @@ const mockData = {
   subtitle: "mockSubtitle",
   videoUrl: "https://www.youtube.com/watch?v=testId",
   videoRatio: null,
-  previewMedia: null
+  previewMedia: null,
+  defaultYouTubePreviewImage: "https://i.ytimg.com/vi/testId/maxresdefault.jpg"
 };
 
 describe("Video", () => {

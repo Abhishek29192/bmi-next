@@ -8,13 +8,6 @@ import Sections, { Data } from "../Sections";
 import { EntryTypeEnum } from "../Service";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
-import { Data as VideoData } from "../Video";
-import { createMockedYoutubeVideo } from "./helpers/mediaHelper";
-
-const renderVideo = jest.fn();
-jest.mock("../Video", () => ({
-  renderVideo: (data: VideoData) => renderVideo(data)
-}));
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -283,7 +276,9 @@ describe("Sections component", () => {
           subtitle: null,
           videoUrl: "https://www.youtube.com/watch?v=abc123",
           previewMedia: null,
-          videoRatio: null
+          videoRatio: null,
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/abc123/maxresdefault.jpg"
         },
         backgroundColor: null
       },
@@ -341,6 +336,51 @@ describe("Sections component", () => {
         cta: null,
         featuredVideo: null,
         backgroundColor: null
+      },
+      {
+        __typename: "ContentfulMediaGallerySection",
+        title: "Gallery title",
+        longDescription: null,
+        medias: [
+          {
+            __typename: "ContentfulImage",
+            type: null,
+            altText: "Lorem ipsum",
+            caption: null,
+            focalPoint: null,
+            image: {
+              thumbnail: {
+                src: "//images.asset.jpg"
+              },
+              gatsbyImageData: {
+                images: {
+                  sources: [
+                    {
+                      srcSet:
+                        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                      sizes: "(min-width: 948px) 948px, 100vw",
+                      type: "image/webp"
+                    }
+                  ],
+                  fallback: {
+                    src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                    srcSet:
+                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
+                    sizes: "(min-width: 948px) 948px, 100vw"
+                  }
+                },
+                layout: "constrained",
+                backgroundColor: "#484848",
+                width: 948,
+                height: 720
+              },
+              file: {
+                fileName: "Lorem ipsum",
+                url: "//images.asset.jpg"
+              }
+            }
+          }
+        ]
       },
       {
         __typename: "ContentfulDocumentDownloadSection",
@@ -407,7 +447,9 @@ describe("Sections component", () => {
           videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
           subtitle: null,
           previewMedia: null,
-          videoRatio: { width: 16, height: 9 }
+          videoRatio: { width: 16, height: 9 },
+          defaultYouTubePreviewImage:
+            "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
         }
       },
       {
@@ -638,35 +680,6 @@ describe("Sections component", () => {
         hubSpotFormGuid: null
       }
     ];
-
-    renderVideo
-      .mockImplementationOnce(() =>
-        createMockedYoutubeVideo({
-          label: "Video",
-          subtitle: null,
-          videoUrl: "https://www.youtube.com/watch?v=abc123",
-          previewImageSource: "https://i.ytimg.com/vi/abc123/maxresdefault.jpg",
-          dataGTM: {
-            id: "cta-click--video-youtube",
-            label: "https://www.youtube.com/watch?v=abc123-Video",
-            action: "Play"
-          }
-        })
-      )
-      .mockImplementationOnce(() =>
-        createMockedYoutubeVideo({
-          label: "Video label",
-          subtitle: null,
-          videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
-          previewImageSource:
-            "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg",
-          dataGTM: {
-            id: "cta-click--video-youtube",
-            label: "https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label",
-            action: "Play"
-          }
-        })
-      );
 
     const { container } = renderWithRouter(
       <MockSiteContext>

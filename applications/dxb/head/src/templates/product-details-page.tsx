@@ -21,13 +21,13 @@ import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { Product } from "../types/pim";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
+import { transformMediaSrc } from "../utils/media";
 import {
   getProductAttributes,
   transformImages,
   UnavailableMicroCopies,
   UnavailableMicroCopiesEnum
 } from "../utils/product-details-transforms";
-import { useTransformedMedias } from "../utils/useTransformedMedias";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -63,7 +63,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpSpecificationTitle,
     pdpSpecificationDescription
   } = resources;
-  const transformedMedias = useTransformedMedias(product.videos);
 
   const location = useLocation();
   const isSSR = typeof window === "undefined";
@@ -115,7 +114,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   brandCode: product.brand?.code,
                   nobb: product.externalProductCode,
                   images,
-                  videos: transformedMedias,
+                  videos: transformMediaSrc(product.videos),
                   attributes: getProductAttributes(
                     product,
                     pageContext.countryCode,

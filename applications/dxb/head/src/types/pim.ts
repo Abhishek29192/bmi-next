@@ -280,6 +280,7 @@ export type Weight = {
 
 export type Video = FirestoreVideo & {
   __typename: "PimVideo";
+  defaultYouTubePreviewImage: string;
 };
 
 export type RelatedSystem = Pick<

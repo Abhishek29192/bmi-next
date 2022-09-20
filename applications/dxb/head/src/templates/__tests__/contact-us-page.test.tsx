@@ -1,14 +1,7 @@
 import React from "react";
-import { Data as VideoData } from "../../components/Video";
-import { createMockedYoutubeVideo } from "../../components/__tests__/helpers/mediaHelper";
+import ContactUsPage, { Data } from "../contact-us-page";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import ContactUsPage, { Data } from "../contact-us-page";
-
-const renderVideo = jest.fn();
-jest.mock("../../components/Video", () => ({
-  renderVideo: (data: VideoData) => renderVideo(data)
-}));
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: any } = {
@@ -60,7 +53,9 @@ describe("Contact us page", () => {
         subtitle: null,
         videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
-        videoRatio: null
+        videoRatio: null,
+        defaultYouTubePreviewImage:
+          "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       },
       breadcrumbs: [
         {
@@ -225,7 +220,9 @@ describe("Contact us page", () => {
                   "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
                 videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
                 previewMedia: null,
-                videoRatio: { width: 17776, height: 9999 }
+                videoRatio: { width: 17776, height: 9999 },
+                defaultYouTubePreviewImage:
+                  "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
               },
               backgroundColor: null
             }
@@ -282,34 +279,7 @@ describe("Contact us page", () => {
     contentfulSite: createMockSiteData()
   };
 
-  const mockedYoutubeVideo1 = createMockedYoutubeVideo({
-    label: "label",
-    subtitle: null,
-    videoUrl: "https://www.youtube.com/watch?v=youtubeId",
-    previewImageSource: "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg",
-    dataGTM: {
-      id: "cta-click--video-youtube",
-      label: "https://www.youtube.com/watch?v=youtubeId-label",
-      action: "Play"
-    }
-  });
-  const mockedYoutubeVideo2 = createMockedYoutubeVideo({
-    label: "BMI Group VIDEO LABEL",
-    subtitle: null,
-    videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
-    previewImageSource: "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
-    dataGTM: {
-      id: "cta-click--video-youtube",
-      label:
-        "https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL",
-      action: "Play"
-    }
-  });
-
   it("renders correctly", () => {
-    renderVideo
-      .mockImplementationOnce(() => mockedYoutubeVideo1)
-      .mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container, getByTestId, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
@@ -334,9 +304,6 @@ describe("Contact us page", () => {
   });
 
   it("render iframe correctly", () => {
-    renderVideo
-      .mockImplementationOnce(() => mockedYoutubeVideo1)
-      .mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={null} />
     );
@@ -352,9 +319,6 @@ describe("Contact us page", () => {
   });
 
   it("render Sections correctly", () => {
-    renderVideo
-      .mockImplementationOnce(() => mockedYoutubeVideo1)
-      .mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
@@ -364,9 +328,6 @@ describe("Contact us page", () => {
   });
 
   it("render location correctly", () => {
-    renderVideo
-      .mockImplementationOnce(() => mockedYoutubeVideo1)
-      .mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
@@ -380,9 +341,6 @@ describe("Contact us page", () => {
   });
 
   it("render NextBestActions correctly", () => {
-    renderVideo
-      .mockImplementationOnce(() => mockedYoutubeVideo1)
-      .mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container, getByText } = renderWithRouter(
       <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
     );
@@ -437,7 +395,6 @@ describe("Contact us page", () => {
         }
       }
     };
-    renderVideo.mockImplementationOnce(() => mockedYoutubeVideo2);
     const { container } = renderWithRouter(
       <ContactUsPage
         data={newData}

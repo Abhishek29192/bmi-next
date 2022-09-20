@@ -5,7 +5,6 @@ import mockConsole from "jest-mock-console";
 import { ESContentfulDocument } from "../es-model";
 import SampleContentfulDeleteWebhook from "./resources/sample_contentfulWebhook_DeletedEntry.json";
 import SampleContentfulEntryWebhook from "./resources/sample_contentfulWebhook_entry.json";
-import SampleContentfulAsset from "./resources/sample_contentful_asset.json";
 import SampleContentfulEntry from "./resources/sample_contentful_entry.json";
 
 const REQUEST_SECRET = "some secret";
@@ -59,21 +58,33 @@ beforeEach(() => {
 const mockESDocument = {
   __typename: "ContentfulDocument",
   id: SampleContentfulEntryWebhook.sys.id,
-  title: SampleContentfulEntryWebhook.fields.title[`en-GB`],
-  titleAndSize: `${SampleContentfulEntryWebhook.fields.title[`en-GB`]}_${
-    SampleContentfulAsset.fields.file[`en-GB`].details?.size
+  title: SampleContentfulEntryWebhook.fields.title[`en-US`],
+  titleAndSize: `${SampleContentfulEntryWebhook.fields.title[`en-US`]}_${
+    SampleContentfulEntry.includes.Asset[0].fields.file["en-US"].details.size
   }`,
-  realFileName: SampleContentfulAsset.fields.file[`en-GB`].fileName,
+  realFileName:
+    SampleContentfulEntry.includes.Asset[0].fields.file["en-US"].fileName,
   asset: {
     file: {
-      ...SampleContentfulAsset.fields.file[`en-GB`],
+      ...SampleContentfulEntry.includes.Asset[0].fields.file["en-US"],
       contentType: "application/pdf"
     }
   },
   assetType: {
-    name: SampleContentfulEntry.fields.name[`en-GB`],
-    code: SampleContentfulEntry.fields.code[`en-GB`],
-    pimCode: SampleContentfulEntry.fields.pimCode[`en-GB`]
+    name: SampleContentfulEntry.includes.Entry[1].fields.name,
+    code: SampleContentfulEntry.includes.Entry[1].fields.code,
+    pimCode: SampleContentfulEntry.includes.Entry[1].fields.pimCode
+  },
+  featuredMedia: {
+    altText: SampleContentfulEntry.includes.Entry[0].fields.altText,
+    image: {
+      description: SampleContentfulEntry.includes.Asset[1].fields.description,
+      file: {
+        ...SampleContentfulEntry.includes.Asset[1].fields.file["en-US"]
+      },
+      title: SampleContentfulEntry.includes.Asset[1].fields.title
+    },
+    title: SampleContentfulEntry.includes.Entry[0].fields.title
   }
 };
 
