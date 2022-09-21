@@ -152,7 +152,7 @@ export const getDoubleAcceptanceByValidTempToken = async (
       rows: [{ maximum_validity_years }]
     } = await pgRootPool.query(
       `SELECT pt.maximum_validity_years FROM guarantee g JOIN product pt ON pt.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.maximum_validity_years FROM guarantee g JOIN system s ON g.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
-      [id]
+      [guarantee_id]
     );
 
     return {

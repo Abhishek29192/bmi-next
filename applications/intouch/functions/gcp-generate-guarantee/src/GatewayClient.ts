@@ -94,9 +94,9 @@ export default class GatewayClient {
 
   public async updateGuaranteeStatus(id) {
     const payload = {
-      query: `mutation updateGuaranteeStatus($id: Int!, $fileStorageId: String!) {
+      query: `mutation updateGuaranteeStatus($id: Int!) {
         updateGuarantee(
-          input: { id: $id, patch: { status: "ISSUED" } }
+          input: { id: $id, patch: { status: ISSUED } }
         ) {
           guarantee {
             id

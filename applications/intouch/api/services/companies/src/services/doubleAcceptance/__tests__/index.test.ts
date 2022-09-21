@@ -297,24 +297,19 @@ describe("DoubleAcceptance", () => {
 
   describe("getDoubleAcceptanceByValidTempToken", () => {
     const input = {
-      id: 1,
-      patch: {
-        signature: "signature",
-        acceptance: "acceptance",
-        acceptanceDate: "acceptanceDate"
-      }
+      tempToken: "temp_token"
     };
 
     it("normal case", async () => {
       const guarantee = {
         guarantee_id: 1,
-        temp_token: "temp_token",
+        temp_token: input.tempToken,
         expiry_date: new Date(),
         acceptance_date: new Date(),
         language_code: "en",
         maximum_validity_years: 10,
         coverage: "",
-        id: 1,
+        id: 2,
         signature: "signature",
         acceptance: true,
         technology: "PITCH"
@@ -349,6 +344,16 @@ describe("DoubleAcceptance", () => {
         technology: guarantee.technology,
         coverage: guarantee.coverage
       });
+      expect(mockRootQuery).toHaveBeenNthCalledWith(
+        1,
+        `SELECT d.*, g.language_code, g.coverage, p.technology FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN project p ON g.project_id = p.id WHERE d.temp_token = $1`,
+        [guarantee.temp_token]
+      );
+      expect(mockRootQuery).toHaveBeenNthCalledWith(
+        2,
+        `SELECT pt.maximum_validity_years FROM guarantee g JOIN product pt ON pt.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.maximum_validity_years FROM guarantee g JOIN system s ON g.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
+        [guarantee.guarantee_id]
+      );
     });
 
     it("throw error when insert into db", async () => {
