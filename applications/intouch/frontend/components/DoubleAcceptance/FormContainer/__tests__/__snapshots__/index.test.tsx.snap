@@ -111,7 +111,7 @@ exports[`FormContainer render correctly 1`] = `
                     <input
                       class="PrivateSwitchBase-input-4"
                       data-indeterminate="false"
-                      name="acceptance"
+                      name="acknowledge"
                       type="checkbox"
                       value=""
                     />
