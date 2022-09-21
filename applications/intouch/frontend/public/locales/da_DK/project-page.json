@@ -134,7 +134,10 @@
       "REJECTED": "Vendt tilbage",
       "REVIEW": "Indsendt",
       "STARTED": "Startede",
-      "SUBMITTED": "Indsendt"
+      "SUBMITTED": "Indsendt",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Produktgaranti",

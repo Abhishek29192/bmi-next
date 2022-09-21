@@ -34,27 +34,15 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       id,
       project,
       status,
-      guaranteeType,
+      guaranteeType: {
+        guaranteeTemplatesCollection: { items: guaranteeTemplateItems }
+      },
       productByProductBmiRef,
       systemBySystemBmiRef,
       fileStorageId,
       signedFileStorageUrl
     } = payload;
 
-    const isSolutionGuarantee = guaranteeType.coverage === "SOLUTION";
-    const template = guaranteeType.guaranteeTemplatesCollection.items[0];
-    const product = productByProductBmiRef?.name;
-    const system = systemBySystemBmiRef?.name;
-    const emailDetails = {
-      to: project.buildingOwnerMail,
-      from: MAIL_FROM,
-      replyTo: "no-reply@intouch.bmigroup.com",
-      subject: template.mailSubject,
-      text: replaceData(template.mailBody, {
-        product,
-        system
-      })
-    };
     const gatewayClient = await GatewayClient.create(
       project.company.market.domain
     );
@@ -62,8 +50,11 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     const guaranteePdf = new GuaranteePdfGenerator(payload);
     const sendgridClient = await getSendGridClient();
 
-    if (isSolutionGuarantee && !!signedFileStorageUrl && !!fileStorageId) {
-      if (status !== "DECLINED") {
+    if (!!signedFileStorageUrl && !!fileStorageId) {
+      if (status === "APPROVED") {
+        const template = guaranteeTemplateItems[0];
+        const product = productByProductBmiRef?.name;
+        const system = systemBySystemBmiRef?.name;
         const fileData = await guaranteePdf.getPdfFromUrl(signedFileStorageUrl);
         const file = await guaranteePdf.mergePdf(fileData);
         const attachment: AttachmentData = {
@@ -73,9 +64,17 @@ export const sendGuaranteePdf = async (postEvent: any) => {
           disposition: "attachment"
         };
         await sendgridClient.send({
-          ...emailDetails,
+          to: project.buildingOwnerMail,
+          from: MAIL_FROM,
+          replyTo: "no-reply@intouch.bmigroup.com",
+          subject: template.mailSubject,
+          text: replaceData(template.mailBody, {
+            product,
+            system
+          }),
           attachments: [attachment]
         });
+        await gatewayClient.updateGuaranteeStatus(id);
       }
     } else {
       const file = await guaranteePdf.create();
@@ -101,37 +100,22 @@ export const sendGuaranteePdf = async (postEvent: any) => {
         fileName
       );
       if (response.ok) {
-        if (isSolutionGuarantee) {
-          const doubleAcceptanceResponse =
-            await gatewayClient.createDoubleAcceptance(id);
-          if (doubleAcceptanceResponse.ok) {
-            const {
-              data: {
-                createDoubleAcceptance: { doubleAcceptance }
-              }
-            } = await doubleAcceptanceResponse.json();
+        const doubleAcceptanceResponse =
+          await gatewayClient.createDoubleAcceptance(id);
+        if (doubleAcceptanceResponse.ok) {
+          const {
+            data: {
+              createDoubleAcceptance: { doubleAcceptance }
+            }
+          } = await doubleAcceptanceResponse.json();
 
-            logger.info({
-              message: `successfully created double acceptance with ID: ${doubleAcceptance.id}`
-            });
-          } else {
-            logger.error({
-              message: `failed to creat double acceptance for guarantee with ID: ${id}`
-            });
-          }
-        } else {
-          const attachment: AttachmentData = {
-            content: Buffer.from(file.data).toString("base64"),
-            filename: file.name,
-            type: "application/pdf",
-            disposition: "attachment"
-          };
-
-          await sendgridClient.send({
-            ...emailDetails,
-            attachments: [attachment]
+          logger.info({
+            message: `successfully created double acceptance with ID: ${doubleAcceptance.id}`
           });
-          await gatewayClient.updateGuaranteeStatus(id);
+        } else {
+          logger.error({
+            message: `failed to creat double acceptance for guarantee with ID: ${id}`
+          });
         }
       } else {
         logger.error({ message: `${response.status} ${response.statusText}` });

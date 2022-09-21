@@ -134,7 +134,10 @@
       "REJECTED": "Palannut",
       "REVIEW": "Lähetetty",
       "STARTED": "Aloitettu",
-      "SUBMITTED": "Lähetetty"
+      "SUBMITTED": "Lähetetty",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Tuotetakuu",

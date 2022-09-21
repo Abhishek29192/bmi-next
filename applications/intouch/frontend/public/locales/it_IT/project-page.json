@@ -135,7 +135,10 @@
       "REJECTED": "Restituito",
       "REVIEW": "Inviato",
       "STARTED": "Iniziato",
-      "SUBMITTED": "Inviato"
+      "SUBMITTED": "Inviato",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Product Guarantee",

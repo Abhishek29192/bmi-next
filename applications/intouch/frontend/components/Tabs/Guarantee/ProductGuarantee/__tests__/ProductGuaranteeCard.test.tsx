@@ -18,7 +18,7 @@ describe("ProductGuaranteeCard Component", () => {
 
   it("renders correctly", () => {
     const { container } = renderWithI18NProvider(
-      <ProductGuaranteeCard product={mockProduct} />
+      <ProductGuaranteeCard product={mockProduct} guaranteeStatus={"ISSUED"} />
     );
 
     expect(container).toMatchSnapshot();
@@ -29,14 +29,32 @@ describe("ProductGuaranteeCard Component", () => {
       <ProductGuaranteeCard
         product={mockProduct}
         guaranteeFileUrl={guaranteeFileUrl}
+        guaranteeStatus={"ISSUED"}
       />
     );
     expect(screen.getByTestId("guarantee-pdf-item")).toBeVisible();
   });
-  it("should not render guarantee pdf download button", () => {
-    renderWithI18NProvider(<ProductGuaranteeCard product={mockProduct} />);
-    expect(screen.queryByTestId("guarantee-pdf-item")).toHaveTextContent(
-      "generatingPdf"
-    );
+
+  describe("should not render guarantee pdf download button", () => {
+    it("guaranteeFileUrl is missing", () => {
+      renderWithI18NProvider(
+        <ProductGuaranteeCard
+          product={mockProduct}
+          guaranteeStatus={"APPROVED"}
+        />
+      );
+      expect(screen.queryByTestId("guarantee-pdf-item")).toBeFalsy();
+    });
+
+    it("guaranteeStatus is not ISSUED", () => {
+      renderWithI18NProvider(
+        <ProductGuaranteeCard
+          product={mockProduct}
+          guaranteeFileUrl={guaranteeFileUrl}
+          guaranteeStatus={"APPROVED"}
+        />
+      );
+      expect(screen.queryByTestId("guarantee-pdf-item")).toBeFalsy();
+    });
   });
 });

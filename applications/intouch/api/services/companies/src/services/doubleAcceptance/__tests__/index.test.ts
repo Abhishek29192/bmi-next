@@ -58,12 +58,12 @@ describe("DoubleAcceptance", () => {
   const resolveInfo = {};
   const OLD_ENV = process.env;
 
-  beforeAll(() => {
+  beforeEach(() => {
     jest.clearAllMocks();
     process.env = { ...OLD_ENV };
   });
 
-  afterAll(() => {
+  afterEach(() => {
     process.env = OLD_ENV;
   });
 
@@ -80,10 +80,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       const result = await createDoubleAcceptance(
@@ -125,10 +124,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       await createDoubleAcceptance(
@@ -140,7 +138,7 @@ describe("DoubleAcceptance", () => {
       );
 
       expect(sendMessageWithTemplateSpy).toHaveBeenCalledWith([
-        context,
+        { ...context, user: { market: { domain } } },
         "DOUBLE_ACCEPTANCE",
         {
           email: "building_owner_mail",
@@ -161,10 +159,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       const result = await createDoubleAcceptance(
@@ -314,15 +311,23 @@ describe("DoubleAcceptance", () => {
         temp_token: "temp_token",
         expiry_date: new Date(),
         acceptance_date: new Date(),
-        maximum_validity_years: 10,
         language_code: "en",
+        maximum_validity_years: 10,
         coverage: "",
         id: 1,
         signature: "signature",
         acceptance: true,
         technology: "PITCH"
       };
-      mockRootQuery.mockReturnValue({ rows: [guarantee] });
+      mockRootQuery
+        .mockReturnValueOnce({ rows: [guarantee] })
+        .mockReturnValueOnce({
+          rows: [
+            {
+              maximum_validity_years: guarantee.maximum_validity_years
+            }
+          ]
+        });
       const result = await getDoubleAcceptanceByValidTempToken(
         resolve,
         source,
@@ -487,7 +492,16 @@ describe("DoubleAcceptance", () => {
         fileStorageId: guarantee.file_storage_id,
         signedFileStorageUrl: "signedFileStorageUrl"
       };
-      mockRootQuery.mockReturnValueOnce({ rows: [guarantee] });
+      mockRootQuery
+        .mockReturnValueOnce({ rows: [guarantee] })
+        .mockReturnValueOnce({
+          rows: [
+            {
+              product_name: data.productByProductBmiRef.name,
+              system_name: data.systemBySystemBmiRef.name
+            }
+          ]
+        });
       mockGetPrivateAssetSignedUrl.mockReturnValueOnce("signedFileStorageUrl");
       publishSpy.mockReturnValueOnce(1);
       const result = await releaseGuaranteePdf(

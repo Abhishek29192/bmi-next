@@ -135,7 +135,10 @@
       "REJECTED": "Retornou",
       "REVIEW": "Aplicação submetida",
       "STARTED": "Iniciado",
-      "SUBMITTED": "Aplicação submetida"
+      "SUBMITTED": "Aplicação submetida",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Garantia do produto",
