@@ -2,8 +2,8 @@
   "businessType": {
     "ARCHITECT": "Arkitekt",
     "CONTRACTOR": "Entreprenør",
-    "CORP_DEVELOPER": "Udvikler",
-    "MERCHANT": "Købmand"
+    "CORP_DEVELOPER": "Andet",
+    "MERCHANT": "Rådgiver"
   },
   "certificationsTitle": "BMI-certificeringer",
   "companyActions": {
