@@ -163,7 +163,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ? {}
         : undefined;
 
-    if (!process.env.GATSBY_PREVIEW && !process.env.GATSBY_IS_SPA_ENABLED) {
+    if (
+      !process.env.GATSBY_PREVIEW &&
+      (process.env.GATSBY_IS_SPA_ENABLED === "false" ||
+        process.env.GATSBY_IS_SPA_ENABLED === null)
+    ) {
       await createProductPages(
         site.id,
         site.countryCode,
@@ -202,7 +206,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
       })
     );
-    if (!process.env.GATSBY_IS_SPA_ENABLED) {
+    if (
+      process.env.GATSBY_IS_SPA_ENABLED === "false" ||
+      process.env.GATSBY_IS_SPA_ENABLED === null
+    ) {
       await createPage({
         path: getPathWithCountryCode(site.countryCode, `search`),
         component: path.resolve("./src/templates/search-page.tsx"),
