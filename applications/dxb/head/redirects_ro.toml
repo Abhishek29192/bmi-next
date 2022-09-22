@@ -1219,6 +1219,11 @@
  force=true
 
 [[redirects]]
+ from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/beton"
+ force=true
+
+[[redirects]]
  from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/brun-roșcat-închis"
  to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/"
  force=true
