@@ -1,15 +1,11 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
-import type {
-  Product as ESProduct,
-  ProductReference as ESProductReference
-} from "@bmi/elasticsearch-types";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
   Classification,
   Feature,
   Product as PIMProduct,
-  ProductReference as PIMProductReference,
   VariantOption as PIMVariant
 } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
@@ -119,34 +115,6 @@ const combineVariantClassifications = (
     )}`
   });
   return Array.from(mergedClassifications.values());
-};
-
-const combineProductReferences = (
-  product: PIMProduct,
-  variant: PIMVariant
-): ESProductReference[] => {
-  const mappedBaseProductReferences = transformProductReferences(
-    product.productReferences
-  );
-  if (!variant.productReferences?.length) {
-    return mappedBaseProductReferences;
-  }
-
-  const mappedVariantReferences = transformProductReferences(
-    variant.productReferences
-  );
-
-  return mappedBaseProductReferences.reduce((prev, current) => {
-    const existsForVariant = prev.find(
-      (productReference) => productReference.type === current.type
-    );
-
-    if (existsForVariant) {
-      return prev;
-    }
-
-    return [...prev, current];
-  }, mappedVariantReferences);
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
@@ -267,7 +235,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...(variant.images || []),
         ...(product.images || [])
       ]),
-      productReferences: combineProductReferences(product, variant),
       path: `/p/${generateProductUrl(
         name,
         generateHashFromString(variant.code, false),
@@ -456,18 +423,4 @@ const filterTwoOneAttributes = (
     }
     return true;
   });
-};
-
-const transformProductReferences = (
-  productReferences?: PIMProductReference[]
-): ESProductReference[] => {
-  if (!productReferences?.length) {
-    return [];
-  }
-
-  return productReferences.map((productReference) => ({
-    type: productReference.referenceType,
-    code: productReference.target.code,
-    name: productReference.target.name
-  }));
 };

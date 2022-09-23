@@ -7,14 +7,12 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
-        "value": "red",
       },
     ],
     "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
-        "value": "glossy",
       },
     ],
     "BMI_BRANDS": Array [
@@ -47,42 +45,36 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "value symbol",
-        "value": "value",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
-        "value": "concrete",
       },
     ],
     "MEASUREMENTS.HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
-        "value": "30",
       },
     ],
     "MEASUREMENTS.LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
-        "value": "10",
       },
     ],
     "MEASUREMENTS.THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
-        "value": "40",
       },
     ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
-        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -119,7 +111,6 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
-        "value": "1.0",
       },
     ],
     "allCategories": Array [
@@ -357,7 +348,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -488,7 +478,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -619,7 +608,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -637,63 +625,54 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
-        "value": "red",
       },
     ],
     "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
-        "value": "glossy",
       },
     ],
     "CLASSIFICATION-FEATURE-CODE": Array [
       Object {
         "code": "codesymbol",
         "name": "value symbol",
-        "value": "value",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
-        "value": "concrete",
       },
     ],
     "MEASUREMENTS.HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
-        "value": "30",
       },
     ],
     "MEASUREMENTS.LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
-        "value": "10",
       },
     ],
     "MEASUREMENTS.THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
-        "value": "40",
       },
     ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
-        "value": "20",
       },
     ],
     "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
-        "value": "1.0",
       },
     ],
     "allCategories": Array [],
@@ -906,7 +885,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1031,7 +1009,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -1049,14 +1026,12 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
-        "value": "red",
       },
     ],
     "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
-        "value": "glossy",
       },
     ],
     "BMI_BRANDS": Array [
@@ -1083,42 +1058,36 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "value symbol",
-        "value": "value",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
-        "value": "concrete",
       },
     ],
     "MEASUREMENTS.HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
-        "value": "30",
       },
     ],
     "MEASUREMENTS.LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
-        "value": "10",
       },
     ],
     "MEASUREMENTS.THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
-        "value": "40",
       },
     ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
-        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1151,7 +1120,6 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
-        "value": "1.0",
       },
     ],
     "allCategories": Array [
@@ -1362,7 +1330,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1382,14 +1349,12 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
-        "value": "red",
       },
     ],
     "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
-        "value": "glossy",
       },
     ],
     "BMI_BRANDS": Array [
@@ -1416,42 +1381,36 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "value symbol",
-        "value": "value",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
-        "value": "concrete",
       },
     ],
     "MEASUREMENTS.HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
-        "value": "30",
       },
     ],
     "MEASUREMENTS.LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
-        "value": "10",
       },
     ],
     "MEASUREMENTS.THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
-        "value": "40",
       },
     ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
-        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1484,7 +1443,6 @@ Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
-        "value": "1.0",
       },
     ],
     "allCategories": Array [
@@ -1718,7 +1676,6 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
-    "productReferences": Array [],
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
