@@ -8,12 +8,12 @@ import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
 
-const FindBuildWebhook = jest.fn();
+const findBuildWebhooks = jest.fn();
 jest.mock("../find", () => {
-  return { FindBuildWebhook };
+  return { findBuildWebhooks };
 });
 
-FindBuildWebhook.mockReturnValue("https://norway.local/abcd");
+findBuildWebhooks.mockReturnValue(["https://norway.local/abcd"]);
 
 const REQUEST_SECRET = "build_secret";
 const fetchMock = fetchMockJest.sandbox();
@@ -132,7 +132,7 @@ describe("Error responses", () => {
         authorization: `Bearer ${REQUEST_SECRET}`
       });
       const mockRes = mockResponse();
-      FindBuildWebhook.mockReturnValueOnce(param);
+      findBuildWebhooks.mockReturnValueOnce(param);
 
       await build(mockReq, mockRes);
 
@@ -140,13 +140,37 @@ describe("Error responses", () => {
     }
   );
 
+  it("Returns 500, when either of build webhook fetches return an error", async () => {
+    const mockReq = mockRequest("POST", {
+      authorization: `Bearer ${REQUEST_SECRET}`
+    });
+    const mockRes = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `https://one`,
+      method: "POST",
+      status: 500
+    });
+
+    mockResponses(fetchMock, {
+      url: `https://two`,
+      method: "POST",
+      status: 200
+    });
+    findBuildWebhooks.mockReturnValueOnce(["https://one", "https://two"]);
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.status).toBeCalledWith(500);
+  });
+
   it("Returns 500, when build webhook fetch returns an error", async () => {
     const buildWebhook = "https://norway.local";
     const mockReq = mockRequest("POST", {
       authorization: `Bearer ${REQUEST_SECRET}`
     });
     const mockRes = mockResponse();
-    FindBuildWebhook.mockReturnValueOnce(buildWebhook);
+    findBuildWebhooks.mockReturnValueOnce(buildWebhook);
     fetchMock.mock(buildWebhook, { throws: new Error("error") });
 
     await build(mockReq, mockRes);
@@ -230,6 +254,31 @@ describe("Making a POST request", () => {
     await build(req, res);
 
     expect(fetchMock).toBeCalledTimes(1);
+  });
+
+  it("Calls all gatbsy cloud build webhooks, if called with a recognised tag, ", async () => {
+    const req = mockRequest(
+      "POST",
+      { authorization: `Bearer ${REQUEST_SECRET}` },
+      "https://someurl.local",
+      mockContentfulWebhook
+    );
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `*`,
+      method: "POST",
+      status: 200
+    });
+
+    findBuildWebhooks.mockReturnValueOnce([
+      "https://webhook1",
+      "https://webhook1"
+    ]);
+
+    await build(req, res);
+
+    expect(fetchMock).toBeCalledTimes(2);
   });
 
   it("sends original request body to the POST request", async () => {
