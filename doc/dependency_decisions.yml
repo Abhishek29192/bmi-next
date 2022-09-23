@@ -170,36 +170,41 @@
 - - :approve
   - axois
   - :who: Benjamin Sproule
-    :why: Used by gatsby-source-hubspot-forms but was taken down for security reasons,
+    :why:
+      Used by gatsby-source-hubspot-forms but was taken down for security reasons,
       so no license provide. Remove when gatsby-source-hubspot-forms is updated.
     :versions:
-    - 0.0.1-security
+      - 0.0.1-security
     :when: 2021-03-29 10:50:24.257125000 Z
 - - :approve
   - traffic-mesh-agent-darwin-x64
   - :who: Benjamin Sproule
-    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why:
+      MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 19:53:15.331768000 Z
 - - :approve
   - traffic-mesh-agent-win32-x64
   - :who: Benjamin Sproule
-    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why:
+      MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 19:53:22.014190000 Z
 - - :approve
   - traffic-mesh-agent-linux-x64
   - :who: Benjamin Sproule
-    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why:
+      MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 20:03:37.332003000 Z
 - - :approve
   - safe-join
   - :who: Benjamin Sproule
-    :why: No license, but only a few lines to join strings together (required by Netlify
+    :why:
+      No license, but only a few lines to join strings together (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 20:05:58.930504000 Z
@@ -218,7 +223,8 @@
 - - :approve
   - cycle
   - :who: Francesco Venica
-    :why: Licensed under PUBLIC DOMAIN, but not provided in a format license_finder
+    :why:
+      Licensed under PUBLIC DOMAIN, but not provided in a format license_finder
       can find
     :versions: []
     :when: 2021-11-25 12:37:45.891775000 Z
@@ -705,7 +711,8 @@
 - - :approve
   - taffydb
   - :who: Benjamin Sproule
-    :why: It is either MIT, BSD-1-Clause or BSD-2-Clause depending on which part of
+    :why:
+      It is either MIT, BSD-1-Clause or BSD-2-Clause depending on which part of
       the project you look at
     :versions: []
     :when: 2022-08-11 12:06:16.689485000 Z
@@ -751,3 +758,39 @@
     :why: Our own project
     :versions: []
     :when: 2022-10-18 16:56:20.322652000 Z
+- - :approve
+  - "@bmi/gcp-build-status-logger"
+  - :who: Eugene Stepanenko
+    :why: Our own project
+    :versions: []
+    :when: 2022-10-17 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-darwin-arm64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-darwin-x64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-linux-arm
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-linux-arm64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z
+- - :approve
+  - msgpackr-extract-win32-x64
+  - :who: Eugene Stepanenko
+    :why: Needed for gcp-build-status-logger
+    :versions: []
+    :when: 2022-10-19 17:15:03.988615000 Z

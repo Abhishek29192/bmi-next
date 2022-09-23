@@ -1,11 +1,12 @@
 include:
   - local: "/applications/dxb/functions/contentful-default-values/.gitlab-ci.yml"
-  - local: "/applications/dxb/functions/gcp-contentful-documents-ingest/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/contentful-tagger/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/es-pim-products-ingest/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gatsby-cloud-build-proxy/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-apsis-integration/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-build-status-logger/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-build-trigger/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-contentful-documents-ingest/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-download-zip/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"

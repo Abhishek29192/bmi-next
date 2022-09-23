@@ -1,0 +1,29 @@
+test_gcp-build-status-logger:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gcp-build-status-logger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-status-logger"
+
+build_gcp-build-status-logger:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/gcp-build-status-logger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-status-logger"
+
+package_gcp-build-status-logger:
+  extends: .package_function
+  needs:
+    - job: build_gcp-build-status-logger
+      artifacts: true
+  variables:
+    FUNCTION_NAME: "gcp-build-status-logger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-status-logger"
+
+deploy_gcp-build-status-logger:
+  extends: .deploy_function
+  needs:
+    - job: package_gcp-build-status-logger
+      artifacts: true
+  variables:
+    FUNCTION_NAME: "gcp-build-status-logger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-status-logger"
