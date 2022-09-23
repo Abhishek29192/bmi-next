@@ -73,6 +73,8 @@ const mockEntry = (): Partial<Entry> => {
 
 beforeEach(() => {
   mockConsole();
+  jest.clearAllMocks();
+  jest.resetModules();
 });
 
 describe("createTag", () => {
@@ -94,10 +96,13 @@ describe("createTag", () => {
     const environment = mockEnvironment();
     environment.getTag = jest.fn().mockReturnValueOnce(Promise.resolve());
     const market = "Norway";
+    const tagId = "market__norway";
 
     await createTag(environment, market);
 
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toBeCalledWith(
+      `Tag with the ID: ${tagId} already exists.`
+    );
   });
 
   it("Logs an error if the API error response is not recognised", async () => {
@@ -105,17 +110,19 @@ describe("createTag", () => {
     const errorMessage = { status: 500 };
     environment.getTag = jest
       .fn()
-      .mockRejectedValueOnce({ message: JSON.stringify(errorMessage) });
+      .mockRejectedValueOnce(new Error(JSON.stringify(errorMessage)));
     const market = "Norway";
 
     await createTag(environment, market);
 
-    expect(console.error).toBeCalledTimes(1);
+    expect(console.error).toBeCalledWith(
+      `Error Error: ${JSON.stringify(errorMessage)}`
+    );
   });
 });
 
 describe("tagEntity", () => {
-  it("Creates a tag if a tag does not exist", async () => {
+  it("Adds a tag if a tag does not exist", async () => {
     const entry = mockEntry();
     entry.metadata = { tags: [] };
 

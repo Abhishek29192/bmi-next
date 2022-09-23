@@ -17,7 +17,7 @@ To run the CLI (example is given for the Finland market)
 ### Parameters
 
 - `market__finland`: DXB market tag
-- `fi-FI`: Locale (Multiple locales can be passed in separated by spaces)
+- `fi-FI`: Locale to copy data from (Multiple locales can be passed in separated by spaces but only the first one will be used to copy data from)
 
 ```bash
 yarn workspace @bmi/contentful-default-values-cli start market__finland fi-FI

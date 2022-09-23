@@ -85,7 +85,7 @@ export const tagAndUpdate = async (environment: Environment) => {
         console.log(`Updating item: ${entryOrAsset.sys.id}`);
         updatePromises.push(entryOrAsset.update());
         runs++;
-        if (runs % RATE_LIMIT == 0) {
+        if (runs % RATE_LIMIT === 0) {
           console.log(`Runs: ${runs}. Sleep for 1000ms`);
           await sleep(WAIT_DURATION_MS);
           runs = 0;
@@ -188,26 +188,33 @@ export const fillDefaultValues = async (
     while (!itrResult.done) {
       const entries = itrResult.value;
       let runs = 0;
-      const updatePromises: Promise<boolean>[] = [];
-
-      for (const entryOrAsset of entries.items) {
-        console.log(`Adding default values for item: ${entryOrAsset.sys.id}`);
-        updatePromises.push(
-          copyDefaultValues(
+      const result = await Promise.allSettled(
+        entries.items.map(async (entryOrAsset) => {
+          console.log(`Adding default values for item: ${entryOrAsset.sys.id}`);
+          const updated = await copyDefaultValues(
             entryOrAsset,
             localesToBePopulated,
             marketLocales[0]
-          )
-        );
+          );
+          runs++;
+          if (runs % RATE_LIMIT == 0) {
+            console.log(`Runs: ${runs}. Sleep for 1000ms`);
+            await sleep(WAIT_DURATION_MS);
+            runs = 0;
+          }
 
-        runs++;
-        if (runs % RATE_LIMIT == 0) {
-          console.log(`Runs: ${runs}. Sleep for 1000ms`);
-          await sleep(WAIT_DURATION_MS);
-          runs = 0;
-        }
-      }
-      const result = await Promise.allSettled(updatePromises);
+          if (updated && entryOrAsset.isPublished()) {
+            entryOrAsset.publish();
+            runs++;
+            if (runs % RATE_LIMIT == 0) {
+              console.log(`Runs: ${runs}. Sleep for 1000ms`);
+              await sleep(WAIT_DURATION_MS);
+              runs = 0;
+            }
+          }
+        })
+      );
+
       console.log(JSON.stringify(result));
       itrResult = await iterator.next();
     }
