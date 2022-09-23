@@ -108,7 +108,7 @@ const main = async (market?: string, environment?: string) => {
   marketOptions.services.forEach((service) => {
     switch (service) {
       case "bimObject": {
-        frameSrc = `${frameSrc} https://*.bimobject.com`;
+        frameSrc = `${frameSrc} https://*.bimobject.com https://classic.bimobject.com`;
         break;
       }
       case "cloudFlare": {
