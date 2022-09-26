@@ -21622,6 +21622,7 @@ enum GuaranteeEventType {
   UNASSIGN_SOLUTION
   APPROVE_SOLUTION
   REJECT_SOLUTION
+  BO_ACCEPTED_SOLUTION
 }
 
 """All input for the `updateGuaranteeByBmiReferenceId` mutation."""

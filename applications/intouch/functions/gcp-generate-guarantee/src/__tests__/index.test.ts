@@ -15,11 +15,13 @@ jest.mock("@google-cloud/storage", () => ({
 }));
 
 const createDoubleAcceptanceSpy = jest.fn();
+const updateGuaranteeStatusSpy = jest.fn();
 jest.mock("../GatewayClient", () => ({
   create: () => ({
     updateGuaranteeFileStorage: (id: any, fileName: any) =>
       updateGuaranteeFileStorageSpy(id, fileName),
-    createDoubleAcceptance: createDoubleAcceptanceSpy
+    createDoubleAcceptance: createDoubleAcceptanceSpy,
+    updateGuaranteeStatus: updateGuaranteeStatusSpy
   })
 }));
 
@@ -169,6 +171,48 @@ describe("sendGuaranteePdf", () => {
         subject: expect.any(String),
         text: expect.any(String),
         attachments: expect.any(Array)
+      });
+      expect(updateGuaranteeStatusSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it("should update guarantee status", async () => {
+      const event = {
+        data: Buffer.from(
+          JSON.stringify({
+            ...mockSolutionGuarantee,
+            fileStorageId: "fileStorageId",
+            signedFileStorageUrl: "signedFileStorageUrl"
+          })
+        ).toString("base64")
+      };
+      updateGuaranteeStatusSpy.mockReturnValueOnce({ ok: true });
+      await sendGuaranteePdf(event);
+
+      expect(updateGuaranteeStatusSpy).toHaveBeenCalledTimes(1);
+      expect(loggerInfo).toHaveBeenCalledWith({
+        message: `successfully update guarantee status with ID: 1`
+      });
+    });
+    it("should log error when update guarantee status failed", async () => {
+      const event = {
+        data: Buffer.from(
+          JSON.stringify({
+            ...mockSolutionGuarantee,
+            fileStorageId: "fileStorageId",
+            signedFileStorageUrl: "signedFileStorageUrl"
+          })
+        ).toString("base64")
+      };
+      const errorMessage = "error message";
+      updateGuaranteeStatusSpy.mockReturnValueOnce({
+        ok: false,
+        text: () => errorMessage
+      });
+      await sendGuaranteePdf(event);
+
+      expect(updateGuaranteeStatusSpy).toHaveBeenCalledTimes(1);
+      expect(loggerError).toHaveBeenCalledWith({
+        message: `failed to update guarantee status with ID: 1, ERROR: ${errorMessage}`
       });
     });
 

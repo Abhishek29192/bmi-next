@@ -56,18 +56,20 @@ const FormContainer = ({
           }
         });
         if (data) {
-          await customApolloClient.mutate({
-            mutation: releaseGuaranteePdf,
-            variables: {
-              input: {
-                id: doubleAcceptance.guaranteeId,
-                template: {
-                  mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
-                  mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+          if (acceptance) {
+            await customApolloClient.mutate({
+              mutation: releaseGuaranteePdf,
+              variables: {
+                input: {
+                  id: doubleAcceptance.guaranteeId,
+                  template: {
+                    mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
+                    mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+                  }
                 }
               }
-            }
-          });
+            });
+          }
           onUpdateDoubleAcceptanceCompleted({
             ...doubleAcceptance,
             completed: true
@@ -119,9 +121,11 @@ const FormContainer = ({
         <Grid container>
           <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
-              {t("warantyPeriod")}
+              {t("warrantyPeriod")}
             </Typography>
-            <div>{`${doubleAcceptance.maximumValidityYears}`}</div>
+            <div>{`${doubleAcceptance.maximumValidityYears} ${t(
+              "years"
+            )}`}</div>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>

@@ -9073,6 +9073,7 @@ export type GuaranteeCoverage = "PRODUCT" | "SOLUTION" | "SYSTEM";
 export type GuaranteeEventType =
   | "APPROVE_SOLUTION"
   | "ASSIGN_SOLUTION"
+  | "BO_ACCEPTED_SOLUTION"
   | "REASSIGN_SOLUTION"
   | "REJECT_SOLUTION"
   | "SUBMIT_SOLUTION"

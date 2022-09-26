@@ -60,12 +60,6 @@ export const createGuarantee = async (
       guarantee.expiryDate.setFullYear(
         guarantee.expiryDate.getFullYear() + max
       );
-      await sendMailToCompanyAdmin(
-        context,
-        projectId,
-        "REQUEST_APPROVED",
-        +user.id
-      );
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -176,12 +170,6 @@ export const updateGuarantee = async (
       patch.expiryDate.setFullYear(
         patch.expiryDate.getFullYear() + max - guaranteeValidityOffsetYears
       );
-      sendMailToCompanyAdmin(
-        context,
-        projectId,
-        "REQUEST_APPROVED",
-        requestorAccountId
-      );
     }
 
     if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
@@ -194,6 +182,19 @@ export const updateGuarantee = async (
         requestorAccountId
       );
     }
+
+    if (
+      guaranteeEventType === "BO_ACCEPTED_SOLUTION" &&
+      status === "APPROVED"
+    ) {
+      sendMailToCompanyAdmin(
+        context,
+        projectId,
+        "REQUEST_APPROVED",
+        requestorAccountId
+      );
+    }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
     logger.error("Error update guarantee:", e);

@@ -120,7 +120,7 @@ describe("FormContainer", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.queryByText("title")).toBeTruthy();
-    expect(screen.queryByText("warantyPeriod")).toBeTruthy();
+    expect(screen.queryByText("warrantyPeriod")).toBeTruthy();
     expect(screen.queryByText("guaranteeScope")).toBeTruthy();
     expect(screen.queryByText("guaranteeScopeDescription")).toBeTruthy();
     expect(screen.queryByText("guaranteeConditions")).toBeTruthy();
@@ -318,17 +318,9 @@ describe("FormContainer", () => {
             }
           }
         });
-        expect(mockApolloClientMutate).toHaveBeenNthCalledWith(2, {
+        expect(mockApolloClientMutate).not.toHaveBeenCalledWith({
           mutation: releaseGuaranteePdf,
-          variables: {
-            input: {
-              id: doubleAcceptance.guaranteeId,
-              template: {
-                mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
-                mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
-              }
-            }
-          }
+          variables: expect.any(Object)
         });
         expect(onUpdateDoubleAcceptanceCompleted).toHaveBeenCalledWith({
           ...doubleAcceptance,
