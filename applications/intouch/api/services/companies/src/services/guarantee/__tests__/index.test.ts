@@ -144,21 +144,11 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [
-            {
-              email: "email",
-              first_name: "first_name",
-              role: "COMPANY_ADMIN"
-            }
-          ]
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendMessageWithTemplate).toBeCalledTimes(1);
     });
     it("should create a guarantee with evidences", async () => {
       const resolve = jest.fn();
@@ -181,9 +171,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -207,18 +194,6 @@ describe("Guarantee", () => {
           }
         }
       };
-
-      mockQuery
-        .mockImplementationOnce(() => {})
-        .mockImplementationOnce(() => ({
-          rows: [{ maximum_validity_years: 1 }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
-        }));
       await expect(
         createGuarantee(resolve, source, args, context, resolveInfo)
       ).rejects.toEqual("I am error");
@@ -246,21 +221,11 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [
-            {
-              email: "email",
-              first_name: "first_name",
-              role: "COMPANY_ADMIN"
-            }
-          ]
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendMessageWithTemplate).toBeCalledTimes(1);
     });
 
     it("coverage is SOLUTION", async () => {
@@ -288,7 +253,8 @@ describe("Guarantee", () => {
     const mockGuarante = {
       id: 1,
       status: "",
-      systemBmiRef: ""
+      systemBmiRef: "",
+      requestorAccountId: 1
     };
     const guaranteMockImplementation = () => ({
       rows: [mockGuarante]
@@ -507,6 +473,22 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
 
+    it("should be able to send email when BO accept double acceptance guarantee", async () => {
+      userCanMock.mockReturnValue(true);
+      const args: { input: UpdateGuaranteeInput } = {
+        input: {
+          ...guaranteeUpdateInput,
+          guaranteeEventType: "BO_ACCEPTED_SOLUTION"
+        }
+      };
+      mockGuarante.status = "APPROVED";
+
+      await updateGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toHaveBeenCalledTimes(1);
+    });
+
     it("call logger when isValid is false", async () => {
       jest
         .spyOn(validate, "solutionGuaranteeSubmitValidate")
@@ -584,9 +566,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -614,9 +593,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -644,9 +620,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);

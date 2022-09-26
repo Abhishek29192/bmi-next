@@ -74,7 +74,17 @@ export const sendGuaranteePdf = async (postEvent: any) => {
           }),
           attachments: [attachment]
         });
-        await gatewayClient.updateGuaranteeStatus(id);
+        const response = await gatewayClient.updateGuaranteeStatus(id);
+        if (response.ok) {
+          logger.info({
+            message: `successfully update guarantee status with ID: ${id}`
+          });
+        } else {
+          const message = await response.text();
+          logger.error({
+            message: `failed to update guarantee status with ID: ${id}, ERROR: ${message}`
+          });
+        }
       }
     } else {
       const file = await guaranteePdf.create();

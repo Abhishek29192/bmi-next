@@ -194,6 +194,7 @@ export default gql`
     UNASSIGN_SOLUTION
     APPROVE_SOLUTION
     REJECT_SOLUTION
+    BO_ACCEPTED_SOLUTION
   }
   extend input UpdateGuaranteeInput {
     guaranteeEventType: GuaranteeEventType
