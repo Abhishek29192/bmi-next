@@ -38,7 +38,7 @@ build_contentful_migrate:
       optional: true
     - build_contentful_migrate
   variables:
-    DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
+    DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
   script:
     - |
@@ -77,7 +77,7 @@ build_contentful_migrate:
     - !reference [.run_for_changes_on_main, rules]
     - if: "$CI_COMMIT_TAG"
   variables:
-    DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
+    DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     ROOT_DIR: "applications/dxb/contentful-migrate"
   cache: {}
   script:
@@ -106,7 +106,7 @@ build_contentful_migrate:
 .update_mc:
   stage: pre deploy
   variables:
-    DXB_MARKET_ID: "" # Market ID - i.e. NO
+    DXB_MARKET_ID: "" # Market/space ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP/space_2
     IS_CONSOLIDATED: "false" # not consolidated
   needs:
     - job: install_yarn
@@ -421,22 +421,22 @@ deploy_gatsby_cloud_malaysia:
     DXB_MARKET_ID: "MY"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-migrate_content_belgium_nl:
+migrate_content_space_2:
   extends: .migrate_content
   rules:
     - if: "$CI_COMMIT_TAG"
   variables:
-    DXB_MARKET_ID: "BE"
+    DXB_MARKET_ID: "space_2"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-deploy_gatsby_cloud_belgium_nl:
+deploy_gatsby_cloud_space_2:
   extends: .deploy_gatsby_cloud
   rules:
     - if: "$CI_COMMIT_TAG"
   needs:
-    - migrate_content_belgium_nl
+    - migrate_content_space_2
   variables:
-    DXB_MARKET_ID: "BE"
+    DXB_MARKET_ID: "space_2"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_romania:
@@ -741,10 +741,11 @@ update_mc_malaysia:
   variables:
     DXB_MARKET_ID: "MY"
 
-update_mc_belgium_nl:
+update_mc_space_2:
   extends: .update_mc
   variables:
-    DXB_MARKET_ID: "BE"
+    DXB_MARKET_ID: "space_2"
+    IS_CONSOLIDATED: "true"
 
 update_mc_romania:
   extends: .update_mc
