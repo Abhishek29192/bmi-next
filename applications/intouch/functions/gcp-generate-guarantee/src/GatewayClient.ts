@@ -96,7 +96,7 @@ export default class GatewayClient {
     const payload = {
       query: `mutation updateGuaranteeStatus($id: Int!) {
         updateGuarantee(
-          input: { id: $id, patch: { status: ISSUED }, guaranteeEventType: "BO_ACCEPTED_SOLUTION"}
+          input: { id: $id, patch: { status: ISSUED }, guaranteeEventType: BO_ACCEPTED_SOLUTION}
         ) {
           guarantee {
             id
