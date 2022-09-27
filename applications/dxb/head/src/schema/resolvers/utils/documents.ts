@@ -101,7 +101,7 @@ export const resolveDocumentsFiltersFromProducts = async (
           );
           if (
             !assetTypeFilter.options.find(
-              (option) => option.value === assetType.code
+              (option) => option.value === assetType?.code
             )
           ) {
             assetTypeFilter.options.push({
