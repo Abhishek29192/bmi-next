@@ -77,6 +77,44 @@ export const resolveDocumentsFiltersFromProducts = async (
     microCopies: filterMicroCopies
   });
 
+  const createAssetTypeFilter = allowedFilters?.includes("AssetType");
+
+  if (createAssetTypeFilter) {
+    const assetTypeFilter: ProductFilter = {
+      filterCode: "AssetType",
+      label:
+        filterMicroCopies.get(`filterLabels.AssetType`) ||
+        "MC:filterLabels.AssetType",
+      name: "contentfulassettype", // Force it to work with the same filter group as the Contentful documents for ALL source tables
+      options: []
+    };
+
+    products.forEach((product: Product) =>
+      (product.documents || [])
+        .filter(
+          (document) =>
+            document.assetType && pimAssetTypes.includes(document.assetType)
+        )
+        .forEach((document) => {
+          const assetType = assetTypes.find(
+            (assetType) => assetType.pimCode === document.assetType
+          );
+          if (
+            !assetTypeFilter.options.find(
+              (option) => option.value === assetType?.code
+            )
+          ) {
+            assetTypeFilter.options.push({
+              label: assetType.name,
+              value: assetType.code
+            });
+          }
+        })
+    );
+
+    productFilters.push(assetTypeFilter);
+  }
+
   return productFilters;
 };
 
