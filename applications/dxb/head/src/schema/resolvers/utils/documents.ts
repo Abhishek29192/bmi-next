@@ -100,8 +100,9 @@ export const resolveDocumentsFiltersFromProducts = async (
             (assetType) => assetType.pimCode === document.assetType
           );
           if (
+            assetType &&
             !assetTypeFilter.options.find(
-              (option) => option.value === assetType?.code
+              (option) => option.value === assetType.code
             )
           ) {
             assetTypeFilter.options.push({
