@@ -11,8 +11,6 @@ import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTable
 
 type Props = {
   documents: ProductDocument[];
-  page: number;
-  documentsPerPage: number;
 };
 
 export const groupDocuments = (
@@ -27,11 +25,7 @@ export const getCount = (documents: Props["documents"]): number => {
   return groupDocuments(documents).length;
 };
 
-const DocumentTechnicalTableResults = ({
-  documents,
-  page,
-  documentsPerPage
-}: Props) => {
+const DocumentTechnicalTableResults = ({ documents }: Props) => {
   // TODO: What on earth is this doing?!
   const assetTypes = useMemo(
     () =>
@@ -59,11 +53,6 @@ const DocumentTechnicalTableResults = ({
     [documents]
   );
 
-  const documentsByProduct = allDocumentsGrouped.slice(
-    (page - 1) * documentsPerPage,
-    page * documentsPerPage
-  );
-
   if (assetTypes.length === 0) {
     return <p>A technical table cannot being shown with no asset types.</p>;
   }
@@ -75,13 +64,13 @@ const DocumentTechnicalTableResults = ({
     <div className={styles["DocumentTechnicalTableResults"]}>
       {matches ? (
         <DesktopDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
+          documentsByProduct={allDocumentsGrouped}
           assetTypes={assetTypes}
           fileIconsMap={fileIconsMap}
         />
       ) : (
         <MobileDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
+          documentsByProduct={allDocumentsGrouped}
           assetTypes={assetTypes}
           fileIconsMap={fileIconsMap}
         />
