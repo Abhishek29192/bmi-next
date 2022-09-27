@@ -68,7 +68,14 @@ const client = contentful.createClient({
 
 export const getContenfulDocuments = () =>
   client
-    .getEntries({ content_type: "document", locale: process.env.MARKET_LOCALE })
+    .getEntries({
+      content_type: "document",
+      locale: process.env.MARKET_LOCALE,
+      // The maximum number of entries returned by the API is 1000.
+      // The API will throw a BadRequestError for values higher than 1000 and values other than an integer.
+      // The default number of entries returned by the API is 100.
+      limit: 1000
+    })
     .then((response) => response.items);
 
 export const processContentfulDocuments = async () => {
