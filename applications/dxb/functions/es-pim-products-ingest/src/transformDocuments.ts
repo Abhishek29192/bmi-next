@@ -60,8 +60,7 @@ export const transformDocuments = async (
         const { fileSize, mime, url, realFileName, name } = asset;
 
         const assetType = assetTypes.find(
-          (assetType) =>
-            assetType.pimCode?.toLowerCase() === asset.assetType?.toLowerCase()
+          (assetType) => assetType.pimCode === asset.assetType
         );
 
         if (!assetType || !url) {
