@@ -36,11 +36,7 @@ describe("DocumentTechnicalTableResults component", () => {
     });
     it("renders correctly", () => {
       const { container } = render(
-        <DocumentTechnicalTableResults
-          documents={[pimDocument]}
-          page={1}
-          documentsPerPage={1}
-        />
+        <DocumentTechnicalTableResults documents={[pimDocument]} />
       );
 
       expect(container).toMatchSnapshot();
@@ -53,11 +49,7 @@ describe("DocumentTechnicalTableResults component", () => {
     });
     it("renders correctly", () => {
       const { container } = render(
-        <DocumentTechnicalTableResults
-          documents={[pimDocument]}
-          page={1}
-          documentsPerPage={1}
-        />
+        <DocumentTechnicalTableResults documents={[pimDocument]} />
       );
 
       expect(container).toMatchSnapshot();
@@ -69,8 +61,6 @@ describe("DocumentTechnicalTableResults component", () => {
       render(
         <DocumentTechnicalTableResults
           documents={[pimDocumentNoAssetType, pimDocumentNoAssetType]}
-          page={1}
-          documentsPerPage={1}
         />
       );
 
