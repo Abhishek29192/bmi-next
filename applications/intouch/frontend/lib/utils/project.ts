@@ -118,7 +118,14 @@ export const isProjectEditable = (project) => {
   }
 
   // If there is a guarantee, some fields can be edited, if it's in certain statuses
-  return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
+  return ![
+    "APPROVED",
+    "SUBMITTED",
+    "REVIEW",
+    "ISSUED",
+    "DECLINED",
+    "EXPIRED"
+  ].includes(guarantee.status);
 };
 
 export const isSolutionOrSystemGuaranteeExist = (
