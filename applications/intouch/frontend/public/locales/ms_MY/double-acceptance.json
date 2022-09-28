@@ -21,7 +21,7 @@
       "back": "Back",
       "confirm": "Confirm"
     },
-    "description": "If you decline the BMI guarantee, you are choosing not to receive the guarantee offered and it will be cancelled.",
+    "description": "If you accept the BMI guarantee, you will receive the guarantee documentation in a separate email. If you decline the BMI guarantee, it will be cancelled and the contractor will be notified.",
     "title": "Are you sure you want to {{acceptance}} the BMI Guarantee?"
   },
   "form": {
