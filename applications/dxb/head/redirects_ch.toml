@@ -1,0 +1,24 @@
+[[redirects]]
+ from="/ch/steildacheindeckung"
+ to="/ch/steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/ch/kontakt-neu"
+ to="/ch/kontakt/"
+ force=true
+
+[[redirects]]
+ from="/ch/flachdachabdichtung-kunststoffbahnen"
+ to="/ch/flachdachprodukte/alle-flachdachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/ch/flachdachabdichtung-bitumenbahnen"
+ to="/ch/flachdachprodukte/alle-flachdachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/ch/downloads"
+ to="/ch/downloads-and-services/alle-downloads/"
+ force=true

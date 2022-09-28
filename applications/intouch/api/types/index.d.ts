@@ -1440,7 +1440,7 @@ export type BusinessType =
   | "CORP_DEVELOPER"
   | "MERCHANT";
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type Carousel = Entry & {
   __typename?: "Carousel";
   audienceRole?: Maybe<Scalars["String"]>;
@@ -1451,17 +1451,17 @@ export type Carousel = Entry & {
   sys: Sys;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type CarouselAudienceRoleArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type CarouselLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type CarouselListCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -1469,7 +1469,7 @@ export type CarouselListCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel) */
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type CarouselNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -1504,7 +1504,7 @@ export type CarouselFilter = {
   sys?: InputMaybe<SysFilter>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItem = Entry & {
   __typename?: "CarouselItem";
   audienceTiers?: Maybe<Array<Maybe<Scalars["String"]>>>;
@@ -1519,43 +1519,43 @@ export type CarouselItem = Entry & {
   sys: Sys;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemAudienceTiersArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemCtaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemCustomUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemCustomUrlButtonTextArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemHeaderArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem) */
+/** Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem) */
 export type CarouselItemLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
@@ -3836,7 +3836,7 @@ export type CompanyTradingAddressIdFkeyInverseInput = {
   >;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetails = Entry & {
   __typename?: "ContactDetails";
   contentfulMetadata: ContentfulMetadata;
@@ -3848,27 +3848,27 @@ export type ContactDetails = Entry & {
   sys: Sys;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetailsEmailArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetailsFullNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetailsLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetailsPhoneNumberArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails) */
+/** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetailsSubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -3954,7 +3954,7 @@ export type ContactDetailsOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticle = Entry & {
   __typename?: "ContentArticle";
   body?: Maybe<ContentArticleBody>;
@@ -3965,22 +3965,22 @@ export type ContentArticle = Entry & {
   title?: Maybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticleBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticleLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticleRelativePathArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle) */
+/** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticleTitleArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -4135,6 +4135,8 @@ export type ContentfulGuaranteeTemplate = {
   mailBody?: Maybe<Scalars["String"]>;
   mailSubject?: Maybe<Scalars["String"]>;
   maintenanceTemplate?: Maybe<ContentfulAsset>;
+  onerousConditionsSummary?: Maybe<Scalars["String"]>;
+  onerousConditionsText?: Maybe<ContentfulGuaranteeTemplateOnerousConditionsText>;
   rejectionMessage?: Maybe<ContentfulMessage>;
   roofType?: Maybe<Scalars["String"]>;
   signatory?: Maybe<Scalars["String"]>;
@@ -4142,6 +4144,11 @@ export type ContentfulGuaranteeTemplate = {
   terms?: Maybe<ContentfulAsset>;
   titleLine1?: Maybe<Scalars["String"]>;
   titleLine2?: Maybe<Scalars["String"]>;
+};
+
+export type ContentfulGuaranteeTemplateOnerousConditionsText = {
+  __typename?: "ContentfulGuaranteeTemplateOnerousConditionsText";
+  json: Scalars["JSON"];
 };
 
 export type ContentfulGuaranteeTemplatesCollection = {
@@ -5596,6 +5603,40 @@ export type CreateDoceboTierPayloadDoceboTierEdgeArgs = {
   orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
 };
 
+/** All input for the create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` to be created by this mutation. */
+  doubleAcceptance: DoubleAcceptanceInput;
+};
+
+/** The output of our create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptancePayload = {
+  __typename?: "CreateDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` that was created by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `DoubleAcceptance` mutation. */
+export type CreateDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the create `EvidenceItem` mutation. */
 export type CreateEvidenceItemInput = {
   /**
@@ -6815,6 +6856,61 @@ export type DeleteDoceboTierPayloadDoceboTierEdgeArgs = {
   orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
 };
 
+/** All input for the `deleteDoubleAcceptanceByNodeId` mutation. */
+export type DeleteDoubleAcceptanceByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoubleAcceptance` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteDoubleAcceptanceByTempToken` mutation. */
+export type DeleteDoubleAcceptanceByTempTokenInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  tempToken: Scalars["String"];
+};
+
+/** All input for the `deleteDoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `DoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptancePayload = {
+  __typename?: "DeleteDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedDoubleAcceptanceNodeId?: Maybe<Scalars["ID"]>;
+  /** The `DoubleAcceptance` that was deleted by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `DoubleAcceptance` mutation. */
+export type DeleteDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the `deleteEvidenceItemByNodeId` mutation. */
 export type DeleteEvidenceItemByNodeIdInput = {
   /**
@@ -7505,6 +7601,287 @@ export type DoceboTiersOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type DoubleAcceptance = Node & {
+  __typename?: "DoubleAcceptance";
+  acceptance?: Maybe<Scalars["Boolean"]>;
+  acceptanceDate?: Maybe<Scalars["Datetime"]>;
+  createdAt: Scalars["Datetime"];
+  expiryDate: Scalars["Datetime"];
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  guaranteeId: Scalars["Int"];
+  id: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  signature?: Maybe<Scalars["String"]>;
+  tempToken?: Maybe<Scalars["String"]>;
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `DoubleAcceptance` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type DoubleAcceptanceCondition = {
+  /** Checks for equality with the object’s `guaranteeId` field. */
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `tempToken` field. */
+  tempToken?: InputMaybe<Scalars["String"]>;
+};
+
+/** The fields on `doubleAcceptance` to look up the row to connect. */
+export type DoubleAcceptanceDoubleAcceptancePkeyConnect = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `doubleAcceptance` to look up the row to delete. */
+export type DoubleAcceptanceDoubleAcceptancePkeyDelete = {
+  id: Scalars["Int"];
+};
+
+/** A filter to be used against `DoubleAcceptance` object types. All fields are combined with a logical ‘and.’ */
+export type DoubleAcceptanceFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DoubleAcceptanceFilter>>;
+  /** Filter by the object’s `guaranteeId` field. */
+  guaranteeId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DoubleAcceptanceFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DoubleAcceptanceFilter>>;
+  /** Filter by the object’s `tempToken` field. */
+  tempToken?: InputMaybe<StringFilter>;
+};
+
+/** The `doubleAcceptance` to be created by this mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate: Scalars["Datetime"];
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `guarantee` to be created by this mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput = {
+  accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
+  accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
+  /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+  bmiReferenceId?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  coverage?: InputMaybe<GuaranteeCoverage>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+  /**
+   * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+   * The date is stored in UTC.
+   */
+  expiryDate?: InputMaybe<Scalars["Datetime"]>;
+  /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+  fileStorageId?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  guaranteeReferenceCode: GuaranteeReferenceCode;
+  /** Primary key - starts at 6100 */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  languageCode?: InputMaybe<Language>;
+  /** fk */
+  productBmiRef?: InputMaybe<Scalars["String"]>;
+  productToProductBmiRef?: InputMaybe<GuaranteeProductBmiRefFkeyInput>;
+  /** fk */
+  projectId?: InputMaybe<Scalars["Int"]>;
+  projectToProjectId?: InputMaybe<GuaranteeProjectIdFkeyInput>;
+  /** fk */
+  requestorAccountId?: InputMaybe<Scalars["Int"]>;
+  /** fk */
+  reviewerAccountId?: InputMaybe<Scalars["Int"]>;
+  /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
+  startDate?: InputMaybe<Scalars["Datetime"]>;
+  /** ek */
+  status?: InputMaybe<RequestStatus>;
+  /** fk */
+  systemBmiRef?: InputMaybe<Scalars["String"]>;
+  systemToSystemBmiRef?: InputMaybe<GuaranteeSystemBmiRefFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `guarantee` in the `DoubleAcceptanceInput` mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyInput = {
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByBmiReferenceId?: InputMaybe<GuaranteeGuaranteeBmiReferenceIdKeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectById?: InputMaybe<GuaranteeGuaranteePkeyConnect>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<GuaranteeNodeIdConnect>;
+  /** A `GuaranteeInput` object that will be created and connected to this object. */
+  create?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByBmiReferenceId?: InputMaybe<GuaranteeGuaranteeBmiReferenceIdKeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteById?: InputMaybe<GuaranteeGuaranteePkeyDelete>;
+  /** The primary key(s) for `guarantee` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<GuaranteeNodeIdDelete>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByBmiReferenceId?: InputMaybe<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateById?: InputMaybe<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate>;
+  /** The primary key(s) and patch data for `guarantee` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `doubleAcceptance` in the `GuaranteeInput` mutation. */
+export type DoubleAcceptanceGuaranteeIdFkeyInverseInput = {
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<DoubleAcceptanceDoubleAcceptancePkeyConnect>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<DoubleAcceptanceNodeIdConnect>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  connectByTempToken?: InputMaybe<Array<DoubleAcceptanceTempTokenKeyConnect>>;
+  /** A `DoubleAcceptanceInput` object that will be created and connected to this object. */
+  create?: InputMaybe<
+    Array<DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput>
+  >;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<DoubleAcceptanceDoubleAcceptancePkeyDelete>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<DoubleAcceptanceNodeIdDelete>>;
+  /** The primary key(s) for `doubleAcceptance` for the far side of the relationship. */
+  deleteByTempToken?: InputMaybe<Array<DoubleAcceptanceTempTokenKeyDelete>>;
+  /** Flag indicating whether all other `doubleAcceptance` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate>
+  >;
+  /** The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship. */
+  updateByTempToken?: InputMaybe<
+    Array<DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate>
+  >;
+};
+
+/** An input for mutations affecting `DoubleAcceptance` */
+export type DoubleAcceptanceInput = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate: Scalars["Datetime"];
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type DoubleAcceptanceNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `doubleAcceptance` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type DoubleAcceptanceNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `doubleAcceptance` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `guarantee` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: GuaranteePatch;
+  };
+
+/** The fields on `doubleAcceptance` to look up the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
+
+/** The fields on `doubleAcceptance` to look up the row to update. */
+export type DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+    tempToken: Scalars["String"];
+  };
+
+/** Represents an update to a `DoubleAcceptance`. Fields that are set will be updated. */
+export type DoubleAcceptancePatch = {
+  acceptance?: InputMaybe<Scalars["Boolean"]>;
+  acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  expiryDate?: InputMaybe<Scalars["Datetime"]>;
+  guaranteeId?: InputMaybe<Scalars["Int"]>;
+  guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+  id?: InputMaybe<Scalars["Int"]>;
+  signature?: InputMaybe<Scalars["String"]>;
+  tempToken?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The fields on `doubleAcceptance` to look up the row to connect. */
+export type DoubleAcceptanceTempTokenKeyConnect = {
+  tempToken: Scalars["String"];
+};
+
+/** The fields on `doubleAcceptance` to look up the row to delete. */
+export type DoubleAcceptanceTempTokenKeyDelete = {
+  tempToken: Scalars["String"];
+};
+
+/** A connection to a list of `DoubleAcceptance` values. */
+export type DoubleAcceptancesConnection = {
+  __typename?: "DoubleAcceptancesConnection";
+  /** A list of edges which contains the `DoubleAcceptance` and cursor to aid in pagination. */
+  edges: Array<DoubleAcceptancesEdge>;
+  /** A list of `DoubleAcceptance` objects. */
+  nodes: Array<DoubleAcceptance>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DoubleAcceptance` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `DoubleAcceptance` edge in the connection. */
+export type DoubleAcceptancesEdge = {
+  __typename?: "DoubleAcceptancesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `DoubleAcceptance` at the end of the edge. */
+  node: DoubleAcceptance;
+};
+
+/** Methods to use when ordering `DoubleAcceptance`. */
+export type DoubleAcceptancesOrderBy =
+  | "GUARANTEE_ID_ASC"
+  | "GUARANTEE_ID_DESC"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC"
+  | "TEMP_TOKEN_ASC"
+  | "TEMP_TOKEN_DESC";
+
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
   sys: Sys;
@@ -7535,7 +7912,7 @@ export type EntryOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategory = Entry & {
   __typename?: "EvidenceCategory";
   contentfulMetadata: ContentfulMetadata;
@@ -7547,27 +7924,27 @@ export type EvidenceCategory = Entry & {
   sys: Sys;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryMinimumUploadsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory) */
+/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryReferenceCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -7789,6 +8166,7 @@ export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8236,6 +8614,237 @@ export type EvidenceItemsOrderBy =
   | "UPLOADER_ACCOUNT_ID_ASC"
   | "UPLOADER_ACCOUNT_ID_DESC";
 
+/** A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem) */
+export type FaqItem = Entry & {
+  __typename?: "FaqItem";
+  body?: Maybe<FaqItemBody>;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<FaqItemLinkingCollections>;
+  sys: Sys;
+  title?: Maybe<Scalars["String"]>;
+};
+
+/** A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem) */
+export type FaqItemBodyArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem) */
+export type FaqItemLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+/** A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem) */
+export type FaqItemTitleArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+export type FaqItemBody = {
+  __typename?: "FaqItemBody";
+  json: Scalars["JSON"];
+  links: FaqItemBodyLinks;
+};
+
+export type FaqItemBodyAssets = {
+  __typename?: "FaqItemBodyAssets";
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type FaqItemBodyEntries = {
+  __typename?: "FaqItemBodyEntries";
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type FaqItemBodyLinks = {
+  __typename?: "FaqItemBodyLinks";
+  assets: FaqItemBodyAssets;
+  entries: FaqItemBodyEntries;
+};
+
+export type FaqItemCollection = {
+  __typename?: "FaqItemCollection";
+  items: Array<Maybe<FaqItem>>;
+  limit: Scalars["Int"];
+  skip: Scalars["Int"];
+  total: Scalars["Int"];
+};
+
+export type FaqItemFilter = {
+  AND?: InputMaybe<Array<InputMaybe<FaqItemFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<FaqItemFilter>>>;
+  body_contains?: InputMaybe<Scalars["String"]>;
+  body_exists?: InputMaybe<Scalars["Boolean"]>;
+  body_not_contains?: InputMaybe<Scalars["String"]>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars["String"]>;
+  title_contains?: InputMaybe<Scalars["String"]>;
+  title_exists?: InputMaybe<Scalars["Boolean"]>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  title_not?: InputMaybe<Scalars["String"]>;
+  title_not_contains?: InputMaybe<Scalars["String"]>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type FaqItemLinkingCollections = {
+  __typename?: "FaqItemLinkingCollections";
+  entryCollection?: Maybe<EntryCollection>;
+  faqTopicCollection?: Maybe<FaqTopicCollection>;
+};
+
+export type FaqItemLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type FaqItemLinkingCollectionsFaqTopicCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type FaqItemOrder =
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC"
+  | "title_ASC"
+  | "title_DESC";
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopic = Entry & {
+  __typename?: "FaqTopic";
+  audienceRole?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  audienceTiers?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<FaqTopicLinkingCollections>;
+  listCollection?: Maybe<FaqTopicListCollection>;
+  sys: Sys;
+  title?: Maybe<Scalars["String"]>;
+  weight?: Maybe<Scalars["Int"]>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicAudienceRoleArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicAudienceTiersArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicListCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicTitleArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic) */
+export type FaqTopicWeightArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+export type FaqTopicCollection = {
+  __typename?: "FaqTopicCollection";
+  items: Array<Maybe<FaqTopic>>;
+  limit: Scalars["Int"];
+  skip: Scalars["Int"];
+  total: Scalars["Int"];
+};
+
+export type FaqTopicFilter = {
+  AND?: InputMaybe<Array<InputMaybe<FaqTopicFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<FaqTopicFilter>>>;
+  audienceRole_contains_all?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  audienceRole_contains_none?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  audienceRole_contains_some?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  audienceRole_exists?: InputMaybe<Scalars["Boolean"]>;
+  audienceTiers_contains_all?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  audienceTiers_contains_none?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  audienceTiers_contains_some?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  audienceTiers_exists?: InputMaybe<Scalars["Boolean"]>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  listCollection_exists?: InputMaybe<Scalars["Boolean"]>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars["String"]>;
+  title_contains?: InputMaybe<Scalars["String"]>;
+  title_exists?: InputMaybe<Scalars["Boolean"]>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  title_not?: InputMaybe<Scalars["String"]>;
+  title_not_contains?: InputMaybe<Scalars["String"]>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  weight?: InputMaybe<Scalars["Int"]>;
+  weight_exists?: InputMaybe<Scalars["Boolean"]>;
+  weight_gt?: InputMaybe<Scalars["Int"]>;
+  weight_gte?: InputMaybe<Scalars["Int"]>;
+  weight_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]>>>;
+  weight_lt?: InputMaybe<Scalars["Int"]>;
+  weight_lte?: InputMaybe<Scalars["Int"]>;
+  weight_not?: InputMaybe<Scalars["Int"]>;
+  weight_not_in?: InputMaybe<Array<InputMaybe<Scalars["Int"]>>>;
+};
+
+export type FaqTopicLinkingCollections = {
+  __typename?: "FaqTopicLinkingCollections";
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+export type FaqTopicLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type FaqTopicListCollection = {
+  __typename?: "FaqTopicListCollection";
+  items: Array<Maybe<FaqItem>>;
+  limit: Scalars["Int"];
+  skip: Scalars["Int"];
+  total: Scalars["Int"];
+};
+
+export type FaqTopicOrder =
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "weight_ASC"
+  | "weight_DESC";
+
 export type FindIncompleteCompanyProfile = {
   __typename?: "FindIncompleteCompanyProfile";
   email?: Maybe<Scalars["String"]>;
@@ -8337,6 +8946,25 @@ export type FindRoofersEdge = {
 /** Methods to use when ordering `FindRoofer`. */
 export type FindRoofersOrderBy = "NATURAL";
 
+export type GetDoubleAcceptanceByValidTempToken = {
+  __typename?: "GetDoubleAcceptanceByValidTempToken";
+  acceptance?: Maybe<Scalars["Boolean"]>;
+  acceptanceDate?: Maybe<Scalars["Datetime"]>;
+  coverage?: Maybe<GuaranteeCoverage>;
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+  guaranteeId?: Maybe<Scalars["Int"]>;
+  id?: Maybe<Scalars["Int"]>;
+  languageCode?: Maybe<Scalars["String"]>;
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  signature?: Maybe<Scalars["String"]>;
+  technology?: Maybe<Technology>;
+  tempToken?: Maybe<Scalars["String"]>;
+};
+
+export type GetDoubleAcceptanceByValidTempTokenInput = {
+  tempToken?: InputMaybe<Scalars["String"]>;
+};
+
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
   __typename?: "Guarantee";
@@ -8346,6 +8974,8 @@ export type Guarantee = Node & {
   /** ek */
   coverage?: Maybe<GuaranteeCoverage>;
   createdAt: Scalars["Datetime"];
+  /** Reads and enables pagination through a set of `DoubleAcceptance`. */
+  doubleAcceptances: DoubleAcceptancesConnection;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems: EvidenceItemsConnection;
   /**
@@ -8391,6 +9021,18 @@ export type Guarantee = Node & {
   /** Reads a single `System` that is related to this `Guarantee`. */
   systemBySystemBmiRef?: Maybe<System>;
   updatedAt: Scalars["Datetime"];
+};
+
+/** Starts life as request for a gurantee and becomes an actual issued guarantee */
+export type GuaranteeDoubleAcceptancesArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<DoubleAcceptanceCondition>;
+  filter?: InputMaybe<DoubleAcceptanceFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
@@ -8494,6 +9136,7 @@ export type GuaranteeInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8539,6 +9182,33 @@ export type GuaranteeNodeIdDelete = {
   /** The globally unique `ID` which identifies a single `guarantee` to be deleted. */
   nodeId: Scalars["ID"];
 };
+
+/** The globally unique `ID` look up for the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `doubleAcceptance` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+    patch: DoubleAcceptancePatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate =
+  {
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId: Scalars["String"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
+
+/** The fields on `guarantee` to look up the row to update. */
+export type GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate =
+  {
+    /** Primary key - starts at 6100 */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `guarantee` being updated. */
+    patch: UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch;
+  };
 
 /** The globally unique `ID` look up for the row to update. */
 export type GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate =
@@ -8709,6 +9379,7 @@ export type GuaranteePatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8753,6 +9424,7 @@ export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -8884,6 +9556,7 @@ export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9034,6 +9707,7 @@ export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9142,6 +9816,7 @@ export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9250,6 +9925,7 @@ export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -9367,7 +10043,7 @@ export type GuaranteeSystemBmiRefFkeySystemCreateInput = {
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplate = Entry & {
   __typename?: "GuaranteeTemplate";
   approvalMessage?: Maybe<MessageTemplate>;
@@ -9397,7 +10073,10 @@ export type GuaranteeTemplate = Entry & {
   linkedFrom?: Maybe<GuaranteeTemplateLinkingCollections>;
   logo?: Maybe<Asset>;
   mailBody?: Maybe<Scalars["String"]>;
+  mailSubject?: Maybe<Scalars["String"]>;
   maintenanceTemplate?: Maybe<Asset>;
+  onerousConditionsSummary?: Maybe<Scalars["String"]>;
+  onerousConditionsText?: Maybe<GuaranteeTemplateOnerousConditionsText>;
   rejectionMessage?: Maybe<MessageTemplate>;
   roofType?: Maybe<Scalars["String"]>;
   signatory?: Maybe<Scalars["String"]>;
@@ -9408,177 +10087,192 @@ export type GuaranteeTemplate = Entry & {
   titleLine2?: Maybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateApprovalMessageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateCoverageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateDisplayNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateFilenamePrefixArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateFooterArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateGuaranteeScopeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBeneficiaryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBuildingAddressArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingBuildingOwnerNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingContractorNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingExpiryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingGuaranteeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingGuaranteeIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingProductsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingRoofAreaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingRoofTypeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingScopeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingStartDateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateHeadingValidityArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLanguageCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLanguageDescriptorArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateLogoArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateMailBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateMailSubjectArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateMaintenanceTemplateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateOnerousConditionsSummaryArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
+export type GuaranteeTemplateOnerousConditionsTextArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateRejectionMessageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateRoofTypeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateSignatoryArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTechnologyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTermsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTitleLine1Args = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate) */
+/** A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate) */
 export type GuaranteeTemplateTitleLine2Args = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -9767,7 +10461,28 @@ export type GuaranteeTemplateFilter = {
   mailBody_not?: InputMaybe<Scalars["String"]>;
   mailBody_not_contains?: InputMaybe<Scalars["String"]>;
   mailBody_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mailSubject?: InputMaybe<Scalars["String"]>;
+  mailSubject_contains?: InputMaybe<Scalars["String"]>;
+  mailSubject_exists?: InputMaybe<Scalars["Boolean"]>;
+  mailSubject_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mailSubject_not?: InputMaybe<Scalars["String"]>;
+  mailSubject_not_contains?: InputMaybe<Scalars["String"]>;
+  mailSubject_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   maintenanceTemplate_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsSummary?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsSummary_in?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  onerousConditionsSummary_not?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_not_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsSummary_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars["String"]>>
+  >;
+  onerousConditionsText_contains?: InputMaybe<Scalars["String"]>;
+  onerousConditionsText_exists?: InputMaybe<Scalars["Boolean"]>;
+  onerousConditionsText_not_contains?: InputMaybe<Scalars["String"]>;
   rejectionMessage?: InputMaybe<CfMessageTemplateNestedFilter>;
   rejectionMessage_exists?: InputMaybe<Scalars["Boolean"]>;
   roofType?: InputMaybe<Scalars["String"]>;
@@ -9829,6 +10544,31 @@ export type GuaranteeTemplateLinkingCollectionsGuaranteeTypeCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
+export type GuaranteeTemplateOnerousConditionsText = {
+  __typename?: "GuaranteeTemplateOnerousConditionsText";
+  json: Scalars["JSON"];
+  links: GuaranteeTemplateOnerousConditionsTextLinks;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextAssets = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextAssets";
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextEntries = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextEntries";
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type GuaranteeTemplateOnerousConditionsTextLinks = {
+  __typename?: "GuaranteeTemplateOnerousConditionsTextLinks";
+  assets: GuaranteeTemplateOnerousConditionsTextAssets;
+  entries: GuaranteeTemplateOnerousConditionsTextEntries;
+};
+
 export type GuaranteeTemplateOrder =
   | "coverage_ASC"
   | "coverage_DESC"
@@ -9872,6 +10612,8 @@ export type GuaranteeTemplateOrder =
   | "languageCode_DESC"
   | "languageDescriptor_ASC"
   | "languageDescriptor_DESC"
+  | "mailSubject_ASC"
+  | "mailSubject_DESC"
   | "roofType_ASC"
   | "roofType_DESC"
   | "signatory_ASC"
@@ -9891,7 +10633,7 @@ export type GuaranteeTemplateOrder =
   | "titleLine2_ASC"
   | "titleLine2_DESC";
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeType = Entry & {
   __typename?: "GuaranteeType";
   contentfulMetadata: ContentfulMetadata;
@@ -9910,17 +10652,17 @@ export type GuaranteeType = Entry & {
   tiersAvailable?: Maybe<Array<Maybe<Scalars["String"]>>>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeCoverageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeDisplayNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeEvidenceCategoriesCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -9928,12 +10670,12 @@ export type GuaranteeTypeEvidenceCategoriesCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeGuaranteeReferenceCodeArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeGuaranteeTemplatesCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -9941,38 +10683,38 @@ export type GuaranteeTypeGuaranteeTemplatesCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeMaximumValidityYearsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeRankingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeSignatureArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeTechnologyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType) */
+/** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeTypeTiersAvailableArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -10870,7 +11612,7 @@ export type MarketCondition = {
   id?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContent = Entry & {
   __typename?: "MarketContent";
   contactUsPage?: Maybe<ContentArticle>;
@@ -10890,13 +11632,13 @@ export type MarketContent = Entry & {
   sys: Sys;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentContactUsPageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentContactsCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10904,17 +11646,17 @@ export type MarketContentContactsCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentExternalLinkLabelArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentExternalLinkUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentFooterLinksCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10922,17 +11664,17 @@ export type MarketContentFooterLinksCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentLiveArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentMediaLibraryRootCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -10940,27 +11682,27 @@ export type MarketContentMediaLibraryRootCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNewsItemCtaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNewsItemHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNewsItemUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentPartnerBrandsCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -11498,7 +12240,7 @@ export type MarketsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
 export type MediaFolder = Entry & {
   __typename?: "MediaFolder";
   childrenCollection?: Maybe<MediaFolderChildrenCollection>;
@@ -11508,7 +12250,7 @@ export type MediaFolder = Entry & {
   sys: Sys;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
 export type MediaFolderChildrenCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -11516,12 +12258,12 @@ export type MediaFolderChildrenCollectionArgs = {
   skip?: InputMaybe<Scalars["Int"]>;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
 export type MediaFolderLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder) */
+/** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
 export type MediaFolderNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11599,7 +12341,7 @@ export type MediaFolderOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaTool = Entry & {
   __typename?: "MediaTool";
   contentfulMetadata: ContentfulMetadata;
@@ -11611,29 +12353,29 @@ export type MediaTool = Entry & {
   url?: Maybe<Scalars["String"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolMediaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolThumbnailArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool) */
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaToolUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11703,7 +12445,7 @@ export type MediaToolOrder =
   | "url_ASC"
   | "url_DESC";
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplate = Entry & {
   __typename?: "MessageTemplate";
   contentfulMetadata: ContentfulMetadata;
@@ -11716,32 +12458,32 @@ export type MessageTemplate = Entry & {
   sys: Sys;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateEmailBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateEventArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateFormatArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateNotificationBodyArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate) */
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateSubjectArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11829,7 +12571,7 @@ export type MessageTemplateOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type Migration = Entry & {
   __typename?: "Migration";
   contentTypeId?: Maybe<Scalars["String"]>;
@@ -11839,17 +12581,17 @@ export type Migration = Entry & {
   sys: Sys;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type MigrationContentTypeIdArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type MigrationLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration) */
+/** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type MigrationStateArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -11873,6 +12615,7 @@ export type MigrationFilter = {
   contentTypeId_not_contains?: InputMaybe<Scalars["String"]>;
   contentTypeId_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  state_exists?: InputMaybe<Scalars["Boolean"]>;
   sys?: InputMaybe<SysFilter>;
 };
 
@@ -11905,6 +12648,7 @@ export type Mutation = {
   __typename?: "Mutation";
   annualProjectsInspection?: Maybe<Scalars["String"]>;
   archiveProjects?: Maybe<Scalars["String"]>;
+  autoRejectDoubleAcceptance?: Maybe<Scalars["String"]>;
   bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
@@ -11943,6 +12687,8 @@ export type Mutation = {
   /** Creates a single `DoceboTier`. */
   createDoceboTier?: Maybe<CreateDoceboTierPayload>;
   createDoceboUser?: Maybe<UserCreateResponse>;
+  /** Creates a single `DoubleAcceptance`. */
+  createDoubleAcceptance?: Maybe<CreateDoubleAcceptancePayload>;
   /** Creates a single `EvidenceItem`. */
   createEvidenceItem?: Maybe<CreateEvidenceItemPayload>;
   /** Creates a single `Guarantee`. */
@@ -12045,6 +12791,12 @@ export type Mutation = {
   deleteDoceboTierByMarketIdAndTierCode?: Maybe<DeleteDoceboTierPayload>;
   /** Deletes a single `DoceboTier` using its globally unique id. */
   deleteDoceboTierByNodeId?: Maybe<DeleteDoceboTierPayload>;
+  /** Deletes a single `DoubleAcceptance` using a unique key. */
+  deleteDoubleAcceptance?: Maybe<DeleteDoubleAcceptancePayload>;
+  /** Deletes a single `DoubleAcceptance` using its globally unique id. */
+  deleteDoubleAcceptanceByNodeId?: Maybe<DeleteDoubleAcceptancePayload>;
+  /** Deletes a single `DoubleAcceptance` using a unique key. */
+  deleteDoubleAcceptanceByTempToken?: Maybe<DeleteDoubleAcceptancePayload>;
   /** Deletes a single `EvidenceItem` using a unique key. */
   deleteEvidenceItem?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `EvidenceItem` using its globally unique id. */
@@ -12103,12 +12855,14 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  getDoubleAcceptanceByValidTempToken?: Maybe<GetDoubleAcceptanceByValidTempToken>;
   importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
+  releaseGuaranteePdf?: Maybe<PublishOutput>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
   restartGuarantee?: Maybe<Scalars["String"]>;
@@ -12198,6 +12952,12 @@ export type Mutation = {
     Array<Maybe<UpdateDoceboTiersByMarketResult>>
   >;
   updateDoceboUser?: Maybe<UserUpdateResponse>;
+  /** Updates a single `DoubleAcceptance` using a unique key and a patch. */
+  updateDoubleAcceptance?: Maybe<UpdateDoubleAcceptancePayload>;
+  /** Updates a single `DoubleAcceptance` using its globally unique id and a patch. */
+  updateDoubleAcceptanceByNodeId?: Maybe<UpdateDoubleAcceptancePayload>;
+  /** Updates a single `DoubleAcceptance` using a unique key and a patch. */
+  updateDoubleAcceptanceByTempToken?: Maybe<UpdateDoubleAcceptancePayload>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
@@ -12381,6 +13141,11 @@ export type MutationCreateDoceboTierArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateDoceboUserArgs = {
   input?: InputMaybe<UserCreateInput>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDoubleAcceptanceArgs = {
+  input: CreateDoubleAcceptanceInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12646,6 +13411,21 @@ export type MutationDeleteDoceboTierByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceArgs = {
+  input: DeleteDoubleAcceptanceInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceByNodeIdArgs = {
+  input: DeleteDoubleAcceptanceByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoubleAcceptanceByTempTokenArgs = {
+  input: DeleteDoubleAcceptanceByTempTokenInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteEvidenceItemArgs = {
   input: DeleteEvidenceItemInput;
 };
@@ -12797,6 +13577,11 @@ export type MutationEvidenceItemsAddArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationGetDoubleAcceptanceByValidTempTokenArgs = {
+  input: GetDoubleAcceptanceByValidTempTokenInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationImportAccountsCompaniesFromCvsArgs = {
   input: ImportAccountsCompaniesFromCsvInput;
 };
@@ -12824,6 +13609,11 @@ export type MutationProjectMembersAddArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationPublishMessageArgs = {
   input: PublishInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationReleaseGuaranteePdfArgs = {
+  input: ReleaseGuaranteePdfInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13050,6 +13840,21 @@ export type MutationUpdateDoceboTiersByMarketArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateDoceboUserArgs = {
   input?: InputMaybe<UserUpdateInput>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceArgs = {
+  input: UpdateDoubleAcceptanceInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceByNodeIdArgs = {
+  input: UpdateDoubleAcceptanceByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoubleAcceptanceByTempTokenArgs = {
+  input: UpdateDoubleAcceptanceByTempTokenInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13792,7 +14597,7 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars["Cursor"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrand = Entry & {
   __typename?: "PartnerBrand";
   contentfulMetadata: ContentfulMetadata;
@@ -13806,39 +14611,39 @@ export type PartnerBrand = Entry & {
   websiteUrl?: Maybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandLogoArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandShortDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand) */
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandWebsiteUrlArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -15628,6 +16433,12 @@ export type Query = Node & {
   doceboTierByNodeId?: Maybe<DoceboTier>;
   /** Reads and enables pagination through a set of `DoceboTier`. */
   doceboTiers?: Maybe<DoceboTiersConnection>;
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** Reads a single `DoubleAcceptance` using its globally unique `ID`. */
+  doubleAcceptanceByNodeId?: Maybe<DoubleAcceptance>;
+  doubleAcceptanceByTempToken?: Maybe<DoubleAcceptance>;
+  /** Reads and enables pagination through a set of `DoubleAcceptance`. */
+  doubleAcceptances?: Maybe<DoubleAcceptancesConnection>;
   entryCollection?: Maybe<EntryCollection>;
   evidenceCategory?: Maybe<EvidenceCategory>;
   evidenceCategoryCollection?: Maybe<EvidenceCategoryCollection>;
@@ -15638,6 +16449,10 @@ export type Query = Node & {
   evidenceItems?: Maybe<EvidenceItemsConnection>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItemsByMarket?: Maybe<EvidenceItemsConnection>;
+  faqItem?: Maybe<FaqItem>;
+  faqItemCollection?: Maybe<FaqItemCollection>;
+  faqTopic?: Maybe<FaqTopic>;
+  faqTopicCollection?: Maybe<FaqTopicCollection>;
   /** Reads and enables pagination through a set of `FindIncompleteCompanyProfile`. */
   findIncompleteCompanyProfiles?: Maybe<FindIncompleteCompanyProfilesConnection>;
   /** Reads and enables pagination through a set of `FindRoofer`. */
@@ -16219,6 +17034,33 @@ export type QueryDoceboTiersArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptanceByTempTokenArgs = {
+  tempToken: Scalars["String"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoubleAcceptancesArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<DoubleAcceptanceCondition>;
+  filter?: InputMaybe<DoubleAcceptanceFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryEntryCollectionArgs = {
   limit?: InputMaybe<Scalars["Int"]>;
   locale?: InputMaybe<Scalars["String"]>;
@@ -16276,6 +17118,40 @@ export type QueryEvidenceItemsByMarketArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   market: Scalars["Int"];
   offset?: InputMaybe<Scalars["Int"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFaqItemArgs = {
+  id: Scalars["String"];
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFaqItemCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  order?: InputMaybe<Array<InputMaybe<FaqItemOrder>>>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<FaqItemFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFaqTopicArgs = {
+  id: Scalars["String"];
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFaqTopicCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  order?: InputMaybe<Array<InputMaybe<FaqTopicOrder>>>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<FaqTopicFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -16801,8 +17677,21 @@ export type QueryUserByEmailArgs = {
   email?: InputMaybe<Scalars["String"]>;
 };
 
+export type ReleaseGuaranteePdfInput = {
+  id?: InputMaybe<Scalars["Int"]>;
+  template?: InputMaybe<ReleaseGuaranteePdfTemplateInput>;
+};
+
+export type ReleaseGuaranteePdfTemplateInput = {
+  mailBody?: InputMaybe<Scalars["String"]>;
+  mailSubject?: InputMaybe<Scalars["String"]>;
+};
+
 export type RequestStatus =
   | "APPROVED"
+  | "DECLINED"
+  | "EXPIRED"
+  | "ISSUED"
   | "NEW"
   | "REJECTED"
   | "REVIEW"
@@ -17967,7 +18856,7 @@ export type Technology = "FLAT" | "OTHER" | "PITCHED";
 
 export type Tier = "T1" | "T2" | "T3" | "T4" | "T5" | "T6" | "T7";
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefit = Entry & {
   __typename?: "TierBenefit";
   contentfulMetadata: ContentfulMetadata;
@@ -17980,32 +18869,32 @@ export type TierBenefit = Entry & {
   tier?: Maybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitGuaranteeValidityOffsetYearsArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitNameArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitShortDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefitTierArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -18120,7 +19009,7 @@ export type Token = {
   access_token?: Maybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContent = Entry & {
   __typename?: "TrainingContent";
   contentfulMetadata: ContentfulMetadata;
@@ -18143,83 +19032,83 @@ export type TrainingContent = Entry & {
   sys: Sys;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentDescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentImageArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentLiveArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentLmsCtaLabelArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentPageHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentPageSubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep1DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep1HeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep1SubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep2DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep2HeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep2SubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep3DescriptionArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep3HeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
-/** [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent) */
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentStep3SubHeadingArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
@@ -19272,6 +20161,66 @@ export type UpdateDoceboTiersByMarketResult = {
   tier_code?: Maybe<Tier>;
 };
 
+/** All input for the `updateDoubleAcceptanceByNodeId` mutation. */
+export type UpdateDoubleAcceptanceByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoubleAcceptance` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+};
+
+/** All input for the `updateDoubleAcceptanceByTempToken` mutation. */
+export type UpdateDoubleAcceptanceByTempTokenInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+  tempToken: Scalars["String"];
+};
+
+/** All input for the `updateDoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptanceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `DoubleAcceptance` being updated. */
+  patch: DoubleAcceptancePatch;
+};
+
+/** The output of our update `DoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptancePayload = {
+  __typename?: "UpdateDoubleAcceptancePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoubleAcceptance` that was updated by this mutation. */
+  doubleAcceptance?: Maybe<DoubleAcceptance>;
+  /** An edge for our `DoubleAcceptance`. May be used by Relay 1. */
+  doubleAcceptanceEdge?: Maybe<DoubleAcceptancesEdge>;
+  /** Reads a single `Guarantee` that is related to this `DoubleAcceptance`. */
+  guarantee?: Maybe<Guarantee>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `DoubleAcceptance` mutation. */
+export type UpdateDoubleAcceptancePayloadDoubleAcceptanceEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoubleAcceptancesOrderBy>>;
+};
+
 /** All input for the `updateEvidenceItemByNodeId` mutation. */
 export type UpdateEvidenceItemByNodeIdInput = {
   /**
@@ -20008,6 +20957,7 @@ export type _Entity =
   | CourseSyncConfiguration
   | CourseTemp
   | DoceboTier
+  | DoubleAcceptance
   | EvidenceItem
   | Guarantee
   | Invitation
@@ -21296,6 +22246,20 @@ export type UpdateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFk
     updatedAt?: InputMaybe<Scalars["Datetime"]>;
   };
 
+/** An object where the defined keys will be set on the `doubleAcceptance` being updated. */
+export type UpdateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch =
+  {
+    acceptance?: InputMaybe<Scalars["Boolean"]>;
+    acceptanceDate?: InputMaybe<Scalars["Datetime"]>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    expiryDate?: InputMaybe<Scalars["Datetime"]>;
+    guaranteeToGuaranteeId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInput>;
+    id?: InputMaybe<Scalars["Int"]>;
+    signature?: InputMaybe<Scalars["String"]>;
+    tempToken?: InputMaybe<Scalars["String"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
 /** An object where the defined keys will be set on the `evidenceItem` being updated. */
 export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch =
   {
@@ -21367,6 +22331,52 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkey
   };
 
 /** An object where the defined keys will be set on the `guarantee` being updated. */
+export type UpdateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch =
+  {
+    accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
+    accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+    approvedAt?: InputMaybe<Scalars["Datetime"]>;
+    /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
+    bmiReferenceId?: InputMaybe<Scalars["String"]>;
+    /** ek */
+    coverage?: InputMaybe<GuaranteeCoverage>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
+    evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
+    /**
+     * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+     * The date is stored in UTC.
+     */
+    expiryDate?: InputMaybe<Scalars["Datetime"]>;
+    /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
+    fileStorageId?: InputMaybe<Scalars["String"]>;
+    /** ek */
+    guaranteeReferenceCode?: InputMaybe<GuaranteeReferenceCode>;
+    /** Primary key - starts at 6100 */
+    id?: InputMaybe<Scalars["Int"]>;
+    /** ek */
+    languageCode?: InputMaybe<Language>;
+    /** fk */
+    productBmiRef?: InputMaybe<Scalars["String"]>;
+    productToProductBmiRef?: InputMaybe<GuaranteeProductBmiRefFkeyInput>;
+    /** fk */
+    projectId?: InputMaybe<Scalars["Int"]>;
+    projectToProjectId?: InputMaybe<GuaranteeProjectIdFkeyInput>;
+    /** fk */
+    requestorAccountId?: InputMaybe<Scalars["Int"]>;
+    /** fk */
+    reviewerAccountId?: InputMaybe<Scalars["Int"]>;
+    /** The date that the Guarantee is approved either automatically or manually. The date is stored in UTC. */
+    startDate?: InputMaybe<Scalars["Datetime"]>;
+    /** ek */
+    status?: InputMaybe<RequestStatus>;
+    /** fk */
+    systemBmiRef?: InputMaybe<Scalars["String"]>;
+    systemToSystemBmiRef?: InputMaybe<GuaranteeSystemBmiRefFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `guarantee` being updated. */
 export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
@@ -21376,6 +22386,7 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21420,6 +22431,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21462,6 +22474,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21505,6 +22518,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
     /** ek */
     coverage?: InputMaybe<GuaranteeCoverage>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
+    doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
     evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
     /**
      * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21547,6 +22561,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
@@ -21589,6 +22604,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   /** ek */
   coverage?: InputMaybe<GuaranteeCoverage>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
+  doubleAcceptancesUsingId?: InputMaybe<DoubleAcceptanceGuaranteeIdFkeyInverseInput>;
   evidenceItemsUsingId?: InputMaybe<EvidenceItemGuaranteeIdFkeyInverseInput>;
   /**
    * When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.

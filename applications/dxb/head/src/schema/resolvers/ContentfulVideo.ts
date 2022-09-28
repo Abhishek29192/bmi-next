@@ -3,6 +3,7 @@ import { google, youtube_v3 } from "googleapis";
 import fetchRetry from "../../../../libraries/fetch-retry/src/index";
 import { getYoutubeId } from "../../../../libraries/utils/src/youtube";
 import { Node } from "./types/Gatsby";
+import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
 
 config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -100,6 +101,11 @@ export default {
       return source.youtubeId.startsWith("https://")
         ? source.youtubeId
         : `https://www.youtube.com/watch?v=${source.youtubeId}`;
+    }
+  },
+  defaultYouTubePreviewImage: {
+    async resolve(source: Node) {
+      return await getDefaultYoutubePreviewImage(source.youtubeId);
     }
   }
 };

@@ -1,0 +1,46 @@
+{
+  "accept": "Aksepterer",
+  "acceptanceDescription": [
+    "Hvis du velger å godta, vil BMI-garantidokumentasjonen følge i en egen e-post, sammen med en fullstendig kopi av vilkårene.",
+    "Hvis du velger å avslå, vil BMI-garantitilbudet bli kansellert og håndverker vil bli varslet."
+  ],
+  "acceptanceTitle": "Vennligst bekreft nedenfor for å enten godta eller avslå BMI-garantitilbudet",
+  "confirmation": {
+    "description": [
+      "BMI jobber tett med håndverker for å sikre at du får de høyeste standardene for utførelse, forbedrede garantier og den fortsatte støtten og tjenestene du trenger for å holde taket ditt i best mulig stand.",
+      "For mer informasjon om BMI og hvis du trenger å ta kontakt, vennligst besøk {{website}}."
+    ],
+    "title": "Takk for at du valgte BMI for å dekke taket ditt!"
+  },
+  "description": [
+    "Vi er glade for å bekrefte at en ny BMI-garanti er tilgjengelig for deg å kreve, for å gi trygghet og beskyttelse for din eiendom og dens beboere.",
+    "Dette garantitilbudet er tilgjengelig i en begrenset periode, så se gjennom detaljene nedenfor og klikk for å godta eller avvise dette tilbudet."
+  ],
+  "dialog": {
+    "cta": {
+      "back": "Tilbake",
+      "confirm": "Bekrefte"
+    },
+    "description": "Hvis du avslår BMI-garantien, velger du å ikke motta garantien som tilbys, og den vil bli kansellert.",
+    "title": "Er du sikker på at du vil {{acceptance}} BMI-garantien?"
+  },
+  "form": {
+    "fields": {
+      "acceptance": {
+        "label": "Ved å krysse av i denne boksen bekrefter jeg at jeg har lest, forstått og godtar garantibetingelsene."
+      },
+      "firstname": {
+        "label": "Fornavn"
+      },
+      "lastname": {
+        "label": "Etternavn"
+      }
+    }
+  },
+  "guaranteeConditions": "Garantibetingelser:",
+  "guaranteeConditionsDescription": "Ved å klikke på \"Aksepterer\", godtar du denne garantien og erklærer å ha lest nøye og spesifikt godkjenne følgende bestemmelser:",
+  "guaranteeScope": "Garantiomfang:",
+  "reject": "Avslå",
+  "title": "Din BMI-garanti venter på å bli gjort krav på!",
+  "warrantyPeriod": "Garantiperiode:"
+}

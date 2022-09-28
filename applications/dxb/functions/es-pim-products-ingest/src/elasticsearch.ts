@@ -1,17 +1,28 @@
 import logger from "@bmi-digital/functions-logger";
-import { Operation, Product, System } from "@bmi/elasticsearch-types";
+import {
+  EsPIMDocumentData,
+  EsPIMLinkDocumentData,
+  Operation,
+  Product,
+  System
+} from "@bmi/elasticsearch-types";
 import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
+import { Client } from "@elastic/elasticsearch";
 import { DeleteOperation, IndexOperation } from "./types";
 
-const { ES_INDEX_PREFIX, BATCH_SIZE = "300" } = process.env;
+const { BATCH_SIZE = "300" } = process.env;
 
-const getChunks = <T extends Product | System>(items: readonly T[]): T[][] => {
+const getChunks = <
+  T extends Product | System | EsPIMDocumentData | EsPIMLinkDocumentData
+>(
+  items: readonly T[]
+): T[][] => {
   const chunkSize = parseInt(BATCH_SIZE);
   logger.info({ message: `Chunk size: ${chunkSize}` });
 
   const chunksArray = [];
-  const totalProducts = items.length;
-  for (let i = 0; i < totalProducts; i += chunkSize) {
+  const totalItems = items.length;
+  for (let i = 0; i < totalItems; i += chunkSize) {
     const chunk = items.slice(i, i + chunkSize);
     chunksArray.push(chunk);
   }
@@ -19,27 +30,43 @@ const getChunks = <T extends Product | System>(items: readonly T[]): T[][] => {
   return chunksArray;
 };
 
-const getIndexOperation = <T extends Product | System>(
+const getIndexOperation = <
+  T extends Product | System | EsPIMDocumentData | EsPIMLinkDocumentData
+>(
   indexName: string,
-  document: T
+  document: T,
+  id: string
 ): [IndexOperation, T] => {
   return [
     {
-      index: { _index: indexName, _id: document.code }
+      index: { _index: indexName, _id: id }
     },
     document
   ];
 };
 
-const getDeleteOperation = <T extends Product | System>(
+const getDeleteOperation = (
   indexName: string,
-  document: T
+  id: string
 ): [DeleteOperation] => {
   return [
     {
-      delete: { _index: indexName, _id: document.code }
+      delete: { _index: indexName, _id: id }
     }
   ];
+};
+
+const getAssetsBulkOperations = (
+  indexName: string,
+  assets: readonly (EsPIMDocumentData | EsPIMLinkDocumentData)[]
+): (IndexOperation | (EsPIMDocumentData | EsPIMLinkDocumentData))[] => {
+  return assets.reduce(
+    (allOps, item) => [
+      ...allOps,
+      ...getIndexOperation(indexName, item, item.id)
+    ],
+    [] as (IndexOperation | (EsPIMDocumentData | EsPIMLinkDocumentData))[]
+  );
 };
 
 const getBulkOperations = <T extends Product | System>(
@@ -53,8 +80,8 @@ const getBulkOperations = <T extends Product | System>(
       (allOps, item) => [
         ...allOps,
         ...(item.approvalStatus === "approved"
-          ? getIndexOperation(indexName, item)
-          : getDeleteOperation(indexName, item))
+          ? getIndexOperation(indexName, item, item.code)
+          : getDeleteOperation(indexName, item.code))
       ],
       [] as (DeleteOperation | (IndexOperation | T))[]
     );
@@ -62,31 +89,27 @@ const getBulkOperations = <T extends Product | System>(
   // action is only sent in as "delete"
   logger.info({ message: "Deleted action" });
   return documents.reduce<DeleteOperation[]>(
-    (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
+    (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item.code)],
     []
   );
 };
 
-export const updateElasticSearch = async (
-  itemType: string,
-  esProducts: readonly (Product | System)[],
-  action?: Operation
+const performBulkOperations = async (
+  client: Client,
+  operations: (
+    | Product
+    | System
+    | DeleteOperation
+    | IndexOperation
+    | EsPIMDocumentData
+    | EsPIMLinkDocumentData
+  )[][],
+  index: string
 ) => {
-  // TODO: Remove lower caseing as part of DXB-3449
-  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  logger.info({ message: `update ElasticSearch by index: ${index}` });
-  const client = await getEsClient();
-  // Chunk the request to avoid exceeding ES bulk request limits.
-  const bulkOperations = getChunks(esProducts).map((c) =>
-    getBulkOperations(index, c, action)
-  );
-  logger.info({
-    message: `all bulkOperations: ${JSON.stringify(bulkOperations)}`
-  });
   // Having to do this synchronously as we are seeing errors and ES dropping
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
-  for (const bulkOperation of bulkOperations) {
+  for (const bulkOperation of operations) {
     const response: BulkApiResponse = await client.bulk({
       index,
       refresh: true,
@@ -114,9 +137,83 @@ export const updateElasticSearch = async (
       )}`
     });
   }
+};
+
+const updateEsProducts = async (
+  client: Client,
+  itemType: string,
+  esProducts: readonly (Product | System)[],
+  action?: Operation
+) => {
+  if (!process.env.ES_INDEX_PREFIX) {
+    logger.error({ message: "ES_INDEX_PREFIX has not been set." });
+    return;
+  }
+  const index = `${process.env.ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+  // Chunk the request to avoid exceeding ES bulk request limits.
+  const bulkOperations = getChunks(esProducts).map((c) =>
+    getBulkOperations(index, c, action)
+  );
+
+  logger.info({ message: `all bulkOperations: ${bulkOperations}` });
+
+  await performBulkOperations(client, bulkOperations, index);
 
   const {
     body: { count }
   } = await client.count({ index });
-  logger.info({ message: `Total count: ${count}` });
+  logger.info({ message: `Total count of ${itemType}: ${count}` });
+};
+
+const updateEsDocuments = async (
+  client: Client,
+  assets: readonly (EsPIMDocumentData | EsPIMLinkDocumentData)[],
+  itemCode: string
+) => {
+  if (!process.env.ES_INDEX_NAME_DOCUMENTS) {
+    logger.error({ message: "ES_INDEX_PREFIX has not been set." });
+    return;
+  }
+  const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
+  const bulkAssetsOperations = getChunks(assets).map((c) =>
+    getAssetsBulkOperations(index, c)
+  );
+
+  logger.info({
+    message: `all bulkAssetsOperations: ${bulkAssetsOperations}`
+  });
+
+  await client.deleteByQuery({
+    index: index,
+    body: {
+      query: {
+        match: {
+          productBaseCode: itemCode
+        }
+      }
+    }
+  });
+
+  await performBulkOperations(client, bulkAssetsOperations, index);
+
+  const {
+    body: { count }
+  } = await client.count({ index });
+  logger.info({ message: `Total count of Documents: ${count}` });
+};
+
+export const updateElasticSearch = async (
+  itemType: string,
+  esProducts: readonly (Product | System)[],
+  assets: readonly (EsPIMDocumentData | EsPIMLinkDocumentData)[] | undefined,
+  itemCode: string,
+  action?: Operation
+) => {
+  const client = await getEsClient();
+
+  await updateEsProducts(client, itemType, esProducts, action);
+
+  if (assets && assets.length) {
+    await updateEsDocuments(client, assets, itemCode);
+  }
 };

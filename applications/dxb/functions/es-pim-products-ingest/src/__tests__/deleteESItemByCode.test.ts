@@ -6,11 +6,12 @@ const getEsClient = jest.fn();
 const deleteByQuery = jest.fn();
 
 jest.mock("@bmi/functions-es-client", () => {
-  return { getEsClient: (...args: any[]) => getEsClient(...args) };
+  return { getEsClient: (...args: []) => getEsClient(...args) };
 });
 
 beforeAll(() => {
   process.env.ES_INDEX_PREFIX = "dxb_no";
+  process.env.ES_INDEX_NAME_DOCUMENTS = "pim-documents-test";
   mockConsole();
 });
 
@@ -18,7 +19,7 @@ interface Params {
   index: string;
   body: {
     query: {
-      match: Record<"code" | "baseProduct.code", string>;
+      match: Record<"code" | "baseProduct.code" | "productBaseCode", string>;
     };
   };
 }
@@ -33,7 +34,7 @@ beforeEach(() => {
 });
 
 describe("deleteESItemByCode", () => {
-  it("should perform delete operation for base product on delete message ", async () => {
+  it("should perform delete operation for base product and related documents on delete message", async () => {
     const deleteItem = {
       code: "test_code_base_product",
       objType: ObjType.Base_product
@@ -52,9 +53,19 @@ describe("deleteESItemByCode", () => {
         }
       }
     });
+    expect(deleteByQuery).toBeCalledWith({
+      index: "pim-documents-test",
+      body: {
+        query: {
+          match: {
+            productBaseCode: deleteItem.code
+          }
+        }
+      }
+    });
   });
 
-  it("should perform delete operation for variant on delete message ", async () => {
+  it("should perform delete operation for variant and NOT perform delete operation for documnets on delete message ", async () => {
     const deleteItem = {
       code: "test_code_variant",
       objType: ObjType.Variant
@@ -73,9 +84,10 @@ describe("deleteESItemByCode", () => {
         }
       }
     });
+    expect(deleteByQuery).toBeCalledTimes(1);
   });
 
-  it("should perform delete operation for systems on delete message ", async () => {
+  it("should perform delete operation for systems and related documents on delete message ", async () => {
     const deleteItem = {
       code: "test_code_system",
       objType: ObjType.System
@@ -94,9 +106,19 @@ describe("deleteESItemByCode", () => {
         }
       }
     });
+    expect(deleteByQuery).toBeCalledWith({
+      index: "pim-documents-test",
+      body: {
+        query: {
+          match: {
+            productBaseCode: deleteItem.code
+          }
+        }
+      }
+    });
   });
 
-  it("should log message and do nothing if layer code provided on delete message ", async () => {
+  it("should log message and do nothing and NOT perform delete operation for documnets if layer code provided on delete message ", async () => {
     const consoleSpy = jest.spyOn(console, "log");
     const deleteItem = {
       code: "test_code_layer",

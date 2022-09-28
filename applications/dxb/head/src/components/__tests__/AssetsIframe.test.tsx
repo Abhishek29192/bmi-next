@@ -5,7 +5,9 @@ import AssetsIframe, { getAssetsIframeUrl } from "../AssetsIframe";
 
 describe("AssetsIframe component", () => {
   it("renders correctly", () => {
-    const { container } = render(<AssetsIframe url="https://google.com" />);
+    const { container } = render(
+      <AssetsIframe url="https://google.com" title={"Assets iFrame"} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

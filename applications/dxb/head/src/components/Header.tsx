@@ -14,6 +14,7 @@ import { microCopy } from "../constants/microCopies";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -206,6 +207,9 @@ const Header = ({
 
   const { getMicroCopy } = useSiteContext();
   const {
+    config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
+  } = useConfig();
+  const {
     basketState: { products: productsInBasket }
   } = useBasketContext();
   const utilities = parseNavigation(
@@ -227,6 +231,8 @@ const Header = ({
     <HidePrint
       component={() => (
         <HeaderComponent
+          isSpaEnabled={isSpaEnabled}
+          isGatsbyDisabledElasticSearch={isGatsbyDisabledElasticSearch}
           languages={languages}
           language={language}
           languageLabel={getMicroCopy(microCopy.MENU_LANGUAGE)}

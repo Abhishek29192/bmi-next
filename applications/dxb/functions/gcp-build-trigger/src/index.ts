@@ -1,23 +1,27 @@
 import logger from "@bmi-digital/functions-logger";
+import { waitFor } from "@bmi/utils";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import monitoring from "@google-cloud/monitoring";
 import fetch from "node-fetch";
-import { waitFor } from "@bmi/utils";
 
 const {
-  GCP_MONITOR_PROJECT,
-  GCP_APPLICATION_PROJECT,
+  DELAY_MILLISECONDS,
   DXB_FIRESTORE_HANDLER_FUNCTION,
   DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID,
+  GCP_MONITOR_PROJECT,
+  GCP_APPLICATION_PROJECT,
+  METRIC_LATENCY_DELAY,
   NETLIFY_BUILD_HOOK,
-  TIMEOUT_LIMIT,
-  DELAY_MILLISECONDS
+  TIMEOUT_LIMIT
 } = process.env;
 
 const client = new monitoring.MetricServiceClient();
 let runtime = 0;
 
-const monitorCheck = async (filter: string): Promise<boolean> => {
+const monitorCheck = async (
+  filter: string,
+  shouldBePopulated = true
+): Promise<boolean> => {
   const now = new Date();
   const seconds = Math.round(now.getTime() / 1000);
 
@@ -30,9 +34,25 @@ const monitorCheck = async (filter: string): Promise<boolean> => {
     },
     view: "FULL"
   });
-  return !!results[0].find((result) =>
-    result.points?.find((point) => (point.value?.int64Value || -1) > 0)
-  );
+  if (shouldBePopulated) {
+    return !!results[0].find((result) =>
+      result.points?.find((point) => (point.value?.int64Value || -1) > 0)
+    );
+  }
+  let populated = false;
+  let emptied = false;
+  results[0].forEach((result) => {
+    result.points?.forEach((point) => {
+      const pointValue = point.value?.int64Value;
+      if (pointValue === 0 && populated) {
+        emptied = true;
+      } else if (pointValue || -1 > 0) {
+        populated = true;
+      }
+    });
+  });
+
+  return populated && emptied;
 };
 
 // The most granular we can get is the number of deletes at a project level. Whilst not ideal, it is at least better than not at all.
@@ -47,14 +67,16 @@ const checkDocumentsUpdated = async (): Promise<boolean> =>
     `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "firestore.googleapis.com/document/write_count"`
   );
 
-const checkFunctionsRunning = async () =>
+const checkFunctionsFinished = async (): Promise<boolean> =>
   monitorCheck(
-    `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${DXB_FIRESTORE_HANDLER_FUNCTION}"`
+    `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "cloudfunctions.googleapis.com/function/active_instances" AND resource.labels.function_name="${DXB_FIRESTORE_HANDLER_FUNCTION}"`,
+    false
   );
 
-const checkMessagesStillBeingSent = async (): Promise<boolean> =>
+const checkMessagesConsumedFromPubSub = async (): Promise<boolean> =>
   monitorCheck(
-    `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/sent_message_count" AND resource.labels.subscription_id = "${DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`
+    `project = "${GCP_APPLICATION_PROJECT}" AND metric.type = "pubsub.googleapis.com/subscription/num_outstanding_messages" AND resource.labels.subscription_id = "${DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID}"`,
+    false
   );
 
 export const build: HttpFunction = async (_req, res) => {
@@ -107,12 +129,17 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  const delay_milliseconds = Number.parseInt(DELAY_MILLISECONDS);
-  if (Number.isNaN(delay_milliseconds)) {
+  const delayMilliseconds = Number.parseInt(DELAY_MILLISECONDS);
+  if (Number.isNaN(delayMilliseconds)) {
     logger.error({
       message: "DELAY_SECONDS was provided, but is not a valid number"
     });
     return res.sendStatus(500);
+  }
+
+  const metricLatencyDelay = Number.parseInt(METRIC_LATENCY_DELAY || "0");
+  if (metricLatencyDelay > 0) {
+    await waitFor(metricLatencyDelay);
   }
 
   // eslint-disable-next-line no-constant-condition
@@ -124,13 +151,13 @@ export const build: HttpFunction = async (_req, res) => {
 
     const documentsDeleted = await checkDocumentsDeleted();
     const documentsUpdated = await checkDocumentsUpdated();
-    const functionsRunning = await checkFunctionsRunning();
-    const messagesStillBeingSent = await checkMessagesStillBeingSent();
+    const functionsFinished = await checkFunctionsFinished();
+    const messagesConsumedFromPubSub = await checkMessagesConsumedFromPubSub();
 
     if (
       (documentsDeleted || documentsUpdated) &&
-      !functionsRunning &&
-      !messagesStillBeingSent
+      functionsFinished &&
+      messagesConsumedFromPubSub
     ) {
       logger.info({ message: "Calling Build Server..." });
       const response = await fetch(NETLIFY_BUILD_HOOK, { method: "POST" });
@@ -144,18 +171,18 @@ export const build: HttpFunction = async (_req, res) => {
       });
     }
 
-    if (functionsRunning) {
+    if (functionsFinished) {
       logger.info({ message: "Waiting for the functions to finish." });
     }
 
-    if (messagesStillBeingSent) {
+    if (messagesConsumedFromPubSub) {
       logger.info({
         message: "Messages are still on the Pub/Sub waiting to be handled."
       });
     }
 
-    await waitFor(delay_milliseconds);
-    runtime += delay_milliseconds;
+    await waitFor(delayMilliseconds);
+    runtime += delayMilliseconds;
     logger.debug({ message: `Running for ${runtime / 1000} seconds.` });
   }
 };

@@ -1,4 +1,5 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
+import logger from "@bmi-digital/functions-logger";
 import {
   AnchorLink,
   Button,
@@ -18,9 +19,9 @@ import {
 } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import axios from "axios";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
+import fetch from "node-fetch";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
@@ -286,6 +287,7 @@ const Input = ({
     default:
       return (
         <TextField
+          id={name}
           name={name}
           isRequired={required}
           errorText={getMicroCopy(microCopy.UPLOAD_FIELD_IS_REQUIRED)}
@@ -330,6 +332,7 @@ const HubspotForm = ({
   description,
   onSuccess,
   onFormReady,
+  onFormLoadError,
   additionalValues,
   className,
   isDialog = false
@@ -341,7 +344,8 @@ const HubspotForm = ({
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
-  onFormReady: FormSectionProps["onFormReady"];
+  onFormReady?: FormSectionProps["onFormReady"];
+  onFormLoadError?: FormSectionProps["onFormLoadError"];
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
   isDialog?: boolean;
@@ -398,6 +402,10 @@ const HubspotForm = ({
       if (event.data.eventName === "onFormSubmitted") {
         onSuccess?.();
       }
+
+      if (event.data.eventName === "onFormDefinitionFetchError") {
+        onFormLoadError?.();
+      }
     };
 
     if (typeof window !== "undefined") {
@@ -449,6 +457,7 @@ type FormSectionProps = {
     event: MessageEvent,
     hsForm: HTMLIFrameElement | HTMLFormElement
   ) => void;
+  onFormLoadError?: () => void;
   className?: string;
   isDialog?: boolean;
 };
@@ -473,6 +482,7 @@ const FormSection = ({
   gtmOverride,
   onSuccess,
   onFormReady,
+  onFormLoadError,
   className,
   isDialog = false
 }: FormSectionProps) => {
@@ -484,7 +494,7 @@ const FormSection = ({
   const { executeRecaptcha } = useGoogleReCaptcha();
   const GTMButton = withGTM<ButtonProps>(Button, {
     label: "aria-label",
-    action: "aria-action"
+    action: "data-action"
   });
 
   const handleSubmit = async (
@@ -513,8 +523,8 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const source = axios.CancelToken.source();
       const token = await executeRecaptcha();
+
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(
         (acc, [key, value]) => {
@@ -526,23 +536,27 @@ const FormSection = ({
         {}
       );
 
-      await axios.post(
-        gcpFormSubmitEndpoint,
-        {
+      const response = await fetch(gcpFormSubmitEndpoint, {
+        method: "POST",
+        body: JSON.stringify({
           locale: node_locale,
           title,
           recipients: conditionalRecipients,
           values: valuesToSent,
           emailSubjectFormat
-        },
-        {
-          cancelToken: source.token,
-          headers: { "X-Recaptcha-Token": token }
+        }),
+        headers: {
+          "X-Recaptcha-Token": token,
+          "Content-Type": "application/json"
         }
-      );
+      });
 
-      setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
       onSuccess && onSuccess();
+
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -552,10 +566,10 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      setIsSubmitting(false);
-      // @todo Handle error
-      console.error("Error", { error }); // eslint-disable-line
+      logger.error({ message: error.message });
     }
+
+    setIsSubmitting(false);
   };
 
   //This function right now is not used. Left here only for future extend of Hubspot usage
@@ -625,16 +639,28 @@ const FormSection = ({
     };
 
     try {
-      await axios.post(`${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`, {
-        ...hsPayload,
-        ...(hsLegalFields
-          ? {
-              legalConsentOptions: getLegalOptions(hsLegalFields)
-            }
-          : {})
-      });
+      const response = await fetch(
+        `${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            ...hsPayload,
+            ...(hsLegalFields
+              ? {
+                  legalConsentOptions: getLegalOptions(hsLegalFields)
+                }
+              : {})
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
 
-      setIsSubmitting(false);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -644,10 +670,10 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      setIsSubmitting(false);
-      // @todo Handle error
-      console.error("Error", { error }); // eslint-disable-line
+      logger.error({ message: error.message });
     }
+
+    setIsSubmitting(false);
   };
 
   if (source === SourceType.HubSpot && hubSpotFormGuid) {
@@ -661,6 +687,7 @@ const FormSection = ({
         description={description}
         onSuccess={onSuccess}
         onFormReady={onFormReady}
+        onFormLoadError={onFormLoadError}
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}
@@ -705,7 +732,7 @@ const FormSection = ({
                     aria-label={
                       gtmOverride?.label ? gtmOverride?.label : "children"
                     }
-                    aria-action={
+                    data-action={
                       gtmOverride?.action ? gtmOverride?.action : title
                     }
                   />

@@ -70,3 +70,9 @@ export type Siding = {
   creatorUser: unknown;
   type: string;
 };
+
+export interface HouseType {
+  houseModel: {
+    url: string;
+  };
+}

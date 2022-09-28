@@ -875,7 +875,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -896,7 +896,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1030,7 +1030,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1051,7 +1051,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1134,7 +1134,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1155,7 +1155,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1258,7 +1258,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1279,7 +1279,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1851,7 +1851,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -1872,7 +1872,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2016,7 +2016,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -2037,7 +2037,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2104,7 +2104,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2125,7 +2125,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4020,7 +4020,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4041,7 +4041,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4175,7 +4175,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4196,7 +4196,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4279,7 +4279,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4300,7 +4300,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4403,7 +4403,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4424,7 +4424,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -4996,7 +4996,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5017,7 +5017,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5161,7 +5161,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -5182,7 +5182,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -5249,7 +5249,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5270,7 +5270,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"

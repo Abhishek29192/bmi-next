@@ -2581,7 +2581,7 @@ enum BusinessType {
 }
 
 """
-Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carousel)
+Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel)
 """
 type Carousel implements Entry {
   audienceRole(locale: String): String
@@ -2627,7 +2627,7 @@ input CarouselFilter {
 }
 
 """
-Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/carouselItem)
+Content that appears in the main carousel.  Note that there are two other minor carousels in InTouch, the Benefits Carousel and the Company Administrators carousel (probably redundant).  This entity is for content you see in the big one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
 """
 type CarouselItem implements Entry {
   audienceTiers(locale: String): [String]
@@ -6842,7 +6842,7 @@ input CompanyTradingAddressIdFkeyInverseInput {
 }
 
 """
-Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contactDetails)
+Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails)
 """
 type ContactDetails implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -6931,7 +6931,7 @@ enum ContactDetailsOrder {
 }
 
 """
-A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/contentArticle)
+A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle)
 """
 type ContentArticle implements Entry {
   body(locale: String): ContentArticleBody
@@ -7082,6 +7082,8 @@ type ContentfulGuaranteeTemplate {
   mailBody: String
   mailSubject: String
   maintenanceTemplate: ContentfulAsset
+  onerousConditionsSummary: String
+  onerousConditionsText: ContentfulGuaranteeTemplateOnerousConditionsText
   rejectionMessage: ContentfulMessage
   roofType: String
   signatory: String
@@ -7089,6 +7091,10 @@ type ContentfulGuaranteeTemplate {
   terms: ContentfulAsset
   titleLine1: String
   titleLine2: String
+}
+
+type ContentfulGuaranteeTemplateOnerousConditionsText {
+  json: JSON!
 }
 
 type ContentfulGuaranteeTemplatesCollection {
@@ -9461,6 +9467,58 @@ type CreateDoceboTierPayload {
 }
 
 """
+All input for the create `DoubleAcceptance` mutation.
+"""
+input CreateDoubleAcceptanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `DoubleAcceptance` to be created by this mutation.
+  """
+  doubleAcceptance: DoubleAcceptanceInput!
+}
+
+"""
+The output of our create `DoubleAcceptance` mutation.
+"""
+type CreateDoubleAcceptancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `DoubleAcceptance` that was created by this mutation.
+  """
+  doubleAcceptance: DoubleAcceptance
+
+  """
+  An edge for our `DoubleAcceptance`. May be used by Relay 1.
+  """
+  doubleAcceptanceEdge(
+    """
+    The method to use when ordering `DoubleAcceptance`.
+    """
+    orderBy: [DoubleAcceptancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoubleAcceptancesEdge
+
+  """
+  Reads a single `Guarantee` that is related to this `DoubleAcceptance`.
+  """
+  guarantee: Guarantee
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the create `EvidenceItem` mutation.
 """
 input CreateEvidenceItemInput {
@@ -11341,6 +11399,83 @@ type DeleteDoceboTierPayload {
 }
 
 """
+All input for the `deleteDoubleAcceptanceByNodeId` mutation.
+"""
+input DeleteDoubleAcceptanceByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoubleAcceptance` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteDoubleAcceptanceByTempToken` mutation.
+"""
+input DeleteDoubleAcceptanceByTempTokenInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  tempToken: String!
+}
+
+"""
+All input for the `deleteDoubleAcceptance` mutation.
+"""
+input DeleteDoubleAcceptanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `DoubleAcceptance` mutation.
+"""
+type DeleteDoubleAcceptancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedDoubleAcceptanceNodeId: ID
+
+  """
+  The `DoubleAcceptance` that was deleted by this mutation.
+  """
+  doubleAcceptance: DoubleAcceptance
+
+  """
+  An edge for our `DoubleAcceptance`. May be used by Relay 1.
+  """
+  doubleAcceptanceEdge(
+    """
+    The method to use when ordering `DoubleAcceptance`.
+    """
+    orderBy: [DoubleAcceptancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoubleAcceptancesEdge
+
+  """
+  Reads a single `Guarantee` that is related to this `DoubleAcceptance`.
+  """
+  guarantee: Guarantee
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the `deleteEvidenceItemByNodeId` mutation.
 """
 input DeleteEvidenceItemByNodeIdInput {
@@ -12408,6 +12543,474 @@ enum DoceboTiersOrderBy {
   PRIMARY_KEY_DESC
 }
 
+type DoubleAcceptance implements Node {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  createdAt: Datetime!
+  expiryDate: Datetime!
+
+  """
+  Reads a single `Guarantee` that is related to this `DoubleAcceptance`.
+  """
+  guarantee: Guarantee
+  guaranteeId: Int!
+  id: Int!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  signature: String
+  tempToken: String
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `DoubleAcceptance` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input DoubleAcceptanceCondition {
+  """
+  Checks for equality with the object’s `guaranteeId` field.
+  """
+  guaranteeId: Int
+
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `tempToken` field.
+  """
+  tempToken: String
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to connect.
+"""
+input DoubleAcceptanceDoubleAcceptancePkeyConnect {
+  id: Int!
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to delete.
+"""
+input DoubleAcceptanceDoubleAcceptancePkeyDelete {
+  id: Int!
+}
+
+"""
+A filter to be used against `DoubleAcceptance` object types. All fields are combined with a logical ‘and.’
+"""
+input DoubleAcceptanceFilter {
+  """
+  Checks for all expressions in this list.
+  """
+  and: [DoubleAcceptanceFilter!]
+
+  """
+  Filter by the object’s `guaranteeId` field.
+  """
+  guaranteeId: IntFilter
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: DoubleAcceptanceFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [DoubleAcceptanceFilter!]
+
+  """
+  Filter by the object’s `tempToken` field.
+  """
+  tempToken: StringFilter
+}
+
+"""
+The `doubleAcceptance` to be created by this mutation.
+"""
+input DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  createdAt: Datetime
+  expiryDate: Datetime!
+  guaranteeToGuaranteeId: DoubleAcceptanceGuaranteeIdFkeyInput
+  id: Int
+  signature: String
+  tempToken: String
+  updatedAt: Datetime
+}
+
+"""
+The `guarantee` to be created by this mutation.
+"""
+input DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput {
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+
+  """
+  ek
+  """
+  coverage: GuaranteeCoverage
+  createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """
+  ek
+  """
+  guaranteeReferenceCode: GuaranteeReferenceCode!
+
+  """
+  Primary key - starts at 6100
+  """
+  id: Int
+
+  """
+  ek
+  """
+  languageCode: Language
+
+  """
+  fk
+  """
+  productBmiRef: String
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+
+  """
+  fk
+  """
+  projectId: Int
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+
+  """
+  fk
+  """
+  requestorAccountId: Int
+
+  """
+  fk
+  """
+  reviewerAccountId: Int
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  ek
+  """
+  status: RequestStatus
+
+  """
+  fk
+  """
+  systemBmiRef: String
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `guarantee` in the `DoubleAcceptanceInput` mutation.
+"""
+input DoubleAcceptanceGuaranteeIdFkeyInput {
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectById: GuaranteeGuaranteePkeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByNodeId: GuaranteeNodeIdConnect
+
+  """
+  A `GuaranteeInput` object that will be created and connected to this object.
+  """
+  create: DoubleAcceptanceGuaranteeIdFkeyGuaranteeCreateInput
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteById: GuaranteeGuaranteePkeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByNodeId: GuaranteeNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateById: GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByNodeId: DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `doubleAcceptance` in the `GuaranteeInput` mutation.
+"""
+input DoubleAcceptanceGuaranteeIdFkeyInverseInput {
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  connectById: [DoubleAcceptanceDoubleAcceptancePkeyConnect!]
+
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  connectByNodeId: [DoubleAcceptanceNodeIdConnect!]
+
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  connectByTempToken: [DoubleAcceptanceTempTokenKeyConnect!]
+
+  """
+  A `DoubleAcceptanceInput` object that will be created and connected to this object.
+  """
+  create: [DoubleAcceptanceGuaranteeIdFkeyDoubleAcceptanceCreateInput!]
+
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  deleteById: [DoubleAcceptanceDoubleAcceptancePkeyDelete!]
+
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  deleteByNodeId: [DoubleAcceptanceNodeIdDelete!]
+
+  """
+  The primary key(s) for `doubleAcceptance` for the far side of the relationship.
+  """
+  deleteByTempToken: [DoubleAcceptanceTempTokenKeyDelete!]
+
+  """
+  Flag indicating whether all other `doubleAcceptance` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship.
+  """
+  updateById: [DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship.
+  """
+  updateByNodeId: [GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate!]
+
+  """
+  The primary key(s) and patch data for `doubleAcceptance` for the far side of the relationship.
+  """
+  updateByTempToken: [DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate!]
+}
+
+"""
+An input for mutations affecting `DoubleAcceptance`
+"""
+input DoubleAcceptanceInput {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  createdAt: Datetime
+  expiryDate: Datetime!
+  guaranteeId: Int
+  guaranteeToGuaranteeId: DoubleAcceptanceGuaranteeIdFkeyInput
+  id: Int
+  signature: String
+  tempToken: String
+  updatedAt: Datetime
+}
+
+"""
+The globally unique `ID` look up for the row to connect.
+"""
+input DoubleAcceptanceNodeIdConnect {
+  """
+  The globally unique `ID` which identifies a single `doubleAcceptance` to be connected.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to delete.
+"""
+input DoubleAcceptanceNodeIdDelete {
+  """
+  The globally unique `ID` which identifies a single `doubleAcceptance` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: GuaranteePatch!
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to update.
+"""
+input DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingDoubleAcceptancePkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `doubleAcceptance` being updated.
+  """
+  patch: updateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch!
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to update.
+"""
+input DoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingTempTokenKeyUpdate {
+  """
+  An object where the defined keys will be set on the `doubleAcceptance` being updated.
+  """
+  patch: updateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch!
+  tempToken: String!
+}
+
+"""
+Represents an update to a `DoubleAcceptance`. Fields that are set will be updated.
+"""
+input DoubleAcceptancePatch {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  createdAt: Datetime
+  expiryDate: Datetime
+  guaranteeId: Int
+  guaranteeToGuaranteeId: DoubleAcceptanceGuaranteeIdFkeyInput
+  id: Int
+  signature: String
+  tempToken: String
+  updatedAt: Datetime
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to connect.
+"""
+input DoubleAcceptanceTempTokenKeyConnect {
+  tempToken: String!
+}
+
+"""
+The fields on `doubleAcceptance` to look up the row to delete.
+"""
+input DoubleAcceptanceTempTokenKeyDelete {
+  tempToken: String!
+}
+
+"""
+A connection to a list of `DoubleAcceptance` values.
+"""
+type DoubleAcceptancesConnection {
+  """
+  A list of edges which contains the `DoubleAcceptance` and cursor to aid in pagination.
+  """
+  edges: [DoubleAcceptancesEdge!]!
+
+  """
+  A list of `DoubleAcceptance` objects.
+  """
+  nodes: [DoubleAcceptance!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `DoubleAcceptance` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `DoubleAcceptance` edge in the connection.
+"""
+type DoubleAcceptancesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `DoubleAcceptance` at the end of the edge.
+  """
+  node: DoubleAcceptance!
+}
+
+"""
+Methods to use when ordering `DoubleAcceptance`.
+"""
+enum DoubleAcceptancesOrderBy {
+  GUARANTEE_ID_ASC
+  GUARANTEE_ID_DESC
+  ID_ASC
+  ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  TEMP_TOKEN_ASC
+  TEMP_TOKEN_DESC
+}
+
 interface Entry {
   contentfulMetadata: ContentfulMetadata!
   sys: Sys!
@@ -12439,7 +13042,7 @@ enum EntryOrder {
 }
 
 """
-A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/evidenceCategory)
+A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory)
 """
 type EvidenceCategory implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -12762,6 +13365,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -13599,6 +14203,179 @@ enum EvidenceItemsOrderBy {
   UPLOADER_ACCOUNT_ID_DESC
 }
 
+"""
+A single FAQ Item with Question as title and answer as body. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqItem)
+"""
+type FaqItem implements Entry {
+  body(locale: String): FaqItemBody
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): FaqItemLinkingCollections
+  sys: Sys!
+  title(locale: String): String
+}
+
+type FaqItemBody {
+  json: JSON!
+  links: FaqItemBodyLinks!
+}
+
+type FaqItemBodyAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type FaqItemBodyEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type FaqItemBodyLinks {
+  assets: FaqItemBodyAssets!
+  entries: FaqItemBodyEntries!
+}
+
+type FaqItemCollection {
+  items: [FaqItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input FaqItemFilter {
+  AND: [FaqItemFilter]
+  OR: [FaqItemFilter]
+  body_contains: String
+  body_exists: Boolean
+  body_not_contains: String
+  contentfulMetadata: ContentfulMetadataFilter
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+}
+
+type FaqItemLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+  faqTopicCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): FaqTopicCollection
+}
+
+enum FaqItemOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+}
+
+"""
+A single FAQ Topic with a collection of Items. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/faqTopic)
+"""
+type FaqTopic implements Entry {
+  audienceRole(locale: String): [String]
+  audienceTiers(locale: String): [String]
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): FaqTopicLinkingCollections
+  listCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): FaqTopicListCollection
+  sys: Sys!
+  title(locale: String): String
+  weight(locale: String): Int
+}
+
+type FaqTopicCollection {
+  items: [FaqTopic]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input FaqTopicFilter {
+  AND: [FaqTopicFilter]
+  OR: [FaqTopicFilter]
+  audienceRole_contains_all: [String]
+  audienceRole_contains_none: [String]
+  audienceRole_contains_some: [String]
+  audienceRole_exists: Boolean
+  audienceTiers_contains_all: [String]
+  audienceTiers_contains_none: [String]
+  audienceTiers_contains_some: [String]
+  audienceTiers_exists: Boolean
+  contentfulMetadata: ContentfulMetadataFilter
+  listCollection_exists: Boolean
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+  weight: Int
+  weight_exists: Boolean
+  weight_gt: Int
+  weight_gte: Int
+  weight_in: [Int]
+  weight_lt: Int
+  weight_lte: Int
+  weight_not: Int
+  weight_not_in: [Int]
+}
+
+type FaqTopicLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+}
+
+type FaqTopicListCollection {
+  items: [FaqItem]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+enum FaqTopicOrder {
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+  weight_ASC
+  weight_DESC
+}
+
 type FindIncompleteCompanyProfile {
   email: String
   firstName: String
@@ -13742,6 +14519,24 @@ enum FindRoofersOrderBy {
   NATURAL
 }
 
+type GetDoubleAcceptanceByValidTempToken {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  coverage: GuaranteeCoverage
+  expiryDate: Datetime
+  guaranteeId: Int
+  id: Int
+  languageCode: String
+  maximumValidityYears: Int
+  signature: String
+  technology: Technology
+  tempToken: String
+}
+
+input GetDoubleAcceptanceByValidTempTokenInput {
+  tempToken: String
+}
+
 """
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
@@ -13758,6 +14553,52 @@ type Guarantee implements Node {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime!
+
+  """
+  Reads and enables pagination through a set of `DoubleAcceptance`.
+  """
+  doubleAcceptances(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DoubleAcceptanceCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DoubleAcceptanceFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `DoubleAcceptance`.
+    """
+    orderBy: [DoubleAcceptancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoubleAcceptancesConnection!
 
   """
   Reads and enables pagination through a set of `EvidenceItem`.
@@ -14070,6 +14911,7 @@ input GuaranteeInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -14156,6 +14998,51 @@ input GuaranteeNodeIdDelete {
   The globally unique `ID` which identifies a single `guarantee` to be deleted.
   """
   nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `doubleAcceptance` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `doubleAcceptance` being updated.
+  """
+  patch: DoubleAcceptancePatch!
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch!
+}
+
+"""
+The fields on `guarantee` to look up the row to update.
+"""
+input GuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyUsingGuaranteePkeyUpdate {
+  """
+  Primary key - starts at 6100
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch!
 }
 
 """
@@ -14446,6 +15333,7 @@ input GuaranteePatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -14532,6 +15420,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -14788,6 +15677,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -15071,6 +15961,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -15277,6 +16168,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -15483,6 +16375,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -15712,7 +16605,7 @@ input GuaranteeSystemBmiRefFkeySystemCreateInput {
 }
 
 """
-A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeTemplate)
+A template for a type of Guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeTemplate)
 """
 type GuaranteeTemplate implements Entry {
   approvalMessage(locale: String, preview: Boolean): MessageTemplate
@@ -15742,7 +16635,10 @@ type GuaranteeTemplate implements Entry {
   linkedFrom(allowedLocales: [String]): GuaranteeTemplateLinkingCollections
   logo(locale: String, preview: Boolean): Asset
   mailBody(locale: String): String
+  mailSubject(locale: String): String
   maintenanceTemplate(locale: String, preview: Boolean): Asset
+  onerousConditionsSummary(locale: String): String
+  onerousConditionsText(locale: String): GuaranteeTemplateOnerousConditionsText
   rejectionMessage(locale: String, preview: Boolean): MessageTemplate
   roofType(locale: String): String
   signatory(locale: String): String
@@ -15928,7 +16824,24 @@ input GuaranteeTemplateFilter {
   mailBody_not: String
   mailBody_not_contains: String
   mailBody_not_in: [String]
+  mailSubject: String
+  mailSubject_contains: String
+  mailSubject_exists: Boolean
+  mailSubject_in: [String]
+  mailSubject_not: String
+  mailSubject_not_contains: String
+  mailSubject_not_in: [String]
   maintenanceTemplate_exists: Boolean
+  onerousConditionsSummary: String
+  onerousConditionsSummary_contains: String
+  onerousConditionsSummary_exists: Boolean
+  onerousConditionsSummary_in: [String]
+  onerousConditionsSummary_not: String
+  onerousConditionsSummary_not_contains: String
+  onerousConditionsSummary_not_in: [String]
+  onerousConditionsText_contains: String
+  onerousConditionsText_exists: Boolean
+  onerousConditionsText_not_contains: String
   rejectionMessage: cfMessageTemplateNestedFilter
   rejectionMessage_exists: Boolean
   roofType: String
@@ -15985,6 +16898,27 @@ type GuaranteeTemplateLinkingCollections {
   ): GuaranteeTypeCollection
 }
 
+type GuaranteeTemplateOnerousConditionsText {
+  json: JSON!
+  links: GuaranteeTemplateOnerousConditionsTextLinks!
+}
+
+type GuaranteeTemplateOnerousConditionsTextAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type GuaranteeTemplateOnerousConditionsTextEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type GuaranteeTemplateOnerousConditionsTextLinks {
+  assets: GuaranteeTemplateOnerousConditionsTextAssets!
+  entries: GuaranteeTemplateOnerousConditionsTextEntries!
+}
+
 enum GuaranteeTemplateOrder {
   coverage_ASC
   coverage_DESC
@@ -16028,6 +16962,8 @@ enum GuaranteeTemplateOrder {
   languageCode_DESC
   languageDescriptor_ASC
   languageDescriptor_DESC
+  mailSubject_ASC
+  mailSubject_DESC
   roofType_ASC
   roofType_DESC
   signatory_ASC
@@ -16049,7 +16985,7 @@ enum GuaranteeTemplateOrder {
 }
 
 """
-A type of guarantee [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/guaranteeType)
+A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType)
 """
 type GuaranteeType implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -17702,7 +18638,7 @@ input MarketCondition {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/marketContent)
+[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent)
 """
 type MarketContent implements Entry {
   contactUsPage(locale: String, preview: Boolean): ContentArticle
@@ -18590,7 +19526,7 @@ enum MarketsOrderBy {
 }
 
 """
-A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaFolder)
+A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder)
 """
 type MediaFolder implements Entry {
   childrenCollection(
@@ -18671,7 +19607,7 @@ enum MediaFolderOrder {
 }
 
 """
-Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/mediaTool)
+Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool)
 """
 type MediaTool implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -18744,7 +19680,7 @@ enum MediaToolOrder {
 }
 
 """
-A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/messageTemplate)
+A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate)
 """
 type MessageTemplate implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -18836,7 +19772,7 @@ enum MessageTemplateOrder {
 }
 
 """
-Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/migration)
+Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration)
 """
 type Migration implements Entry {
   contentTypeId(locale: String): String
@@ -18864,6 +19800,7 @@ input MigrationFilter {
   contentTypeId_not_contains: String
   contentTypeId_not_in: [String]
   contentfulMetadata: ContentfulMetadataFilter
+  state_exists: Boolean
   sys: SysFilter
 }
 
@@ -18895,6 +19832,7 @@ The root mutation type which contains root level fields which mutate data.
 type Mutation {
   annualProjectsInspection: String
   archiveProjects: String
+  autoRejectDoubleAcceptance: String
   bulkImport(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -19092,6 +20030,16 @@ type Mutation {
     """
     input: UserCreateInput
   ): UserCreateResponse
+
+  """
+  Creates a single `DoubleAcceptance`.
+  """
+  createDoubleAcceptance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDoubleAcceptanceInput!
+  ): CreateDoubleAcceptancePayload
 
   """
   Creates a single `EvidenceItem`.
@@ -19596,6 +20544,36 @@ type Mutation {
   ): DeleteDoceboTierPayload
 
   """
+  Deletes a single `DoubleAcceptance` using a unique key.
+  """
+  deleteDoubleAcceptance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoubleAcceptanceInput!
+  ): DeleteDoubleAcceptancePayload
+
+  """
+  Deletes a single `DoubleAcceptance` using its globally unique id.
+  """
+  deleteDoubleAcceptanceByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoubleAcceptanceByNodeIdInput!
+  ): DeleteDoubleAcceptancePayload
+
+  """
+  Deletes a single `DoubleAcceptance` using a unique key.
+  """
+  deleteDoubleAcceptanceByTempToken(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoubleAcceptanceByTempTokenInput!
+  ): DeleteDoubleAcceptancePayload
+
+  """
   Deletes a single `EvidenceItem` using a unique key.
   """
   deleteEvidenceItem(
@@ -19881,6 +20859,12 @@ type Mutation {
     """
     input: EvidenceItemsAddInput!
   ): EvidenceItemsAddPayload
+  getDoubleAcceptanceByValidTempToken(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: GetDoubleAcceptanceByValidTempTokenInput!
+  ): GetDoubleAcceptanceByValidTempToken
   importAccountsCompaniesFromCVS(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -19917,6 +20901,12 @@ type Mutation {
     """
     input: PublishInput!
   ): Publish
+  releaseGuaranteePdf(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ReleaseGuaranteePdfInput!
+  ): PublishOutput
   resetPassword: String
   resetPasswordImportedUsers(
     """
@@ -20344,6 +21334,36 @@ type Mutation {
     """
     input: UserUpdateInput
   ): UserUpdateResponse
+
+  """
+  Updates a single `DoubleAcceptance` using a unique key and a patch.
+  """
+  updateDoubleAcceptance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoubleAcceptanceInput!
+  ): UpdateDoubleAcceptancePayload
+
+  """
+  Updates a single `DoubleAcceptance` using its globally unique id and a patch.
+  """
+  updateDoubleAcceptanceByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoubleAcceptanceByNodeIdInput!
+  ): UpdateDoubleAcceptancePayload
+
+  """
+  Updates a single `DoubleAcceptance` using a unique key and a patch.
+  """
+  updateDoubleAcceptanceByTempToken(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoubleAcceptanceByTempTokenInput!
+  ): UpdateDoubleAcceptancePayload
 
   """
   Updates a single `EvidenceItem` using a unique key and a patch.
@@ -21746,7 +22766,7 @@ type PageInfo {
 }
 
 """
-MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/partnerBrand)
+MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand)
 """
 type PartnerBrand implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -25862,6 +26882,64 @@ type Query implements Node {
     """
     orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
   ): DoceboTiersConnection
+  doubleAcceptance(id: Int!): DoubleAcceptance
+
+  """
+  Reads a single `DoubleAcceptance` using its globally unique `ID`.
+  """
+  doubleAcceptanceByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `DoubleAcceptance`.
+    """
+    nodeId: ID!
+  ): DoubleAcceptance
+  doubleAcceptanceByTempToken(tempToken: String!): DoubleAcceptance
+
+  """
+  Reads and enables pagination through a set of `DoubleAcceptance`.
+  """
+  doubleAcceptances(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DoubleAcceptanceCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DoubleAcceptanceFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `DoubleAcceptance`.
+    """
+    orderBy: [DoubleAcceptancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoubleAcceptancesConnection
   entryCollection(
     limit: Int = 100
     locale: String
@@ -25977,6 +27055,24 @@ type Query implements Node {
     """
     offset: Int
   ): EvidenceItemsConnection
+  faqItem(id: String!, locale: String, preview: Boolean): FaqItem
+  faqItemCollection(
+    limit: Int = 100
+    locale: String
+    order: [FaqItemOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: FaqItemFilter
+  ): FaqItemCollection
+  faqTopic(id: String!, locale: String, preview: Boolean): FaqTopic
+  faqTopicCollection(
+    limit: Int = 100
+    locale: String
+    order: [FaqTopicOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: FaqTopicFilter
+  ): FaqTopicCollection
 
   """
   Reads and enables pagination through a set of `FindIncompleteCompanyProfile`.
@@ -26972,8 +28068,21 @@ type Query implements Node {
   userByEmail(email: String): UserData
 }
 
+input ReleaseGuaranteePdfInput {
+  id: Int
+  template: ReleaseGuaranteePdfTemplateInput
+}
+
+input ReleaseGuaranteePdfTemplateInput {
+  mailBody: String
+  mailSubject: String
+}
+
 enum RequestStatus {
   APPROVED
+  DECLINED
+  EXPIRED
+  ISSUED
   NEW
   REJECTED
   REVIEW
@@ -29202,7 +30311,7 @@ enum Tier {
 }
 
 """
-A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit)
+A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit)
 """
 type TierBenefit implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -29314,7 +30423,7 @@ type Token {
 }
 
 """
-[See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/trainingContent)
+[See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent)
 """
 type TrainingContent implements Entry {
   contentfulMetadata: ContentfulMetadata!
@@ -30896,6 +32005,97 @@ type UpdateDoceboTiersByMarketResult {
 }
 
 """
+All input for the `updateDoubleAcceptanceByNodeId` mutation.
+"""
+input UpdateDoubleAcceptanceByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoubleAcceptance` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `DoubleAcceptance` being updated.
+  """
+  patch: DoubleAcceptancePatch!
+}
+
+"""
+All input for the `updateDoubleAcceptanceByTempToken` mutation.
+"""
+input UpdateDoubleAcceptanceByTempTokenInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `DoubleAcceptance` being updated.
+  """
+  patch: DoubleAcceptancePatch!
+  tempToken: String!
+}
+
+"""
+All input for the `updateDoubleAcceptance` mutation.
+"""
+input UpdateDoubleAcceptanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `DoubleAcceptance` being updated.
+  """
+  patch: DoubleAcceptancePatch!
+}
+
+"""
+The output of our update `DoubleAcceptance` mutation.
+"""
+type UpdateDoubleAcceptancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `DoubleAcceptance` that was updated by this mutation.
+  """
+  doubleAcceptance: DoubleAcceptance
+
+  """
+  An edge for our `DoubleAcceptance`. May be used by Relay 1.
+  """
+  doubleAcceptanceEdge(
+    """
+    The method to use when ordering `DoubleAcceptance`.
+    """
+    orderBy: [DoubleAcceptancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoubleAcceptancesEdge
+
+  """
+  Reads a single `Guarantee` that is related to this `DoubleAcceptance`.
+  """
+  guarantee: Guarantee
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the `updateEvidenceItemByNodeId` mutation.
 """
 input UpdateEvidenceItemByNodeIdInput {
@@ -32046,6 +33246,7 @@ union _Entity =
   | CourseSyncConfiguration
   | CourseTemp
   | DoceboTier
+  | DoubleAcceptance
   | EvidenceItem
   | Guarantee
   | Invitation
@@ -34540,6 +35741,21 @@ input updateCompanyOperationOnCompanyOperationForCompanyOperationCompanyFkeyPatc
 }
 
 """
+An object where the defined keys will be set on the `doubleAcceptance` being updated.
+"""
+input updateDoubleAcceptanceOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch {
+  acceptance: Boolean
+  acceptanceDate: Datetime
+  createdAt: Datetime
+  expiryDate: Datetime
+  guaranteeToGuaranteeId: DoubleAcceptanceGuaranteeIdFkeyInput
+  id: Int
+  signature: String
+  tempToken: String
+  updatedAt: Datetime
+}
+
+"""
 An object where the defined keys will be set on the `evidenceItem` being updated.
 """
 input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
@@ -34672,6 +35888,93 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch 
 """
 An object where the defined keys will be set on the `guarantee` being updated.
 """
+input updateGuaranteeOnDoubleAcceptanceForDoubleAcceptanceGuaranteeIdFkeyPatch {
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+
+  """
+  ek
+  """
+  coverage: GuaranteeCoverage
+  createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """
+  ek
+  """
+  guaranteeReferenceCode: GuaranteeReferenceCode
+
+  """
+  Primary key - starts at 6100
+  """
+  id: Int
+
+  """
+  ek
+  """
+  languageCode: Language
+
+  """
+  fk
+  """
+  productBmiRef: String
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+
+  """
+  fk
+  """
+  projectId: Int
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+
+  """
+  fk
+  """
+  requestorAccountId: Int
+
+  """
+  fk
+  """
+  reviewerAccountId: Int
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  ek
+  """
+  status: RequestStatus
+
+  """
+  fk
+  """
+  systemBmiRef: String
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `guarantee` being updated.
+"""
 input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
@@ -34687,6 +35990,7 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -34773,6 +36077,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -34854,6 +36159,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -34935,6 +36241,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -35016,6 +36323,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """
@@ -35097,6 +36405,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   """
   coverage: GuaranteeCoverage
   createdAt: Datetime
+  doubleAcceptancesUsingId: DoubleAcceptanceGuaranteeIdFkeyInverseInput
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 
   """

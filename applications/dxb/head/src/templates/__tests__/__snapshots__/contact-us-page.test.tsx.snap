@@ -875,7 +875,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -896,7 +896,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1030,7 +1030,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1051,7 +1051,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1134,7 +1134,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1155,7 +1155,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1258,7 +1258,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1279,7 +1279,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -1851,7 +1851,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -1872,7 +1872,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2016,7 +2016,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -2037,7 +2037,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -2104,7 +2104,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-189 MuiButton-text buttonStyles-text-190 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2125,7 +2125,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -2780,6 +2780,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -2794,7 +2795,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-contained-201 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -3293,6 +3296,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -3404,6 +3408,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -3418,7 +3423,9 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-200 iconButtonStyles-medium-206 iconButtonStyles-contained-201 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -5333,7 +5340,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5354,7 +5361,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5488,7 +5495,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5509,7 +5516,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5592,7 +5599,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5613,7 +5620,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -5716,7 +5723,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -5737,7 +5744,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -6309,7 +6316,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -6330,7 +6337,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -6474,7 +6481,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -6495,7 +6502,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -6562,7 +6569,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-95 MuiButton-text buttonStyles-text-96 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -6583,7 +6590,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -7238,6 +7245,7 @@ exports[`Contact us page render Sections correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -7252,7 +7260,9 @@ exports[`Contact us page render Sections correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-contained-107 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -7751,6 +7761,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -7862,6 +7873,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -7876,7 +7888,9 @@ exports[`Contact us page render Sections correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-106 iconButtonStyles-medium-112 iconButtonStyles-contained-107 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -9791,7 +9805,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9812,7 +9826,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -9946,7 +9960,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -9967,7 +9981,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -10050,7 +10064,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -10071,7 +10085,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -10174,7 +10188,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -10195,7 +10209,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -10767,7 +10781,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -10788,7 +10802,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -10932,7 +10946,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -10953,7 +10967,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -11020,7 +11034,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-236 MuiButton-text buttonStyles-text-237 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -11041,7 +11055,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -12206,6 +12220,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -12317,6 +12332,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -12331,7 +12347,9 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-247 iconButtonStyles-medium-253 iconButtonStyles-contained-248 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -14246,7 +14264,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14267,7 +14285,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -14401,7 +14419,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14422,7 +14440,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -14505,7 +14523,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14526,7 +14544,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -14629,7 +14647,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -14650,7 +14668,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -15222,7 +15240,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -15243,7 +15261,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -15387,7 +15405,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -15408,7 +15426,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -15475,7 +15493,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-48 MuiButton-text buttonStyles-text-49 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -15496,7 +15514,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -16151,6 +16169,7 @@ exports[`Contact us page render iframe correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -16165,7 +16184,9 @@ exports[`Contact us page render iframe correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-contained-60 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -16664,6 +16685,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -16775,6 +16797,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -16789,7 +16812,9 @@ exports[`Contact us page render iframe correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-59 iconButtonStyles-medium-65 iconButtonStyles-contained-60 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -18704,7 +18729,7 @@ exports[`Contact us page render location correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18725,7 +18750,7 @@ exports[`Contact us page render location correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18859,7 +18884,7 @@ exports[`Contact us page render location correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18880,7 +18905,7 @@ exports[`Contact us page render location correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -18963,7 +18988,7 @@ exports[`Contact us page render location correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -18984,7 +19009,7 @@ exports[`Contact us page render location correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -19087,7 +19112,7 @@ exports[`Contact us page render location correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19108,7 +19133,7 @@ exports[`Contact us page render location correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -19680,7 +19705,7 @@ exports[`Contact us page render location correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -19701,7 +19726,7 @@ exports[`Contact us page render location correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -19845,7 +19870,7 @@ exports[`Contact us page render location correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -19866,7 +19891,7 @@ exports[`Contact us page render location correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -19933,7 +19958,7 @@ exports[`Contact us page render location correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-142 MuiButton-text buttonStyles-text-143 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -19954,7 +19979,7 @@ exports[`Contact us page render location correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -20609,6 +20634,7 @@ exports[`Contact us page render location correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -20623,7 +20649,9 @@ exports[`Contact us page render location correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-153 iconButtonStyles-medium-159 iconButtonStyles-contained-154 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -21122,6 +21150,7 @@ exports[`Contact us page render location correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -21233,6 +21262,7 @@ exports[`Contact us page render location correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -21247,7 +21277,9 @@ exports[`Contact us page render location correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-153 iconButtonStyles-medium-159 iconButtonStyles-contained-154 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >
@@ -23162,7 +23194,7 @@ exports[`Contact us page renders correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23183,7 +23215,7 @@ exports[`Contact us page renders correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -23317,7 +23349,7 @@ exports[`Contact us page renders correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23338,7 +23370,7 @@ exports[`Contact us page renders correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -23421,7 +23453,7 @@ exports[`Contact us page renders correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23442,7 +23474,7 @@ exports[`Contact us page renders correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -23545,7 +23577,7 @@ exports[`Contact us page renders correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -23566,7 +23598,7 @@ exports[`Contact us page renders correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -24138,7 +24170,7 @@ exports[`Contact us page renders correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -24159,7 +24191,7 @@ exports[`Contact us page renders correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -24303,7 +24335,7 @@ exports[`Contact us page renders correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                            data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                             tabindex="0"
                             type="button"
                           >
@@ -24324,7 +24356,7 @@ exports[`Contact us page renders correctly 1`] = `
                                   />
                                 </svg>
                               </span>
-                              Main menu
+                              MC: menu.mainDefault
                             </span>
                             <span
                               class="MuiTouchRipple-root"
@@ -24391,7 +24423,7 @@ exports[`Contact us page renders correctly 1`] = `
                               >
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
-                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Main menu\\"}"
+                                  data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -24412,7 +24444,7 @@ exports[`Contact us page renders correctly 1`] = `
                                         />
                                       </svg>
                                     </span>
-                                    Main menu
+                                    MC: menu.mainDefault
                                   </span>
                                   <span
                                     class="MuiTouchRipple-root"
@@ -25067,6 +25099,7 @@ exports[`Contact us page renders correctly 1`] = `
           <button
             aria-label="label"
             class="thumbnail"
+            data-testid="thumbnail"
             type="button"
           >
             <img
@@ -25081,7 +25114,9 @@ exports[`Contact us page renders correctly 1`] = `
             </span>
             <div
               aria-disabled="false"
+              aria-label="label"
               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+              data-testid="thumbnail-button"
               role="button"
               tabindex="0"
             >
@@ -25580,6 +25615,7 @@ exports[`Contact us page renders correctly 1`] = `
             class="iFrame"
             height="450px"
             src="https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD"
+            title="iFrame section"
             width="100%"
           />
         </div>
@@ -25691,6 +25727,7 @@ exports[`Contact us page renders correctly 1`] = `
                         <button
                           aria-label="BMI Group VIDEO LABEL"
                           class="thumbnail"
+                          data-testid="thumbnail"
                           type="button"
                         >
                           <img
@@ -25705,7 +25742,9 @@ exports[`Contact us page renders correctly 1`] = `
                           </span>
                           <div
                             aria-disabled="false"
+                            aria-label="BMI Group VIDEO LABEL"
                             class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                            data-testid="thumbnail-button"
                             role="button"
                             tabindex="0"
                           >

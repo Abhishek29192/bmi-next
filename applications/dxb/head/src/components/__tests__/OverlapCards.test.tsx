@@ -210,6 +210,8 @@ const data: Data = [
           }
         }
       },
+      defaultYouTubePreviewImage:
+        "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg",
       videoRatio: null
     }
   }

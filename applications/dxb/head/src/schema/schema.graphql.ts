@@ -232,6 +232,14 @@ type ContentfulWebToolCalculator implements Node {
   id: ID!
   roofShapes: [ContentfulCalculatorRoofShape!]! @link(from: "roofShapes___NODE")
   hubSpotFormId: String
+  needHelpSection: ContentfulTitleWithContent! @link(from: "needHelpSection___NODE")
+}
+
+type ContentfulVisualiserHouseType implements Node {
+  id: ID!
+  name: String!
+  previewImage: ContentfulAsset! @link(by: "id", from: "previewImage___NODE")
+  houseModel: ContentfulAsset! @link(by: "id", from: "houseModel___NODE")
 }
 
 type ContentfulCardCollectionSection implements Node {
@@ -430,6 +438,7 @@ union ContentfulSection =
   | ContentfulTeamSection
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
+  | ContentfulLeadBlockSection
 
 type ContentfulMicroCopy implements Node {
   key: String!
@@ -514,6 +523,7 @@ type ContentfulSite implements Node {
   headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
+  visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
 }
 
 type contentfulSiteHeadScriptsTextNode implements Node {
@@ -602,7 +612,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulCategory] @link(from: "tags___NODE")
-  documentsWithFilters: DocumentsWithFiltersResponse!
+  documentsFilters: DocumentsFiltersResponse!
   pimCodes: [String]
   allowFilterBy: [String!]
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -756,7 +766,7 @@ type Product implements Node @dontInfer {
   hashedCode: String!
   isSampleOrderAllowed: Boolean
   keyAssetDocuments: [KeyAssetDocument]
-  masterImages: [PIMImage]!
+  masterImage: PIMImage
   materials: String
   measurements: Measurements
   name: String
@@ -828,10 +838,10 @@ type Feature {
   value: String!
 }
 
-type DocumentsWithFiltersResponse {
+type DocumentsFiltersResponse {
   filters: [PLPFilter]!
-  documents: [Document]!
-}
+} 
+
 
 type PIMDocument {
   title: String!
@@ -999,6 +1009,7 @@ type ContentfulVideo implements Node {
   youtubeId: String!
   previewMedia: ContentfulImage @link(by: "id", from: "previewMedia___NODE")
   videoRatio: VideoRatio
+  defaultYouTubePreviewImage: String!
 }
 
 type contentfulImageCaptionTextNode implements Node {

@@ -30,6 +30,7 @@ exports[`Media component renders correctly if child youtube video 1`] = `
       <button
         aria-label="label"
         class="thumbnail"
+        data-testid="thumbnail"
         type="button"
       >
         <img
@@ -44,7 +45,9 @@ exports[`Media component renders correctly if child youtube video 1`] = `
         </span>
         <div
           aria-disabled="false"
+          aria-label="label"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+          data-testid="thumbnail-button"
           role="button"
           tabindex="0"
         >

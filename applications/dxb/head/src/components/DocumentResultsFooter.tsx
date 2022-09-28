@@ -7,8 +7,8 @@ import {
 } from "@bmi/components";
 import { useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import axios from "axios";
 import classnames from "classnames";
+import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "../constants/microCopies";
@@ -95,13 +95,22 @@ export const handleDownloadClick = async (
       }
     );
 
-    const response = await axios.post(
-      documentDownloadEndpoint,
-      { documents: documents },
-      { responseType: "text", headers: { "X-Recaptcha-Token": token } }
-    );
+    const response: Response = await fetch(documentDownloadEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      },
+      body: JSON.stringify({ documents })
+    });
 
-    await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.json();
+
+    await downloadAs(data.url, `BMI_${currentTime}.zip`);
 
     if (callback) {
       callback();

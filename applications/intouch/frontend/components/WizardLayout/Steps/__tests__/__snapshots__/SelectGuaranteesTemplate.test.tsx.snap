@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectGuaranteesTemplate should render correct 1`] = `
+<div>
+  <div>
+    <div
+      class="MuiFormControl-root MuiFormControl-fullWidth"
+    >
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+        data-shrink="false"
+      >
+        guarantee_tab.apply_guarantee.wizard.step2.inputLabel
+        <span
+          aria-hidden="true"
+          class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+        >
+           
+          *
+        </span>
+      </label>
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+        data-testid="templates-select"
+        style="margin: 10px;"
+      >
+        <div
+          aria-haspopup="listbox"
+          aria-labelledby="mui-component-select-template"
+          class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+          id="mui-component-select-template"
+          role="button"
+          tabindex="0"
+        >
+          <span>
+            ​
+          </span>
+        </div>
+        <input
+          aria-hidden="true"
+          class="MuiSelect-nativeInput"
+          name="template"
+          required=""
+          tabindex="-1"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="PrivateNotchedOutline-legendLabelled-3"
+          >
+            <span>
+              guarantee_tab.apply_guarantee.wizard.step2.inputLabel
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+      <p
+        class="MuiFormHelperText-root MuiFormHelperText-contained Mui-required"
+      />
+    </div>
+  </div>
+</div>
+`;

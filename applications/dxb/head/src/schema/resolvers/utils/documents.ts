@@ -1,25 +1,17 @@
 // TODO: Find another place for this file.
 import { Product } from "applications/dxb/libraries/firestore-types/src";
-import {
-  generateDigestFromData,
-  isDefined
-} from "../../../../../libraries/utils/src";
+import { isDefined } from "../../../../../libraries/utils/src";
 import { microCopy } from "../../../constants/microCopies";
 import { ProductFilter } from "../../../types/pim";
 import { ContentfulAssetType, ContentfulDocument } from "../types/Contentful";
-import {
-  ContentfulDocumentsWithFilters,
-  ProductDocumentsWithFilters
-} from "../types/DocumentsWithFilters";
-import { Context, MicroCopy, Node } from "../types/Gatsby";
-import { ProductDocument } from "../types/pim";
+import { Context, Node } from "../types/Gatsby";
 import { getPlpFilters } from "./filters";
 
-export const resolveDocumentsFromProducts = async (
+export const resolveDocumentsFiltersFromProducts = async (
   assetTypes: ContentfulAssetType[],
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters?: string[]
-): Promise<ProductDocumentsWithFilters> => {
+): Promise<ProductFilter[]> => {
   const pimAssetTypes = assetTypes
     .map(({ pimCode }) => pimCode)
     .filter(isDefined);
@@ -49,7 +41,7 @@ export const resolveDocumentsFromProducts = async (
   const products: Product[] = [...entries];
 
   if (products.length === 0) {
-    return { documents: [], filters: [] };
+    return [];
   }
 
   const resources = await context.nodeModel.findOne<Node>({
@@ -65,15 +57,14 @@ export const resolveDocumentsFromProducts = async (
     type: "ContentfulResources"
   });
 
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {},
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies: Map<string, string> = [...resourceEntries].reduce(
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies: Map<string, string> = microCopies.reduce(
     (map, microCopy) => {
       return map.set(microCopy.key, microCopy.value);
     },
@@ -86,31 +77,30 @@ export const resolveDocumentsFromProducts = async (
     microCopies: filterMicroCopies
   });
 
-  const assetTypeFilter: ProductFilter = {
-    filterCode: "AssetType",
-    label:
-      filterMicroCopies.get(`filterLabels.AssetType`) ||
-      "MC:filterLabels.AssetType",
-    name: "contentfulassettype", // Force it to work with the same filter group as the Contentful documents for ALL source tables
-    options: []
-  };
-  const createAssetTypeFilter = !!allowedFilters?.includes("AssetType");
-  if (createAssetTypeFilter) {
-    productFilters.push(assetTypeFilter);
-  }
+  const createAssetTypeFilter = allowedFilters?.includes("AssetType");
 
-  let result = products.flatMap((product: Product) =>
-    (product.documents || [])
-      .filter(
-        (document) =>
-          document.assetType && pimAssetTypes.includes(document.assetType)
-      )
-      .map((document) => {
-        const assetType = assetTypes.find(
-          (assetType) => assetType.pimCode === document.assetType
-        );
-        if (createAssetTypeFilter) {
+  if (createAssetTypeFilter) {
+    const assetTypeFilter: ProductFilter = {
+      filterCode: "AssetType",
+      label:
+        filterMicroCopies.get(`filterLabels.AssetType`) ||
+        "MC:filterLabels.AssetType",
+      name: "contentfulassettype", // Force it to work with the same filter group as the Contentful documents for ALL source tables
+      options: []
+    };
+
+    products.forEach((product: Product) =>
+      (product.documents || [])
+        .filter(
+          (document) =>
+            document.assetType && pimAssetTypes.includes(document.assetType)
+        )
+        .forEach((document) => {
+          const assetType = assetTypes.find(
+            (assetType) => assetType.pimCode === document.assetType
+          );
           if (
+            assetType &&
             !assetTypeFilter.options.find(
               (option) => option.value === assetType.code
             )
@@ -120,93 +110,20 @@ export const resolveDocumentsFromProducts = async (
               value: assetType.code
             });
           }
-        }
+        })
+    );
 
-        const updatedTitle = {
-          "Product name + asset type": `${product.name} ${assetType.name}`,
-          "Document name": document.title || `${product.name} ${assetType.name}`
-        }[(resources && resources.productDocumentNameMap) || "Document name"];
-
-        const fieldData = {
-          ...document,
-          title: updatedTitle,
-          assetType___NODE: assetType.id,
-          isLinkDocument: document.isLinkDocument,
-          productFilters: product.filters
-        };
-
-        if (document.isLinkDocument) {
-          return {
-            ...fieldData,
-            parent: source.id,
-            children: [],
-            internal: {
-              type: "PIMDocument",
-              owner: "@bmi/resolvers",
-              contentDigest: generateDigestFromData(fieldData)
-            }
-          } as unknown as ProductDocument;
-        }
-
-        return {
-          ...fieldData,
-          parent: source.id,
-          children: [],
-          internal: {
-            type: "PIMDocument",
-            owner: "@bmi/resolvers",
-            contentDigest: generateDigestFromData(fieldData)
-          }
-        } as unknown as ProductDocument;
-      })
-  );
-  // DXB-2042: this needs to be done only for "Simple" table results
-  if (source.resultsType === "Simple") {
-    result = result.reduce<ProductDocument[]>((documents, document) => {
-      const foundDocument = documents.find(
-        (doc) => doc.title === document.title && doc.url === document.url
-      );
-      if (foundDocument) {
-        return documents.map((doc) => {
-          if (doc.title === document.title && doc.url === document.url) {
-            return {
-              ...doc,
-              productFilters: [
-                ...[
-                  ...(doc.productFilters as ProductFilter[]),
-                  ...(document.productFilters as ProductFilter[])
-                ].reduce((filters, filter) => {
-                  if (
-                    filters.find(
-                      (fil) =>
-                        fil.filterCode === filter.filterCode &&
-                        fil.value === filter.value
-                    )
-                  ) {
-                    return filters;
-                  }
-                  return [...filters, filter];
-                }, [])
-              ]
-            };
-          }
-          return doc;
-        });
-      }
-      return [...documents, document];
-    }, []);
+    productFilters.push(assetTypeFilter);
   }
-  return {
-    filters: productFilters,
-    documents: result
-  };
+
+  return productFilters;
 };
 
-export const resolveDocumentsFromContentful = async (
+export const resolveDocumentsFiltersFromContentful = async (
   assetTypes: ContentfulAssetType[],
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters: string[]
-): Promise<ContentfulDocumentsWithFilters> => {
+): Promise<ProductFilter[]> => {
   const filter = assetTypes.length
     ? { assetType: { id: { in: assetTypes.map(({ id }) => id) } } }
     : {};
@@ -220,7 +137,7 @@ export const resolveDocumentsFromContentful = async (
 
   const documents = [...entries];
   if (!documents.length) {
-    return { documents: [], filters: [] };
+    return [];
   }
 
   let brandFilter: ProductFilter = undefined;
@@ -236,10 +153,7 @@ export const resolveDocumentsFromContentful = async (
       context
     );
   }
-  return {
-    documents: documents,
-    filters: [brandFilter, assetTypeFilter].filter(isDefined)
-  };
+  return [brandFilter, assetTypeFilter].filter(Boolean);
 };
 
 const generateBrandFilterFromDocuments = async (
@@ -248,21 +162,29 @@ const generateBrandFilterFromDocuments = async (
 ): Promise<ProductFilter> => {
   const microCopyKey = "filterLabels.Brand";
 
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {
-          filter: {
-            key: {
-              in: [microCopyKey]
-            }
+  const resources = await context.nodeModel.findOne<Node>({
+    query: {
+      filter: {
+        site: {
+          elemMatch: {
+            countryCode: { eq: process.env.SPACE_MARKET_CODE }
           }
-        },
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies = [...resourceEntries];
+        }
+      }
+    },
+    type: "ContentfulResources"
+  });
+
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies = microCopies.filter(
+    (microCopy) => microCopy.key === microCopyKey
+  );
 
   // Find Unique assetTypes, they're the same as far as TS is concerned
   const allValues = [
@@ -272,9 +194,9 @@ const generateBrandFilterFromDocuments = async (
   if (allValues.length === 0) {
     return;
   }
-  const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
-    microCopyKey;
+  const filterLabel = (filterMicroCopies.find(
+    (item) => item.key === microCopyKey
+  )?.value || microCopyKey) as string;
 
   return {
     filterCode: "Brand",
@@ -294,21 +216,29 @@ const generateAssetTypeFilterFromDocuments = async (
   context: Context
 ): Promise<ProductFilter> => {
   const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
-  const { entries: resourceEntries } =
-    await context.nodeModel.findAll<MicroCopy>(
-      {
-        query: {
-          filter: {
-            key: {
-              in: [microCopyKey]
-            }
+  const resources = await context.nodeModel.findOne<Node>({
+    query: {
+      filter: {
+        site: {
+          elemMatch: {
+            countryCode: { eq: process.env.SPACE_MARKET_CODE }
           }
-        },
-        type: "ContentfulMicroCopy"
-      },
-      { connectionType: "ContentfulMicroCopy" }
-    );
-  const filterMicroCopies = [...resourceEntries];
+        }
+      }
+    },
+    type: "ContentfulResources"
+  });
+
+  // MC access in consistently happens only via resource content type
+  // that means a market is only aware of MCs which are associated with the resource
+  const microCopies = await context.nodeModel.getNodesByIds({
+    ids: resources.microCopy___NODE,
+    type: "ContentfulMicroCopy"
+  });
+
+  const filterMicroCopies = microCopies.filter(
+    (microCopy) => microCopy.key === microCopyKey
+  );
 
   const allsAssetTypeIds: string[] = [
     ...new Set(documents.map((document) => document["assetType___NODE"]))
@@ -326,9 +256,10 @@ const generateAssetTypeFilterFromDocuments = async (
     return;
   }
 
-  const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
-    microCopyKey;
+  const filterLabel = (filterMicroCopies.find(
+    (item) => item.key === microCopyKey
+  )?.value || microCopyKey) as string;
+
   return {
     filterCode: "AssetType",
     label: filterLabel,

@@ -1,10 +1,19 @@
 import mockConsole from "jest-mock-console";
-import {
-  ProductCategory,
-  ResultsRow,
-  VergeMetalFlushOption
-} from "../../types";
+import { createProduct } from "../../helpers/products";
+import { ProductCategory, ResultsRow } from "../../types";
 import { Measurements } from "../../types/roof";
+import {
+  Accessory,
+  GutterHook,
+  GutterVariant,
+  LengthBasedProduct,
+  RidgeOption,
+  Tile,
+  Underlay,
+  VentilationHood,
+  VergeVariant,
+  WidthBasedProduct
+} from "../../types/v2";
 import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
@@ -14,37 +23,37 @@ beforeAll(() => {
   mockConsole();
 });
 
-const vergeHalfLeftTile = {
+const vergeHalfLeftTile = createProduct<VergeVariant>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_left",
   name: "Zanda_Protector_verge half tile black left",
   externalProductCode: "87035763",
-  image: "",
+  mainImage: "",
   width: 15
-};
+});
 
-const vergeHalfRightTile = {
+const vergeHalfRightTile = createProduct<VergeVariant>({
   code: "849702122_Zanda_Protector_verge_half_tile_black_right",
   name: "Zanda_Protector_verge half tile black right",
   externalProductCode: "87035764",
-  image: "",
+  mainImage: "",
   width: 15
-};
+});
 
-const vergeLeftTile = {
+const vergeLeftTile = createProduct<VergeVariant>({
   code: "849702122_Zanda_Protector_verge_tile_black_left",
   name: "Zanda_Protector_verge tile black left",
   externalProductCode: "87035761",
-  image: "",
+  mainImage: "",
   width: 30
-};
+});
 
-const vergeRightTile = {
+const vergeRightTile = createProduct<VergeVariant>({
   code: "849702122_Zanda_Protector_verge_tile_black_right",
   name: "Zanda_Protector_verge tile black right",
   externalProductCode: "87035762",
-  image: "",
+  mainImage: "",
   width: 30
-};
+});
 
 const input: QuantitiesCalculatorProps = {
   measurements: {
@@ -136,373 +145,312 @@ const input: QuantitiesCalculatorProps = {
     area: 1446045.741409989
   },
   mainTileVariant: {
-    code: "175200122_Zanda_Protector_main_tile_black",
-    name: "Zanda Protector main tile black",
-    externalProductCode: "46035712",
-    image:
-      "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-    color: "Black",
-    halfTile: {
+    ...createProduct<Tile>({
+      code: "175200122_Zanda_Protector_main_tile_black",
+      name: "Zanda Protector main tile black",
+      externalProductCode: "46035712",
+      mainImage:
+        "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
+      color: "Black"
+    }),
+    halfTile: createProduct<WidthBasedProduct>({
       code: "275102122_Zanda_Protector_half_tile_black",
       name: "Zanda Protector half tile black",
       externalProductCode: "46035795",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       width: 18
-    },
-    hip: {
+    }),
+    hip: createProduct<LengthBasedProduct>({
       code: "249702122_Zanda_Protector_ridge_tile_black",
       name: "Zanda_Protector_ridge tile black",
       externalProductCode: "46035761",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 33.33
-    },
+    }),
     ridgeOptions: [
-      {
+      createProduct<RidgeOption>({
         code: "249702122_Zanda_Protector_ridge_tile_black",
         name: "Zanda_Protector_ridge tile black",
         externalProductCode: "46035761",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
         length: 33.33
-      },
-      {
+      }),
+      createProduct<RidgeOption>({
         code: "249702122_Zanda_Protector_SAMPLE_RIDGE_METAL_FLUSH",
         name: "Zanda_Protector_ridge sample metal flush black",
         externalProductCode: "46035001",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
         length: 33.33
-      }
+      })
     ],
-    vergeOptions: [
-      {
-        type: "METAL_FLUSH",
-        name: "Verge Metal Flush",
-        left: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
-          name: "Zanda_Protector_verge metal flush black left",
-          externalProductCode: "86035761",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-          length: 10
-        },
-        right: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
-          name: "Zanda_Protector_verge metal flush black right",
-          externalProductCode: "86035762",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-          length: 10
-        },
-        leftStart: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
-          name: "Zanda_Protector_verge metal flush black left start",
-          externalProductCode: "86035763",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-          length: 10
-        },
-        rightStart: {
-          code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
-          name: "Zanda_Protector_verge metal flush black right start",
-          externalProductCode: "86035764",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-          length: 10
-        }
-      },
-      {
-        type: "TILE",
-        name: "Verge Tile",
-        left: vergeLeftTile,
-        right: vergeRightTile,
-        halfLeft: vergeHalfLeftTile,
-        halfRight: vergeHalfRightTile
-      }
-    ],
-    valleyMetalFlushStart: {
+    vergeOption: {
+      left: createProduct<VergeVariant>({
+        code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
+        name: "Zanda_Protector_verge metal flush black left",
+        externalProductCode: "86035761",
+        mainImage:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
+        length: 10
+      }),
+      right: createProduct<VergeVariant>({
+        code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
+        name: "Zanda_Protector_verge metal flush black right",
+        externalProductCode: "86035762",
+        mainImage:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
+        length: 10
+      }),
+      leftStart: createProduct<VergeVariant>({
+        code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
+        name: "Zanda_Protector_verge metal flush black left start",
+        externalProductCode: "86035763",
+        mainImage:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
+        length: 10
+      }),
+      rightStart: createProduct<VergeVariant>({
+        code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
+        name: "Zanda_Protector_verge metal flush black right start",
+        externalProductCode: "86035764",
+        mainImage:
+          "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
+        length: 10
+      })
+    },
+    valleyMetalFlushStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_start",
       name: "Zanda_Protector_valley metal flush black start",
       externalProductCode: "66035761",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 19
-    },
-    valleyMetalFlush: {
+    }),
+    valleyMetalFlush: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black",
       name: "Zanda_Protector_valley metal flush black",
       externalProductCode: "66035762",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 19
-    },
-    valleyMetalFlushEnd: {
+    }),
+    valleyMetalFlushEnd: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_end",
       name: "Zanda_Protector_valley metal flush black end",
       externalProductCode: "66035763",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 19
-    },
-    valleyMetalFlushTop: {
+    }),
+    valleyMetalFlushTop: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_top",
       name: "Zanda_Protector_valley metal flush black top",
       externalProductCode: "66035764",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 19
-    },
-    valleyMetalFlushDormerStart: {
+    }),
+    valleyMetalFlushDormerStart: createProduct<LengthBasedProduct>({
       code: "669702122_Zanda_Protector_valley_metal_flush_black_dormer_start",
       name: "Zanda_Protector_valley metal flush black dormer start",
       externalProductCode: "66035765",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 19
-    },
+    }),
     accessories: [
-      {
+      createProduct<Accessory>({
         code: "Other",
         name: "Other accesories example",
         externalProductCode: "5555550",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
         category: ProductCategory.Accessories,
         packSize: 2
-      }
+      })
     ],
     eaveAccessories: [
-      {
+      createProduct<Accessory>({
         code: "Fuglelist_ventilert",
         name: "Fuglelist ventilert",
         externalProductCode: "5555551",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
         category: ProductCategory.Accessories
-      }
+      })
     ],
-    clip: {
+    clip: createProduct<Accessory>({
       code: "clip",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Clips",
       externalProductCode: "113456781",
       category: ProductCategory.Accessories
-    },
-    ridgeAndHipScrew: {
+    }),
+    ridgeAndHipScrew: createProduct<Accessory>({
       code: "ridgeAndHipScrew",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
       category: ProductCategory.Accessories
-    },
-    longScrew: {
+    }),
+    longScrew: createProduct<Accessory>({
       code: "longScrew",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Long Screw",
       externalProductCode: "113456783",
       category: ProductCategory.Accessories
-    },
-    screw: {
+    }),
+    screw: createProduct<Accessory>({
       code: "screw",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Screw",
       externalProductCode: "113456784",
       category: ProductCategory.Accessories
-    },
-    stormBracket: {
+    }),
+    stormBracket: createProduct<Accessory>({
       code: "stormBracket",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Storm Bracket",
       externalProductCode: "113456785",
       category: ProductCategory.Accessories
-    },
-    finishingKit: {
+    }),
+    finishingKit: createProduct<Accessory>({
       code: "finishingKit",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Finishing Kit",
       externalProductCode: "113456786",
       category: ProductCategory.Accessories
-    },
+    }),
     ventilationHoodOptions: [
-      {
+      createProduct<VentilationHood>({
         code: "vho1",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 1",
         externalProductCode: "100456781",
         category: ProductCategory.Ventilation
-      },
-      {
+      }),
+      createProduct<VentilationHood>({
         code: "vho2",
-        image:
+        mainImage:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 2",
         externalProductCode: "100456782",
         category: ProductCategory.Ventilation
-      }
+      })
     ],
-    minBattenGauge: 31,
-    maxBattenGauge: [
-      {
-        start: 15,
-        end: 24,
-        value: 31
-      },
-      {
-        start: 24,
-        end: 27,
-        value: 33
-      },
-      {
-        start: 27,
-        end: 31,
-        value: 34
-      },
-      {
-        start: 31,
-        end: 35,
-        value: 35
-      },
-      {
-        start: 35,
-        end: 42,
-        value: 36
-      },
-      {
-        start: 42,
-        end: 90,
-        value: 37
-      }
-    ],
-    eaveGauge: [
-      {
-        start: 15,
-        end: 31,
-        value: 38
-      },
-      {
-        start: 31,
-        end: 45,
-        value: 38.5
-      }
-    ],
-    ridgeSpacing: [
-      {
-        start: 15,
-        end: 55,
-        value: 5
-      }
-    ],
+    minBattenSpacing: 31,
+    maxBattenSpacing: 31,
+    eaveGauge: 38,
+    ridgeSpacing: 5,
     width: 33.2,
     height: 42,
     brokenBond: true
   },
   vergeOption: {
-    type: "METAL_FLUSH",
-    name: "Verge Metal Flush",
-    left: {
+    left: createProduct<VergeVariant>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
       name: "Zanda_Protector_verge metal flush black left",
       externalProductCode: "86035761",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 10
-    },
-    right: {
+    }),
+    right: createProduct<VergeVariant>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
       name: "Zanda_Protector_verge metal flush black right",
       externalProductCode: "86035762",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 10
-    },
-    leftStart: {
+    }),
+    leftStart: createProduct<VergeVariant>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
       name: "Zanda_Protector_verge metal flush black left start",
       externalProductCode: "86035763",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 10
-    },
-    rightStart: {
+    }),
+    rightStart: createProduct<VergeVariant>({
       code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
       name: "Zanda_Protector_verge metal flush black right start",
       externalProductCode: "86035764",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
       length: 10
-    }
+    })
   },
-  ridge: {
+  ridge: createProduct<RidgeOption>({
     code: "249702122_Zanda_Protector_ridge_tile_black",
     name: "Zanda_Protector_ridge tile black",
     externalProductCode: "46035761",
-    image:
+    mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
     length: 33.33
-  },
+  }),
   ventilationHoods: [
-    {
+    createProduct<VentilationHood>({
       code: "vho1",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ventilation Hood 1",
       externalProductCode: "100456781",
       category: ProductCategory.Ventilation
-    }
+    })
   ],
-  underlay: {
+  underlay: createProduct<Underlay>({
     code: "304910308_Underlay_Divoroll_TOP_RU",
     name: "Underlay Divoroll TOP RU",
     description: "Short underlay description",
     externalProductCode: "26583450",
-    image:
+    mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
-    minSupportedPitch: 15,
     length: 5000,
     width: 150,
     overlap: 0
-  },
-  gutteringVariant: {
+  }),
+  gutteringVariant: createProduct<GutterVariant>({
     code: "Test_Guttering_Black",
     name: "Test Guttering Black",
     externalProductCode: "34391",
-    image:
+    mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
     length: 600,
-    downpipe: {
+    downPipe: createProduct<Accessory>({
       code: "Downpipe",
       name: "Downpipe",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33332",
       category: ProductCategory.Accessories
-    },
-    downpipeConnector: {
+    }),
+    downPipeConnector: createProduct<Accessory>({
       code: "Downpipe_Connector",
       name: "Downpipe Connector",
-      image:
+      mainImage:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33331",
       category: ProductCategory.Accessories
-    }
-  },
-  gutteringHook: {
+    })
+  }),
+  gutteringHook: createProduct<GutterHook>({
     code: "Test_Guttering_Hook_Black",
     name: "Test Guttering Hook Black",
     externalProductCode: "34392",
-    image:
+    mainImage:
       "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
     length: 400
-  },
+  }),
   downPipes: 3,
   downPipeConnectors: 2
 };
@@ -1043,20 +991,6 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(results).toMatchSnapshot();
   });
 
-  it("calculates with metal flush verge with no start", () => {
-    const calculator = new QuantitiesCalculator({
-      ...input,
-      vergeOption: {
-        ...(input.vergeOption as VergeMetalFlushOption),
-        leftStart: undefined,
-        rightStart: undefined
-      }
-    });
-    const results = calculator.getResultsRowsByCategory();
-
-    expect(results).toMatchSnapshot();
-  });
-
   it("calculates without half tile", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
@@ -1070,9 +1004,12 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
   it("calculates with verge tile", () => {
     const calculator = new QuantitiesCalculator({
       ...input,
-      vergeOption: input.mainTileVariant.vergeOptions.find(
-        ({ type }) => type === "TILE"
-      )
+      vergeOption: {
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile,
+        left: vergeLeftTile,
+        right: vergeRightTile
+      }
     });
     const results = calculator.getResultsRowsByCategory();
 
@@ -1236,30 +1173,30 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
   });
 
   it("returns data for all ridges", () => {
-    const tRidge = {
+    const tRidge = createProduct<LengthBasedProduct>({
       code: "275213122_Zanda_Protector_T_ridge_black",
       name: "Zanda Protector T-møne",
       externalProductCode: "46035833",
-      image:
+      mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h93/h6b/9003661230110/Product-Color-Selector-Mobile-Zanda-Protector-T-monejpg",
       length: 35
-    };
-    const yRidge = {
+    });
+    const yRidge = createProduct<LengthBasedProduct>({
       code: "275215122_Zanda_Protector_Y_ridge_black",
       name: "Zanda Protector valmtetning",
       externalProductCode: "46035897",
-      image:
+      mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/hcd/9003550212126/Product-Color-Selector-Mobile-275215122-Concrete-Y-Ridge-Protector20-Blackjpg",
       length: 25
-    };
-    const ridgeEnd = {
+    });
+    const ridgeEnd = createProduct<LengthBasedProduct>({
       code: "275216122_Zanda_Protector_ridge_end_black",
       name: "Zanda Protector møneavslutning",
       externalProductCode: "46035920",
-      image:
+      mainImage:
         "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h24/9003659788318/Product-Color-Selector-Mobile-Zanda-Protector-moneavslutningjpg",
       length: 25
-    };
+    });
 
     const calculator = new QuantitiesCalculator({
       ...input,
@@ -1275,8 +1212,6 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       ...input,
       mainTileVariant: { ...input.mainTileVariant, brokenBond: false },
       vergeOption: {
-        type: "TILE",
-        name: "Verge tile",
         halfLeft: vergeHalfLeftTile,
         halfRight: vergeHalfRightTile,
         left: vergeLeftTile,
@@ -1303,8 +1238,6 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       },
       mainTileVariant: { ...input.mainTileVariant, brokenBond: true },
       vergeOption: {
-        type: "TILE",
-        name: "Verge tile",
         halfLeft: vergeHalfLeftTile,
         halfRight: vergeHalfRightTile,
         left: vergeLeftTile,
@@ -1331,8 +1264,6 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       },
       mainTileVariant: { ...input.mainTileVariant, brokenBond: true },
       vergeOption: {
-        type: "TILE",
-        name: "Verge tile",
         halfLeft: vergeHalfLeftTile,
         halfRight: vergeHalfRightTile,
         left: vergeLeftTile,

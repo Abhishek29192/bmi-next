@@ -13,7 +13,7 @@ const createRelatedProduct = (
     colour: product.colour,
     colourFamily: product.colourFamily,
     externalProductCode: product.externalProductCode,
-    masterImages: product.masterImages as Image[],
+    masterImage: product.masterImage as Image,
     measurements: product.measurements as Measurements,
     name: product.name,
     path: "/path",

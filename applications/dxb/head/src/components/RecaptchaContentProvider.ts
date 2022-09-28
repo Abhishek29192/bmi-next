@@ -158,6 +158,56 @@ const recaptchaContent_PL: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=pl"
 };
 
+const recaptchaContent_CH_DE: RecaptchaPolicyContentType = {
+  startText: "Diese Website ist durch reCAPTCHA geschützt und es gelten die ",
+  privacyPloicyText: "Datenschutzbestimmungen",
+  andText: " und ",
+  termsOfServiceText: "Nutzungsbedingungen",
+  endText: " von Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=de-ch ",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=de-ch"
+};
+
+const recaptchaContent_CN_ZH: RecaptchaPolicyContentType = {
+  startText: "本网站受 reCAPTCHA 保护，适用 Google ",
+  privacyPloicyText: "隐私政策",
+  andText: " 和 ",
+  termsOfServiceText: "服务条款",
+  endText: " 。",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=zh-cn",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=zh-cn"
+};
+
+const recaptchaContent_HU: RecaptchaPolicyContentType = {
+  startText: "Ezt a webhelyet a reCAPTCHA védi, és a Google ",
+  privacyPloicyText: "adatvédelmi irányelvei",
+  andText: " és ",
+  termsOfServiceText: "szolgáltatási feltételei",
+  endText: " érvényesek.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=hu",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=hu"
+};
+
+const recaptchaContent_CZ: RecaptchaPolicyContentType = {
+  startText: "Tato stránka je chráněna reCAPTCHA a platí ",
+  privacyPloicyText: "zásady ochrany osobních údajů",
+  andText: " a ",
+  termsOfServiceText: "smluvní podmínky",
+  endText: " společnosti Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=cs",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=cs"
+};
+
+const recaptchaContent_SK: RecaptchaPolicyContentType = {
+  startText: "Táto stránka je chránená reCAPTCHA a platia pre ňu ",
+  privacyPloicyText: "Zásady ochrany osobných údajov",
+  andText: " a ",
+  termsOfServiceText: "zmluvné podmienky",
+  endText: " spoločnosti Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=sk",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=sk"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -174,6 +224,11 @@ RecaptchaPrivacyContentMap["be"] = recaptchaContent_BE_NL;
 RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
 RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
+RecaptchaPrivacyContentMap["ch"] = recaptchaContent_CH_DE;
+RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
+RecaptchaPrivacyContentMap["hu"] = recaptchaContent_HU;
+RecaptchaPrivacyContentMap["cz"] = recaptchaContent_CZ;
+RecaptchaPrivacyContentMap["sk"] = recaptchaContent_SK;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string

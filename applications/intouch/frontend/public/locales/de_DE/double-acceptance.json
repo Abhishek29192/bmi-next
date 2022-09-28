@@ -1,0 +1,46 @@
+{
+  "accept": "Accept",
+  "acceptanceDescription": [
+    "If you choose to accept, then the guarantee documentation will follow in a separate email, together with a full copy of the terms and conditions.",
+    "If you choose to decline, then the guarantee offer will be canceled and your roofing contractor will be notified."
+  ],
+  "acceptanceTitle": "Please confirm below to either accept or decline the BMI guarantee offer",
+  "confirmation": {
+    "description": [
+      "We work closely with roofing contractors to ensure you receive the highest standards of workmanship, enhanced guarantees and the continued support and services you need to keep your roof in the best possible condition.",
+      "For further information about BMI and if you need to get in touch, please visit {{website}}."
+    ],
+    "title": "Thank you for choosing BMI to cover your roof!"
+  },
+  "description": [
+    "We are pleased to confirm that a new BMI Guarantee is available for you to claim, to provide peace of mind and protection for your property and its occupants.",
+    "This guarantee offer is available for a limited period, so please review the details below and click to accept or decline this offer."
+  ],
+  "dialog": {
+    "cta": {
+      "back": "Back",
+      "confirm": "Confirm"
+    },
+    "description": "If you decline the BMI guarantee, you are choosing not to receive the guarantee offered and it will be cancelled.",
+    "title": "Are you sure you want to {{acceptance}} the BMI Guarantee?"
+  },
+  "form": {
+    "fields": {
+      "acceptance": {
+        "label": "By checking this box I confirm that I have read and understood the guarantee conditions."
+      },
+      "firstname": {
+        "label": "First name"
+      },
+      "lastname": {
+        "label": "Last name"
+      }
+    }
+  },
+  "guaranteeConditions": "Guarantee Conditions:",
+  "guaranteeConditionsDescription": "By clicking on the ‘Accept’ button at the bottom of this page, you accept this guarantee and declare to have carefully read and to specifically approve the following provisions:",
+  "guaranteeScope": "Guarantee Scope:",
+  "reject": "Reject",
+  "title": "Your BMI Guarantee is waiting to be claimed!",
+  "warrantyPeriod": "Warranty Period:"
+}

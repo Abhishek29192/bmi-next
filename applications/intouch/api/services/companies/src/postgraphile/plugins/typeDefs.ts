@@ -78,6 +78,10 @@ export default gql`
     json: JSON!
   }
 
+  type ContentfulGuaranteeTemplateOnerousConditionsText {
+    json: JSON!
+  }
+
   type ContentfulGuaranteeTemplate {
     displayName: String
     technology: ContentfulTechnologyType
@@ -113,6 +117,8 @@ export default gql`
     titleLine1: String
     titleLine2: String
     roofType: String
+    onerousConditionsSummary: String
+    onerousConditionsText: ContentfulGuaranteeTemplateOnerousConditionsText
   }
 
   type ContentfulGuaranteeTemplatesCollection {
@@ -329,6 +335,34 @@ export default gql`
     T7: Int
   }
 
+  type GetDoubleAcceptanceByValidTempToken {
+    id: Int
+    guaranteeId: Int
+    signature: String
+    acceptance: Boolean
+    acceptanceDate: Datetime
+    tempToken: String
+    expiryDate: Datetime
+    maximumValidityYears: Int
+    technology: Technology
+    languageCode: String
+    coverage: GuaranteeCoverage
+  }
+
+  input GetDoubleAcceptanceByValidTempTokenInput {
+    tempToken: String
+  }
+
+  input ReleaseGuaranteePdfTemplateInput {
+    mailSubject: String
+    mailBody: String
+  }
+
+  input ReleaseGuaranteePdfInput {
+    id: Int
+    template: ReleaseGuaranteePdfTemplateInput
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -354,5 +388,10 @@ export default gql`
     updateDoceboTiersByMarket(
       input: UpdateDoceboTiersByMarketInput
     ): [UpdateDoceboTiersByMarketResult]
+    getDoubleAcceptanceByValidTempToken(
+      input: GetDoubleAcceptanceByValidTempTokenInput!
+    ): GetDoubleAcceptanceByValidTempToken
+    autoRejectDoubleAcceptance: String
+    releaseGuaranteePdf(input: ReleaseGuaranteePdfInput!): PublishOutput
   }
 `;

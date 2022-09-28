@@ -70,6 +70,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     return isSSR ? "" : window.location.search;
   }, [location]);
 
+  const images = transformImages(
+    [product.masterImage, ...product.galleryImages].filter(Boolean)
+  );
+
   return (
     <Page
       brand={product.brand?.code}
@@ -77,7 +81,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={product.masterImages[0]?.mainSource}
+      ogImageUrl={product.masterImage?.mainSource}
       variantProduct={product}
     >
       {({ siteContext: { getMicroCopy } }) => {
@@ -109,10 +113,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandCode: product.brand?.code,
                   nobb: product.externalProductCode,
-                  images: transformImages([
-                    ...product.masterImages,
-                    ...product.galleryImages
-                  ]),
+                  images,
                   videos: transformMediaSrc(product.videos),
                   attributes: getProductAttributes(
                     product,
@@ -280,7 +281,7 @@ export const pageQuery = graphql`
           ...PIMDocumentFragment
         }
       }
-      masterImages {
+      masterImage {
         ...PIMImageFragment
       }
       isSampleOrderAllowed

@@ -2,7 +2,6 @@ import { YoutubeVideo } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";
-import { getDefaultPreviewImage } from "../utils/product-details-transforms";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
@@ -12,6 +11,7 @@ export type Data = {
   videoUrl: string;
   previewMedia: ImageData | null;
   videoRatio: { width: number; height: number } | null;
+  defaultYouTubePreviewImage: string;
 };
 
 export type ContentfulVideoData = Data & {
@@ -23,7 +23,14 @@ const Video = ({ data }: { data: Data }) => {
 };
 
 export const renderVideo = (data: Data) => {
-  const { label, subtitle, videoUrl, previewMedia, videoRatio } = data;
+  const {
+    label,
+    subtitle,
+    videoUrl,
+    previewMedia,
+    videoRatio,
+    defaultYouTubePreviewImage
+  } = data;
 
   const gtm = useMemo(
     () => ({
@@ -47,7 +54,7 @@ export const renderVideo = (data: Data) => {
         previewMedia ? (
           <Image data={previewMedia} />
         ) : (
-          getDefaultPreviewImage(videoUrl)
+          defaultYouTubePreviewImage
         )
       }
       onGTMEvent={pushGTMEvent}
@@ -70,6 +77,7 @@ export const query = graphql`
       width
       height
     }
+    defaultYouTubePreviewImage
   }
 
   fragment VideoGallerySlideFragment on ContentfulVideo {

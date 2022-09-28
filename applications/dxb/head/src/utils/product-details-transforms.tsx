@@ -1,7 +1,7 @@
 import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
-import { getYoutubeId, isDefined } from "../../../libraries/utils/src";
+import { isDefined } from "../../../libraries/utils/src";
 import DefaultImage from "../images/DefaultImage.svg";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
@@ -329,9 +329,9 @@ export const getProductAttributes = (
           label: colour,
           isSelected,
           thumbnail:
-            variant?.thumbnail || product?.masterImages?.[0]?.thumbnail || null,
+            variant?.thumbnail || product?.masterImage?.thumbnail || null,
           media:
-            !variant?.thumbnail && !product?.masterImages?.[0]?.thumbnail ? (
+            !variant?.thumbnail && !product?.masterImage?.thumbnail ? (
               <DefaultImage />
             ) : null,
           availability: checkColourAvailability(colour),
@@ -487,9 +487,6 @@ export const mapClassificationValues = (
     .filter((item) => item.trim().length > 0)
     .join(", ");
 };
-
-export const getDefaultPreviewImage = (videoUrl: string) =>
-  `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;
 
 const generateVariantPathWithQuery = (
   variant: RelatedVariant,

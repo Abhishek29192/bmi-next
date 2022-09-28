@@ -118,33 +118,38 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
     class="CalculatorStepper"
   >
     <form
-      class="Form"
+      class="Form form"
+      data-testid="calculator-step-form"
     >
-      <h4
-        class="MuiTypography-root step-title Typography MuiTypography-h4"
-      >
-        This is the 2nd page
-      </h4>
-      <h6
-        class="MuiTypography-root computation Typography MuiTypography-h6"
-      />
-      <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
-      >
-        Choose the closest to your roof shape
-      </p>
       <div
-        class="content"
+        class="formContent"
       >
-        <div>
-          <p>
-            This is the Selecting a Roof Shape page.
-          </p>
+        <h4
+          class="MuiTypography-root step-title Typography MuiTypography-h4"
+        >
+          This is the 2nd page
+        </h4>
+        <h6
+          class="MuiTypography-root computation Typography MuiTypography-h6"
+        />
+        <p
+          class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        >
+          Choose the closest to your roof shape
+        </p>
+        <div
+          class="content"
+        >
+          <div>
+            <p>
+              This is the Selecting a Roof Shape page.
+            </p>
+          </div>
         </div>
+        <hr
+          class="MuiDivider-root hr"
+        />
       </div>
-      <hr
-        class="MuiDivider-root hr"
-      />
     </form>
   </div>
 </div>
@@ -155,72 +160,71 @@ exports[`CalculatorStepper component renders as a div 1`] = `
   <div
     class="CalculatorStepper"
   >
-    <div>
-      <h4
-        class="MuiTypography-root step-title Typography MuiTypography-h4"
-      >
-        This is the 2nd page
-      </h4>
-      <h6
-        class="MuiTypography-root computation Typography MuiTypography-h6"
-      />
-      <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
-      >
-        Choose the closest to your roof shape
-      </p>
+    <div
+      class="form--lg-padding stepWithoutForm"
+    >
       <div
-        class="content"
+        class="formContent"
       >
-        <div>
-          <p>
-            This is the Selecting a Roof Shape page.
-          </p>
+        <h4
+          class="MuiTypography-root step-title Typography MuiTypography-h4"
+        >
+          This is the 2nd page
+        </h4>
+        <h6
+          class="MuiTypography-root computation Typography MuiTypography-h6"
+        />
+        <p
+          class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        >
+          Choose the closest to your roof shape
+        </p>
+        <div
+          class="content"
+        >
+          <div>
+            <p>
+              This is the Selecting a Roof Shape page.
+            </p>
+          </div>
         </div>
       </div>
-      <hr
-        class="MuiDivider-root hr"
-      />
       <div
-        class="footer breakableRow breakableRow--reverse"
+        class="footer"
       >
-        <div
-          class="breakableRow"
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined footerButton MuiButton-outlinedPrimary"
+          tabindex="0"
+          type="button"
         >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined rowItem MuiButton-outlinedPrimary"
-            tabindex="0"
-            type="button"
+          <span
+            class="MuiButton-label buttonStyles-label-24"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
             >
-              <span
-                class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                  />
-                </svg>
-              </span>
-              Go Back
+                <path
+                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                />
+              </svg>
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
+            Go Back
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="breakableRow"
+          class="skipAndNextButtons"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 rowItem MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 footerButton footerButton--link MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
@@ -234,7 +238,7 @@ exports[`CalculatorStepper component renders as a div 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 rowItem MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 footerButton MuiButton-containedPrimary"
             tabindex="0"
             type="submit"
           >
@@ -260,73 +264,71 @@ exports[`CalculatorStepper component renders correctly 1`] = `
     class="CalculatorStepper"
   >
     <form
-      class="Form"
+      class="Form form--lg-padding form"
+      data-testid="calculator-step-form"
     >
-      <h4
-        class="MuiTypography-root step-title Typography MuiTypography-h4"
-      >
-        This is the 2nd page
-      </h4>
-      <h6
-        class="MuiTypography-root computation Typography MuiTypography-h6"
-      />
-      <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
-      >
-        Choose the closest to your roof shape
-      </p>
       <div
-        class="content"
+        class="formContent"
       >
-        <div>
-          <p>
-            This is the Selecting a Roof Shape page.
-          </p>
+        <h4
+          class="MuiTypography-root step-title Typography MuiTypography-h4"
+        >
+          This is the 2nd page
+        </h4>
+        <h6
+          class="MuiTypography-root computation Typography MuiTypography-h6"
+        />
+        <p
+          class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        >
+          Choose the closest to your roof shape
+        </p>
+        <div
+          class="content"
+        >
+          <div>
+            <p>
+              This is the Selecting a Roof Shape page.
+            </p>
+          </div>
         </div>
       </div>
-      <hr
-        class="MuiDivider-root hr"
-      />
       <div
-        class="footer breakableRow breakableRow--reverse"
+        class="footer"
       >
-        <div
-          class="breakableRow"
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined footerButton MuiButton-outlinedPrimary"
+          tabindex="0"
+          type="button"
         >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined rowItem MuiButton-outlinedPrimary"
-            tabindex="0"
-            type="button"
+          <span
+            class="MuiButton-label buttonStyles-label-4"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
             >
-              <span
-                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                  />
-                </svg>
-              </span>
-              Go Back
+                <path
+                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                />
+              </svg>
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
+            Go Back
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
         <div
-          class="breakableRow"
+          class="skipAndNextButtons"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 rowItem MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 footerButton footerButton--link MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
@@ -340,7 +342,7 @@ exports[`CalculatorStepper component renders correctly 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 rowItem MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 footerButton MuiButton-containedPrimary"
             tabindex="0"
             type="submit"
           >

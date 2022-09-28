@@ -3,7 +3,6 @@ import logger from "@bmi-digital/functions-logger";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
-  Category,
   Classification,
   Feature,
   Product as PIMProduct,
@@ -16,12 +15,12 @@ import {
   findProductBrandLogoCode,
   generateSubtitleValues,
   getSizeLabel,
-  groupBy,
   IndexedItemGroup,
   indexFeatures,
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
+import { getCategoryFilters } from "./utils/filterHelpers";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -119,51 +118,17 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
+  if (!product.name) {
+    return [];
+  }
+
   const mappedClassifications = mapProductClassifications(
     product,
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
-  const categoryGroups: IndexedItemGroup<Category> = groupBy(
-    product.categories || [],
-    "categoryType"
-  );
-  const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
-    product.categories || [],
-    "parentCategoryCode"
-  );
-
-  const allGroupsOfCategories = {
-    ...categoryGroups,
-    ...groupsByParentCategoryCodes
-  };
-
-  logger.info({
-    message: `allGroupsOfCategories: ${allGroupsOfCategories}`
-  });
-
-  //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
-  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
-    allGroupsOfCategories
-  )
-    .filter((key) => key.length > 0 && key !== "undefined")
-    .reduce((categoryAsProps, catName) => {
-      const origialCatName = catName;
-      const catNameCapitalised = catName.toUpperCase();
-      // eslint-disable-next-line security/detect-object-injection
-      const nameAndCodeValues = allGroupsOfCategories[origialCatName].map(
-        (cat) => {
-          return {
-            code: cat.code,
-            name: cat.name
-          };
-        }
-      );
-      return {
-        ...categoryAsProps,
-        [catNameCapitalised]: nameAndCodeValues
-      };
-    }, {});
+  const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> =
+    getCategoryFilters(product.categories || []);
 
   logger.info({
     message: `allCategoriesAsProps: ${allCategoriesAsProps}`
@@ -199,7 +164,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "externalProductCode",
       "code",
       "isSampleOrderAllowed",
-      "name",
       "summary",
       "description",
       "longDescription",
@@ -234,10 +198,13 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       name: product.name
     };
 
+    const name = variant.name || product.name!;
+
     const esProduct: ESProduct = {
       ...indexedFeatures,
       ...allCategoriesAsProps,
       ...baseAttributes,
+      name,
       externalProductCode: baseAttributes.externalProductCode || "",
       isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
       code: variant.code,
@@ -269,7 +236,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...(product.images || [])
       ]),
       path: `/p/${generateProductUrl(
-        baseAttributes.name,
+        name,
         generateHashFromString(variant.code, false),
         combinedClassifications
           .find(
@@ -359,7 +326,8 @@ export enum TwoOneClassToIgnore {
   palletUomAttributes = "palletUomAttributes",
   pieceUomAttributes = "pieceUomAttributes",
   rollsUomAttributes = "rollsUomAttributes",
-  squareMeterUomAttributes = "squareMeterUomAttributes"
+  squareMeterUomAttributes = "squareMeterUomAttributes",
+  bimAttributes = "bimAttributes"
 }
 
 export enum TwoOneAttribToIgnore {
@@ -373,7 +341,8 @@ export enum TwoOneAttribToIgnore {
   volume = "volume",
   width = "width",
   unit = "unit",
-  uomType = "uomType"
+  uomType = "uomType",
+  productPageURL = "productPageURL"
 }
 
 export const commonIgnoreList = [
@@ -417,7 +386,8 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
   [TwoOneClassToIgnore.cartonUomAttributes]: [
     TwoOneAttribToIgnore.unit,
     TwoOneAttribToIgnore.uomType
-  ]
+  ],
+  [TwoOneClassToIgnore.bimAttributes]: [TwoOneAttribToIgnore.productPageURL]
 };
 
 const extractFeatureCode = (

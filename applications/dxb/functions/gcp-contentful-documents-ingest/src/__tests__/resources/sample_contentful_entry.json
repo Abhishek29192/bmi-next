@@ -1,0 +1,400 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "metadata": {
+        "tags": []
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "18fop5x17y3g"
+          }
+        },
+        "id": "5cYdozfH5S2dybSFSK0bUy",
+        "type": "Entry",
+        "createdAt": "2022-02-14T12:12:03.140Z",
+        "updatedAt": "2022-09-19T13:27:19.341Z",
+        "environment": {
+          "sys": {
+            "id": "staging",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 49,
+        "publishedAt": "2022-09-19T13:27:19.341Z",
+        "firstPublishedAt": "2022-02-14T12:13:08.347Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1QuvJp2V059437Tf2HUtFZ"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6CM7y3b8r1ga39KskCMnjB"
+          }
+        },
+        "publishedCounter": 23,
+        "version": 50,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6CM7y3b8r1ga39KskCMnjB"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "document"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "invalid format document testss"
+        },
+        "asset": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "52HeZc3FFBCgM7BBhKMx6P"
+            }
+          }
+        },
+        "assetType": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7nhYXPpP7WMxr06WueCmXO"
+            }
+          }
+        },
+        "featuredMedia": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "3ObHVD1I62Tvj33n2GJ5Dl"
+            }
+          }
+        },
+        "noIndex": {
+          "en-US": false
+        }
+      }
+    }
+  ],
+  "includes": {
+    "Entry": [
+      {
+        "metadata": {
+          "tags": []
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "18fop5x17y3g"
+            }
+          },
+          "id": "3ObHVD1I62Tvj33n2GJ5Dl",
+          "type": "Entry",
+          "createdAt": "2022-09-19T13:25:14.671Z",
+          "updatedAt": "2022-09-20T07:37:14.417Z",
+          "environment": {
+            "sys": {
+              "id": "staging",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "publishedVersion": 5,
+          "publishedAt": "2022-09-19T13:25:56.543Z",
+          "firstPublishedAt": "2022-09-19T13:25:56.543Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "6CM7y3b8r1ga39KskCMnjB"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "6CM7y3b8r1ga39KskCMnjB"
+            }
+          },
+          "publishedCounter": 1,
+          "version": 11,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "6CM7y3b8r1ga39KskCMnjB"
+            }
+          },
+          "automationTags": [],
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "image"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "Roof #10"
+          },
+          "description": {
+            "en-US": "description Roof #10"
+          },
+          "image": {
+            "en-US": {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "63LFNtI0mVjWRUf5uBYQB"
+              }
+            }
+          },
+          "altText": {
+            "en-US": "test DS image"
+          }
+        }
+      },
+      {
+        "metadata": {
+          "tags": []
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "18fop5x17y3g"
+            }
+          },
+          "id": "7nhYXPpP7WMxr06WueCmXO",
+          "type": "Entry",
+          "createdAt": "2022-02-14T12:11:09.160Z",
+          "updatedAt": "2022-08-16T09:09:10.468Z",
+          "environment": {
+            "sys": {
+              "id": "staging",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "publishedVersion": 12,
+          "publishedAt": "2022-08-16T09:09:10.468Z",
+          "firstPublishedAt": "2022-02-14T12:12:57.928Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1QuvJp2V059437Tf2HUtFZ"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "3ICqOUAOY3CGwyfPTaQPHT"
+            }
+          },
+          "publishedCounter": 5,
+          "version": 13,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "3ICqOUAOY3CGwyfPTaQPHT"
+            }
+          },
+          "automationTags": [],
+          "contentType": {
+            "sys": {
+              "type": "Link",
+              "linkType": "ContentType",
+              "id": "assetType"
+            }
+          }
+        },
+        "fields": {
+          "name": {
+            "en-US": "Invalid format file test 1"
+          },
+          "code": {
+            "en-US": "ONLV"
+          },
+          "pimCode": {
+            "en-US": "PIMCODE"
+          },
+          "description": {
+            "en-US": "description"
+          }
+        }
+      }
+    ],
+    "Asset": [
+      {
+        "metadata": {
+          "tags": []
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "18fop5x17y3g"
+            }
+          },
+          "id": "52HeZc3FFBCgM7BBhKMx6P",
+          "type": "Asset",
+          "createdAt": "2022-02-14T12:12:11.342Z",
+          "updatedAt": "2022-02-14T12:12:34.522Z",
+          "environment": {
+            "sys": {
+              "id": "staging",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "publishedVersion": 5,
+          "publishedAt": "2022-02-14T12:12:34.522Z",
+          "firstPublishedAt": "2022-02-14T12:12:34.522Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1QuvJp2V059437Tf2HUtFZ"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1QuvJp2V059437Tf2HUtFZ"
+            }
+          },
+          "publishedCounter": 1,
+          "version": 6,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "1QuvJp2V059437Tf2HUtFZ"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "invalid format document test"
+          },
+          "description": {
+            "en-US": ""
+          },
+          "file": {
+            "en-US": {
+              "url": "//assets.ctfassets.net/18fop5x17y3g/52HeZc3FFBCgM7BBhKMx6P/55b522e07b34b22feba73d793b4f3b96/hb-021_abk-017-bramac_entwurf.onlv",
+              "details": {
+                "size": 172618
+              },
+              "fileName": "hb-021_abk-017-bramac_entwurf.onlv",
+              "contentType": "text/plain"
+            }
+          }
+        }
+      },
+      {
+        "metadata": {
+          "tags": []
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "18fop5x17y3g"
+            }
+          },
+          "id": "63LFNtI0mVjWRUf5uBYQB",
+          "type": "Asset",
+          "createdAt": "2022-08-12T09:52:31.702Z",
+          "updatedAt": "2022-08-12T09:52:35.756Z",
+          "environment": {
+            "sys": {
+              "id": "staging",
+              "type": "Link",
+              "linkType": "Environment"
+            }
+          },
+          "publishedVersion": 2,
+          "publishedAt": "2022-08-12T09:52:35.756Z",
+          "firstPublishedAt": "2022-08-12T09:52:35.756Z",
+          "createdBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "2jNW9SYIea5PMvvhZMCdb2"
+            }
+          },
+          "updatedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "2jNW9SYIea5PMvvhZMCdb2"
+            }
+          },
+          "publishedCounter": 1,
+          "version": 3,
+          "publishedBy": {
+            "sys": {
+              "type": "Link",
+              "linkType": "User",
+              "id": "2jNW9SYIea5PMvvhZMCdb2"
+            }
+          }
+        },
+        "fields": {
+          "title": {
+            "en-US": "Roof #10"
+          },
+          "description": {
+            "en-US": "Roof #10"
+          },
+          "file": {
+            "en-US": {
+              "url": "//images.ctfassets.net/18fop5x17y3g/63LFNtI0mVjWRUf5uBYQB/418cdcd3429d8591db41d53f93d40f77/Roof__10.svg",
+              "details": {
+                "size": 2934,
+                "image": {
+                  "width": 350,
+                  "height": 300
+                }
+              },
+              "fileName": "Roof #10.svg",
+              "contentType": "image/svg+xml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
 import classnames from "classnames";
+import React, { useEffect, useMemo, useState } from "react";
 import CardInput, { Props as CardInputProps } from "../card-input/CardInput";
 import withFormControl from "../form/withFormControl";
 import Grid from "../grid/Grid";
@@ -12,6 +12,7 @@ export type Props = {
   defaultValue?: string;
   onChange?: (value: string) => void;
   clean?: boolean;
+  gridContainerClassName?: string;
 };
 
 const isRadioItemElement = (
@@ -25,7 +26,8 @@ const CardRadioGroup = ({
   defaultValue,
   onChange,
   children,
-  clean
+  clean,
+  gridContainerClassName
 }: Props) => {
   const [selected, setSelected] = useState(defaultValue);
   const items = useMemo(
@@ -65,7 +67,7 @@ const CardRadioGroup = ({
 
   return (
     <div className={classnames(styles["CardRadioGroup"], className)}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className={gridContainerClassName}>
         {items}
       </Grid>
     </div>

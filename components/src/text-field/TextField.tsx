@@ -1,11 +1,11 @@
-import React, { ChangeEvent } from "react";
-import classnames from "classnames";
 import {
+  InputAdornment,
   TextField as MaterialTextField,
   TextFieldProps
 } from "@material-ui/core";
-import { InputAdornment } from "@material-ui/core";
 import { ErrorRounded } from "@material-ui/icons";
+import classnames from "classnames";
+import React, { ChangeEvent } from "react";
 import withFormControl from "../form/withFormControl";
 import styles from "./TextField.module.scss";
 

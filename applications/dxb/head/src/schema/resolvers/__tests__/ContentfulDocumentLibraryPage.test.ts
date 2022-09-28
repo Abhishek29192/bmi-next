@@ -13,13 +13,13 @@ const context: Context = {
   }
 };
 
-const mockResolveDocumentsFromProducts = jest.fn();
-const mockResolveDocumentsFromContentful = jest.fn();
+const mockResolveDocumentsFiltersFromProducts = jest.fn();
+const mockResolveDocumentsFiltersFromContentful = jest.fn();
 jest.mock("../utils/documents", () => ({
-  resolveDocumentsFromProducts: (...args: any) =>
-    mockResolveDocumentsFromProducts(...args),
-  resolveDocumentsFromContentful: (...args: any) =>
-    mockResolveDocumentsFromContentful(...args)
+  resolveDocumentsFiltersFromProducts: (...args: any) =>
+    mockResolveDocumentsFiltersFromProducts(...args),
+  resolveDocumentsFiltersFromContentful: (...args: any) =>
+    mockResolveDocumentsFiltersFromContentful(...args)
 }));
 
 const mockSortPimDocuments = jest.fn();
@@ -38,26 +38,21 @@ beforeEach(() => {
 
 describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should contain specific type", () => {
-    expect(ContentfulDocumentLibraryPage.documentsWithFilters.type).toEqual(
-      "DocumentsWithFiltersResponse"
+    expect(ContentfulDocumentLibraryPage.documentsFilters.type).toEqual(
+      "DocumentsFiltersResponse"
     );
   });
 
   it("should resolve assets for Simple PIM source with asset types on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockGetNodeById.mockResolvedValueOnce(assetType);
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
-    mockSortPimDocuments.mockReturnValueOnce([document]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -70,29 +65,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "product-document-1" }]
+      ]
     });
 
     expect(mockGetNodeById).toHaveBeenCalledWith({
       id: "asset-type-1",
       type: "ContentfulAssetType"
     });
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -105,9 +99,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "appearanceAttributes.texturefamily"
       ]
     );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockFindAll).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -115,17 +108,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Simple PIM source with allow filter by on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
     mockSortPimDocuments.mockReturnValueOnce([document]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -139,29 +128,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "product-document-1" }]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -175,9 +163,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "appearanceAttributes.colour"
       ]
     );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -185,17 +172,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical PIM source without allow filter by on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
     mockSortPimDocuments.mockReturnValueOnce([document]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -209,29 +192,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "product-document-1" }]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -239,9 +221,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand", "ProductFamily"]
     );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -249,18 +230,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical PIM source with allow filter by on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
-    mockSortPimDocuments.mockReturnValueOnce([document]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -273,49 +249,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "product-document-1" }]
-    });
-
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
-    );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Card Collection PIM source without allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -324,6 +265,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
+    );
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
+    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Card Collection PIM source without allow filter by on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
     mockSortPimDocuments.mockReturnValueOnce([document]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -337,49 +307,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "product-document-1" }]
-    });
-
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["Brand"]
-    );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Card Collection PIM source with allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -388,7 +323,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
-    mockSortPimDocuments.mockReturnValueOnce([document]);
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
+    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Card Collection PIM source with allow filter by on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -401,49 +364,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "product-document-1" }]
-    });
-
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["Brand"]
-    );
-    expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Simple CMS source with asset types on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockGetNodeById.mockResolvedValueOnce(assetType);
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -452,7 +380,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
-    mockSortCmsDocuments.mockReturnValueOnce([document]);
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
+    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Simple CMS source with asset types on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockGetNodeById.mockResolvedValueOnce(assetType);
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -465,49 +421,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "cms-document-1" }]
-    });
-
-    expect(mockGetNodeById).toHaveBeenCalledWith({
-      id: "asset-type-1",
-      type: "ContentfulAssetType"
-    });
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["AssetType", "Brand"]
-    );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
-    expect(mockFindAll).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Simple CMS source with allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -516,7 +437,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
-    mockSortCmsDocuments.mockReturnValueOnce([document]);
+
+    expect(mockGetNodeById).toHaveBeenCalledWith({
+      id: "asset-type-1",
+      type: "ContentfulAssetType"
+    });
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["AssetType", "Brand"]
+    );
+    expect(mockFindAll).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
+    expect(mockSortPimDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Simple CMS source with allow filter by on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -529,29 +478,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "cms-document-1" }]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -559,9 +507,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["AssetType", "Brand"]
     );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -569,18 +516,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical CMS source without allow filter by on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
-    mockSortCmsDocuments.mockReturnValueOnce([document]);
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -593,29 +535,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "cms-document-1" }]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -623,9 +564,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -633,17 +573,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical CMS source with allow filter by on the source provided", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ]
-    });
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
     mockSortCmsDocuments.mockReturnValueOnce([document]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -657,49 +593,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "cms-document-1" }]
-    });
-
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["Brand"]
-    );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Card Collection CMS source without allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -708,7 +609,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
-    mockSortCmsDocuments.mockReturnValueOnce([document]);
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
+    expect(mockSortPimDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Card Collection CMS source without allow filter by on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -721,49 +650,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
-      filters: [
-        {
-          label: "filter",
-          filterCode: "filter-code-",
-          options: [{ label: "option", value: "value" }]
-        }
-      ],
-      documents: [{ id: "cms-document-1" }]
-    });
-
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
-      [assetType],
-      {
-        source,
-        context
-      },
-      ["Brand"]
-    );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should resolve assets for Card Collection CMS source with allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const document = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [document],
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
@@ -772,7 +666,35 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         }
       ]
     });
-    mockSortCmsDocuments.mockReturnValueOnce([document]);
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
+    expect(mockSortPimDocuments).not.toHaveBeenCalled();
+    expect(mockSortAllDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should resolve assets for Card Collection CMS source with allow filter by on the source provided", async () => {
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter",
+        filterCode: "filter-code-",
+        options: [{ label: "option", value: "value" }]
+      }
+    ]);
 
     const source: ContentfulDocumentLibraryPageType = {
       id: "source",
@@ -785,29 +707,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter",
           filterCode: "filter-code-",
           options: [{ label: "option", value: "value" }]
         }
-      ],
-      documents: [{ id: "cms-document-1" }]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -815,9 +736,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
+    expect(mockResolveDocumentsFiltersFromProducts).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
@@ -825,31 +745,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Simple ALL source with asset types on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockGetNodeById.mockResolvedValueOnce(assetType);
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -863,14 +771,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -882,15 +790,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockGetNodeById).toHaveBeenCalledWith({
       id: "asset-type-1",
       type: "ContentfulAssetType"
     });
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -898,7 +805,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["AssetType", "Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -911,10 +818,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "appearanceAttributes.texturefamily"
       ]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockFindAll).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -923,31 +827,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Simple CMS source with allow filter by on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -961,14 +853,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -980,15 +872,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -996,7 +887,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["AssetType", "Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1010,10 +901,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "appearanceAttributes.colour"
       ]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1022,46 +910,34 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Simple CMS source on the source provided de-duplicates filters", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option3", value: "value3" }]
-        },
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option3", value: "value3" }]
+      },
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1075,14 +951,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter1",
@@ -1098,15 +974,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-2",
           options: [{ label: "option2", value: "value2" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1114,7 +989,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["AssetType", "Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1128,10 +1003,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "appearanceAttributes.colour"
       ]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1140,31 +1012,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical CMS source without allow filter by on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1178,14 +1038,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -1197,15 +1057,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1213,7 +1072,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1221,10 +1080,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand", "ProductFamily"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1233,31 +1089,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical CMS source with allow filter by on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1271,14 +1115,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -1290,15 +1134,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1306,7 +1149,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1314,10 +1157,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand", "ProductFamily", "appearanceAttributes.colour"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1326,46 +1166,34 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Technical CMS source on the source provided de-duplicates filters", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option3", value: "value3" }]
-        },
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option3", value: "value3" }]
+      },
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1379,14 +1207,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter1",
@@ -1402,15 +1230,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-2",
           options: [{ label: "option2", value: "value2" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1418,7 +1245,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1426,10 +1253,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand", "ProductFamily", "appearanceAttributes.colour"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1438,31 +1262,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Card Collection CMS source without allow filter by on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1476,14 +1288,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: null
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -1495,15 +1307,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1511,7 +1322,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1519,10 +1330,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1531,31 +1339,19 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Card Collection CMS source with allow filter by on the source provided with product filters before Contentful", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1569,14 +1365,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter2",
@@ -1588,15 +1384,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-1",
           options: [{ label: "option1", value: "value1" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1604,7 +1399,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1612,10 +1407,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
@@ -1624,46 +1416,34 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should resolve assets for Card Collection CMS source on the source provided de-duplicates filters", async () => {
     const assetType = { id: "asset-type-1" };
     mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-    const contentfulDocument = { id: "cms-document-1" };
-    mockResolveDocumentsFromContentful.mockResolvedValueOnce({
-      documents: [contentfulDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option1", value: "value1" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    const productDocument = { id: "product-document-1" };
-    mockResolveDocumentsFromProducts.mockResolvedValueOnce({
-      documents: [productDocument],
-      filters: [
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option2", value: "value2" }]
-        },
-        {
-          label: "filter1",
-          filterCode: "filter-code-1",
-          options: [{ label: "option3", value: "value3" }]
-        },
-        {
-          label: "filter2",
-          filterCode: "filter-code-2",
-          options: [{ label: "option2", value: "value2" }]
-        }
-      ]
-    });
-    mockSortAllDocuments.mockReturnValueOnce([
-      contentfulDocument,
-      productDocument
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option3", value: "value3" }]
+      },
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
     ]);
 
     const source: ContentfulDocumentLibraryPageType = {
@@ -1677,14 +1457,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       allowFilterBy: ["appearanceAttributes.colour"]
     };
 
-    const documentsWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
         source,
         null,
         context
       );
 
-    expect(documentsWithFilters).toEqual({
+    expect(documentsFilters).toEqual({
       filters: [
         {
           label: "filter1",
@@ -1700,15 +1480,14 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
           filterCode: "filter-code-2",
           options: [{ label: "option2", value: "value2" }]
         }
-      ],
-      documents: [contentfulDocument, productDocument]
+      ]
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
       { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
-    expect(mockResolveDocumentsFromContentful).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1716,7 +1495,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
       [assetType],
       {
         source,
@@ -1724,10 +1503,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       },
       ["Brand"]
     );
-    expect(mockSortAllDocuments).toHaveBeenCalledWith(
-      [contentfulDocument, productDocument],
-      [assetType]
-    );
+
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();

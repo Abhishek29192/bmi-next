@@ -1,6 +1,5 @@
 import { DownloadListContext } from "@bmi/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import axios from "axios";
 import MockDate from "mockdate";
 import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
@@ -11,8 +10,22 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
 
-jest.mock("axios");
 jest.mock("../../utils/devLog");
+
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
+});
+
+const getFetchResponse = (response) => ({
+  ok: true,
+  json: () => response
+});
 
 // Needed to mock only one method of module
 jest.spyOn(ClientDownloadUtils, "downloadAs").mockImplementation();
@@ -22,8 +35,6 @@ jest.spyOn(Date.prototype, "getDate").mockReturnValue(0);
 const TEST_DATE = new Date(0);
 
 MockDate.set(TEST_DATE);
-
-const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const executeRecaptcha = jest.fn();
 
@@ -181,7 +192,7 @@ describe("DocumentResultsFooter component", () => {
     });
 
     it("should download files", async () => {
-      mockedAxios.post.mockResolvedValueOnce({ data: { url: "url" } });
+      fetchMock.mockResolvedValueOnce(getFetchResponse({ url: "url" }));
 
       await handleDownloadClick(
         list,
@@ -193,30 +204,42 @@ describe("DocumentResultsFooter component", () => {
         resetList
       );
 
-      expect(mockedAxios.post).toHaveBeenLastCalledWith(
-        "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
-        {
-          documents: [
-            {
-              href: "http://doesnot-exist.com/fileName",
-              name: "contentful-document-title.fileName"
-            },
-            {
-              href: "http://pimDocument",
-              name: "Pim Document-1.pdf"
-            },
-            {
-              href: "http://pimDocument",
-              name: "Pim Document-2.pdf"
+      await waitFor(() =>
+        expect(fetchMock).toHaveBeenLastCalledWith(
+          "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: "http://doesnot-exist.com/fileName",
+                  name: "contentful-document-title.fileName"
+                },
+                {
+                  href: "http://pimDocument",
+                  name: "Pim Document-1.pdf"
+                },
+                {
+                  href: "http://pimDocument",
+                  name: "Pim Document-2.pdf"
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": "token"
             }
-          ]
-        },
-        { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+          }
+        )
       );
-      expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
-        "url",
-        "BMI_19700101000000.zip"
+
+      await waitFor(() =>
+        expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
+          "url",
+          "BMI_19700101000000.zip"
+        )
       );
+
       expect(resetList).toHaveBeenCalledTimes(1);
     });
 

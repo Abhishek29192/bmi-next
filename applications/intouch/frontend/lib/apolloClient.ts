@@ -46,7 +46,9 @@ const getBaseUrl = (req) => {
   }
 };
 
-const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
+export const createApolloClient = (
+  ctx
+): ApolloClient<NormalizedCacheObject> => {
   const { req, accessToken } = ctx;
   const baseUrl = getBaseUrl(req);
   const isBrowser = typeof window !== "undefined";

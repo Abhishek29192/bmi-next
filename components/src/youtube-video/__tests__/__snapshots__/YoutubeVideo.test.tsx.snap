@@ -10,6 +10,7 @@ exports[`YoutubeVideo component dialog layout should render correctly 1`] = `
     <button
       aria-label="test video"
       class="thumbnail"
+      data-testid="thumbnail"
       type="button"
     >
       <img
@@ -24,7 +25,9 @@ exports[`YoutubeVideo component dialog layout should render correctly 1`] = `
       </span>
       <div
         aria-disabled="false"
+        aria-label="test video"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+        data-testid="thumbnail-button"
         role="button"
         tabindex="0"
       >
@@ -123,6 +126,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
       <button
         aria-label="test video"
         class="thumbnail"
+        data-testid="thumbnail"
         type="button"
       >
         <img
@@ -137,7 +141,9 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
         </span>
         <div
           aria-disabled="false"
+          aria-label="test video"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 play-button"
+          data-testid="thumbnail-button"
           role="button"
           tabindex="0"
         >
@@ -240,6 +246,7 @@ exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
     <button
       aria-label="test video"
       class="thumbnail"
+      data-testid="thumbnail"
       type="button"
     >
       <img
@@ -254,7 +261,9 @@ exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
       </span>
       <div
         aria-disabled="false"
+        aria-label="test video"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
+        data-testid="thumbnail-button"
         role="button"
         tabindex="0"
       >

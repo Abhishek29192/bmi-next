@@ -118,8 +118,7 @@
       "MY_QUEUE": "Min kø",
       "NOT_STARTED": "Ikke startet",
       "PITCHED": "Skråt Tag",
-      "UNASSIGNED": "Ikke tildelt",
-      "ARCHIVED": "Arkiveret"
+      "UNASSIGNED": "Ikke tildelt"
     }
   },
   "guarantee": {
@@ -317,9 +316,9 @@
     "buildingAddress": "Projektadresse",
     "code": "Projektkode",
     "cta": {
-      "ASSIGN_SOLUTION": "Tildel til meg",
+      "ASSIGN_SOLUTION": "Tildel til mig",
       "NOT_ASSIGNABLE": "Ikke delelig",
-      "REASSIGN_SOLUTION": "Tildel til meg",
+      "REASSIGN_SOLUTION": "Tildel til mig",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
       "copy": "Kopi?",
       "edit": "Redigere"

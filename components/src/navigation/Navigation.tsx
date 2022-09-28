@@ -221,6 +221,7 @@ const NavigationList = ({
                   show={value === key}
                   parentHandleClick={handleClick}
                   setDepth={setDepth}
+                  mainMenuDefaultLabel={mainMenuDefaultLabel}
                 />
                 {hasSeparator && <hr className={styles["Separator"]} />}
               </li>

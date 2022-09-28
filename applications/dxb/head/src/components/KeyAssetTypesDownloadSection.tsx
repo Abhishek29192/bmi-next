@@ -1,14 +1,13 @@
-import React from "react";
-import axios from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Button, ButtonProps, ClickableAction } from "@bmi/components";
 import { GetApp } from "@material-ui/icons";
-import { downloadAs, getDownloadLink } from "../utils/client-download";
-import withGTM from "../utils/google-tag-manager";
+import fetch, { Response } from "node-fetch";
+import React from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useConfig } from "../contexts/ConfigProvider";
-import { ProductDocument } from "../types/pim";
+import { KeyAssetDocument, ProductDocument } from "../types/pim";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
-import { KeyAssetDocument } from "../types/pim";
+import withGTM from "../utils/google-tag-manager";
 import Icon from "./Icon";
 import styles from "./styles/KeyAssetTypesDownloadSection.module.scss";
 
@@ -35,13 +34,22 @@ const handleDownloadClick = async (
       name: item.title
     }));
 
-    const response = await axios.post(
-      documentDownloadEndpoint,
-      { documents },
-      { responseType: "text", headers: { "X-Recaptcha-Token": token } }
-    );
+    const response: Response = await fetch(documentDownloadEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      },
+      body: JSON.stringify({ documents })
+    });
 
-    await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.json();
+
+    await downloadAs(data.url, `BMI_${currentTime}.zip`);
   } catch (error) {
     devLog("KeyAssetTypesDownloadSection", error);
   }

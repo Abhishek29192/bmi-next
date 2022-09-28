@@ -30,7 +30,7 @@ export default class GuaranteePdfGenerator {
     this.guaranteeData = guaranteeData;
   }
 
-  private async mergePdf(...files: ArrayBuffer[]): Promise<Uint8Array> {
+  public async mergePdf(...files: ArrayBuffer[]): Promise<Uint8Array> {
     // Create a new document
     const mergedPdf = await PdfLibDocument.create();
 
@@ -49,7 +49,6 @@ export default class GuaranteePdfGenerator {
   ): Promise<any> {
     const logoEncoded = await base64_encode(template.logo.url);
     const signatureEncoded = await base64_encode(guaranteeType.signature.url);
-
     const pdfDoc = (
       <PdfDocument
         template={template}
@@ -78,7 +77,6 @@ export default class GuaranteePdfGenerator {
     const template = guaranteeType.guaranteeTemplatesCollection.items[0];
 
     const guaranteePdf = await this.getGuaranteePdf(guaranteeType, template);
-
     const pdfs = [guaranteePdf];
     if (template.maintenanceTemplate?.url) {
       const maintenance = await this.getPdfFromUrl(
@@ -98,7 +96,7 @@ export default class GuaranteePdfGenerator {
     };
   }
 
-  private async getPdfFromUrl(url: string): Promise<ArrayBuffer> {
+  public async getPdfFromUrl(url: string): Promise<ArrayBuffer> {
     return await buffer_encode(url);
   }
 }

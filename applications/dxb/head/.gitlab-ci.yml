@@ -1,15 +1,15 @@
 test_head:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
         - jest/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -23,11 +23,11 @@ test_head:
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
   variables:
@@ -37,14 +37,14 @@ test_mr_coverage_head:
 compile_head_mr:
   extends: .compile_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -56,16 +56,16 @@ compile_head_mr:
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
-  image: !reference [.node-full-image, image]
+  image: !reference [ .node-full-image, image ]
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
-  needs: []
-  cache: {}
+  needs: [ ]
+  cache: { }
   allow_failure: true
   timeout: 15m
   script:
@@ -99,8 +99,8 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [.owasp-image, image]
-  cache: {}
+  image: !reference [ .owasp-image, image ]
+  cache: { }
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -120,9 +120,9 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [.owasp-image, image]
+  image: !reference [ .owasp-image, image ]
   timeout: 3h
-  cache: {}
+  cache: { }
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -141,7 +141,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -197,7 +197,7 @@ baseline_scan_head_prod:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: !reference [.cypress-image, image]
+  image: !reference [ .cypress-image, image ]
   script:
     - |
       params="--collect.settings.pwd=${NETLIFY_PWD}"
@@ -213,7 +213,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -223,7 +223,6 @@ lighthouseci_scan_head_preview:
     - job: install_yarn
       optional: true
     - wait_until_head_deployed_to_gatsby
-  allow_failure: true
   variables:
     # Required as QA password has a `$` in it
     NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
@@ -238,8 +237,8 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
-        "${base_url}/no/p/zanda-arktis-normalstein-gr%C3%A5-betong-2495854128/"
-        "${base_url}/no/s/monarflex-cellar-damp-room-torch-system-soil-moisture-282193240/"
+        "${base_url}/no/p/unique-plus-takpanne-matt-grafitt-metall-258584391/"
+        "${base_url}/no/s/unique-plus-takpanne-4056043937/"
         "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
         "${base_url}/no/find-a-merchant/"
         "${base_url}/no/search/?q=zanda"

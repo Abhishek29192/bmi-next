@@ -1,25 +1,25 @@
-import { CardRadioGroup, FormContext, Grid } from "@bmi/components";
+import { FormContext, Grid } from "@bmi/components";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
+import { GroupedGutters, GutterHook, GutterVariant } from "../types/v2";
 import { AnalyticsContext } from "./../helpers/analytics";
-import {
-  Guttering as GutteringType,
-  GutteringVariant,
-  LengthBasedProduct
-} from "./../types";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import NumericInput from "./subcomponents/up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type GutteringSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<GutteringType>;
+  gutters: GroupedGutters;
 };
 
-const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
+const GutteringSelection = ({ selected, gutters }: GutteringSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
+
+  // eslint-disable-next-line security/detect-object-injection
+  const options = Object.keys(gutters).map((code) => gutters[code][0]);
 
   if (!options.length) {
     return null;
@@ -35,12 +35,12 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, image }) => (
+        {options.map(({ name, mainImage, baseProduct }) => (
           <CardRadioGroup.Item
-            key={name}
-            value={name}
-            title={name}
-            imageSource={image}
+            key={baseProduct.code}
+            value={baseProduct.code}
+            title={baseProduct.name}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",
@@ -59,7 +59,7 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
 type GutteringVariantSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<GutteringVariant>;
+  options: ReadonlyArray<GutterVariant>;
 };
 
 const GutteringVariantSelection = ({
@@ -68,10 +68,6 @@ const GutteringVariantSelection = ({
 }: GutteringVariantSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
-
-  if (!options.length) {
-    return null;
-  }
 
   return (
     <FieldContainer
@@ -85,12 +81,12 @@ const GutteringVariantSelection = ({
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, image, externalProductCode }) => (
+        {options.map(({ name, mainImage, externalProductCode }) => (
           <CardRadioGroup.Item
             key={externalProductCode}
             value={externalProductCode}
             title={name}
-            imageSource={image}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",
@@ -116,7 +112,7 @@ const GutteringVariantSelection = ({
 type GutteringHookSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<LengthBasedProduct>;
+  options: ReadonlyArray<GutterHook>;
 };
 
 const GutteringHookSelection = ({
@@ -140,12 +136,12 @@ const GutteringHookSelection = ({
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, image, externalProductCode }) => (
+        {options.map(({ name, mainImage, externalProductCode }) => (
           <CardRadioGroup.Item
             key={externalProductCode}
             value={externalProductCode}
             title={name}
-            imageSource={image}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",
@@ -171,102 +167,117 @@ const GutteringHookSelection = ({
 type DownPipeSelectionProps = {
   downPipes?: number;
   downPipeConnectors?: number;
+  variant: GutterVariant;
 };
 
 const DownPipeSelection = ({
   downPipes,
-  downPipeConnectors
+  downPipeConnectors,
+  variant
 }: DownPipeSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
+  const hasDownPipe = variant.productReferences?.find(
+    (productReference) => productReference.type === "DOWN_PIPE"
+  );
+  const hasDownPipeConnectors = variant.productReferences?.find(
+    (productReference) => productReference.type === "DOWN_PIPE_CONNECTOR"
+  );
 
   return (
     <>
-      <FieldContainer title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE)}>
-        <Grid container>
-          <Grid item xs={12} md={3}>
-            <NumericInput
-              name="downPipes"
-              defaultValue={downPipes}
-              min={0}
-              onChange={(value) => {
-                pushEvent({
-                  event: "dxb.button_click",
-                  id: "rc-select-guttering",
-                  label: getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE),
-                  action: value + ""
-                });
-              }}
-            />
+      {hasDownPipe && (
+        <FieldContainer
+          title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE)}
+        >
+          <Grid container justifyContent="center">
+            <Grid item xs={12} md={3}>
+              <NumericInput
+                name="downPipes"
+                defaultValue={downPipes}
+                min={0}
+                onChange={(value) => {
+                  pushEvent({
+                    event: "dxb.button_click",
+                    id: "rc-select-guttering",
+                    label: getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE),
+                    action: value + ""
+                  });
+                }}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </FieldContainer>
-      <FieldContainer
-        title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE)}
-      >
-        <Grid container>
-          <Grid item xs={12} md={3}>
-            <NumericInput
-              name="downPipeConnectors"
-              defaultValue={downPipeConnectors}
-              min={0}
-              onChange={(value) => {
-                pushEvent({
-                  event: "dxb.button_click",
-                  id: "rc-select-guttering",
-                  label: getMicroCopy(
-                    microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE
-                  ),
-                  action: value + ""
-                });
-              }}
-            />
+        </FieldContainer>
+      )}
+      {hasDownPipeConnectors && (
+        <FieldContainer
+          title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE)}
+        >
+          <Grid container justifyContent="center">
+            <Grid item xs={12} md={3}>
+              <NumericInput
+                name="downPipeConnectors"
+                defaultValue={downPipeConnectors}
+                min={0}
+                onChange={(value) => {
+                  pushEvent({
+                    event: "dxb.button_click",
+                    id: "rc-select-guttering",
+                    label: getMicroCopy(
+                      microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE
+                    ),
+                    action: value + ""
+                  });
+                }}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </FieldContainer>
+        </FieldContainer>
+      )}
     </>
   );
 };
 
 export type GutteringSelections = {
   guttering?: string;
-  gutteringVariant?: string;
-  gutteringHook?: string;
+  gutteringVariant?: GutterVariant;
+  gutteringHook?: GutterHook;
   downPipes?: number;
   downPipeConnectors?: number;
 };
 
 export type GutteringProps = {
   selections?: GutteringSelections;
-  gutters: GutteringType[];
-  gutterHooks: LengthBasedProduct[];
+  gutters: GroupedGutters;
+  gutterHooks: GutterHook[];
 };
 
 const Guttering = ({ selections, gutters, gutterHooks }: GutteringProps) => {
   const { values } = useContext(FormContext);
-  const variants = (
-    gutters.find(({ name }) => values["guttering"] === name) || {
-      variants: []
-    }
-  ).variants;
+  const variants = gutters[values.guttering as string];
+  const variant = variants?.find(
+    (variant) => variant.externalProductCode === values["gutteringVariant"]
+  );
+
   return (
     <div>
-      <GutteringSelection selected={selections?.guttering} options={gutters} />
+      <GutteringSelection selected={selections?.guttering} gutters={gutters} />
       {values["guttering"] ? (
         <GutteringVariantSelection
-          selected={selections?.gutteringVariant}
+          selected={selections?.gutteringVariant?.externalProductCode}
           options={variants}
         />
       ) : null}
-      {values["gutteringVariant"] ? (
+      {variant ? (
         <>
           <GutteringHookSelection
-            selected={selections?.gutteringHook}
+            selected={selections?.gutteringHook?.externalProductCode}
             options={gutterHooks}
           />
           <DownPipeSelection
             downPipes={selections?.downPipes}
             downPipeConnectors={selections?.downPipeConnectors}
+            variant={variant}
           />
         </>
       ) : null}

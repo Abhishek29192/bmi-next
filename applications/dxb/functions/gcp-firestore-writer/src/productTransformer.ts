@@ -1,3 +1,4 @@
+import logger from "@bmi-digital/functions-logger";
 import type {
   CategoryGroup,
   Classification,
@@ -19,7 +20,6 @@ import type {
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
-import logger from "@bmi-digital/functions-logger";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -37,7 +37,7 @@ import {
 } from "./transformerUtils";
 
 export const transformProduct = (product: PimProduct): Product[] => {
-  if (product.approvalStatus !== "approved") {
+  if (product.approvalStatus !== "approved" || !product.name) {
     return [];
   }
   return (product.variantOptions || [])
@@ -190,7 +190,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         });
       });
       const hashedCode = generateHashFromString(variant.code, false);
-      const name = product.name;
+      const name = variant.name || product.name!;
 
       product.categories?.forEach((category) => {
         if (!category.name) {
@@ -246,7 +246,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
           (variant.isSampleOrderAllowed ??
             product.isSampleOrderAllowed ??
             false),
-        masterImages: mapImages(groupedImages, "MASTER_IMAGE"),
+        masterImage: mapImages(groupedImages, "MASTER_IMAGE")[0],
         materials,
         measurements: {
           length,
@@ -569,7 +569,7 @@ const mapRelatedVariants = (
         ...(product.images || [])
       ]);
       const hashedCode = generateHashFromString(variant.code);
-      const name = product.name;
+      const name = variant.name || product.name!;
       return {
         code: variant.code,
         name,
@@ -619,7 +619,7 @@ const mapProductDocuments = (product: PimProduct): ProductDocument[] =>
   mapDocuments(product.assets).map((document) => ({
     ...document,
     productBaseCode: product.code,
-    productName: product.name,
+    productName: product.name!,
     productCategories: (product.categories || []).map((category) => ({
       code: category.code,
       parentCategoryCode: category.parentCategoryCode

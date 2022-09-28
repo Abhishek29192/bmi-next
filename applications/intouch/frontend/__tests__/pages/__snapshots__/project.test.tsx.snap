@@ -54,6 +54,16 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -634,6 +644,16 @@ exports[`Projects Page render correctly 1`] = `
             </svg>
             Training
           </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
+          </a>
         </nav>
       </div>
       <div
@@ -1213,6 +1233,16 @@ exports[`Projects Page sort project with non super admin 1`] = `
               />
             </svg>
             Training
+          </a>
+          <a
+            class="sidebarLink"
+            href="/faq"
+          >
+            <svg
+              color="primary"
+              style="font-size: 24px;"
+            />
+            FAQ
           </a>
         </nav>
       </div>

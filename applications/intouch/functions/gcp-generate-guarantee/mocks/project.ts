@@ -19,7 +19,7 @@ export const mockProject: Project = {
   buildingOwnerFirstname: "Herion",
   buildingOwnerLastname: "Buildmaster",
   buildingOwnerCompany: "Company Name",
-  buildingOwnerMail: "umit@digital-detox.co.uk",
+  buildingOwnerMail: "intouch+1@bmigroup.com",
   roofArea: 50,
   siteAddress: mockSiteAddress,
   endDate: Date.now(),

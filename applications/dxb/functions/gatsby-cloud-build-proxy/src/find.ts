@@ -5,9 +5,9 @@ import { ContentfulWebhook } from "./types";
 // i.e. market__norway
 const TAG_PREFIX = "market__";
 
-export const FindBuildWebhook = (
+export const findBuildWebhooks = (
   contentfulWebhook: ContentfulWebhook
-): string | null => {
+): string[] | null => {
   // eslint-disable-next-line security/detect-non-literal-regexp
   const regEx = new RegExp(`^${TAG_PREFIX}(.*)`);
 

@@ -487,6 +487,7 @@ describe("transformProduct", () => {
       expect(transformedProduct[0].pieceUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].rollsUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].squareMeterUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].bimAttributes).toEqual(undefined);
     });
   });
 
@@ -497,6 +498,13 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       expect(transformedProduct).toMatchSnapshot();
       expect(transformedProduct[0]["totalVariantCount"]).toEqual(1);
+    });
+
+    it("ignores products without a name", async () => {
+      const product = createPimProduct({ name: undefined });
+
+      const transformedProduct = await transformProduct(product);
+      expect(transformedProduct).toEqual([]);
     });
 
     it("should not transform full product without Variant products", async () => {
@@ -964,11 +972,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedproducts = await transformProduct(product);
     expect(transformedproducts[0].path).toEqual(
-      `/p/product-name-diameter-40mm-3464354221`
+      `/p/variant-name-diameter-40mm-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1010,11 +1020,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedproducts = await transformProduct(product);
     expect(transformedproducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/variant-name-black-gloss-clay-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1061,11 +1073,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/variant-name-black-gloss-clay-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1112,11 +1126,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/variant-name-black-gloss-clay-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1143,11 +1159,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-3464354221`
+      `/p/variant-name-black-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1174,11 +1192,13 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-gloss-3464354221`
+      `/p/variant-name-gloss-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -1205,11 +1225,66 @@ describe("transformProduct", () => {
       ],
       code: "code",
       name: "Product Name",
-      variantOptions: [createVariantOption({ code: "variant-code" })]
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: "Variant Name" })
+      ]
     });
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-clay-3464354221`
+      `/p/variant-name-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path using the product name if variant name is not present", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "false";
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code", name: undefined })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =

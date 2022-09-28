@@ -1,15 +1,8 @@
 import {
-  Accessory,
   BaseVariant,
-  GutteringVariant,
-  LengthBasedProduct,
   ProductCategory,
   ResultsObject as BasicResult,
-  ResultsRow,
-  Underlay,
-  VergeMetalFlushOption,
-  VergeOption,
-  VergeTileOption
+  ResultsRow
 } from "../../types";
 import {
   Face,
@@ -18,27 +11,54 @@ import {
   LinesMap,
   Measurements
 } from "../../types/roof";
-import { MainTileVariant, RidgeTile } from "../../types/v2";
+import {
+  Accessory,
+  GutterHook,
+  GutterVariant,
+  LengthBasedProduct,
+  RidgeOption,
+  Tile,
+  Underlay,
+  VentilationHood,
+  VergeOption,
+  VergeVariant,
+  WidthBasedProduct
+} from "../../types/v2";
 import { battenCalc, surface } from "./calculate";
 import { CONTINGENCY } from "./constants";
+
+type Products =
+  | Accessory
+  | Tile
+  | GutterVariant
+  | GutterHook
+  | Underlay
+  | VergeVariant
+  | LengthBasedProduct
+  | WidthBasedProduct
+  | VentilationHood;
 
 export type ProductRowBase = BaseVariant & {
   category?: ProductCategory; // Needed for accessories
 };
 
-export type ProductRow = ProductRowBase & {
-  category: ProductCategory; // Make it required here
+export type ProductRow = {
+  name: string;
+  code: string;
+  externalProductCode: string;
+  image?: string;
+  category: ProductCategory;
   packSize?: number;
   baseQuantity: number; // Base quantity is quantity before being divided by packSize
 };
 
 export const calculateBattensForFaces = (
   faces: Face[],
-  mainTileVariant: MainTileVariant
+  mainTileVariant: Tile
 ): FaceWithBattens[] =>
   faces.map((face) => ({
     ...face,
-    battens: battenCalc(face.vertices, [face.pitch], mainTileVariant)
+    battens: battenCalc(face.vertices, mainTileVariant)
   }));
 
 export const convertProductRowToResultsRow = ({
@@ -63,13 +83,13 @@ const STORM_BRACKET_PER_RIDGE_TILE = 2;
 
 export type QuantitiesCalculatorProps = {
   measurements: Measurements;
-  mainTileVariant: MainTileVariant;
+  mainTileVariant: Tile;
   vergeOption?: VergeOption; // Not being provided means using mainTile to fill in verge tiles place
-  ridge: RidgeTile;
-  ventilationHoods: Accessory[];
-  underlay: Underlay;
-  gutteringVariant?: GutteringVariant;
-  gutteringHook?: LengthBasedProduct;
+  ridge: RidgeOption;
+  ventilationHoods: VentilationHood[];
+  underlay?: Underlay;
+  gutteringVariant?: GutterVariant;
+  gutteringHook?: GutterHook;
   downPipes?: number;
   downPipeConnectors?: number;
 };
@@ -93,11 +113,12 @@ class QuantitiesCalculator {
     downPipeConnectors
   }: QuantitiesCalculatorProps) {
     const { faces, lines } = measurements;
+    const isMetalFlushVerge = this.isMetalFlushVerge(vergeOption);
 
     this.facesBattens = calculateBattensForFaces(faces, mainTileVariant);
     this.addSurfaceCoveringProducts(
       mainTileVariant,
-      vergeOption && vergeOption.type === "TILE" ? vergeOption : undefined
+      vergeOption && !isMetalFlushVerge ? vergeOption : undefined
     );
 
     this.lines = lines;
@@ -105,9 +126,7 @@ class QuantitiesCalculator {
       mainTileVariant,
       ridge,
       mainTileVariant.hip,
-      vergeOption && vergeOption.type === "METAL_FLUSH"
-        ? vergeOption
-        : undefined
+      vergeOption && isMetalFlushVerge ? vergeOption : undefined
     );
 
     this.addVentilationHoods(ventilationHoods);
@@ -130,10 +149,7 @@ class QuantitiesCalculator {
     this.addOtherAccessories(mainTileVariant.accessories);
   }
 
-  addSurfaceCoveringProducts(
-    mainTileVariant: MainTileVariant,
-    vergeOption?: VergeTileOption
-  ) {
+  addSurfaceCoveringProducts(mainTileVariant: Tile, vergeOption?: VergeOption) {
     if (!this.facesBattens) {
       throw new Error(
         `"facesBattens" must be assigned by the constructor before calculating surface covering products`
@@ -174,7 +190,7 @@ class QuantitiesCalculator {
         );
 
         if (mainTileVariant.brokenBond) {
-          if (faceTiles.cloakedVerge.halfLeft) {
+          if (faceTiles.cloakedVerge.halfLeft && vergeOption.halfLeft) {
             this.addProduct(
               ProductCategory.Tiles,
               vergeOption.halfLeft,
@@ -182,7 +198,7 @@ class QuantitiesCalculator {
             );
           }
 
-          if (faceTiles.cloakedVerge.halfRight) {
+          if (faceTiles.cloakedVerge.halfRight && vergeOption.halfRight) {
             this.addProduct(
               ProductCategory.Tiles,
               vergeOption.halfRight,
@@ -195,10 +211,10 @@ class QuantitiesCalculator {
   }
 
   addLineProducts(
-    mainTileVariant: MainTileVariant,
-    ridge: RidgeTile,
-    hip: LengthBasedProduct,
-    vergeOption?: VergeMetalFlushOption
+    mainTileVariant: Tile,
+    ridge?: RidgeOption,
+    hip?: LengthBasedProduct,
+    vergeOption?: VergeOption
   ) {
     if (!this.lines) {
       throw new Error(`"lines" must be assigned before calling this function`);
@@ -210,27 +226,30 @@ class QuantitiesCalculator {
 
     this.addValleyMetalFlush(mainTileVariant);
 
-    this.addLineTilesForLine(this.lines.ridge, {
-      name: ridge.name,
-      externalProductCode: ridge.externalProductCode,
-      image: ridge.image,
-      code: ridge.code,
-      length: ridge.length
-    });
+    if (ridge) {
+      this.addLineTilesForLine(this.lines.ridge, ridge);
 
-    if (ridge.tRidge) {
-      this.addProduct(ProductCategory.Tiles, ridge.tRidge, 0);
+      if (ridge.tRidge) {
+        this.addProduct(ProductCategory.Tiles, ridge.tRidge, 0);
+      }
+      if (ridge.yRidge) {
+        this.addProduct(ProductCategory.Tiles, ridge.yRidge, 0);
+      }
+      if (ridge.ridgeEnd) {
+        this.addProduct(ProductCategory.Tiles, ridge.ridgeEnd, 0);
+      }
     }
-    if (ridge.yRidge) {
-      this.addProduct(ProductCategory.Tiles, ridge.yRidge, 0);
+
+    if (hip) {
+      this.addLineTilesForLine(this.lines.hip, hip);
     }
-    if (ridge.ridgeEnd) {
-      this.addProduct(ProductCategory.Tiles, ridge.ridgeEnd, 0);
-    }
-    this.addLineTilesForLine(this.lines.hip, hip);
   }
 
-  addVergeMetalFlush(vergeOption: VergeMetalFlushOption) {
+  isMetalFlushVerge(vergeOption?: VergeOption) {
+    return Boolean(vergeOption?.leftStart && vergeOption?.rightStart);
+  }
+
+  addVergeMetalFlush(vergeOption: VergeOption) {
     this.lines?.leftVerge?.forEach(({ length }) =>
       this.addVergeMetalFlushForLength(
         length,
@@ -250,13 +269,11 @@ class QuantitiesCalculator {
 
   addVergeMetalFlushForLength(
     length: number,
-    metalFlush: LengthBasedProduct,
-    metalFlushStart?: LengthBasedProduct
+    metalFlush: VergeVariant,
+    metalFlushStart: VergeVariant
   ) {
-    if (metalFlushStart) {
-      length -= metalFlushStart.length;
-      this.addProduct(ProductCategory.Accessories, metalFlushStart, 1);
-    }
+    length -= metalFlushStart.length;
+    this.addProduct(ProductCategory.Accessories, metalFlushStart, 1);
 
     this.addProduct(
       ProductCategory.Accessories,
@@ -265,7 +282,7 @@ class QuantitiesCalculator {
     );
   }
 
-  addValleyMetalFlush(mainTileVariant: MainTileVariant) {
+  addValleyMetalFlush(mainTileVariant: Tile) {
     let valleyTopMetalFlushQuantity = 0;
     this.lines?.valley?.forEach(({ length, start, end, top, dormerStart }) => {
       if (start && mainTileVariant.valleyMetalFlushStart) {
@@ -336,20 +353,16 @@ class QuantitiesCalculator {
     this.addProduct(category, product, Math.ceil(length / product.length));
   }
 
-  addVentilationHoods(ventilationHoods: Accessory[]) {
+  addVentilationHoods(ventilationHoods: VentilationHood[]) {
     ventilationHoods.forEach((item) =>
-      this.addProduct(
-        item.category /* Should be 'ventilation', but this allows for exceptions */,
-        item,
-        1
-      )
+      this.addProduct(ProductCategory.Ventilation, item, 1)
     );
   }
 
   addGuttering(
     eave: Line[],
-    gutteringVariant?: GutteringVariant,
-    gutteringHook?: LengthBasedProduct,
+    gutteringVariant?: GutterVariant,
+    gutteringHook?: GutterHook,
     downPipes = 0,
     downPipeConnectors = 0
   ) {
@@ -371,15 +384,18 @@ class QuantitiesCalculator {
       }
     });
 
-    if (gutteringVariant) {
+    if (gutteringVariant?.downPipe) {
       this.addProduct(
         ProductCategory.Accessories,
-        gutteringVariant.downpipe,
+        gutteringVariant.downPipe,
         downPipes
       );
+    }
+
+    if (gutteringVariant?.downPipeConnector) {
       this.addProduct(
         ProductCategory.Accessories,
-        gutteringVariant.downpipeConnector,
+        gutteringVariant.downPipeConnector,
         downPipeConnectors
       );
     }
@@ -387,14 +403,14 @@ class QuantitiesCalculator {
 
   addCalculatedAccessories(
     { lines, area }: Measurements,
-    mainTileVariant: MainTileVariant,
-    underlay: Underlay,
-    ridge: RidgeTile
+    mainTileVariant: Tile,
+    underlay?: Underlay,
+    ridge?: RidgeOption
   ) {
-    const ridgeTiles = this.getProductQuantity(ridge.code);
-    const hipTiles = this.getProductQuantity(mainTileVariant.hip.code);
+    const ridgeTiles = this.getProductQuantity(ridge?.code);
+    const hipTiles = this.getProductQuantity(mainTileVariant.hip?.code);
 
-    if (mainTileVariant.clip) {
+    if (mainTileVariant.clip && ridgeTiles) {
       this.addProduct(
         ProductCategory.Fixings,
         mainTileVariant.clip,
@@ -402,7 +418,7 @@ class QuantitiesCalculator {
       );
     }
 
-    if (mainTileVariant.ridgeAndHipScrew) {
+    if (mainTileVariant.ridgeAndHipScrew && ridgeTiles) {
       this.addProduct(
         ProductCategory.Fixings,
         mainTileVariant.ridgeAndHipScrew,
@@ -452,6 +468,7 @@ class QuantitiesCalculator {
     }
 
     if (
+      ridgeTiles &&
       mainTileVariant.stormBracket &&
       ridge.externalProductCode === "25762568"
     ) {
@@ -466,30 +483,35 @@ class QuantitiesCalculator {
       this.addProduct(ProductCategory.Fixings, mainTileVariant.finishingKit, 1);
     }
 
-    this.addProduct(
-      ProductCategory.Accessories,
-      underlay,
-      area
-        ? Math.ceil(
-            area / (underlay.length * (underlay.width - underlay.overlap))
-          )
-        : 0
-    );
+    if (underlay) {
+      this.addProduct(
+        ProductCategory.Accessories,
+        underlay,
+        area
+          ? Math.ceil(
+              area / (underlay.length * (underlay.width - underlay.overlap))
+            )
+          : 0
+      );
+    }
 
     lines.eave.forEach(({ length }) =>
-      mainTileVariant.eaveAccessories.forEach((accessory) =>
+      mainTileVariant.eaveAccessories.forEach((accessory) => {
+        const category = accessory.category?.toLowerCase() as ProductCategory;
         this.addProduct(
-          accessory.category,
+          Object.values(ProductCategory).includes(category)
+            ? category
+            : ProductCategory.Accessories,
           accessory,
           Math.ceil(length / 1000) // These are calculated as one per eave meter
-        )
-      )
+        );
+      })
     );
   }
 
   addOtherAccessories(accessories: Accessory[]) {
     accessories.forEach((accessory) => {
-      if (accessory.category === ProductCategory.Sealing) {
+      if (accessory.category?.toLowerCase() === ProductCategory.Sealing) {
         this.addProduct(ProductCategory.Sealing, accessory, 0);
         return;
       }
@@ -504,7 +526,7 @@ class QuantitiesCalculator {
 
   addProduct(
     category: ProductCategory,
-    product: ProductRowBase,
+    product: Products,
     baseQuantity: number
   ) {
     const productFromMap = this.results.get(product.code);
@@ -520,7 +542,11 @@ class QuantitiesCalculator {
 
     const newMapProduct: ProductRow = {
       ...otherCurrentProductProps,
-      ...product,
+      image: product.mainImage,
+      code: product.code,
+      externalProductCode: product.externalProductCode,
+      name: product.name,
+      packSize: product.packSize,
       category,
       baseQuantity: Math.ceil(
         (oldBaseQuantity + baseQuantity) *

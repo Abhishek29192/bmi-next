@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirmation render correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h4
+      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+    >
+      confirmation.title
+    </h4>
+    <div
+      class="body"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        >
+          <span>
+            confirmation.description
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

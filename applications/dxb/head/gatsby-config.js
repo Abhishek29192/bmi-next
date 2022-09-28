@@ -20,66 +20,6 @@ if (process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true") {
   useCountryCode = false;
 }
 
-const allContentfulDocumentFilter = process.env.MARKET_TAG_NAME
-  ? `{
-        metadata: {
-          tags: {
-            elemMatch: {
-              contentful_id: {
-                eq: "${process.env.MARKET_TAG_NAME}"
-              }
-            }
-          }
-        }
-      }`
-  : `{}`;
-
-const documentsQuery = `{
-  allPIMDocument {
-    __typename
-    id
-    title
-    url
-    fileSize
-    format
-    extension
-    realFileName
-    assetType {
-      name
-      code
-      pimCode
-    }
-  }
-  allContentfulDocument (
-    filter: ${allContentfulDocumentFilter}
-  ) {
-    edges {
-      node {
-        __typename
-        id
-        title
-        asset {
-          file {
-            fileName
-            url
-            details {
-              size
-            }
-            contentType
-          }
-        }
-        noIndex
-        assetType {
-          name
-          code
-          pimCode
-        }
-      }
-    }
-  }
-}
-`;
-
 const pagePathsQuery = `{
   allSitePage {
     totalCount
@@ -165,56 +105,20 @@ const queries = [
         }
       }
     }
-  },
-  process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
-    query: documentsQuery,
-    transformer: ({ data }) => {
-      function isLinkDocument(document) {
-        return !!document.url && !document.fileSize && !document.realFileName;
-      }
-
-      if (!data) {
-        throw new Error("No data");
-      }
-
-      const { allPIMDocument, allContentfulDocument } = data;
-
-      return [
-        ...allPIMDocument.map((item) => ({
-          titleAndSize: `${item.title}_${item.fileSize}`,
-          isLinkDocument: isLinkDocument(item),
-          noIndex: false,
-          ...item
-        })),
-        ...allContentfulDocument.edges
-          .filter(({ node }) => node.asset)
-          .map(({ node }) => {
-            return {
-              titleAndSize: `${node.title}_${node.asset.file.details.size}`,
-              realFileName: `${node.asset.file.fileName}`,
-              isLinkDocument: isLinkDocument(node),
-              noIndex: node.noIndex || false,
-              ...node
-            };
-          })
-      ];
-    },
-    indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
   }
 ].filter(Boolean);
 
 const elasticSearchPlugin =
-  process.env.GATSBY_PREVIEW || process.env.DISABLE_ES_INDEXING
+  process.env.GATSBY_PREVIEW ||
+  process.env.DISABLE_ES_INDEXING ||
+  process.env.GATSBY_DISABLE_SEARCH === "true"
     ? []
     : [
         {
           resolve: `@bmi/gatsby-plugin-elasticsearch`,
           options: {
             node: process.env.GATSBY_ES_ENDPOINT,
-            auth: {
-              username: process.env.ES_ADMIN_USERNAME,
-              password: process.env.ES_ADMIN_PASSWORD
-            },
+            apiKey: process.env.ES_ADMIN_APIKEY,
             queries,
             chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
           }
@@ -440,7 +344,8 @@ const config = {
         options
       };
     }),
-    ...(process.env.DISABLE_PIM_DATA === "true"
+    ...(process.env.DISABLE_PIM_DATA === "true" ||
+    process.env.GATSBY_IS_SPA_ENABLED === "true"
       ? []
       : [
           {
@@ -587,7 +492,7 @@ const config = {
     ...(process.env.HUBSPOT_API_KEY
       ? [
           {
-            resolve: "gatsby-source-hubspot-forms",
+            resolve: "@bmi/gatsby-source-hubspot-forms",
             options: {
               apiKey: process.env.HUBSPOT_API_KEY
             }

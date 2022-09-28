@@ -51,7 +51,9 @@ const featureVideo: ContentfulVideoData = {
   subtitle: "video subtitle",
   videoUrl: "https://youtu.be/TDNEwZbm_Nk",
   previewMedia: null,
-  videoRatio: null
+  videoRatio: null,
+  defaultYouTubePreviewImage:
+    "https://i.ytimg.com/vi/TDNEwZbm_Nk/maxresdefault.jpg"
 };
 
 describe("generateHeroLevel test", () => {

@@ -1,5 +1,6 @@
+import logger from "@bmi-digital/functions-logger";
 import { MicroCopy } from "@bmi/components";
-import axios from "axios";
+import fetch from "node-fetch";
 import React, {
   createContext,
   Suspense,
@@ -12,13 +13,8 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
-import sampleDataV1 from "./pitched-roof-calculator/samples/data.json";
-import sampleDataV2 from "./pitched-roof-calculator/samples/v2/data.json";
-import {
-  CalculatorConfig,
-  Data as DataV1
-} from "./pitched-roof-calculator/types";
-import { Data as DataV2 } from "./pitched-roof-calculator/types/v2";
+import sampleData from "./pitched-roof-calculator/samples/data.json";
+import { CalculatorConfig, Data } from "./pitched-roof-calculator/types";
 
 const PitchedRoofCalculatorV1 = React.lazy(
   () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
@@ -52,7 +48,7 @@ type Props = {
 
 const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState<DataV2 | DataV1>();
+  const [data, setData] = useState<Data>();
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const {
     config: {
@@ -76,33 +72,37 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
       return;
     }
 
-    const cancelTokenSouce = axios.CancelToken.source();
+    const controller = new AbortController();
 
     const fetchAndSetData = async () => {
       if (!webtoolsCalculatorDataUrl) {
         devLog("Calculator data url was not found, using sample data instead.");
-        const data = isV2WebToolsCalculatorEnabled
-          ? (sampleDataV2 as DataV2)
-          : (sampleDataV1 as DataV1);
-        setData(data);
+        setData(sampleData as Data);
         return;
       }
 
       try {
-        const response = await axios.get(webtoolsCalculatorDataUrl, {
-          cancelToken: cancelTokenSouce.token
+        const response = await fetch(webtoolsCalculatorDataUrl, {
+          method: "GET",
+          signal: controller.signal
         });
 
-        setData(response.data);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        setData(data);
       } catch (error) {
-        devLog(error);
+        logger.error({ message: error.message });
         onError();
       }
     };
 
     fetchAndSetData();
 
-    return () => cancelTokenSouce.cancel();
+    return () => controller.abort();
   }, [isOpen]);
 
   const calculatorProps = useMemo(
@@ -121,11 +121,18 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         const token = await executeRecaptcha();
 
         try {
-          await axios.post(webToolsCalculatorApsisEndpoint, values, {
+          const response = await fetch(webToolsCalculatorApsisEndpoint, {
+            method: "POST",
+            body: JSON.stringify(values),
             headers: {
-              "X-Recaptcha-Token": token
+              "X-Recaptcha-Token": token,
+              "Content-Type": "application/json"
             }
           });
+
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
         } catch (error) {
           // Ignore errors if any as this isn't necessary for PDF download to proceed
           devLog("WebTools calculator api endpoint error", error);
@@ -152,7 +159,6 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
         <Suspense fallback={<div>Loading...</div>}>
           <PitchedRoofCalculatorV2
             {...calculatorProps}
-            data={calculatorProps.data as DataV2}
             calculatorConfig={calculatorConfig}
           />
         </Suspense>

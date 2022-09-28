@@ -9,7 +9,6 @@ import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
 import createProduct from "../../__tests__/helpers/ProductHelper";
 import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import {
-  getDefaultPreviewImage,
   getProductAttributes,
   mapClassificationValues,
   transformImages
@@ -1669,19 +1668,6 @@ describe("product-details-transforms tests", () => {
     });
   });
 
-  describe("getDefaultPreviewImage", () => {
-    it("should return correct image source if url provided", () => {
-      expect(getDefaultPreviewImage(`https://youtu.be/youtubeId `)).toEqual(
-        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-      );
-    });
-
-    it("should return correct image source if id provided", () => {
-      expect(getDefaultPreviewImage("youtubeId")).toEqual(
-        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
-      );
-    });
-  });
   describe("transformImages tests", () => {
     describe("when empty images are provided", () => {
       it("should return empty medias", () => {

@@ -79,12 +79,18 @@ const Page = ({
     resources,
     headScripts,
     regions,
-    pitchedRoofCalculatorConfig
+    pitchedRoofCalculatorConfig,
+    visualiserHouseTypes
   } = siteData;
 
   const { breadcrumbs, signupBlock, seo, path } = pageData;
   const {
-    config: { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl }
+    config: {
+      gatsbyReCaptchaKey,
+      gatsbyReCaptchaNet,
+      visualizerAssetUrl,
+      isSpaEnabled
+    }
   } = useConfig();
   const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
@@ -160,6 +166,7 @@ const Page = ({
                   contentSource={visualizerAssetUrl}
                   variantCodeToPathMap={variantCodeToPathMap}
                   shareWidgetData={resources?.visualiserShareWidget}
+                  houseTypes={visualiserHouseTypes}
                 >
                   <CalculatorProvider
                     onError={() =>
@@ -171,7 +178,9 @@ const Page = ({
                       <Content>{children}</Content>
                     </BrandProvider>
                   </CalculatorProvider>
-                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
+                  {signupBlock && !isSpaEnabled ? (
+                    <SignupBlock data={signupBlock} />
+                  ) : null}
                   <Footer
                     mainNavigation={footerMainNavigation}
                     secondaryNavigation={footerSecondaryNavigation}

@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import axios from "axios";
 import MockDate from "mockdate";
 import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
@@ -7,8 +6,20 @@ import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import KeyAssetTypesDownloadSection from "../KeyAssetTypesDownloadSection";
 
-jest.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
+  return {
+    ...original,
+    __esModule: true,
+    default: (...config) => fetchMock(...config)
+  };
+});
+
+const getFetchResponse = (response) => ({
+  ok: true,
+  json: () => response
+});
 
 // Needed to mock only one method of module
 jest.spyOn(ClientDownloadUtils, "downloadAs").mockImplementation();
@@ -106,7 +117,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       expect((downloadButton as HTMLAnchorElement).href).toEqual(document.url);
       expect(executeRecaptcha).not.toHaveBeenCalled();
-      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(fetchMock).not.toHaveBeenCalled();
       expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
       expect(window.alert).not.toHaveBeenCalled();
       expect(devLog).not.toHaveBeenCalled();
@@ -140,7 +151,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
         `https://${document.url}`
       );
       expect(executeRecaptcha).not.toHaveBeenCalled();
-      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(fetchMock).not.toHaveBeenCalled();
       expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
       expect(window.alert).not.toHaveBeenCalled();
       expect(devLog).not.toHaveBeenCalled();
@@ -162,7 +173,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       ];
 
       executeRecaptcha.mockResolvedValueOnce("token");
-      mockedAxios.post.mockResolvedValueOnce({ data: { url: "url" } });
+      fetchMock.mockReturnValueOnce(getFetchResponse({ url: "url" }));
 
       const { getByTestId } = render(
         <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
@@ -175,21 +186,27 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       expect(executeRecaptcha).toHaveBeenCalled();
       await waitFor(() =>
-        expect(mockedAxios.post).toHaveBeenLastCalledWith(
+        expect(fetchMock).toHaveBeenLastCalledWith(
           "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
           {
-            documents: [
-              {
-                href: document1.url,
-                name: document1.title
-              },
-              {
-                href: document2.url,
-                name: document2.title
-              }
-            ]
-          },
-          { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: document1.url,
+                  name: document1.title
+                },
+                {
+                  href: document2.url,
+                  name: document2.title
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": "token"
+            }
+          }
         )
       );
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledWith(
@@ -226,7 +243,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       fireEvent.click(downloadButton);
 
       expect(executeRecaptcha).not.toHaveBeenCalled();
-      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(fetchMock).not.toHaveBeenCalled();
       expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
       expect(window.alert).toHaveBeenCalledWith(
         "You cannot download documents on the preview environment."
@@ -260,7 +277,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
       fireEvent.click(downloadButton);
 
       expect(executeRecaptcha).not.toHaveBeenCalled();
-      expect(mockedAxios.post).not.toHaveBeenCalled();
+      expect(fetchMock).not.toHaveBeenCalled();
       expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
       expect(window.alert).not.toHaveBeenCalled();
       expect(devLog).not.toHaveBeenCalled();
@@ -280,7 +297,7 @@ describe("KeyAssetTypesDownloadSection component", () => {
         }
       ];
       executeRecaptcha.mockResolvedValueOnce("token");
-      mockedAxios.post.mockRejectedValue(Error("Expected Error"));
+      fetchMock.mockRejectedValue(Error("Expected Error"));
 
       const { getByTestId } = render(
         <KeyAssetTypesDownloadSection keyAssetDocuments={assetDocuments} />
@@ -293,23 +310,30 @@ describe("KeyAssetTypesDownloadSection component", () => {
 
       expect(executeRecaptcha).toHaveBeenCalled();
       await waitFor(() =>
-        expect(mockedAxios.post).toHaveBeenLastCalledWith(
+        expect(fetchMock).toHaveBeenLastCalledWith(
           "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
           {
-            documents: [
-              {
-                href: document1.url,
-                name: document1.title
-              },
-              {
-                href: document2.url,
-                name: document2.title
-              }
-            ]
-          },
-          { headers: { "X-Recaptcha-Token": "token" }, responseType: "text" }
+            method: "POST",
+            body: JSON.stringify({
+              documents: [
+                {
+                  href: document1.url,
+                  name: document1.title
+                },
+                {
+                  href: document2.url,
+                  name: document2.title
+                }
+              ]
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              "X-Recaptcha-Token": "token"
+            }
+          }
         )
       );
+
       expect(ClientDownloadUtils.downloadAs).not.toHaveBeenCalled();
       expect(window.alert).not.toHaveBeenCalled();
       expect(devLog).toHaveBeenCalledWith(

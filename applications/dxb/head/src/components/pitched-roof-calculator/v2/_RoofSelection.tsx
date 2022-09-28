@@ -1,15 +1,14 @@
-import { CardRadioGroup } from "@bmi/components";
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
-import { AnalyticsContext } from "../helpers/analytics";
+import { useAnalyticsContext } from "../helpers/analytics";
 import { RoofType, RoofV2 as Roof } from "../types/roof";
 import roofs from "./calculation/roofs";
+import { CardRadioGroup } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type RoofSelectionRowProps = {
   title: string;
-  select: (roof: Roof) => void;
   selected?: Roof;
   options: ReadonlyArray<Roof>;
 };
@@ -17,11 +16,10 @@ type RoofSelectionRowProps = {
 const RoofSelectionRow = ({
   title,
   options,
-  select,
   selected
 }: RoofSelectionRowProps) => {
   const { getMicroCopy } = useSiteContext();
-  const pushEvent = useContext(AnalyticsContext);
+  const pushEvent = useAnalyticsContext();
 
   if (!options.length) {
     return null;
@@ -29,7 +27,14 @@ const RoofSelectionRow = ({
 
   return (
     <FieldContainer title={title}>
-      <CardRadioGroup name="roof" defaultValue={(selected || {}).name}>
+      <CardRadioGroup
+        name="roof"
+        defaultValue={(selected || {}).name}
+        isRequired
+        fieldIsRequiredError={getMicroCopy(
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+        )}
+      >
         {options.map((roof) => {
           const label = getMicroCopy(microCopy.ROOF_SELECTION_ROOF, {
             name: roof.name
@@ -48,7 +53,6 @@ const RoofSelectionRow = ({
                   label,
                   action: "selected"
                 });
-                select(roof);
               }}
             />
           );
@@ -60,15 +64,11 @@ const RoofSelectionRow = ({
 
 const categories: RoofType[] = ["gable", "hipped", "sloped"];
 
-export type RoofSelectionProps = Pick<
-  RoofSelectionRowProps,
-  "select" | "selected"
-> & {
+export type RoofSelectionProps = Pick<RoofSelectionRowProps, "selected"> & {
   requiredRoofShapes?: { roofShapeId: string }[];
 };
 
 const RoofSelection = ({
-  select,
   selected,
   requiredRoofShapes
 }: RoofSelectionProps) => {
@@ -89,7 +89,7 @@ const RoofSelection = ({
           key={type}
           title={getMicroCopy(`roofSelection.${type}`)}
           options={filteredRoofs.filter((roof) => roof.type === type)}
-          {...{ select, selected }}
+          selected={selected}
         />
       ))}
     </div>

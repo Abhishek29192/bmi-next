@@ -1,6 +1,8 @@
 @import "~@bmi-digital/styles";
 
 .CalculatorStepper {
+  height: 100%;
+
   .title {
     padding: 0;
   }
@@ -42,58 +44,88 @@
   }
 
   .footer {
-    padding-top: 36px;
+    padding: 24px 30px;
+    background-color: $color-white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    border-top: 1px solid $color-alabaster;
+
+    .footerButton {
+      height: 44px;
+
+      &--link {
+        margin-right: 60px;
+
+        @media (max-width: $breakpoint-md) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .skipAndNextButtons {
+      margin-left: auto;
+    }
+
+    @media (max-width: $breakpoint-md - 1px) {
+      flex-direction: column;
+      padding: 16px 24px;
+
+      .footerButton {
+        width: 100%;
+
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+      }
+    }
   }
 
-  .breakableRow {
+  .form,
+  .stepWithoutForm {
+    height: 100%;
+
+    &--sm-padding,
+    &--md-padding,
+    &--lg-padding {
+      padding-bottom: 96px;
+
+      .formContent {
+        padding-bottom: 0;
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      &--sm-padding {
+        padding-bottom: 76px;
+      }
+
+      &--md-padding {
+        padding-bottom: 132px;
+      }
+
+      &--lg-padding {
+        padding-bottom: 188px;
+      }
+    }
+  }
+
+  .formContent {
+    overflow: hidden auto;
+    padding: 0 32px 32px;
+    height: 100%;
+  }
+
+  .spinnerContainer {
     display: flex;
-    flex-direction: column;
-
-    & > .breakableRow:not(:first-child) {
-      margin: 0;
-      margin-top: 24px;
-
-      @media (min-width: $breakpoint-md) {
-        margin: 0;
-      }
-    }
-
-    & > .rowItem:not(:first-child) {
-      margin: 0;
-      margin-top: 24px;
-
-      @media (min-width: $breakpoint-md) {
-        margin: 0;
-        margin-left: 60px;
-      }
-    }
-
-    &--reverse {
-      flex-direction: column-reverse;
-
-      & > .breakableRow:not(:first-child) {
-        margin: 0;
-        margin-bottom: 24px;
-
-        @media (min-width: $breakpoint-md) {
-          margin: 0;
-        }
-      }
-
-      & > .rowItem:not(:first-child) {
-        margin: 0;
-        margin-bottom: 24px;
-
-        @media (min-width: $breakpoint-md) {
-          margin: 0;
-          margin-right: 60px;
-        }
-      }
-    }
-
-    @media (min-width: $breakpoint-md) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px /* container margins and paddings */);
   }
 }

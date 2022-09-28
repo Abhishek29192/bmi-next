@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
 import findUp from "find-up";
 import type { GatsbyNode } from "gatsby";
 import toml from "toml";
-import dotenv from "dotenv";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
@@ -85,25 +85,30 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions
 }) => {
   const { createRedirect, createPage } = actions;
+  const isOnePageMarket = process.env.GATSBY_IS_SPA_ENABLED === "true";
 
-  const componentMap = {
-    ContentfulSimplePage: path.resolve(
-      "./src/templates/simplePage/components/simple-page.tsx"
-    ),
-    ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
-    ContentfulContactUsPage: path.resolve(
-      "./src/templates/contact-us-page.tsx"
-    ),
-    ContentfulProductListerPage: path.resolve(
-      "./src/templates/productListerPage/components/product-lister-page.tsx"
-    ),
-    ContentfulDocumentLibraryPage: path.resolve(
-      "./src/templates/documentLibrary/index.tsx"
-    ),
-    ContentfulBrandLandingPage: path.resolve(
-      "./src/templates/brand-landing-page.tsx"
-    )
-  };
+  const componentMap = isOnePageMarket
+    ? {
+        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx")
+      }
+    : {
+        ContentfulSimplePage: path.resolve(
+          "./src/templates/simplePage/components/simple-page.tsx"
+        ),
+        ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
+        ContentfulContactUsPage: path.resolve(
+          "./src/templates/contact-us-page.tsx"
+        ),
+        ContentfulProductListerPage: path.resolve(
+          "./src/templates/productListerPage/components/product-lister-page.tsx"
+        ),
+        ContentfulDocumentLibraryPage: path.resolve(
+          "./src/templates/documentLibrary/index.tsx"
+        ),
+        ContentfulBrandLandingPage: path.resolve(
+          "./src/templates/brand-landing-page.tsx"
+        )
+      };
 
   const result = await graphql<any, any>(`
     {
@@ -158,7 +163,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         ? {}
         : undefined;
 
-    if (!process.env.GATSBY_PREVIEW) {
+    if (!process.env.GATSBY_PREVIEW && !isOnePageMarket) {
       await createProductPages(
         site.id,
         site.countryCode,
@@ -174,7 +179,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         if (!component) {
           // eslint-disable-next-line no-console
           console.warn(
-            "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
+            `CreatePage: Could not map the page to any component. Make sure you handle the __typename ${page.__typename} with a template.`
           );
           return;
         }
@@ -197,46 +202,63 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
       })
     );
-
-    await createPage({
-      path: getPathWithCountryCode(site.countryCode, `search`),
-      component: path.resolve("./src/templates/search-page.tsx"),
-      context: {
-        siteId: site.id,
-        countryCode: site.countryCode,
-        variantCodeToPathMap,
-        assetTypeFilter: process.env.MARKET_TAG_NAME
-          ? {
-              metadata: {
-                tags: {
-                  elemMatch: {
-                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+    if (!isOnePageMarket) {
+      await createPage({
+        path: getPathWithCountryCode(site.countryCode, `search`),
+        component: path.resolve("./src/templates/search-page.tsx"),
+        context: {
+          siteId: site.id,
+          countryCode: site.countryCode,
+          variantCodeToPathMap,
+          assetTypeFilter: process.env.MARKET_TAG_NAME
+            ? {
+                metadata: {
+                  tags: {
+                    elemMatch: {
+                      contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                    }
                   }
                 }
               }
-            }
-          : null
-      }
-    });
+            : null
+        }
+      });
 
-    await createPage({
-      path: getPathWithCountryCode(site.countryCode, `422/`),
-      component: path.resolve("./src/templates/general-error.tsx"),
-      context: {
-        siteId: site.id
-      }
-    });
-
-    if (process.env.GATSBY_PREVIEW) {
       await createPage({
-        path: `/previewer/`,
-        component: path.resolve("./src/templates/previewer.tsx"),
+        path: getPathWithCountryCode(site.countryCode, `422/`),
+        component: path.resolve("./src/templates/general-error.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+
+      if (process.env.GATSBY_PREVIEW) {
+        await createPage({
+          path: `/previewer/`,
+          component: path.resolve("./src/templates/previewer.tsx"),
+          context: {
+            siteId: site.id
+          }
+        });
+      }
+
+      if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
+        await createSystemPages({
+          siteId: site.id,
+          countryCode: site.countryCode,
+          createPage: actions.createPage,
+          graphql
+        });
+      }
+
+      await createPage({
+        path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
+        component: path.resolve("./src/templates/ie-dialog/index.tsx"),
         context: {
           siteId: site.id
         }
       });
     }
-
     if (!process.env.GATSBY_PREVIEW) {
       await createPage({
         path: getPathWithCountryCode(site.countryCode, `sitemap/`),
@@ -246,23 +268,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       });
     }
-
-    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
-      await createSystemPages({
-        siteId: site.id,
-        countryCode: site.countryCode,
-        createPage: actions.createPage,
-        graphql
-      });
-    }
-
-    await createPage({
-      path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
-      component: path.resolve("./src/templates/ie-dialog/index.tsx"),
-      context: {
-        siteId: site.id
-      }
-    });
   }
 
   const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE}.toml`;

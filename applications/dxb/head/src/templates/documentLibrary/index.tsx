@@ -2,94 +2,63 @@ import {
   AlertBanner,
   DownloadList,
   DownloadListContext,
+  Filter,
   Grid,
   Hero,
   Section
 } from "@bmi/components";
+import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
-import React, { useRef, useState } from "react";
+import queryString from "query-string";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import BackToResults from "../../components/BackToResults";
-import Breadcrumbs, {
-  Data as BreadcrumbsData
-} from "../../components/Breadcrumbs";
-import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import Page, { Data as PageData } from "../../components/Page";
-import { Data as PageInfoData } from "../../components/PageInfo";
 import ProgressIndicator from "../../components/ProgressIndicator";
-import RichText, { RichTextData } from "../../components/RichText";
+import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
-import { Data as SiteData } from "../../components/Site";
+import { useSiteContext } from "../../components/Site";
 import filterStyles from "../../components/styles/Filters.module.scss";
 import { microCopy } from "../../constants/microCopies";
 import { useConfig } from "../../contexts/ConfigProvider";
-import { DocumentsWithFilters } from "../../types/documentsWithFilters";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
-import { filterDocuments, ResultType, Source } from "../../utils/filters";
-import { getCount as getCardsCount } from "./components/DocumentCardsResults";
-import { DocumentResultData, Format } from "./components/DocumentResults";
-import { getCount as getTechnicalTableCount } from "./components/DocumentTechnicalTableResults";
+import {
+  disableFiltersFromAggregations,
+  queryElasticSearch
+} from "../../utils/elasticSearch";
+import { xferFilterValue } from "../../utils/elasticSearchPLP";
+import {
+  clearFilterValues,
+  convertToURLFilters,
+  updateFilterValue
+} from "../../utils/filters";
+import { Format } from "./components/DocumentResults";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
+import {
+  compileESQuery,
+  getURLFilters,
+  resultTypeFormatMap
+} from "./helpers/documentsLibraryHelpers";
+import { DocumentLibraryProps, QueryParams } from "./types";
 
-const PAGE_SIZE = 24;
+export const PAGE_SIZE = 24;
 
-export type Data = PageInfoData &
-  PageData & {
-    description: RichTextData | null;
-    allowFilterBy: string[] | null;
-    source: Source;
-    resultsType: ResultType;
-    breadcrumbs: BreadcrumbsData;
-    categoryCodes: string[];
-    breadcrumbTitle: string;
-    documentsWithFilters: DocumentsWithFilters;
-  };
+const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
+  const location = useLocation();
+  const { getMicroCopy } = useSiteContext();
+  const [documents, setDocuments] = useState([]);
+  // Largely duplicated from product-lister-page.tsx
+  const [isLoading, setIsLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [page, setPage] = useState(0);
+  const [filters, setFilters] = useState<Filter[]>([]);
+  const [pageCount, setPageCount] = useState(
+    Math.ceil(documents.length / PAGE_SIZE)
+  );
 
-type Props = {
-  pageContext: {
-    pageId: string;
-    siteId: string;
-    categoryCode: string;
-    variantCodeToPathMap?: Record<string, string>;
-  };
-  data: {
-    contentfulDocumentLibraryPage: Data;
-    contentfulSite: SiteData;
-  };
-};
-
-const documentCountMap: Record<
-  Format,
-  (documents: DocumentResultData[]) => number
-> = {
-  simpleTable: getSimpleTableCount,
-  technicalTable: getTechnicalTableCount,
-  cards: getCardsCount
-};
-
-const resultTypeFormatMap: Record<
-  Data["source"],
-  Record<Data["resultsType"], Format>
-> = {
-  PIM: {
-    Simple: "simpleTable",
-    Technical: "technicalTable",
-    "Card Collection": "simpleTable"
-  },
-  CMS: {
-    Simple: "simpleTable",
-    Technical: "simpleTable",
-    "Card Collection": "cards"
-  },
-  ALL: {
-    Simple: "simpleTable",
-    Technical: "simpleTable",
-    "Card Collection": "simpleTable"
-  }
-};
-
-const DocumentLibraryPage = ({ pageContext, data }: Props) => {
+  const resultsElement = useRef<HTMLDivElement>(null);
   const {
     title,
     description,
@@ -98,9 +67,15 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     breadcrumbs,
     breadcrumbTitle,
     seo,
-    documentsWithFilters
+    documentsFilters
   } = data.contentfulDocumentLibraryPage;
-  const initialDocuments = documentsWithFilters.documents;
+  const {
+    config: { documentDownloadMaxLimit, isPreviewMode }
+  } = useConfig();
+  const maxSize = documentDownloadMaxLimit * 1048576;
+  // eslint-disable-next-line security/detect-object-injection
+  const format: Format = resultTypeFormatMap[source][resultsType];
+
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
@@ -112,93 +87,129 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     path: data.contentfulDocumentLibraryPage.path
   };
 
-  const {
-    config: { documentDownloadMaxLimit }
-  } = useConfig();
-
-  // Largely duplicated from product-lister-page.tsx
-  const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  // eslint-disable-next-line security/detect-object-injection
-  const format: Format = resultTypeFormatMap[source][resultsType];
-  // eslint-disable-next-line security/detect-object-injection
-  const getCount = documentCountMap[format];
-  const [pageCount, setPageCount] = useState(
-    Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
-  );
-  const [results, setResults] = useState(initialDocuments);
-  const resultsElement = useRef<HTMLDivElement>(null);
-
-  const [filters, setFilters] = useState(documentsWithFilters.filters);
-
-  const maxSize = documentDownloadMaxLimit * 1048576;
-
-  const fakeSearch = async (documents, filters, page) => {
-    if (isLoading) {
+  const fetchDocuments = async (filters, page, pageSize) => {
+    if (isLoading && !initialLoading) {
       devLog("Already loading...");
+      return;
+    }
+
+    if (isPreviewMode) {
+      alert("You cannot search on the preview environment.");
       return;
     }
 
     setIsLoading(true);
 
-    const newResults = await filterDocuments(documents, filters);
-    // eslint-disable-next-line security/detect-object-injection
-    const getCount = documentCountMap[format];
-    const newPageCount = Math.ceil(getCount(newResults) / PAGE_SIZE);
-    setPageCount(newPageCount);
-    setPage(newPageCount < page ? 0 : page);
-    setResults(newResults);
+    const query = compileESQuery(filters, page, pageSize, source, resultsType);
+    const result = await queryElasticSearch(
+      query,
+      process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
+    );
 
-    setIsLoading(false);
-  };
-
-  const handlePageChange = (_, page) => {
-    const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
-    window.scrollTo(0, scrollY);
-    setPage(page);
-  };
-
-  // Largely similar to product-lister-page.tsx
-  const handleFiltersChange =
-    (resetDownloadList) => async (filterName, filterValue, checked) => {
-      const addToArray = (array, value) => [...(array || []), value];
-      const removeFromArray = (array, value) =>
-        array.filter((v) => v !== value);
-      const getNewValue = (filter, checked, value) => {
-        return checked
-          ? addToArray(filter.value, filterValue)
-          : removeFromArray(filter.value, filterValue);
-      };
-
-      const newFilters = filters.map((filter) => {
-        return {
-          ...filter,
-          value:
-            filter.name === filterName
-              ? getNewValue(filter, checked, filterValue)
-              : filter.value
-        };
+    if (result && result.hits) {
+      const { hits } = result;
+      const uniqDocumentsCount =
+        result.aggregations?.unique_documents_count.value || 0;
+      const newPageCount = Math.ceil(uniqDocumentsCount / PAGE_SIZE);
+      setPageCount(newPageCount);
+      setPage(newPageCount < page ? 0 : page);
+      const docs = hits.hits.flatMap((hit) => {
+        return resultsType === "Technical"
+          ? hit.inner_hits.related_documents.hits.hits.map((hit) => hit._source)
+          : [hit._source];
       });
 
-      // NOTE: If filters change, we reset pagination to first page
-      await fakeSearch(initialDocuments, newFilters, 1);
+      setDocuments(docs);
+    }
 
-      resetDownloadList();
+    if (result && result.aggregations) {
+      const newFilters = disableFiltersFromAggregations(
+        filters,
+        result.aggregations
+      );
 
       setFilters(newFilters);
-    };
+    }
 
-  const clearFilters = () => {
-    // TODO: util function to "reset filters object"?
-    const newFilters = filters.map((filter) => ({
-      ...filter,
-      value: []
-    }));
+    setIsLoading(false);
+    setInitialLoading(false);
 
-    fakeSearch(initialDocuments, newFilters, 1);
+    return result;
+  };
+
+  const onFiltersChange = async (newFilters: Filter[]) => {
+    const result = await fetchDocuments(newFilters, 0, PAGE_SIZE);
+
+    if (result && result.aggregations) {
+      setFilters(
+        xferFilterValue(
+          newFilters,
+          disableFiltersFromAggregations(filters, result.aggregations)
+        )
+      );
+
+      return;
+    }
 
     setFilters(newFilters);
   };
+
+  const handlePageChange = async (_, page) => {
+    const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
+    window.scrollTo(0, scrollY);
+    await fetchDocuments(filters, page - 1, PAGE_SIZE);
+  };
+
+  const handleFiltersChange = (filterName, filterValue, checked) => {
+    const newFilters: Filter[] = updateFilterValue(
+      filters,
+      filterName,
+      filterValue,
+      checked
+    );
+
+    const URLFilters = convertToURLFilters(newFilters);
+
+    history.replaceState(
+      null,
+      null,
+      `${location.pathname}?${queryString.stringify({
+        filters: JSON.stringify(URLFilters)
+      })}`
+    );
+
+    onFiltersChange(newFilters);
+  };
+
+  const handleClearFilters = () => {
+    history.replaceState(null, null, location.pathname);
+    const newFilters = clearFilterValues(filters);
+    onFiltersChange(newFilters);
+  };
+
+  const queryParams = useMemo<QueryParams>(() => {
+    const parsedQueryParams = queryString.parse(location.search);
+    return {
+      ...parsedQueryParams,
+      ...(parsedQueryParams.filters
+        ? { filters: JSON.parse(parsedQueryParams.filters as string) }
+        : { filters: [] })
+    };
+  }, [location]);
+
+  useEffect(() => {
+    if (documentsFilters.filters) {
+      const { filters: initialFilters } = documentsFilters;
+      if (queryParams?.filters?.length) {
+        const updatedFilters = getURLFilters(initialFilters, queryParams);
+        setFilters(updatedFilters);
+        fetchDocuments(updatedFilters, 0, PAGE_SIZE);
+      } else {
+        setFilters(initialFilters);
+        fetchDocuments(initialFilters, 0, PAGE_SIZE);
+      }
+    }
+  }, [documentsFilters]);
 
   return (
     <Page
@@ -207,72 +218,72 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
     >
-      {({ siteContext: { getMicroCopy } }) => (
-        <>
-          {isLoading ? (
-            <Scrim theme="light">
-              <ProgressIndicator theme="light" />
-            </Scrim>
-          ) : null}
-          <Hero
-            level={2}
-            title={title}
-            breadcrumbs={
-              <BackToResults isDarkThemed>
-                <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
-              </BackToResults>
-            }
-          />
-          {description && (
-            <Section backgroundColor="white">
-              <RichText document={description} />
-            </Section>
-          )}
-          <DownloadList maxSize={maxSize}>
-            <DownloadListContext.Consumer>
-              {({ count }) => {
-                if (count === 0) {
-                  return null;
-                }
+      <>
+        {isLoading ? (
+          <Scrim theme="light">
+            <ProgressIndicator theme="light" />
+          </Scrim>
+        ) : null}
+        <Hero
+          level={2}
+          title={title}
+          breadcrumbs={
+            <BackToResults isDarkThemed>
+              <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+            </BackToResults>
+          }
+        />
+        {description && (
+          <Section backgroundColor="white">
+            <RichText document={description} />
+          </Section>
+        )}
+        <DownloadList maxSize={maxSize}>
+          <DownloadListContext.Consumer>
+            {({ count }) => {
+              if (count === 0) {
+                return null;
+              }
 
-                return (
-                  <AlertBanner severity="info">
-                    <AlertBanner.Title>
-                      {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_TITLE)}
-                    </AlertBanner.Title>
-                    {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_MESSAGE)}
-                  </AlertBanner>
-                );
-              }}
-            </DownloadListContext.Consumer>
-            <Section backgroundColor="white">
-              <div className={filterStyles["Filters"]}>
-                <Grid container spacing={3} ref={resultsElement}>
-                  <Grid item xs={12} md={12} lg={3}>
-                    <FilterSection
-                      filters={filters}
-                      handleFiltersChange={handleFiltersChange}
-                      clearFilters={clearFilters}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={12} lg={9}>
+              return (
+                <AlertBanner severity="info">
+                  <AlertBanner.Title>
+                    {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_TITLE)}
+                  </AlertBanner.Title>
+                  {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_MESSAGE)}
+                </AlertBanner>
+              );
+            }}
+          </DownloadListContext.Consumer>
+          <Section backgroundColor="white">
+            <div className={filterStyles["Filters"]}>
+              <Grid container spacing={3} ref={resultsElement}>
+                <Grid item xs={12} md={12} lg={3}>
+                  <FilterSection
+                    filters={filters}
+                    handleFiltersChange={handleFiltersChange}
+                    clearFilters={handleClearFilters}
+                  />
+                </Grid>
+                <Grid item xs={12} md={12} lg={9}>
+                  {!initialLoading ? (
                     <ResultSection
-                      results={results}
+                      results={documents}
                       format={format}
                       page={page}
                       pageCount={pageCount}
                       handlePageChange={handlePageChange}
                     />
-                  </Grid>
+                  ) : null}
                 </Grid>
-              </div>
-            </Section>
-          </DownloadList>
-          <Section backgroundColor="alabaster" isSlim>
-            <Breadcrumbs data={enhancedBreadcrumbs} />
+              </Grid>
+            </div>
           </Section>
-        </>
-      )}
+        </DownloadList>
+        <Section backgroundColor="alabaster" isSlim>
+          <Breadcrumbs data={enhancedBreadcrumbs} />
+        </Section>
+      </>
     </Page>
   );
 };
@@ -292,10 +303,7 @@ export const pageQuery = graphql`
       categoryCodes
       allowFilterBy
       resultsType
-      documentsWithFilters {
-        documents {
-          ...DocumentResultsFragment
-        }
+      documentsFilters {
         filters {
           filterCode
           label

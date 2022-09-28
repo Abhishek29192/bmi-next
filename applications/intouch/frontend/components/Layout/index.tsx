@@ -18,9 +18,17 @@ export type LayoutProps = {
 };
 
 export const GET_PAGE_DATA = gql`
-  query GetGlobalData($accountId: Int!) {
+  query GetGlobalData($accountId: Int!, $tag: String!) {
     # Only one Market Content is expected to be available for user
-    marketContentCollection(limit: 1) {
+    marketContentCollection(
+      where: {
+        contentfulMetadata: {
+          tags_exists: true
+          tags: { id_contains_some: [$tag] }
+        }
+      }
+      limit: 1
+    ) {
       items {
         footerLinksCollection {
           items {
@@ -62,8 +70,8 @@ const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
 
 export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
-  const marketContent = pageData.marketContentCollection?.items[0];
-  const notifications = pageData.notifications?.nodes;
+  const marketContent = pageData?.marketContentCollection?.items[0];
+  const notifications = pageData?.notifications?.nodes;
 
   return (
     <ThemeProvider>
@@ -108,7 +116,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
             />
             <div className={styles.appContent}>{children}</div>
             <Footer links={footerLinks} />
-            <LogoutPopup showAfter={1000 * 60 * 15} waitFor={15 * 1000} />
+            <LogoutPopup showAfter={1000 * 60 * 19} waitFor={60 * 1000} />
           </div>
         </div>
       </div>

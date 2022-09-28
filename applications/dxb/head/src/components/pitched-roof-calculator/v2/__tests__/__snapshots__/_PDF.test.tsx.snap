@@ -193,7 +193,7 @@ Document {
       },
       Array [
         Object {
-          "alignment": "left",
+          "alignment": "center",
           "bold": true,
           "fontSize": 12,
           "lineHeight": 1.65,
@@ -490,7 +490,7 @@ Document {
       null,
       Array [
         Object {
-          "alignment": "left",
+          "alignment": "center",
           "bold": true,
           "fontSize": 12,
           "lineHeight": 1.65,
@@ -655,7 +655,7 @@ Document {
       null,
       Array [
         Object {
-          "alignment": "left",
+          "alignment": "center",
           "bold": true,
           "fontSize": 12,
           "lineHeight": 1.65,
@@ -1488,7 +1488,7 @@ Document {
       ],
       Array [
         Object {
-          "alignment": "left",
+          "alignment": "center",
           "bold": true,
           "fontSize": 12,
           "lineHeight": 1.65,

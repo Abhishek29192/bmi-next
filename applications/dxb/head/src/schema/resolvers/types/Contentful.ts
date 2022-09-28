@@ -4,11 +4,13 @@
  * main types, but with any "link" fields and without any resolver created
  * fields.
  */
-import { Node } from "gatsby";
 import { Region } from "../../../components/Header";
 import { Data as ContentfulImage } from "../../../components/Image";
+import { CalculatorConfig } from "../../../components/pitched-roof-calculator/types";
 import { RichTextData } from "../../../components/RichText";
 import { Data as ContentfulVideo } from "../../../components/Video";
+import { HouseType } from "../../../components/visualiser/Types";
+import { Node } from "./Gatsby";
 
 export type Resource = Node & {
   keyAssetTypes: string[] | null;
@@ -78,7 +80,8 @@ export type ContentfulSite = Node & {
   menuUtilities: null;
   resources: null;
   regions: Region[] | null;
-  pitchedRoofCalculatorConfig: null;
+  pitchedRoofCalculatorConfig: CalculatorConfig | null;
+  visualiserHouseTypes: HouseType[] | null;
 };
 export type CTAType = {
   linkedPage: { path: string };

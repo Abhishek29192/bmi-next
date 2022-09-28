@@ -1,17 +1,11 @@
 import { FormContext } from "@bmi/components";
+import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/v2/data.json";
+import { Underlay } from "../../types/v2";
 import UnderlaySelection from "../_UnderlaySelection";
-
-const dimensionsSample = {
-  A: "10",
-  B: "5",
-  P1: "20",
-  P2: "21"
-};
 
 const pushEvent = jest.fn();
 jest.mock("../../helpers/analytics", () => {
@@ -26,63 +20,95 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe("PitchedRoofCalculator UnderlaySelection component", () => {
-  it("renders correctly", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
+const underlayWithoutDescription = createProduct({
+  name: "First underlay",
+  externalProductCode: "11",
+  overlap: 0,
+  minSupportedPitch: 15,
+  length: 30,
+  shortDescription: undefined,
+  width: 1400
+}) as Underlay;
 
-    const { container } = render(
+const underlayWithDescription = createProduct({
+  name: "Underlay with description",
+  externalProductCode: "22",
+  shortDescription: "Description",
+  overlap: 0,
+  minSupportedPitch: 15,
+  length: 30,
+  width: 1500
+}) as Underlay;
+
+describe("PitchedRoofCalculator UnderlaySelection component", () => {
+  it("renders with description", () => {
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
           <UnderlaySelection
             selected={undefined}
-            dimensions={dimensionsSample}
-            options={data.underlays}
+            options={[underlayWithDescription]}
           />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    expect(
+      screen.getByText(underlayWithDescription.shortDescription)
+    ).toBeInTheDocument();
   });
 
   it("renders with no options", () => {
-    const updateFormState = jest.fn();
-    const hasBeenSubmitted = false;
-    const submitButtonDisabled = false;
-
-    const { container } = render(
+    render(
       <MicroCopy.Provider values={en}>
         <FormContext.Provider
           value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
+            updateFormState: jest.fn(),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
+            values: {}
+          }}
+        >
+          <UnderlaySelection options={[]} />
+        </FormContext.Provider>
+      </MicroCopy.Provider>
+    );
+
+    expect(screen.getByText("MC: underlaySelection.empty")).toBeInTheDocument();
+  });
+
+  it("render with selected by default option", () => {
+    let selected = undefined;
+    render(
+      <MicroCopy.Provider values={en}>
+        <FormContext.Provider
+          value={{
+            updateFormState: (fieldValues) => (selected = fieldValues),
+            hasBeenSubmitted: false,
+            submitButtonDisabled: false,
             values: {}
           }}
         >
           <UnderlaySelection
-            selected={undefined}
-            dimensions={dimensionsSample}
-            options={[]}
+            selected={underlayWithDescription}
+            options={[underlayWithDescription, underlayWithoutDescription]}
           />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
 
-    expect(container).toMatchSnapshot();
+    expect(selected.underlay).toBe(underlayWithDescription.externalProductCode);
   });
 
   describe("PitchedRoofCalculator UnderlaySelection - GTM labels", () => {
-    it("pushed event with description", () => {
+    it("calls analytics event with description", () => {
       render(
         <MicroCopy.Provider values={en}>
           <FormContext.Provider
@@ -95,8 +121,7 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
           >
             <UnderlaySelection
               selected={undefined}
-              dimensions={dimensionsSample}
-              options={[data.underlays[0]]}
+              options={[underlayWithDescription]}
             />
           </FormContext.Provider>
         </MicroCopy.Provider>
@@ -106,14 +131,14 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
         event: "dxb.button_click",
         action: "selected",
         id: "rc-select-underlay",
-        label: `${data.underlays[0].name} - ${data.underlays[0].description} - MC: calculator.nobb.label: ${data.underlays[0].externalProductCode}`
+        label: `${underlayWithDescription.name} - ${underlayWithDescription.shortDescription} - MC: calculator.nobb.label: ${underlayWithDescription.externalProductCode}`
       };
 
-      fireEvent.click(screen.getByText(data.underlays[0].name));
+      fireEvent.click(screen.getByText(underlayWithDescription.name));
       expect(pushEvent).toBeCalledWith(expectedResult);
     });
 
-    it("renders without description", () => {
+    it("calls analytics event without description", () => {
       render(
         <MicroCopy.Provider values={en}>
           <FormContext.Provider
@@ -126,8 +151,7 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
           >
             <UnderlaySelection
               selected={undefined}
-              dimensions={dimensionsSample}
-              options={[{ ...data.underlays[0], description: undefined }]}
+              options={[underlayWithoutDescription]}
             />
           </FormContext.Provider>
         </MicroCopy.Provider>
@@ -137,10 +161,10 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
         event: "dxb.button_click",
         action: "selected",
         id: "rc-select-underlay",
-        label: `${data.underlays[0].name} - MC: calculator.nobb.label: ${data.underlays[0].externalProductCode}`
+        label: `${underlayWithoutDescription.name} - MC: calculator.nobb.label: ${underlayWithoutDescription.externalProductCode}`
       };
 
-      fireEvent.click(screen.getByText(data.underlays[0].name));
+      fireEvent.click(screen.getByText(underlayWithoutDescription.name));
       expect(pushEvent).toBeCalledWith(expectedResult);
     });
   });

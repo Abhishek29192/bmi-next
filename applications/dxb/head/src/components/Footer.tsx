@@ -1,10 +1,11 @@
-import { Button, ButtonProps } from "@bmi/components";
+import { Button, ButtonProps, logoIconMap } from "@bmi/components";
 import { Footer, FooterMenuItem, BMI as BmiIcon } from "@bmi/components";
 import { HidePrint } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import {
   getClickableActionFromUrl,
@@ -40,7 +41,7 @@ const parseNavigation = (
     return {
       label,
       // eslint-disable-next-line security/detect-object-injection
-      icon: iconName ? iconMap[iconName] : undefined,
+      icon: iconName && !logoIconMap[iconName] ? iconMap[iconName] : undefined,
       isLabelHidden,
       action: getClickableActionFromUrl(
         linkedPage,
@@ -60,7 +61,12 @@ type Props = {
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const main = parseNavigation(mainNavigation?.links, countryCode);
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
+  const main = isSpaEnabled
+    ? []
+    : parseNavigation(mainNavigation?.links, countryCode);
   const secondary = parseNavigation(secondaryNavigation?.links, countryCode);
   const secondaryWithSitemap = [
     ...secondary,

@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { CalculatorConfig, CalculatorSteps } from "../types";
-import { Data } from "../types/v2";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(
@@ -16,19 +15,18 @@ export type PitchedRoofCalculatorProps = {
   isOpen?: boolean;
   onClose: () => void;
   isDebugging?: boolean;
-  data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
   calculatorConfig: CalculatorConfig | null;
 };
 
 const stepProgress: { [key in CalculatorSteps]: number } = {
-  [CalculatorSteps.SelectRoof]: 14.28,
-  [CalculatorSteps.EnterDimensions]: 14.28,
-  [CalculatorSteps.SelectTile]: 28.56,
-  [CalculatorSteps.SelectVariant]: 42.84,
-  [CalculatorSteps.TileOptions]: 57.12,
-  [CalculatorSteps.SelectUnderlay]: 71.4,
-  [CalculatorSteps.Guttering]: 85.68,
+  [CalculatorSteps.SelectRoof]: 12.5,
+  [CalculatorSteps.EnterDimensions]: 25,
+  [CalculatorSteps.SelectTile]: 37.5,
+  [CalculatorSteps.SelectVariant]: 50,
+  [CalculatorSteps.TileOptions]: 62.5,
+  [CalculatorSteps.SelectUnderlay]: 75,
+  [CalculatorSteps.Guttering]: 87.5,
   [CalculatorSteps.YourSolutionContains]: 100
 };
 
@@ -36,7 +34,6 @@ const PitchedRoofCalculator = ({
   isOpen,
   onClose,
   isDebugging,
-  data,
   calculatorConfig,
   onAnalyticsEvent = () => {
     // no-op
@@ -85,7 +82,9 @@ const PitchedRoofCalculator = ({
           onClose();
         }}
         maxWidth="xl"
-        allowOverflow
+        className={styles["PitchedRoofCalculator"]}
+        containerClassName={styles["dialogContent"]}
+        allowOverflow={false}
         onBackdropClick={() => {
           // Disabling close on backdrop click
         }}
@@ -98,22 +97,15 @@ const PitchedRoofCalculator = ({
             className={styles["progressBar"]}
           />
         </ContainerDialog.Header>
-        <div className={styles["PitchedRoofCalculator"]}>
+        <div className={styles["dialogBody"]}>
           {!isSSR ? (
             <Suspense fallback={loading}>
-              {data ? (
-                <PitchedRoofCalculatorSteps
-                  {...{
-                    isDebugging,
-                    selected,
-                    setSelected,
-                    data,
-                    calculatorConfig
-                  }}
-                />
-              ) : (
-                loading
-              )}
+              <PitchedRoofCalculatorSteps
+                isDebugging={isDebugging}
+                selected={selected}
+                setSelected={setSelected}
+                calculatorConfig={calculatorConfig}
+              />
             </Suspense>
           ) : null}
         </div>
@@ -129,6 +121,9 @@ export const query = graphql`
     hubSpotFormId
     roofShapes {
       roofShapeId
+    }
+    needHelpSection {
+      ...TitleWithContentFragment
     }
   }
 `;

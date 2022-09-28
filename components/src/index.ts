@@ -18,11 +18,13 @@ import Card, {
   CardMedia,
   CardProps
 } from "./card";
-import CardCheckboxGroup from "./card-checkbox-group";
+import CardCheckboxGroup, {
+  CardCheckboxGroupProps
+} from "./card-checkbox-group";
 import CardInput, { CardInputProps } from "./card-input";
 import CardRadioGroup, { CardRadioGroupProps } from "./card-radio-group";
 import Carousel, { getPageFromAbsoluteIndex } from "./carousel";
-import Checkbox, { Props as CheckboxProps, checkboxStyles } from "./checkbox";
+import Checkbox, { checkboxStyles, Props as CheckboxProps } from "./checkbox";
 import Chip, { Props as ChipProps } from "./chip";
 import Clickable, {
   ClickableAction,
@@ -60,7 +62,8 @@ import Form, {
   InputValue,
   ValidationResult,
   Values as FormValues,
-  withFormControl
+  withFormControl,
+  WithFormControlProps
 } from "./form";
 import GeolocationButton from "./geolocation-button";
 import GoogleApi, {
@@ -128,7 +131,6 @@ import Icon, {
   YouTube
 } from "./icon";
 import IconList from "./icon-list";
-import SignupBlock from "./signup-block";
 import InputGroup from "./input-group";
 import LanguageSelection, {
   languages,
@@ -145,9 +147,9 @@ import Logo, {
   AeroDek,
   Awak,
   BMI,
+  BMIAcademy,
   BMI_Academy_DE,
   BMI_Academy_EN,
-  BMIAcademy,
   Braas,
   Bramac,
   Cobert,
@@ -218,6 +220,7 @@ import Section, {
 import Select, { MenuItem as SelectMenuItem, SelectProps } from "./select";
 import ShareWidget from "./share-widget";
 import ShowMore from "./show-more";
+import SignupBlock from "./signup-block";
 import SlideControls, {
   SlideControlsProps,
   StateSlideControls
@@ -243,12 +246,12 @@ import TwoPaneCarousel, {
 } from "./two-pane-carousel";
 import Typography, { TypographyProps } from "./typography";
 import Upload, { getFileSizeString, UploadFile, UploadProps } from "./upload";
+import { transformHyphens } from "./utils/commonUtils";
 import VerticalRoller, {
   Slide as VerticalRollerSlide
 } from "./vertical-roller";
 import Villain, { VillainProps } from "./villain";
-import YoutubeVideo, { Layout, YoutubeVideoProps, GTM } from "./youtube-video";
-import { transformHyphens } from "./utils/commonUtils";
+import YoutubeVideo, { GTM, Layout, YoutubeVideoProps } from "./youtube-video";
 
 export type {
   AccordionSummaryProps,
@@ -259,6 +262,7 @@ export type {
   IconButtonProps,
   CardInputProps,
   CardRadioGroupProps,
+  CardCheckboxGroupProps,
   CheckboxProps,
   ChipProps,
   ClickableProps,
@@ -279,6 +283,7 @@ export type {
   FormProps,
   ValidationResult,
   FormValues,
+  WithFormControlProps,
   InputValue,
   AutocompletePrediction,
   AutocompleteService,
@@ -335,7 +340,6 @@ export type {
   CardProps,
   GTM
 };
-
 export {
   Accordion,
   AlertBanner,

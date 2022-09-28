@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "tags": []
+  },
+  "sys": {
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "id": "4P2uy14Y5aalE9bL8sblGA",
+    "type": "Asset",
+    "createdAt": "2022-05-16T16:50:16.723Z",
+    "updatedAt": "2022-05-17T11:51:06.218Z",
+    "environment": {
+      "sys": {
+        "id": "master",
+        "type": "Link",
+        "linkType": "Environment"
+      }
+    },
+    "publishedVersion": 15,
+    "publishedAt": "2022-05-17T11:51:06.218Z",
+    "firstPublishedAt": "2022-05-16T16:53:40.949Z",
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "6CM7y3b8r1ga39KskCMnjB"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "6CM7y3b8r1ga39KskCMnjB"
+      }
+    },
+    "publishedCounter": 5,
+    "version": 16,
+    "publishedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "6CM7y3b8r1ga39KskCMnjB"
+      }
+    }
+  },
+  "fields": {
+    "title": {
+      "en-GB": "Associate checklist Week test 1"
+    },
+    "file": {
+      "en-GB": {
+        "url": "//assets.ctfassets.net/xd0cdgm332jz/4P2uy14Y5aalE9bL8sblGA/2f8ee37073d0e125d22194910c6a47e9/Associate_checklist_Week_1_TC__1_.pdf",
+        "details": {
+          "size": 194561
+        },
+        "fileName": "Associate_checklist_Week_1_TC__1_.pdf",
+        "contentType": "application/pdf"
+      }
+    }
+  }
+}

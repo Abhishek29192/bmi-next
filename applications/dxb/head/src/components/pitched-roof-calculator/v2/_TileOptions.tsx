@@ -1,26 +1,31 @@
-import {
-  CardCheckboxGroup,
-  CardRadioGroup,
-  FormContext
-} from "@bmi/components";
+import { FormContext } from "@bmi/components";
 import React, { useContext, useEffect } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
-import { Accessory, LengthBasedProduct, VergeOption } from "../types";
-import { MainTileVariant } from "../types/v2";
+import {
+  RidgeOption,
+  Tile,
+  TileOptionSelections,
+  VentilationHood,
+  VergeOption
+} from "../types/v2";
+import {
+  CardCheckboxGroup,
+  CardRadioGroup
+} from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VergeOptionsProps = {
   selected?: string;
-  options: ReadonlyArray<VergeOption>;
+  verge: VergeOption;
 };
 
-const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
+const VergeOptions = ({ selected, verge }: VergeOptionsProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
-  if (!options.length) {
+  if (!verge) {
     return null;
   }
 
@@ -37,22 +42,20 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, left }) => (
-          <CardRadioGroup.Item
-            key={name}
-            value={name}
-            title={name}
-            imageSource={left.image}
-            onClick={() => {
-              pushEvent({
-                event: "dxb.button_click",
-                id: "rc-options-accessories",
-                label: name,
-                action: "selected"
-              });
-            }}
-          />
-        ))}
+        <CardRadioGroup.Item
+          key={verge.left.externalProductCode}
+          value={verge.left.externalProductCode}
+          title={verge.left.name}
+          imageSource={verge.left.mainImage}
+          onClick={() => {
+            pushEvent({
+              event: "dxb.button_click",
+              id: "rc-options-accessories",
+              label: verge.left.name,
+              action: "selected"
+            });
+          }}
+        />
         <CardRadioGroup.Item
           value="none"
           title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL)}
@@ -72,7 +75,7 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
 
 type RidgeOptionsProps = {
   selected?: string;
-  options: ReadonlyArray<LengthBasedProduct>;
+  options: ReadonlyArray<RidgeOption>;
 };
 
 const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
@@ -103,12 +106,12 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
           microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
-        {options.map(({ name, image, externalProductCode }) => (
+        {options.map(({ name, mainImage, externalProductCode }) => (
           <CardRadioGroup.Item
             key={externalProductCode}
             value={externalProductCode}
             title={name}
-            imageSource={image}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",
@@ -133,7 +136,7 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
 
 type VentilationHoodOptionsProps = {
   selected?: string[];
-  options: ReadonlyArray<Accessory>;
+  options: ReadonlyArray<VentilationHood>;
 };
 
 const VentilationHoodOptions = ({
@@ -163,12 +166,12 @@ const VentilationHoodOptions = ({
           microCopy.TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL
         )}
       >
-        {options.map(({ name, image, externalProductCode }) => (
+        {options.map(({ name, mainImage, externalProductCode }) => (
           <CardCheckboxGroup.Item
             key={externalProductCode}
             value={externalProductCode}
             title={name}
-            imageSource={image}
+            imageSource={mainImage}
             onClick={() => {
               pushEvent({
                 event: "dxb.button_click",
@@ -191,31 +194,32 @@ const VentilationHoodOptions = ({
   );
 };
 
-export type TileOptionsSelections = {
-  verge?: string;
-  ridge?: string;
-  ventilation?: string[];
-};
-
 export type TileOptionsProps = {
-  variant: MainTileVariant;
-  selections?: TileOptionsSelections;
+  variant: Tile;
+  selections?: TileOptionSelections;
 };
 
 const TileOptions = ({ variant, selections }: TileOptionsProps) => {
+  const selectedVerge =
+    selections?.verge === "none"
+      ? "none"
+      : selections?.verge?.left?.externalProductCode;
+
+  const selectedVentilation =
+    selections?.ventilationHoods === "none"
+      ? ["none"]
+      : selections?.ventilationHoods?.map((v) => v.externalProductCode);
+
   return (
     <div>
-      <VergeOptions
-        selected={selections?.verge}
-        options={variant.vergeOptions}
-      />
+      <VergeOptions selected={selectedVerge} verge={variant.vergeOption} />
       <RidgeOptions
-        selected={selections?.ridge}
+        selected={selections?.ridge?.externalProductCode}
         options={variant.ridgeOptions}
       />
       <VentilationHoodOptions
-        selected={selections?.ventilation}
-        options={variant.ventilationHoodOptions || []}
+        selected={selectedVentilation}
+        options={variant.ventilationHoodOptions}
       />
     </div>
   );
