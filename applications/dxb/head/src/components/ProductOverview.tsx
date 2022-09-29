@@ -27,6 +27,7 @@ export type Data = {
   variantCode: string;
   isRecaptchaShown?: boolean;
   videos?: MediaData[];
+  isVisualiserAvailable: boolean;
 };
 
 type Props = {
@@ -53,7 +54,8 @@ const ProductOverview = ({
     attributes,
     isRecaptchaShown,
     videos = [],
-    variantCode
+    variantCode,
+    isVisualiserAvailable
   },
   children
 }: Props) => {
@@ -61,6 +63,10 @@ const ProductOverview = ({
   const { open: openVisualiser } = useContext(VisualiserContext);
 
   const getVisualiserMedia = () => {
+    if (!isVisualiserAvailable) {
+      return;
+    }
+
     for (let index = 0; index < tilesSetData.tiles.length; index++) {
       const tile = tilesSetData.tiles[Number(index)];
       const tileColor = tile.colours.find(
