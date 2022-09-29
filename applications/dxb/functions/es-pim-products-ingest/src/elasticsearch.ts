@@ -185,16 +185,16 @@ const updateEsDocuments = async (
     message: `all bulkAssetsOperations: ${JSON.stringify(bulkAssetsOperations)}`
   });
 
-  await client.deleteByQuery({
-    index: index,
-    body: {
-      query: {
-        match: {
-          productBaseCode: itemCode
-        }
-      }
-    }
-  });
+  // await client.deleteByQuery({
+  //   index: index,
+  //   body: {
+  //     query: {
+  //       match: {
+  //         productBaseCode: itemCode
+  //       }
+  //     }
+  //   }
+  // });
 
   await performBulkOperations(client, bulkAssetsOperations, index);
 
