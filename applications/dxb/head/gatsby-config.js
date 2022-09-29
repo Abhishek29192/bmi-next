@@ -171,7 +171,8 @@ const config = {
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
-        siteUrl: process.env.GATSBY_SITE_URL
+        siteUrl: process.env.GATSBY_SITE_URL,
+        stripQueryString: true
       }
     },
     `gatsby-transformer-json`,

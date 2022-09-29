@@ -16,7 +16,7 @@ const { ES_INDEX_PREFIX, ES_INDEX_NAME_DOCUMENTS } = process.env;
 const getEsClient = jest.fn();
 const bulk = jest.fn();
 const count = jest.fn();
-const deleteByQuery = jest.fn();
+// const deleteByQuery = jest.fn();
 jest.mock("@bmi/functions-es-client", () => {
   return { getEsClient: (...args: []) => getEsClient(...args) };
 });
@@ -37,9 +37,9 @@ beforeEach(() => {
 
   getEsClient.mockImplementation(() => ({
     bulk: (params: RequestParams.Bulk) => bulk(params),
-    count: (params: RequestParams.Count) => count(params),
-    deleteByQuery: (params: RequestParams.DeleteByQuery) =>
-      deleteByQuery(params)
+    count: (params: RequestParams.Count) => count(params)
+    // deleteByQuery: (params: RequestParams.DeleteByQuery) =>
+    //   deleteByQuery(params)
   }));
 });
 
@@ -65,11 +65,11 @@ describe("updateElasticSearch", () => {
         }
       }
     });
-    deleteByQuery.mockResolvedValue({
-      body: {
-        status: "OK"
-      }
-    });
+    // deleteByQuery.mockResolvedValue({
+    //   body: {
+    //     status: "OK"
+    //   }
+    // });
 
     await updateElasticSearch(
       itemType,
@@ -92,16 +92,16 @@ describe("updateElasticSearch", () => {
         esTransformedProductDocumentsMock[0]
       ]
     });
-    expect(deleteByQuery).toBeCalledWith({
-      index: documentIndex,
-      body: {
-        query: {
-          match: {
-            productBaseCode: productCode
-          }
-        }
-      }
-    });
+    // expect(deleteByQuery).toBeCalledWith({
+    //   index: documentIndex,
+    //   body: {
+    //     query: {
+    //       match: {
+    //         productBaseCode: productCode
+    //       }
+    //     }
+    //   }
+    // });
     expect(bulk).toBeCalledWith({
       index: documentIndex,
       refresh: true,
@@ -143,11 +143,11 @@ describe("updateElasticSearch", () => {
         }
       }
     });
-    deleteByQuery.mockResolvedValue({
-      body: {
-        status: "OK"
-      }
-    });
+    // deleteByQuery.mockResolvedValue({
+    //   body: {
+    //     status: "OK"
+    //   }
+    // });
 
     await updateElasticSearch(
       itemType,
@@ -158,16 +158,16 @@ describe("updateElasticSearch", () => {
 
     expect(getEsClient).toBeCalled();
     expect(bulk).toBeCalledTimes(1);
-    expect(deleteByQuery).toBeCalledWith({
-      index: documentIndex,
-      body: {
-        query: {
-          match: {
-            productBaseCode: productCode
-          }
-        }
-      }
-    });
+    // expect(deleteByQuery).toBeCalledWith({
+    //   index: documentIndex,
+    //   body: {
+    //     query: {
+    //       match: {
+    //         productBaseCode: productCode
+    //       }
+    //     }
+    //   }
+    // });
     expect(bulk).toBeCalledWith({
       index: documentIndex,
       refresh: true,
@@ -207,11 +207,11 @@ describe("updateElasticSearch", () => {
         }
       }
     });
-    deleteByQuery.mockResolvedValue({
-      body: {
-        status: "OK"
-      }
-    });
+    // deleteByQuery.mockResolvedValue({
+    //   body: {
+    //     status: "OK"
+    //   }
+    // });
 
     await updateElasticSearch(
       itemType,
@@ -235,7 +235,7 @@ describe("updateElasticSearch", () => {
         esTransformedProductDocumentsMock[0]
       ]
     });
-    expect(deleteByQuery).not.toBeCalled();
+    // expect(deleteByQuery).not.toBeCalled();
 
     expect(count).toBeCalledWith({ index });
     process.env.ES_INDEX_NAME_DOCUMENTS = originalEsIndexNameDocuments;
@@ -261,11 +261,11 @@ describe("updateElasticSearch", () => {
         }
       }
     });
-    deleteByQuery.mockResolvedValue({
-      body: {
-        status: "OK"
-      }
-    });
+    // deleteByQuery.mockResolvedValue({
+    //   body: {
+    //     status: "OK"
+    //   }
+    // });
 
     await updateElasticSearch(
       itemType,
@@ -288,16 +288,16 @@ describe("updateElasticSearch", () => {
         esTransformedSystemDocumentsMock[0]
       ]
     });
-    expect(deleteByQuery).toBeCalledWith({
-      index: documentIndex,
-      body: {
-        query: {
-          match: {
-            productBaseCode: systemCode
-          }
-        }
-      }
-    });
+    // expect(deleteByQuery).toBeCalledWith({
+    //   index: documentIndex,
+    //   body: {
+    //     query: {
+    //       match: {
+    //         productBaseCode: systemCode
+    //       }
+    //     }
+    //   }
+    // });
     expect(bulk).toBeCalledWith({
       index: documentIndex,
       refresh: true,
