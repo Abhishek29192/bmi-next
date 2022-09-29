@@ -42,5 +42,6 @@
   "guaranteeScope": "Guarantee Scope:",
   "reject": "Reject",
   "title": "Your BMI Guarantee is waiting to be claimed!",
-  "warrantyPeriod": "Warranty Period:"
+  "warrantyPeriod": "Warranty Period:",
+  "years": "Years"
 }
