@@ -155,7 +155,9 @@ const updateEsProducts = async (
     getBulkOperations(index, c, action)
   );
 
-  logger.info({ message: `all bulkOperations: ${bulkOperations}` });
+  logger.info({
+    message: `all bulkOperations: ${JSON.stringify(bulkOperations)}`
+  });
 
   await performBulkOperations(client, bulkOperations, index);
 
@@ -180,7 +182,7 @@ const updateEsDocuments = async (
   );
 
   logger.info({
-    message: `all bulkAssetsOperations: ${bulkAssetsOperations}`
+    message: `all bulkAssetsOperations: ${JSON.stringify(bulkAssetsOperations)}`
   });
 
   await client.deleteByQuery({

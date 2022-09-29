@@ -16,13 +16,16 @@ import { MessageFunction } from "./types";
 const pingEsCluster = async () => {
   // get ES client
   const client = await getEsClient();
-  client.ping((error) => {
-    if (error) {
-      logger.error({ message: "Elasticsearch cluster is down!" });
-    } else {
-      logger.info({ message: "Elasticsearch is connected" });
-    }
-  });
+  try {
+    await client.ping();
+    logger.info({ message: "Elasticsearch is connected" });
+  } catch (error) {
+    logger.error({
+      message: `Elasticsearch cluster is down! Error: ${
+        (error as Error).message
+      }`
+    });
+  }
 };
 
 export const buildEsProducts = (product: PIMProduct): EsProduct[] => {
