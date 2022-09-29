@@ -21,7 +21,7 @@
       "back": "Tilbage",
       "confirm": "Bekræfte"
     },
-    "description": "Hvis du nedgang BMI-garantien, vælger du ikke at modtage den tilbudte garanti, og den vil blive annulleret.",
+    "description": "Vælger du at acceptere BMI-garantien, modtager du garantidokumentationen i en separat e-mail. Vælger du at afslå BMI-garantien, vil den blive annulleret, og entreprenøren får besked.",
     "title": "Er du sikker på, at du vil {{acceptance}} BMI-garantien?"
   },
   "form": {

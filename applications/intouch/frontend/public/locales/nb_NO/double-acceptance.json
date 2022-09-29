@@ -21,7 +21,7 @@
       "back": "Tilbake",
       "confirm": "Bekrefte"
     },
-    "description": "Hvis du avslår BMI-garantien, velger du å ikke motta garantien som tilbys, og den vil bli kansellert.",
+    "description": "Dersom du godtar BMI-garantien vil du motta garantidokumentasjonen i en egen e-post. Hvis du avslår BMI-garantien, vil den bli kansellert og entreprenøren vil bli varslet.",
     "title": "Er du sikker på at du vil {{acceptance}} BMI-garantien?"
   },
   "form": {

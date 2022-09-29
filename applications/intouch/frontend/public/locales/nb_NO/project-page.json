@@ -157,7 +157,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Du er i ferd med å godkjenne en forespørsel om løsningsgaranti. Garantidokumentasjonen vil nå bli generert og automatisk utstedt til byggeier på e-post. Installatøren vil bli varslet, men du kan også legge til et notat til dette prosjektet.",
+      "description": "Du er i ferd med å godkjenne en forespørsel om løsningsgaranti. Bygningseieren vil motta en e-post som ber dem om å godta eller avslå garantien. Hvis bygningseieren godtar, vil de motta en ny e-post med garantidokumentasjonen vedlagt.",
       "title": "Er du sikker?"
     },
     "reject": {
@@ -190,8 +190,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Lukk",
-        "description": "BMI -garantien vil være tilgjengelig for nedlasting på prosjekter siden etter at den er godkjent.",
-        "title": "Garantien din er behandlet"
+        "description": "Når bygningseieren har akseptert, vil garantibeviset være tilgjengelig for visning og nedlasting på Prosjektsiden.",
+        "title": "Din garantiforespørsel er under behandling og må godkjennes av bygningseieren før den utstedes."
       },
       "solutionDialog": {
         "confirm_label": "Lukk",
@@ -214,7 +214,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Når garantien er godkjent, vil bygningseieren motta garantidokumentasjonen automatisk til den oppgitte e-postadressen.",
+          "description": "Når du sender oss denne garantiforespørselen, vil bygningseieren motta en e-post som ber dem om å godta eller avslå garantien. Hvis bygningseieren godtar, vil de motta en ny e-post med garantidokumentasjonen vedlagt.",
           "title": "Trenger å vite"
         },
         "header": "Garantidokumentasjon",

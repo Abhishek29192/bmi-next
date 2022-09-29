@@ -21,7 +21,7 @@
       "back": "Takaisin",
       "confirm": "Vahvistaa"
     },
-    "description": "Jos hylkäät BMI-takuun, päätät olla vastaanottamatta tarjottua takuuta ja se peruutetaan.",
+    "description": "Jos päätät hyväksyä BMI-takuun, saat takuuasiakirjat erillisessä sähköpostissa. Jos päätät hylätä BMI-takuun, se peruutetaan ja urakoitsijalle ilmoitetaan asiasta.",
     "title": "Oletko varma, että haluat {{acceptance}} BMI-takuun?"
   },
   "form": {

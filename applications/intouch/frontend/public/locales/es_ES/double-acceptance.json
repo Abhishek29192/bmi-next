@@ -21,7 +21,7 @@
       "back": "Regresar",
       "confirm": "Confirmar"
     },
-    "description": "Si rechaza la garantía de BMI, está eligiendo no recibir la garantía ofrecida y será cancelada.",
+    "description": "Si elige aceptar la garantía de BMI, recibirá la documentación de la garantía en un correo electrónico aparte. Si elige rechazar la garantía de BMI, se cancelará y se notificará al contratista.",
     "title": "¿Está seguro de que desea {{acceptance}} la garantía de BMI?"
   },
   "form": {
