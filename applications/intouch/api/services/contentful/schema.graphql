@@ -2054,6 +2054,69 @@ enum MigrationOrder {
 }
 
 """
+Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType)
+"""
+type OperationType implements Entry {
+  sys: Sys!
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): OperationTypeLinkingCollections
+  type(locale: String): String
+  displayName(locale: String): String
+}
+
+type OperationTypeCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [OperationType]!
+}
+
+input OperationTypeFilter {
+  sys: SysFilter
+  contentfulMetadata: ContentfulMetadataFilter
+  type_exists: Boolean
+  type: String
+  type_not: String
+  type_in: [String]
+  type_not_in: [String]
+  type_contains: String
+  type_not_contains: String
+  displayName_exists: Boolean
+  displayName: String
+  displayName_not: String
+  displayName_in: [String]
+  displayName_not_in: [String]
+  displayName_contains: String
+  displayName_not_contains: String
+  OR: [OperationTypeFilter]
+  AND: [OperationTypeFilter]
+}
+
+type OperationTypeLinkingCollections {
+  entryCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): EntryCollection
+}
+
+enum OperationTypeOrder {
+  type_ASC
+  type_DESC
+  displayName_ASC
+  displayName_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+"""
 MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand)
 """
 type PartnerBrand implements Entry {
@@ -2174,6 +2237,15 @@ type Query {
     where: AssetFilter
     order: [AssetOrder]
   ): AssetCollection
+  operationType(id: String!, preview: Boolean, locale: String): OperationType
+  operationTypeCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: OperationTypeFilter
+    order: [OperationTypeOrder]
+  ): OperationTypeCollection
   guaranteeTemplate(
     id: String!
     preview: Boolean

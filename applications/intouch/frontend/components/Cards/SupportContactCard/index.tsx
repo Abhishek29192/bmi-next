@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { gql } from "@apollo/client";
 import UserIcon from "@material-ui/icons/Person";
 import { Typography } from "@bmi/components";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
@@ -63,14 +62,3 @@ export const SupportContactCard = ({
     </SimpleCard>
   );
 };
-
-export const CONTACT_DETAILS_COLLECTION_FRAGMENT = gql`
-  fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
-    items {
-      fullName
-      subHeading
-      email
-      phoneNumber
-    }
-  }
-`;
