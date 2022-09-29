@@ -42,5 +42,6 @@
   "guaranteeScope": "Escopo da garantia:",
   "reject": "Declínio",
   "title": "Sua Garantia IMC está esperando para ser reivindicada!",
-  "warrantyPeriod": "Periodo de garantia:"
+  "warrantyPeriod": "Periodo de garantia:",
+  "years": "anos"
 }
