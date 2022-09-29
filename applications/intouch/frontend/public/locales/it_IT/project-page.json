@@ -157,7 +157,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Stai per approvare una richiesta di garanzia della soluzione. La documentazione di garanzia verrà ora generata e rilasciata automaticamente al proprietario dell'edificio tramite e-mail. L'installatore riceverà una notifica, ma puoi anche aggiungere una nota a questo progetto.",
+      "description": "Stai per approvare una richiesta di garanzia della soluzione. Il proprietario dell'edificio riceverà un'e-mail in cui si chiede loro di accettare o rifiutare la garanzia. Se il proprietario dell'edificio accetta, riceverà una seconda e-mail con la documentazione di garanzia allegata.",
       "title": "Sei sicuro?"
     },
     "reject": {
@@ -190,8 +190,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Chiudi",
-        "description": "Il certificato di garanzia sarà disponibile per la visualizzazione nel menu dei progetti.",
-        "title": "La tua garanzia è stata elaborata"
+        "description": "Una volta accettato dal committente, il certificato di garanzia sarà consultabile e scaricabile nella pagina Progetti.",
+        "title": "La tua richiesta di garanzia è in fase di elaborazione e dovrà essere accettata dal proprietario dell'edificio prima di essere emessa."
       },
       "solutionDialog": {
         "confirm_label": "Chiudi",
@@ -214,7 +214,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Una volta che la garanzia è stata approvata, il proprietario dell'edificio riceverà automaticamente la documentazione di garanzia all'indirizzo e-mail fornito.",
+          "description": "Quando ci invii questa richiesta di garanzia, il proprietario dell'edificio riceverà un'e-mail, chiedendogli di accettare o rifiutare la garanzia. Se il proprietario dell'edificio accetta, riceverà una seconda e-mail con la documentazione di garanzia allegata.",
           "title": "Da sapere"
         },
         "header": "Documentazione della garanzia",

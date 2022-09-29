@@ -156,7 +156,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Olet hyväksymässä ratkaisutakuupyyntöä. Takuuasiakirjat luodaan nyt ja lähetetään automaattisesti rakennuksen omistajalle sähköpostitse. Asentaja saa ilmoituksen, mutta voit myös lisätä viestin tähän projektiin.",
+      "description": "Olet hyväksymässä ratkaisutakuupyyntöä. Rakennuksen omistaja saa sähköpostin, jossa häntä pyydetään hyväksymään tai hylkäämään takuu. Jos rakennuksen omistaja hyväksyy, he saavat toisen sähköpostin, johon on liitetty takuuasiakirjat.",
       "title": "Oletko varma?"
     },
     "reject": {
@@ -189,8 +189,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Sulje",
-        "description": "Takuutodistus on nähtävissä ja ladattavissa Projektit-sivulla.",
-        "title": "Takuusi on käsitelty."
+        "description": "Kun rakennuksen omistaja on hyväksynyt takuutodistuksen, se on nähtävissä ja ladattavissa Projektit-sivulla.",
+        "title": "Takuupyyntöäsi käsitellään, ja rakennuksen omistajan on hyväksyttävä se ennen sen myöntämistä."
       },
       "solutionDialog": {
         "confirm_label": "Sulje",
@@ -213,7 +213,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Kun takuu on hyväksytty, rakennuksen omistaja saa takuuasiakirjat automaattisesti antamaasi sähköpostiosoitteeseen.",
+          "description": "Kun lähetät meille tämän takuupyynnön, rakennuksen omistaja saa sähköpostin, jossa häntä pyydetään hyväksymään tai hylkäämään takuu. Jos he hyväksyvät sen, rakennuksen omistaja saa toisen sähköpostin, jonka liitteenä on takuuasiakirjat.",
           "title": "Tarvitsee tietää"
         },
         "header": "Takuuasiakirjat",

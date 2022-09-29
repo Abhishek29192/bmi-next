@@ -157,7 +157,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Você está prestes a aprovar uma solicitação de garantia de solução. A documentação da garantia agora será gerada automaticamente e enviada ao proprietário do edifício por e-mail. O instalador será notificado, mas você também poderá adicionar uma nota a este projeto.",
+      "description": "Você está prestes a aprovar uma solicitação de garantia de solução. O proprietário do edifício receberá um e-mail solicitando que aceite ou recuse a garantia. Se o proprietário do edifício aceitar, receberá um segundo e-mail com a documentação da garantia anexada.",
       "title": "Está seguro?"
     },
     "reject": {
@@ -190,8 +190,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Fechar",
-        "description": "Um certificado para sua garantia estará disponível na página Projeto no InTouch.",
-        "title": "Sua garantia foi processada"
+        "description": "Uma vez aceito pelo proprietário do edifício, o certificado de garantia estará disponível para visualização e download na página Projetos.",
+        "title": "O seu pedido de garantia está a ser processado e terá de ser aceite pelo proprietário do edifício antes de ser emitido."
       },
       "solutionDialog": {
         "confirm_label": "Fechar",
@@ -214,7 +214,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Uma vez aprovada a garantia, o proprietário do edifício receberá automaticamente a documentação da garantia no endereço de e-mail fornecido.",
+          "description": "Quando você nos enviar este pedido de garantia, o proprietário do edifício receberá um e-mail, solicitando que aceite ou recuse a garantia. Caso aceite, o proprietário do edifício receberá um segundo e-mail com a documentação da garantia anexada.",
           "title": "Necessito saber"
         },
         "header": "Documentação da garantia",

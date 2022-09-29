@@ -21,7 +21,7 @@
       "back": "Indietro",
       "confirm": "Confermare"
     },
-    "description": "Se rifiuti la garanzia BMI, scegli di non ricevere la garanzia offerta e verrà annullata.",
+    "description": "Se scegli di accettare la garanzia BMI, riceverai la documentazione della garanzia in un'e-mail separata. Se si sceglie di rifiutare la garanzia BMI, questa verrà annullata e l'appaltatore verrà informato.",
     "title": "Sei sicuro di voler {{acceptance}} della Garanzia BMI?"
   },
   "form": {

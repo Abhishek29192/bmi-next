@@ -156,7 +156,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Du er ved at godkende en anmodning om løsningsgaranti. Garantidokumentationen vil nu blive genereret og automatisk udstedt til bygningsejeren via e-mail. Installationsprogrammet vil blive underrettet, men du kan også tilføje en note til dette projekt.",
+      "description": "Du er ved at godkende en anmodning om løsningsgaranti. Bygningsejeren vil modtage en e-mail, der beder dem om at acceptere eller afvise garantien. Hvis bygningsejeren accepterer, vil de modtage en anden e-mail med garantidokumentationen vedhæftet.Du er ved at godkende en anmodning om løsningsgaranti. Bygningsejeren vil modtage en e-mail, der beder dem om at acceptere eller afvise garantien. Hvis bygningsejeren accepterer, vil de modtage en anden e-mail med garantidokumentationen vedhæftet.",
       "title": "Er du sikker?"
     },
     "reject": {
@@ -189,8 +189,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Luk",
-        "description": "BMI-garantien vil være tilgængelig til download på projekter, da den er godkendt.",
-        "title": "Din garanti er blevet behandlet"
+        "description": "Når det er accepteret af bygningsejeren, vil garantibeviset være tilgængeligt til at se og downloade på siden Projekter.",
+        "title": "Din garantianmodning er under behandling og skal accepteres af bygningsejeren, før den udstedes."
       },
       "solutionDialog": {
         "confirm_label": "Luk",
@@ -213,7 +213,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Når garantien er godkendt, modtager bygningsejeren garantidokumentationen automatisk til den oplyste e-mailadresse.",
+          "description": "Når du sender os denne garantianmodning, modtager bygningsejeren en e-mail, hvori han bliver bedt om at acceptere eller afvise garantien. Hvis bygningsejeren accepterer, vil de modtage en anden e-mail med garantidokumentationen vedhæftet.",
           "title": "Behov for at vide"
         },
         "header": "Garanti dokumentation",

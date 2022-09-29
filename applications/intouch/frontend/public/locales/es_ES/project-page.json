@@ -157,7 +157,7 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto.",
+      "description": "Está a punto de aprobar una solicitud de garantía de solución. El propietario del edificio recibirá un correo electrónico pidiéndole que acepte o rechace la garantía. Si el propietario del edificio acepta, recibirá un segundo correo electrónico con la documentación de garantía adjunta.",
       "title": "¿Está seguro?"
     },
     "reject": {
@@ -190,8 +190,8 @@
     "applyGuarantee": {
       "defaultDialog": {
         "confirm_label": "Cerrar",
-        "description": "Un certificado para su garantía estará disponible en la página del Proyecto en InTouch.",
-        "title": "Su garantía ha sido procesada"
+        "description": "Una vez aceptado por el propietario del edificio, el certificado de garantía estará disponible para su visualización y descarga en la página de Proyectos.",
+        "title": "Su solicitud de garantía se está procesando y deberá ser aceptada por el propietario del edificio antes de que se emita."
       },
       "solutionDialog": {
         "confirm_label": "Cerrar",
@@ -214,7 +214,7 @@
       },
       "review": {
         "alert_banner": {
-          "description": "Una vez aprobada la garantía, el propietario del edificio recibirá automáticamente la documentación de la garantía en la dirección de correo electrónico facilitada.",
+          "description": "Cuando nos envíe esta solicitud de garantía, el propietario del edificio recibirá un correo electrónico pidiéndole que acepte o rechace la garantía. Si el propietario del edificio lo acepta, recibirá un segundo correo electrónico con la documentación de garantía adjunta.",
           "title": "Necesito saber"
         },
         "header": "Documentación de garantía",

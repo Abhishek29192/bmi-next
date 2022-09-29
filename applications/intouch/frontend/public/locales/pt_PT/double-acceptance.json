@@ -21,7 +21,7 @@
       "back": "Retornar",
       "confirm": "Confirme"
     },
-    "description": "Se você declinio a garantia do BMI, está optando por não receber a garantia oferecida e ela será cancelada.",
+    "description": "Se você optar por aceitar a garantia do BMI, receberá a documentação da garantia em um e-mail separado. Se você optar por recusar a garantia do BMI, ela será cancelada e o contratante será notificado.",
     "title": "Tem certeza de que deseja {{acceptance}} a Garantia do BMI?"
   },
   "form": {

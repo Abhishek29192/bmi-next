@@ -190,7 +190,7 @@
       "defaultDialog": {
         "confirm_label": "Close",
         "description": "Once accepted by the building owner, the guarantee certificate will be available to view and download on the Projects page.",
-        "title": "Your guarantee request is being processed and will now need to be accepted by the building owner before it is issued."
+        "title": "Your guarantee request is being processed and will need to be accepted by the building owner before it is issued."
       },
       "solutionDialog": {
         "confirm_label": "Close",
