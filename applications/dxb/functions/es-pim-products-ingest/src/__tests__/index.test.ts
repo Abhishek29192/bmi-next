@@ -1,10 +1,10 @@
 import {
   createProduct as createEsProduct,
   createSystem as createEsSystem,
-  Product as EsProduct,
-  System as EsSystem,
   EsPIMDocumentData,
-  EsPIMLinkDocumentData
+  EsPIMLinkDocumentData,
+  Product as EsProduct,
+  System as EsSystem
 } from "@bmi/elasticsearch-types";
 
 import {
@@ -171,9 +171,7 @@ describe("handleMessage", () => {
   });
 
   it("should execute updateElasticSearch function if type of message is 'UPDATED'-'PRODUCTS'", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
+    ping.mockImplementation((args) => Promise.resolve(args));
     transformProduct.mockReturnValue([createEsProduct()]);
     transformDocuments.mockReturnValue([createPimDocument()]);
 
@@ -194,9 +192,7 @@ describe("handleMessage", () => {
   });
 
   it("should execute updateElasticSearch function with undefined transormed documents", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
+    ping.mockImplementation((args) => Promise.resolve(args));
     transformProduct.mockReturnValue([createEsProduct()]);
     transformDocuments.mockReturnValue(undefined);
 
@@ -221,9 +217,7 @@ describe("handleMessage", () => {
   });
 
   it("should execute updateElasticSearch function if type of message is 'UPDATED'-'PRODUCTS' with empty documents array", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
+    ping.mockImplementation((args) => Promise.resolve(args));
     transformProduct.mockReturnValue([createPimProduct()]);
     transformDocuments.mockReturnValue([]);
 
@@ -248,9 +242,7 @@ describe("handleMessage", () => {
   });
 
   it("should execute updateElasticSearch function if type of message is 'UPDATED'-'SYSTEMS'", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
+    ping.mockImplementation((args) => Promise.resolve(args));
     transformProduct.mockReturnValue([createEsSystem()]);
     transformDocuments.mockReturnValue([createPimDocument()]);
 
@@ -277,9 +269,7 @@ describe("handleMessage", () => {
       message: { data: {} as Message }
     });
     it("should perform delete operation if item's code provided on delete message ", async () => {
-      ping.mockImplementation((args) => {
-        args();
-      });
+      ping.mockImplementation((args) => Promise.resolve(args));
 
       const message = createDeleteProductMessage();
 

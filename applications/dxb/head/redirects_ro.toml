@@ -975,7 +975,7 @@
 
 [[redirects]]
  from="/ro/solutii/products/bramac/bramac-opal-standard-%C8%9Bigl%C4%83-aerisire-sanitar%C4%83"
- to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/beton/"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/"
  force=true
 
 [[redirects]]
@@ -1215,7 +1215,12 @@
 
 [[redirects]]
  from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/ceramică"
- to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/beton"
+ force=true
+
+[[redirects]]
+ from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/beton"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/beton"
  force=true
 
 [[redirects]]
@@ -1396,6 +1401,11 @@
 [[redirects]]
  from="/ro/descarca-documente/acoperisuri-inclinate"
  to="/ro/descarca-documente/documente-de-referinta-bramac/"
+ force=true
+
+[[redirects]]
+ from="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate/accesorii-acoperi%C8%99-%C3%AEnclinat"
+ to="/ro/solutii/acoperisuri-inclinate/produse-acoperisuri-inclinate-bramac/accesorii-acoperis-inclinat/"
  force=true
 
 [[redirects]]

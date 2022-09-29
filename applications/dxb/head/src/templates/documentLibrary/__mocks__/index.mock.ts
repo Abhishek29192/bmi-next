@@ -4,7 +4,7 @@ import { Data as SiteData } from "../../../components/Site";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { ContentfulDocumentLibraryPage } from "../types";
 
-export const creatESDocumentHitResponseMock = (customDocumentFields = {}) => {
+export const createDocument = (customFields = {}) => {
   return {
     _source: {
       BRAND: [
@@ -75,8 +75,35 @@ export const creatESDocumentHitResponseMock = (customDocumentFields = {}) => {
       format: "application/pdf",
       extension: "pdf",
       realFileName: "BMI-AeroDek-BRO.pdf",
-      ...customDocumentFields
+      ...customFields
     }
+  };
+};
+
+export const createCollapseData = (documents: [] = []) => ({
+  inner_hits: {
+    related_documents: {
+      hits: {
+        hits: [
+          createDocument({
+            fileSize: 111111,
+            docName: "Test 1",
+            url: "https://url"
+          }),
+          ...documents
+        ]
+      }
+    }
+  }
+});
+
+export const creatESDocumentHitResponseMock = (
+  customDocumentFields = {},
+  customEsResponseFields = {}
+) => {
+  return {
+    ...createDocument(customDocumentFields),
+    ...customEsResponseFields
   };
 };
 
@@ -104,7 +131,8 @@ export const filtersMock = (customFilters: Filter[] = []) => {
 };
 
 export const createData = (
-  documentFilters: Filter[] = []
+  documentFilters: Filter[] = [],
+  contentfulDocumentLibraryPageData: Partial<ContentfulDocumentLibraryPage> = {}
 ): {
   contentfulDocumentLibraryPage: ContentfulDocumentLibraryPage;
   contentfulSite: SiteData;
@@ -136,7 +164,8 @@ export const createData = (
       }
     ],
     categoryCodes: ["categoryCodes"],
-    breadcrumbTitle: "breadcrumbTitle"
+    breadcrumbTitle: "breadcrumbTitle",
+    ...contentfulDocumentLibraryPageData
   },
   contentfulSite: createMockSiteData()
 });

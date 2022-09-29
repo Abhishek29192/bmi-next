@@ -100,7 +100,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
     setIsLoading(true);
 
-    const query = compileESQuery(filters, page, pageSize, source);
+    const query = compileESQuery(filters, page, pageSize, source, resultsType);
     const result = await queryElasticSearch(
       query,
       process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
@@ -113,7 +113,13 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       const newPageCount = Math.ceil(uniqDocumentsCount / PAGE_SIZE);
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setDocuments(hits.hits.map((hit) => hit._source));
+      const docs = hits.hits.flatMap((hit) => {
+        return resultsType === "Technical"
+          ? hit.inner_hits.related_documents.hits.hits.map((hit) => hit._source)
+          : [hit._source];
+      });
+
+      setDocuments(docs);
     }
 
     if (result && result.aggregations) {

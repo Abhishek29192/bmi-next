@@ -304,10 +304,7 @@ export const indexFeatures = (
             code: `${featVal.code || featVal.value}${
               feature.featureUnit?.symbol || ""
             }`.trim(),
-            name: `${featVal.value} ${
-              feature.featureUnit?.symbol || ""
-            }`.trim(),
-            value: featVal.value
+            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`.trim()
           };
         });
         return {

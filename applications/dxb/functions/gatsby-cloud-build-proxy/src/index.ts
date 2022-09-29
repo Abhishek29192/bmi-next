@@ -1,7 +1,7 @@
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { FindBuildWebhook } from "./find";
+import { findBuildWebhooks } from "./find";
 
 const SECRET_MIN_LENGTH = 10;
 
@@ -49,13 +49,15 @@ export const build: HttpFunction = async (request, response) => {
     return response.sendStatus(401);
   }
 
-  const buildWebhook = FindBuildWebhook(request.body);
-  if (!buildWebhook) {
+  const buildWebhooks = findBuildWebhooks(request.body);
+  if (!buildWebhooks) {
     logger.warning({ message: "Build webhook not found." });
     return response.sendStatus(404);
   }
 
-  logger.info({ message: `Triggering build on: ${buildWebhook}` });
+  logger.info({
+    message: `Triggering build on: ${JSON.stringify(buildWebhooks)}`
+  });
 
   // GCP converts header names to lower case automatically.
   const reqHeaders = {
@@ -65,18 +67,29 @@ export const build: HttpFunction = async (request, response) => {
   };
 
   try {
-    const resp = await fetch(buildWebhook, {
-      method: "POST",
-      body: JSON.stringify(request.body),
-      headers: JSON.parse(JSON.stringify(reqHeaders))
-    });
+    const responsePromises = buildWebhooks.map((webhook) =>
+      fetch(webhook, {
+        method: "POST",
+        body: JSON.stringify(request.body),
+        headers: JSON.parse(JSON.stringify(reqHeaders))
+      })
+    );
 
+    const responses = await Promise.all(responsePromises);
     // Logging the status explicitly here because GCP logs 2XX (excluding 200)
     // statuses as '...Finished with status: response error'
     logger.debug({
-      message: `Fetch response status: ${resp.status}, ${resp.statusText}`
+      message: `Fetch response statuses: ${JSON.stringify(
+        responses.map((r) => {
+          return { URL: r.url, status: r.status };
+        })
+      )}`
     });
-    return response.status(resp.status).send("");
+    if (responses.every((r) => r.status < 300)) {
+      return response.status(200).send("successful");
+    } else {
+      return response.status(500).send("error");
+    }
   } catch (error) {
     logger.error({ message: `Fetch error: ${error}` });
     return response.status(500).send("Server error occurred.");

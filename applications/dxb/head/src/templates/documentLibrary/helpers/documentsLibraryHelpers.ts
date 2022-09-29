@@ -75,7 +75,7 @@ export const sourceMapToDocumentType: Record<
   ALL: ""
 };
 
-export const compileESQuery = (filters, page, pageSize, source) => {
+export const compileESQuery = (filters, page, pageSize, source, resultType) => {
   const userSelectedFilterTerms = generateUserSelectedFilterTerms(filters);
   // eslint-disable-next-line security/detect-object-injection
   const documentType = sourceMapToDocumentType[source];
@@ -111,9 +111,18 @@ export const compileESQuery = (filters, page, pageSize, source) => {
         ].filter(Boolean)
       }
     },
-    collapse: {
-      field: "titleAndSize.keyword"
-    }
+    collapse:
+      resultType === "Technical"
+        ? {
+            field: "productBaseCode.keyword",
+            inner_hits: {
+              name: "related_documents",
+              size: 100 //trial solution
+            }
+          }
+        : {
+            field: "titleAndSize.keyword"
+          }
   };
 };
 

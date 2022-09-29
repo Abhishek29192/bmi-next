@@ -9,6 +9,7 @@ import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
 import { DocumentLibraryPageContext } from "../types";
 import {
+  createCollapseData,
   createData,
   creatESDocumentHitResponseMock,
   filtersMock
@@ -146,6 +147,29 @@ describe("Document Library page", () => {
     expect(
       container.querySelectorAll(".DocumentSimpleTableResults .row").length
     ).toBe(1);
+    expect(container.querySelector(".results")).toBeTruthy();
+    expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
+  });
+
+  it("should render DocumentTechnicalTableResults correctly if resultsType === Technical", async () => {
+    const collapseData = createCollapseData();
+    mockQueryES.mockResolvedValueOnce({
+      hits: {
+        hits: [creatESDocumentHitResponseMock({}, collapseData)],
+        total: {
+          value: 2
+        }
+      }
+    });
+    const { container } = renderWithProviders({
+      pageData: createData([], { resultsType: "Technical" })
+    });
+
+    await waitFor(() => expect(mockQueryES).toBeCalled());
+    expect(
+      container.querySelector(".DocumentTechnicalTableResults")
+    ).toBeTruthy();
+    expect(container.querySelector('a[href="https://url"]')).toBeTruthy();
     expect(container.querySelector(".results")).toBeTruthy();
     expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
   });

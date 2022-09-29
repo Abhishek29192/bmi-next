@@ -395,8 +395,7 @@ describe("CLONE tests", () => {
             "FEATURE-CODE-1": [
               {
                 code: "valuesymbol",
-                name: "value symbol",
-                value: "value"
+                name: "value symbol"
               }
             ]
           });
@@ -422,8 +421,7 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "valuesymbol",
-                name: "value symbol",
-                value: "value"
+                name: "value symbol"
               }
             ]
           });
@@ -453,18 +451,15 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "value-1symbol",
-                name: "value-1 symbol",
-                value: "value-1"
+                name: "value-1 symbol"
               },
               {
                 code: "value-2symbol",
-                name: "value-2 symbol",
-                value: "value-2"
+                name: "value-2 symbol"
               },
               {
                 code: "value-3symbol",
-                name: "value-3 symbol",
-                value: "value-3"
+                name: "value-3 symbol"
               }
             ]
           });
@@ -507,35 +502,29 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "value-1symbol",
-                name: "value-1 symbol",
-                value: "value-1"
+                name: "value-1 symbol"
               },
               {
                 code: "value-2symbol",
-                name: "value-2 symbol",
-                value: "value-2"
+                name: "value-2 symbol"
               },
               {
                 code: "value-3symbol",
-                name: "value-3 symbol",
-                value: "value-3"
+                name: "value-3 symbol"
               }
             ],
             "CLASSIFICATION-FEATURE-CODE-2": [
               {
                 code: "value-4symbol",
-                name: "value-4 symbol",
-                value: "value-4"
+                name: "value-4 symbol"
               },
               {
                 code: "value-5symbol",
-                name: "value-5 symbol",
-                value: "value-5"
+                name: "value-5 symbol"
               },
               {
                 code: "value-6symbol",
-                name: "value-6 symbol",
-                value: "value-6"
+                name: "value-6 symbol"
               }
             ]
           });
@@ -561,8 +550,7 @@ describe("CLONE tests", () => {
             "FEATURE-CODE-1": [
               {
                 code: "codesymbol",
-                name: "value symbol",
-                value: "value"
+                name: "value symbol"
               }
             ]
           });
@@ -582,8 +570,7 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "codesymbol",
-                name: "value symbol",
-                value: "value"
+                name: "value symbol"
               }
             ]
           });
@@ -613,18 +600,15 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "code1symbol",
-                name: "value-1 symbol",
-                value: "value-1"
+                name: "value-1 symbol"
               },
               {
                 code: "code2symbol",
-                name: "value-2 symbol",
-                value: "value-2"
+                name: "value-2 symbol"
               },
               {
                 code: "code3symbol",
-                name: "value-3 symbol",
-                value: "value-3"
+                name: "value-3 symbol"
               }
             ]
           });
@@ -667,35 +651,29 @@ describe("CLONE tests", () => {
             "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "code1symbol",
-                name: "value-1 symbol",
-                value: "value-1"
+                name: "value-1 symbol"
               },
               {
                 code: "code2symbol",
-                name: "value-2 symbol",
-                value: "value-2"
+                name: "value-2 symbol"
               },
               {
                 code: "code3symbol",
-                name: "value-3 symbol",
-                value: "value-3"
+                name: "value-3 symbol"
               }
             ],
             "CLASSIFICATION-FEATURE-CODE-2": [
               {
                 code: "code4symbol",
-                name: "value-4 symbol",
-                value: "value-4"
+                name: "value-4 symbol"
               },
               {
                 code: "code5symbol",
-                name: "value-5 symbol",
-                value: "value-5"
+                name: "value-5 symbol"
               },
               {
                 code: "code6symbol",
-                name: "value-6 symbol",
-                value: "value-6"
+                name: "value-6 symbol"
               }
             ]
           });
@@ -758,35 +736,29 @@ describe("CLONE tests", () => {
               "CLASSIFICATION-FEATURE-CODE": [
                 {
                   code: "code1symbol",
-                  name: "value-1 symbol",
-                  value: "value-1"
+                  name: "value-1 symbol"
                 },
                 {
                   code: "code2symbol",
-                  name: "value-2 symbol",
-                  value: "value-2"
+                  name: "value-2 symbol"
                 },
                 {
                   code: "code3symbol",
-                  name: "value-3 symbol",
-                  value: "value-3"
+                  name: "value-3 symbol"
                 }
               ],
               "CLASSIFICATION-FEATURE-CODE-2": [
                 {
                   code: "code4symbol",
-                  name: "value-4 symbol",
-                  value: "value-4"
+                  name: "value-4 symbol"
                 },
                 {
                   code: "code5symbol",
-                  name: "value-5 symbol",
-                  value: "value-5"
+                  name: "value-5 symbol"
                 },
                 {
                   code: "code6symbol",
-                  name: "value-6 symbol",
-                  value: "value-6"
+                  name: "value-6 symbol"
                 }
               ]
             });
