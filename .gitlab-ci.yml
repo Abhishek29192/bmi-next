@@ -52,19 +52,20 @@ variables:
 
 install_yarn:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - modules-sha
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - modules-sha
+    - if: '$WHICH_SCHEDULE == "install_yarn"'
 
 code_quality:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 eslint-sast:
   rules:
@@ -80,15 +81,15 @@ semgrep-sast:
 
 lint_yarn:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 secret_detection:
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [.run_for_changes_on_main, rules, if]
 
 release:
   stage: release
