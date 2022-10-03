@@ -2153,6 +2153,7 @@ HTMLCollection [
                   class="overlay"
                 >
                   <button
+                    aria-label="Video label"
                     class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
                     tabindex="0"
                     type="button"

@@ -5,6 +5,16 @@ body {
 }
 
 .Carousel {
+  [class*="Carousel__slide--global"] {
+    &[aria-hidden="false"] {
+      visibility: visible;
+    }
+
+    &[aria-hidden="true"] {
+      visibility: hidden;
+    }
+  }
+
   @media (min-width: $breakpoint-md) {
     position: relative;
     flex: 1;
@@ -78,6 +88,7 @@ body {
 
         &[aria-hidden="false"] {
           opacity: 1;
+          visibility: visible;
         }
 
         &[aria-hidden="true"] {

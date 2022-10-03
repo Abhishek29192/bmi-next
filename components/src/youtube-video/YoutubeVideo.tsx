@@ -255,7 +255,11 @@ const InlineVideo = ({
       <div>
         {validImageComponent}
         <div className={styles["overlay"]}>
-          <Button isIconButton className={styles["play-button"]}>
+          <Button
+            isIconButton
+            className={styles["play-button"]}
+            aria-label={label}
+          >
             <Icon source={iconMap.PlayArrow} />
           </Button>
           <Typography className={styles["subtitle"]}>{subtitle}</Typography>
