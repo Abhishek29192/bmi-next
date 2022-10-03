@@ -290,7 +290,9 @@ describe("Making a POST request", () => {
 
   it("Sends 204 if preview and request body is empty", async () => {
     const IsPreview = process.env.PREVIEW_BUILD;
+    const previewBuildWebhooks = process.env.PREVIEW_BUILD_WEBHOOKS;
     process.env.PREVIEW_BUILD = "true";
+    process.env.PREVIEW_BUILD_WEBHOOKS = "true";
     const req = mockRequest("POST", undefined, undefined, "{}");
     const res = mockResponse();
 
@@ -298,6 +300,7 @@ describe("Making a POST request", () => {
 
     expect(res.status).toBeCalledWith(204);
     process.env.PREVIEW_BUILD = IsPreview;
+    process.env.PREVIEW_BUILD_WEBHOOKS = previewBuildWebhooks;
   });
 
   it("Calls gatbsy cloud build, if called with a recognised tag, ", async () => {

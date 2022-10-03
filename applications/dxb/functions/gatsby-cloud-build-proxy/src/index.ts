@@ -70,22 +70,20 @@ export const build: HttpFunction = async (request, response) => {
   let entity: Entry | Asset | undefined;
   if (request.body?.metadata?.tags?.length) {
     entity = request.body;
-  } else {
-    if (request.body?.sys?.type === "DeletedEntry") {
-      entity = await environment.getEntry(request.body.sys.id);
-    } else if (request.body?.sys?.type === "DeletedAsset") {
-      entity = await environment.getAsset(request.body.sys.id);
-    }
+  } else if (request.body?.sys?.type === "DeletedEntry") {
+    entity = await environment.getEntry(request.body.sys.id);
+  } else if (request.body?.sys?.type === "DeletedAsset") {
+    entity = await environment.getAsset(request.body.sys.id);
   }
 
-  if (!entity) {
+  if (!entity || !entity.metadata?.tags?.length) {
     logger.error({
       message: `Could not find Entry/Asset by id - ${request?.body?.sys?.id}`
     });
     return response.sendStatus(500);
   }
 
-  const buildWebhooks = findBuildWebhooks(request.body);
+  const buildWebhooks = findBuildWebhooks(entity);
   if (!buildWebhooks) {
     logger.warning({ message: "Build webhook not found." });
     return response.sendStatus(404);
