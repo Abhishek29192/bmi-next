@@ -72,6 +72,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-testid="tab-group"
                           id="tab-group"
                           role="tab"
                           tabindex="0"
@@ -117,6 +118,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
             <div
               aria-labelledby="tab-group"
               class="MuiGrid-root TabPanel MuiGrid-item"
+              data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
@@ -273,6 +275,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-11 Mui-selected"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-testid="tab-group"
                           id="tab-group"
                           role="tab"
                           tabindex="0"
@@ -318,6 +321,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
             <div
               aria-labelledby="tab-group"
               class="MuiGrid-root TabPanel MuiGrid-item"
+              data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
