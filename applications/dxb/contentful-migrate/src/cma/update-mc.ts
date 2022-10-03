@@ -237,11 +237,6 @@ const updateExistingMicrocopies = async (
     }
   );
 
-  if (allEntryPayloads.length === 0) {
-    /*istanbul ignore next:cant test*/
-    return [];
-  }
-
   console.log(
     `${
       allEntryPayloads.length
@@ -303,11 +298,6 @@ const processNewMicrocopies = async (
     }
   );
 
-  if (allEntryPayloads.length === 0) {
-    /*istanbul ignore next:cant test*/
-    return [];
-  }
-
   console.log(
     `${
       allEntryPayloads.length
@@ -356,7 +346,7 @@ const tagExistingContentfulMicrocopies = async (
   const groupedMCs = groupBy(
     mcToProcess,
     (item) =>
-      item.fields.key && item.fields.key[defaultLocale.code]
+      item.fields.key?.[defaultLocale.code]
         ? item.fields.key[defaultLocale.code]
         : "no_key_mc",
     (item) =>
