@@ -3,10 +3,39 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { ClientAPI, Environment, Space } from "contentful-management";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
+
+const getAsset = jest.fn().mockReturnValue(mockContentfulWebhook);
+const getEntry = jest.fn().mockReturnValue(mockContentfulWebhook);
+const mockEnvironment = (): Partial<Environment> => {
+  const env: Partial<Environment> = {};
+  env.getEntry = getEntry;
+  env.getAsset = getAsset;
+  return env;
+};
+const getEnvironment = jest.fn().mockResolvedValue(mockEnvironment());
+const mockSpace = (): Partial<Space> => {
+  const space: Partial<Space> = {};
+  space.getEnvironment = getEnvironment;
+  return space;
+};
+
+const mockClient = (): Partial<ClientAPI> => {
+  const client: Partial<ClientAPI> = {};
+  client.getSpace = jest.fn().mockReturnValue(mockSpace());
+  return client;
+};
+const createClient = jest.fn().mockReturnValue(mockClient());
+
+jest.mock("contentful-management", () => {
+  return {
+    createClient
+  };
+});
 
 const findBuildWebhooks = jest.fn();
 jest.mock("../find", () => {
@@ -125,12 +154,37 @@ describe("Error responses", () => {
       expect(mockRes.sendStatus).toBeCalledWith(405);
     }
   );
+
+  it("Returns 500, when not found Entry/Asset by id", async () => {
+    const mockReq = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      {
+        ...mockContentfulWebhook,
+        metadata: undefined
+      }
+    );
+    const mockRes = mockResponse();
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+  });
+
   it.each([null, undefined])(
     "Returns 404, when build webhook is %s",
     async (param) => {
-      const mockReq = mockRequest("POST", {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      });
+      const mockReq = mockRequest(
+        "POST",
+        {
+          authorization: `Bearer ${REQUEST_SECRET}`
+        },
+        undefined,
+        mockContentfulWebhook
+      );
       const mockRes = mockResponse();
       findBuildWebhooks.mockReturnValueOnce(param);
 
@@ -141,9 +195,14 @@ describe("Error responses", () => {
   );
 
   it("Returns 500, when either of build webhook fetches return an error", async () => {
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${REQUEST_SECRET}`
-    });
+    const mockReq = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      mockContentfulWebhook
+    );
     const mockRes = mockResponse();
 
     mockResponses(fetchMock, {
@@ -166,9 +225,14 @@ describe("Error responses", () => {
 
   it("Returns 500, when build webhook fetch returns an error", async () => {
     const buildWebhook = "https://norway.local";
-    const mockReq = mockRequest("POST", {
-      authorization: `Bearer ${REQUEST_SECRET}`
-    });
+    const mockReq = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      mockContentfulWebhook
+    );
     const mockRes = mockResponse();
     findBuildWebhooks.mockReturnValueOnce(buildWebhook);
     fetchMock.mock(buildWebhook, { throws: new Error("error") });
@@ -342,6 +406,74 @@ describe("Making a POST request", () => {
       method: "POST",
       body: JSON.stringify(mockContentfulWebhook),
       headers: contentfulRequestHeaders
+    });
+  });
+
+  it("sends Entry when trigger unpublish event", async () => {
+    const reqHeaders = { authorization: `Bearer ${REQUEST_SECRET}` };
+    const requestBody = {
+      ...mockContentfulWebhook,
+      metadata: undefined,
+      sys: {
+        ...mockContentfulWebhook.sys,
+        type: "DeletedEntry"
+      }
+    };
+    const req = mockRequest(
+      "POST",
+      reqHeaders,
+      "https://someurl.local",
+      requestBody
+    );
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `*`,
+      method: "POST",
+      status: 200
+    });
+
+    await build(req, res);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: expect.any(Object)
+    });
+  });
+
+  it("sends Asset when trigger unpublish event", async () => {
+    const reqHeaders = { authorization: `Bearer ${REQUEST_SECRET}` };
+    const requestBody = {
+      ...mockContentfulWebhook,
+      metadata: undefined,
+      sys: {
+        ...mockContentfulWebhook.sys,
+        type: "DeletedAsset"
+      }
+    };
+    const req = mockRequest(
+      "POST",
+      reqHeaders,
+      "https://someurl.local",
+      requestBody
+    );
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `*`,
+      method: "POST",
+      status: 200
+    });
+
+    await build(req, res);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: expect.any(Object)
     });
   });
 });

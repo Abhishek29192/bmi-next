@@ -14,4 +14,5 @@ export interface metadata {
 export interface ContentfulWebhook {
   metadata?: metadata;
   sys?: unknown;
+  fields?: unknown;
 }
