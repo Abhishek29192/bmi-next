@@ -204,6 +204,7 @@ baseline_scan_head_prod:
       done
       yarn workspace @bmi/head lighthouse ${params}
   artifacts:
+    when: always
     paths:
       - applications/dxb/head/lighthouseci/reports
 
