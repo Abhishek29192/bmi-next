@@ -198,7 +198,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       name: product.name
     };
 
-    const name = variant.name || product.name!;
+    const name = product.name!;
 
     const esProduct: ESProduct = {
       ...indexedFeatures,
