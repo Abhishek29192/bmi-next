@@ -1380,4 +1380,12 @@ describe("permissions/gates", () => {
       );
     });
   });
+
+  describe("gates.productsAdmin", () => {
+    it("updateConfidentialFields", () => {
+      expect(gates.productsAdmin.updateConfidentialFields).toEqual(
+        accountUtil.isSuperAdmin
+      );
+    });
+  });
 });
