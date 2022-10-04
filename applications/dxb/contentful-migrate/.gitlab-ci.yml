@@ -583,6 +583,24 @@ deploy_gatsby_cloud_czechia:
     DXB_MARKET_ID: "CZ"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_ireland:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "IE"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_ireland:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_ireland
+  variables:
+    DXB_MARKET_ID: "IE"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_group:
   extends: .migrate_content
   rules:
@@ -786,6 +804,11 @@ update_mc_czechia:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "CZ"
+
+update_mc_ireland:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "IE"
 
 update_mc_group:
   extends: .update_mc

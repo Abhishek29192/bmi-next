@@ -14585,6 +14585,86 @@ export type Operation =
   | "SOLAR"
   | "TILE";
 
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationType = Entry & {
+  __typename?: "OperationType";
+  contentfulMetadata: ContentfulMetadata;
+  displayName?: Maybe<Scalars["String"]>;
+  linkedFrom?: Maybe<OperationTypeLinkingCollections>;
+  sys: Sys;
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeDisplayNameArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeTypeArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+export type OperationTypeCollection = {
+  __typename?: "OperationTypeCollection";
+  items: Array<Maybe<OperationType>>;
+  limit: Scalars["Int"];
+  skip: Scalars["Int"];
+  total: Scalars["Int"];
+};
+
+export type OperationTypeFilter = {
+  AND?: InputMaybe<Array<InputMaybe<OperationTypeFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<OperationTypeFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  displayName?: InputMaybe<Scalars["String"]>;
+  displayName_contains?: InputMaybe<Scalars["String"]>;
+  displayName_exists?: InputMaybe<Scalars["Boolean"]>;
+  displayName_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  displayName_not?: InputMaybe<Scalars["String"]>;
+  displayName_not_contains?: InputMaybe<Scalars["String"]>;
+  displayName_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  sys?: InputMaybe<SysFilter>;
+  type?: InputMaybe<Scalars["String"]>;
+  type_contains?: InputMaybe<Scalars["String"]>;
+  type_exists?: InputMaybe<Scalars["Boolean"]>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  type_not?: InputMaybe<Scalars["String"]>;
+  type_not_contains?: InputMaybe<Scalars["String"]>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type OperationTypeLinkingCollections = {
+  __typename?: "OperationTypeLinkingCollections";
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+export type OperationTypeLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type OperationTypeOrder =
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC"
+  | "type_ASC"
+  | "type_DESC";
+
 /** Information about pagination in a connection. */
 export type PageInfo = {
   __typename?: "PageInfo";
@@ -16509,6 +16589,8 @@ export type Query = Node & {
   notificationByNodeId?: Maybe<Notification>;
   /** Reads and enables pagination through a set of `Notification`. */
   notifications?: Maybe<NotificationsConnection>;
+  operationType?: Maybe<OperationType>;
+  operationTypeCollection?: Maybe<OperationTypeCollection>;
   partnerBrand?: Maybe<PartnerBrand>;
   partnerBrandCollection?: Maybe<PartnerBrandCollection>;
   product?: Maybe<Product>;
@@ -17453,6 +17535,23 @@ export type QueryNotificationsArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<NotificationsOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryOperationTypeArgs = {
+  id: Scalars["String"];
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryOperationTypeCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  order?: InputMaybe<Array<InputMaybe<OperationTypeOrder>>>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<OperationTypeFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */

@@ -60,17 +60,6 @@ export type RestartGuaranteeMutation = {
   restartGuarantee?: string | null;
 };
 
-export type ContactDetailsCollectionFragmentFragment = {
-  __typename?: "ContactDetailsCollection";
-  items: Array<{
-    __typename?: "ContactDetails";
-    fullName?: string | null;
-    subHeading?: string | null;
-    email?: string | null;
-    phoneNumber?: string | null;
-  } | null>;
-};
-
 export type MarkAllNotificationsAsReadMutationVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
 }>;
@@ -146,33 +135,6 @@ export type CompanyAdminsFragmentFragment = {
       } | null;
     }>;
   };
-};
-
-export type CompanyDetailsFragmentFragment = {
-  __typename?: "Company";
-  name?: string | null;
-  businessType?: SchemaTypes.BusinessType | null;
-  logo?: string | null;
-  aboutUs?: string | null;
-  ownerFullname?: string | null;
-  ownerPhone?: string | null;
-  ownerEmail?: string | null;
-  phone?: string | null;
-  publicEmail?: string | null;
-  website?: string | null;
-  facebook?: string | null;
-  linkedIn?: string | null;
-  tradingAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
 };
 
 export type CompanyDocumentFragmentFragment = {
@@ -362,33 +324,6 @@ export type DeleteCompanyMemberMutation = {
     __typename?: "DeleteCompanyMemberPayload";
     clientMutationId?: string | null;
   } | null;
-};
-
-export type CompanyRegisteredDetailsFragmentFragment = {
-  __typename?: "Company";
-  name?: string | null;
-  referenceNumber: number;
-  taxNumber?: string | null;
-  tier?: SchemaTypes.Tier | null;
-  registeredAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
-  companyOperationsByCompany: {
-    __typename?: "CompanyOperationsConnection";
-    nodes: Array<{
-      __typename?: "CompanyOperation";
-      id: number;
-      operation: SchemaTypes.Operation;
-    }>;
-  };
 };
 
 export type ImportAccountsCompaniesFromCvsMutationVariables =
@@ -2331,6 +2266,379 @@ export type CreateSsoUrlMutation = {
   createSSOUrl?: { __typename?: "SSOUrlOutput"; url?: string | null } | null;
 };
 
+export type ContactDetailsCollectionFragmentFragment = {
+  __typename?: "ContactDetailsCollection";
+  items: Array<{
+    __typename?: "ContactDetails";
+    fullName?: string | null;
+    subHeading?: string | null;
+    email?: string | null;
+    phoneNumber?: string | null;
+  } | null>;
+};
+
+export type CompanyDetailsFragmentFragment = {
+  __typename?: "Company";
+  name?: string | null;
+  businessType?: SchemaTypes.BusinessType | null;
+  logo?: string | null;
+  aboutUs?: string | null;
+  ownerFullname?: string | null;
+  ownerPhone?: string | null;
+  ownerEmail?: string | null;
+  phone?: string | null;
+  publicEmail?: string | null;
+  website?: string | null;
+  facebook?: string | null;
+  linkedIn?: string | null;
+  tradingAddress?: {
+    __typename?: "Address";
+    id: number;
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+};
+
+export type CompanyRegisteredDetailsFragmentFragment = {
+  __typename?: "Company";
+  name?: string | null;
+  referenceNumber: number;
+  taxNumber?: string | null;
+  tier?: SchemaTypes.Tier | null;
+  registeredAddress?: {
+    __typename?: "Address";
+    id: number;
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+  companyOperationsByCompany: {
+    __typename?: "CompanyOperationsConnection";
+    nodes: Array<{
+      __typename?: "CompanyOperation";
+      id: number;
+      operation: SchemaTypes.Operation;
+    }>;
+  };
+};
+
+export type CompanyPageDetailsFragmentFragment = {
+  __typename?: "Company";
+  id: number;
+  status?: SchemaTypes.CompanyStatus | null;
+  isProfileComplete: boolean;
+  name?: string | null;
+  businessType?: SchemaTypes.BusinessType | null;
+  logo?: string | null;
+  aboutUs?: string | null;
+  ownerFullname?: string | null;
+  ownerPhone?: string | null;
+  ownerEmail?: string | null;
+  phone?: string | null;
+  publicEmail?: string | null;
+  website?: string | null;
+  facebook?: string | null;
+  linkedIn?: string | null;
+  referenceNumber: number;
+  taxNumber?: string | null;
+  tier?: SchemaTypes.Tier | null;
+  certifications: Array<SchemaTypes.Technology | null>;
+  tradingAddress?: {
+    __typename?: "Address";
+    id: number;
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+  registeredAddress?: {
+    __typename?: "Address";
+    id: number;
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+  companyOperationsByCompany: {
+    __typename?: "CompanyOperationsConnection";
+    nodes: Array<{
+      __typename?: "CompanyOperation";
+      id: number;
+      operation: SchemaTypes.Operation;
+    }>;
+  };
+  companyMembers: {
+    __typename?: "CompanyMembersConnection";
+    nodes: Array<{
+      __typename?: "CompanyMember";
+      account?: {
+        __typename?: "Account";
+        role?: SchemaTypes.Role | null;
+        id: number;
+        firstName?: string | null;
+        lastName?: string | null;
+        phone?: string | null;
+        email: string;
+        photo?: string | null;
+        signedPhotoUrl?: string | null;
+      } | null;
+    }>;
+  };
+  companyDocuments: {
+    __typename?: "CompanyDocumentsConnection";
+    nodes: Array<{
+      __typename?: "CompanyDocument";
+      id: number;
+      document?: string | null;
+      name?: string | null;
+      documentType?: SchemaTypes.CompanyDocumentType | null;
+      size?: number | null;
+      signedDocumentUrl?: string | null;
+      createdAt: any;
+      updatedAt: any;
+    }>;
+  };
+};
+
+export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
+  marketId: SchemaTypes.Scalars["Int"];
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetCompaniesByMarketQuery = {
+  __typename?: "Query";
+  companies?: {
+    __typename?: "CompaniesConnection";
+    nodes: Array<{
+      __typename?: "Company";
+      updatedAt: any;
+      id: number;
+      status?: SchemaTypes.CompanyStatus | null;
+      isProfileComplete: boolean;
+      name?: string | null;
+      businessType?: SchemaTypes.BusinessType | null;
+      logo?: string | null;
+      aboutUs?: string | null;
+      ownerFullname?: string | null;
+      ownerPhone?: string | null;
+      ownerEmail?: string | null;
+      phone?: string | null;
+      publicEmail?: string | null;
+      website?: string | null;
+      facebook?: string | null;
+      linkedIn?: string | null;
+      referenceNumber: number;
+      taxNumber?: string | null;
+      tier?: SchemaTypes.Tier | null;
+      certifications: Array<SchemaTypes.Technology | null>;
+      tradingAddress?: {
+        __typename?: "Address";
+        id: number;
+        firstLine?: string | null;
+        secondLine?: string | null;
+        town?: string | null;
+        region?: string | null;
+        country?: string | null;
+        postcode?: string | null;
+        coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+      } | null;
+      registeredAddress?: {
+        __typename?: "Address";
+        id: number;
+        firstLine?: string | null;
+        secondLine?: string | null;
+        town?: string | null;
+        region?: string | null;
+        country?: string | null;
+        postcode?: string | null;
+        coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+      } | null;
+      companyOperationsByCompany: {
+        __typename?: "CompanyOperationsConnection";
+        nodes: Array<{
+          __typename?: "CompanyOperation";
+          id: number;
+          operation: SchemaTypes.Operation;
+        }>;
+      };
+      companyMembers: {
+        __typename?: "CompanyMembersConnection";
+        nodes: Array<{
+          __typename?: "CompanyMember";
+          account?: {
+            __typename?: "Account";
+            role?: SchemaTypes.Role | null;
+            id: number;
+            firstName?: string | null;
+            lastName?: string | null;
+            phone?: string | null;
+            email: string;
+            photo?: string | null;
+            signedPhotoUrl?: string | null;
+          } | null;
+        }>;
+      };
+      companyDocuments: {
+        __typename?: "CompanyDocumentsConnection";
+        nodes: Array<{
+          __typename?: "CompanyDocument";
+          id: number;
+          document?: string | null;
+          name?: string | null;
+          documentType?: SchemaTypes.CompanyDocumentType | null;
+          size?: number | null;
+          signedDocumentUrl?: string | null;
+          createdAt: any;
+          updatedAt: any;
+        }>;
+      };
+    }>;
+  } | null;
+  contactDetailsCollection?: {
+    __typename?: "ContactDetailsCollection";
+    items: Array<{
+      __typename?: "ContactDetails";
+      fullName?: string | null;
+      subHeading?: string | null;
+      email?: string | null;
+      phoneNumber?: string | null;
+    } | null>;
+  } | null;
+};
+
+export type GetCompanyQueryVariables = SchemaTypes.Exact<{
+  companyId: SchemaTypes.Scalars["Int"];
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetCompanyQuery = {
+  __typename?: "Query";
+  company?: {
+    __typename?: "Company";
+    id: number;
+    status?: SchemaTypes.CompanyStatus | null;
+    isProfileComplete: boolean;
+    name?: string | null;
+    businessType?: SchemaTypes.BusinessType | null;
+    logo?: string | null;
+    aboutUs?: string | null;
+    ownerFullname?: string | null;
+    ownerPhone?: string | null;
+    ownerEmail?: string | null;
+    phone?: string | null;
+    publicEmail?: string | null;
+    website?: string | null;
+    facebook?: string | null;
+    linkedIn?: string | null;
+    referenceNumber: number;
+    taxNumber?: string | null;
+    tier?: SchemaTypes.Tier | null;
+    certifications: Array<SchemaTypes.Technology | null>;
+    tradingAddress?: {
+      __typename?: "Address";
+      id: number;
+      firstLine?: string | null;
+      secondLine?: string | null;
+      town?: string | null;
+      region?: string | null;
+      country?: string | null;
+      postcode?: string | null;
+      coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+    } | null;
+    registeredAddress?: {
+      __typename?: "Address";
+      id: number;
+      firstLine?: string | null;
+      secondLine?: string | null;
+      town?: string | null;
+      region?: string | null;
+      country?: string | null;
+      postcode?: string | null;
+      coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+    } | null;
+    companyOperationsByCompany: {
+      __typename?: "CompanyOperationsConnection";
+      nodes: Array<{
+        __typename?: "CompanyOperation";
+        id: number;
+        operation: SchemaTypes.Operation;
+      }>;
+    };
+    companyMembers: {
+      __typename?: "CompanyMembersConnection";
+      nodes: Array<{
+        __typename?: "CompanyMember";
+        account?: {
+          __typename?: "Account";
+          role?: SchemaTypes.Role | null;
+          id: number;
+          firstName?: string | null;
+          lastName?: string | null;
+          phone?: string | null;
+          email: string;
+          photo?: string | null;
+          signedPhotoUrl?: string | null;
+        } | null;
+      }>;
+    };
+    companyDocuments: {
+      __typename?: "CompanyDocumentsConnection";
+      nodes: Array<{
+        __typename?: "CompanyDocument";
+        id: number;
+        document?: string | null;
+        name?: string | null;
+        documentType?: SchemaTypes.CompanyDocumentType | null;
+        size?: number | null;
+        signedDocumentUrl?: string | null;
+        createdAt: any;
+        updatedAt: any;
+      }>;
+    };
+  } | null;
+  contactDetailsCollection?: {
+    __typename?: "ContactDetailsCollection";
+    items: Array<{
+      __typename?: "ContactDetails";
+      fullName?: string | null;
+      subHeading?: string | null;
+      email?: string | null;
+      phoneNumber?: string | null;
+    } | null>;
+  } | null;
+};
+
+export type GetOperationTypeCollectionQueryVariables = SchemaTypes.Exact<{
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetOperationTypeCollectionQuery = {
+  __typename?: "Query";
+  operationTypeCollection?: {
+    __typename?: "OperationTypeCollection";
+    items: Array<{
+      __typename?: "OperationType";
+      type?: string | null;
+      displayName?: string | null;
+    } | null>;
+  } | null;
+};
+
 export type QueryDoceboTiersByMarketIdQueryVariables = SchemaTypes.Exact<{
   marketId: SchemaTypes.Scalars["Int"];
 }>;
@@ -2959,298 +3267,6 @@ export type ValidateSignupUserMutationVariables = SchemaTypes.Exact<{
 export type ValidateSignupUserMutation = {
   __typename?: "Mutation";
   validateSignupUser?: boolean | null;
-};
-
-export type CompanyPageDetailsFragmentFragment = {
-  __typename?: "Company";
-  id: number;
-  status?: SchemaTypes.CompanyStatus | null;
-  isProfileComplete: boolean;
-  name?: string | null;
-  businessType?: SchemaTypes.BusinessType | null;
-  logo?: string | null;
-  aboutUs?: string | null;
-  ownerFullname?: string | null;
-  ownerPhone?: string | null;
-  ownerEmail?: string | null;
-  phone?: string | null;
-  publicEmail?: string | null;
-  website?: string | null;
-  facebook?: string | null;
-  linkedIn?: string | null;
-  referenceNumber: number;
-  taxNumber?: string | null;
-  tier?: SchemaTypes.Tier | null;
-  certifications: Array<SchemaTypes.Technology | null>;
-  tradingAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
-  registeredAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
-  companyOperationsByCompany: {
-    __typename?: "CompanyOperationsConnection";
-    nodes: Array<{
-      __typename?: "CompanyOperation";
-      id: number;
-      operation: SchemaTypes.Operation;
-    }>;
-  };
-  companyMembers: {
-    __typename?: "CompanyMembersConnection";
-    nodes: Array<{
-      __typename?: "CompanyMember";
-      account?: {
-        __typename?: "Account";
-        role?: SchemaTypes.Role | null;
-        id: number;
-        firstName?: string | null;
-        lastName?: string | null;
-        phone?: string | null;
-        email: string;
-        photo?: string | null;
-        signedPhotoUrl?: string | null;
-      } | null;
-    }>;
-  };
-  companyDocuments: {
-    __typename?: "CompanyDocumentsConnection";
-    nodes: Array<{
-      __typename?: "CompanyDocument";
-      id: number;
-      document?: string | null;
-      name?: string | null;
-      documentType?: SchemaTypes.CompanyDocumentType | null;
-      size?: number | null;
-      signedDocumentUrl?: string | null;
-      createdAt: any;
-      updatedAt: any;
-    }>;
-  };
-};
-
-export type GetCompaniesByMarketQueryVariables = SchemaTypes.Exact<{
-  marketId: SchemaTypes.Scalars["Int"];
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetCompaniesByMarketQuery = {
-  __typename?: "Query";
-  companies?: {
-    __typename?: "CompaniesConnection";
-    nodes: Array<{
-      __typename?: "Company";
-      updatedAt: any;
-      id: number;
-      status?: SchemaTypes.CompanyStatus | null;
-      isProfileComplete: boolean;
-      name?: string | null;
-      businessType?: SchemaTypes.BusinessType | null;
-      logo?: string | null;
-      aboutUs?: string | null;
-      ownerFullname?: string | null;
-      ownerPhone?: string | null;
-      ownerEmail?: string | null;
-      phone?: string | null;
-      publicEmail?: string | null;
-      website?: string | null;
-      facebook?: string | null;
-      linkedIn?: string | null;
-      referenceNumber: number;
-      taxNumber?: string | null;
-      tier?: SchemaTypes.Tier | null;
-      certifications: Array<SchemaTypes.Technology | null>;
-      tradingAddress?: {
-        __typename?: "Address";
-        id: number;
-        firstLine?: string | null;
-        secondLine?: string | null;
-        town?: string | null;
-        region?: string | null;
-        country?: string | null;
-        postcode?: string | null;
-        coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-      } | null;
-      registeredAddress?: {
-        __typename?: "Address";
-        id: number;
-        firstLine?: string | null;
-        secondLine?: string | null;
-        town?: string | null;
-        region?: string | null;
-        country?: string | null;
-        postcode?: string | null;
-        coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-      } | null;
-      companyOperationsByCompany: {
-        __typename?: "CompanyOperationsConnection";
-        nodes: Array<{
-          __typename?: "CompanyOperation";
-          id: number;
-          operation: SchemaTypes.Operation;
-        }>;
-      };
-      companyMembers: {
-        __typename?: "CompanyMembersConnection";
-        nodes: Array<{
-          __typename?: "CompanyMember";
-          account?: {
-            __typename?: "Account";
-            role?: SchemaTypes.Role | null;
-            id: number;
-            firstName?: string | null;
-            lastName?: string | null;
-            phone?: string | null;
-            email: string;
-            photo?: string | null;
-            signedPhotoUrl?: string | null;
-          } | null;
-        }>;
-      };
-      companyDocuments: {
-        __typename?: "CompanyDocumentsConnection";
-        nodes: Array<{
-          __typename?: "CompanyDocument";
-          id: number;
-          document?: string | null;
-          name?: string | null;
-          documentType?: SchemaTypes.CompanyDocumentType | null;
-          size?: number | null;
-          signedDocumentUrl?: string | null;
-          createdAt: any;
-          updatedAt: any;
-        }>;
-      };
-    }>;
-  } | null;
-  contactDetailsCollection?: {
-    __typename?: "ContactDetailsCollection";
-    items: Array<{
-      __typename?: "ContactDetails";
-      fullName?: string | null;
-      subHeading?: string | null;
-      email?: string | null;
-      phoneNumber?: string | null;
-    } | null>;
-  } | null;
-};
-
-export type GetCompanyQueryVariables = SchemaTypes.Exact<{
-  companyId: SchemaTypes.Scalars["Int"];
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetCompanyQuery = {
-  __typename?: "Query";
-  company?: {
-    __typename?: "Company";
-    id: number;
-    status?: SchemaTypes.CompanyStatus | null;
-    isProfileComplete: boolean;
-    name?: string | null;
-    businessType?: SchemaTypes.BusinessType | null;
-    logo?: string | null;
-    aboutUs?: string | null;
-    ownerFullname?: string | null;
-    ownerPhone?: string | null;
-    ownerEmail?: string | null;
-    phone?: string | null;
-    publicEmail?: string | null;
-    website?: string | null;
-    facebook?: string | null;
-    linkedIn?: string | null;
-    referenceNumber: number;
-    taxNumber?: string | null;
-    tier?: SchemaTypes.Tier | null;
-    certifications: Array<SchemaTypes.Technology | null>;
-    tradingAddress?: {
-      __typename?: "Address";
-      id: number;
-      firstLine?: string | null;
-      secondLine?: string | null;
-      town?: string | null;
-      region?: string | null;
-      country?: string | null;
-      postcode?: string | null;
-      coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-    } | null;
-    registeredAddress?: {
-      __typename?: "Address";
-      id: number;
-      firstLine?: string | null;
-      secondLine?: string | null;
-      town?: string | null;
-      region?: string | null;
-      country?: string | null;
-      postcode?: string | null;
-      coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-    } | null;
-    companyOperationsByCompany: {
-      __typename?: "CompanyOperationsConnection";
-      nodes: Array<{
-        __typename?: "CompanyOperation";
-        id: number;
-        operation: SchemaTypes.Operation;
-      }>;
-    };
-    companyMembers: {
-      __typename?: "CompanyMembersConnection";
-      nodes: Array<{
-        __typename?: "CompanyMember";
-        account?: {
-          __typename?: "Account";
-          role?: SchemaTypes.Role | null;
-          id: number;
-          firstName?: string | null;
-          lastName?: string | null;
-          phone?: string | null;
-          email: string;
-          photo?: string | null;
-          signedPhotoUrl?: string | null;
-        } | null;
-      }>;
-    };
-    companyDocuments: {
-      __typename?: "CompanyDocumentsConnection";
-      nodes: Array<{
-        __typename?: "CompanyDocument";
-        id: number;
-        document?: string | null;
-        name?: string | null;
-        documentType?: SchemaTypes.CompanyDocumentType | null;
-        size?: number | null;
-        signedDocumentUrl?: string | null;
-        createdAt: any;
-        updatedAt: any;
-      }>;
-    };
-  } | null;
-  contactDetailsCollection?: {
-    __typename?: "ContactDetailsCollection";
-    items: Array<{
-      __typename?: "ContactDetails";
-      fullName?: string | null;
-      subHeading?: string | null;
-      email?: string | null;
-      phoneNumber?: string | null;
-    } | null>;
-  } | null;
 };
 
 export type GetFaqTopicsQueryVariables = SchemaTypes.Exact<{

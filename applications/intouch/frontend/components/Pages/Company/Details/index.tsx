@@ -1,5 +1,4 @@
 import React from "react";
-import { gql } from "@apollo/client";
 import Avatar from "@material-ui/core/Avatar";
 import { Typography } from "@bmi/components";
 import { Grid } from "@bmi/components";
@@ -134,29 +133,3 @@ export const CompanyDetails = ({
     </div>
   );
 };
-
-export const COMPANY_DETAILS_FRAGMENT = gql`
-  fragment CompanyDetailsFragment on Company {
-    name
-    businessType
-    logo
-    aboutUs
-    tradingAddress {
-      id
-      ...AddressLinesFragment
-      # These are required for the Alert banner
-      coordinates {
-        x
-        y
-      }
-    }
-    ownerFullname
-    ownerPhone
-    ownerEmail
-    phone
-    publicEmail
-    website
-    facebook
-    linkedIn
-  }
-`;

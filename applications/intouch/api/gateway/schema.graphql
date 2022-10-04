@@ -22742,6 +22742,69 @@ enum Operation {
 }
 
 """
+Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType)
+"""
+type OperationType implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  displayName(locale: String): String
+  linkedFrom(allowedLocales: [String]): OperationTypeLinkingCollections
+  sys: Sys!
+  type(locale: String): String
+}
+
+type OperationTypeCollection {
+  items: [OperationType]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input OperationTypeFilter {
+  AND: [OperationTypeFilter]
+  OR: [OperationTypeFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  displayName: String
+  displayName_contains: String
+  displayName_exists: Boolean
+  displayName_in: [String]
+  displayName_not: String
+  displayName_not_contains: String
+  displayName_not_in: [String]
+  sys: SysFilter
+  type: String
+  type_contains: String
+  type_exists: Boolean
+  type_in: [String]
+  type_not: String
+  type_not_contains: String
+  type_not_in: [String]
+}
+
+type OperationTypeLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+}
+
+enum OperationTypeOrder {
+  displayName_ASC
+  displayName_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+"""
 Information about pagination in a connection.
 """
 type PageInfo {
@@ -27622,6 +27685,15 @@ type Query implements Node {
     """
     orderBy: [NotificationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): NotificationsConnection
+  operationType(id: String!, locale: String, preview: Boolean): OperationType
+  operationTypeCollection(
+    limit: Int = 100
+    locale: String
+    order: [OperationTypeOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: OperationTypeFilter
+  ): OperationTypeCollection
   partnerBrand(id: String!, locale: String, preview: Boolean): PartnerBrand
   partnerBrandCollection(
     limit: Int = 100

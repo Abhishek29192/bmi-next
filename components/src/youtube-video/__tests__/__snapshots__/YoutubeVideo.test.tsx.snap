@@ -72,6 +72,7 @@ exports[`YoutubeVideo component inline layout should render correctly 1`] = `
         class="overlay"
       >
         <button
+          aria-label="test inline video"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-contained-73 play-button"
           tabindex="0"
           type="button"

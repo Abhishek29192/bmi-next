@@ -1,10 +1,10 @@
-import { microCopy } from "../../../head/src/constants/microCopies";
-import { BULK_SIZE, CHUNK_SIZE } from "../cma/constants";
+import { microCopy } from "../../../../head/src/constants/microCopies";
+import { BULK_SIZE, CHUNK_SIZE } from "../constants";
 import {
   getContentfulLocales,
   getContentfulTags,
   getMockContentfulEntries
-} from "./cma/helpers";
+} from "./helpers";
 
 const envMock = {
   getEntries: jest.fn().mockReturnValue(getMockContentfulEntries([], [])),
@@ -28,7 +28,7 @@ jest.mock("@bmi/utils", () => {
 });
 
 const main = async (isToBePublished: boolean, isConsolidated: boolean) =>
-  (await import("../cma/update-mc")).main(isToBePublished, isConsolidated);
+  (await import("../update-mc")).main(isToBePublished, isConsolidated);
 
 beforeEach(() => {
   jest.clearAllMocks();

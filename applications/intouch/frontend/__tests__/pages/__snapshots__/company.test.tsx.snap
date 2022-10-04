@@ -1338,6 +1338,12 @@ Object {
       ],
     },
     "mapsApiKey": undefined,
+    "operationTypes": Array [
+      Object {
+        "displayName": "Flat",
+        "type": "FLAT",
+      },
+    ],
   },
 }
 `;
@@ -1348,6 +1354,12 @@ Object {
     "companies": Array [],
     "contactDetailsCollection": Object {},
     "mapsApiKey": undefined,
+    "operationTypes": Array [
+      Object {
+        "displayName": "Flat",
+        "type": "FLAT",
+      },
+    ],
   },
 }
 `;
@@ -1413,6 +1425,12 @@ Object {
       ],
     },
     "mapsApiKey": undefined,
+    "operationTypes": Array [
+      Object {
+        "displayName": "Flat",
+        "type": "FLAT",
+      },
+    ],
   },
 }
 `;

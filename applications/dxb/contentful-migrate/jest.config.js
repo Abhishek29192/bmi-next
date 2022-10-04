@@ -8,14 +8,14 @@ module.exports = {
   rootDir: "../../../",
   roots: ["<rootDir>/applications/dxb/contentful-migrate/src"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/contentful-migrate/src/**/*.{ts,tsx,js}"
+    "<rootDir>/applications/dxb/contentful-migrate/src/**",
+    "!<rootDir>/applications/dxb/contentful-migrate/src/migrations/**",
+    "!<rootDir>/applications/dxb/contentful-migrate/src/variables/**"
   ],
   coverageThreshold: {
-    "./src/*.ts": {
-      statements: "100",
-      branches: "100",
-      functions: "100",
-      lines: "100"
+    global: {
+      ...sharedConfig.coverageThreshold.global,
+      branches: "94"
     }
   }
 };

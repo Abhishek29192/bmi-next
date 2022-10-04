@@ -2,12 +2,14 @@ import { gql } from "@apollo/client";
 import React, { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { Product, System } from "@bmi/intouch-api-types";
-import { Checkbox } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import {
+  Checkbox,
+  TextField,
+  Button,
+  Form,
+  Grid,
+  Typography
+} from "@bmi/components";
 import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
@@ -20,10 +22,11 @@ import {
 import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
 import { ProductReport, SystemReport } from "../../Reports";
 import layoutStyles from "../../Layout/styles.module.scss";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 import { ProductTable } from "./ProductTable";
 
-type ProductsTabProps = {
+export type ProductsTabProps = {
   type: "product" | "system";
   items:
     | ProductsAndSystemsQuery["products"]
@@ -36,27 +39,27 @@ const projectFilters = [
   { label: "Pitch", isActive: false, attr: "PITCHED" }
 ];
 
-const productDetailToShow = [
+export const productDetailToShow = [
   { type: "text", key: "technology" },
   { type: "text", key: "bmiRef" },
   { type: "text", key: "brand" },
   { type: "textarea", key: "description" },
   { type: "text", key: "family" },
   { type: "bool", key: "published" },
-  { type: "text", key: "maximumValidityYears" },
+  { type: "number", key: "maximumValidityYears" },
   { type: "date", key: "updatedAt" }
 ];
 
-const systemDetailToShow = [
+export const systemDetailToShow = [
   { type: "text", key: "technology" },
   { type: "text", key: "bmiRef" },
   { type: "textarea", key: "description" },
   { type: "bool", key: "published" },
-  { type: "text", key: "maximumValidityYears" },
+  { type: "number", key: "maximumValidityYears" },
   { type: "date", key: "updatedAt" }
 ];
 
-const getValue = (t, type, value) => {
+export const getValue = (t, type, value) => {
   switch (type) {
     case "text":
     case "textarea":
@@ -65,10 +68,19 @@ const getValue = (t, type, value) => {
       return value === true ? t("published") : t("unpublished");
     case "date":
       return formatDate(value);
+    case "number":
+      return value ? value.toString() : "0";
 
     default:
       break;
   }
+};
+
+export const getSelectedItemValue = (name, value) => {
+  const items = [...productDetailToShow, ...systemDetailToShow].find(
+    ({ key }) => key === name
+  );
+  return items?.type === "number" ? (value ? parseInt(value) : 0) : value;
 };
 
 const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
@@ -94,23 +106,25 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
   useEffect(() => {
     const filteredProducts =
       members?.nodes
-        ?.filter((x) => {
+        .filter((x) => {
           return x.systemBmiRef === selectedItem?.bmiRef;
         })
         .map((member) => member.productByProductBmiRef) || [];
 
     setProducts(filteredProducts);
-  }, [selectedItem, setSelectedItem]);
+  }, [selectedItem]);
 
   const [udpateProduct] = useUpdateProductMutation({
     onCompleted: (data) => {
       setItems(data.updateProduct.query.products);
+      setIsEditing(false);
     }
   });
 
   const [udpateSystem] = useUpdateSystemMutation({
     onCompleted: (data) => {
       setItems(data.updateSystem.query.systems);
+      setIsEditing(false);
     }
   });
 
@@ -118,7 +132,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
     (name, value) => {
       setSelectedItem((prev) => ({
         ...prev,
-        [name]: value
+        [name]: getSelectedItemValue(name, value)
       }));
     },
     [setSelectedItem]
@@ -244,6 +258,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
               key={`form-${type}`}
               onSubmit={type === "product" ? onProductSubmit : onSystemSubmit}
               style={{ width: "100%" }}
+              data-testid="product-tab-form"
             >
               <Grid container>
                 <Grid xs={12} item>
@@ -268,7 +283,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                         className={styles.editBtn}
                         onClick={() => setIsEditing(!isEditing)}
                       >
-                        {!isEditing ? t("edit") : t("show")}
+                        {t("show")}
                       </Button>
                     </Grid>
                   </Grid>
@@ -293,6 +308,33 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     onChange={(value) => onItemChange("description", value)}
                   />
                 </Grid>
+                {type === "product" && (
+                  <AccessControl
+                    dataModel="productsAdmin"
+                    action="updateConfidentialFields"
+                  >
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        rows={5}
+                        name="family"
+                        label={t("family")}
+                        value={(selectedItem as Product).family || ""}
+                        onChange={(value) => onItemChange("family", value)}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        rows={5}
+                        name="brand"
+                        label={t("brand")}
+                        value={(selectedItem as Product).brand || ""}
+                        onChange={(value) => onItemChange("brand", value)}
+                      />
+                    </Grid>
+                  </AccessControl>
+                )}
                 <Grid item xs={12}>
                   <Checkbox
                     name="published"
@@ -301,13 +343,36 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     onChange={(value) => onItemChange("published", value)}
                   />
                 </Grid>
+                <AccessControl
+                  dataModel="productsAdmin"
+                  action="updateConfidentialFields"
+                >
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      type="number"
+                      rows={5}
+                      name="maximumValidityYears"
+                      label={t("maximumValidityYears")}
+                      value={
+                        selectedItem.maximumValidityYears
+                          ? selectedItem.maximumValidityYears.toString()
+                          : "0"
+                      }
+                      onChange={(value) =>
+                        onItemChange("maximumValidityYears", value)
+                      }
+                      InputProps={{ inputProps: { min: 0 } }}
+                    />
+                  </Grid>
+                </AccessControl>
               </Grid>
               <Form.ButtonWrapper>
                 <Form.SubmitButton>Save</Form.SubmitButton>
               </Form.ButtonWrapper>
             </Form>
           ) : (
-            <Grid container>
+            <Grid container data-testid="product-tab-details">
               <Grid
                 item
                 xs={12}
@@ -332,7 +397,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     className={styles.editBtn}
                     onClick={() => setIsEditing(!isEditing)}
                   >
-                    {!isEditing ? t("edit") : t("show")}
+                    {t("edit")}
                   </Button>
                 </Grid>
               </Grid>
