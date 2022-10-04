@@ -54,7 +54,6 @@ export const up: MigrationFunction = (migration: Migration) => {
           "unordered-list",
           "hr",
           "blockquote",
-          "paragraph",
           "embedded-asset-block"
         ],
         message: "Type the description (does not accepts no table or links)"
