@@ -22,6 +22,13 @@ const mockMarketAdminUsers = [
     email: "email11"
   }
 ];
+const mockAccounts = [
+  {
+    email: "authorEmail",
+    first_name: "Author first name",
+    last_name: "Author last name"
+  }
+];
 
 describe("Note", () => {
   const mockQuery = jest.fn();
@@ -55,11 +62,16 @@ describe("Note", () => {
     input: {
       note: {
         authorId: 1,
-        projectId: 1
+        projectId: 1,
+        body: "body"
       }
     }
   };
   const resolveInfo = {};
+  const authorDetails = {
+    noteAuthor: `${mockAccounts[0].first_name} ${mockAccounts[0].last_name} (${mockAccounts[0].email})`,
+    noteSnippet: args.input.note.body
+  };
 
   it("should create note", async () => {
     context.user.can = () => true;
@@ -80,6 +92,9 @@ describe("Note", () => {
       }))
       .mockImplementationOnce(() => ({
         rows: []
+      }))
+      .mockImplementationOnce(() => ({
+        rows: mockAccounts
       }))
       .mockImplementationOnce(() => ({}));
 
@@ -109,6 +124,9 @@ describe("Note", () => {
       .mockImplementationOnce(() => ({
         rows: mockMarketAdminUsers
       }))
+      .mockImplementationOnce(() => ({
+        rows: mockAccounts
+      }))
       .mockImplementationOnce(() => ({}));
 
     await createNote(resolve, source, args, context, resolveInfo);
@@ -124,7 +142,8 @@ describe("Note", () => {
         accountId: 1,
         email: "email1",
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
       }
     );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
@@ -134,7 +153,8 @@ describe("Note", () => {
         accountId: 2,
         email: "email2",
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
       }
     );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
@@ -144,7 +164,8 @@ describe("Note", () => {
         accountId: 11,
         email: "email11",
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
       }
     );
   });

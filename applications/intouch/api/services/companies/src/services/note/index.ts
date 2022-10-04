@@ -20,7 +20,7 @@ export const createNote = async (
     const { note } = args.input;
     const newNote = await resolve(source, args, context, resolveInfo);
 
-    await sendMessage(note.projectId, context);
+    await sendMessage(note, context);
 
     return newNote;
   } catch (e) {
@@ -49,7 +49,10 @@ const getProjectDetails = async (
   return projectDetail;
 };
 
-const sendMessage = async (projectId: number, context: PostGraphileContext) => {
+const sendMessage = async (
+  { projectId, authorId, body }: CreateNoteInput["note"],
+  context: PostGraphileContext
+) => {
   const { pgRootPool } = context;
 
   const projectDetails = await getProjectDetails(projectId, pgRootPool);
@@ -70,6 +73,13 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
     [projectDetails.marketId]
   );
 
+  const {
+    rows: [{ first_name: firstName, last_name: lastName, email }]
+  } = await pgRootPool.query(
+    `SELECT email, first_name, last_name FROM account WHERE id = $1 `,
+    [authorId]
+  );
+
   const users: Account[] = [...companyAdmins, ...marketAdmins];
 
   for (let i = 0; i < users.length; i++) {
@@ -78,7 +88,9 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
       accountId: account.id,
       email: account.email,
       project: `${projectDetails.name}`,
-      projectId
+      projectId,
+      noteAuthor: `${firstName} ${lastName} (${email})`,
+      noteSnippet: body
     });
   }
 };
