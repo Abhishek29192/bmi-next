@@ -187,18 +187,7 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
                   class="MuiTypography-root Typography MuiTypography-body1"
                   style="display: flex;"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-root"
-                    focusable="false"
-                    style="color: rgb(0, 154, 68);"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                    />
-                  </svg>
-                  search.profileComplete
+                  search.profileIncomplete
                 </p>
               </div>
               <svg
