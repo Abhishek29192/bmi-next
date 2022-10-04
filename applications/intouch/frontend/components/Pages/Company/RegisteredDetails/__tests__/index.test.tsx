@@ -1,5 +1,4 @@
 import React from "react";
-import { Operation } from "@bmi/intouch-api-types";
 import { mockCompany } from "../../../../../fixtures/company";
 import { render, screen } from "../../../../../lib/tests/utils";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
@@ -23,14 +22,35 @@ jest.mock("../../../../../graphql/generated/hooks", () => {
 const t = jest.fn().mockImplementation((key) => {
   return key.replace(/.+\./, "").toLowerCase();
 });
+jest.mock("../../../../../context/CompanyPageContext", () => ({
+  useCompanyPageContext: jest.fn().mockImplementation(() => ({
+    operationTypes: [
+      {
+        type: "FLAT",
+        displayName: "Flat"
+      }
+    ]
+  }))
+}));
 
 describe("formatCompanyOperations", () => {
   it("should add suffix", () => {
     expect(
-      formatCompanyOperations(t, [
-        OPERATION_TYPES.FLAT,
-        OPERATION_TYPES.PITCHED
-      ] as Operation[])
+      formatCompanyOperations(
+        t,
+        [OPERATION_TYPES.FLAT, OPERATION_TYPES.PITCHED],
+        [
+          {
+            type: "FLAT",
+            displayName: "Flat"
+          },
+
+          {
+            type: "PITCHED",
+            displayName: "Pitched"
+          }
+        ]
+      )
     ).toMatchInlineSnapshot(
       `"Flat and pitched company-page:companyoperationssuffix"`
     );
@@ -38,16 +58,36 @@ describe("formatCompanyOperations", () => {
 
   it("should handle single operation", () => {
     expect(
-      formatCompanyOperations(t, [OPERATION_TYPES.FLAT] as Operation[])
+      formatCompanyOperations(
+        t,
+        [OPERATION_TYPES.FLAT],
+        [
+          {
+            type: "FLAT",
+            displayName: "Flat"
+          }
+        ]
+      )
     ).toMatchInlineSnapshot(`"Flat company-page:companyoperationssuffix"`);
   });
 
   it("should handle 2 operations", () => {
     expect(
-      formatCompanyOperations(t, [
-        OPERATION_TYPES.FLAT,
-        OPERATION_TYPES.PITCHED
-      ] as Operation[])
+      formatCompanyOperations(
+        t,
+        [OPERATION_TYPES.FLAT, OPERATION_TYPES.PITCHED],
+        [
+          {
+            type: "FLAT",
+            displayName: "Flat"
+          },
+
+          {
+            type: "PITCHED",
+            displayName: "Pitched"
+          }
+        ]
+      )
     ).toMatchInlineSnapshot(
       `"Flat and pitched company-page:companyoperationssuffix"`
     );
@@ -55,20 +95,44 @@ describe("formatCompanyOperations", () => {
 
   it("should handle > 2 operations", () => {
     expect(
-      formatCompanyOperations(t, [
-        OPERATION_TYPES.FLAT,
-        OPERATION_TYPES.PITCHED,
-        OPERATION_TYPES.SOLAR
-      ] as Operation[])
+      formatCompanyOperations(
+        t,
+        [OPERATION_TYPES.FLAT, OPERATION_TYPES.PITCHED, OPERATION_TYPES.SOLAR],
+        [
+          {
+            type: "FLAT",
+            displayName: "Flat"
+          },
+
+          {
+            type: "PITCHED",
+            displayName: "Pitched"
+          },
+
+          {
+            type: "SOLAR",
+            displayName: "Solar"
+          }
+        ]
+      )
     ).toMatchInlineSnapshot(
-      `"Flat, pitched and solar company-page:companyoperationssuffix"`
+      `"Flat, Pitched and solar company-page:companyoperationssuffix"`
     );
   });
 
   it("should handle < 0 operations", () => {
-    expect(formatCompanyOperations(t, [] as Operation[])).toMatchInlineSnapshot(
-      `""`
-    );
+    expect(
+      formatCompanyOperations(
+        t,
+        [],
+        [
+          {
+            type: "FLAT",
+            displayName: "Flat"
+          }
+        ]
+      )
+    ).toMatchInlineSnapshot(`""`);
   });
 });
 
@@ -91,7 +155,10 @@ describe("CompanyRegisteredDetails", () => {
           <I18nProvider>
             <MarketContextWrapper>
               <AccountContextWrapper>
-                <CompanyRegisteredDetails company={mockCompany} />
+                <CompanyRegisteredDetails
+                  company={mockCompany}
+                  mapsApiKey="mapsApiKey"
+                />
               </AccountContextWrapper>
             </MarketContextWrapper>
           </I18nProvider>
@@ -135,7 +202,10 @@ describe("CompanyRegisteredDetails", () => {
         <I18nProvider>
           <MarketContextWrapper>
             <AccountContextWrapper>
-              <CompanyRegisteredDetails company={mockCompany} />
+              <CompanyRegisteredDetails
+                company={mockCompany}
+                mapsApiKey="mapsApiKey"
+              />
             </AccountContextWrapper>
           </MarketContextWrapper>
         </I18nProvider>
@@ -161,6 +231,7 @@ describe("CompanyRegisteredDetails", () => {
                     nodes: []
                   }
                 }}
+                mapsApiKey="mapsApiKey"
               />
             </AccountContextWrapper>
           </MarketContextWrapper>
