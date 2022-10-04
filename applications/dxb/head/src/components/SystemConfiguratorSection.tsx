@@ -31,13 +31,12 @@ import styles from "./styles/SystemConfiguratorSection.module.scss";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
-  __typename: "ContentfulSystemConfiguratorBlock";
+  __typename: "ContentfulSystemConfiguratorSection";
   locale: string;
   title: string;
   label: string;
   description: RichTextData | null;
   question: QuestionData;
-  type: "Section";
 };
 
 export type NextStepData = {
@@ -54,18 +53,18 @@ const initialStorageState: StoredStateType = {
 };
 
 type EntryData = {
-  __typename: "ContentfulSystemConfiguratorBlock";
   id: string;
   title: string;
   description: RichTextData | null;
 };
 
 export type AnswerData = EntryData & {
-  type: "Answer";
+  __typename: "ContentfulSystemConfiguratorAnswer";
+  nextStep: NextStepData;
 };
 
 export type QuestionData = EntryData & {
-  type: "Question";
+  __typename: "ContentfulSystemConfiguratorQuestion";
   answers: AnswerData[];
 };
 
@@ -74,7 +73,7 @@ export type TitleWithContentData = DefaultTitleWithContentData & {
 };
 
 export type ResultData = EntryData & {
-  type: "Result";
+  __typename: "ContentfulSystemConfiguratorResult";
   recommendedSystems: string[] | null;
 };
 
@@ -174,7 +173,7 @@ const SystemConfiguratorQuestion = ({
           isLoading: false,
           isComplete: true
         }));
-      } else if (data.type === "Question") {
+      } else if (data.__typename === "ContentfulSystemConfiguratorQuestion") {
         setNextStep({ nextQuestion: data });
         setState((state) => ({
           ...state,
@@ -183,7 +182,7 @@ const SystemConfiguratorQuestion = ({
           isLoading: false,
           isComplete: false
         }));
-      } else if (data.type === "Result") {
+      } else if (data.__typename === "ContentfulSystemConfiguratorResult") {
         setNextStep({ nextResult: data });
         setState((state) => ({
           ...state,
@@ -437,7 +436,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     );
   }, []);
 
-  const { title, description, type, question, locale } = data;
+  const { title, description, __typename, question, locale } = data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     locale: locale,
     isLoading: false,
@@ -446,9 +445,9 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 
   const { isLoading } = state;
   /* istanbul ignore next */
-  if (type !== "Section") {
+  if (__typename !== "ContentfulSystemConfiguratorSection") {
     devLog(
-      `Entry ContentfulSystemConfiguratorBlock "${data.label}" type "${type}" is not of type "Section"`
+      `Entry ContentfulSystemConfiguratorSection "${data.label}" type "${__typename}" is not of type "Section"`
     );
   }
 
@@ -495,40 +494,61 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
 export default SystemConfiguratorSection;
 
 export const query = graphql`
-  fragment SystemConfiguratorBlockFragment on ContentfulSystemConfiguratorBlock {
+  fragment SystemConfiguratorSectionFragment on ContentfulSystemConfiguratorSection {
+    __typename
     title
     locale: node_locale
     description {
       ...RichTextFragment
     }
-    type
     label
     question {
-      __typename
-      id: contentful_id
-      title
-      description {
-        ...RichTextFragment
-      }
-      type
-      recommendedSystems
-      answers {
-        __typename
+      ...SystemConfiguratorQuestionFragment
+    }
+  }
+  fragment SystemConfiguratorQuestionFragment on ContentfulSystemConfiguratorQuestion {
+    __typename
+    id: contentful_id
+    locale: node_locale
+    title
+    label
+    description {
+      ...RichTextFragment
+    }
+    answers {
+      ...SystemConfiguratorAnswerFragment
+    }
+  }
+  fragment SystemConfiguratorAnswerFragment on ContentfulSystemConfiguratorAnswer {
+    __typename
+    id: contentful_id
+    locale: node_locale
+    title
+    label
+    description {
+      ...RichTextFragment
+    }
+    nextStep {
+      ... on ContentfulSystemConfiguratorQuestion {
         id: contentful_id
-        title
-        description {
-          ...RichTextFragment
-        }
-        type
-        nextStep {
-          ... on ContentfulSystemConfiguratorBlock {
-            id: contentful_id
-          }
-          ... on ContentfulTitleWithContent {
-            id: contentful_id
-          }
-        }
+      }
+      ... on ContentfulTitleWithContent {
+        id: contentful_id
+      }
+      ... on ContentfulSystemConfiguratorResult {
+        id: contentful_id
       }
     }
+  }
+  fragment SystemConfiguratorResultFragment on ContentfulSystemConfiguratorResult {
+    __typename
+    id: contentful_id
+    locale: node_locale
+    title
+    label
+    description {
+      ...RichTextFragment
+    }
+    recommendedSystems
   }
 `;

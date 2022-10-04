@@ -434,7 +434,7 @@ union ContentfulSection =
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
   | ContentfulIframe
-  | ContentfulSystemConfiguratorBlock
+  | ContentfulSystemConfiguratorSection
   | ContentfulTeamSection
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
@@ -1051,19 +1051,41 @@ type RegionJson implements Node @dontInfer {
   menu: [CountryJSON]!
 }
 
-union NextStep = ContentfulSystemConfiguratorBlock | ContentfulTitleWithContent
+union NextStep = ContentfulSystemConfiguratorResult | ContentfulTitleWithContent | ContentfulSystemConfiguratorQuestion
 
-type ContentfulSystemConfiguratorBlock implements Node {
+type ContentfulSystemConfiguratorResult implements Node {
+  id: ID!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  recommendedSystems: [String!]!
+}
+
+type ContentfulSystemConfiguratorAnswer implements Node {
+  id: ID!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  nextStep: NextStep! @link(from: "nextStep___NODE")
+}
+
+type ContentfulSystemConfiguratorQuestion implements Node {
+  id: ID!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  answers: [ContentfulSystemConfiguratorAnswer!]! @link(from: "answers___NODE")
+}
+
+type ContentfulSystemConfiguratorSection implements Node {
   id: ID!
   node_locale: String!
   label: String
   title: String
   description: ContentfulRichText
-  type: String
-  question: ContentfulSystemConfiguratorBlock @link(from: "question___NODE")
-  answers: [ContentfulSystemConfiguratorBlock] @link(from: "answers___NODE")
-  noResultItems: [ContentfulTitleWithContent] @link(from: "noResultItems___NODE")
-  recommendedSystems: [String!]
-  nextStep: NextStep @link(from: "nextStep___NODE")
+  question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
 `;
