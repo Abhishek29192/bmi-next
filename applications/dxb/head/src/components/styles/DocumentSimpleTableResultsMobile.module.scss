@@ -24,6 +24,10 @@
     color: $color-slate;
     padding-top: 5px;
     font-family: "Effra Medium";
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .document-type {
     color: $color-slate;
