@@ -2,7 +2,7 @@ import { getMockReq, getMockRes } from "@jest-mock/express";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { Answer, NextStep } from "../types";
+import { Answer, Type } from "../types";
 
 const contentfulDeliveryToken = "contentful-delivery-token";
 const recaptchaSiteKey = "recaptcha-site-key";
@@ -22,7 +22,7 @@ const query = async (page: number) => (await import("../index")).query(page);
 
 type ContentfulResponse = {
   data?: {
-    systemConfiguratorAnswer: Answer | null;
+    systemConfiguratorBlock: Answer | null;
   };
   throws?: Error;
   errors?: { message: string }[];
@@ -43,30 +43,30 @@ beforeEach(() => {
 
 describe("HTTP function:", () => {
   const answer = {
-    __typename: "SystemConfiguratorAnswer",
+    __typename: "SystemConfiguratorBlock",
     sys: {
-      id: "2096756927"
+      id: "answer1"
     },
-    title: "1 Question 1 Answer NextStep: Question 1 Answer",
+    type: "Answer",
+    title: "Answer 1",
     description: {
       json: {
         data: {},
         content: [
           {
             data: {},
+            marks: [],
             content: [
               {
                 data: {},
-                marks: [{ type: "bold" }],
-                value: "1 Question 1 Answer NextStep: Question 1 Answer",
+                marks: [],
+                value: "Answer 1 rich text.",
                 nodeType: "text"
               }
             ],
-            nodeType: "paragraph",
-            marks: [{ type: "bold" }]
+            nodeType: "paragraph"
           }
         ],
-
         nodeType: "document"
       },
       links: {
@@ -88,10 +88,13 @@ describe("HTTP function:", () => {
   };
 
   const answerResponse = {
-    __typename: "ContentfulSystemConfiguratorAnswer",
-    contentful_id: "2096756927",
+    __typename: "ContentfulSystemConfiguratorBlock",
+    contentful_id: "answer1",
+    id: "answer1",
+    type: "Answer",
+    title: "Answer 1",
     description: {
-      raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[{"type":"bold"}],"value":"1 Question 1 Answer NextStep: Question 1 Answer","nodeType":"text"}],"nodeType":"paragraph","marks":[{"type":"bold"}]}],"nodeType":"document"}',
+      raw: '{"data":{},"content":[{"data":{},"marks":[],"content":[{"data":{},"marks":[],"value":"Answer 1 rich text.","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
       references: [
         {
           __typename: "ContentfulAsset",
@@ -99,14 +102,15 @@ describe("HTTP function:", () => {
           id: "block1",
           title: "Image title",
           file: {
-            url: "/image",
-            contentType: "image/jpg"
+            contentType: "image/jpg",
+            url: "/image"
           }
         }
       ]
     },
-    id: "2096756927",
-    title: "1 Question 1 Answer NextStep: Question 1 Answer"
+    content: null,
+    answers: null,
+    recommendedSystems: null
   };
 
   it("returns a 500 response when CONTENTFUL_DELIVERY_TOKEN is not set", async () => {
@@ -478,7 +482,7 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: null
+          systemConfiguratorBlock: null
         }
       },
       0
@@ -552,7 +556,7 @@ describe("HTTP function:", () => {
               "Query execution error. Requested locale 'en-GB' does not exist in the space"
           }
         ],
-        data: { systemConfiguratorAnswer: null }
+        data: { systemConfiguratorBlock: null }
       },
       0
     );
@@ -687,21 +691,8 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
-            nextStep: null as unknown as NextStep
+          systemConfiguratorBlock: {
+            nextStep: null
           }
         }
       },
@@ -714,6 +705,170 @@ describe("HTTP function:", () => {
     expect(res.status).toBeCalledWith(404);
     expect(res.send).toBeCalledWith(
       Error(`System Configurator next step not found for entry 1234.`)
+    );
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
+  });
+
+  it("nextStep: returns a 404 response status when next step is of type 'Answer'.", async () => {
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "answer1"
+              },
+              title: "Answer 1",
+              description: null,
+              type: "Answer" as Type,
+              recommendedSystems: null,
+              answersCollection: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(
+      Error(
+        `Type Answer is not a valid System Configurator next step of type Answer (type Question or Result only).`
+      )
+    );
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
+  });
+
+  it("nextStep: returns a 400 response status when answer next step is type 'Section'.", async () => {
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "section1"
+              },
+              type: "Section" as Type,
+              title: "Section 1",
+              description: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(
+      Error(
+        `Type Section is not a valid System Configurator next step of type Answer (type Question or Result only).`
+      )
     );
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
@@ -775,25 +930,13 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -824,7 +967,8 @@ describe("HTTP function:", () => {
               answersCollection: {
                 total: 0,
                 items: []
-              }
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -854,6 +998,96 @@ describe("HTTP function:", () => {
         })
       }
     );
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
+              answersCollection: {
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorBlock",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      content: null,
+      type: "Question",
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: [],
+      recommendedSystems: null
+    });
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
 
     process.env.RECAPTCHA_MINIMUM_SCORE = originalRecaptchaMinimumScore;
   });
@@ -908,25 +1142,151 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
+              answersCollection: {
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorBlock",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      type: "Question",
+      content: null,
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: [],
+      recommendedSystems: null
+    });
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
+  });
+
+  it("nextStep: returns a 200 response status when answer next step is type 'Question' and has answers.", async () => {
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -966,8 +1326,54 @@ describe("HTTP function:", () => {
               },
               answersCollection: {
                 total: 1,
-                items: [answer as Omit<Answer, "nextStep">]
-              }
+                items: [
+                  {
+                    __typename: "SystemConfiguratorBlock",
+                    sys: {
+                      id: "answer1"
+                    },
+                    type: "Answer" as Type,
+                    title: "Answer 1",
+                    description: {
+                      json: {
+                        data: {},
+                        content: [
+                          {
+                            data: {},
+                            marks: [],
+                            content: [
+                              {
+                                data: {},
+                                marks: [],
+                                value: "Answer 1 rich text.",
+                                nodeType: "text"
+                              }
+                            ],
+                            nodeType: "paragraph"
+                          }
+                        ],
+                        nodeType: "document"
+                      },
+                      links: {
+                        assets: {
+                          block: [
+                            {
+                              __typename: "Asset",
+                              sys: {
+                                id: "block1"
+                              },
+                              title: "Image title",
+                              url: "/image",
+                              contentType: "image/jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -980,10 +1386,12 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorQuestion",
+      __typename: "ContentfulSystemConfiguratorBlock",
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      content: null,
+      type: "Question",
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1017,7 +1425,34 @@ describe("HTTP function:", () => {
           }
         ]
       },
-      answers: [answerResponse]
+      answers: [
+        {
+          __typename: "ContentfulSystemConfiguratorBlock",
+          contentful_id: "answer1",
+          id: "answer1",
+          type: "Answer",
+          title: "Answer 1",
+          content: null,
+          description: {
+            raw: '{"data":{},"content":[{"data":{},"marks":[],"content":[{"data":{},"marks":[],"value":"Answer 1 rich text.","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
+            references: [
+              {
+                __typename: "ContentfulAsset",
+                contentful_id: "block1",
+                id: "block1",
+                title: "Image title",
+                file: {
+                  contentType: "image/jpg",
+                  url: "/image"
+                }
+              }
+            ]
+          },
+          answers: null,
+          recommendedSystems: null
+        }
+      ],
+      recommendedSystems: null
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
@@ -1075,25 +1510,13 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -1134,7 +1557,8 @@ describe("HTTP function:", () => {
               answersCollection: {
                 total: 12,
                 items: new Array(9).fill(answer)
-              }
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -1144,25 +1568,13 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -1203,7 +1615,8 @@ describe("HTTP function:", () => {
               answersCollection: {
                 total: 12,
                 items: new Array(3).fill(answer)
-              }
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -1216,10 +1629,12 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorQuestion",
+      __typename: "ContentfulSystemConfiguratorBlock",
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1253,171 +1668,8 @@ describe("HTTP function:", () => {
           }
         ]
       },
-      answers: new Array(12).fill(answerResponse)
-    });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
-    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
-  });
-
-  it("nextStep: returns a 200 response status when answer next step is type 'Result'.", async () => {
-    const req = getMockReq({
-      headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
-      },
-      method: "GET",
-      query: {
-        answerId: "1234",
-        locale: "en-US"
-      }
-    });
-
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
-
-    const addContentfulResponseMock = async (
-      mockResponse: ContentfulResponse,
-      index: number
-    ) => {
-      fetchMock.mock(
-        {
-          method: "POST",
-          url: "begin:https://graphql.contentful.com",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${contentfulDeliveryToken}`
-          },
-          body: {
-            query: await query(index),
-            variables: {
-              answerId: "1234",
-              locale: "en-US"
-            }
-          },
-          matchPartialBody: true
-        },
-        mockResponse
-      );
-    };
-
-    await addContentfulResponseMock(
-      {
-        data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
-            nextStep: {
-              __typename: "SystemConfiguratorResult",
-              sys: {
-                id: "result2"
-              },
-              title: "Result 2",
-              description: {
-                json: {
-                  data: {},
-                  content: [
-                    {
-                      data: {},
-                      marks: [],
-                      content: [
-                        {
-                          data: {},
-                          marks: [],
-                          value: "Result 2a rich text.",
-                          nodeType: "text"
-                        }
-                      ],
-                      nodeType: "paragraph"
-                    }
-                  ],
-                  nodeType: "document"
-                },
-                links: {
-                  assets: {
-                    block: [
-                      {
-                        __typename: "Asset",
-                        sys: {
-                          id: "block1"
-                        },
-                        title: "Image title",
-                        url: "/image",
-                        contentType: "image/jpg"
-                      }
-                    ]
-                  }
-                }
-              },
-              recommendedSystems: ["ReccomendedSystem_1", "ReccomendedSystem_2"]
-            }
-          }
-        }
-      },
-      0
-    );
-
-    await nextStep(req, res);
-
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
-    expect(res.status).toBeCalledWith(200);
-    expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorResult",
-      contentful_id: "result2",
-      id: "result2",
-      title: "Result 2",
-      description: {
-        raw: JSON.stringify({
-          data: {},
-          content: [
-            {
-              data: {},
-              marks: [],
-              content: [
-                {
-                  data: {},
-                  marks: [],
-                  value: "Result 2a rich text.",
-                  nodeType: "text"
-                }
-              ],
-              nodeType: "paragraph"
-            }
-          ],
-          nodeType: "document"
-        }),
-        references: [
-          {
-            __typename: "ContentfulAsset",
-            contentful_id: "block1",
-            id: "block1",
-            title: "Image title",
-            file: {
-              url: "/image",
-              contentType: "image/jpg"
-            }
-          }
-        ]
-      },
-      recommendedSystems: ["ReccomendedSystem_1", "ReccomendedSystem_2"]
+      answers: new Array(12).fill(answerResponse),
+      recommendedSystems: null
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
@@ -1475,20 +1727,7 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
               sys: {
                 id: "titleWithContent2"
@@ -1531,7 +1770,10 @@ describe("HTTP function:", () => {
       __typename: "ContentfulTitleWithContent",
       contentful_id: "titleWithContent2",
       id: "titleWithContent2",
+      type: null,
       title: "Title with content 2",
+      answers: null,
+      recommendedSystems: null,
       content: {
         raw: JSON.stringify({
           data: {},
@@ -1612,25 +1854,13 @@ describe("HTTP function:", () => {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -1654,24 +1884,15 @@ describe("HTTP function:", () => {
                 },
                 links: {
                   assets: {
-                    block: [
-                      {
-                        __typename: "Asset",
-                        sys: {
-                          id: "block1"
-                        },
-                        title: "Image title",
-                        url: "/image",
-                        contentType: "image/jpg"
-                      }
-                    ]
+                    block: []
                   }
                 }
               },
               answersCollection: {
-                total: 1,
-                items: [answer as Omit<Answer, "nextStep">]
-              }
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -1684,10 +1905,12 @@ describe("HTTP function:", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorQuestion",
+      __typename: "ContentfulSystemConfiguratorBlock",
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1708,20 +1931,10 @@ describe("HTTP function:", () => {
           ],
           nodeType: "document"
         }),
-        references: [
-          {
-            __typename: "ContentfulAsset",
-            contentful_id: "block1",
-            id: "block1",
-            title: "Image title",
-            file: {
-              url: "/image",
-              contentType: "image/jpg"
-            }
-          }
-        ]
+        references: []
       },
-      answers: [answerResponse]
+      answers: [],
+      recommendedSystems: null
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
@@ -1738,102 +1951,68 @@ describe("HTTP function:", () => {
         body: {
           query: `
 query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
-  systemConfiguratorAnswer(id: $answerId, locale: $locale, preview: $preview) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
-      ...on SystemConfiguratorQuestion {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorQuestionDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        answersCollection(limit: ${9}, skip: ${0 * 9}) {
-          total
-          items {
-            ...on SystemConfiguratorAnswer {
-              __typename
-              sys {
-                id
-              }
-              title
-              description {
-                ...on SystemConfiguratorAnswerDescription {
-                  json
-                  links {
-                    assets {
-                      block {
-                        ...on Asset {
-                          __typename
-                          sys {
-                            id
-                          }
-                          title
-                          url
-                          contentType
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      ...on SystemConfiguratorResult {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorResultDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        recommendedSystems
-      }
-      ...on TitleWithContent {
-        sys {
-          id
-        }
-        title
-        content {
-          json
-        }
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
       }
     }
   }
@@ -1900,25 +2079,13 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -1942,24 +2109,15 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                 },
                 links: {
                   assets: {
-                    block: [
-                      {
-                        __typename: "Asset",
-                        sys: {
-                          id: "block1"
-                        },
-                        title: "Image title",
-                        url: "/image",
-                        contentType: "image/jpg"
-                      }
-                    ]
+                    block: []
                   }
                 }
               },
               answersCollection: {
-                total: 1,
-                items: [answer as Omit<Answer, "nextStep">]
-              }
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -1972,10 +2130,12 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorQuestion",
+      __typename: "ContentfulSystemConfiguratorBlock",
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1996,20 +2156,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
           ],
           nodeType: "document"
         }),
-        references: [
-          {
-            __typename: "ContentfulAsset",
-            contentful_id: "block1",
-            id: "block1",
-            title: "Image title",
-            file: {
-              url: "/image",
-              contentType: "image/jpg"
-            }
-          }
-        ]
+        references: []
       },
-      answers: [answerResponse]
+      answers: [],
+      recommendedSystems: null
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
@@ -2026,102 +2176,68 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
         body: {
           query: `
 query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
-  systemConfiguratorAnswer(id: $answerId, locale: $locale, preview: $preview) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
-      ...on SystemConfiguratorQuestion {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorQuestionDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        answersCollection(limit: ${9}, skip: ${0 * 9}) {
-          total
-          items {
-            ...on SystemConfiguratorAnswer {
-              __typename
-              sys {
-                id
-              }
-              title
-              description {
-                ...on SystemConfiguratorAnswerDescription {
-                  json
-                  links {
-                    assets {
-                      block {
-                        ...on Asset {
-                          __typename
-                          sys {
-                            id
-                          }
-                          title
-                          url
-                          contentType
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      ...on SystemConfiguratorResult {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorResultDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        recommendedSystems
-      }
-      ...on TitleWithContent {
-        sys {
-          id
-        }
-        title
-        content {
-          json
-        }
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
       }
     }
   }
@@ -2188,25 +2304,13 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     await addContentfulResponseMock(
       {
         data: {
-          systemConfiguratorAnswer: {
-            __typename: "SystemConfiguratorAnswer",
-            sys: {
-              id: "id"
-            },
-            title: "title",
-            description: {
-              json: { data: {}, content: [], nodeType: "document" },
-              links: {
-                assets: {
-                  block: []
-                }
-              }
-            },
+          systemConfiguratorBlock: {
             nextStep: {
-              __typename: "SystemConfiguratorQuestion",
+              __typename: "SystemConfiguratorBlock",
               sys: {
                 id: "question2"
               },
+              type: "Question",
               title: "Question 2",
               description: {
                 json: {
@@ -2230,24 +2334,15 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
                 },
                 links: {
                   assets: {
-                    block: [
-                      {
-                        __typename: "Asset",
-                        sys: {
-                          id: "block1"
-                        },
-                        title: "Image title",
-                        url: "/image",
-                        contentType: "image/jpg"
-                      }
-                    ]
+                    block: []
                   }
                 }
               },
               answersCollection: {
-                total: 1,
-                items: [answer as Omit<Answer, "nextStep">]
-              }
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
             }
           }
         }
@@ -2260,10 +2355,12 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
     expect(res.status).toBeCalledWith(200);
     expect(res.send).toBeCalledWith({
-      __typename: "ContentfulSystemConfiguratorQuestion",
+      __typename: "ContentfulSystemConfiguratorBlock",
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -2284,20 +2381,10 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
           ],
           nodeType: "document"
         }),
-        references: [
-          {
-            __typename: "ContentfulAsset",
-            contentful_id: "block1",
-            id: "block1",
-            title: "Image title",
-            file: {
-              url: "/image",
-              contentType: "image/jpg"
-            }
-          }
-        ]
+        references: []
       },
-      answers: [answerResponse]
+      answers: [],
+      recommendedSystems: null
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
@@ -2314,102 +2401,68 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
         body: {
           query: `
 query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
-  systemConfiguratorAnswer(id: $answerId, locale: $locale, preview: $preview) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
-      ...on SystemConfiguratorQuestion {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorQuestionDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        answersCollection(limit: ${9}, skip: ${0 * 9}) {
-          total
-          items {
-            ...on SystemConfiguratorAnswer {
-              __typename
-              sys {
-                id
-              }
-              title
-              description {
-                ...on SystemConfiguratorAnswerDescription {
-                  json
-                  links {
-                    assets {
-                      block {
-                        ...on Asset {
-                          __typename
-                          sys {
-                            id
-                          }
-                          title
-                          url
-                          contentType
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      ...on SystemConfiguratorResult {
-        sys {
-          id
-        }
-        title
-        description {
-          ...on SystemConfiguratorResultDescription {
-            json
-            links {
-              assets {
-                block {
-                  ...on Asset {
-                    __typename
-                    sys {
-                      id
-                    }
-                    title
-                    url
-                    contentType
-                  }
-                }
-              }
-            }
-          }
-        }
-        recommendedSystems
-      }
-      ...on TitleWithContent {
-        sys {
-          id
-        }
-        title
-        content {
-          json
-        }
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
       }
     }
   }

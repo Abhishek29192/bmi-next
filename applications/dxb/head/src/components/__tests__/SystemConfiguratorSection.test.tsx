@@ -13,7 +13,6 @@ import * as GTM from "../../utils/google-tag-manager";
 import createRelatedSystem from "../../__tests__/helpers/RelatedSystemHelper";
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
-  AnswerData,
   Data,
   QuestionData
 } from "../SystemConfiguratorSection";
@@ -93,48 +92,68 @@ const richTextRaw = {
   ]
 };
 
-const createAnswer = (answer?: Partial<AnswerData>): AnswerData => ({
-  __typename: "ContentfulSystemConfiguratorAnswer",
-  id: "A1a",
-  title: "Answer 1a title",
-  description: null,
-  nextStep: {
-    nextResult: {
-      __typename: "ContentfulSystemConfiguratorResult",
-      id: "result1",
-      title: "Result1",
-      description: null,
-      recommendedSystems: ["System_1", "System_2"]
-    }
-  },
-  ...answer
-});
-
-const answer1 = createAnswer();
-const answer2 = createAnswer({ id: "A1b", title: "Answer 1b title" });
-
 const initialQuestion: QuestionData = {
-  __typename: "ContentfulSystemConfiguratorQuestion",
+  __typename: "ContentfulSystemConfiguratorBlock",
   id: "Q1",
   title: "Question One",
+  type: "Question",
   description: null,
-  answers: [answer1, answer2]
+  answers: [
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1a",
+      title: "Answer 1a title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1b",
+      title: "Answer 1b title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1c",
+      title: "Answer 1c title",
+      description: null,
+      type: "Answer"
+    }
+  ]
 };
 const initialData: Data = {
-  __typename: "ContentfulSystemConfiguratorSection",
+  __typename: "ContentfulSystemConfiguratorBlock",
   title: "System Configurator Section Title",
   label: "System Configurator Section Label",
   description: null,
+  type: "Section",
   locale: "en-US",
   question: initialQuestion
 };
 
 const question: QuestionData = {
-  __typename: "ContentfulSystemConfiguratorQuestion",
+  __typename: "ContentfulSystemConfiguratorBlock",
   id: "Q2",
   title: "Next Question Title",
   description: null,
-  answers: [answer1, answer2]
+  type: "Question",
+  answers: [
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "nextA1",
+      title: "Next Answer Title A",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "nextA2",
+      title: "Next Answer Title B",
+      description: null,
+      type: "Answer"
+    }
+  ]
 };
 const getSiteContext = (countryCode = "no", nodeLocale = "en-GB") => ({
   countryCode: countryCode,
@@ -226,6 +245,7 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
   });
+
   it("renders next question and answer block when answer clicked", async () => {
     fetchMock.mockReturnValue(getFetchResponse(question));
 
@@ -235,7 +255,7 @@ describe("SystemConfiguratorSection component", () => {
       </LocationProvider>
     );
 
-    const label = await findByLabelText("Answer 1a title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -248,9 +268,10 @@ describe("SystemConfiguratorSection component", () => {
   it("renders a result section when answer clicked", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulSystemConfiguratorResult",
+        __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
         recommendedSystems: ["abcd", "efgh"]
       })
     );
@@ -263,7 +284,7 @@ describe("SystemConfiguratorSection component", () => {
       </SiteContextProvider>
     );
 
-    const label = await findByLabelText("Answer 1a title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -470,7 +491,7 @@ describe("SystemConfiguratorSection component", () => {
         </LocationProvider>
       );
 
-    const label = await findByLabelText("Answer 1a title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -490,17 +511,17 @@ describe("SystemConfiguratorSection component", () => {
 
     fetchMock.mockResolvedValueOnce(
       getFetchResponse({
-        __typename: "ContentfulSystemConfiguratorQuestion",
-        id: "SkippedId",
+        __typename: "ContentfulSystemConfiguratorBlock",
         title: "Skipped Title",
         description: null,
+        type: "Question",
         answers: [
           {
-            __typename: "ContentfulSystemConfiguratorAnswer",
+            __typename: "ContentfulSystemConfiguratorBlock",
             id: "skippedA1",
             title: "Skipped Answer Title",
             description: null,
-            nextStep: {}
+            type: "Answer"
           }
         ]
       })
@@ -513,7 +534,7 @@ describe("SystemConfiguratorSection component", () => {
       </LocationProvider>
     );
 
-    const label = await findByLabelText("Answer 1b title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -536,7 +557,7 @@ describe("SystemConfiguratorSection component", () => {
       </ErrorBoundary>
     );
 
-    const label = await findByLabelText("Answer 1b title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -555,14 +576,14 @@ describe("SystemConfiguratorSection component", () => {
         </LocationProvider>
       );
 
-    const answerLabel = await findByLabelText("Answer 1b title");
+    const answerLabel = await findByLabelText("Answer 1c title");
     fireEvent.click(answerLabel);
 
     await findByRole("progressbar");
 
     await findByText(question.title);
     const firstQuestion = getByRole("button", {
-      name: `${initialData.question.title}: Answer 1b title`,
+      name: `${initialData.question.title}: Answer 1c title`,
       exact: false
     });
 
@@ -577,9 +598,10 @@ describe("SystemConfiguratorSection component", () => {
       const mockPushToDataLayer = jest.spyOn(GTM, "pushToDataLayer");
       fetchMock.mockResolvedValue(
         getFetchResponse({
-          __typename: "ContentfulSystemConfiguratorResult",
+          __typename: "ContentfulSystemConfiguratorBlock",
           title: "Result Title",
           description: { raw: JSON.stringify(richTextRaw), references: null },
+          type: "Result",
           recommendedSystems: ["abcd", "efgh"]
         })
       );
@@ -595,7 +617,7 @@ describe("SystemConfiguratorSection component", () => {
         </SiteContextProvider>
       );
 
-      const label = await findByLabelText("Answer 1b title");
+      const label = await findByLabelText("Answer 1c title");
       fireEvent.click(label);
 
       await findByText("Result Title");
@@ -614,9 +636,10 @@ describe("SystemConfiguratorSection component", () => {
     it("highlights last selected system", async () => {
       fetchMock.mockResolvedValue(
         getFetchResponse({
-          __typename: "ContentfulSystemConfiguratorResult",
+          __typename: "ContentfulSystemConfiguratorBlock",
           title: "Result Title",
           description: { raw: JSON.stringify(richTextRaw), references: null },
+          type: "Result",
           recommendedSystems: ["abcd", "efgh"]
         })
       );
@@ -632,7 +655,7 @@ describe("SystemConfiguratorSection component", () => {
         </SiteContextProvider>
       );
 
-      const label = await findByLabelText("Answer 1b title");
+      const label = await findByLabelText("Answer 1c title");
       fireEvent.click(label);
 
       await findByText("Result Title");
@@ -647,9 +670,10 @@ describe("SystemConfiguratorSection component", () => {
   it("renders only the recommendedSystems that match the pimSystem list from contentful", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulSystemConfiguratorResult",
+        __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
         recommendedSystems: ["abcd", "ijkl", "efgh"]
       })
     );
@@ -687,7 +711,7 @@ describe("SystemConfiguratorSection component", () => {
       </SiteContextProvider>
     );
 
-    const label = await findByLabelText("Answer 1b title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -705,9 +729,10 @@ describe("SystemConfiguratorSection component", () => {
   it("renders only max of 4 recommendedSystems", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulSystemConfiguratorResult",
+        __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
         recommendedSystems: ["ijkl", "efgh", "abcd", "mnop", "qrst"]
       })
     );
@@ -760,7 +785,7 @@ describe("SystemConfiguratorSection component", () => {
       </SiteContextProvider>
     );
 
-    const label = await findByLabelText("Answer 1b title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByRole("progressbar");
@@ -779,9 +804,10 @@ describe("SystemConfiguratorSection component", () => {
   it("redirect to 404 page if no matches to pimSystem code", async () => {
     fetchMock.mockResolvedValue(
       getFetchResponse({
-        __typename: "ContentfulSystemConfiguratorResult",
+        __typename: "ContentfulSystemConfiguratorBlock",
         title: "Result Title",
         description: { raw: JSON.stringify(richTextRaw), references: null },
+        type: "Result",
         recommendedSystems: ["efgh", "ijkl"]
       })
     );
@@ -802,7 +828,7 @@ describe("SystemConfiguratorSection component", () => {
       </SiteContextProvider>
     );
 
-    const label = await findByLabelText("Answer 1b title");
+    const label = await findByLabelText("Answer 1c title");
     fireEvent.click(label);
 
     await findByText("Result Title");
