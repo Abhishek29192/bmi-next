@@ -1,9 +1,25 @@
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { Asset, createClient, Entry, Environment } from "contentful-management";
 import fetch from "node-fetch";
 import { findBuildWebhooks } from "./find";
 
 const SECRET_MIN_LENGTH = 10;
+
+let environmentCache: Environment | undefined;
+const getEnvironment = async (): Promise<Environment> => {
+  if (!environmentCache) {
+    const client = createClient({
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
+    });
+    const space = await client.getSpace(process.env.SPACE_ID!);
+
+    environmentCache = await space.getEnvironment(
+      process.env.CONTENTFUL_ENVIRONMENT!
+    );
+  }
+  return environmentCache;
+};
 
 export const build: HttpFunction = async (request, response) => {
   if (
@@ -49,7 +65,25 @@ export const build: HttpFunction = async (request, response) => {
     return response.sendStatus(401);
   }
 
-  const buildWebhooks = findBuildWebhooks(request.body);
+  const environment = await getEnvironment();
+
+  let entity: Entry | Asset | undefined;
+  if (request.body?.metadata?.tags?.length) {
+    entity = request.body;
+  } else if (request.body?.sys?.type === "DeletedEntry") {
+    entity = await environment.getEntry(request.body.sys.id);
+  } else if (request.body?.sys?.type === "DeletedAsset") {
+    entity = await environment.getAsset(request.body.sys.id);
+  }
+
+  if (!entity || !entity.metadata?.tags?.length) {
+    logger.error({
+      message: `Could not find Entry/Asset by id - ${request?.body?.sys?.id}`
+    });
+    return response.sendStatus(500);
+  }
+
+  const buildWebhooks = findBuildWebhooks(entity);
   if (!buildWebhooks) {
     logger.warning({ message: "Build webhook not found." });
     return response.sendStatus(404);
