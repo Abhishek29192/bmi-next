@@ -1,12 +1,18 @@
 import { EntryFields } from "contentful";
 
-export type NextStep = Result | Question | TitleWithContent;
+export type Answer = {
+  nextStep: NextStep | null;
+};
+
+export type NextStep = Entry | TitleWithContent;
 
 type Entry = {
+  __typename: "SystemConfiguratorBlock";
   sys: {
     id: string;
   };
   title: string;
+  type: Type;
   description: {
     json: EntryFields.RichText;
     links: {
@@ -15,25 +21,19 @@ type Entry = {
       };
     };
   } | null;
-};
-
-export type Answer = {
-  __typename: "SystemConfiguratorAnswer";
-  nextStep: NextStep;
-} & Entry;
+} & Partial<Question> &
+  Partial<Result>;
 
 type Result = {
-  __typename: "SystemConfiguratorResult";
-  recommendedSystems: string[];
-} & Entry;
+  recommendedSystems: string[] | null;
+};
 
 type Question = {
-  __typename: "SystemConfiguratorQuestion";
   answersCollection: {
     total: number;
-    items: Omit<Answer, "nextStep">[];
-  };
-} & Entry;
+    items: Entry[];
+  } | null;
+};
 
 type TitleWithContent = {
   __typename: "TitleWithContent";
@@ -54,6 +54,8 @@ type Asset = {
   contentType: string | null;
 };
 
+export type Type = "Question" | "Result";
+
 type ResponseRichText = {
   raw: string;
   references: Array<{
@@ -68,27 +70,24 @@ type ResponseRichText = {
   }>;
 };
 
-type TransformedBase = { contentful_id: string; id: string; title: string };
-
-export type TransformedAnswer = TransformedBase & {
-  __typename: `ContentfulSystemConfiguratorAnswer`;
-  description: ResponseRichText | null;
-};
-
-export type Response = TransformedBase &
-  (
-    | {
-        __typename: `ContentfulSystemConfiguratorQuestion`;
-        description: ResponseRichText | null;
-        answers: TransformedAnswer[];
-      }
-    | {
-        __typename: `ContentfulSystemConfiguratorResult`;
-        description: ResponseRichText | null;
-        recommendedSystems: string[];
-      }
-    | {
-        __typename: `ContentfulTitleWithContent`;
-        content: { raw: string };
-      }
-  );
+export type Response = {
+  contentful_id: string;
+  id: string;
+  title: string;
+} & (
+  | {
+      __typename: `ContentfulSystemConfiguratorBlock`;
+      type: string;
+      description: ResponseRichText | null;
+      answers: Response[] | null;
+      recommendedSystems: string[] | null;
+      content: null;
+    }
+  | {
+      __typename: `ContentfulTitleWithContent`;
+      type: null;
+      answers: null;
+      recommendedSystems: null;
+      content: { raw: string };
+    }
+);
