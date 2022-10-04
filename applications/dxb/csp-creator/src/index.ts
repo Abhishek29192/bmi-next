@@ -93,7 +93,7 @@ const main = async (market?: string, environment?: string) => {
   const gcpFunctionsHost = getGcpFunctionsHost(environment, marketOptions);
   const pimHosts = getPimHosts(environment);
 
-  let defaultSrc = "default-src 'self' https:";
+  let defaultSrc = `default-src 'self' https: ${gatsbyHost}`;
   let scriptSrc = `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${gatsbyHost} ${
     marketOptions.scriptSrcExtras || ""
   } https://www.google-analytics.com https://www.googleoptimize.com https://optimize.google.com https://www.googletagmanager.com https://*.googleapis.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com`;
