@@ -684,9 +684,13 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body table-cell"
+                                  class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                 >
-                                  pim-link-document-title
+                                  <p
+                                    class="title"
+                                  >
+                                    pim-link-document-title
+                                  </p>
                                 </td>
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -776,9 +780,13 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body table-cell"
+                                  class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                 >
-                                  pim-link-document-title
+                                  <p
+                                    class="title"
+                                  >
+                                    pim-link-document-title
+                                  </p>
                                 </td>
                                 <td
                                   class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -1029,9 +1037,13 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               asset-name
                             </td>
                             <td
-                              class="MuiTableCell-root MuiTableCell-body table-cell"
+                              class="MuiTableCell-root MuiTableCell-body title-table-cell"
                             >
-                              pim-link-document-title
+                              <p
+                                class="title"
+                              >
+                                pim-link-document-title
+                              </p>
                             </td>
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -1121,9 +1133,13 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               asset-name
                             </td>
                             <td
-                              class="MuiTableCell-root MuiTableCell-body table-cell"
+                              class="MuiTableCell-root MuiTableCell-body title-table-cell"
                             >
-                              pim-link-document-title
+                              <p
+                                class="title"
+                              >
+                                pim-link-document-title
+                              </p>
                             </td>
                             <td
                               class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
