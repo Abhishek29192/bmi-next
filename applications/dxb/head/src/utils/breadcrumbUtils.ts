@@ -18,16 +18,18 @@ export const updateBreadcrumbTitleFromContentful = (
 };
 
 export const checkIfActiveLabelInParentNode = (
-  label: string,
+  breadcrumbs: BreadcrumbsData = [],
   menuNavigation: NavigationData = {} as NavigationData
 ): string => {
-  if (!!label && !!menuNavigation.links.length) {
+  if (!!breadcrumbs && !!menuNavigation.links.length) {
+    const value =
+      (breadcrumbs.length && breadcrumbs[breadcrumbs.length - 1].label) || "";
     const parentMenuNode: NavigationData | NavigationItem | Data =
       menuNavigation.links.find((i: NavigationData) => {
         const nestedLinks = i.links || [];
         return (
           nestedLinks.length === 1 &&
-          nestedLinks.find((i: NavigationData) => i.label === label)
+          nestedLinks.find((i: NavigationData) => i.label === value)
         );
       });
     return (
