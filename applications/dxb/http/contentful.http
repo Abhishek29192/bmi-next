@@ -1,21 +1,21 @@
 ###
 
 # @name Get all entries
-
-GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=roofer
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name Get entries by content type
-
-GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=site
+@contentType=site
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type={{contentType}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name Get system configurator next step
-
+@answerId=6WmMQzsO3A3yHy7rmihXC0
+@locale=en-US
 POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}
 Content-Type: application/json
 Authorization: Bearer {{contentfulDeliveryToken}}
@@ -104,7 +104,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 }
 
 {
-  "answerId": "6WmMQzsO3A3yHy7rmihXC0",
-  "locale": "en-US",
+  "answerId": "{{answerId}}",
+  "locale": "{{locale}}",
   "preview": true
 }

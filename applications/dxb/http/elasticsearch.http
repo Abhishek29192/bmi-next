@@ -5,12 +5,12 @@ POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
 
-{
-}
+{}
 
 ###
 
 # @name Product search request
+@term=Icopal_Gruenplast-PIR_dh_23
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -84,6 +84,7 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name Document search request
+@term=BMI Icopal Profiles Brochure
 POST {{esHost}}/{{documentsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -110,7 +111,7 @@ Authorization: ApiKey {{esApiKey}}
       "must": [
         {
           "query_string": {
-            "query": "**",
+            "query": "*{{term}}*",
             "type": "cross_fields",
             "fields": [
               "title"
@@ -125,6 +126,7 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name Pages search request
+@term=Icopal
 POST {{esHost}}/{{pagesIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -150,7 +152,7 @@ Authorization: ApiKey {{esApiKey}}
       "must": [
         {
           "query_string": {
-            "query": "**",
+            "query": "*{{term}}*",
             "type": "cross_fields",
             "fields": [
               "pageData"
@@ -174,6 +176,7 @@ Authorization: ApiKey {{esApiKey}}
 ###
 
 # @name PLP request
+@category=NO_PRODUCTS
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
@@ -222,7 +225,7 @@ Authorization: ApiKey {{esApiKey}}
         {
           "terms": {
             "allCategories.code.keyword": [
-              "NO_PRODUCTS"
+              "{{category}}"
             ]
           } 
         }

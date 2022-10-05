@@ -80,8 +80,8 @@ wait_until_head_deployed_to_gatsby:
         updated_at=$(date -u +%s --date=$(echo $note | jq -r '.updated_at'))
         body=$(echo $note | jq '.body')
         if [[ $(($updated_at - $commit_time)) -gt 0 ]]; then
-          if [[ $body == *"Your build was successful!"* ]]; then
-            sed -n 's/.*\[See the Deploy preview here.\](\(.*\))\\n\\n##.*/\1/p' <<< $body > deploy_head
+          if [[ $body == *"## :white_check_mark: DXB/QA deploy preview ready"* ]]; then
+            sed -n 's/.*\[Deploy preview\](\(.*\))\\n\*.*/\1/p' <<< $body > deploy_head
             exit 0
           fi
           echo "Latest Gatsby build failed to build."
@@ -204,6 +204,7 @@ baseline_scan_head_prod:
       done
       yarn workspace @bmi/head lighthouse ${params}
   artifacts:
+    when: always
     paths:
       - applications/dxb/head/lighthouseci/reports
 
@@ -235,7 +236,7 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
-        "${base_url}/no/p/unique-plus-takpanne-matt-grafitt-metall-258584391/"
+        "${base_url}/no/p/aerodek-tradition-plus-takpanne-sort-metall-600174295/"
         "${base_url}/no/s/unique-plus-takpanne-4056043937/"
         "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
         "${base_url}/no/find-a-merchant/"
