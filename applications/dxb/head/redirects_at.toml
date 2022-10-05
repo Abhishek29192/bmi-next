@@ -2374,13 +2374,13 @@
 
 [[redirects]]
   from = "/at/dach-tipps/homestory-handler-posch-bramac-tegalit/"
-  to = "/at/homestory/homestory-handler-posch-bramac-tegalit/"
+  to = "/at/homestories/homestory-handler-posch-bramac-tegalit/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/at/dach-tipps/homestory-haller-bramac-classic/"
-  to = "/at/homestory/homestory-haller-bramac-classic/"
+  to = "/at/homestories/bmi-homestory-haller-bramac-classic/"
   status = 301
   force = true
 
@@ -2392,7 +2392,7 @@
 
 [[redirects]]
   from = "/at/dach-tipps/bmi-homestory-h%C3%A4usler/"
-  to = "/at/homestory/bmi-homestory-h%C3%A4usler/"
+  to = "/at/homestories/homestory-h%C3%A4usler-bramac-photovoltaik/"
   status = 301
   force = true
 
