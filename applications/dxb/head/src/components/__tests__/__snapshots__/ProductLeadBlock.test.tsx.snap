@@ -567,9 +567,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -654,9 +658,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -741,9 +749,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -828,9 +840,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
