@@ -12,7 +12,7 @@ const {
   GCP_APPLICATION_PROJECT,
   METRIC_LATENCY_DELAY,
   NETLIFY_BUILD_HOOK,
-  TIMEOUT_LIMIT
+  FUNCTION_TIMEOUT_SEC
 } = process.env;
 
 const client = new monitoring.MetricServiceClient();
@@ -111,8 +111,8 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!TIMEOUT_LIMIT) {
-    logger.error({ message: "TIMEOUT_LIMIT was not provided" });
+  if (!FUNCTION_TIMEOUT_SEC) {
+    logger.error({ message: "FUNCTION_TIMEOUT_SEC was not provided" });
     return res.sendStatus(500);
   }
 
@@ -121,10 +121,10 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  const timeoutLimit = Number.parseInt(TIMEOUT_LIMIT);
+  const timeoutLimit = Number.parseInt(FUNCTION_TIMEOUT_SEC);
   if (Number.isNaN(timeoutLimit)) {
     logger.error({
-      message: "TIMEOUT_LIMIT was provided, but is not a valid number"
+      message: "FUNCTION_TIMEOUT_SEC was provided, but is not a valid number"
     });
     return res.sendStatus(500);
   }
