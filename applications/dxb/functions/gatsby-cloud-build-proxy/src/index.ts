@@ -7,12 +7,12 @@ import { findBuildWebhooks } from "./find";
 const SECRET_MIN_LENGTH = 10;
 
 let environmentCache: Environment | undefined;
-const getEnvironment = async (): Promise<Environment> => {
+const getEnvironment = async (spaceId: string): Promise<Environment> => {
   if (!environmentCache) {
     const client = createClient({
       accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
     });
-    const space = await client.getSpace(process.env.SPACE_ID!);
+    const space = await client.getSpace(spaceId!);
 
     environmentCache = await space.getEnvironment(
       process.env.CONTENTFUL_ENVIRONMENT!
@@ -35,6 +35,14 @@ export const build: HttpFunction = async (request, response) => {
   }
   if (!process.env.BUILD_REQUEST) {
     logger.error({ message: "Request secret is not set." });
+    return response.sendStatus(500);
+  }
+  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
+    logger.error({ message: "Management access token is not set." });
+    return response.sendStatus(500);
+  }
+  if (!process.env.CONTENTFUL_ENVIRONMENT) {
+    logger.error({ message: "Contentful environment is not set." });
     return response.sendStatus(500);
   }
   response.set("Access-Control-Allow-Origin", "*");
@@ -65,15 +73,17 @@ export const build: HttpFunction = async (request, response) => {
     return response.sendStatus(401);
   }
 
-  const environment = await getEnvironment();
-
   let entity: Entry | Asset | undefined;
   if (request.body?.metadata?.tags?.length) {
     entity = request.body;
-  } else if (request.body?.sys?.type === "DeletedEntry") {
-    entity = await environment.getEntry(request.body.sys.id);
-  } else if (request.body?.sys?.type === "DeletedAsset") {
-    entity = await environment.getAsset(request.body.sys.id);
+  } else if (request.body?.sys?.space?.sys?.id) {
+    const environment = await getEnvironment(request.body?.sys?.space?.sys?.id);
+
+    if (request.body?.sys?.type === "DeletedEntry") {
+      entity = await environment.getEntry(request.body.sys.id);
+    } else if (request.body?.sys?.type === "DeletedAsset") {
+      entity = await environment.getAsset(request.body.sys.id);
+    }
   }
 
   if (!entity || !entity.metadata?.tags?.length) {
