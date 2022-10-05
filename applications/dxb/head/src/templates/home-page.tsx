@@ -15,9 +15,9 @@ import { Data as SiteData } from "../components/Site";
 import { renderVideo } from "../components/Video";
 import WelcomeDialog from "../components/WelcomeDialog";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -29,7 +29,7 @@ type HomepageData = {
   sections: SectionsData | null;
 } & PageData;
 
-type Props = {
+export type Props = {
   data: {
     contentfulHomePage: HomepageData;
     contentfulSite: SiteData;
@@ -104,7 +104,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={
-        !isSpaEnabled ? slides?.[0]?.featuredMedia.image?.file.url : ""
+        !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
       }
     >
       {({ siteContext }) => {
