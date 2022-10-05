@@ -15,6 +15,7 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -169,7 +170,8 @@ const Header = ({
   countryNavigationIntroduction,
   regions,
   sampleBasketLink,
-  maximumSamples
+  maximumSamples,
+  lastNavigationLabel
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
@@ -180,6 +182,7 @@ const Header = ({
   regions: Region[];
   sampleBasketLink?: PageInfoData;
   maximumSamples?: number;
+  lastNavigationLabel?: string;
 }) => {
   const languages = useMemo(
     () =>
@@ -227,6 +230,9 @@ const Header = ({
     sampleBasketLink &&
     getCTA(sampleBasketLink, countryCode, sampleBasketLink?.slug);
 
+  const newActiveLabel =
+    checkIfActiveLabelInParentNode(lastNavigationLabel, navigationData) ||
+    activeLabel;
   return (
     <HidePrint
       component={() => (
@@ -247,7 +253,7 @@ const Header = ({
             to: getPathWithCountryCode(countryCode, "")
           }}
           logoLabel={getMicroCopy(microCopy.GLOBAL_LOGO_LABEL)}
-          activeNavLabel={activeLabel}
+          activeNavLabel={newActiveLabel}
           closeLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
           tabComponent={(props: TabProps) => (
             <GTMNavigationTab gtm={{ id: "nav-main-menu" }} {...props} />
