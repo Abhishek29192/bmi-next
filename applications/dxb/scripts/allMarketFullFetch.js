@@ -312,7 +312,8 @@ const triggerFullFetch = async (gcloudAuthToken, environment, market) => {
     await fetchRetry(fullFetchTrigger, {
       headers: {
         Authorization: `Bearer ${gcloudAuthToken}`
-      }
+      },
+      timeout: 180000
     });
     console.info(`Triggered full fetch for ${market.name}`);
     await new Promise((resolve) => setTimeout(resolve, 120000));
