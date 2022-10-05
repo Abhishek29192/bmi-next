@@ -16,6 +16,7 @@ exports[`AnchorLink component renders default correctly 1`] = `
 exports[`AnchorLink component renders disabled correctly 1`] = `
 <div>
   <a
+    aria-disabled="true"
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
     href="/"
   >
@@ -29,6 +30,7 @@ exports[`AnchorLink component renders disabled correctly 1`] = `
 exports[`AnchorLink component renders icon disabled correctly 1`] = `
 <div>
   <a
+    aria-disabled="true"
     class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
     href="/"
   >
