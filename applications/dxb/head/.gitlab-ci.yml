@@ -233,7 +233,6 @@ lighthouseci_scan_head_preview:
       export LIGHTHOUSE_URLS=(
         "${base_url}/no/"
         "${base_url}/no/contact-us/"
-        "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
         "${base_url}/no/p/aerodek-tradition-plus-takpanne-sort-metall-600174295/"

@@ -89,7 +89,14 @@ export const renderProducts = (
             label: getMicroCopy("plp.product.viewDetails")
           }}
           footer={
-            <AnchorLink iconEnd>
+            <AnchorLink
+              action={{
+                model: "routerLink",
+                linkComponent: GatsbyLink,
+                to: productUrl
+              }}
+              iconEnd
+            >
               {getMicroCopy("plp.product.viewDetails")}
             </AnchorLink>
           }
