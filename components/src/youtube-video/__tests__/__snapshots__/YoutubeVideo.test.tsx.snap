@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`YoutubeVideo component dialog layout should render correctly 1`] = `
+exports[`YoutubeVideo component DialogVideo  1`] = `
 <div>
   <div
     class="YoutubeVideo"
@@ -26,7 +26,7 @@ exports[`YoutubeVideo component dialog layout should render correctly 1`] = `
       <div
         aria-disabled="false"
         aria-label="test video"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-contained-213 play-button"
         data-testid="thumbnail-button"
         role="button"
         tabindex="0"
@@ -54,28 +54,41 @@ exports[`YoutubeVideo component dialog layout should render correctly 1`] = `
 </div>
 `;
 
-exports[`YoutubeVideo component inline layout should render correctly 1`] = `
+exports[`YoutubeVideo component DialogVideo  2`] = `
 <div>
   <div
-    class="YoutubeVideo YoutubeVideo--inline"
+    class="YoutubeVideo"
     data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
-    data-testid="youtube-inline-wrapper"
-    style="--aspect-ratio: 0.5625;"
+    data-testid="youtube-dialog-wrapper"
   >
-    <div>
+    <button
+      aria-label="test video"
+      class="thumbnail"
+      data-testid="thumbnail"
+      type="button"
+    >
       <img
-        alt="test inline video"
+        alt="test video"
         class="preview-image"
         src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
+      <span
+        class="AlternativeContent"
+      >
+        test video
+      </span>
       <div
-        class="overlay"
+        aria-disabled="false"
+        aria-label="test video"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-232 iconButtonStyles-medium-238 iconButtonStyles-contained-233 play-button"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
       >
         <button
           aria-label="test inline video"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-contained-73 play-button"
           tabindex="0"
-          type="button"
         >
           <span
             class="MuiIconButton-label"
@@ -94,26 +107,72 @@ exports[`YoutubeVideo component inline layout should render correctly 1`] = `
           <span
             class="MuiTouchRipple-root"
           />
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 iconButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
-        <p
-          class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      </div>
+      <div
+        class="content"
+      >
+        <div
+          style="height: 100%; display: flex;"
         />
       </div>
     </div>
     <div
-      style="opacity: 0; visibility: hidden; transition-delay: 500ms; width: 640px; height: 360px;"
-    >
-      <div
-        style="width: 100%; height: 100%;"
-      >
-        <div />
-      </div>
-    </div>
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
   </div>
-</div>
+</body>
 `;
 
-exports[`YoutubeVideo component opens dialog on click 1`] = `
+exports[`YoutubeVideo component DialogVideo opens and close dialog on click 1`] = `
 <body
   style="padding-right: 0px; overflow: hidden;"
 >
@@ -122,6 +181,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
   >
     <div
       class="YoutubeVideo"
+      data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
       data-testid="youtube-dialog-wrapper"
     >
       <button
@@ -143,7 +203,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
         <div
           aria-disabled="false"
           aria-label="test video"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 play-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
           data-testid="thumbnail-button"
           role="button"
           tabindex="0"
@@ -191,7 +251,7 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 iconButton"
           tabindex="0"
           type="button"
         >
@@ -230,18 +290,124 @@ exports[`YoutubeVideo component opens dialog on click 1`] = `
 </body>
 `;
 
-exports[`YoutubeVideo component renders in in-place layout correctly 1`] = `
-<div>
+exports[`YoutubeVideo component DialogVideo opens and close dialog on click 2`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="YoutubeVideo"
+      data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
+      data-testid="youtube-dialog-wrapper"
+    >
+      <button
+        aria-label="test video"
+        class="thumbnail"
+        data-testid="thumbnail"
+        type="button"
+      >
+        <img
+          alt="test video"
+          class="preview-image"
+          src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+        />
+        <span
+          class="AlternativeContent"
+        >
+          test video
+        </span>
+        <div
+          aria-disabled="false"
+          aria-label="test video"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
+          data-testid="thumbnail-button"
+          role="button"
+          tabindex="0"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8 5v14l11-7z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </div>
+      </button>
+    </div>
+  </div>
   <div
-    class="YoutubeVideo YoutubeVideo--in-place"
-  />
-</div>
+    aria-hidden="true"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl"
+      style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 iconButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="content"
+      >
+        <div
+          style="height: 100%; display: flex;"
+        />
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
 `;
 
-exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
+exports[`YoutubeVideo component DialogVideo renders with dimensions correctly 1`] = `
 <div>
   <div
     class="YoutubeVideo"
+    data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
     data-testid="youtube-dialog-wrapper"
   >
     <button
@@ -263,7 +429,115 @@ exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
       <div
         aria-disabled="false"
         aria-label="test video"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-contained-173 play-button"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`YoutubeVideo component DialogVideo shold render ReactPlayer with currect height 1`] = `
+<div>
+  <div
+    class="YoutubeVideo"
+    data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <button
+      aria-label="test video"
+      class="thumbnail"
+      data-testid="thumbnail"
+      type="button"
+    >
+      <img
+        alt="test video"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+      />
+      <span
+        class="AlternativeContent"
+      >
+        test video
+      </span>
+      <div
+        aria-disabled="false"
+        aria-label="test video"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-contained-213 play-button"
+        data-testid="thumbnail-button"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`YoutubeVideo component DialogVideo should use fallback height if it can't get height from dimensions 1`] = `
+<div>
+  <div
+    class="YoutubeVideo"
+    data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
+    data-testid="youtube-dialog-wrapper"
+  >
+    <button
+      aria-label="test video"
+      class="thumbnail"
+      data-testid="thumbnail"
+      type="button"
+    >
+      <img
+        alt="test video"
+        class="preview-image"
+        src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+      />
+      <span
+        class="AlternativeContent"
+      >
+        test video
+      </span>
+      <div
+        aria-disabled="false"
+        aria-label="test video"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-192 iconButtonStyles-medium-198 iconButtonStyles-contained-193 play-button"
         data-testid="thumbnail-button"
         role="button"
         tabindex="0"

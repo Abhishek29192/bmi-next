@@ -31,7 +31,7 @@ export type Props = {
   dataGTM?: GTM;
 };
 
-const getSize = (
+export const getSize = (
   width: number,
   height: number,
   dimensions: DimensionObject
@@ -195,9 +195,11 @@ const InPlaceVideo = ({
         className
       )}
       ref={!!ref && ref}
+      data-testid="youtupe-inplace-wrapper"
     >
       {dimensions.width && (
         <ReactPlayer
+          data-testid="react-player"
           url={videoUrl}
           width={width}
           height={height}
@@ -224,8 +226,8 @@ const InlineVideo = ({
   previewImageSource,
   subtitle,
   label,
-  embedWidth = 16,
-  embedHeight = 9,
+  embedWidth,
+  embedHeight,
   dataGTM,
   onGTMEvent
 }: Props) => {
