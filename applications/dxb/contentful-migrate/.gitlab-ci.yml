@@ -113,16 +113,10 @@ build_contentful_migrate:
       optional: true
   rules:
     - if: !reference [.run_for_preprod_release, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
-        - applications/dxb/head/src/constants/microCopies.ts
       variables:
         CONTENTFUL_ENVIRONMENT: pre-production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
     - if: !reference [.run_for_prod_release, rules, if]
-      changes:
-        - applications/dxb/contentful-migrate/src/**/*
-        - applications/dxb/head/src/constants/microCopies.ts
       variables:
         CONTENTFUL_ENVIRONMENT: master
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
@@ -793,20 +787,18 @@ update_mc_group:
 
 update_mc_sandpit:
   extends: .update_mc
+  rules:
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     DXB_MARKET_ID: "SANDPIT"
-  rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: !reference [.run_for_prod_release, rules, if]
+    CONTENTFUL_ENVIRONMENT: master
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
 
 update_mc_blueprint:
   extends: .update_mc
   rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
     - if: !reference [.run_for_prod_release, rules, if]
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
+    CONTENTFUL_ENVIRONMENT: master
+    DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD

@@ -424,7 +424,7 @@ export const main = async (
 
   const projectKeys = Object.values(microCopy);
 
-  let allContentfulMicrocopies = await await getContentfulMicroCopies([], -1);
+  let allContentfulMicrocopies = await getContentfulMicroCopies([], -1);
 
   if (TO_BE_PUBLISHED) {
     allContentfulMicrocopies = allContentfulMicrocopies.filter((mc) =>
