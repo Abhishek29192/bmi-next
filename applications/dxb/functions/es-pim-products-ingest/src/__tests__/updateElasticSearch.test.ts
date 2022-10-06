@@ -96,8 +96,10 @@ describe("updateElasticSearch", () => {
       index: documentIndex,
       body: {
         query: {
-          match: {
-            productBaseCode: productCode
+          bool: {
+            must: {
+              term: { "productBaseCode.keyword": productCode }
+            }
           }
         }
       }
@@ -162,8 +164,10 @@ describe("updateElasticSearch", () => {
       index: documentIndex,
       body: {
         query: {
-          match: {
-            productBaseCode: productCode
+          bool: {
+            must: {
+              term: { "productBaseCode.keyword": productCode }
+            }
           }
         }
       }
@@ -292,8 +296,10 @@ describe("updateElasticSearch", () => {
       index: documentIndex,
       body: {
         query: {
-          match: {
-            productBaseCode: systemCode
+          bool: {
+            must: {
+              term: { "productBaseCode.keyword": systemCode }
+            }
           }
         }
       }

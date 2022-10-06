@@ -65,7 +65,7 @@ export const transformDocuments = async (
 
         if (!assetType || !url) {
           logger.info({
-            message: `Document ${realFileName} doesn't have assetType or url`
+            message: `Document ${realFileName} doesn't have assetType or url, assetType is: ${asset.assetType}, name is: ${name}, url is: ${url}`
           });
           return;
         }
@@ -126,6 +126,10 @@ export const transformDocuments = async (
         };
       })
       .filter(Boolean);
+
+    logger.info({
+      message: `Initial count of assets: ${item.assets?.length}, Count of indexed assets: ${esPimDocuments.length}`
+    });
 
     return esPimDocuments as (EsPIMDocumentData | EsPIMLinkDocumentData)[];
   }

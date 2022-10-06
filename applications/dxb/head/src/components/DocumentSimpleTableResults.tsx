@@ -110,8 +110,8 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "title") {
       return (
-        <Table.Cell className={styles["table-cell"]} key={key}>
-          {document.title}
+        <Table.Cell className={styles["title-table-cell"]} key={key}>
+          <p className={styles["title"]}>{document.title}</p>
         </Table.Cell>
       );
     }
