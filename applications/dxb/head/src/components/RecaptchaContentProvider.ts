@@ -128,6 +128,16 @@ const recaptchaContent_NL_BE: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=nl"
 };
 
+const recaptchaContent_FR_BE: RecaptchaPolicyContentType = {
+  startText: "Ce site est protégé par reCAPTCHA et la ",
+  privacyPloicyText: "politique de confidentialité",
+  andText: " et les ",
+  termsOfServiceText: "conditions d'utilisation",
+  endText: "de Google s'appliquent.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=fr-be",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=fr-be"
+};
+
 const recaptchaContent_RO: RecaptchaPolicyContentType = {
   startText: "Acest site este protejat de reCAPTCHA și se aplică ",
   privacyPloicyText: "Politica de confidențialitate",
@@ -231,6 +241,7 @@ RecaptchaPrivacyContentMap["tr"] = recaptchaContent_TR;
 RecaptchaPrivacyContentMap["es"] = recaptchaContent_ES;
 RecaptchaPrivacyContentMap["pt"] = recaptchaContent_PT;
 RecaptchaPrivacyContentMap["be"] = recaptchaContent_NL_BE;
+RecaptchaPrivacyContentMap["fr-be"] = recaptchaContent_FR_BE;
 RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
 RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
