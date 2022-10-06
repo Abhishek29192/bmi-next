@@ -49,7 +49,8 @@ export const up: MigrationFunction = (migration: Migration) => {
           "systemConfiguratorBlock",
           "systemConfiguratorResult",
           "titleWithContent",
-          "systemConfiguratorQuestion"
+          "systemConfiguratorQuestion",
+          "systemConfiguratorAnswer"
         ]
       }
     ],
@@ -59,14 +60,26 @@ export const up: MigrationFunction = (migration: Migration) => {
     type: "Link",
     validations: [
       {
-        linkContentType: ["systemConfiguratorBlock", "systemConfiguratorAnswer"]
+        linkContentType: [
+          "systemConfiguratorResult",
+          "titleWithContent",
+          "systemConfiguratorQuestion",
+          "systemConfiguratorBlock",
+          "systemConfiguratorAnswer"
+        ]
       }
     ],
     linkType: "Entry"
   });
   systemConfiguratorBlock.editField("question").validations([
     {
-      linkContentType: ["systemConfiguratorBlock", "systemConfiguratorQuestion"]
+      linkContentType: [
+        "systemConfiguratorResult",
+        "titleWithContent",
+        "systemConfiguratorQuestion",
+        "systemConfiguratorBlock",
+        "systemConfiguratorAnswer"
+      ]
     }
   ]);
 };
