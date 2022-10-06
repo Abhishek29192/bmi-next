@@ -8,9 +8,24 @@ export const up: MigrationFunction = (migration: Migration) => {
   const systemConfiguratorAnswer = migration.editContentType(
     "systemConfiguratorAnswer"
   );
+
   const systemConfiguratorBlock = migration.editContentType(
     "systemConfiguratorBlock"
   );
+
+  const systemConfiguratorQuestion = migration.editContentType(
+    "systemConfiguratorQuestion"
+  );
+
+  systemConfiguratorQuestion.editField("answers").items({
+    type: "Link",
+    validations: [
+      {
+        linkContentType: ["systemConfiguratorBlock", "systemConfiguratorAnswer"]
+      }
+    ],
+    linkType: "Entry"
+  });
 
   systemConfiguratorAnswer.editField("nextStep", {
     type: "Link",
@@ -63,6 +78,23 @@ export const down: MigrationFunction = (migration: Migration) => {
   const systemConfiguratorBlock = migration.editContentType(
     "systemConfiguratorBlock"
   );
+
+  const systemConfiguratorQuestion = migration.editContentType(
+    "systemConfiguratorQuestion"
+  );
+
+  systemConfiguratorQuestion.editField("answers").items({
+    type: "Array",
+    items: {
+      type: "Link",
+      validations: [
+        {
+          linkContentType: ["systemConfiguratorAnswer"]
+        }
+      ],
+      linkType: "Entry"
+    }
+  });
 
   systemConfiguratorAnswer.editField("nextStep", {
     type: "Link",

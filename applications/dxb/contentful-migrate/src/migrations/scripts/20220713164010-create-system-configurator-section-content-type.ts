@@ -65,7 +65,14 @@ export const up: MigrationFunction = (migration: Migration) => {
     .name("Question")
     .type("Link")
     .required(true)
-    .validations([{ linkContentType: ["systemConfiguratorQuestion"] }])
+    .validations([
+      {
+        linkContentType: [
+          "systemConfiguratorQuestion",
+          "systemConfiguratorBlock"
+        ]
+      }
+    ])
     .linkType("Entry");
 
   systemConfiguratorSection.changeFieldControl(
