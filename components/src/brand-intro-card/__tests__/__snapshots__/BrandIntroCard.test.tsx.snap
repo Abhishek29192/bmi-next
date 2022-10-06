@@ -6,6 +6,7 @@ exports[`BrandIntroCard component renders correctly 1`] = `
     class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
   >
     <button
+      aria-label="AeroDek"
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton brandLogoButton-no-pointer MuiButton-textPrimary"
       tabindex="0"
       type="button"

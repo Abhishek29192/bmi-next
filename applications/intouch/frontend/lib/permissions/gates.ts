@@ -355,6 +355,9 @@ export const gates = {
       AUDITOR: false
     },
     partnerBrandsCarousel: canSeePartnerBrandsCarousel
+  },
+  productsAdmin: {
+    updateConfidentialFields: isSuperAdmin
   }
 };
 

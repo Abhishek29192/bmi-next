@@ -1,11 +1,14 @@
 ###
 
 # @name List all merge requests notes
-GET https://gitlab.com/api/v4/projects/19163612/merge_requests/1984/notes?sort=asc&order_by=created_at&page=1
+@mergeRequestId=3664
+GET https://gitlab.com/api/v4/projects/19163612/merge_requests/{{mergeRequestId}}/notes?sort=asc&order_by=created_at&page=1
 PRIVATE-TOKEN: {{gitlabCiPrivateToken}}
 
 ###
 
 # @name Get specific merge request note
-GET https://gitlab.com/api/v4/projects/19163612/merge_requests/1984/notes/707446179
+@mergeRequestId=3664
+@noteId=1107702090
+GET https://gitlab.com/api/v4/projects/19163612/merge_requests/{{mergeRequestId}}/notes/{{noteId}}
 PRIVATE-TOKEN: {{gitlabCiPrivateToken}}

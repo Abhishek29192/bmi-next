@@ -263,6 +263,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         aria-controls="tabpanel-list"
                         aria-selected="true"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected MuiTab-fullWidth"
+                        data-testid="tab-list"
                         id="tab-list"
                         role="tab"
                         tabindex="0"
@@ -281,6 +282,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                         aria-controls="tabpanel-map"
                         aria-selected="false"
                         class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 MuiTab-fullWidth"
+                        data-testid="tab-map"
                         id="tab-map"
                         role="tab"
                         tabindex="-1"
@@ -308,6 +310,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           <div
             aria-labelledby="tab-list"
             class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+            data-testid="tabpanel-list"
             heading="MC: findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
@@ -496,6 +499,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           <div
             aria-labelledby="tab-map"
             class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+            data-testid="tabpanel-map"
             heading="MC: findARoofer.mapLabel"
             hidden=""
             id="tabpanel-map"

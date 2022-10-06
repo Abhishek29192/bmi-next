@@ -63,9 +63,13 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       asset-name
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body table-cell"
+                      class="MuiTableCell-root MuiTableCell-body title-table-cell"
                     >
-                      pim-link-document-title
+                      <p
+                        class="title"
+                      >
+                        pim-link-document-title
+                      </p>
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"

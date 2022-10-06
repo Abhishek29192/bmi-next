@@ -1,4 +1,3 @@
-import { gql } from "@apollo/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/dist/frontend";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -7,11 +6,13 @@ import React, { useCallback, useMemo, useState } from "react";
 import { Company } from "@bmi/intouch-api-types";
 import {
   GetCompaniesByMarketQuery,
-  GetCompanyQuery
+  GetCompanyQuery,
+  GetOperationTypeCollectionQuery
 } from "../../graphql/generated/operations";
 import {
   getServerPageGetCompaniesByMarket,
-  getServerPageGetCompany
+  getServerPageGetCompany,
+  getServerPageGetOperationTypeCollection
 } from "../../graphql/generated/page";
 import { useGetCompaniesByMarketLazyQuery } from "../../graphql/generated/hooks";
 import { isSuperOrMarketAdmin } from "../../lib/account";
@@ -28,11 +29,13 @@ import { Layout } from "../../components/Layout";
 import layoutStyles from "../../components/Layout/styles.module.scss";
 import { CompaniesSidePanel } from "../../components/Pages/Company/SidePanel";
 import { CompanyPage, NoCompanies } from "../../components/Pages/Company";
+import CompanyPageContextWrapper from "../../context/CompanyPageContext";
 
 type CompaniesPageProps = GlobalPageProps & {
   companies?: GetCompaniesByMarketQuery["companies"]["nodes"];
   companySSR?: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
+  operationTypes: GetOperationTypeCollectionQuery["operationTypeCollection"]["items"];
   mapsApiKey: string;
 };
 
@@ -41,6 +44,7 @@ const CompaniesPage = ({
   companies,
   companySSR,
   contactDetailsCollection,
+  operationTypes,
   globalPageData,
   mapsApiKey,
   market
@@ -103,75 +107,25 @@ const CompaniesPage = ({
       pageData={globalPageData}
     >
       <div className={layoutStyles.sidePanelWrapper}>
-        {isSuperOrMarketAdmin(account) ? (
-          // TODO: Currently the whole layout is not very responsive on small screen sizes
-          <>
-            <CompaniesSidePanel
-              companies={companiesList}
-              onItemSelected={selectCompany}
-              selectedItemId={company?.id}
-            />
-            {company ? companyScreen : <NoCompanies />}
-          </>
-        ) : (
-          companyScreen
-        )}
+        <CompanyPageContextWrapper value={{ operationTypes }}>
+          {isSuperOrMarketAdmin(account) ? (
+            // TODO: Currently the whole layout is not very responsive on small screen sizes
+            <>
+              <CompaniesSidePanel
+                companies={companiesList}
+                onItemSelected={selectCompany}
+                selectedItemId={company?.id}
+              />
+              {company ? companyScreen : <NoCompanies />}
+            </>
+          ) : (
+            companyScreen
+          )}
+        </CompanyPageContextWrapper>
       </div>
     </Layout>
   );
 };
-
-export const COMPANY_DETAILS_FRAGMENT = gql`
-  fragment CompanyPageDetailsFragment on Company {
-    id
-    ...CompanyDetailsFragment
-    ...CompanyRegisteredDetailsFragment
-    ...CompanyAdminsFragment
-    ...CompanyCertifications
-    ...CompanyDocumentsFragment
-    status
-    isProfileComplete
-  }
-`;
-
-export const GET_COMPANIES_BY_MARKET = gql`
-  query GetCompaniesByMarket($marketId: Int!, $tag: String!) {
-    companies(condition: { marketId: $marketId }) {
-      nodes {
-        ...CompanyPageDetailsFragment
-        updatedAt
-      }
-    }
-    contactDetailsCollection(
-      where: {
-        contentfulMetadata: {
-          tags_exists: true
-          tags: { id_contains_some: [$tag] }
-        }
-      }
-    ) {
-      ...ContactDetailsCollectionFragment
-    }
-  }
-`;
-
-export const GET_COMPANY_PAGE = gql`
-  query GetCompany($companyId: Int!, $tag: String!) {
-    company(id: $companyId) {
-      ...CompanyPageDetailsFragment
-    }
-    contactDetailsCollection(
-      where: {
-        contentfulMetadata: {
-          tags_exists: true
-          tags: { id_contains_some: [$tag] }
-        }
-      }
-    ) {
-      ...ContactDetailsCollectionFragment
-    }
-  }
-`;
 
 export const getServerSideProps = withPage(
   async ({
@@ -191,6 +145,17 @@ export const getServerSideProps = withPage(
       "error-page"
     ]);
     const contentfulTag = parseMarketTag(market?.domain);
+
+    const {
+      props: {
+        data: {
+          operationTypeCollection: { items: operationTypes }
+        }
+      }
+    } = await getServerPageGetOperationTypeCollection(
+      { variables: { tag: contentfulTag } },
+      apolloClient
+    );
 
     if (params.companyId) {
       const companyId = parseInt(params.companyId);
@@ -232,6 +197,7 @@ export const getServerSideProps = withPage(
             : [],
           companySSR: company,
           contactDetailsCollection,
+          operationTypes,
           mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
           ...translations
         }
@@ -274,6 +240,7 @@ export const getServerSideProps = withPage(
         companies: sortArrayByField([...companies], "name"),
         mapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
         contactDetailsCollection,
+        operationTypes,
         ...translations
       }
     };

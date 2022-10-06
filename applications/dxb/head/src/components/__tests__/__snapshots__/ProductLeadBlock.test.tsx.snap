@@ -56,6 +56,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -75,6 +76,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -94,6 +96,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -113,6 +116,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-four"
                     id="tab-four"
                     role="tab"
                     tabindex="-1"
@@ -132,6 +136,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-five"
                     id="tab-five"
                     role="tab"
                     tabindex="-1"
@@ -151,6 +156,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
                     tabindex="-1"
@@ -170,6 +176,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-six"
                     id="tab-six"
                     role="tab"
                     tabindex="-1"
@@ -560,9 +567,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -647,9 +658,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -734,9 +749,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -821,9 +840,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="MuiTableRow-root row"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body table-cell"
+                        class="MuiTableCell-root MuiTableCell-body title-table-cell"
                       >
-                        Pim Document
+                        <p
+                          class="title"
+                        >
+                          Pim Document
+                        </p>
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -1018,6 +1041,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       <div
         aria-labelledby="tab-four"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
         id="tabpanel-four"
@@ -1171,6 +1195,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -1190,6 +1215,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -1209,6 +1235,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -1228,6 +1255,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-four"
                     id="tab-four"
                     role="tab"
                     tabindex="-1"
@@ -1247,6 +1275,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-five"
                     id="tab-five"
                     role="tab"
                     tabindex="-1"
@@ -1266,6 +1295,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
                     tabindex="-1"
@@ -1285,6 +1315,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-six"
                     id="tab-six"
                     role="tab"
                     tabindex="-1"
@@ -1959,6 +1990,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       <div
         aria-labelledby="tab-four"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
         id="tabpanel-four"

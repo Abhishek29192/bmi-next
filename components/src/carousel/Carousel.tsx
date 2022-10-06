@@ -1,3 +1,10 @@
+import {
+  useMediaQuery,
+  useTheme,
+  withWidth,
+  WithWidth
+} from "@material-ui/core";
+import classnames from "classnames";
 import React, {
   createContext,
   Dispatch,
@@ -10,12 +17,8 @@ import React, {
   useState
 } from "react";
 import SwipeableViews from "react-swipeable-views";
-import { autoPlay, virtualize } from "react-swipeable-views-utils";
 import { mod } from "react-swipeable-views-core";
-import classnames from "classnames";
-import { withWidth, WithWidth } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core";
+import { autoPlay, virtualize } from "react-swipeable-views-utils";
 import ArrowControl from "../arrow-control/ArrowControl";
 import SlideControls, {
   Props as SlideControlsProps

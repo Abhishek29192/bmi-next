@@ -3102,6 +3102,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -3121,6 +3122,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -3140,6 +3142,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -3185,6 +3188,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -3329,6 +3333,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -3412,6 +3417,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -3490,9 +3496,13 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -3582,9 +3592,13 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -7333,6 +7347,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -7352,6 +7367,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -7371,6 +7387,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -7416,6 +7433,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -7560,6 +7578,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -7643,6 +7662,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -7721,9 +7741,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -7813,9 +7837,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -11564,6 +11592,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -11583,6 +11612,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -11602,6 +11632,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -11647,6 +11678,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -11791,6 +11823,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -11874,6 +11907,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -11952,9 +11986,13 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -12044,9 +12082,13 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -15795,6 +15837,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -15814,6 +15857,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -15833,6 +15877,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -15878,6 +15923,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -16022,6 +16068,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -16105,6 +16152,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -16183,9 +16231,13 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -16275,9 +16327,13 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -20026,6 +20082,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -20045,6 +20102,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -20064,6 +20122,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -20109,6 +20168,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -20212,6 +20272,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -20295,6 +20356,7 @@ exports[`SystemDetailsPage template component should render without specificatio
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -20373,9 +20435,13 @@ exports[`SystemDetailsPage template component should render without specificatio
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -20465,9 +20531,13 @@ exports[`SystemDetailsPage template component should render without specificatio
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -24216,6 +24286,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -24235,6 +24306,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -24254,6 +24326,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -24299,6 +24372,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -24443,6 +24517,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -24526,6 +24601,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -24604,9 +24680,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -24696,9 +24776,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -28569,6 +28653,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -28588,6 +28673,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -28607,6 +28693,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -28652,6 +28739,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -28796,6 +28884,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -28879,6 +28968,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -28957,9 +29047,13 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -29049,9 +29143,13 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -32922,6 +33020,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot MuiTab-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -32941,6 +33040,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.technicalSpecification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -32960,6 +33060,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot"
                     data-gtm="{\\"id\\":\\"selector-tabs4\\",\\"label\\":\\"MC: sdp.leadBlock.documentsAndDownloads\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -33005,6 +33106,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       <div
         aria-labelledby="tab-one"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-one"
         heading="MC: sdp.leadBlock.about"
         id="tabpanel-one"
         role="tabpanel"
@@ -33149,6 +33251,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       <div
         aria-labelledby="tab-two"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-two"
         heading="MC: sdp.leadBlock.technicalSpecification"
         hidden=""
         id="tabpanel-two"
@@ -33232,6 +33335,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
       <div
         aria-labelledby="tab-three"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-three"
         heading="MC: sdp.leadBlock.documentsAndDownloads"
         hidden=""
         id="tabpanel-three"
@@ -33310,9 +33414,13 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
@@ -33402,9 +33510,13 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body table-cell"
+                                    class="MuiTableCell-root MuiTableCell-body title-table-cell"
                                   >
-                                    pim-link-document-title
+                                    <p
+                                      class="title"
+                                    >
+                                      pim-link-document-title
+                                    </p>
                                   </td>
                                   <td
                                     class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"

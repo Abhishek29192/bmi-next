@@ -301,6 +301,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -472,6 +473,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -645,6 +647,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -790,6 +793,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -935,6 +939,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1080,6 +1085,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1225,6 +1231,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1370,6 +1377,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1515,6 +1523,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1681,6 +1690,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -1977,6 +1987,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -2273,6 +2284,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -2569,6 +2581,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -2865,6 +2878,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >
@@ -3161,6 +3175,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 </div>
               </div>
               <a
+                aria-disabled="true"
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
                 type="button"
               >

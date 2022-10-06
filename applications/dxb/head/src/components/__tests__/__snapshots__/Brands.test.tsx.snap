@@ -28,6 +28,7 @@ exports[`Brands component renders correctly 1`] = `
             >
               <a
                 aria-disabled="false"
+                aria-label="BMI"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"

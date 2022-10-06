@@ -20,7 +20,8 @@ module.exports = {
     "!jest/**",
     "!libraries/fetch-mocks/**",
     "!tmp/**",
-    "!**/.cache/**"
+    "!**/.cache/**",
+    "!**/dist/**"
   ],
   preset: "ts-jest",
   testEnvironment: "jsdom",
