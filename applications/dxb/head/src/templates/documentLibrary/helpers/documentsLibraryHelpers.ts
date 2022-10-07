@@ -1,8 +1,13 @@
 import { Filter } from "@bmi/components/src";
-import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
+import { ResultType, Source } from "../../../utils/filters";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import { Format } from "../components/DocumentResults";
-import { ContentfulDocumentLibraryPage, DocumentType } from "../types";
+import { PAGE_SIZE } from "../index";
+import {
+  AssetType,
+  ContentfulDocumentLibraryPage,
+  DocumentType
+} from "../types";
 
 // TODO: The search and product lister pages use quite similar components/functions and logic to query documents and filter those from ES.
 // I believe we should refactor those components/functions to avoide code duplication and complexity.
@@ -69,30 +74,34 @@ export const resultTypeFormatMap: Record<
 
 export const sourceMapToDocumentType: Record<
   ContentfulDocumentLibraryPage["source"],
-  DocumentType
+  DocumentType[] | undefined
 > = {
-  PIM: "PIMDocument",
-  CMS: "ContentfulDocument",
-  ALL: ""
+  PIM: ["PIMDocument"],
+  CMS: ["ContentfulDocument"],
+  ALL: undefined
 };
 
 export const compileESQuery = (
-  filters,
-  page,
-  pageSize,
-  source,
-  resultType,
-  assetTypes: AssetTypeData[] | null
+  filters: Filter[],
+  page: number,
+  source: Source,
+  resultType: ResultType,
+  assetTypes: AssetType[]
 ) => {
   const userSelectedFilterTerms = generateUserSelectedFilterTerms(filters);
-  // eslint-disable-next-line security/detect-object-injection
-  const documentType = sourceMapToDocumentType[source];
-  const assetTypePimCodes = (assetTypes || [])
-    .filter((item) => item.pimCode && item.pimCode.length > 0)
-    .map((item) => item.pimCode);
+  const documentType: DocumentType[] =
+    resultType === "Simple"
+      ? // eslint-disable-next-line security/detect-object-injection
+        sourceMapToDocumentType[source]
+      : resultType === "Technical"
+      ? ["PIMDocument"]
+      : ["ContentfulDocument"];
+  const assetTypeCodes = (assetTypes || [])
+    .filter((item) => item.code)
+    .map((item) => item.code);
   return {
-    size: pageSize,
-    from: page * pageSize,
+    size: PAGE_SIZE,
+    from: page * PAGE_SIZE,
     sort: [{ "title.keyword": "asc" }],
     aggs: {
       ...generateFiltersAggs(filters),
@@ -107,7 +116,7 @@ export const compileESQuery = (
         must: [
           documentType && {
             terms: {
-              "__typename.keyword": [documentType]
+              "__typename.keyword": documentType
             }
           },
           {
@@ -117,9 +126,9 @@ export const compileESQuery = (
               }
             }
           },
-          assetTypePimCodes.length && {
+          assetTypeCodes.length && {
             terms: {
-              "assetType.pimCode.keyword": [...assetTypePimCodes]
+              "assetType.code.keyword": [...assetTypeCodes]
             }
           },
           ...userSelectedFilterTerms

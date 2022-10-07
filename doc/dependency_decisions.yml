@@ -739,3 +739,15 @@
     :why: Our own project
     :versions: []
     :when: 2022-09-16 17:43:03.988615000 Z
+- - :approve
+  - "@bmi/contentful-types"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-10-18 16:56:11.474799000 Z
+- - :approve
+  - "@bmi/functions-contentful-client"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-10-18 16:56:20.322652000 Z

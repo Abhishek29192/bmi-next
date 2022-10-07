@@ -1,8 +1,11 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import OverlapCards, { Data } from "../OverlapCards";
-import IntegratedOverlapCards from "../OverlapCards";
+import React from "react";
+import {
+  Data,
+  default as IntegratedOverlapCards,
+  default as OverlapCards
+} from "../OverlapCards";
 import { SiteContextProvider } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -32,10 +35,8 @@ const data: Data = [
     title: "Call to action",
     path: "some-page",
     featuredMedia: {
-      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {
@@ -80,10 +81,8 @@ const data: Data = [
     title: "Call to action",
     path: "some-page",
     featuredMedia: {
-      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {
@@ -128,10 +127,8 @@ const data: Data = [
     title: "Card with Video",
     path: "some-page",
     featuredMedia: {
-      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {
@@ -176,10 +173,8 @@ const data: Data = [
       subtitle: "video subtitle",
       videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
       previewMedia: {
-        __typename: "ContentfulImage",
         type: null,
         altText: "Lorem ipsum",
-        caption: null,
         focalPoint: null,
         image: {
           gatsbyImageData: {

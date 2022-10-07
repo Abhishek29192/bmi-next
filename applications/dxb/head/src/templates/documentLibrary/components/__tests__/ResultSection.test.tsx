@@ -1,8 +1,9 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
+import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import * as documentResultsFooter from "../../../../components/DocumentResultsFooter";
-import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
+import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -23,13 +24,15 @@ beforeEach(() => {
 
 describe("ResultSection", () => {
   const handlePageChange = jest.fn();
-  const pimDocument = createPimDocument({
+  const pimDocument = createPimProductDocument({
     id: `pim-doc-id`,
     url: `pim-doc-url`,
     title: "documentTitle"
   });
+  const assetType = createAssetType();
   const props: ResultSectionProps = {
     results: [pimDocument],
+    assetTypes: [assetType],
     format: "simpleTable",
     page: 1,
     pageCount: 2,

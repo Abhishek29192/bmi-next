@@ -104,6 +104,34 @@ describe("Error responses", () => {
     process.env.BUILD_REQUEST = buildRequestSecret;
   });
 
+  it("Returns 500 when management access token is not provided", async () => {
+    const managementAccessToken = process.env.MANAGEMENT_ACCESS_TOKEN;
+    delete process.env.MANAGEMENT_ACCESS_TOKEN;
+
+    const mockReq = mockRequest("POST");
+    const mockRes = mockResponse();
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+
+    process.env.MANAGEMENT_ACCESS_TOKEN = managementAccessToken;
+  });
+
+  it("Returns 500 when contentful environment is not provided", async () => {
+    const contentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT;
+    delete process.env.CONTENTFUL_ENVIRONMENT;
+
+    const mockReq = mockRequest("POST");
+    const mockRes = mockResponse();
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+
+    process.env.CONTENTFUL_ENVIRONMENT = contentfulEnvironment;
+  });
+
   it("Returns 401 when authorisation header is empty", async () => {
     const mockReq = mockRequest("POST");
     const mockRes = mockResponse();

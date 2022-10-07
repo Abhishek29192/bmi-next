@@ -19,6 +19,12 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               class="MuiTableCell-root MuiTableCell-head"
               scope="col"
             >
+              MC: documentLibrary.headers.typeCode
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
               MC: documentLibrary.headers.title
             </th>
             <th
@@ -37,7 +43,182 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
         </thead>
         <tbody
           class="MuiTableBody-root"
-        />
+        >
+          <tr
+            class="MuiTableRow-root row"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell"
+            >
+              <abbr
+                title="contentful asset type name"
+              >
+                contentful-asset-type-code
+              </abbr>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body title-table-cell"
+            >
+              <p
+                class="title"
+              >
+                contentful document title
+              </p>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
+            >
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
+                href="http://localhost:9000/asset-filename.jpg"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-4"
+                >
+                  <span
+                    class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      class="download-icon"
+                    />
+                  </span>
+                  1 B
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignCenter"
+            >
+              <span
+                class=""
+              >
+                <div
+                  class="MuiFormControl-root Checkbox"
+                >
+                  <label
+                    class="MuiFormControlLabel-root"
+                  >
+                    <span
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <input
+                          aria-label="MC: documentLibrary.download contentful document title"
+                          class="PrivateSwitchBase-input-24"
+                          data-indeterminate="false"
+                          name="contentful-document-id-contentful_document_title"
+                          type="checkbox"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                    />
+                  </label>
+                </div>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root row"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell"
+            >
+              <abbr
+                title="asset type name"
+              >
+                asset-type-code
+              </abbr>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body title-table-cell"
+            >
+              <p
+                class="title"
+              >
+                pim document title
+              </p>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
+            />
+            <td
+              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignCenter"
+            >
+              <span
+                class=""
+              >
+                <div
+                  class="MuiFormControl-root Checkbox"
+                >
+                  <label
+                    class="MuiFormControlLabel-root"
+                  >
+                    <span
+                      aria-disabled="false"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    >
+                      <span
+                        class="MuiIconButton-label"
+                      >
+                        <input
+                          aria-label="MC: documentLibrary.download pim document title"
+                          class="PrivateSwitchBase-input-24"
+                          data-indeterminate="false"
+                          name="pim-document-id-pim_document_title"
+                          type="checkbox"
+                          value=""
+                        />
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </span>
+                    <span
+                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                    />
+                  </label>
+                </div>
+              </span>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -48,7 +229,56 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
     class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-  />
+  >
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
+        href="https:http://localhost:9000/asset-filename.jpg"
+        rel="noopener noreferrer"
+        tabindex="0"
+        target="_blank"
+      >
+        <div
+          class="body"
+        >
+          <h4
+            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+          >
+            contentful document title
+          </h4>
+          <div
+            class="children text"
+          />
+          <div
+            class="footer"
+          >
+            <span
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-56 MuiButton-contained buttonStyles-contained-58 MuiButton-containedPrimary"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-59"
+              >
+                MC: documentLibrary.card.download
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </span>
+          </div>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </a>
+    </div>
+  </div>
 </div>
 `;
 
@@ -61,23 +291,23 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
       class="accordion-div"
     >
       <div
-        class="accordionStyles-root-1"
+        class="accordionStyles-root-25"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-26 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-29"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-31"
             >
-              product-name
+              product name
             </div>
             <div
               aria-disabled="false"
@@ -129,7 +359,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                     <div
                       class="icon-container"
                     >
-                      asset-code
+                      asset-type-code
                     </div>
                     <div
                       class="info-icon-container"
@@ -138,7 +368,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         class="Tooltip"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-47 iconButtonStyles-42-46 iconButtonStyles-text-49"
                           tabindex="0"
                           type="button"
                         >
@@ -166,9 +396,9 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="download-icon-container"
                     >
                       <a
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/document/library/pim-doc-url-aero\\"}"
-                        download="Pim Document"
-                        href="http://localhost/document/library/pim-doc-url-aero"
+                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        download="pim document title"
+                        href="http://localhost:9000/document.pdf"
                         rel="noopener noreferrer"
                         target="_blank"
                       >

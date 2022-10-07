@@ -33,7 +33,7 @@ const esDeleteByQuery = (client: Client, index: string, match: MatchData) => {
   );
 };
 
-export const deleteESItemByCode = async (
+export const deleteEsItemByCode = async (
   item: DeleteItem,
   itemType: string
 ) => {

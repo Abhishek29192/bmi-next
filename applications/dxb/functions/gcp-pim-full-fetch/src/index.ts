@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { Document as ContentfulDocument } from "@bmi/contentful-types";
 import { fetchData } from "@bmi/pim-api";
 import {
   PimTypes,
@@ -7,9 +8,19 @@ import {
 } from "@bmi/pim-types";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
+import { getDocuments } from "./contentful";
+import { transformDocuments } from "./documentTransformer";
+import { indexIntoES } from "./elasticsearch";
 import { FullFetchRequest } from "./types";
 
-const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, LOCALE } = process.env;
+const {
+  TRANSITIONAL_TOPIC_NAME,
+  GCP_PROJECT_ID,
+  LOCALE,
+  MARKET_LOCALE,
+  ES_INDEX_NAME_DOCUMENTS,
+  TAG
+} = process.env;
 
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
@@ -26,10 +37,10 @@ const getTopicPublisher = () => {
   return topicPublisher;
 };
 
-async function publishMessage(
+const publishMessage = async (
   itemType: PimTypes,
   apiResponse: ProductsApiResponse | SystemsApiResponse
-) {
+) => {
   // eslint-disable-next-line security/detect-object-injection
   const items =
     itemType === PimTypes.Products
@@ -47,7 +58,29 @@ async function publishMessage(
       logger.info({ message: `Published: ${messageId}` });
     })
   );
-}
+};
+
+const handlePimData = async (type: PimTypes, locale: string, page: number) => {
+  const response = await fetchData(type, locale, page);
+  logger.info({
+    message: `Fetched data for ${type} body type: ${JSON.stringify(response)}`
+  });
+  await publishMessage(type, response);
+};
+
+const handleDocuments = async (locale: string, page: number, tag?: string) => {
+  const documents = await getDocuments<ContentfulDocument>(locale, page, tag);
+  logger.info({
+    message: `Fetched data for documents body type: ${JSON.stringify(
+      documents
+    )}`
+  });
+  if (documents.length === 0) {
+    return;
+  }
+  const transformedDocuments = transformDocuments(documents);
+  await indexIntoES(transformedDocuments);
+};
 
 /**
  * Responds to any HTTP request.
@@ -71,6 +104,16 @@ const handleRequest = async (
 
   if (!LOCALE) {
     logger.error({ message: "LOCALE has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!MARKET_LOCALE) {
+    logger.error({ message: "MARKET_LOCALE has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!ES_INDEX_NAME_DOCUMENTS) {
+    logger.error({ message: "ES_INDEX_NAME_DOCUMENTS has not been set." });
     return res.sendStatus(500);
   }
 
@@ -109,12 +152,11 @@ const handleRequest = async (
 
   const promises = [];
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
-    const response = await fetchData(body.type, LOCALE, i);
-    logger.info({
-      message: `Fetched data for ${body.type} body type: ${response}`
-    });
-    const promise = publishMessage(body.type, response);
-    promises.push(promise);
+    if (body.type === PimTypes.Products || body.type === PimTypes.Systems) {
+      promises.push(handlePimData(body.type, LOCALE, i));
+    } else {
+      promises.push(handleDocuments(MARKET_LOCALE, i, TAG));
+    }
   }
   await Promise.all(promises);
   logger.info({

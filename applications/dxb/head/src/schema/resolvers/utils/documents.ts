@@ -124,13 +124,29 @@ export const resolveDocumentsFiltersFromContentful = async (
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters: string[]
 ): Promise<ProductFilter[]> => {
-  const filter = assetTypes.length
+  const marketFilters = process.env.MARKET_TAG_NAME
+    ? {
+        metadata: {
+          tags: {
+            elemMatch: {
+              contentful_id: {
+                eq: process.env.MARKET_TAG_NAME
+              }
+            }
+          }
+        }
+      }
+    : {};
+  const assetTypeFilters = assetTypes.length
     ? { assetType: { id: { in: assetTypes.map(({ id }) => id) } } }
     : {};
 
   const { entries } = await context.nodeModel.findAll<ContentfulDocument>({
     query: {
-      filter
+      filter: {
+        ...assetTypeFilters,
+        ...marketFilters
+      }
     },
     type: "ContentfulDocument"
   });

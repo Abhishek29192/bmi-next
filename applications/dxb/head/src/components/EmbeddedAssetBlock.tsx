@@ -1,6 +1,6 @@
-import React from "react";
 import { Block } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
+import React from "react";
 
 type FileData = {
   title: string;
@@ -27,6 +27,7 @@ const EmbeddedAssetBlock = ({
   node: Block;
   className: string;
 }) => {
+  console.log(JSON.stringify(node));
   const data: FileData = node.data.target;
   const { title, file } = data;
 

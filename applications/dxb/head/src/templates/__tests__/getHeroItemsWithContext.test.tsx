@@ -76,10 +76,8 @@ describe("getHeroItemsWithContext", () => {
   it("should return data with image type", () => {
     slide.featuredVideo = null;
     slide.featuredMedia = {
-      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum ContentfulImage",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {

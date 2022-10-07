@@ -1,0 +1,18 @@
+{
+  "name": "@bmi/functions-contentful-client",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "compile": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+  },
+  "dependencies": {
+    "contentful": "^9.2.5"
+  }
+}

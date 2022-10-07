@@ -79,10 +79,8 @@ describe("Home Page Template", () => {
       title: "Call to action",
       path: "some-page",
       featuredMedia: {
-        __typename: "ContentfulImage",
         type: null,
         altText: "Lorem ipsum",
-        caption: null,
         focalPoint: null,
         image: {
           gatsbyImageData: {
@@ -127,10 +125,8 @@ describe("Home Page Template", () => {
       title: "Call to action",
       path: "some-page",
       featuredMedia: {
-        __typename: "ContentfulImage",
         type: null,
         altText: "Lorem ipsum",
-        caption: null,
         focalPoint: null,
         image: {
           gatsbyImageData: {
@@ -175,10 +171,8 @@ describe("Home Page Template", () => {
       title: "Card with Video",
       path: "some-page",
       featuredMedia: {
-        __typename: "ContentfulImage",
         type: null,
         altText: "Lorem ipsum",
-        caption: null,
         focalPoint: null,
         image: {
           gatsbyImageData: {
@@ -223,10 +217,8 @@ describe("Home Page Template", () => {
         subtitle: "video subtitle",
         videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
         previewMedia: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -362,10 +354,8 @@ describe("Home Page Template", () => {
     isGatsbyDisabledElasticSearch = false;
     slide.__typename = null;
     slide.featuredMedia = {
-      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum ContentfulImage",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {

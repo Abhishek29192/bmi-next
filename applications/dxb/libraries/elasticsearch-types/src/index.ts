@@ -1,26 +1,55 @@
+import createCategory from "./CategoryHelper";
+import createContentfulAssetType from "./ContentfulAssetTypeHelper";
+import createContentfulDocument, {
+  createFullyPopulatedContentfulDocument
+} from "./ContentfulDocumentHelper";
+import createContentfulImage, {
+  createFullyPopulatedContenfulImage
+} from "./ContentfulImageHelper";
+import createPimProductDocument, {
+  createFullyPopulatedPimProductDocument
+} from "./PimProductDocumentHelper";
+import createPimSystemDocument, {
+  createFullyPopulatedPimSystemDocument
+} from "./PimSystemDocumentHelper";
 import createProduct from "./ProductHelper";
 import createSystem from "./SystemHelper";
 import type {
-  BulkOperationInstruction,
   Category,
-  EsPIMDocumentData,
-  EsPIMLinkDocumentData,
+  ContentfulAssetType,
+  ContentfulDocument,
+  ContentfulImage,
   Image,
-  Operation,
+  PimProductDocument,
+  PimSystemDocument,
   Product,
   ProductReference,
   System
 } from "./types";
 
-export { createProduct, createSystem };
+export {
+  createContentfulAssetType,
+  createCategory,
+  createContentfulDocument,
+  createContentfulImage,
+  createFullyPopulatedContentfulDocument,
+  createFullyPopulatedContenfulImage,
+  createFullyPopulatedPimProductDocument,
+  createFullyPopulatedPimSystemDocument,
+  createPimProductDocument,
+  createPimSystemDocument,
+  createProduct,
+  createSystem
+};
 export type {
-  BulkOperationInstruction,
   Category,
+  ContentfulAssetType,
+  ContentfulDocument,
+  ContentfulImage,
   Image,
-  Operation,
+  PimProductDocument,
+  PimSystemDocument,
   Product,
   ProductReference,
-  System,
-  EsPIMDocumentData,
-  EsPIMLinkDocumentData
+  System
 };

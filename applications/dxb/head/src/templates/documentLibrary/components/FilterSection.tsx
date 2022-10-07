@@ -44,7 +44,7 @@ const DocumentLibraryFilter = ({
         </Button>
       </div>
       <DownloadListContext.Consumer>
-        {({ resetList }) => (
+        {() => (
           <Filters
             filters={filters}
             onChange={handleFiltersChange}
@@ -61,7 +61,9 @@ const DocumentLibraryFilter = ({
               <GTMAccordionSummary
                 gtm={{
                   id: "filter1",
-                  label: (props.children as JSX.Element)?.props!.children || "",
+                  label:
+                    (props.children as JSX.Element | undefined)?.props
+                      .children || "",
                   action: "Selector – Filter"
                 }}
                 {...props}

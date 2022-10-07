@@ -3,7 +3,7 @@ import { compileESQuery } from "../documentLibrary/helpers/documentsLibraryHelpe
 describe("compileESQuery tests", () => {
   describe("when assetTypes is null", () => {
     it("does not generate asset type filter in Query", () => {
-      const generatedQuery = compileESQuery([], 1, 10, "", "", null);
+      const generatedQuery = compileESQuery([], 1, "ALL", "Simple", null);
 
       const expectedQuery = {
         aggs: {
@@ -16,7 +16,7 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 10,
+        from: 24,
         query: {
           bool: {
             must: [
@@ -30,7 +30,7 @@ describe("compileESQuery tests", () => {
             ]
           }
         },
-        size: 10,
+        size: 24,
         sort: [
           {
             "title.keyword": "asc"
@@ -41,9 +41,9 @@ describe("compileESQuery tests", () => {
       expect(generatedQuery).toEqual(expectedQuery);
     });
   });
-  describe("when assetTypes is empty arary", () => {
+  describe("when assetTypes is empty array", () => {
     it("does not generate asset type filter in Query", () => {
-      const generatedQuery = compileESQuery([], 1, 10, "", "", []);
+      const generatedQuery = compileESQuery([], 1, "ALL", "Simple", []);
 
       const expectedQuery = {
         aggs: {
@@ -56,7 +56,7 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 10,
+        from: 24,
         query: {
           bool: {
             must: [
@@ -70,7 +70,7 @@ describe("compileESQuery tests", () => {
             ]
           }
         },
-        size: 10,
+        size: 24,
         sort: [
           {
             "title.keyword": "asc"
@@ -84,21 +84,17 @@ describe("compileESQuery tests", () => {
 
   describe("when assetTypes is provided", () => {
     it("generates asset type filter in Query", () => {
-      const generatedQuery = compileESQuery([], 1, 10, "", "", [
+      const generatedQuery = compileESQuery([], 1, "ALL", "Simple", [
         {
           pimCode: "PIM_CODE_1",
-          __typename: "ContentfulAssetType",
-          id: "1",
           name: "PIM_CODE_NAME",
-          code: "PIM_CD",
+          code: "CODE_1",
           description: null
         },
         {
           pimCode: "PIM_CODE_2",
-          __typename: "ContentfulAssetType",
-          id: "2",
           name: "PIM_CODE_2_NAME",
-          code: "PIM_CD",
+          code: "CODE_2",
           description: null
         }
       ]);
@@ -114,7 +110,7 @@ describe("compileESQuery tests", () => {
         collapse: {
           field: "titleAndSize.keyword"
         },
-        from: 10,
+        from: 24,
         query: {
           bool: {
             must: [
@@ -127,13 +123,13 @@ describe("compileESQuery tests", () => {
               },
               {
                 terms: {
-                  "assetType.pimCode.keyword": ["PIM_CODE_1", "PIM_CODE_2"]
+                  "assetType.code.keyword": ["CODE_1", "CODE_2"]
                 }
               }
             ]
           }
         },
-        size: 10,
+        size: 24,
         sort: [
           {
             "title.keyword": "asc"

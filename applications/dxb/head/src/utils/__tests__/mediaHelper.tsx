@@ -50,10 +50,8 @@ export const createGallerySectionVideo = (): GallerySectionVideo => ({
     height: 9
   },
   previewMedia: {
-    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum video image alt text",
-    caption: null,
     focalPoint: null,
     image: {
       thumbnail: {

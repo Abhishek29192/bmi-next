@@ -1,70 +1,96 @@
-import { processContentfulDocuments } from "../contentful";
-import {
-  contenfulDocumentsResponseMock,
-  getEsDocumentMock
-} from "../__mocks__/contentful.mock";
+import { getNumberOfDocuments } from "../contentful";
+import { createContentfulResponse } from "./helpers/contentfulHelper";
 
-const getEntriesMock = jest.fn();
-
-jest.mock("contentful", () => {
+const mockGetEntries = jest.fn();
+jest.mock("@bmi/functions-contentful-client", () => {
   return {
-    createClient: jest.fn().mockImplementation(() => ({
-      getEntries: (params: Record<string, string>) => getEntriesMock(params)
+    getContentfulClient: jest.fn().mockImplementation(() => ({
+      getEntries: (params: Record<string, string>) => mockGetEntries(params)
     }))
   };
 });
 
-const loggerError = jest.fn();
-const loggerInfo = jest.fn();
-const loggerDebug = jest.fn();
-jest.mock("@bmi-digital/functions-logger", () => ({
-  error: (message: any) => loggerError(message),
-  info: (message: any) => loggerInfo(message),
-  debug: (message: any) => loggerDebug(message)
-}));
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
 
-describe("processContentfulDocuments", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-  it("should return transformed documents if no errors", async () => {
-    getEntriesMock.mockResolvedValueOnce({
-      items: contenfulDocumentsResponseMock
-    });
-    const result = await processContentfulDocuments();
-    expect(getEntriesMock).toBeCalledWith({
+describe("getNumberOfDocuments", () => {
+  it("should filter by tag if provided", async () => {
+    const locale = "en-US";
+    const tag = "market__indonesia";
+    const contentfulResponse = createContentfulResponse();
+
+    mockGetEntries.mockResolvedValueOnce(contentfulResponse);
+
+    const numberOfDocuments = await getNumberOfDocuments(locale, tag);
+
+    expect(mockGetEntries).toBeCalledWith({
       content_type: "document",
-      locale: process.env.MARKET_LOCALE,
-      limit: 1000
+      limit: 0,
+      locale,
+      "metadata.tags.sys.id[all]": tag
     });
-    expect(loggerInfo).toBeCalled();
-    expect(result).toEqual([getEsDocumentMock()]);
-  });
-  it("should throw an error", async () => {
-    getEntriesMock.mockRejectedValue(Error("test error"));
-    try {
-      await processContentfulDocuments();
 
+    expect(numberOfDocuments).toEqual(contentfulResponse.total);
+  });
+
+  it("should not filter by tag if not provided", async () => {
+    const locale = "en-US";
+    const contentfulResponse = createContentfulResponse();
+    mockGetEntries.mockResolvedValueOnce(contentfulResponse);
+
+    const numberOfDocuments = await getNumberOfDocuments(locale);
+
+    expect(mockGetEntries).toBeCalledWith({
+      content_type: "document",
+      limit: 0,
+      locale
+    });
+
+    expect(numberOfDocuments).toEqual(contentfulResponse.total);
+  });
+
+  it("should throw an error when errors are returned from Contentful", async () => {
+    const locale = "en-US";
+    mockGetEntries.mockResolvedValueOnce(
+      createContentfulResponse({
+        errors: [
+          {
+            name: "unknownContentType",
+            value: "DOESNOTEXIST"
+          }
+        ]
+      })
+    );
+    try {
+      await getNumberOfDocuments(locale);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(loggerError).toBeCalledWith({ message: "test error" });
-      expect((error as Error).message).toEqual("test error");
+      expect((error as Error).message).toEqual(
+        'Errors: [{"name":"unknownContentType","value":"DOESNOTEXIST"}]'
+      );
     }
-    expect(getEntriesMock).toBeCalledWith({
+    expect(mockGetEntries).toBeCalledWith({
       content_type: "document",
-      locale: process.env.MARKET_LOCALE,
-      limit: 1000
-    });
-    expect(loggerInfo).not.toBeCalledWith({
-      message: "Received 1 contentful documents."
+      limit: 0,
+      locale
     });
   });
-  it("should return empty array if contenful API returns nothing", async () => {
-    getEntriesMock.mockResolvedValueOnce({
-      items: []
+
+  it("should throw an error when error thrown getting entries", async () => {
+    const locale = "en-US";
+    mockGetEntries.mockRejectedValue(Error("Expected error"));
+    try {
+      await getNumberOfDocuments(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+    expect(mockGetEntries).toBeCalledWith({
+      content_type: "document",
+      limit: 0,
+      locale
     });
-    const result = await processContentfulDocuments();
-    expect(loggerInfo).toBeCalled();
-    expect(result).toEqual([]);
   });
 });

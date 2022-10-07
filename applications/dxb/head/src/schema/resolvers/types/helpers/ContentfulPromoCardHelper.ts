@@ -21,10 +21,8 @@ const createContentfulPromoCard = (
   },
   featuredVideo: null,
   featuredMedia: {
-    __typename: "ContentfulImage",
     altText: "alt-text-img",
     type: "Decorative",
-    caption: { caption: "caption" },
     focalPoint: null,
     image: { file: { fileName: "file1.jpg", url: "https://nowhere.com" } }
   },
