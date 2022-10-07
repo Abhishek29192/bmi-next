@@ -26,10 +26,13 @@ jest.mock("contentful-management", () => {
 const tagAndUpdate = jest.fn();
 const publishAll = jest.fn();
 const createTag = jest.fn();
-const sleep = jest.fn();
+const waitFor = jest.fn();
 jest.mock("@bmi/cms-consolidation-utility", () => {
-  return { tagAndUpdate, publishAll, createTag, sleep };
+  return { tagAndUpdate, publishAll, createTag };
 });
+jest.mock("@bmi/utils", () => ({
+  waitFor
+}));
 
 describe("main", () => {
   it("Creates a client", async () => {

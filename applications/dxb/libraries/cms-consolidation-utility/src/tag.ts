@@ -37,7 +37,7 @@ export const createTag = async (
   console.log(`Try create tag: ${tagId}`);
   environment
     .getTag(tagId)
-    .then((value) => console.warn(`Tag with the ID: ${tagId} already exists.`))
+    .then(() => console.warn(`Tag with the ID: ${tagId} already exists.`))
     .catch(async (err) => {
       const errorMessage = JSON.parse(err.message);
       if (errorMessage.status === 404) {
