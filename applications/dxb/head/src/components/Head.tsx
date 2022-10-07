@@ -124,7 +124,6 @@ export const Head = ({
       {seo?.metaDescription && (
         <meta name="description" content={seo.metaDescription} />
       )}
-      {headScripts && <script>{headScripts.headScripts}</script>}
 
       {isScriptOnetrustEnabled && (
         <script
@@ -142,9 +141,7 @@ export const Head = ({
         />
       )}
       {isScriptOnetrustEnabled && (
-        <script type="text/javascript" async>
-          {`function OptanonWrapper() {}`}
-        </script>
+        <script type="text/javascript">{`function OptanonWrapper() {}`}</script>
       )}
 
       {enableHubSpot && (
@@ -162,6 +159,8 @@ export const Head = ({
             }
           `}
       </script>
+
+      {headScripts && <script>{headScripts.headScripts}</script>}
 
       {schemaOrgActivated && (
         <script type="application/ld+json">
