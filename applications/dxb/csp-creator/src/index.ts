@@ -105,7 +105,7 @@ const main = async (market?: string, environment?: string) => {
   } ${elasticSearchHost}:* ${gcpFunctionsHost} ${pimHosts} https://assets.ctfassets.net https://storage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com https://*.googleapis.com https://*.gstatic.com`;
   let frameSrc = `frame-src ${gatsbyHost} ${
     marketOptions.frameSrcExtras || ""
-  } https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com https://optimize.google.com`;
+  } https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com https://optimize.google.com`;
   let fontSrc = `font-src 'self' ${gatsbyHost} https: https://fonts.gstatic.com`;
   let childSrc = `child-src 'self' ${gatsbyHost}`;
 
