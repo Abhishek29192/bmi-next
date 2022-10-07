@@ -34,22 +34,20 @@ const mockEnvironment = (): Partial<Environment> => {
 };
 
 const update = jest.fn().mockResolvedValue({});
-const mockEntry = (): Partial<Entry> => {
-  const entry: Partial<Entry> = {};
-  entry.metadata = { tags: SampleEntry.metadata.tags as Link<"Tag">[] };
-  entry.sys = SampleEntry.sys;
-  entry.fields = SampleEntry.fields;
-  entry.update = update;
-  return entry;
-};
+const mockEntry = (entry?: Partial<Entry>): Partial<Entry> => ({
+  metadata: { tags: SampleEntry.metadata.tags as Link<"Tag">[] },
+  sys: SampleEntry.sys,
+  fields: SampleEntry.fields,
+  update,
+  ...entry
+});
 
-const mockAsset = (): Partial<Asset> => {
-  const asset: Partial<Asset> = {};
-  asset.metadata = { tags: SampleAsset.metadata.tags as Link<"Tag">[] };
-  asset.fields = SampleAsset.fields;
-  asset.update = update;
-  return asset;
-};
+const mockAsset = (asset?: Partial<Asset>): Partial<Asset> => ({
+  metadata: { tags: SampleAsset.metadata.tags as Link<"Tag">[] },
+  fields: SampleAsset.fields,
+  update,
+  ...asset
+});
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -88,6 +86,7 @@ describe("copyDefaultValues", () => {
         expect(field[locale.code]).not.toBeNull();
       });
     }
+    expect(update).toHaveBeenCalled();
   });
 
   it("Sets asset default values on all fields under irrelevant locales", async () => {
@@ -115,6 +114,7 @@ describe("copyDefaultValues", () => {
         expect(field[locale.code]).not.toBeNull();
       });
     }
+    expect(update).toHaveBeenCalled();
   });
 
   it("Updates the entry", async () => {
@@ -149,6 +149,7 @@ describe("copyDefaultValues", () => {
     targetlocales.forEach((locale) => {
       expect(field[locale.code]).toBeUndefined();
     });
+    expect(update).not.toHaveBeenCalled();
   });
 
   it("Does not try to update if no changes are done", async () => {
@@ -179,5 +180,6 @@ describe("copyDefaultValues", () => {
     );
 
     expect(result).toBeFalsy();
+    expect(update).toHaveBeenCalled();
   });
 });

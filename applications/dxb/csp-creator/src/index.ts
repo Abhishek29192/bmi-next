@@ -93,7 +93,7 @@ const main = async (market?: string, environment?: string) => {
   const gcpFunctionsHost = getGcpFunctionsHost(environment, marketOptions);
   const pimHosts = getPimHosts(environment);
 
-  let defaultSrc = "default-src 'self' https: https://fonts.gstatic.com";
+  let defaultSrc = `default-src 'self' https: ${gatsbyHost}`;
   let scriptSrc = `script-src 'self' 'unsafe-inline' 'unsafe-eval' ${gatsbyHost} ${
     marketOptions.scriptSrcExtras || ""
   } https://www.google-analytics.com https://www.googleoptimize.com https://optimize.google.com https://www.googletagmanager.com https://*.googleapis.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com`;
@@ -104,11 +104,13 @@ const main = async (market?: string, environment?: string) => {
   let frameSrc = `frame-src ${gatsbyHost} ${
     marketOptions.frameSrcExtras || ""
   } https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com https://optimize.google.com`;
+  let fontSrc = `font-src 'self' ${gatsbyHost} https: https://fonts.gstatic.com`;
+  let childSrc = `child-src 'self' ${gatsbyHost}`;
 
   marketOptions.services.forEach((service) => {
     switch (service) {
       case "bimObject": {
-        frameSrc = `${frameSrc} https://*.bimobject.com`;
+        frameSrc = `${frameSrc} https://*.bimobject.com https://classic.bimobject.com`;
         break;
       }
       case "cloudFlare": {
@@ -149,6 +151,7 @@ const main = async (market?: string, environment?: string) => {
         mediaSrc = `${mediaSrc} https://*.leadoo.com`;
         connectSrc = `${connectSrc} https://*.leadoo.com`;
         frameSrc = `${frameSrc} https://*.leadoo.com`;
+        fontSrc = `${fontSrc} https://res.leadoo.com`;
         break;
       }
       case "linkedin": {
@@ -157,19 +160,21 @@ const main = async (market?: string, environment?: string) => {
         break;
       }
       case "mopinion": {
-        scriptSrc = `${scriptSrc} https://collect.mopinion.com/assets/surveys/2.0/js/survey.min.js https://*.mopinion.com`;
+        scriptSrc = `${scriptSrc} https://*.mopinion.com`;
         styleSrc = `${styleSrc} https://*.mopinion.com`;
         imgSrc = `${imgSrc} https://*.mopinion.com`;
         connectSrc = `${connectSrc} https://*.mopinion.com`;
         frameSrc = `${frameSrc} https://*.mopinion.com`;
+        fontSrc = `${fontSrc} https://*.mopinion.com`;
         break;
       }
       case "mouseFlow": {
-        defaultSrc = `${defaultSrc} https://*.mouseflow.com`;
         scriptSrc = `${scriptSrc} https://*.mouseflow.com`;
         imgSrc = `${imgSrc} https://*.mouseflow.com`;
         connectSrc = `${connectSrc} https://*.mouseflow.com`;
         frameSrc = `${frameSrc} https://*.mouseflow.com`;
+        fontSrc = `${fontSrc} https://*.mouseflow.com`;
+        childSrc = `${childSrc} https://*.mouseflow.com`;
         break;
       }
       case "oneTrust": {
@@ -218,7 +223,7 @@ const main = async (market?: string, environment?: string) => {
   });
 
   console.log(
-    `${defaultSrc}; ${scriptSrc}; ${styleSrc}; ${imgSrc}; ${mediaSrc}; ${connectSrc}; ${frameSrc};`
+    `${defaultSrc}; ${scriptSrc}; ${styleSrc}; ${imgSrc}; ${mediaSrc}; ${connectSrc}; ${frameSrc}; ${fontSrc}; ${childSrc};`
   );
 };
 

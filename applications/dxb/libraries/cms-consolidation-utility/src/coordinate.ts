@@ -1,3 +1,4 @@
+import { waitFor } from "@bmi/utils";
 import {
   Asset,
   BulkAction,
@@ -16,12 +17,6 @@ const WAIT_DURATION_MS =
   (process.env.WAIT_DURATION_MS as unknown as number) || 1000;
 const MAX_BULK_ITEMS = 200;
 const MAX_CONCURRENT_BULK_ACTIONS = 5;
-
-export const sleep = async (ms: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-};
 
 async function* fetchAllEntries(
   environment: Environment,
@@ -85,9 +80,9 @@ export const tagAndUpdate = async (environment: Environment) => {
         console.log(`Updating item: ${entryOrAsset.sys.id}`);
         updatePromises.push(entryOrAsset.update());
         runs++;
-        if (runs % RATE_LIMIT == 0) {
+        if (runs % RATE_LIMIT === 0) {
           console.log(`Runs: ${runs}. Sleep for 1000ms`);
-          await sleep(WAIT_DURATION_MS);
+          await waitFor(WAIT_DURATION_MS);
           runs = 0;
         }
       }
@@ -143,7 +138,7 @@ export const publishAll = async (environment: Environment) => {
 
       console.log(`Current run count is : ${runs}`);
       if (runs % MAX_CONCURRENT_BULK_ACTIONS == 0) {
-        await sleep(WAIT_DURATION_MS);
+        await waitFor(WAIT_DURATION_MS);
 
         console.log("Waiting until the bulk actions are completed.");
         console.log(`Promise count ${bullkPublishProgress.length}`);
@@ -203,7 +198,7 @@ export const fillDefaultValues = async (
         runs++;
         if (runs % RATE_LIMIT == 0) {
           console.log(`Runs: ${runs}. Sleep for 1000ms`);
-          await sleep(WAIT_DURATION_MS);
+          await waitFor(WAIT_DURATION_MS);
           runs = 0;
         }
       }
