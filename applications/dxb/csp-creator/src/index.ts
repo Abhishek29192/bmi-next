@@ -100,10 +100,12 @@ const main = async (market?: string, environment?: string) => {
   let styleSrc = `style-src 'self' 'unsafe-inline' ${gatsbyHost} https://*.googleapis.com https://www.googletagmanager.com https://optimize.google.com https://fonts.googleapis.com`;
   let imgSrc = `img-src 'self' blob: data: ${gatsbyHost} ${pimHosts} https://images.ctfassets.net https://www.google-analytics.com https://www.googletagmanager.com https://*.googleapis.com https://optimize.google.com https://*.gstatic.com https://i.ytimg.com`;
   let mediaSrc = `media-src 'self' ${gatsbyHost} ${pimHosts} https://assets.ctfassets.net https://downloads.ctfassets.net https://videos.assets.ctfassets.net https://*.googleapis.com https://*.gstatic.com`;
-  let connectSrc = `connect-src 'self' blob: ${gatsbyHost} ${elasticSearchHost}:* ${gcpFunctionsHost} ${pimHosts} https://assets.ctfassets.net https://storage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com https://*.googleapis.com https://*.gstatic.com`;
+  let connectSrc = `connect-src 'self' blob: ${gatsbyHost} ${
+    environment === "prodPreview" ? "https://webhook.gatsbyjs.com" : ""
+  } ${elasticSearchHost}:* ${gcpFunctionsHost} ${pimHosts} https://assets.ctfassets.net https://storage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com https://*.googleapis.com https://*.gstatic.com`;
   let frameSrc = `frame-src ${gatsbyHost} ${
     marketOptions.frameSrcExtras || ""
-  } https://www.google.com/recaptcha https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com https://optimize.google.com`;
+  } https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.youtube.com https://optimize.google.com`;
   let fontSrc = `font-src 'self' ${gatsbyHost} https: https://fonts.gstatic.com`;
   let childSrc = `child-src 'self' ${gatsbyHost}`;
 

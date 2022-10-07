@@ -148,7 +148,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
     ]
   },
   group: {
-    gcpRegion: "eu-central",
+    gcpRegion: "eu-west",
     name: "group",
     services: [
       "bimObject",
