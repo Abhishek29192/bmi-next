@@ -439,24 +439,6 @@ deploy_gatsby_cloud_space_2:
     DXB_MARKET_ID: "space_2"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-migrate_content_romania:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "RO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-deploy_gatsby_cloud_romania:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_romania
-  variables:
-    DXB_MARKET_ID: "RO"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
 migrate_content_indonesia:
   extends: .migrate_content
   rules:
@@ -493,6 +475,24 @@ deploy_gatsby_cloud_poland:
     DXB_MARKET_ID: "PL"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_space_9:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "space_9"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_space_9:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_9
+  variables:
+    DXB_MARKET_ID: "space_9"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_space_10:
   extends: .migrate_content
   rules:
@@ -527,60 +527,6 @@ deploy_gatsby_cloud_china_zh:
     - migrate_content_china_zh
   variables:
     DXB_MARKET_ID: "CN"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-migrate_content_hungary:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "HU"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-deploy_gatsby_cloud_hungary:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_hungary
-  variables:
-    DXB_MARKET_ID: "HU"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-migrate_content_slovakia:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "SK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-deploy_gatsby_cloud_slovakia:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_slovakia
-  variables:
-    DXB_MARKET_ID: "SK"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-migrate_content_czechia:
-  extends: .migrate_content
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  variables:
-    DXB_MARKET_ID: "CZ"
-    ROOT_DIR: "applications/dxb/contentful-migrate"
-
-deploy_gatsby_cloud_czechia:
-  extends: .deploy_gatsby_cloud
-  rules:
-    - if: "$CI_COMMIT_TAG"
-  needs:
-    - migrate_content_czechia
-  variables:
-    DXB_MARKET_ID: "CZ"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_group:
@@ -747,11 +693,6 @@ update_mc_space_2:
     DXB_MARKET_ID: "space_2"
     IS_CONSOLIDATED: "true"
 
-update_mc_romania:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "RO"
-
 update_mc_indonesia:
   extends: .update_mc
   variables:
@@ -761,6 +702,12 @@ update_mc_poland:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "PL"
+
+update_mc_space_9:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "space_9"
+    IS_CONSOLIDATED: "true"
 
 update_mc_space_10:
   extends: .update_mc
@@ -772,21 +719,6 @@ update_mc_china_zh:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "CN"
-
-update_mc_hungary:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "HU"
-
-update_mc_slovakia:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "SK"
-
-update_mc_czechia:
-  extends: .update_mc
-  variables:
-    DXB_MARKET_ID: "CZ"
 
 update_mc_group:
   extends: .update_mc
