@@ -25,7 +25,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           <div
             aria-label="Quantity for Zanda Protector main tile black"
           >
-            1454
+            1418
           </div>
           <button
             aria-label="Remove Zanda Protector main tile black"
@@ -50,7 +50,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           <div
             aria-label="Quantity for Zanda Protector half tile black"
           >
-            33
+            32
           </div>
           <button
             aria-label="Remove Zanda Protector half tile black"
@@ -780,7 +780,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           <div
             aria-label="Quantity for Zanda Protector main tile black"
           >
-            1454
+            1418
           </div>
           <button
             aria-label="Remove Zanda Protector main tile black"
@@ -805,7 +805,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           <div
             aria-label="Quantity for Zanda Protector half tile black"
           >
-            33
+            32
           </div>
           <button
             aria-label="Remove Zanda Protector half tile black"

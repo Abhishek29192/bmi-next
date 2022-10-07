@@ -165,11 +165,7 @@ class QuantitiesCalculator {
         faceTiles.quantity
       );
 
-      if (
-        mainTileVariant.halfTile &&
-        mainTileVariant.brokenBond &&
-        faceTiles.half.quantity > 0
-      ) {
+      if (mainTileVariant.halfTile && faceTiles.half.quantity) {
         this.addProduct(
           ProductCategory.Tiles,
           mainTileVariant.halfTile,
@@ -549,8 +545,9 @@ class QuantitiesCalculator {
       packSize: product.packSize,
       category,
       baseQuantity: Math.ceil(
-        (oldBaseQuantity + baseQuantity) *
-          (category === ProductCategory.Tiles ? 1 + CONTINGENCY : 1)
+        oldBaseQuantity +
+          baseQuantity *
+            (category === ProductCategory.Tiles ? 1 + CONTINGENCY : 1)
       )
     };
 
