@@ -1,69 +1,68 @@
 {
-  "genericError": "Si è verificato un errore. Riprova o contatta il tuo amministratore.",
-  "invitation": {
-    "dialog": {
-      "cancel": "Annulla",
-      "emails": {
-        "helperText": "Aggiungi più membri separando ogni indirizzo email con una virgola",
-        "label": "Indirizzo email del destinatario"
-      },
-      "errorAlreadyMember": "L'utente è già membro di un'altra società",
-      "errorInvitationNotFound": "Invito non trovato",
-      "errorCommonFailure": "Risposta fallita. Si prega di controllare i dettagli e riprovare, oppure contattare l'amministratore BMI locale.",
-      "personalNote": {
-        "label": "Il tuo messaggio (opzionale)"
-      },
-      "send": "Invia e-mail",
-      "success": "L'invito è stato inviato",
-      "title": "Invita i membri"
-    }
-  },
-  "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
-  "memberRemoved": "Membro rimosso con successo",
-  "projectTable": {
-    "endDate": "Data di fine",
-    "project": "Progetto",
-    "startDate": "Data d'inizio",
-    "title": "Progetti",
-    "type": "Tipo"
-  },
-  "report": "Scarica l'elenco del team",
   "sidePanel": {
-    "inviteLabel": "+ Invita i membri del team",
     "search": {
       "label": "Cerca un utente",
       "noResult": "Membro non trovato"
-    }
+    },
+    "inviteLabel": "+ Invita i membri del team"
   },
   "table": {
-    "certification": "Certificazione",
-    "noResults": "L'utente non ha certificazioni",
     "title": "Certificazione(i)",
     "type": "Tipo",
-    "validity": "Validità"
+    "certification": "Certificazione",
+    "validity": "Validità",
+    "noResults": "L'utente non ha certificazioni"
   },
-  "userActions": {
-    "action": {
-      "activate": "Attiva utente",
-      "deactivate": "Disattiva utente"
-    },
-    "title": "Azioni dell'utente"
+  "invitation": {
+    "dialog": {
+      "title": "Invita i membri",
+      "emails": {
+        "label": "Indirizzo email del destinatario",
+        "helperText": "Aggiungi più membri separando ogni indirizzo email con una virgola"
+      },
+      "personalNote": {
+        "label": "Il tuo messaggio (opzionale)"
+      },
+      "cancel": "Annulla",
+      "send": "Invia e-mail",
+      "success": "L'invito è stato inviato",
+      "errorAlreadyMember": "L'utente è già membro di un'altra società",
+      "errorInvitationNotFound": "Invito non trovato"
+    }
   },
   "user_card": {
     "add_admin": "Assegna come amministratore dell'azienda",
-    "add_auditor": "Assegnare come revisore dei conti",
-    "cancel": "Annulla",
-    "confirm": "Conferma",
     "remove": "Rimuovi dall'azienda",
     "remove_admin": "Rimuovi come Admin dell'azienda",
-    "remove_auditor": "Rimuovere come revisore dei conti",
-    "remove_user_dialog": {
-      "text": "Vuoi rimuovere questo membro dell'azienda?",
-      "title": "Rimuovi membro dell'azienda"
-    },
+    "confirm": "Conferma",
+    "cancel": "Annulla",
     "role_dialog": {
-      "text": "Vuoi cambiare il ruolo?",
-      "title": "Cambia ruolo"
+      "title": "Cambia ruolo",
+      "text": "Vuoi cambiare il ruolo?"
+    },
+    "remove_user_dialog": {
+      "title": "Rimuovi membro dell'azienda",
+      "text": "Vuoi rimuovere questo membro dell'azienda?"
+    },
+    "remove_auditor": "Rimuovere come revisore dei conti",
+    "add_auditor": "Assegnare come revisore dei conti"
+  },
+  "memberRemoved": "Membro rimosso con successo",
+  "genericError": "Si è verificato un errore. Riprova o contatta il tuo amministratore.",
+  "lastCompanyAdminError": "Non è possibile rimuovere l'ultimo amministratore di un'Azienda a meno che non sia stata disattivata da BMI",
+  "report": "Scarica l'elenco del team",
+  "userActions": {
+    "title": "Azioni dell'utente",
+    "action": {
+      "activate": "Attiva utente",
+      "deactivate": "Disattiva utente"
     }
+  },
+  "projectTable": {
+    "title": "Progetti",
+    "type": "Tipo",
+    "project": "Progetto",
+    "startDate": "Data d'inizio",
+    "endDate": "Data di fine"
   }
 }

@@ -1,0 +1,68 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Wyszukaj użytkownika",
+      "noResult": "Członek nie znaleziony"
+    },
+    "inviteLabel": " + Zaproś członków zespołu"
+  },
+  "table": {
+    "title": "Certyfikaty",
+    "type": "Rodzaj",
+    "certification": "Orzecznictwo",
+    "validity": "Ważność",
+    "noResults": "Użytkownik nie ma certyfikatów"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Zaproś członków",
+      "emails": {
+        "label": "Adres email odbiorcy",
+        "helperText": "Dodaj wielu członków, oddzielając każdy adres e-mail przecinkiem"
+      },
+      "personalNote": {
+        "label": "Twoja wiadomość (opcjonalnie)"
+      },
+      "cancel": "Anulować",
+      "send": "Wysłać email",
+      "success": "Zaproszenie zostało wysłane",
+      "errorAlreadyMember": "Użytkownik jest już członkiem innej firmy",
+      "errorInvitationNotFound": "Nie znaleziono zaproszenia"
+    }
+  },
+  "user_card": {
+    "add_admin": "Przypisz jako administrator firmy",
+    "remove": "Usuń z firmy",
+    "remove_admin": "Usuń jako administrator firmy",
+    "confirm": "Potwierdzać",
+    "cancel": "Anulować",
+    "role_dialog": {
+      "title": "Zmień rolę",
+      "text": "Chcesz zmienić rolę?"
+    },
+    "remove_user_dialog": {
+      "title": "Usuń członka firmy",
+      "text": "Czy chcesz usunąć tego członka firmy?"
+    },
+    "remove_auditor": "Usuń jako audytora",
+    "add_auditor": "Przypisz jako audytora"
+  },
+  "memberRemoved": "Członek został pomyślnie usunięty",
+  "genericError": "Wystąpił błąd. Spróbuj ponownie lub skontaktuj się z administratorem.",
+  "lastCompanyAdminError": "Nie możesz usunąć ostatniego administratora firmy z firmy, chyba że został on dezaktywowany przez BMI",
+  "report": "Pobierz listę zespołów",
+  "userActions": {
+    "title": "Działania użytkownika",
+    "action": {
+      "activate": "Aktywuj użytkownika",
+      "deactivate": "Dezaktywuj użycie"
+    }
+  },
+  "projectTable": {
+    "title": "Projektowanie",
+    "type": "Rodzaj",
+    "project": "Projekt",
+    "startDate": "Data rozpoczęcia",
+    "endDate": "Data zakonczenia"
+  }
+}

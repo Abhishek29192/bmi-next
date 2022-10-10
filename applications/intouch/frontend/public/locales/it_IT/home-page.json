@@ -2,16 +2,16 @@
   "hero": {
     "cta": {
       "MERCHANDISE": "Per saperne di più",
-      "PROJECT": "Crea un progetto",
-      "TRAINING": "BMI Academy"
+      "TRAINING": "BMI Academy",
+      "PROJECT": "Crea un progetto"
     }
+  },
+  "partnerBrands": {
+    "title": "Partner BMI",
+    "description": "BMI è lieta di offrire ai membri del suo programma BMI RoofPro promozioni speciali e sconti su una selezione di brand associati, tra cui DJI, FLIR, Expensify, Enterprise e SIXT. Queste società offrono ai membri del programma l'accesso a prodotti e servizi come droni, termocamere, soluzioni di gestione delle note spesa, noleggio di veicoli e soluzioni di mobilità con vantaggi esclusivi.",
+    "ctaLabel": "Leggi di più"
   },
   "linkedin": {
     "ctaLabel": "Leggi di più su LinkedIn"
-  },
-  "partnerBrands": {
-    "ctaLabel": "Leggi di più",
-    "description": "BMI è lieta di offrire ai membri del suo programma BMI RoofPro promozioni speciali e sconti su una selezione di brand associati, tra cui DJI, FLIR, Expensify, Enterprise e SIXT. Queste società offrono ai membri del programma l'accesso a prodotti e servizi come droni, termocamere, soluzioni di gestione delle note spesa, noleggio di veicoli e soluzioni di mobilità con vantaggi esclusivi.",
-    "title": "Partner BMI"
   }
 }

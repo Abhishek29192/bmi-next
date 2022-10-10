@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Arkkitehti",
-  "About Us": "Tietoja meistä",
-  "Account": "Tili",
-  "CONTRACTOR": "Urakoitsija",
-  "CORP_DEVELOPER": "Kiinteistökehittäjä",
+  "Home": "Etusivu",
+  "Projects": "Projektit",
+  "Training": "Koulutus",
+  "Team": "Tiimi",
   "Companies": "Yritykset",
   "Company": "Yritys",
-  "Company Description": "Yrityksen kuvaus",
-  "Download": "Lataa",
+  "Tools": "Työkalut",
+  "Inventory": "Tuotteet",
   "Edit": "Muokata",
-  "Home": "Etusivu",
-  "Inventory": "Varasto",
-  "Logout": "Kirjaudu ulos",
-  "MERCHANT": "Kauppias",
-  "Main office address": "Kaupankäyntiosoite",
+  "Search": "Etsi",
   "No Options": "Ei tuloksia",
-  "Notifications": "Ilmoitukset",
-  "Products": "Tuotteet",
+  "Show me": "Näytä minulle",
+  "Account": "Tili",
   "Profile": "Profiili",
-  "Projects": "Projektit",
-  "Registered Address": "Rekisteröity osoite",
+  "Logout": "Kirjaudu ulos",
+  "Notifications": "Ilmoitukset",
+  "deactivatedCompany": "Yritys poistettu käytöstä",
+  "results available": "Tulokset saatavilla",
+  "Company Description": "Yrityksen kuvaus",
+  "About Us": "Tietoja meistä",
   "Registered Details": "Rekisteröity tiedot",
   "Registered Name": "Rekisteröity nimi",
-  "SavePdf": "Lataa PDF",
-  "Search": "Etsi",
-  "Show me": "Näytä minulle",
-  "Sort by": "Lajitteluperuste",
-  "Team": "Ryhmä",
-  "Tools": "Työkalut",
-  "Training": "Koulutus",
+  "Registered Address": "Rekisteröity osoite",
+  "Main office address": "Kaupankäyntiosoite",
+  "CONTRACTOR": "Urakoitsija",
+  "ARCHITECT": "Arkkitehti",
+  "MERCHANT": "Kauppias",
+  "CORP_DEVELOPER": "Kiinteistökehittäjä",
   "aria": {
     "navigation": "Navigointi",
     "notifications": "Ilmoitukset"
   },
-  "certificationLabels": {
-    "certification": "Sertifiointi",
-    "expiry": "Voimassa asti",
-    "type": "Tyyppi"
-  },
-  "certifications": {
-    "flat": "Tasakatto",
-    "other": "Muu",
-    "pitched": "Harjakatto"
-  },
-  "deactivatedCompany": "Yritys poistettu käytöstä",
-  "error_messages": {
-    "email_format": "Virheellinen sähköpostiosoite",
-    "phone_number_format": "Virheellinen puhelinnumero",
-    "required": "Vaaditaan",
-    "url_format": "Virheellinen URL"
-  },
-  "fallback": {
-    "noResults": "Ei tuloksia",
-    "notAdded": "Ei lisätty"
-  },
-  "generatingPdf": "PDF:n luominen",
-  "notifications": {
-    "earlier": "Aikaisemmin",
-    "older": "Yli 2 kuukautta vanhempi",
-    "today": "Tänään"
-  },
-  "requiredInformation": "Vaadittu tieto",
-  "results available": "Tulokset saatavilla",
   "roles": {
-    "AUDITOR": "Tarkastaja",
-    "COMPANY_ADMIN": "Yrityksen pääkäyttäjän",
     "INSTALLER": "Jäsen",
+    "COMPANY_ADMIN": "Yrityksen pääkäyttäjän",
     "MARKET_ADMIN": "BMI-järjestelmänvalvoja",
-    "SUPER_ADMIN": "Super Admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Tämä istunto vanhenee pian käyttämättömyyden vuoksi ja sinut kirjataan automaattisesti ulos.",
-      "continue": "Pidennä istuntoa",
-      "logout": "Kirjaudu ulos",
-      "title": "Istuntosi vanhenee {{counter}} jälkeen"
-    }
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Tarkastaja"
   },
   "tier": {
     "T1": "Jäsen",
@@ -86,5 +47,44 @@
     "T6": "Expert - Tasakatto",
     "T7": "Elite - Tasakatto"
   },
-  "visitWebsite": "Vieraile verkkosivustolla"
+  "error_messages": {
+    "required": "Vaaditaan",
+    "url_format": "Virheellinen URL",
+    "email_format": "Virheellinen sähköpostiosoite",
+    "phone_number_format": "Virheellinen puhelinnumero"
+  },
+  "Products": "Tuotteet",
+  "fallback": {
+    "notAdded": "Ei lisätty",
+    "noResults": "Ei tuloksia"
+  },
+  "Download": "Lataa",
+  "SavePdf": "Lataa PDF",
+  "visitWebsite": "Vieraile verkkosivustolla",
+  "certifications": {
+    "pitched": "Harjakatto",
+    "flat": "Tasakatto",
+    "other": "Muu"
+  },
+  "certificationLabels": {
+    "type": "Tyyppi",
+    "certification": "Sertifiointi",
+    "expiry": "Voimassa asti"
+  },
+  "notifications": {
+    "today": "Tänään",
+    "earlier": "Aikaisemmin",
+    "older": "Yli 2 kuukautta vanhempi"
+  },
+  "session": {
+    "dialog": {
+      "title": "Istuntosi vanhenee {{counter}} jälkeen",
+      "content": "Tämä istunto vanhenee pian käyttämättömyyden vuoksi ja sinut kirjataan automaattisesti ulos.",
+      "logout": "Kirjaudu ulos",
+      "continue": "Pidennä istuntoa"
+    }
+  },
+  "generatingPdf": "PDF:n luominen",
+  "Sort by": "Lajitteluperuste",
+  "requiredInformation": "Vaadittu tieto"
 }

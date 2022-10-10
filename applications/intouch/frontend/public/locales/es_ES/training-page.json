@@ -1,29 +1,29 @@
 {
-  "Description": "Descripción",
-  "My courses": "Mis cursos",
-  "See training": "Ver formación",
   "Training": "Formación",
-  "completed": "Completado",
+  "See training": "Ver formación",
+  "My courses": "Mis cursos",
+  "in_progress": "En curso",
   "enrolled": "inscrito",
+  "completed": "Completado",
+  "waiting": "A la espera",
+  "viewTraining": "Ver formación",
+  "Description": "Descripción",
+  "search": {
+    "inputLabel": "Buscar formación"
+  },
   "filter": {
     "labels": {
       "all": "Todo"
     }
-  },
-  "in_progress": "En curso",
-  "search": {
-    "inputLabel": "Buscar formación"
-  },
-  "technology": {
-    "FLAT": "Plano",
-    "OTHER": "Otros",
-    "PITCHED": "Inclinado"
   },
   "type": {
     "classroom": "Aula",
     "elearning": "Formación digital",
     "webinar": "Webinar"
   },
-  "viewTraining": "Ver formación",
-  "waiting": "A la espera"
+  "technology": {
+    "PITCHED": "Inclinado",
+    "FLAT": "Plano",
+    "OTHER": "Otros"
+  }
 }

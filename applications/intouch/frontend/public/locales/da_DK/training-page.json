@@ -1,29 +1,29 @@
 {
-  "Description": "Beskrivelse",
-  "My courses": "Mine kurser",
-  "See training": "Se træning",
   "Training": "Træning",
-  "completed": "Afsluttet",
+  "See training": "Se træning",
+  "My courses": "Mine kurser",
+  "in_progress": "I gang",
   "enrolled": "Tilmeldt",
+  "completed": "Afsluttet",
+  "waiting": "Venter",
+  "viewTraining": "Se træning",
+  "Description": "Beskrivelse",
+  "search": {
+    "inputLabel": "Søg efter træningskursus"
+  },
   "filter": {
     "labels": {
       "all": "Alle"
     }
-  },
-  "in_progress": "I gang",
-  "search": {
-    "inputLabel": "Søg efter træningskursus"
-  },
-  "technology": {
-    "FLAT": "Flade tage",
-    "OTHER": "Andre",
-    "PITCHED": "Skråtage"
   },
   "type": {
     "classroom": "Fysisk fremmøde",
     "elearning": "Online kursus",
     "webinar": "Webinar"
   },
-  "viewTraining": "Se træning",
-  "waiting": "Venter"
+  "technology": {
+    "PITCHED": "Skråtage",
+    "FLAT": "Flade tage",
+    "OTHER": "Andre"
+  }
 }

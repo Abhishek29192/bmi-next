@@ -1,55 +1,51 @@
 {
+  "technology": "Tecnologia",
   "bmiRef": "Numero di riferimento dell'azienda",
   "brand": "Marca",
-  "bulkImport": "Importazione di massa",
-  "confirm": "Conferma importazione",
   "description": "Descrizione",
-  "dryRun": "Caricamento di prova",
-  "dryRunCompleted": "Caricamento di prova completato",
-  "dryRunError": "Ci sono alcuni errori nei file importati",
-  "edit": "Modifica",
-  "errorProductsToInsert": "Prodotto da caricare",
-  "errorProductsToUpdate": "Prodotto da aggiornare",
-  "errorSystemMembersInsert": "Prodotto del sistema da aggiungere",
-  "errorSystemsToInsert": "Sistema da aggiungere",
-  "errorSystemsToUpdate": "Sistema da aggiornare",
-  "errors": {
-    "filename_wrong_format": "Formato file errato",
-    "unauthorized": "Non autorizzato",
-    "wrong_env": "Ambiente di sviluppo scorretto"
-  },
   "family": "Famiglia",
-  "form": {
-    "productTitle": "Modifica prodotto",
-    "systemTitle": "Modifica sistema"
-  },
-  "importCompleted": "Importazione completata",
-  "importError": "Si è verificato un errore durante l'importazione",
-  "maximumValidityYears": "Anni di validità massima",
-  "productToInsert": "Questi prodotti verranno aggiunti",
-  "productToUpdate": "Questi prodotti verranno aggiornati",
-  "products": "Prodotti",
   "published": "Pubblicato",
-  "report": {
-    "product": "Scarica il report di prodotto",
-    "system": "Scarica il report di sistema"
-  },
+  "unpublished": "Inedito",
+  "maximumValidityYears": "Anni di validità massima",
+  "updatedAt": "Ultimo aggiornamento",
   "show": "Mostra",
+  "edit": "Modifica",
+  "submit": "Invia",
+  "bulkImport": "Importazione di massa",
+  "products": "Prodotti",
+  "system": "Sistema",
   "sidePanel": {
     "search": {
       "label": "Ricerca",
       "noResult": "Nessun articolo trovato"
     }
   },
-  "submit": "Invia",
-  "system": "Sistema",
+  "dryRun": "Caricamento di prova",
+  "confirm": "Conferma importazione",
+  "dryRunError": "Ci sono alcuni errori nei file importati",
+  "importCompleted": "Importazione completata",
+  "productToInsert": "Questi prodotti verranno aggiunti",
   "systemToInsert": "Questi sistemi verranno aggiunti",
   "systemToUpdate": "Questi sistemi verranno aggiornati",
-  "technology": "Tecnologia",
-  "unpublished": "Inedito",
-  "updatedAt": "Ultimo aggiornamento",
-  "productData": {
-    "uuid": "Numero identificativo del prodotto",
-    "name": "Nome del prodotto"
+  "productToUpdate": "Questi prodotti verranno aggiornati",
+  "errorSystemsToUpdate": "Sistema da aggiornare",
+  "errorSystemsToInsert": "Sistema da aggiungere",
+  "errorProductsToUpdate": "Prodotto da aggiornare",
+  "errorProductsToInsert": "Prodotto da caricare",
+  "errorSystemMembersInsert": "Prodotto del sistema da aggiungere",
+  "importError": "Si è verificato un errore durante l'importazione",
+  "form": {
+    "productTitle": "Modifica prodotto",
+    "systemTitle": "Modifica sistema"
+  },
+  "errors": {
+    "filename_wrong_format": "Formato file errato",
+    "unauthorized": "Non autorizzato",
+    "wrong_env": "Ambiente di sviluppo scorretto"
+  },
+  "dryRunCompleted": "Caricamento di prova completato",
+  "report": {
+    "product": "Scarica il report di prodotto",
+    "system": "Scarica il report di sistema"
   }
 }

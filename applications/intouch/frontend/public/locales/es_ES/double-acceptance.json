@@ -1,29 +1,28 @@
 {
+  "title": "¡Su Garantía BMI está esperando para ser reclamada!",
+  "reject": "Rechazar",
   "accept": "Aceptar",
-  "acceptanceDescription": [
-    "Si elige aceptar, la documentación de la garantía de BMI seguirá en un correo electrónico por separado, junto con una copia completa de los términos y condiciones.",
-    "Si decide rechazarla, se cancelará la garantía de BMI y se notificará al contratista."
-  ],
-  "acceptanceTitle": "Confirme a continuación para aceptar o rechazar la garantía de BMI.",
-  "confirmation": {
-    "description": [
-      "BMI trabaja en estrecha colaboración con los contratistas para garantizar que reciba los más altos estándares de mano de obra, garantías mejoradas y el apoyo y los servicios continuos que necesita para mantener su techo en las mejores condiciones posibles.",
-      "Para obtener más información acerca de BMI y si necesita ponerse en contacto, visite {{website}}."
-    ],
-    "title": "¡Gracias por elegir a BMI para cubrir su techo!"
+  "dialog": {
+    "title": "¿Está seguro de que desea {{acceptance}} la garantía de BMI?",
+    "description": "Si elige aceptar la garantía de BMI, recibirá la documentación de la garantía en un correo electrónico aparte. Si elige rechazar la garantía de BMI, se cancelará y se notificará al contratista.",
+    "cta": {
+      "back": "Regresar",
+      "confirm": "Confirmar"
+    }
   },
   "description": [
     "Nos complace confirmar que una nueva Garantía de BMI está disponible para que la reclame, para brindarle tranquilidad y protección a su propiedad y a sus ocupantes.",
     "Esta oferta de garantía está disponible por un período limitado, así que revise los detalles a continuación y haga clic para aceptar o rechazar esta oferta."
   ],
-  "dialog": {
-    "cta": {
-      "back": "Regresar",
-      "confirm": "Confirmar"
-    },
-    "description": "Si elige aceptar la garantía de BMI, recibirá la documentación de la garantía en un correo electrónico aparte. Si elige rechazar la garantía de BMI, se cancelará y se notificará al contratista.",
-    "title": "¿Está seguro de que desea {{acceptance}} la garantía de BMI?"
-  },
+  "warrantyPeriod": "Período de la garantía:",
+  "guaranteeScope": "Alcance de la garantía:",
+  "guaranteeConditions": "Condiciones de Garantía:",
+  "guaranteeConditionsDescription": "Al hacer clic en 'Aceptar', acepta esta garantía y declara haber leído atentamente y aceptar específicamente las siguientes condiciones:",
+  "acceptanceTitle": "Confirme a continuación para aceptar o rechazar la garantía de BMI.",
+  "acceptanceDescription": [
+    "Si elige aceptar, la documentación de la garantía de BMI seguirá en un correo electrónico por separado, junto con una copia completa de los términos y condiciones.",
+    "Si decide rechazarla, se cancelará la garantía de BMI y se notificará al contratista."
+  ],
   "form": {
     "fields": {
       "acceptance": {
@@ -37,11 +36,12 @@
       }
     }
   },
-  "guaranteeConditions": "Condiciones de Garantía:",
-  "guaranteeConditionsDescription": "Al hacer clic en 'Aceptar', acepta esta garantía y declara haber leído atentamente y aceptar específicamente las siguientes condiciones:",
-  "guaranteeScope": "Alcance de la garantía:",
-  "reject": "Rechazar",
-  "title": "¡Su Garantía BMI está esperando para ser reclamada!",
-  "warrantyPeriod": "Período de la garantía:",
+  "confirmation": {
+    "title": "¡Gracias por elegir a BMI para cubrir su techo!",
+    "description": [
+      "BMI trabaja en estrecha colaboración con los contratistas para garantizar que reciba los más altos estándares de mano de obra, garantías mejoradas y el apoyo y los servicios continuos que necesita para mantener su techo en las mejores condiciones posibles.",
+      "Para obtener más información acerca de BMI y si necesita ponerse en contacto, visite {{website}}."
+    ]
+  },
   "years": "años"
 }

@@ -41,7 +41,7 @@
       "INSTALLER": "Membro"
     }
   },
-  "ms_MY": {
+  "en_MY": {
     "roles": {
       "COMPANY_ADMIN": "Company Administrator",
       "INSTALLER": "Member"
@@ -51,6 +51,24 @@
     "roles": {
       "COMPANY_ADMIN": "Yrityksen ylläpitäjä",
       "INSTALLER": "Jäsen"
+    }
+  },
+  "en_UK": {
+    "roles": {
+      "COMPANY_ADMIN": "Company Administrator",
+      "INSTALLER": "Member"
+    }
+  },
+  "sv_SE": {
+    "roles": {
+      "COMPANY_ADMIN": "Företagsadministratör",
+      "INSTALLER": "Medlem"
+    }
+  },
+  "pl_PL": {
+    "roles": {
+      "COMPANY_ADMIN": "Administrator firmy",
+      "INSTALLER": "Członek"
     }
   }
 }

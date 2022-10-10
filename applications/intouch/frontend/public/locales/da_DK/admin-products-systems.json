@@ -1,55 +1,51 @@
 {
+  "technology": "Teknologi",
   "bmiRef": "BMI RoofPro medlemsnummer",
   "brand": "Mærke",
-  "bulkImport": "Masseimport",
-  "confirm": "Bekræft import",
   "description": "Beskrivelse",
-  "dryRun": "Test upload",
-  "dryRunCompleted": "Test afsluttet",
-  "dryRunError": "Der er nogle fejl i de importerede filer",
-  "edit": "Redigér",
-  "errorProductsToInsert": "Produkt, der skal indsættes",
-  "errorProductsToUpdate": "Produktet skal opdateres",
-  "errorSystemMembersInsert": "Tilføj BMI-produkter til systemet",
-  "errorSystemsToInsert": "Tilføj BMI-system",
-  "errorSystemsToUpdate": "Opdater BMI system",
-  "errors": {
-    "filename_wrong_format": "Forkert filtype",
-    "unauthorized": "Ikke autoriseret",
-    "wrong_env": "Forkert miljø"
-  },
   "family": "Familie",
-  "form": {
-    "productTitle": "Rediger produkt",
-    "systemTitle": "Rediger system"
-  },
-  "importCompleted": "Import afsluttet",
-  "importError": "Der opstod en fejl under import",
-  "maximumValidityYears": "Maksimal gyldighedsår",
-  "productToInsert": "Disse produkter bliver uploadet",
-  "productToUpdate": "Disse produkter vil blive opdateret",
-  "products": "Produkter",
   "published": "Udgivet",
-  "report": {
-    "product": "Download produktrapport",
-    "system": "Download systemrapport"
-  },
+  "unpublished": "Upubliceret",
+  "maximumValidityYears": "Maksimal gyldighedsår",
+  "updatedAt": "Opdateringsdato",
   "show": "Vis",
+  "edit": "Redigér",
+  "submit": "Indsend",
+  "bulkImport": "Masseimport",
+  "products": "Produkter",
+  "system": "System",
   "sidePanel": {
     "search": {
       "label": "Søg efter et produkt eller system",
       "noResult": "Ingen objekter fundet"
     }
   },
-  "submit": "Indsend",
-  "system": "System",
+  "dryRun": "Test upload",
+  "confirm": "Bekræft import",
+  "dryRunError": "Der er nogle fejl i de importerede filer",
+  "importCompleted": "Import afsluttet",
+  "productToInsert": "Disse produkter bliver uploadet",
   "systemToInsert": "Disse systemer vil blive uploadet",
   "systemToUpdate": "Disse systemer vil blive opdateret",
-  "technology": "Teknologi",
-  "unpublished": "Upubliceret",
-  "updatedAt": "Opdateringsdato",
-  "productData": {
-    "uuid": "Produkt ID",
-    "name": "Produktnavn"
+  "productToUpdate": "Disse produkter vil blive opdateret",
+  "errorSystemsToUpdate": "Opdater BMI system",
+  "errorSystemsToInsert": "Tilføj BMI-system",
+  "errorProductsToUpdate": "Produktet skal opdateres",
+  "errorProductsToInsert": "Produkt, der skal indsættes",
+  "errorSystemMembersInsert": "Tilføj BMI-produkter til systemet",
+  "importError": "Der opstod en fejl under import",
+  "form": {
+    "productTitle": "Rediger produkt",
+    "systemTitle": "Rediger system"
+  },
+  "errors": {
+    "filename_wrong_format": "Forkert filtype",
+    "unauthorized": "Ikke autoriseret",
+    "wrong_env": "Forkert miljø"
+  },
+  "dryRunCompleted": "Test afsluttet",
+  "report": {
+    "product": "Download produktrapport",
+    "system": "Download systemrapport"
   }
 }

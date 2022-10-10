@@ -1,5 +1,5 @@
 {
-  "back_login": "Retroceda para iniciar sesión",
+  "title": "Por favor verifique su correo electrónico",
   "body": "Le hemos enviado un correo electrónico. Por favor, siga las instrucciones del correo electrónico para acceder al portal de InTouch.",
-  "title": "Por favor verifique su correo electrónico"
+  "back_login": "Retroceda para iniciar sesión"
 }

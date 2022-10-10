@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Architetto",
-  "About Us": "A proposito di noi",
-  "Account": "il mio account",
-  "CONTRACTOR": "Impresa",
-  "CORP_DEVELOPER": "Promotore immobiliare",
+  "Home": "Home",
+  "Projects": "Progetti",
+  "Training": "Formazione",
+  "Team": "Team",
   "Companies": "Aziende",
   "Company": "Azienda",
-  "Company Description": "Descrizione aziendale",
-  "Download": "Scarica",
-  "Edit": "Modifica",
-  "Home": "Home",
+  "Tools": "Strumenti",
   "Inventory": "Inventario",
-  "Logout": "Esci",
-  "MERCHANT": "Rivenditore",
-  "Main office address": "Indirizzo ufficio principale",
+  "Edit": "Modifica",
+  "Search": "Ricerca",
   "No Options": "Nessuna opzione",
-  "Notifications": "Notifiche",
-  "Products": "Prodotti",
+  "Show me": "Mostra",
+  "Account": "il mio account",
   "Profile": "Profilo",
-  "Projects": "Progetti",
-  "Registered Address": "Indirizzo registrato",
+  "Logout": "Esci",
+  "Notifications": "Notifiche",
+  "deactivatedCompany": "Azienda disattivata",
+  "results available": "Risultati disponibili",
+  "Company Description": "Descrizione aziendale",
+  "About Us": "A proposito di noi",
   "Registered Details": "Dettagli registrati",
   "Registered Name": "Nome registrato",
-  "SavePdf": "Salva in PDF",
-  "Search": "Ricerca",
-  "Show me": "Mostra",
-  "Sort by": "Ordina per",
-  "Team": "Team",
-  "Tools": "Strumenti",
-  "Training": "Formazione",
+  "Registered Address": "Indirizzo registrato",
+  "Main office address": "Indirizzo ufficio principale",
+  "CONTRACTOR": "Impresa",
+  "ARCHITECT": "Architetto",
+  "MERCHANT": "Rivenditore",
+  "CORP_DEVELOPER": "Promotore immobiliare",
   "aria": {
     "navigation": "Navigazione",
     "notifications": "Notifiche"
   },
-  "certificationLabels": {
-    "certification": "Certificazione",
-    "expiry": "Scadenza",
-    "type": "Tipo"
-  },
-  "certifications": {
-    "flat": "Piano",
-    "other": "Altro",
-    "pitched": "Falda"
-  },
-  "deactivatedCompany": "Azienda disattivata",
-  "error_messages": {
-    "email_format": "Indirizzo e-mail non valido",
-    "phone_number_format": "Numero di telefono non valido",
-    "required": "Obbligatorio",
-    "url_format": "URL non valido"
-  },
-  "fallback": {
-    "noResults": "Nessun risultato trovato",
-    "notAdded": "Non aggiunto"
-  },
-  "generatingPdf": "Preparazione del PDF",
-  "notifications": {
-    "earlier": "Prima",
-    "older": "Più vecchio di 2 mesi",
-    "today": "Oggi"
-  },
-  "requiredInformation": "informazioni richieste",
-  "results available": "Risultati disponibili",
   "roles": {
-    "AUDITOR": "Revisore dei conti",
-    "COMPANY_ADMIN": "Amministratore dell'azienda",
     "INSTALLER": "Membro",
+    "COMPANY_ADMIN": "Amministratore dell'azienda",
     "MARKET_ADMIN": "Amministratore BMI",
-    "SUPER_ADMIN": "Super admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Questa sessione scadrà a breve causa inattività e sarai automaticamente disconnesso.",
-      "continue": "Mantenere la sessione",
-      "logout": "Logout",
-      "title": "La tua sessione scadrà dopo {{counter}}"
-    }
+    "SUPER_ADMIN": "Super admin",
+    "AUDITOR": "Revisore dei conti"
   },
   "tier": {
     "T1": "Membro",
@@ -86,9 +47,44 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Obbligatorio",
+    "url_format": "URL non valido",
+    "email_format": "Indirizzo e-mail non valido",
+    "phone_number_format": "Numero di telefono non valido"
+  },
+  "Products": "Prodotti",
+  "fallback": {
+    "notAdded": "Non aggiunto",
+    "noResults": "Nessun risultato trovato"
+  },
+  "Download": "Scarica",
+  "SavePdf": "Salva in PDF",
   "visitWebsite": "Visita il sito web",
-  "button": {
-    "more": "Mostra di più",
-    "less": "Mostra meno"
-  }
+  "certifications": {
+    "pitched": "Falda",
+    "flat": "Piano",
+    "other": "Altro"
+  },
+  "certificationLabels": {
+    "type": "Tipo",
+    "certification": "Certificazione",
+    "expiry": "Scadenza"
+  },
+  "notifications": {
+    "today": "Oggi",
+    "earlier": "Prima",
+    "older": "Più vecchio di 2 mesi"
+  },
+  "session": {
+    "dialog": {
+      "title": "La tua sessione scadrà dopo {{counter}}",
+      "content": "Questa sessione scadrà a breve causa inattività e sarai automaticamente disconnesso.",
+      "logout": "Logout",
+      "continue": "Mantenere la sessione"
+    }
+  },
+  "generatingPdf": "Preparazione del PDF",
+  "Sort by": "Ordina per",
+  "requiredInformation": "informazioni richieste"
 }

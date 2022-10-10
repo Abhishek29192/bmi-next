@@ -1,9 +1,9 @@
 {
+  "title": "Algo salió mal",
   "body": "Ocurrió un error. Por favor, póngase en contacto con un administrador de BMI",
+  "user_blocked": "El usuario está bloqueado",
   "errorAlreadyMember": "El usuario ya es miembro de otra empresa",
-  "errorAuthentication": "Error de autenticación",
   "errorInvitationNotFound": "Invitación no encontrada",
   "errorUserBlocked": "El usuario está bloqueado",
-  "title": "Algo salió mal",
-  "user_blocked": "El usuario está bloqueado"
+  "errorAuthentication": "Error de autenticación"
 }

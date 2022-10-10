@@ -1,55 +1,51 @@
 {
+  "technology": "Teknologi",
   "bmiRef": "BMI referansenummer",
   "brand": "Merkevare",
-  "bulkImport": "Masseimport",
-  "confirm": "Bekreft import",
   "description": "Beskrivelse",
-  "dryRun": "Test opplasting",
-  "dryRunCompleted": "Test fullført",
-  "dryRunError": "Det er noen feil i de importerte filene",
-  "edit": "Rediger",
-  "errorProductsToInsert": "Produkt som skal settes inn",
-  "errorProductsToUpdate": "Produkt som skal oppdateres",
-  "errorSystemMembersInsert": "Legg til BMI -produkter i systemet",
-  "errorSystemsToInsert": "Legg til BMI -system",
-  "errorSystemsToUpdate": "Oppdater BMI -system",
-  "errors": {
-    "filename_wrong_format": "Feil filtype",
-    "unauthorized": "Ikke autorisert",
-    "wrong_env": "Feil miljø"
-  },
   "family": "Familie",
-  "form": {
-    "productTitle": "Rediger produkt",
-    "systemTitle": "Rediger system"
-  },
-  "importCompleted": "Import fullført",
-  "importError": "En feil oppsto under import",
-  "maximumValidityYears": "Maksimal gyldighet år",
-  "productToInsert": "Disse produktene blir lastet opp",
-  "productToUpdate": "Disse produktene vil bli oppdatert",
-  "products": "Produkter",
   "published": "Publisert",
-  "report": {
-    "product": "Last ned produktrapport",
-    "system": "Last ned systemrapport"
-  },
+  "unpublished": "Upublisert",
+  "maximumValidityYears": "Maksimal gyldighet år",
+  "updatedAt": "Sist oppdatert",
   "show": "Vis mer",
+  "edit": "Rediger",
+  "submit": "Send",
+  "bulkImport": "Masseimport",
+  "products": "Produkter",
+  "system": "System",
   "sidePanel": {
     "search": {
       "label": "Søk",
       "noResult": "Ingen objekter funnet"
     }
   },
-  "submit": "Send",
-  "system": "System",
+  "dryRun": "Test opplasting",
+  "confirm": "Bekreft import",
+  "dryRunError": "Det er noen feil i de importerte filene",
+  "importCompleted": "Import fullført",
+  "productToInsert": "Disse produktene blir lastet opp",
   "systemToInsert": "Disse systemene vil bli lastet opp",
   "systemToUpdate": "Disse systemene vil bli oppdatert",
-  "technology": "Teknologi",
-  "unpublished": "Upublisert",
-  "updatedAt": "Sist oppdatert",
-  "productData": {
-    "uuid": "Produkt ID",
-    "name": "Produktnavn"
+  "productToUpdate": "Disse produktene vil bli oppdatert",
+  "errorSystemsToUpdate": "Oppdater BMI -system",
+  "errorSystemsToInsert": "Legg til BMI -system",
+  "errorProductsToUpdate": "Produkt som skal oppdateres",
+  "errorProductsToInsert": "Produkt som skal settes inn",
+  "errorSystemMembersInsert": "Legg til BMI -produkter i systemet",
+  "importError": "En feil oppsto under import",
+  "form": {
+    "productTitle": "Rediger produkt",
+    "systemTitle": "Rediger system"
+  },
+  "errors": {
+    "filename_wrong_format": "Feil filtype",
+    "unauthorized": "Ikke autorisert",
+    "wrong_env": "Feil miljø"
+  },
+  "dryRunCompleted": "Test fullført",
+  "report": {
+    "product": "Last ned produktrapport",
+    "system": "Last ned systemrapport"
   }
 }

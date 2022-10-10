@@ -1,172 +1,172 @@
 {
-  "businessType": {
-    "ARCHITECT": "Arquiteto",
-    "CONTRACTOR": "Empreiteiro",
-    "CORP_DEVELOPER": "Promotor imobiliario",
-    "MERCHANT": "Distribuidor"
-  },
-  "certificationsTitle": "Certificações BMI",
-  "companyActions": {
-    "activate": "Ativar empresa",
-    "deactivate": "desativar empresa"
-  },
-  "companyActionsTitle": "Ações da empresa",
-  "companyOperations": "tipo de operação",
-  "companyOperationsSuffix": "Tipo de cobertura",
+  "titleMember": "Empresa ",
+  "titleAdmin": "Empresas",
   "details": {
-    "aboutUs": "Descrição da Empresa",
-    "contactDetails": "Informação de contato",
+    "title": "Dados da empresa",
     "name": "Nome da empresa",
+    "aboutUs": "Descrição da Empresa",
+    "tradingAddress": "Endereço da sede",
     "owner": "Proprietário da empresa",
-    "phone": "Número de telefone",
+    "contactDetails": "Informação de contato",
+    "registeredDetails": "dados cadastrais",
     "referenceNumber": "Número de referência da empresa",
     "registeredAddress": "Endereço registrado",
-    "registeredDetails": "dados cadastrais",
     "taxNumber": "Número de identificação fiscal (NIF) da empresa",
-    "title": "Dados da empresa",
-    "tradingAddress": "Endereço da sede"
-  },
-  "document": {
-    "addDocument": "adicionar documento",
-    "confirmDialog": {
-      "body": "Eliminar documento?",
-      "cancelLabel": "Cancelar",
-      "confirmLabel": "Confirmar",
-      "title": "documento da empresa"
-    },
-    "headers": {
-      "date": "Encontro: Data",
-      "document": "Documento",
-      "download": "Descarregar"
-    },
-    "noContent": "Nenhum documento adicionado ainda",
-    "title": "documentos da empresa",
-    "uploadDialog": {
-      "buttonLabel": "adicionar arquivos",
-      "cancelLabel": "Cancelar",
-      "confirmLabel": "adicionar arquivos",
-      "evidence_category": "Categoria de evidência",
-      "fileAlreadyExisting": "O nome do arquivo já existe",
-      "fileValidationMessage": "Você não pode adicionar arquivos maiores que {{fileSize}}",
-      "genericError": "erro genérico",
-      "instruction": "você pode adicionar arquivos",
-      "microcopy": {
-        "browse": "Navegar",
-        "drop": "Sair"
-      },
-      "title": "Registro de documentos",
-      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}"
-    }
-  },
-  "edit_dialog": {
-    "form": {
-      "actions": {
-        "cancel": "Cancelar",
-        "submit": "Guardar e fechar"
-      },
-      "fields": {
-        "aboutUs": "Descrição da empresa",
-        "businessType": "Tipo de empresa cadastrada",
-        "facebook": "Perfil do Facebook",
-        "linkedIn": "Perfil do LinkedIn",
-        "logo": {
-          "alt_text": "Logo da empresa",
-          "buttons": {
-            "remove": "Eliminar",
-            "upload": "Adicionar uma nova foto"
-          },
-          "fileSizeMessage": "Tamanho máximo do arquivo de 3 MB",
-          "fileTypesMessage": "Você pode adicionar arquivos jpg, gif ou png.",
-          "label": "Logotipo"
-        },
-        "name": "nome registrado",
-        "operationTypes": "tipo de operação",
-        "ownerEmail": "Endereço de correio eletronico",
-        "ownerName": "Nome",
-        "ownerPhone": "Telefone",
-        "phone": "Telefone",
-        "publicEmail": "Endereço de correio eletronico",
-        "registeredAddress": {
-          "coordinates": {
-            "x": "Latitude",
-            "y": "Longitude"
-          },
-          "country": "País",
-          "firstLine": "Linha de endereço registrada 1",
-          "postcode": "Código postal",
-          "region": "Província",
-          "secondLine": "Linha de endereço registrada 2",
-          "town": "Localização"
-        },
-        "taxNumber": "Número de identificação fiscal (NIF) da empresa",
-        "tier": "Nível",
-        "tradingAddress": {
-          "autocomplete": "Rua, cidade ou código postal",
-          "coordinates": {
-            "x": "Latitude",
-            "y": "Longitude"
-          },
-          "country": "País",
-          "firstLine": "Linha de endereço registrada 1",
-          "postcode": "Código postal",
-          "region": "Província",
-          "secondLine": "Linha de endereço registrada 2",
-          "town": "Localização"
-        },
-        "website": "Site da empresa"
-      },
-      "maxCharacters": "Máximo de 255 caracteres"
-    },
-    "sections": {
-      "contact_details": "Informação de contato",
-      "owner_details": "Dados do proprietário da empresa",
-      "registered_details": "Dados registrados",
-      "trading_address": "Endereço comercial",
-      "trading_address_description": "Adicione seu endereço comercial para aparecer no serviço BMI Procure um instalador",
-      "trading_address_fields_heading": "Informação de contato"
-    },
-    "title": "Dados da empresa"
-  },
-  "errorCompanyNameUniqueViolation": "Nome já usado",
-  "errorCompanyReferenceUniqueViolation": "número já usado",
-  "errorUniqueViolation": "não é Único",
-  "incompleteProfile": {
-    "closeAlertAccessibilityLabel": "Fechar Alerta",
-    "fields": {
-      "aboutUs": "Descrição",
-      "logo": "Logotipo",
-      "phone": "Telefone",
-      "publicEmail": "endereço de correio eletronico",
-      "tradingAddress": "Endereço da sede"
-    },
-    "warning": "Para criar uma entrada no serviço BMI Procure um instalador, forneça as informações abaixo."
+    "phone": "Número de telefone"
   },
   "noCompanies": "Este mercado ainda não tem empresas",
-  "operationTypes": {
-    "BITUMEN": "Betume",
-    "COATER": "Revestimento",
-    "FLAT": "Plana",
-    "GREEN": "Verde",
-    "PITCHED": "Inclinado",
-    "SOLAR": "Solar",
-    "TILE": "Telhas"
-  },
-  "order": {
-    "labels": {
-      "ALPHABETICAL": "Alfabética",
-      "UPDATED": "Última atualização"
-    }
-  },
-  "register_dialog": {
-    "title": "Registre uma empresa"
-  },
-  "report": "Descarregar lista de empresas",
   "search": {
     "inputLabel": "Encontre uma empresa",
     "profileComplete": "perfil completo",
     "profileIncomplete": "perfil incompleto"
   },
   "supportTitle": "Entre em contato com a BMI",
-  "titleAdmin": "Empresas",
-  "titleMember": "Empresa "
+  "certificationsTitle": "Certificações BMI",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Telefone",
+      "publicEmail": "endereço de correio eletronico",
+      "aboutUs": "Descrição",
+      "tradingAddress": "Endereço da sede",
+      "logo": "Logotipo"
+    },
+    "warning": "Para criar uma entrada no serviço BMI Procure um instalador, forneça as informações abaixo.",
+    "closeAlertAccessibilityLabel": "Fechar Alerta"
+  },
+  "businessType": {
+    "CONTRACTOR": "Empreiteiro",
+    "ARCHITECT": "Arquiteto",
+    "MERCHANT": "Distribuidor",
+    "CORP_DEVELOPER": "Promotor imobiliario"
+  },
+  "companyOperations": "tipo de operação",
+  "companyOperationsSuffix": "Tipo de cobertura",
+  "operationTypes": {
+    "FLAT": "Plana",
+    "PITCHED": "Inclinado",
+    "SOLAR": "Solar",
+    "BITUMEN": "Betume",
+    "TILE": "Telhas",
+    "COATER": "Revestimento",
+    "GREEN": "Verde"
+  },
+  "companyActionsTitle": "Ações da empresa",
+  "companyActions": {
+    "activate": "Ativar empresa",
+    "deactivate": "desativar empresa"
+  },
+  "register_dialog": {
+    "title": "Registre uma empresa"
+  },
+  "edit_dialog": {
+    "title": "Dados da empresa",
+    "sections": {
+      "registered_details": "Dados registrados",
+      "trading_address": "Endereço comercial",
+      "trading_address_fields_heading": "Informação de contato",
+      "trading_address_description": "Adicione seu endereço comercial para aparecer no serviço BMI Procure um instalador",
+      "contact_details": "Informação de contato",
+      "owner_details": "Dados do proprietário da empresa"
+    },
+    "form": {
+      "fields": {
+        "name": "nome registrado",
+        "registeredAddress": {
+          "firstLine": "Linha de endereço registrada 1",
+          "secondLine": "Linha de endereço registrada 2",
+          "town": "Localização",
+          "postcode": "Código postal",
+          "region": "Província",
+          "country": "País",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
+        },
+        "tradingAddress": {
+          "autocomplete": "Rua, cidade ou código postal",
+          "firstLine": "Linha de endereço registrada 1",
+          "secondLine": "Linha de endereço registrada 2",
+          "town": "Localização",
+          "postcode": "Código postal",
+          "region": "Província",
+          "country": "País",
+          "coordinates": {
+            "x": "Latitude",
+            "y": "Longitude"
+          }
+        },
+        "logo": {
+          "label": "Logotipo",
+          "alt_text": "Logo da empresa",
+          "buttons": {
+            "upload": "Adicionar uma nova foto",
+            "remove": "Eliminar"
+          },
+          "fileTypesMessage": "Você pode adicionar arquivos jpg, gif ou png.",
+          "fileSizeMessage": "Tamanho máximo do arquivo de 3 MB"
+        },
+        "taxNumber": "Número de identificação fiscal (NIF) da empresa",
+        "businessType": "Tipo de empresa cadastrada",
+        "operationTypes": "tipo de operação",
+        "tier": "Nível",
+        "aboutUs": "Descrição da empresa",
+        "phone": "Telefone",
+        "website": "Site da empresa",
+        "facebook": "Perfil do Facebook",
+        "publicEmail": "Endereço de correio eletronico",
+        "linkedIn": "Perfil do LinkedIn",
+        "ownerName": "Nome",
+        "ownerPhone": "Telefone",
+        "ownerEmail": "Endereço de correio eletronico"
+      },
+      "actions": {
+        "submit": "Guardar e fechar",
+        "cancel": "Cancelar"
+      },
+      "maxCharacters": "Máximo de 255 caracteres"
+    }
+  },
+  "report": "Descarregar lista de empresas",
+  "document": {
+    "title": "documentos da empresa",
+    "noContent": "Nenhum documento adicionado ainda",
+    "addDocument": "adicionar documento",
+    "headers": {
+      "document": "Documento",
+      "date": "Encontro: Data",
+      "download": "Descarregar"
+    },
+    "uploadDialog": {
+      "title": "Registro de documentos",
+      "buttonLabel": "adicionar arquivos",
+      "microcopy": {
+        "drop": "Sair",
+        "browse": "Navegar"
+      },
+      "instruction": "você pode adicionar arquivos",
+      "confirmLabel": "adicionar arquivos",
+      "cancelLabel": "Cancelar",
+      "fileValidationMessage": "Você não pode adicionar arquivos maiores que {{fileSize}}",
+      "evidence_category": "Categoria de evidência",
+      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}",
+      "fileAlreadyExisting": "O nome do arquivo já existe",
+      "genericError": "erro genérico"
+    },
+    "confirmDialog": {
+      "title": "documento da empresa",
+      "body": "Eliminar documento?",
+      "confirmLabel": "Confirmar",
+      "cancelLabel": "Cancelar"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Nome já usado",
+  "errorCompanyReferenceUniqueViolation": "número já usado",
+  "errorUniqueViolation": "não é Único",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alfabética",
+      "UPDATED": "Última atualização"
+    }
+  }
 }

@@ -2,16 +2,16 @@
   "hero": {
     "cta": {
       "MERCHANDISE": "Finde mehr heraus",
-      "PROJECT": "Projekt erstellen",
-      "TRAINING": "BMI Akademie"
+      "TRAINING": "BMI Akademie",
+      "PROJECT": "Projekt erstellen"
     }
+  },
+  "partnerBrands": {
+    "title": "BMI-Markenpartner",
+    "description": "Die BMI Akademie freut sich, Mitgliedern spezielle Rabatte und Werbeaktionen unserer Partnermarken anbieten zu können. Diese Organisationen bieten Mitgliedern Zugang zu ergänzenden Produkten und Dienstleistungen zu Vorzugsbedingungen.",
+    "ctaLabel": "Weiterlesen"
   },
   "linkedin": {
     "ctaLabel": "Lesen Sie mehr auf LinkedIn"
-  },
-  "partnerBrands": {
-    "ctaLabel": "Weiterlesen",
-    "description": "Die BMI Akademie freut sich, Mitgliedern spezielle Rabatte und Werbeaktionen unserer Partnermarken anbieten zu können. Diese Organisationen bieten Mitgliedern Zugang zu ergänzenden Produkten und Dienstleistungen zu Vorzugsbedingungen.",
-    "title": "BMI-Markenpartner"
   }
 }

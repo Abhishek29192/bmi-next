@@ -1,29 +1,28 @@
 {
+  "title": "Sua Garantia IMC está esperando para ser reivindicada!",
+  "reject": "Declínio",
   "accept": "Aceitar",
-  "acceptanceDescription": [
-    "Se você optar por aceitar, a documentação da garantia do BMI seguirá em um e-mail separado, juntamente com uma cópia completa dos termos e condições.",
-    "Se você optar por declinio, a garantia do BMI será cancelada e o contratante será notificado."
-  ],
-  "acceptanceTitle": "Confirme abaixo para aceitar ou recusar a garantia do BMI.",
-  "confirmation": {
-    "description": [
-      "A BMI trabalha em estreita colaboração com empreiteiros para garantir que você receba os mais altos padrões de mão de obra, garantias aprimoradas e o suporte e serviços contínuos necessários para manter seu telhado nas melhores condições possíveis.",
-      "Para mais informações sobre o BMI e se precisar entrar em contato, visite {{website}}."
-    ],
-    "title": "Obrigado por escolher a BMI para cobrir o seu telhado!"
+  "dialog": {
+    "title": "Tem certeza de que deseja {{acceptance}} a Garantia do BMI?",
+    "description": "Se você optar por aceitar a garantia do BMI, receberá a documentação da garantia em um e-mail separado. Se você optar por recusar a garantia do BMI, ela será cancelada e o contratante será notificado.",
+    "cta": {
+      "back": "Retornar",
+      "confirm": "Confirme"
+    }
   },
   "description": [
     "Temos o prazer de confirmar que uma nova Garantia BMI está disponível para você reclamar, para proporcionar tranquilidade e proteção para sua propriedade e seus ocupantes.",
     "Esta oferta de garantia está disponível por um período limitado, portanto, revise os detalhes abaixo e clique para aceitar ou recusar esta oferta."
   ],
-  "dialog": {
-    "cta": {
-      "back": "Retornar",
-      "confirm": "Confirme"
-    },
-    "description": "Se você optar por aceitar a garantia do BMI, receberá a documentação da garantia em um e-mail separado. Se você optar por recusar a garantia do BMI, ela será cancelada e o contratante será notificado.",
-    "title": "Tem certeza de que deseja {{acceptance}} a Garantia do BMI?"
-  },
+  "warrantyPeriod": "Periodo de garantia:",
+  "guaranteeScope": "Escopo da garantia:",
+  "guaranteeConditions": "Condições de garantia:",
+  "guaranteeConditionsDescription": "Ao clicar em 'Aceitar', você aceita esta garantia e declara ter lido atentamente e aceitar especificamente as seguintes condições:",
+  "acceptanceTitle": "Confirme abaixo para aceitar ou recusar a garantia do BMI.",
+  "acceptanceDescription": [
+    "Se você optar por aceitar, a documentação da garantia do BMI seguirá em um e-mail separado, juntamente com uma cópia completa dos termos e condições.",
+    "Se você optar por declinio, a garantia do BMI será cancelada e o contratante será notificado."
+  ],
   "form": {
     "fields": {
       "acceptance": {
@@ -37,11 +36,12 @@
       }
     }
   },
-  "guaranteeConditions": "Condições de garantia:",
-  "guaranteeConditionsDescription": "Ao clicar em 'Aceitar', você aceita esta garantia e declara ter lido atentamente e aceitar especificamente as seguintes condições:",
-  "guaranteeScope": "Escopo da garantia:",
-  "reject": "Declínio",
-  "title": "Sua Garantia IMC está esperando para ser reivindicada!",
-  "warrantyPeriod": "Periodo de garantia:",
+  "confirmation": {
+    "title": "Obrigado por escolher a BMI para cobrir o seu telhado!",
+    "description": [
+      "A BMI trabalha em estreita colaboração com empreiteiros para garantir que você receba os mais altos padrões de mão de obra, garantias aprimoradas e o suporte e serviços contínuos necessários para manter seu telhado nas melhores condições possíveis.",
+      "Para mais informações sobre o BMI e se precisar entrar em contato, visite {{website}}."
+    ]
+  },
   "years": "anos"
 }

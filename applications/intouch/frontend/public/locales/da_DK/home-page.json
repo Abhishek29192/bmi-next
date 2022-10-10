@@ -2,16 +2,16 @@
   "hero": {
     "cta": {
       "MERCHANDISE": "Find ud af mere",
-      "PROJECT": "Opret projekt",
-      "TRAINING": "Gå til træning"
+      "TRAINING": "Gå til træning",
+      "PROJECT": "Opret projekt"
     }
+  },
+  "partnerBrands": {
+    "title": "Dine rabatter",
+    "description": "BMI er glade for at kunne tilbyde RoofPro-medlemmer særlige rabatter og kampagner tilgængelige fra vores partnerbrands, herunder DJI / Droner.DK, FLIR, Expensify, Enterprise og SIXT. Disse organisationer giver medlemmerne adgang til supplerende produkter og tjenester på gunstige vilkår, herunder droner, termiske kameraer, udgiftsstyringsløsninger, billeje og mobilitetsløsninger.",
+    "ctaLabel": "Læs mere"
   },
   "linkedin": {
     "ctaLabel": "Læs mere på LinkedIn"
-  },
-  "partnerBrands": {
-    "ctaLabel": "Læs mere",
-    "description": "BMI er glade for at kunne tilbyde RoofPro-medlemmer særlige rabatter og kampagner tilgængelige fra vores partnerbrands, herunder DJI / Droner.DK, FLIR, Expensify, Enterprise og SIXT. Disse organisationer giver medlemmerne adgang til supplerende produkter og tjenester på gunstige vilkår, herunder droner, termiske kameraer, udgiftsstyringsløsninger, billeje og mobilitetsløsninger.",
-    "title": "Dine rabatter"
   }
 }
