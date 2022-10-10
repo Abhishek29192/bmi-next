@@ -1,0 +1,172 @@
+{
+  "titleMember": "Företag",
+  "titleAdmin": "Företag",
+  "details": {
+    "title": "Företagsinformation",
+    "name": "Företagsnamn",
+    "aboutUs": "Företagsbeskrivning",
+    "tradingAddress": "Huvudkontorsadress",
+    "owner": "Företagsägare",
+    "contactDetails": "Kontaktinformation",
+    "registeredDetails": "Registrerade uppgifter",
+    "referenceNumber": "Medlemsnummer",
+    "registeredAddress": "Registrerad adress",
+    "taxNumber": "Företagets momsnummer",
+    "phone": "Telefon"
+  },
+  "noCompanies": "Denna marknad har inga företag ännu",
+  "search": {
+    "inputLabel": "Sök efter ett företag",
+    "profileComplete": "Profilen är klar",
+    "profileIncomplete": "Profilen är ofullständig"
+  },
+  "supportTitle": "Roofpro Support",
+  "certificationsTitle": "BMI-certifieringar",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Telefon",
+      "publicEmail": "E-post",
+      "aboutUs": "Beskrivning",
+      "tradingAddress": "Handelsadress",
+      "logo": "Logotyp"
+    },
+    "warning": "Ange den nödvändiga informationen nedan, så att BMI kan marknadsföra ditt företag för fastighetsägare.",
+    "closeAlertAccessibilityLabel": "Stäng varning"
+  },
+  "businessType": {
+    "CONTRACTOR": "Entreprenör",
+    "ARCHITECT": "Arkitekt",
+    "MERCHANT": "Handlare",
+    "CORP_DEVELOPER": "Utvecklaren"
+  },
+  "companyOperations": "Operationstyp",
+  "companyOperationsSuffix": "takläggning",
+  "operationTypes": {
+    "FLAT": "platt",
+    "PITCHED": "höjde",
+    "SOLAR": "sol-",
+    "BITUMEN": "bitumen",
+    "TILE": "bricka",
+    "COATER": "bestrykare",
+    "GREEN": "grön"
+  },
+  "companyActionsTitle": "Företagsåtgärder",
+  "companyActions": {
+    "activate": "Aktivera företaget",
+    "deactivate": "Inaktivera företaget"
+  },
+  "register_dialog": {
+    "title": "Registrera ett företag"
+  },
+  "edit_dialog": {
+    "title": "Företagsinformation",
+    "sections": {
+      "registered_details": "Registrerade uppgifter",
+      "trading_address": "Handelsadress",
+      "trading_address_fields_heading": "Kontaktinformation",
+      "trading_address_description": "Ange den nödvändiga informationen nedan, så att BMI kan marknadsföra ditt företag för fastighetsägare.",
+      "contact_details": "Kontaktuppgifter",
+      "owner_details": "Företagsägaruppgifter"
+    },
+    "form": {
+      "fields": {
+        "name": "Registrerat namn",
+        "registeredAddress": {
+          "firstLine": "Adressrad 1",
+          "secondLine": "Adress Linje 2",
+          "town": "Stad/stad",
+          "postcode": "Postnummer / Zip",
+          "region": "Område",
+          "country": "Land",
+          "coordinates": {
+            "x": "Latitud",
+            "y": "Longitud"
+          }
+        },
+        "tradingAddress": {
+          "autocomplete": "Postnummer, stad eller gata",
+          "firstLine": "Adressrad 1",
+          "secondLine": "Adress Linje 2",
+          "town": "Stad/stad",
+          "postcode": "Postnummer / Zip",
+          "region": "Område",
+          "country": "Land",
+          "coordinates": {
+            "x": "Latitud",
+            "y": "Longitud"
+          }
+        },
+        "logo": {
+          "label": "Logotyp",
+          "alt_text": "Företagslogotyp",
+          "buttons": {
+            "upload": "Ladda upp nytt foto",
+            "remove": "Ta bort"
+          },
+          "fileTypesMessage": "Du kan ladda upp jpg-, gif- eller png-filer.",
+          "fileSizeMessage": "Max filstorlek på 3mb."
+        },
+        "taxNumber": "Skattenummer",
+        "businessType": "Affärs Typ",
+        "operationTypes": "Operationstyper",
+        "tier": "Tier",
+        "aboutUs": "Företagsbeskrivning",
+        "phone": "Telefon",
+        "website": "Företagshemsida",
+        "facebook": "Facebook profil",
+        "publicEmail": "E-postadress",
+        "linkedIn": "LinkedIn-profil",
+        "ownerName": "namn",
+        "ownerPhone": "Telefon",
+        "ownerEmail": "E-postadress"
+      },
+      "actions": {
+        "submit": "Spara & Stäng",
+        "cancel": "Avbryt"
+      },
+      "maxCharacters": "Max 255 tecken"
+    }
+  },
+  "report": "Ladda ner företagslista",
+  "document": {
+    "title": "Företagsdokument",
+    "noContent": "Inga dokument har laddats upp ännu",
+    "addDocument": "Lägg till dokument",
+    "headers": {
+      "document": "Dokumentera",
+      "date": "Datum",
+      "download": "LADDA NER"
+    },
+    "uploadDialog": {
+      "title": "Uppladdning av dokument",
+      "buttonLabel": "Ladda upp filer",
+      "microcopy": {
+        "drop": "Släppa",
+        "browse": "Bläddra"
+      },
+      "instruction": "Du kan lägga till filer",
+      "confirmLabel": "Ladda upp filer",
+      "cancelLabel": "Avbryt",
+      "fileValidationMessage": "Du kan inte ladda upp filer som är större än {{filstorlek}}",
+      "evidence_category": "Beviskategori",
+      "total_files_size": "Total filstorlek har överskridits - {{totalSize}}",
+      "fileAlreadyExisting": "Filnamnet finns redan",
+      "genericError": "Generiskt fel"
+    },
+    "confirmDialog": {
+      "title": "Företagsdokument",
+      "body": "Ta bort dokument?",
+      "confirmLabel": "Bekräfta",
+      "cancelLabel": "Avbryt"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Namnet har redan använts",
+  "errorCompanyReferenceUniqueViolation": "Antalet har redan använts",
+  "errorUniqueViolation": "Inte unikt",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alfabetisk",
+      "UPDATED": "Senast uppdaterad"
+    }
+  }
+}

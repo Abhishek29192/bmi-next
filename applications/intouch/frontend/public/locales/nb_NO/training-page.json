@@ -1,29 +1,29 @@
 {
-  "Description": "Beskrivelse",
-  "My courses": "Mine kurs",
-  "See training": "Se trening",
   "Training": "Kurs",
-  "completed": "Fullført",
+  "See training": "Se trening",
+  "My courses": "Mine kurs",
+  "in_progress": "I prosess",
   "enrolled": "Påmeldt",
+  "completed": "Fullført",
+  "waiting": "Venter",
+  "viewTraining": "Se trening",
+  "Description": "Beskrivelse",
+  "search": {
+    "inputLabel": "Søk etter et kurs"
+  },
   "filter": {
     "labels": {
       "all": "Alle"
     }
-  },
-  "in_progress": "I prosess",
-  "search": {
-    "inputLabel": "Søk etter et kurs"
-  },
-  "technology": {
-    "FLAT": "Flate tak",
-    "OTHER": "Annet",
-    "PITCHED": "Skråtak"
   },
   "type": {
     "classroom": "Klasserom",
     "elearning": "Nettkurs",
     "webinar": "Webinar"
   },
-  "viewTraining": "Se trening",
-  "waiting": "Venter"
+  "technology": {
+    "PITCHED": "Skråtak",
+    "FLAT": "Flate tak",
+    "OTHER": "Annet"
+  }
 }

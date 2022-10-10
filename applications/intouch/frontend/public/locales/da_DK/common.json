@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Arkitekt",
-  "About Us": "Om os",
-  "Account": "Min konto",
-  "CONTRACTOR": "Entreprenør",
-  "CORP_DEVELOPER": "Andet",
+  "Home": "Hjem",
+  "Projects": "Projekter",
+  "Training": "Træning",
+  "Team": "Team",
   "Companies": "Virksomheder",
   "Company": "Virksomhed",
-  "Company Description": "Beskrivelse",
-  "Download": "Hent",
-  "Edit": "Redigér",
-  "Home": "Hjem",
+  "Tools": "Værktøj",
   "Inventory": "Beholdning",
-  "Logout": "Log ud",
-  "MERCHANT": "Rådgiver",
-  "Main office address": "Adresse",
+  "Edit": "Redigér",
+  "Search": "Søg",
   "No Options": "Ingen produkter/systemer matcher din søgning",
-  "Notifications": "Beskeder",
-  "Products": "Produkter",
+  "Show me": "Vis",
+  "Account": "Min konto",
   "Profile": "Profil",
-  "Projects": "Projekter",
-  "Registered Address": "Virksomhedsadresse",
+  "Logout": "Log ud",
+  "Notifications": "Beskeder",
+  "deactivatedCompany": "Virksomheden er deaktiveret",
+  "results available": "tilgængelige resultater",
+  "Company Description": "Beskrivelse",
+  "About Us": "Om os",
   "Registered Details": "Virksomhedsoplysninger",
   "Registered Name": "Virksomhedsnavn",
-  "SavePdf": "Gem som PDF",
-  "Search": "Søg",
-  "Show me": "Vis",
-  "Sort by": "Sorter efter",
-  "Team": "Team",
-  "Tools": "Værktøj",
-  "Training": "Træning",
+  "Registered Address": "Virksomhedsadresse",
+  "Main office address": "Adresse",
+  "CONTRACTOR": "Entreprenør",
+  "ARCHITECT": "Arkitekt",
+  "MERCHANT": "Rådgiver",
+  "CORP_DEVELOPER": "Andet",
   "aria": {
     "navigation": "Navigation",
     "notifications": "Beskeder"
   },
-  "certificationLabels": {
-    "certification": "Certificering",
-    "expiry": "Udløber",
-    "type": "Type"
-  },
-  "certifications": {
-    "flat": "Fladt tag",
-    "other": "Andre",
-    "pitched": "Skråt tag"
-  },
-  "deactivatedCompany": "Virksomheden er deaktiveret",
-  "error_messages": {
-    "email_format": "Ugyldig e-mail-adresse",
-    "phone_number_format": "Ugyldigt telefonnummer",
-    "required": "Obligatorisk",
-    "url_format": "Ugyldig URL"
-  },
-  "fallback": {
-    "noResults": "Ingen resultater fundet",
-    "notAdded": "Ikke tilføjet"
-  },
-  "generatingPdf": "Forbereder PDF",
-  "notifications": {
-    "earlier": "Tidligere",
-    "older": "Ældre end 2 måneder",
-    "today": "I dag"
-  },
-  "requiredInformation": "nødvendig information",
-  "results available": "tilgængelige resultater",
   "roles": {
-    "AUDITOR": "Revisor",
-    "COMPANY_ADMIN": "Administrator",
     "INSTALLER": "Medlem",
+    "COMPANY_ADMIN": "Administrator",
     "MARKET_ADMIN": "BMI Administrator",
-    "SUPER_ADMIN": "Super Admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Du har været inaktiv i et stykke tid nu, og denne session udløber, og du bliver automatisk logget ud.",
-      "continue": "Log ikke ud",
-      "logout": "Log ud",
-      "title": "Din session udløber efter {{counter}}"
-    }
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Revisor"
   },
   "tier": {
     "T1": "Medlem",
@@ -86,9 +47,44 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Obligatorisk",
+    "url_format": "Ugyldig URL",
+    "email_format": "Ugyldig e-mail-adresse",
+    "phone_number_format": "Ugyldigt telefonnummer"
+  },
+  "Products": "Produkter",
+  "fallback": {
+    "notAdded": "Ikke tilføjet",
+    "noResults": "Ingen resultater fundet"
+  },
+  "Download": "Hent",
+  "SavePdf": "Gem som PDF",
   "visitWebsite": "Besøg hjemmesiden",
-  "button": {
-    "more": "Vis mere",
-    "less": "Vis mindre"
-  }
+  "certifications": {
+    "pitched": "Skråt tag",
+    "flat": "Fladt tag",
+    "other": "Andre"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Certificering",
+    "expiry": "Udløber"
+  },
+  "notifications": {
+    "today": "I dag",
+    "earlier": "Tidligere",
+    "older": "Ældre end 2 måneder"
+  },
+  "session": {
+    "dialog": {
+      "title": "Din session udløber efter {{counter}}",
+      "content": "Du har været inaktiv i et stykke tid nu, og denne session udløber, og du bliver automatisk logget ud.",
+      "logout": "Log ud",
+      "continue": "Log ikke ud"
+    }
+  },
+  "generatingPdf": "Forbereder PDF",
+  "Sort by": "Sorter efter",
+  "requiredInformation": "nødvendig information"
 }

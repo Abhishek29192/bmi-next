@@ -1,0 +1,29 @@
+{
+  "Training": "Trening",
+  "See training": "Zobacz szkolenie",
+  "My courses": "Moje kursy",
+  "in_progress": "W trakcie",
+  "enrolled": "Przyjęty",
+  "completed": "Zakończony",
+  "waiting": "Czekanie",
+  "viewTraining": "Zobacz szkolenie",
+  "Description": "Opis",
+  "search": {
+    "inputLabel": "Wyszukaj szkolenie"
+  },
+  "filter": {
+    "labels": {
+      "all": "Wszystko"
+    }
+  },
+  "type": {
+    "classroom": "Klasa",
+    "elearning": "E-learning",
+    "webinar": "Seminarium internetowe"
+  },
+  "technology": {
+    "PITCHED": "Spadzisty",
+    "FLAT": "Płaski",
+    "OTHER": "Inny"
+  }
+}

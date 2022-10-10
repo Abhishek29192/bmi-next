@@ -1,7 +1,7 @@
 {
-  "certifiedInstallers": "Sertifioidut asentajat",
   "daysRemaining": "Päivien määrä jäljellä",
-  "noCertifiedInstallers": "BMI-sertifioituja asentajia ei ole",
   "projectInsight": "Hankkeen näkemys",
+  "certifiedInstallers": "Sertifioidut asentajat",
+  "noCertifiedInstallers": "BMI-sertifioituja asentajia ei ole",
   "projectsInsightCertifiedInstallers": "Tässä projektissa on {{count}} BMI-sertifioitua asentajaa"
 }

@@ -1,0 +1,90 @@
+{
+  "Home": "Hemsida",
+  "Projects": "Projekt",
+  "Training": "Utbildning",
+  "Team": "Team",
+  "Companies": "Företag",
+  "Company": "Företag",
+  "Tools": "Verktyg",
+  "Inventory": "Produktdata",
+  "Edit": "Redigera",
+  "Search": "Sök",
+  "No Options": "Inga alternativ",
+  "Show me": "Visa mig",
+  "Account": "Konto",
+  "Profile": "Profil",
+  "Logout": "Logga ut",
+  "Notifications": "Aviseringar",
+  "deactivatedCompany": "Företaget avaktiverat",
+  "results available": "tillgängliga resultat",
+  "Company Description": "Företagsbeskrivning",
+  "About Us": "Om oss",
+  "Registered Details": "Registrerade uppgifter",
+  "Registered Name": "Registrerat namn",
+  "Registered Address": "Registrerad adress",
+  "Main office address": "Huvudkontorsadress",
+  "CONTRACTOR": "Entreprenör",
+  "ARCHITECT": "Arkitekt",
+  "MERCHANT": "Handlare",
+  "CORP_DEVELOPER": "Utvecklaren",
+  "aria": {
+    "navigation": "Navigering",
+    "notifications": "Aviseringar"
+  },
+  "roles": {
+    "INSTALLER": "Installatör",
+    "COMPANY_ADMIN": "Företagsadministratör",
+    "MARKET_ADMIN": "BMI administratör",
+    "SUPER_ADMIN": "Super admin",
+    "AUDITOR": "Revisor"
+  },
+  "tier": {
+    "T1": "Medlem",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite",
+    "T5": "Partner Plus",
+    "T6": "Expert Plus",
+    "T7": "Elite Plus"
+  },
+  "error_messages": {
+    "required": "Nödvändig",
+    "url_format": "Ogiltig URL",
+    "email_format": "Ogiltig e-postadress",
+    "phone_number_format": "Ogiltigt telefonnummer"
+  },
+  "Products": "Produkter",
+  "fallback": {
+    "notAdded": "Inte tillagd",
+    "noResults": "Inga resultat funna"
+  },
+  "Download": "Ladda ner",
+  "SavePdf": "Ladda ner PDF",
+  "visitWebsite": "Besök hemsida",
+  "certifications": {
+    "pitched": "Branta",
+    "flat": "Låglutande",
+    "other": "Övrig"
+  },
+  "certificationLabels": {
+    "type": "Typ",
+    "certification": "Certifiering",
+    "expiry": "Upphörande"
+  },
+  "notifications": {
+    "today": "I dag",
+    "earlier": "Tidigare",
+    "older": "Äldre än två månader"
+  },
+  "session": {
+    "dialog": {
+      "title": "Din session kommer att upphöra efter {{counter}}",
+      "content": "Du har varit inaktiv ett tag nu och den här sessionen kommer att upphöra och du kommer automatiskt att loggas ut.",
+      "logout": "Logga ut",
+      "continue": "Förläng sessionen"
+    }
+  },
+  "generatingPdf": "Skapar PDF",
+  "Sort by": "Sortera efter",
+  "requiredInformation": "Obligatorisk information"
+}

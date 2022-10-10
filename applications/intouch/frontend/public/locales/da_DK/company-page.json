@@ -1,173 +1,172 @@
 {
-  "businessType": {
-    "ARCHITECT": "Arkitekt",
-    "CONTRACTOR": "Entreprenør",
-    "CORP_DEVELOPER": "Andet",
-    "MERCHANT": "Rådgiver"
-  },
-  "certificationsTitle": "BMI-certificeringer",
-  "companyActions": {
-    "activate": "Aktiver virksomheden",
-    "deactivate": "Deaktiver virksomheden"
-  },
-  "companyActionsTitle": "Virksomhedens handlinger",
-  "companyOperations": "Operationstype",
-  "companyOperationsSuffix": "Tagtype",
+  "titleMember": "Virksomhed",
+  "titleAdmin": "Virksomheder",
   "details": {
-    "aboutUs": "Virksomhedsbeskrivelse",
-    "contactDetails": "Kontaktoplysninger",
+    "title": "Virksomhed",
     "name": "Virksomhedsnavn",
+    "aboutUs": "Virksomhedsbeskrivelse",
+    "tradingAddress": "Adresse",
     "owner": "Virksomhedsejer",
-    "phone": "Telefon",
+    "contactDetails": "Kontaktoplysninger",
+    "registeredDetails": "Registrerede detaljer",
     "referenceNumber": "BMI RoofPro medlemsnummer",
     "registeredAddress": "Virksomhedsadresse",
-    "registeredDetails": "Registrerede detaljer",
     "taxNumber": "CVR-nummer",
-    "title": "Virksomhedsoplysninger",
-    "tradingAddress": "Adresse"
-  },
-  "document": {
-    "addDocument": "Tilføj dokument",
-    "confirmDialog": {
-      "body": "Slet dokument?",
-      "cancelLabel": "Annullér",
-      "confirmLabel": "Bekræfte",
-      "title": "Dokument"
-    },
-    "headers": {
-      "date": "Dato",
-      "document": "Dokument",
-      "download": "DOWNLOAD"
-    },
-    "noContent": "Ingen dokumenter uploadet endnu",
-    "title": "Dokumenter",
-    "uploadDialog": {
-      "buttonLabel": "Upload filer",
-      "cancelLabel": "Annullér",
-      "confirmLabel": "Upload filer",
-      "evidence_category": "Beviskategori",
-      "fileAlreadyExisting": "Filnavnet findes allerede",
-      "fileValidationMessage": "Du kan ikke uploade filer, der er større end {{fileSize}}",
-      "total_files_size": "Den samlede filstørrelse er overskredet - {{totalSize}}",
-      "genericError": "Generisk fejl",
-      "instruction": "Du kan tilføje filer",
-      "microcopy": {
-        "browse": "Gennemse",
-        "drop": "Løs"
-      },
-      "title": "Dokument upload"
-    }
-  },
-  "edit_dialog": {
-    "form": {
-      "actions": {
-        "cancel": "Annullér",
-        "submit": "Gem og luk"
-      },
-      "fields": {
-        "aboutUs": "Om os (valgfrit)",
-        "businessType": "Firmatype",
-        "facebook": "Facebook-profil (valgfrit)",
-        "linkedIn": "LinkedIn profil (valgfrit)",
-        "logo": {
-          "alt_text": "Firmalogo",
-          "buttons": {
-            "remove": "Fjern",
-            "upload": "Upload nyt billede"
-          },
-          "fileSizeMessage": "Maksimal filstørrelse 3 mb.",
-          "fileTypesMessage": "Du kan uploade jpg-, gif- eller png-filer.",
-          "label": "Logo"
-        },
-        "name": "Virksomhedsnavn",
-        "operationTypes": "Operationstype",
-        "ownerEmail": "E-mailadresse (valgfrit)",
-        "ownerPhone": "Telefon (valgfrit)",
-        "phone": "Telefon (valgfrit)",
-        "publicEmail": "E-mailadresse (valgfrit)",
-        "registeredAddress": {
-          "coordinates": {
-            "x": "Breddegrad",
-            "y": "Længde"
-          },
-          "country": "Land",
-          "firstLine": "Adresselinje 1",
-          "postcode": "Postnummer",
-          "region": "Region",
-          "secondLine": "Adresselinje 2",
-          "town": "By"
-        },
-        "taxNumber": "CVR-nummer",
-        "tier": "Niveau",
-        "tradingAddress": {
-          "autocomplete": "Gade, by eller postnummer",
-          "coordinates": {
-            "x": "Breddegrad",
-            "y": "Længde"
-          },
-          "country": "Land",
-          "firstLine": "Adresselinje 1",
-          "postcode": "Postnummer",
-          "region": "Region",
-          "secondLine": "Adresselinje 2",
-          "town": "By"
-        },
-        "website": "Virksomhedens hjemmeside (valgfrit)"
-      },
-      "maxCharacters": "Max 255 tegn"
-    },
-    "sections": {
-      "contact_details": "Kontaktinformation",
-      "owner_details": "Virksomhedsejer",
-      "registered_details": "Registrerede detaljer",
-      "trading_address": "Adresse",
-      "trading_address_description": "Indtast venligst din adresse for at blive vist på BMI 'Find en entreprenør', så bygningsejere kan kontakte dig om dine tjenester",
-      "trading_address_fields_heading": "Kontaktoplysninger"
-    },
-    "title": "Virksomhedsoplysninger"
-  },
-  "errorCompanyNameUniqueViolation": "Navn er allerede brugt",
-  "errorCompanyReferenceUniqueViolation": "Nummer allerede brugt",
-  "errorUniqueViolation": "Ikke unikt",
-  "incompleteProfile": {
-    "closeAlertAccessibilityLabel": "Tæt",
-    "fields": {
-      "aboutUs": "Beskrivelse",
-      "logo": "Logo",
-      "phone": "Telefon",
-      "publicEmail": "Email",
-      "tradingAddress": "Adresse"
-    },
-    "warning": "For at deltage i BMI Find en entreprenør, bedes du angive de nødvendige oplysninger nedenfor."
+    "phone": "Telefon"
   },
   "noCompanies": "Markedet har endnu ingen virksomheder",
-  "operationTypes": {
-    "BITUMEN": "Bitumen",
-    "COATER": "Tagmaling",
-    "FLAT": "Fladt tag",
-    "GREEN": "Grønt tag",
-    "PITCHED": "Skråt tag",
-    "SOLAR": "Solar PV tag",
-    "TILE": "Flis"
-  },
-  "register_dialog": {
-    "title": "Opret profil"
-  },
-  "report": "Download virksomhedsliste",
   "search": {
     "inputLabel": "Søg efter en virksomhed",
     "profileComplete": "Profilen er komplet",
     "profileIncomplete": "Profilen er ufuldstændig"
   },
   "supportTitle": "Kontakt BMI",
-  "titleAdmin": "Virksomheder",
-  "titleMember": "Virksomhed",
+  "certificationsTitle": "BMI-certificeringer",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Telefon",
+      "publicEmail": "Email",
+      "aboutUs": "Beskrivelse",
+      "tradingAddress": "Adresse",
+      "logo": "Logo"
+    },
+    "warning": "For at deltage i BMI Find en entreprenør, bedes du angive de nødvendige oplysninger nedenfor.",
+    "closeAlertAccessibilityLabel": "Tæt"
+  },
+  "businessType": {
+    "CONTRACTOR": "Entreprenør",
+    "ARCHITECT": "Arkitekt",
+    "MERCHANT": "Rådgiver",
+    "CORP_DEVELOPER": "Andet"
+  },
+  "companyOperations": "Operationstype",
+  "companyOperationsSuffix": "Tagtype",
+  "operationTypes": {
+    "FLAT": "Fladt tag",
+    "PITCHED": "Skråt tag",
+    "SOLAR": "Solar PV tag",
+    "BITUMEN": "Bitumen",
+    "TILE": "Flis",
+    "COATER": "Tagmaling",
+    "GREEN": "Grønt tag"
+  },
+  "companyActionsTitle": "Virksomhedens handlinger",
+  "companyActions": {
+    "activate": "Aktiver virksomheden",
+    "deactivate": "Deaktiver virksomheden"
+  },
+  "register_dialog": {
+    "title": "Opret profil"
+  },
+  "edit_dialog": {
+    "title": "Virksomhedsoplysninger",
+    "sections": {
+      "registered_details": "Registrerede detaljer",
+      "trading_address": "Adresse",
+      "trading_address_fields_heading": "Kontaktoplysninger",
+      "trading_address_description": "Indtast venligst din adresse for at blive vist på BMI 'Find en entreprenør', så bygningsejere kan kontakte dig om dine tjenester",
+      "contact_details": "Kontaktinformation",
+      "owner_details": "Virksomhedsejer"
+    },
+    "form": {
+      "fields": {
+        "name": "Virksomhedsnavn",
+        "registeredAddress": {
+          "firstLine": "Adresselinje 1",
+          "secondLine": "Adresselinje 2",
+          "town": "By",
+          "postcode": "Postnummer",
+          "region": "Region",
+          "country": "Land",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Længde"
+          }
+        },
+        "tradingAddress": {
+          "autocomplete": "Gade, by eller postnummer",
+          "firstLine": "Adresselinje 1",
+          "secondLine": "Adresselinje 2",
+          "town": "By",
+          "postcode": "Postnummer",
+          "region": "Region",
+          "country": "Land",
+          "coordinates": {
+            "x": "Breddegrad",
+            "y": "Længde"
+          }
+        },
+        "logo": {
+          "label": "Logo",
+          "alt_text": "Firmalogo",
+          "buttons": {
+            "upload": "Upload nyt billede",
+            "remove": "Fjern"
+          },
+          "fileTypesMessage": "Du kan uploade jpg-, gif- eller png-filer.",
+          "fileSizeMessage": "Maksimal filstørrelse 3 mb."
+        },
+        "taxNumber": "CVR-nummer",
+        "businessType": "Firmatype",
+        "operationTypes": "Operationstype",
+        "tier": "Niveau",
+        "aboutUs": "Om os",
+        "phone": "Telefon",
+        "website": "Virksomhedens hjemmeside",
+        "facebook": "Facebook-profil",
+        "publicEmail": "E-mailadresse",
+        "linkedIn": "LinkedIn profil",
+        "ownerName": "Navn",
+        "ownerPhone": "Telefon",
+        "ownerEmail": "E-mailadresse"
+      },
+      "actions": {
+        "submit": "Gem og luk",
+        "cancel": "Annullér"
+      },
+      "maxCharacters": "Max 255 tegn"
+    }
+  },
+  "report": "Download virksomhedsliste",
+  "document": {
+    "title": "Dokumenter",
+    "noContent": "Ingen dokumenter uploadet endnu",
+    "addDocument": "Tilføj dokument",
+    "headers": {
+      "document": "Dokument",
+      "date": "Dato",
+      "download": "DOWNLOAD"
+    },
+    "uploadDialog": {
+      "title": "Dokument upload",
+      "buttonLabel": "Upload filer",
+      "microcopy": {
+        "drop": "Løs",
+        "browse": "Gennemse"
+      },
+      "instruction": "Du kan tilføje filer",
+      "confirmLabel": "Upload filer",
+      "cancelLabel": "Annullér",
+      "fileValidationMessage": "Du kan ikke uploade filer, der er større end {{fileSize}}",
+      "evidence_category": "Beviskategori",
+      "total_files_size": "Den samlede filstørrelse er overskredet - {{totalSize}}",
+      "fileAlreadyExisting": "Filnavnet findes allerede",
+      "genericError": "Generisk fejl"
+    },
+    "confirmDialog": {
+      "title": "Dokument",
+      "body": "Slet dokument?",
+      "confirmLabel": "Bekræfte",
+      "cancelLabel": "Annullér"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Navn er allerede brugt",
+  "errorCompanyReferenceUniqueViolation": "Nummer allerede brugt",
+  "errorUniqueViolation": "Ikke unikt",
   "order": {
     "labels": {
       "ALPHABETICAL": "Alfabetisk",
       "UPDATED": "Sidst opdateret"
     }
-  },
-  "companyAdministrators": "Virksomhedsadministratorer",
-  "companyMembers": "Medlemmer"
+  }
 }

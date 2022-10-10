@@ -1,11 +1,11 @@
 {
   "contentTypes": {
-    "EXTERNAL_LINK": "Enlace externo",
-    "FALLBACK": "Medios",
     "FOLDER": "Carpeta",
     "IMAGE": "Imagen",
+    "VIDEO": "Video",
+    "EXTERNAL_LINK": "Enlace externo",
     "PDF": "PDF",
-    "VIDEO": "Video"
+    "FALLBACK": "Medios"
   },
   "countIndicator": "Mostrando {{amount}} de {{total}} artículos",
   "noItems": "Nada aquí"

@@ -1,9 +1,9 @@
 {
+  "title": "Qualcosa è andato storto",
   "body": "Si è verificato un errore, contatta l'assistenza BMI",
+  "user_blocked": "L'utente è bloccato",
   "errorAlreadyMember": "L'utente è già membro di un'altra azienda",
-  "errorAuthentication": "Errore di autenticazione",
   "errorInvitationNotFound": "Invito non trovato",
   "errorUserBlocked": "L'utente è bloccato",
-  "title": "Qualcosa è andato storto",
-  "user_blocked": "L'utente è bloccato"
+  "errorAuthentication": "Errore di autenticazione"
 }

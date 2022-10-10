@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "cta": {
+      "MERCHANDISE": "Dowiedz się więcej",
+      "TRAINING": "BMI Academy",
+      "PROJECT": "Utwórz projekt"
+    }
+  },
+  "partnerBrands": {
+    "title": "Marki partnerskie BMI",
+    "description": "BMI z przyjemnością oferuje członkom RoofPro specjalne rabaty i promocje dostępne u naszych marek partnerskich, w tym DJI, Expensify i SIXT. Organizacje te zapewniają członkom dostęp do uzupełniających produktów i usług na preferencyjnych warunkach, w tym dronów, rozwiązań do zarządzania wydatkami, wynajmu pojazdów i rozwiązań mobilnych.",
+    "ctaLabel": "Czytaj więcej"
+  },
+  "linkedin": {
+    "ctaLabel": "Czytaj więcej na LinkedIn"
+  }
+}

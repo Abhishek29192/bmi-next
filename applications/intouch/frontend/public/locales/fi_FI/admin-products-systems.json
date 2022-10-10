@@ -1,51 +1,51 @@
 {
+  "technology": "Teknologia",
   "bmiRef": "BmiRef",
   "brand": "Brändi",
-  "bulkImport": "Joukkotuonti",
-  "confirm": "Vahvista tuonti",
   "description": "Kuvaus",
-  "dryRun": "Testitulos",
-  "dryRunCompleted": "Testitulos valmis",
-  "dryRunError": "Tuoduissa tiedostoissa on virheitä",
-  "edit": "Muokkaa",
-  "errorProductsToInsert": "Lisättävä tuote",
-  "errorProductsToUpdate": "Päivitettävä tuote",
-  "errorSystemMembersInsert": "Järjestelmän jäsen lisättävä",
-  "errorSystemsToInsert": "Lisättävä järjestelmä",
-  "errorSystemsToUpdate": "Päivitettävä järjestelmä",
-  "errors": {
-    "filename_wrong_format": "Tiedosto on väärässä muodossa",
-    "unauthorized": "Ei sallittu",
-    "wrong_env": "Väärä ympäristö"
-  },
   "family": "Perhe",
-  "form": {
-    "productTitle": "Muokkaa tuotetta",
-    "systemTitle": "Muokkaa järjestelmää"
-  },
-  "importCompleted": "Tuonti valmis",
-  "importError": "Tuonnin aikana tapahtui virhe",
-  "maximumValidityYears": "Maksimi voimassaolovuodet",
-  "productToInsert": "Nämä tuotteet lisätään",
-  "productToUpdate": "Nämä järjestelmät päivitetään",
-  "products": "Tuotteet",
   "published": "Julkaistu",
-  "report": {
-    "product": "Lataa tuoteraportti",
-    "system": "Lataa järjestelmäraportti"
-  },
+  "unpublished": "Julkaisematon",
+  "maximumValidityYears": "Maksimi voimassaolovuodet",
+  "updatedAt": "Viimeksi päivitetty",
   "show": "Näytä",
+  "edit": "Muokkaa",
+  "submit": "Lähetä",
+  "bulkImport": "Joukkotuonti",
+  "products": "Tuotteet",
+  "system": "Järjestelmä",
   "sidePanel": {
     "search": {
       "label": "Etsi",
       "noResult": "kohteita ei löytynyt"
     }
   },
-  "submit": "Lähetä",
-  "system": "Järjestelmä",
+  "dryRun": "Testitulos",
+  "confirm": "Vahvista tuonti",
+  "dryRunError": "Tuoduissa tiedostoissa on virheitä",
+  "importCompleted": "Tuonti valmis",
+  "productToInsert": "Nämä tuotteet lisätään",
   "systemToInsert": "Nämä järjestelmät lisätään",
   "systemToUpdate": "Nämä tuotteet päivitetään",
-  "technology": "Teknologia",
-  "unpublished": "Julkaisematon",
-  "updatedAt": "Viimeksi päivitetty"
+  "productToUpdate": "Nämä järjestelmät päivitetään",
+  "errorSystemsToUpdate": "Päivitettävä järjestelmä",
+  "errorSystemsToInsert": "Lisättävä järjestelmä",
+  "errorProductsToUpdate": "Päivitettävä tuote",
+  "errorProductsToInsert": "Lisättävä tuote",
+  "errorSystemMembersInsert": "Järjestelmän jäsen lisättävä",
+  "importError": "Tuonnin aikana tapahtui virhe",
+  "form": {
+    "productTitle": "Muokkaa tuotetta",
+    "systemTitle": "Muokkaa järjestelmää"
+  },
+  "errors": {
+    "filename_wrong_format": "Tiedosto on väärässä muodossa",
+    "unauthorized": "Ei sallittu",
+    "wrong_env": "Väärä ympäristö"
+  },
+  "dryRunCompleted": "Testitulos valmis",
+  "report": {
+    "product": "Lataa tuoteraportti",
+    "system": "Lataa järjestelmäraportti"
+  }
 }

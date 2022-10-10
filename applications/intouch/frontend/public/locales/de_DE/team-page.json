@@ -1,69 +1,68 @@
 {
-  "genericError": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an einen BMI-Administrator",
-  "invitation": {
-    "dialog": {
-      "cancel": "Abbrechen",
-      "emails": {
-        "helperText": "Fügen Sie mehrere Mitglieder hinzu, indem Sie jede E-Mail-Adresse durch ein Komma trennen",
-        "label": "E-Mail-Adresse des Empfängers"
-      },
-      "errorAlreadyMember": "Der Benutzer ist bereits Mitglied einer anderen Firma",
-      "errorInvitationNotFound": "Einladung nicht gefunden",
-      "errorCommonFailure": "Fehlgeschlagene Antwort. Bitte überprüfen Sie die Details und versuchen Sie es erneut oder wenden Sie sich an Ihren lokalen BMI-Administrator.",
-      "personalNote": {
-        "label": "Ihre Nachricht (optional)"
-      },
-      "send": "E-Mail senden",
-      "success": "Die Einladung wurde versendet",
-      "title": "Teammitglieder einladen"
-    }
-  },
-  "lastCompanyAdminError": "Sie können den letzten Firmenadministrator nicht aus einer Firma entfernen, es sei denn, er wurde von BMI deaktiviert",
-  "memberRemoved": "Mitglied erfolgreich entfernt",
-  "projectTable": {
-    "endDate": "End Date",
-    "project": "Project",
-    "startDate": "Start Date",
-    "title": "Projects",
-    "type": "Type"
-  },
-  "report": "Teamliste herunterladen",
   "sidePanel": {
-    "inviteLabel": " + Teammitglieder einladen",
     "search": {
       "label": "Suchen Sie nach einem Benutzer",
       "noResult": "Mitglied nicht gefunden"
-    }
+    },
+    "inviteLabel": " + Teammitglieder einladen"
   },
   "table": {
-    "certification": "BMI-Zertifizierungen",
-    "noResults": "Der Benutzer hat keine BMI-Zertifizierungen",
     "title": "BMI-Zertifizierungen",
     "type": "Typ",
-    "validity": "Gültigkeit"
+    "certification": "BMI-Zertifizierungen",
+    "validity": "Gültigkeit",
+    "noResults": "Der Benutzer hat keine BMI-Zertifizierungen"
   },
-  "userActions": {
-    "action": {
-      "activate": "Benutzer aktivieren",
-      "deactivate": "Benutzer deaktivieren"
-    },
-    "title": "Benutzeraktionen"
+  "invitation": {
+    "dialog": {
+      "title": "Teammitglieder einladen",
+      "emails": {
+        "label": "E-Mail-Adresse des Empfängers",
+        "helperText": "Fügen Sie mehrere Mitglieder hinzu, indem Sie jede E-Mail-Adresse durch ein Komma trennen"
+      },
+      "personalNote": {
+        "label": "Ihre Nachricht (optional)"
+      },
+      "cancel": "Abbrechen",
+      "send": "E-Mail senden",
+      "success": "Die Einladung wurde versendet",
+      "errorAlreadyMember": "Der Benutzer ist bereits Mitglied einer anderen Firma",
+      "errorInvitationNotFound": "Einladung nicht gefunden"
+    }
   },
   "user_card": {
     "add_admin": "Als Firmenadministrator zuweisen",
-    "add_auditor": "Assign as Auditor",
-    "cancel": "Abbrechen",
-    "confirm": "Bestätigen",
     "remove": "Aus Firma entfernen",
     "remove_admin": "Als Firmenadministrator entfernen",
-    "remove_auditor": "Remove as Auditor",
-    "remove_user_dialog": {
-      "text": "Möchten Sie dieses Firmenmitglied entfernen?",
-      "title": "Firmenmitglied entfernen"
-    },
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
     "role_dialog": {
-      "text": "Möchten Sie die Rolle wechseln?",
-      "title": "Rolle wechseln"
+      "title": "Rolle wechseln",
+      "text": "Möchten Sie die Rolle wechseln?"
+    },
+    "remove_user_dialog": {
+      "title": "Firmenmitglied entfernen",
+      "text": "Möchten Sie dieses Firmenmitglied entfernen?"
+    },
+    "remove_auditor": "Remove as Auditor",
+    "add_auditor": "Assign as Auditor"
+  },
+  "memberRemoved": "Mitglied erfolgreich entfernt",
+  "genericError": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an einen BMI-Administrator",
+  "lastCompanyAdminError": "Sie können den letzten Firmenadministrator nicht aus einer Firma entfernen, es sei denn, er wurde von BMI deaktiviert",
+  "report": "Teamliste herunterladen",
+  "userActions": {
+    "title": "Benutzeraktionen",
+    "action": {
+      "activate": "Benutzer aktivieren",
+      "deactivate": "Benutzer deaktivieren"
     }
+  },
+  "projectTable": {
+    "title": "Projects",
+    "type": "Type",
+    "project": "Project",
+    "startDate": "Start Date",
+    "endDate": "End Date"
   }
 }

@@ -1,53 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Certificeringer",
     "buttons": {
-      "removeProfilePicture": "Fjern",
-      "saveAndClose": "Gem og luk",
-      "uploadProfilePicture": "Upload nyt billede"
-    },
+      "editProfile": "Redigér",
+      "changePassword": "Nulstil adgangskode"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Kontaktoplysninger",
-    "fileSizeMessage": "Maksimal filstørrelse 3 mb.",
-    "fileSizeValidationMessage": "Du kan ikke uploade filer større end",
+    "title": "Om mig",
     "fileTypesMessage": "Du kan uploade jpg-, gif- eller png-filer.",
+    "fileSizeMessage": "Maksimal filstørrelse 3 mb.",
     "form": {
       "fields": {
-        "email": "E-mail",
         "firstName": "Fornavn",
         "lastName": "Efternavn",
+        "email": "E-mail",
         "phone": "Telefon",
         "photo": "Profilbillede"
       }
     },
-    "title": "Om mig"
+    "buttons": {
+      "uploadProfilePicture": "Upload nyt billede",
+      "removeProfilePicture": "Fjern",
+      "saveAndClose": "Gem og luk"
+    }
   },
   "leaveCompany": {
     "cta": "Forlad virksomheden",
     "dialog": {
+      "title": "Er du sikker?",
       "content": "Alle certificeringer du har forbliver hos dig, virksomheden vil ikke arve nogen af ​​dine certificeringer. Du vil ikke være medlem af nogen projekter eller være i stand til at se projektdetaljer. Virksomheden vil ikke kunne indstille dig som ansvarlig installatør for projekter.",
       "cta": {
         "cancel": "Afbestille",
         "confirm": "Næste"
-      },
-      "title": "Er du sikker?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Opret virksomhedsprofil",
+    "body": "Opret virksomhedsprofil",
+    "cta": "Registrer"
   },
   "passwordReset": {
     "dialog": {
-      "error": "En fejl opstod. Prøv venligst igen, eller kontakt en administrator",
+      "title": "Skift adgangskode",
       "success": "Vi har sendt dig en e-mail med et link til at nulstille din adgangskode. Følg instruktionerne i e-mailen.",
-      "title": "Skift adgangskode"
+      "error": "En fejl opstod. Prøv venligst igen, eller kontakt en administrator"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Nulstil adgangskode",
-      "editProfile": "Redigér"
-    },
-    "certificationsHeading": "Certificeringer"
-  },
-  "registerCompany": {
-    "body": "Opret virksomhedsprofil",
-    "cta": "Registrer",
-    "heading": "Opret virksomhedsprofil"
   }
 }
