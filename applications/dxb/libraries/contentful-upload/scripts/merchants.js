@@ -25,6 +25,8 @@ const CONTENT_TYPE_ID = "roofer";
 const SERVICE_TYPE_CONTENT_TYPE_ID = "serviceType";
 let serviceTypeOwnKeyValueMap = {}; //this will be updated
 let allLocales;
+let allPublicTags;
+let MarketTagMetadata = {};
 
 const columns = [
   { label: "Name", name: "name", type: "string" },
@@ -161,6 +163,9 @@ const uploadLines = async (lines, environment) => {
                       },
                       {}
                     )
+                  },
+                  metadata: {
+                    ...MarketTagMetadata
                   }
                 }
               );
@@ -241,7 +246,10 @@ const uploadLines = async (lines, environment) => {
     );
 
     let serviceEntryPayload = {
-      fields: fieldsLocalised
+      fields: fieldsLocalised,
+      metadata: {
+        ...MarketTagMetadata
+      }
     };
 
     try {
@@ -313,7 +321,8 @@ const main = async (file) => {
     ![
       process.env.MANAGEMENT_ACCESS_TOKEN,
       process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT
+      process.env.CONTENTFUL_ENVIRONMENT,
+      process.env.MARKET_TAG_ID
     ].every(Boolean)
   ) {
     throw new Error("Missing Env vars");
@@ -323,12 +332,38 @@ const main = async (file) => {
     accessToken: process.env.MANAGEMENT_ACCESS_TOKEN
   });
 
-  const space = await client.getSpace(process.env.SPACE_ID);
-  const environment = await space.getEnvironment(
-    process.env.CONTENTFUL_ENVIRONMENT
-  );
+  const configuredSpaceId = process.env.SPACE_ID;
+  const marketTagToProcess = process.env.MARKET_TAG_ID;
+  const configuredEnvironmentName = process.env.CONTENTFUL_ENVIRONMENT;
+  const space = await client.getSpace(configuredSpaceId);
+  const environment = await space.getEnvironment(configuredEnvironmentName);
 
   allLocales = await environment.getLocales();
+  allPublicTags = await environment.getTags();
+
+  if (allPublicTags && marketTagToProcess) {
+    const matchingTags = allPublicTags.items.filter(
+      (item) => item.sys.id === marketTagToProcess
+    );
+    if (matchingTags.length === 0) {
+      throw new Error(
+        `Tag: '${marketTagToProcess}' does not exist on space: '${configuredSpaceId}' environment: '${configuredEnvironmentName}'`
+      );
+    }
+    if (matchingTags.length > 0) {
+      MarketTagMetadata = {
+        tags: [
+          {
+            sys: {
+              id: matchingTags[0].sys.id,
+              type: "Link",
+              linkType: "Tag"
+            }
+          }
+        ]
+      };
+    }
+  }
 
   if (allLocales && allLocales.total > 0) {
     const defaultLocale = allLocales.items.find((locale) => locale.default);
