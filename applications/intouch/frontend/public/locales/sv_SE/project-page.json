@@ -130,15 +130,15 @@
       "SUBMITTED": "Lämnats",
       "REVIEW": "Lämnats",
       "REJECTED": "Returnerad",
-      "APPROVED": "Godkänd"
+      "APPROVED": "Godkänd",
+      "DECLINED": "Tackade nej",
+      "EXPIRED": "Utgånget",
+      "ISSUED": "Utfärdad"
     },
     "type": {
       "PRODUCT": "Produktgaranti",
       "SYSTEM": "Systemgaranti",
-      "SOLUTION": "Lösningsgaranti",
-      "DECLINED": "Tackade nej",
-      "EXPIRED": "Utgånget",
-      "ISSUED": "Utfärdad"
+      "SOLUTION": "Lösningsgaranti"
     },
     "incompleteGuaranteeAlert": {
       "title": "Information krävs",
@@ -153,6 +153,7 @@
       "COMPLETED": "Avslutad",
       "FLAT": "Låglutande",
       "PITCHED": "Branta",
+      "ARCHIVED": "Arkiverad",
       "UNASSIGNED": "Otilldelad",
       "ASSIGNED": "Tilldelad",
       "MY_QUEUE": "Min kö"

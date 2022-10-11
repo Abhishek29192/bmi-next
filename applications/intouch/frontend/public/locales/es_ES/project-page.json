@@ -130,15 +130,15 @@
       "SUBMITTED": "Solicitud presentada",
       "REVIEW": "Solicitud presentada",
       "REJECTED": "Devuelto",
-      "APPROVED": "Aprobado"
+      "APPROVED": "Aprobado",
+      "DECLINED": "Rechazado",
+      "EXPIRED": "Venció",
+      "ISSUED": "Emitido"
     },
     "type": {
       "PRODUCT": "Garantía del producto",
       "SYSTEM": "Garantía del sistema",
-      "SOLUTION": "Garantía de la solución",
-      "DECLINED": "Rechazado",
-      "EXPIRED": "Venció",
-      "ISSUED": "Emitido"
+      "SOLUTION": "Garantía de la solución"
     },
     "incompleteGuaranteeAlert": {
       "title": "Informacion requerida",
@@ -153,6 +153,7 @@
       "COMPLETED": "Terminado",
       "FLAT": "Plano",
       "PITCHED": "Inclinado",
+      "ARCHIVED": "Archivado",
       "UNASSIGNED": "Sin asignar",
       "ASSIGNED": "Asignado",
       "MY_QUEUE": "Mi cola"
