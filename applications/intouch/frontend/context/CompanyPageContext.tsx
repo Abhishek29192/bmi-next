@@ -3,16 +3,18 @@ import { GetOperationTypeCollectionQuery } from "../graphql/generated/operations
 
 export type ContextProps = {
   value: {
-    operationTypes: GetOperationTypeCollectionQuery["operationTypeCollection"]["items"];
+    operationTypes:
+      | GetOperationTypeCollectionQuery["operationTypeCollection"]["items"]
+      | [];
   };
 };
 type ContextWrapperProps = ContextProps & {
   children?: React.ReactNode;
 };
 
-export const CompanyPageContext = createContext<ContextProps["value"] | null>(
-  null
-);
+export const CompanyPageContext = createContext<ContextProps["value"]>({
+  operationTypes: []
+});
 export const useCompanyPageContext = () => React.useContext(CompanyPageContext);
 
 const CompanyPageContextWrapper = ({
