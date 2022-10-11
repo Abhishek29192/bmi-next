@@ -17,7 +17,7 @@ describe("Link component", () => {
   process.env.GATSBY_HUBSPOT_ID = "012345";
   process.env.GATSBY_HUBSPOT_CTA_URL =
     "https://cta-redirect.hubspot.com/cta/redirect/";
-
+  const onClick = jest.fn();
   describe("Link function", () => {
     it("returns a Link correctly", () => {
       const cta: LinkData = {
@@ -57,15 +57,15 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
-        <Link component="a" data={cta}>
+      const { container, getByText } = render(
+        <Link component="a" data={cta} onClick={onClick}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-
-      expect(getByText).toMatchSnapshot();
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(container).toMatchSnapshot();
     });
 
     it("ensure clicking Dialog link works", () => {
@@ -83,15 +83,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      const { container, getByText } = render(
         <Link component="a" data={cta}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-
-      expect(getByText).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("ensure clicking Calculator link works", () => {
@@ -109,15 +108,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      const { container, getByText } = render(
         <Link component="a" data={cta}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-
-      expect(getByText).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("ensure clicking Visualiser link works", () => {
@@ -135,15 +133,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { getByText } = render(
+      const { container, getByText } = render(
         <Link component="a" data={cta}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-
-      expect(getByText).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("returns a Link correctly with Dialog promo", () => {
@@ -175,11 +172,13 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      expect(() => {
+      const { container } = render(
         <Link component="a" data={data}>
           {data.label}
-        </Link>;
-      }).toMatchSnapshot();
+        </Link>
+      );
+
+      expect(container).toMatchSnapshot();
     });
 
     it("handles parameters being non-null properly", () => {
@@ -211,11 +210,12 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      expect(() => {
+      const { container } = render(
         <Link component="a" data={data}>
           {data.label}
-        </Link>;
-      }).toMatchSnapshot();
+        </Link>
+      );
+      expect(container).toMatchSnapshot();
     });
 
     it("HubSpot CTA renders correctly", () => {
