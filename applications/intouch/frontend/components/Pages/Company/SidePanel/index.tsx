@@ -58,9 +58,15 @@ export const CompaniesSidePanel = ({
         return (name || "").toLowerCase().includes(query);
       })
       .sort((a, b) => {
-        return orderSelection === "UPDATED"
-          ? new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-          : a.name?.localeCompare(b.name);
+        if (orderSelection === "UPDATED") {
+          return (
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          );
+        }
+        if (!b.name || !a.name) {
+          return b.name ? 1 : a.name ? -1 : 0;
+        }
+        return a.name.localeCompare(b.name);
       });
   }, [companies, searchQuery, orderSelection]);
 
