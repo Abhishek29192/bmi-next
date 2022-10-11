@@ -130,15 +130,15 @@
       "SUBMITTED": "Submitted",
       "REVIEW": "Submitted",
       "REJECTED": "Returned",
-      "APPROVED": "Approved"
+      "APPROVED": "Approved",
+      "DECLINED": "Declined",
+      "EXPIRED": "Expired",
+      "ISSUED": "Issued"
     },
     "type": {
       "PRODUCT": "Product Guarantee",
       "SYSTEM": "System Guarantee",
-      "SOLUTION": "Solution Guarantee",
-      "DECLINED": "Declined",
-      "EXPIRED": "Expired",
-      "ISSUED": "Issued"
+      "SOLUTION": "Solution Guarantee"
     },
     "incompleteGuaranteeAlert": {
       "title": "Information Required",
@@ -153,6 +153,7 @@
       "COMPLETED": "Completed",
       "FLAT": "Flat",
       "PITCHED": "Pitched",
+      "ARCHIVED": "Archived",
       "UNASSIGNED": "UnAssigned",
       "ASSIGNED": "Assigned",
       "MY_QUEUE": "My Queue"

@@ -130,15 +130,15 @@
       "SUBMITTED": "Indsendt",
       "REVIEW": "Indsendt",
       "REJECTED": "Vendt tilbage",
-      "APPROVED": "Godkendt"
+      "APPROVED": "Godkendt",
+      "DECLINED": "Afvist",
+      "EXPIRED": "Udløbet",
+      "ISSUED": "Udstedt"
     },
     "type": {
       "PRODUCT": "Produktgaranti",
       "SYSTEM": "System Garanti",
-      "SOLUTION": "Løsnings Garanti",
-      "DECLINED": "Afvist",
-      "EXPIRED": "Udløbet",
-      "ISSUED": "Udstedt"
+      "SOLUTION": "Løsnings Garanti"
     },
     "incompleteGuaranteeAlert": {
       "title": "Oplysninger påkrævet",
@@ -153,6 +153,7 @@
       "COMPLETED": "Færdig",
       "FLAT": "Fladt tag",
       "PITCHED": "Skråt Tag",
+      "ARCHIVED": "Arkiveret",
       "UNASSIGNED": "Ikke tildelt",
       "ASSIGNED": "Tildelt",
       "MY_QUEUE": "Min kø"

@@ -130,15 +130,15 @@
       "SUBMITTED": "Lähetetty",
       "REVIEW": "Lähetetty",
       "REJECTED": "Palannut",
-      "APPROVED": "Hyväksytty"
+      "APPROVED": "Hyväksytty",
+      "DECLINED": "Hylätty",
+      "EXPIRED": "Vanhentunut",
+      "ISSUED": "Annettu"
     },
     "type": {
       "PRODUCT": "Tuotetakuu",
       "SYSTEM": "Järjestelmätakuu",
-      "SOLUTION": "Ratkaisutakuu",
-      "DECLINED": "Hylätty",
-      "EXPIRED": "Vanhentunut",
-      "ISSUED": "Annettu"
+      "SOLUTION": "Ratkaisutakuu"
     },
     "incompleteGuaranteeAlert": {
       "title": "Vaadittu tieto",
@@ -153,6 +153,7 @@
       "COMPLETED": "Valmistunut",
       "FLAT": "Tasakatto",
       "PITCHED": "Harjakatto",
+      "ARCHIVED": "Arkistoitu",
       "UNASSIGNED": "Ei määritetty",
       "ASSIGNED": "Määrätty",
       "MY_QUEUE": "Minulle määrätty"

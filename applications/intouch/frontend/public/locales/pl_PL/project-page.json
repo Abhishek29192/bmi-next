@@ -130,15 +130,15 @@
       "SUBMITTED": "Złożony",
       "REVIEW": "Złożony",
       "REJECTED": "Zwrócony",
-      "APPROVED": "Zatwierdzony"
+      "APPROVED": "Zatwierdzony",
+      "DECLINED": "Odrzucony",
+      "EXPIRED": "Wygasły",
+      "ISSUED": "Wydany"
     },
     "type": {
       "PRODUCT": "Gwarancja produktu",
       "SYSTEM": "Gwarancja systemowa",
-      "SOLUTION": "Gwarancja rozwiązania",
-      "DECLINED": "Odrzucony",
-      "EXPIRED": "Wygasły",
-      "ISSUED": "Wydany"
+      "SOLUTION": "Gwarancja rozwiązania"
     },
     "incompleteGuaranteeAlert": {
       "title": "Wymagane informacje",
@@ -153,6 +153,7 @@
       "COMPLETED": "Zakończony",
       "FLAT": "Płaski",
       "PITCHED": "Spadzisty",
+      "ARCHIVED": "Zarchiwizowane",
       "UNASSIGNED": "Nieprzypisany",
       "ASSIGNED": "Przydzielony",
       "MY_QUEUE": "Moja kolejka"

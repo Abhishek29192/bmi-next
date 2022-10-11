@@ -130,15 +130,15 @@
       "SUBMITTED": "Inviato",
       "REVIEW": "Inviato",
       "REJECTED": "Restituito",
-      "APPROVED": "Approvato"
+      "APPROVED": "Approvato",
+      "DECLINED": "Rifiutato",
+      "EXPIRED": "È scaduto",
+      "ISSUED": "Rilasciato"
     },
     "type": {
       "PRODUCT": "Product Guarantee",
       "SYSTEM": "System Guarantee",
-      "SOLUTION": "Solution Guarantee",
-      "DECLINED": "Rifiutato",
-      "EXPIRED": "È scaduto",
-      "ISSUED": "Rilasciato"
+      "SOLUTION": "Solution Guarantee"
     },
     "incompleteGuaranteeAlert": {
       "title": "Informazione richiesta",
@@ -153,6 +153,7 @@
       "COMPLETED": "Completato",
       "FLAT": "Piano",
       "PITCHED": "Falda",
+      "ARCHIVED": "Archiviato",
       "UNASSIGNED": "Non assegna",
       "ASSIGNED": "Assegnato",
       "MY_QUEUE": "Assegnato a me"
