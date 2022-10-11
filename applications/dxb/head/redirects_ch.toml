@@ -22,3 +22,10 @@
  from="/ch/downloads"
  to="/ch/downloads-and-services/alle-downloads/"
  force=true
+
+# Redirect root to /ch
+[[redirects]]
+  from = "/"
+  to = "/ch"
+  status = 301
+  force = true
