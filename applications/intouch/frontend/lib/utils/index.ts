@@ -76,7 +76,10 @@ export const parseMarketTag = (market: string) => {
     pt: "market__portugal",
     es: "market__spain",
     fi: "market__finland",
-    my: "market__malaysia"
+    my: "market__malaysia",
+    uk: "market__uk",
+    se: "market__sweden",
+    pl: "market__poland"
   };
   // eslint-disable-next-line security/detect-object-injection
   return tags[market] || "non_existing_tag";
