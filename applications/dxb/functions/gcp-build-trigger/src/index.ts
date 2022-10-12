@@ -24,16 +24,13 @@ const monitorCheck = async (
 ): Promise<boolean> => {
   const now = new Date();
   const seconds = Math.round(now.getTime() / 1000);
-  const timeLimitSeconds = FUNCTION_TIMEOUT_SEC
-    ? Number.parseInt(FUNCTION_TIMEOUT_SEC)
-    : 540; // 9 minutes timeout for build gcp function
 
   const results = await client.listTimeSeries({
     name: `projects/${GCP_MONITOR_PROJECT}`,
     filter,
     interval: {
       endTime: { seconds: seconds },
-      startTime: { seconds: seconds - timeLimitSeconds }
+      startTime: { seconds: seconds - 540 } // 540 seconds timeout for build gcp function
     },
     view: "FULL"
   });
