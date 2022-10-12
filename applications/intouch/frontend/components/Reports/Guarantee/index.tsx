@@ -28,10 +28,12 @@ const getReportData = (
       company: { name: companyName }
     } = project;
 
-    const { name: guaranteeTypeName, maximumValidityYears } =
-      guaranteeType || {};
+    const { name: guaranteeTypeName } = guaranteeType || {};
     const productName = productByProductBmiRef?.name;
     const systemName = systemBySystemBmiRef?.name;
+    const maximumValidityYears =
+      productByProductBmiRef?.maximumValidityYears ||
+      systemBySystemBmiRef?.maximumValidityYears;
     const requestorName = [
       requestorAccount?.firstName,
       requestorAccount?.lastName
@@ -134,7 +136,6 @@ export const GET_GUARANTEES_REPORT = gql`
         guaranteeReferenceCode
         guaranteeType {
           name
-          maximumValidityYears
         }
         startDate
         expiryDate
@@ -142,9 +143,11 @@ export const GET_GUARANTEES_REPORT = gql`
         fileStorageId
         systemBySystemBmiRef {
           name
+          maximumValidityYears
         }
         productByProductBmiRef {
           name
+          maximumValidityYears
         }
       }
     }

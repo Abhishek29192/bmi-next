@@ -1918,7 +1918,6 @@ export const GetGuaranteesReportDocument = gql`
         guaranteeReferenceCode
         guaranteeType {
           name
-          maximumValidityYears
         }
         startDate
         expiryDate
@@ -1926,9 +1925,11 @@ export const GetGuaranteesReportDocument = gql`
         fileStorageId
         systemBySystemBmiRef {
           name
+          maximumValidityYears
         }
         productByProductBmiRef {
           name
+          maximumValidityYears
         }
       }
     }

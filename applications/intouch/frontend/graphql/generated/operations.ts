@@ -1490,10 +1490,17 @@ export type GetGuaranteesReportQuery = {
       guaranteeType?: {
         __typename?: "ContentfulGuaranteeType";
         name?: string | null;
-        maximumValidityYears?: number | null;
       } | null;
-      systemBySystemBmiRef?: { __typename?: "System"; name: string } | null;
-      productByProductBmiRef?: { __typename?: "Product"; name: string } | null;
+      systemBySystemBmiRef?: {
+        __typename?: "System";
+        name: string;
+        maximumValidityYears: number;
+      } | null;
+      productByProductBmiRef?: {
+        __typename?: "Product";
+        name: string;
+        maximumValidityYears: number;
+      } | null;
     }>;
   } | null;
 };
