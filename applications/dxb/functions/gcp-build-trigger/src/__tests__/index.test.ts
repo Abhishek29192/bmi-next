@@ -588,7 +588,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with zero value response when functions are no longer running and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -646,7 +646,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with response without points when functions are no longer running and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -704,7 +704,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with response without point value when functions are no longer running and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -762,7 +762,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with empty response when functions are no longer running and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -820,7 +820,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if functions never stop beyond timout with zero value response when documents have been deleted or updated and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -878,7 +878,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if functions never stop beyond timout with response without points when documents have been deleted or updated and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -936,7 +936,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if functions never stop beyond timout with response without point value when documents have been deleted or updated and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -994,7 +994,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if functions never stop beyond timout with empty response when documents have been deleted or updated and no more messages are being sent", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1052,7 +1052,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if messages never stop being sent beyond timout with zero value response when documents have been deleted or updated and functions are finished", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1110,7 +1110,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if messages never stop being sent beyond timout with response without points when documents have been deleted or updated and functions are finished", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1168,7 +1168,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if messages never stop being sent beyond timout with response without point value when documents have been deleted or updated and functions are finished", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1226,7 +1226,7 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 if messages never stop being sent beyond timout with empty response when documents have been deleted or updated and functions are finished", async () => {
     const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1000";
+    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();

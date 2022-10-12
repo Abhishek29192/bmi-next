@@ -24,13 +24,16 @@ const monitorCheck = async (
 ): Promise<boolean> => {
   const now = new Date();
   const seconds = Math.round(now.getTime() / 1000);
+  const timeLimitSeconds = FUNCTION_TIMEOUT_SEC
+    ? Number.parseInt(FUNCTION_TIMEOUT_SEC)
+    : 540; // 9 minutes timeout for build gcp function
 
   const results = await client.listTimeSeries({
     name: `projects/${GCP_MONITOR_PROJECT}`,
     filter,
     interval: {
       endTime: { seconds: seconds },
-      startTime: { seconds: seconds - 240 }
+      startTime: { seconds: seconds - timeLimitSeconds }
     },
     view: "FULL"
   });
@@ -106,7 +109,7 @@ export const build: HttpFunction = async (_req, res) => {
 
   if (!NETLIFY_BUILD_HOOK) {
     logger.error({
-      message: "DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided"
+      message: "NETLIFY_BUILD_HOOK was not provided"
     });
     return res.sendStatus(500);
   }
@@ -144,8 +147,10 @@ export const build: HttpFunction = async (_req, res) => {
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    if (runtime > timeoutLimit) {
-      logger.error({ message: `Runtime exceeded ${timeoutLimit} seconds` });
+    if (runtime > timeoutLimit * 1000) {
+      logger.error({
+        message: `Runtime exceeded ${timeoutLimit} seconds`
+      });
       return res.sendStatus(500);
     }
 
