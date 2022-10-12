@@ -1,5 +1,5 @@
 const mockRenderImage = jest.fn();
-jest.mock("../../components/image", () => ({
+jest.mock("../../components/Image", () => ({
   renderImage: mockRenderImage
 }));
 const mockRenderVideo = jest.fn();
