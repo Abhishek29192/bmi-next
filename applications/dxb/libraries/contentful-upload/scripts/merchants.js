@@ -321,8 +321,7 @@ const main = async (file) => {
     ![
       process.env.MANAGEMENT_ACCESS_TOKEN,
       process.env.SPACE_ID,
-      process.env.CONTENTFUL_ENVIRONMENT,
-      process.env.MARKET_TAG_ID
+      process.env.CONTENTFUL_ENVIRONMENT
     ].every(Boolean)
   ) {
     throw new Error("Missing Env vars");
@@ -341,28 +340,33 @@ const main = async (file) => {
   allLocales = await environment.getLocales();
   allPublicTags = await environment.getTags();
 
-  if (allPublicTags && marketTagToProcess) {
+  if (
+    allPublicTags &&
+    allPublicTags.items.length > 0 &&
+    marketTagToProcess &&
+    marketTagToProcess.length > 0
+  ) {
     const matchingTags = allPublicTags.items.filter(
       (item) => item.sys.id === marketTagToProcess
     );
-    if (matchingTags.length === 0) {
-      throw new Error(
+    if (matchingTags && matchingTags.length === 0) {
+      console.error(
         `Tag: '${marketTagToProcess}' does not exist on space: '${configuredSpaceId}' environment: '${configuredEnvironmentName}'`
       );
+      return;
     }
-    if (matchingTags.length > 0) {
-      MarketTagMetadata = {
-        tags: [
-          {
-            sys: {
-              id: matchingTags[0].sys.id,
-              type: "Link",
-              linkType: "Tag"
-            }
+
+    MarketTagMetadata = {
+      tags: [
+        {
+          sys: {
+            id: matchingTags[0].sys.id,
+            type: "Link",
+            linkType: "Tag"
           }
-        ]
-      };
-    }
+        }
+      ]
+    };
   }
 
   if (allLocales && allLocales.total > 0) {
