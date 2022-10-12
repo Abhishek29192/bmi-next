@@ -12,7 +12,7 @@ const {
   GCP_APPLICATION_PROJECT,
   METRIC_LATENCY_DELAY,
   NETLIFY_BUILD_HOOK,
-  TIMEOUT_LIMIT
+  FUNCTION_TIMEOUT_SEC
 } = process.env;
 
 const client = new monitoring.MetricServiceClient();
@@ -30,7 +30,7 @@ const monitorCheck = async (
     filter,
     interval: {
       endTime: { seconds: seconds },
-      startTime: { seconds: seconds - 240 }
+      startTime: { seconds: seconds - 540 } // 540 seconds timeout for build gcp function
     },
     view: "FULL"
   });
@@ -106,13 +106,13 @@ export const build: HttpFunction = async (_req, res) => {
 
   if (!NETLIFY_BUILD_HOOK) {
     logger.error({
-      message: "DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided"
+      message: "NETLIFY_BUILD_HOOK was not provided"
     });
     return res.sendStatus(500);
   }
 
-  if (!TIMEOUT_LIMIT) {
-    logger.error({ message: "TIMEOUT_LIMIT was not provided" });
+  if (!FUNCTION_TIMEOUT_SEC) {
+    logger.error({ message: "FUNCTION_TIMEOUT_SEC was not provided" });
     return res.sendStatus(500);
   }
 
@@ -121,10 +121,10 @@ export const build: HttpFunction = async (_req, res) => {
     return res.sendStatus(500);
   }
 
-  const timeoutLimit = Number.parseInt(TIMEOUT_LIMIT);
+  const timeoutLimit = Number.parseInt(FUNCTION_TIMEOUT_SEC);
   if (Number.isNaN(timeoutLimit)) {
     logger.error({
-      message: "TIMEOUT_LIMIT was provided, but is not a valid number"
+      message: "FUNCTION_TIMEOUT_SEC was provided, but is not a valid number"
     });
     return res.sendStatus(500);
   }
@@ -144,8 +144,10 @@ export const build: HttpFunction = async (_req, res) => {
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    if (runtime > timeoutLimit) {
-      logger.error({ message: `Runtime exceeded ${timeoutLimit} seconds` });
+    if (runtime > timeoutLimit * 1000) {
+      logger.error({
+        message: `Runtime exceeded ${timeoutLimit} seconds`
+      });
       return res.sendStatus(500);
     }
 
