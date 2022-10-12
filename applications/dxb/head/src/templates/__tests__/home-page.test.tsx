@@ -57,11 +57,19 @@ describe("Home Page Template", () => {
       type: "Accordion"
     }
   ];
-  const brandData = [
+  const brandsData = [
     {
-      title: "Smilex",
-      path: "/smilex",
-      subtitle: "Uh-oh.  He don't look happy. He's been using brand X",
+      title: "Smilex brand",
+      path: "/smilex-brand",
+      subtitle: "Uh-oh. He don't look happy. He's been using brand X",
+      brandLogo: "BMI"
+    }
+  ];
+  const spaBrandsData = [
+    {
+      title: "Smilex spa brand",
+      path: "/smilex-spa-brand",
+      subtitle: "Uh-oh. He don't look happy. He's been using spa brand X",
       brandLogo: "BMI"
     }
   ];
@@ -301,8 +309,8 @@ describe("Home Page Template", () => {
       title: "title",
       slides: [slide],
       overlapCards: overlapCardsData,
-      brands: brandData,
-      spaBrands: brandData,
+      brands: brandsData,
+      spaBrands: spaBrandsData,
       sections: sectionsData,
       breadcrumbs: [
         {
@@ -317,7 +325,7 @@ describe("Home Page Template", () => {
     }
   };
 
-  it("render correctly", () => {
+  it("render correctly with all data", () => {
     isSpaEnabled = false;
     isGatsbyDisabledElasticSearch = false;
 
@@ -401,15 +409,41 @@ describe("Home Page Template", () => {
     data.contentfulSite.resources = null;
     data.contentfulHomePage.spaBrands = [];
 
-    const { container } = renderWithRouter(
+    const { container, getByAltText } = renderWithRouter(
       <HomePage data={data} pageContext={null} />
     );
 
     expect(
       container.querySelector(".Hero .YoutubeVideo")
     ).not.toBeInTheDocument();
+    expect(getByAltText("Lorem ipsum ContentfulImage")).toBeInTheDocument();
+  });
+
+  it("render page with brands", () => {
+    data.contentfulHomePage.brands = brandsData;
+    data.contentfulHomePage.spaBrands = [];
+
+    const { container, getByText } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelector(".Brands")).toBeInTheDocument();
     expect(
-      container.querySelector("[alt='Lorem ipsum ContentfulImage']")
+      getByText(data.contentfulHomePage.brands[0].subtitle)
+    ).toBeInTheDocument();
+  });
+
+  it("render page with spaBrands", () => {
+    data.contentfulHomePage.brands = [];
+    data.contentfulHomePage.spaBrands = spaBrandsData;
+
+    const { container, getByText } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelector(".Brands")).toBeInTheDocument();
+    expect(
+      getByText(data.contentfulHomePage.spaBrands[0].subtitle)
     ).toBeInTheDocument();
   });
 
@@ -422,5 +456,44 @@ describe("Home Page Template", () => {
     );
 
     expect(container.querySelector(".Brands")).not.toBeInTheDocument();
+  });
+
+  it("render page with overlapCardsData", () => {
+    const { container } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
+    expect(container.querySelectorAll(".OverlapCards .Grid .item").length).toBe(
+      3
+    );
+  });
+
+  it("render page without overlapCardsData", () => {
+    data.contentfulHomePage.overlapCards = null;
+
+    const { container } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelector(".OverlapCards")).not.toBeInTheDocument();
+  });
+
+  it("render page with sections", () => {
+    const { container } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelectorAll(".Section:not(.Brands)").length).toBe(1);
+  });
+
+  it("render page without sections", () => {
+    data.contentfulHomePage.sections = null;
+
+    const { container } = renderWithRouter(
+      <HomePage data={data} pageContext={null} />
+    );
+
+    expect(container.querySelectorAll(".Section:not(.Brands)").length).toBe(0);
   });
 });
