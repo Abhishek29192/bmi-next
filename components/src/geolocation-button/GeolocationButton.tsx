@@ -5,11 +5,11 @@ import Button, { ButtonProps } from "../button/Button";
 import Icon from "../icon";
 import styles from "./GeolocationButton.module.scss";
 
-const getGeolocation = () => {
+export const getGeolocation = () => {
   return typeof navigator !== "undefined" ? navigator.geolocation : undefined;
 };
 
-const getCurrentPosition = () => {
+export const getCurrentPosition = () => {
   const geolocation = getGeolocation();
 
   return new Promise<GeolocationPosition>((resolve, reject) =>
