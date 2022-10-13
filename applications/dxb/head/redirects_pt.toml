@@ -5188,6 +5188,41 @@
  to="/pt/"
  force=true
 
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/produtos-para-telhados/produtos/telhas/cimento"
+ to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/produtos-para-telhados/produtos/lógica-plana"
+ to="/pt/p/l%C3%B3gica-plana-m%C3%B3dulo-de-corte-galena-mate-cer%C3%A2mica-2360620423/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/produtos-para-telhados/produtos/gredos/cimento"
+ to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/produtos-para-telhados/produtos/cimento"
+ to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/products/wakaflex"
+ to="/pt/p/wakaflex-wakaflex-0-28-x-5m-standard-antracite-3592234995/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/products/bmi-cobert/vaporoll-vapotech-2s-plus"
+ to="/pt/p/vaporoll-vapotech-2s-plus-2733536879/"
+ force=true
+
+[[redirects]]
+ from="/pt/produtos-e-sistemas-para-telhados/products/bmi-cobert/telha-gredos"
+ to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
+ force=true
+
 # Redirects all sitecore sxa downloads
 [[redirects]]
  from = "/pt/sxa/file/*"
