@@ -127,6 +127,7 @@ export type Product = Omit<
   oldPath: string;
   path: string;
   relatedProducts: RelatedProduct[];
+  isVisualiserAvailable: boolean | null;
 };
 
 export type KeyAssetDocument = {

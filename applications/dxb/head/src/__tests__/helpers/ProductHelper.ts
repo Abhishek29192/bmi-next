@@ -89,6 +89,7 @@ export const createProduct = (product?: Partial<Product>): Product => ({
   oldPath: "/p/old/path",
   path: "/p/path",
   relatedProducts: [createRelatedProduct()],
+  isVisualiserAvailable: false,
   ...product
 });
 

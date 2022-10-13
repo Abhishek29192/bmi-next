@@ -96,6 +96,7 @@ export type Product = {
   masterImage?: Image;
   hashedCode: string;
   isSampleOrderAllowed: boolean;
+  isVisualiserAvailable: boolean;
   materials?: string;
   measurements: Measurements;
   name: string;

@@ -63,6 +63,12 @@ export type AssetAssetType =
   | "DATA_SHEETS"
   | "FIXING_TOOL"
   | "GUARANTIES"
+  | "HIGH_DETAIL_MESH_REFERENCE"
+  | "LOW_DETAIL_MESH_REFERENCE"
+  | "METALLIC_ROUGHNESS_MAP_REFERENCE"
+  | "NORMAL_MAP_REFERENCE"
+  | "RIDGE_END_REFERENCE"
+  | "RIDGE_REFERENCE"
   | "SPECIFICATION"
   | "VIDEO"
   | "WARRANTIES";
@@ -538,6 +544,7 @@ export type VariantOption = {
   productBenefits?: string[];
   productReferences?: ProductReference[];
   name?: string;
+  visualiserAssets?: readonly Asset[];
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -559,6 +566,7 @@ export type Product = {
   summary: string;
   variantOptions?: readonly VariantOption[];
   productReferences?: ProductReference[];
+  visualiserAssets?: readonly Asset[];
 };
 
 export enum PimTypes {

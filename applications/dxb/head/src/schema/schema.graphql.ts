@@ -765,6 +765,7 @@ type Product implements Node @dontInfer {
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   hashedCode: String!
   isSampleOrderAllowed: Boolean
+  isVisualiserAvailable: Boolean
   keyAssetDocuments: [KeyAssetDocument]
   masterImage: PIMImage
   materials: String
