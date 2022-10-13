@@ -144,10 +144,11 @@ baseline_scan_head_preview:
   extends: .base_scan
   rules:
     - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
+        - libraries/**/*
   needs:
     - wait_until_head_deployed_to_gatsby
   allow_failure: true
