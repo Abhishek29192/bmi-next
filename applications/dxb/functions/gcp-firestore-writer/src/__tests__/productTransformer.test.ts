@@ -8424,6 +8424,108 @@ describe("transformProduct", () => {
     ]);
   });
 
+  it("ignore webtools-related classifications", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "tilesAttributes",
+              name: "tilesAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.brokenBond",
+                  name: "Broken Bond"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge",
+                  name: "Eave gauge"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle",
+                  name: "Eave Gauge Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle",
+                  name: "Eave Gage End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle",
+                  name: "Max Gauge Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle",
+                  name: "Max Gauge End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace",
+                  name: "Ridge Space"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle",
+                  name: "Ridge Space Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle",
+                  name: "Ridge Space End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.verticalOverlap",
+                  name: "Vertical Overlap"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOverlap",
+                  name: "Horizontal Overlap"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOffset",
+                  name: "Horizontal Offset"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.snowFenceActive",
+                  name: "Show Fence Active"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.largeTile",
+                  name: "Large Tile"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction",
+                  name: "Thickness Reduction"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.invert",
+                  name: "Invert"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.invertY",
+                  name: "invertY"
+                })
+              ]
+            }),
+            createClassification({
+              code: "underlayAttributes",
+              name: "underlayAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch",
+                  name: "Minimum supported pitch"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/underlayAttributes.overlap",
+                  name: "Overlap"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].classifications).toEqual([]);
+  });
+
   it("returns false for isVisualiserAvailable if needed category doesn't exist", async () => {
     const product = createProduct({
       categories: []
