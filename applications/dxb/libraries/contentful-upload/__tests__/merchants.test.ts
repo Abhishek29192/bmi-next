@@ -1258,7 +1258,7 @@ describe("Merchants contentful upload", () => {
 
   it(`should creates merchants and service types entries`, async () => {
     process.argv = ["", "", getMinimalPath("new-serviceType.tsv")];
-    createEntry.mockImplementationOnce((contentTypeId, data) => {
+    createEntry.mockImplementation((contentTypeId, data) => {
       if (contentTypeId === "roofer") {
         return {
           publish: jest.fn().mockImplementation(() => {
@@ -1348,19 +1348,34 @@ describe("Merchants contentful upload", () => {
         metadata: {}
       }
     ]);
-    expect(console.log as jest.Mock).nthCalledWith(
-      6,
-      "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
-    );
-    expect(console.log as jest.Mock).nthCalledWith(
-      7,
-      "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
-    );
+
+    const consoleLogcalls = (console.log as jest.Mock).mock.calls.flat();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
+      )
+    ).toBeTruthy();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
+      )
+    ).toBeTruthy();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
+      )
+    ).toBeTruthy();
     expect(console.log as jest.Mock).lastCalledWith("All done");
   });
 
   it(`should should throw an error when getLocales returns null`, async () => {
-    getLocales.mockReturnValue(null);
+    getLocales.mockReturnValueOnce(null);
     require("../scripts/merchants");
 
     await done;
