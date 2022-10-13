@@ -1,8 +1,8 @@
-# test_gatsby-cloud-build-proxy:
-#   extends: .test_function
-#   variables:
-#     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
-#     ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
+test_gatsby-cloud-build-proxy:
+  extends: .test_function
+  variables:
+    WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
+    ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
 
 build_gatsby-cloud-build-proxy:
   extends: .build_function
