@@ -322,4 +322,22 @@ describe("Header component", () => {
     expect(container).toMatchSnapshot();
     expect(screen.queryByText(searchLabel)).not.toBeInTheDocument();
   });
+
+  it("render language code for bilingual sites", () => {
+    const { container, getByLabelText } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[2]}
+        languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
+        isGatsbyDisabledElasticSearch={true}
+      />
+    );
+    const languageBtn = getByLabelText(languageLabel);
+    expect(languageBtn).toHaveTextContent("FR-CH");
+    expect(container).toMatchSnapshot();
+  });
 });

@@ -158,6 +158,35 @@ exports[`LanguageSelection component accepts introduction text 1`] = `
             />
           </a>
         </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton link MuiButton-textPrimary"
+            data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"France\\",\\"action\\":\\"/ch/fr-ch/\\"}"
+            href="/ch/fr-ch"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-24"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  class="LanguageIcon"
+                  height="16px"
+                  width="20px"
+                />
+              </span>
+              France
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -230,6 +259,35 @@ exports[`LanguageSelection component renders correctly 1`] = `
                 />
               </span>
               Österreich
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+            data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"France\\",\\"action\\":\\"/ch/fr-ch/\\"}"
+            href="/ch/fr-ch"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  class="LanguageIcon"
+                  height="16px"
+                  width="20px"
+                />
+              </span>
+              France
             </span>
             <span
               class="MuiTouchRipple-root"
