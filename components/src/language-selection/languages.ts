@@ -14,6 +14,11 @@ export default [
         code: "at",
         label: "Österreich",
         icon: at
+      },
+      {
+        code: "ch/fr-ch",
+        label: "France",
+        icon: at
       }
     ]
   }

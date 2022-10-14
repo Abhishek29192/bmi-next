@@ -241,6 +241,11 @@ const Header = ({
     };
   }
 
+  // Uses for bilingual sites
+  const languageCodeSeparator = "/";
+  const languageCode =
+    language.code.includes(languageCodeSeparator) &&
+    language.code.split(languageCodeSeparator).pop();
   return (
     <Paper
       className={classnames(
@@ -307,7 +312,7 @@ const Header = ({
                         className={styles["language-icon"]}
                       />
                     ))}
-                  {language.code.toUpperCase()}
+                  {(languageCode || language.code).toUpperCase()}
                   <span
                     className={classnames(styles["down-arrow"], {
                       [styles["down-arrow--up"]!]: showLanguageSelection
