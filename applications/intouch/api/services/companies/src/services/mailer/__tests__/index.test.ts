@@ -1,5 +1,11 @@
 import { MessageTemplate } from "@bmi/intouch-api-types";
-import { sendMessageWithTemplate, replaceData } from "../../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  replaceData,
+  getTemplateReceipient,
+  getMarketAdminsEmail,
+  sendMailToMarketAdmins
+} from "../../../services/mailer";
 import { generateAccount } from "../../../../../../../frontend/lib/tests/factories/account";
 import { TOPICS } from "../../events";
 
@@ -35,6 +41,13 @@ jest.mock("../../events", () => {
     publish: (context, topic, body) => pulishSpy(context, topic, body)
   };
 });
+
+const dbPoolSpy = jest.fn();
+jest.mock("../../../db", () => ({
+  getDbPool: () => ({
+    query: (...params) => dbPoolSpy(...params)
+  })
+}));
 
 describe("Mailer", () => {
   const loggerSpy = jest.fn();
@@ -245,6 +258,205 @@ describe("Mailer", () => {
     it("replaceData should return empty string if no matched token in data", async () => {
       expect(replaceData("test, {{test}} replacement", {})).toBe(
         "test,  replacement"
+      );
+    });
+  });
+
+  describe("getTemplateReceipient", () => {
+    it("normal case", async () => {
+      const event = "NOTE_ADDED";
+      const emailRecipient = "email-recipient@test.com";
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [
+          {
+            emailRecipient
+          }
+        ]
+      }));
+      const response = await getTemplateReceipient(context, event);
+
+      expect(response).toEqual(emailRecipient);
+    });
+
+    it("no message tempalte collection returned", async () => {
+      const event = "NOTE_ADDED";
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: []
+      }));
+      await getTemplateReceipient(context, event);
+
+      expect(loggerSpy).toHaveBeenCalledWith(
+        `Template not found for event ${event}`
+      );
+    });
+
+    it("log error", async () => {
+      const event = "NOTE_ADDED";
+      const errorMessage = "errorMessage";
+      const error = new Error(errorMessage);
+      messageTemplateCollection.mockImplementationOnce(() => {
+        throw error;
+      });
+      await getTemplateReceipient(context, event);
+
+      expect(loggerSpy).toHaveBeenCalledWith(
+        `Error getting an email Recipient for event ${event}`,
+        error
+      );
+    });
+  });
+
+  describe("getMarketAdminsEmail", () => {
+    const user = generateAccount();
+    const marketAdmins = [user];
+    const event = "NOTE_ADDED";
+    const emailRecipient = "email-recipient@test.com";
+
+    it("normal case", async () => {
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [
+          {
+            emailRecipient
+          }
+        ]
+      }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: marketAdmins
+      }));
+      const repsonse = await getMarketAdminsEmail(context, event);
+
+      expect(dbPoolSpy).toHaveBeenCalledWith(
+        `SELECT * FROM account WHERE email in ($1)`,
+        [emailRecipient]
+      );
+      expect(repsonse).toBe(marketAdmins);
+    });
+
+    it("no emailRecipient", async () => {
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [
+          {
+            emailRecipient: null
+          }
+        ]
+      }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: marketAdmins
+      }));
+      const repsonse = await getMarketAdminsEmail(context, event);
+
+      expect(dbPoolSpy).toHaveBeenCalledWith(
+        `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+        ["MARKET_ADMIN", user.marketId]
+      );
+      expect(repsonse).toBe(marketAdmins);
+    });
+  });
+
+  describe("sendMailToMarketAdmins", () => {
+    const event = "NOTE_ADDED";
+    const emailRecipient = "email-recipient@test.com";
+    const user = generateAccount();
+    const marketAdmins = [{ ...user, first_name: "firstname" }];
+    const templateCollection = {
+      format: ["EMAIL"],
+      notificationBody: "notificationBody,{{project}}",
+      emailBody: "{{email}} {{accountId}} {{firstname}}",
+      contentfulMetadata: null,
+      subject: "subject",
+      sys: null,
+      emailRecipient
+    };
+    beforeEach(() => {
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [templateCollection]
+      }));
+    });
+
+    it("normal case", async () => {
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [templateCollection]
+      }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: marketAdmins
+      }));
+      await sendMailToMarketAdmins(context, event, {});
+
+      expect(pulishSpy).toHaveBeenCalledTimes(1);
+      expect(pulishSpy).toHaveBeenCalledWith(
+        expect.anything(),
+        TOPICS.TRANSACTIONAL_EMAIL,
+        {
+          title: "subject",
+          text: `${marketAdmins[0].email} ${marketAdmins[0].id} ${marketAdmins[0].first_name}`,
+          html: `${marketAdmins[0].email} ${marketAdmins[0].id} ${marketAdmins[0].first_name}`,
+          email: marketAdmins[0].email
+        }
+      );
+    });
+
+    it("with multiple market admins", async () => {
+      const users = [
+        ...marketAdmins,
+        {
+          ...generateAccount({ account: { email: "email2@test.com", id: 2 } }),
+          first_name: "firstname 2"
+        }
+      ];
+      messageTemplateCollection
+        .mockImplementationOnce(() => ({
+          items: [templateCollection]
+        }))
+        .mockImplementationOnce(() => ({
+          items: [templateCollection]
+        }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: users
+      }));
+      await sendMailToMarketAdmins(context, event, {});
+
+      expect(pulishSpy).toHaveBeenCalledTimes(2);
+      expect(pulishSpy).toHaveBeenCalledWith(
+        expect.anything(),
+        TOPICS.TRANSACTIONAL_EMAIL,
+        {
+          title: "subject",
+          text: `${users[0].email} ${users[0].id} ${users[0].first_name}`,
+          html: `${users[0].email} ${users[0].id} ${users[0].first_name}`,
+          email: users[0].email
+        }
+      );
+      expect(pulishSpy).toHaveBeenCalledWith(
+        expect.anything(),
+        TOPICS.TRANSACTIONAL_EMAIL,
+        {
+          title: "subject",
+          text: `${users[1].email} ${users[1].id} ${users[1].first_name}`,
+          html: `${users[1].email} ${users[1].id} ${users[1].first_name}`,
+          email: users[1].email
+        }
+      );
+    });
+
+    it("replace body with dynamicContent passed in", async () => {
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [{ ...templateCollection, emailBody: "{{dynamic}}" }]
+      }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: marketAdmins
+      }));
+      const dynamic = "I am dynamic";
+      await sendMailToMarketAdmins(context, event, { dynamic });
+
+      expect(pulishSpy).toHaveBeenCalledWith(
+        expect.anything(),
+        TOPICS.TRANSACTIONAL_EMAIL,
+        {
+          title: "subject",
+          text: `${dynamic}`,
+          html: `${dynamic}`,
+          email: marketAdmins[0].email
+        }
       );
     });
   });

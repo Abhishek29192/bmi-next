@@ -1,9 +1,13 @@
 import { CreateNoteInput } from "@bmi/intouch-api-types";
 import { createNote } from "..";
-import { sendMessageWithTemplate } from "../../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  sendMailToMarketAdmins
+} from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
-  sendMessageWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn(),
+  sendMailToMarketAdmins: jest.fn()
 }));
 
 const mockCompanyAdminUsers = [
@@ -14,12 +18,6 @@ const mockCompanyAdminUsers = [
   {
     id: 2,
     email: "email2"
-  }
-];
-const mockMarketAdminUsers = [
-  {
-    id: 11,
-    email: "email11"
   }
 ];
 const mockAccounts = [
@@ -73,7 +71,7 @@ describe("Note", () => {
     noteSnippet: args.input.note.body
   };
 
-  it("should create note", async () => {
+  it("should create note with no company admin", async () => {
     context.user.can = () => true;
 
     mockQuery
@@ -91,9 +89,6 @@ describe("Note", () => {
         rows: []
       }))
       .mockImplementationOnce(() => ({
-        rows: []
-      }))
-      .mockImplementationOnce(() => ({
         rows: mockAccounts
       }))
       .mockImplementationOnce(() => ({}));
@@ -102,6 +97,15 @@ describe("Note", () => {
 
     expect(resolve).toBeCalled();
     expect(sendMessageWithTemplate).not.toBeCalled();
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
   });
 
   it("should create note and send message to company&&market admin", async () => {
@@ -122,9 +126,6 @@ describe("Note", () => {
         rows: mockCompanyAdminUsers
       }))
       .mockImplementationOnce(() => ({
-        rows: mockMarketAdminUsers
-      }))
-      .mockImplementationOnce(() => ({
         rows: mockAccounts
       }))
       .mockImplementationOnce(() => ({}));
@@ -132,9 +133,9 @@ describe("Note", () => {
     await createNote(resolve, source, args, context, resolveInfo);
 
     expect(resolve).toBeCalled();
-    const calledTime =
-      mockCompanyAdminUsers.length + mockMarketAdminUsers.length;
-    expect(sendMessageWithTemplate).toBeCalledTimes(calledTime);
+    expect(sendMessageWithTemplate).toBeCalledTimes(
+      mockCompanyAdminUsers.length
+    );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
       expect.any(Object),
       "NOTE_ADDED",
@@ -157,12 +158,10 @@ describe("Note", () => {
         ...authorDetails
       }
     );
-    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
       expect.any(Object),
       "NOTE_ADDED",
       {
-        accountId: 11,
-        email: "email11",
         project: "project_name",
         projectId: 1,
         ...authorDetails
@@ -183,9 +182,6 @@ describe("Note", () => {
             marketId: 1
           }
         ]
-      }))
-      .mockImplementationOnce(() => ({
-        rows: []
       }))
       .mockImplementationOnce(() => ({
         rows: []
