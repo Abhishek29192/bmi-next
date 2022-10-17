@@ -182,9 +182,9 @@ describe("Invalid environment variables", () => {
     process.env.NETLIFY_BUILD_HOOK = netlifyBuildHook;
   });
 
-  it("should return 500 if FUNCTION_TIMEOUT_SEC is not set", async () => {
-    const timeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    delete process.env.FUNCTION_TIMEOUT_SEC;
+  it("should return 500 if TIMEOUT_LIMIT is not set", async () => {
+    const timeoutLimit = process.env.TIMEOUT_LIMIT;
+    delete process.env.TIMEOUT_LIMIT;
 
     const res = mockResponse();
 
@@ -193,12 +193,12 @@ describe("Invalid environment variables", () => {
     expect(listTimeSeries).toBeCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.FUNCTION_TIMEOUT_SEC = timeoutLimit;
+    process.env.TIMEOUT_LIMIT = timeoutLimit;
   });
 
-  it("should return 500 if FUNCTION_TIMEOUT_SEC is not set as a valid number", async () => {
-    const timeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "a";
+  it("should return 500 if TIMEOUT_LIMIT is not set as a valid number", async () => {
+    const timeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "a";
 
     const res = mockResponse();
 
@@ -207,7 +207,7 @@ describe("Invalid environment variables", () => {
     expect(listTimeSeries).toBeCalledTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.FUNCTION_TIMEOUT_SEC = timeoutLimit;
+    process.env.TIMEOUT_LIMIT = timeoutLimit;
   });
 
   it("should return 500 if DELAY_MILLISECONDS is not set", async () => {
@@ -587,8 +587,8 @@ describe("Making a POST request", () => {
   });
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with zero value response when functions are no longer running and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -641,12 +641,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with response without points when functions are no longer running and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -699,12 +699,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with response without point value when functions are no longer running and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -757,12 +757,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if documents are never deleted or updated beyond timeout with empty response when functions are no longer running and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -815,12 +815,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if functions never stop beyond timout with zero value response when documents have been deleted or updated and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -873,12 +873,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if functions never stop beyond timout with response without points when documents have been deleted or updated and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -931,12 +931,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if functions never stop beyond timout with response without point value when documents have been deleted or updated and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -989,12 +989,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if functions never stop beyond timout with empty response when documents have been deleted or updated and no more messages are being sent", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1047,12 +1047,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if messages never stop being sent beyond timout with zero value response when documents have been deleted or updated and functions are finished", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1105,12 +1105,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if messages never stop being sent beyond timout with response without points when documents have been deleted or updated and functions are finished", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1163,12 +1163,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if messages never stop being sent beyond timout with response without point value when documents have been deleted or updated and functions are finished", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1221,12 +1221,12 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("returns status code 500 if messages never stop being sent beyond timout with empty response when documents have been deleted or updated and functions are finished", async () => {
-    const originalTimeoutLimit = process.env.FUNCTION_TIMEOUT_SEC;
-    process.env.FUNCTION_TIMEOUT_SEC = "1"; // 1 second
+    const originalTimeoutLimit = process.env.TIMEOUT_LIMIT;
+    process.env.TIMEOUT_LIMIT = "1000"; // 1 second
 
     const req = mockRequest();
     const res = mockResponse();
@@ -1279,7 +1279,7 @@ describe("Making a POST request", () => {
     );
     expect(fetchMock).toHaveBeenCalledTimes(0);
 
-    process.env.FUNCTION_TIMEOUT_SEC = originalTimeoutLimit;
+    process.env.TIMEOUT_LIMIT = originalTimeoutLimit;
   });
 
   it("waits for the METRIC_LATENCY_DELAY milliseconds before making any requests", async () => {
