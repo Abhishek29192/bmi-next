@@ -172,7 +172,26 @@ export const productIgnorableAttributes: FeatureCode[] = [
   "squareMeterUomAttributes.uomType",
   "squareMeterUomAttributes.volume",
   "squareMeterUomAttributes.width",
-  "bimAttributes.productPageURL"
+  "bimAttributes.productPageURL",
+  "tilesAttributes.brokenBond",
+  "tilesAttributes.eaveGauge",
+  "tilesAttributes.eaveGaugeStartAngle",
+  "tilesAttributes.eaveGaugeEndAngle",
+  "tilesAttributes.maxGaugeStartAngle",
+  "tilesAttributes.maxGaugeEndAngle",
+  "tilesAttributes.ridgeSpace",
+  "tilesAttributes.ridgeSpaceStartAngle",
+  "tilesAttributes.ridgeSpaceEndAngle",
+  "tilesAttributes.verticalOverlap",
+  "tilesAttributes.horizontalOverlap",
+  "tilesAttributes.horizontalOffset",
+  "tilesAttributes.snowFenceActive",
+  "tilesAttributes.largeTile",
+  "tilesAttributes.thicknessReduction",
+  "tilesAttributes.invert",
+  "tilesAttributes.invertY",
+  "underlayAttributes.minSupportedPitch",
+  "underlayAttributes.overlap"
 ];
 
 export const systemIgnorableAttributes: FeatureCode[] = [
