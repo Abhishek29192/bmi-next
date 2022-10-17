@@ -18,6 +18,11 @@
         "icon": "/icons/flags/be.svg"
       },
       {
+        "code": "fr-be",
+        "label": "Belgique",
+        "icon": "/icons/flags/be.svg"
+      },
+      {
         "code": "be",
         "label": "België",
         "icon": "/icons/flags/be.svg"
@@ -141,6 +146,11 @@
         "code": "se",
         "label": "Sverige",
         "icon": "/icons/flags/se.svg"
+      },
+      {
+        "code": "fr-ch",
+        "label": "Suisse",
+        "icon": "/icons/flags/ch.svg"
       },
       {
         "code": "ch/fr-ch",
