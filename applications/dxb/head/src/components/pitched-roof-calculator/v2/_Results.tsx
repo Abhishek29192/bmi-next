@@ -24,6 +24,7 @@ import {
 } from "../types/v2";
 import { Data as TitleWithContentType } from "../../TitleWithContent";
 import RichText from "../../RichText";
+import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -89,6 +90,7 @@ const PrintReportSection = ({
   const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
     null
   );
+  const isMobileDevice = useIsMobileDevice();
 
   const getPDFReport = useCallback(async () => {
     try {
@@ -149,6 +151,13 @@ const PrintReportSection = ({
     });
 
     const pdfReport = await getPDFReport();
+    // If user uses mobile device we should open the report in the same tab,
+    // because opening in a separate tab doesn't work properly for all mobile devices
+    if (isMobileDevice) {
+      pdfReport.open("", window);
+      return;
+    }
+
     pdfReport.open();
   };
 

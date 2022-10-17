@@ -7,6 +7,16 @@
     justify-content: center;
     flex-wrap: wrap;
     margin: -8px 0;
+
+    &>div{
+      @media (max-width: 400px) {
+        width: 200px;
+        max-width: unset;
+        flex-basis: unset;
+        padding: 0;
+        margin: 8px;
+      }
+    }
   }
 }
 
