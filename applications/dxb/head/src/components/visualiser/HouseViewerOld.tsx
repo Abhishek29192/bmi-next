@@ -24,7 +24,10 @@ import textureCache from "./TextureCache";
 import getRef from "./GetRef";
 import roofSegmentGenerator from "./RoofSegmentGeneratorOld";
 import { Colour, Siding, Tile } from "./Types";
-import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
+import Viewer, {
+  Props as ViewerProps,
+  State as ViewerState
+} from "./ViewerOld";
 
 interface Props extends ViewerProps {
   siding: Siding;

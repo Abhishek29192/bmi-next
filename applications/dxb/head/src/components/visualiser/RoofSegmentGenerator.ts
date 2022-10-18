@@ -6,7 +6,7 @@ import {
   Object3D
 } from "three";
 import tileSlice from "./TileSlice";
-import { Tile } from "./Types";
+import { PIMTile } from "./Types";
 
 /*
  * Generates a planar, rectangular segment of roof between minX/ minZ and maxX/ maxZ using the given source tile (a ThreeJS Mesh object).
@@ -20,7 +20,7 @@ import { Tile } from "./Types";
 export default (
   seg: Mesh,
   tileMesh: Mesh,
-  tileInfo: Tile,
+  tileInfo: PIMTile,
   tileMaterial: MeshStandardMaterial
 ): Group | InstancedMesh | undefined => {
   // First measure the tile:

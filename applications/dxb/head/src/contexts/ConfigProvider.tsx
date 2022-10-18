@@ -29,6 +29,7 @@ export interface EnvConfig {
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
     isV2WebToolsCalculatorEnabled?: boolean;
+    isV2VisualiserEnabled?: boolean;
     isSpaEnabled?: boolean;
     isGatsbyDisabledElasticSearch?: boolean;
     oneTrustId?: string;
@@ -49,6 +50,9 @@ export const envConfig: EnvConfig = {
     gatsbyReCaptchaKey: process.env.GATSBY_RECAPTCHA_KEY,
     gatsbyReCaptchaNet: process.env.GATSBY_RECAPTCHA_NET,
     visualizerAssetUrl: process.env.GATSBY_VISUALISER_ASSETS_URL,
+    isV2VisualiserEnabled: convertStrToBool(
+      process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR
+    ),
     documentDownloadEndpoint: process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
     gcpFormUploadEndpoint: process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT,
     gcpFormSubmitEndpoint: process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,

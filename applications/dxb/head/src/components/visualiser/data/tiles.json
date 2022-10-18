@@ -2,7 +2,7 @@
   "tiles": [
     {
       "name": "Zanda Arktis",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:14.jpg",
       "metallicRoughnessMapRef": "public:15.jpg",
       "verticalOverlap": 0.4,
@@ -124,7 +124,7 @@
     },
     {
       "name": "Zanda Protector",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:26.jpg",
       "metallicRoughnessMapRef": "public:27.jpg",
       "verticalOverlap": 0.4,
@@ -214,7 +214,7 @@
     },
     {
       "name": "Zanda Classic",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:36.jpg",
       "metallicRoughnessMapRef": "public:37.jpg",
       "verticalOverlap": 0.4,
@@ -304,7 +304,7 @@
     },
     {
       "name": "Zanda Vestland",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:42.jpg",
       "metallicRoughnessMapRef": "public:43.jpg",
       "verticalOverlap": 0.4,
@@ -378,7 +378,7 @@
     },
     {
       "name": "Zanda Minster",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:47.jpg",
       "metallicRoughnessMapRef": "public:48.jpg",
       "verticalOverlap": 0.4,
@@ -436,7 +436,7 @@
     },
     {
       "name": "Zanda Evo",
-      "material": "1",
+      "material": "concrete",
       "normalMapRef": "public:53.jpg",
       "metallicRoughnessMapRef": "public:54.jpg",
       "verticalOverlap": 0.4,
@@ -494,7 +494,7 @@
     },
     {
       "name": "Monier Turmalin",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "public:126.jpg",
       "metallicRoughnessMapRef": "public:127.jpg",
       "verticalOverlap": 0.4,
@@ -616,7 +616,7 @@
     },
     {
       "name": "Monier KDN",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "public:139.jpg",
       "metallicRoughnessMapRef": "public:140.jpg",
       "verticalOverlap": 0.4,
@@ -770,7 +770,7 @@
     },
     {
       "name": "Monier Hollander V",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "",
       "metallicRoughnessMapRef": "",
       "verticalOverlap": 0.4,
@@ -892,7 +892,7 @@
     },
     {
       "name": "Monier Nortegl",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "",
       "metallicRoughnessMapRef": "",
       "verticalOverlap": 0.4,
@@ -982,7 +982,7 @@
     },
     {
       "name": "Monier Nova",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "",
       "metallicRoughnessMapRef": "",
       "verticalOverlap": 0.4,
@@ -1056,7 +1056,7 @@
     },
     {
       "name": "Monier Dantegl",
-      "material": "2",
+      "material": "clay",
       "normalMapRef": "",
       "metallicRoughnessMapRef": "",
       "verticalOverlap": 0.4,
@@ -1098,7 +1098,7 @@
     },
     {
       "name": "AeroDek Tradition Plus",
-      "material": "3",
+      "material": "metal",
       "normalMapRef": "public:120.jpg",
       "metallicRoughnessMapRef": "public:119.jpg",
       "verticalOverlap": 0.4,
@@ -1188,7 +1188,7 @@
     },
     {
       "name": "AeroDek Robust Plus",
-      "material": "3",
+      "material": "metal",
       "normalMapRef": "public:217.glb",
       "metallicRoughnessMapRef": "",
       "verticalOverlap": 0.4,
@@ -1246,7 +1246,7 @@
     },
     {
       "name": "AeroDek Unique Plus",
-      "material": "3",
+      "material": "metal",
       "normalMapRef": "public:109.jpg",
       "metallicRoughnessMapRef": "public:110.jpg",
       "verticalOverlap": 0.4,
@@ -1336,7 +1336,7 @@
     },
     {
       "name": "AeroDek Tradition",
-      "material": "3",
+      "material": "metal",
       "normalMapRef": "public:102.jpg",
       "metallicRoughnessMapRef": "public:103.jpg",
       "verticalOverlap": 0.4,
@@ -1410,7 +1410,7 @@
     },
     {
       "name": "Aerodek Quadro Plus",
-      "material": "3",
+      "material": "metal",
       "normalMapRef": "public:100.jpg",
       "metallicRoughnessMapRef": "public:101.jpg",
       "verticalOverlap": 0.4,

@@ -11,6 +11,7 @@ import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
@@ -61,6 +62,9 @@ const ProductOverview = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
+  const {
+    config: { isV2VisualiserEnabled }
+  } = useConfig();
 
   const getVisualiserMedia = () => {
     if (!isVisualiserAvailable) {
@@ -68,6 +72,19 @@ const ProductOverview = ({
     }
 
     for (let index = 0; index < tilesSetData.tiles.length; index++) {
+      if (isV2VisualiserEnabled) {
+        return {
+          visualiserParameters: {
+            colourId: "",
+            sidingId: 1,
+            tileId: variantCode,
+            viewMode: "roof",
+            caption: getMicroCopy(microCopy.PDP_VISUALISER_SLIDE_CAPTION)
+          },
+          openVisualiser
+        };
+      }
+
       const tile = tilesSetData.tiles[Number(index)];
       const tileColor = tile.colours.find(
         (color) => color.variantCode === variantCode

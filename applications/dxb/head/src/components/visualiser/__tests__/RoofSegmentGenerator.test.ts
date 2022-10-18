@@ -7,7 +7,7 @@ import {
   Vector3
 } from "three";
 import generateSegment from "../RoofSegmentGenerator";
-import { Tile } from "../Types";
+import { PIMTile } from "../Types";
 
 const roofMesh = new Mesh(
   new PlaneGeometry(10, 10),
@@ -19,7 +19,7 @@ roofMesh.rotation.set(0.5, 0, 0);
 
 const tileMesh = new Mesh(new PlaneGeometry(1, 1), new MeshStandardMaterial());
 
-const tileInfo = { name: "Tile" } as Tile;
+const tileInfo = { name: "Tile" } as PIMTile;
 const tileMaterial = new MeshStandardMaterial();
 
 describe("generateSegment", () => {
