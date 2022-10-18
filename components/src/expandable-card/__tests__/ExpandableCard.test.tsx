@@ -1,156 +1,154 @@
-import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor
+} from "@testing-library/react";
+import React, { Dispatch } from "react";
 import BuildIcon from "test.svg";
 import ExpandableCard from "../ExpandableCard";
 
 afterEach(cleanup);
 
 describe("ExpandableCard component", () => {
+  const props = {
+    icon: BuildIcon,
+    title: "Title",
+    body: "Body"
+  };
+
   const transitionEndEvent = new Event("transitionend", {
     bubbles: true,
     cancelable: false
   });
 
-  it("renders correctly", () => {
-    const { container } = render(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        footer="consectetur adipiscing elit"
-      />
-    );
+  it("Should render the ExpandedCard expanded", () => {
+    const container = render(<ExpandableCard {...props} isExpanded />);
     expect(container).toMatchSnapshot();
   });
-  it("renders with no footer", () => {
-    const { container } = render(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-  it("triggers a onClick event", async () => {
-    const onClick = jest.fn();
-    const title = "Lorem Ipsum";
 
-    const { findByText } = render(
+  it("Should render the ExpandedCard not expanded", () => {
+    const container = render(<ExpandableCard {...props} />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render close button if the onCloseClick prop is provided", () => {
+    const onCloseClickMock = jest.fn();
+    const { getByRole, rerender, queryByRole } = render(
       <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        onClick={onClick}
+        {...props}
+        onCloseClick={onCloseClickMock}
+        closeLabel="close"
       />
     );
 
-    fireEvent.click(await findByText(title));
-    expect(onClick).toBeCalled();
+    const closeButton = getByRole("button", { name: /close/i });
+
+    expect(closeButton).toBeInTheDocument();
+
+    rerender(<ExpandableCard {...props} />);
+
+    const noCloseButton = queryByRole("button", { name: /close/i });
+
+    expect(noCloseButton).not.toBeInTheDocument();
   });
-  it("triggers a onCloseClick event", async () => {
-    const closeLabel = "Close me";
-    const onCloseClick = jest.fn();
-    const { findByLabelText } = render(
+
+  it("should render ExpandableCard with footer if the footer prop is provided", () => {
+    const { getByText, rerender, queryByText } = render(
+      <ExpandableCard {...props} footer="Test Footer" />
+    );
+    const footer = getByText(/test footer/i);
+
+    expect(footer).toBeInTheDocument();
+
+    rerender(<ExpandableCard {...props} />);
+
+    const noFooter = queryByText(/test footer/i);
+
+    expect(noFooter).not.toBeInTheDocument();
+  });
+
+  it("should call onClick on a Card click", async () => {
+    const onClickMock = jest.fn();
+
+    const { getByRole } = render(
+      <ExpandableCard {...props} onClick={onClickMock} />
+    );
+
+    const card = getByRole("button", { name: /title/i });
+
+    fireEvent.click(card);
+
+    expect(onClickMock).toBeCalled();
+  });
+
+  it("should call onCloseClick on a close button click", async () => {
+    const onCloseClickMock = jest.fn();
+
+    const { getByRole } = render(
       <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        closeLabel={closeLabel}
-        isExpanded
-        onCloseClick={onCloseClick}
+        {...props}
+        onCloseClick={onCloseClickMock}
+        closeLabel="close"
       />
     );
 
-    fireEvent.click(await findByLabelText(closeLabel));
-    expect(onCloseClick).toBeCalled();
+    const closeButton = getByRole("button", { name: /close/i });
+
+    fireEvent.click(closeButton);
+
+    expect(onCloseClickMock).toBeCalled();
   });
-  it("renders an expanded card", () => {
-    const { container } = render(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        isExpanded
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
+
   it("it expands the card when changing isExpanded", () => {
-    const title = "Lorem Ipsum";
     const { container, rerender, getByText } = render(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        isExpanded={false}
-      />
+      <ExpandableCard {...props} isExpanded={false} />
     );
 
-    rerender(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        isExpanded={true}
-      />
-    );
+    rerender(<ExpandableCard {...props} isExpanded />);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     transitionEndEvent.propertyName = "height";
-    fireEvent(getByText(title), transitionEndEvent);
+    fireEvent(getByText(props.title), transitionEndEvent);
 
     expect(container).toMatchSnapshot();
 
-    rerender(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        isExpanded={false}
-      />
-    );
+    rerender(<ExpandableCard {...props} isExpanded={false} />);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     transitionEndEvent.propertyName = "height";
-    fireEvent(getByText(title), transitionEndEvent);
+    fireEvent(getByText(props.title), transitionEndEvent);
 
     expect(container).toMatchSnapshot();
   });
+
   it("it triggers an onAnimationEnd event", () => {
     const onAnimationEnd = jest.fn();
-    const title = "Lorem Ipsum";
+
     const { rerender, getByText } = render(
       <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
+        {...props}
         isExpanded={false}
         onAnimationEnd={onAnimationEnd}
       />
     );
 
     rerender(
-      <ExpandableCard
-        icon={BuildIcon}
-        title="Lorem Ipsum"
-        body="Sit dolor amet"
-        isExpanded={true}
-        onAnimationEnd={onAnimationEnd}
-      />
+      <ExpandableCard {...props} isExpanded onAnimationEnd={onAnimationEnd} />
     );
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     transitionEndEvent.propertyName = "height";
-    fireEvent(getByText(title), transitionEndEvent);
+    fireEvent(getByText(props.title), transitionEndEvent);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     transitionEndEvent.propertyName = "width";
-    fireEvent(getByText(title), transitionEndEvent);
+    fireEvent(getByText(props.title), transitionEndEvent);
 
     expect(onAnimationEnd.mock.calls).toMatchSnapshot();
   });
@@ -195,6 +193,7 @@ describe("ExpandableCard component", () => {
 
       expect(container).toMatchSnapshot();
     });
+
     it("handles multiple cards expanded by default", () => {
       const { container } = render(
         <ExpandableCard.List
@@ -212,6 +211,7 @@ describe("ExpandableCard component", () => {
 
       expect(container).toMatchSnapshot();
     });
+
     it("sets the clicked card to expanded", () => {
       const { container, getByText } = render(
         <ExpandableCard.List items={items} />
@@ -221,6 +221,7 @@ describe("ExpandableCard component", () => {
 
       expect(container).toMatchSnapshot();
     });
+
     it("doesn't re-expand an expanded card", () => {
       const { container, getByText } = render(
         <ExpandableCard.List items={items} />
@@ -230,6 +231,7 @@ describe("ExpandableCard component", () => {
 
       expect(container).toMatchSnapshot();
     });
+
     it("closes the opened card", () => {
       const closeLabel = "Close me";
       const { container, getByLabelText } = render(
@@ -251,5 +253,23 @@ describe("ExpandableCard component", () => {
 
       expect(container).toMatchSnapshot();
     });
+  });
+
+  it("should call onResize on a window resize and match snapshot", async () => {
+    const setStateMock = jest.fn();
+    const useStateMock = (useState: any) => [useState, setStateMock];
+    jest
+      .spyOn(React, "useState")
+      .mockImplementation(useStateMock as () => [unknown, Dispatch<unknown>]);
+
+    const container = render(<ExpandableCard {...props} isExpanded />);
+
+    act(() => {
+      window.innerWidth = 500;
+      fireEvent(window, new Event("resize"));
+    });
+
+    await waitFor(() => expect(setStateMock).toHaveBeenCalled());
+    expect(container).toMatchSnapshot();
   });
 });

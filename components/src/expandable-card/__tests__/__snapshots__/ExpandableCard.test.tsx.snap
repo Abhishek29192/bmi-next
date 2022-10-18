@@ -16,7 +16,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       >
         <button
           aria-label="Close me"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
           tabindex="0"
           type="button"
         >
@@ -72,7 +72,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
           tabindex="0"
           type="button"
         >
@@ -128,7 +128,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
           tabindex="0"
           type="button"
         >
@@ -184,7 +184,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
           tabindex="0"
           type="button"
         >
@@ -240,7 +240,7 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
           tabindex="0"
           type="button"
         >
@@ -305,7 +305,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
           tabindex="0"
           type="button"
         >
@@ -361,7 +361,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
           tabindex="0"
           type="button"
         >
@@ -417,7 +417,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
           tabindex="0"
           type="button"
         >
@@ -473,7 +473,7 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
           tabindex="0"
           type="button"
         >
@@ -538,7 +538,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
           tabindex="0"
           type="button"
         >
@@ -594,7 +594,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
           tabindex="0"
           type="button"
         >
@@ -650,7 +650,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
           tabindex="0"
           type="button"
         >
@@ -706,7 +706,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
           tabindex="0"
           type="button"
         >
@@ -762,7 +762,7 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
           tabindex="0"
           type="button"
         >
@@ -827,7 +827,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
           tabindex="0"
           type="button"
         >
@@ -883,7 +883,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
           tabindex="0"
           type="button"
         >
@@ -939,7 +939,7 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
           tabindex="0"
           type="button"
         >
@@ -1004,7 +1004,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
           tabindex="0"
           type="button"
         >
@@ -1060,7 +1060,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
           tabindex="0"
           type="button"
         >
@@ -1116,7 +1116,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
           tabindex="0"
           type="button"
         >
@@ -1172,7 +1172,7 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
           tabindex="0"
           type="button"
         >
@@ -1237,7 +1237,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
           tabindex="0"
           type="button"
         >
@@ -1294,7 +1294,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
           tabindex="0"
           type="button"
         >
@@ -1350,7 +1350,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
           tabindex="0"
           type="button"
         >
@@ -1406,7 +1406,7 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
           tabindex="0"
           type="button"
         >
@@ -1455,13 +1455,259 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
 </div>
 `;
 
+exports[`ExpandableCard component Should render the ExpandedCard expanded 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          aria-label="Title"
+          class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+          role="button"
+          style="min-height: 100%; pointer-events: auto;"
+        >
+          <div
+            class="MuiCardContent-root content"
+          >
+            <div
+              class="header"
+            >
+              <svg
+                class="icon"
+              />
+              <h5
+                class="MuiTypography-root title Typography MuiTypography-h5"
+              >
+                Title
+              </h5>
+            </div>
+            <div
+              class="body"
+            >
+              Body
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        aria-label="Title"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%; pointer-events: auto;"
+      >
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Title
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Body
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ExpandableCard component Should render the ExpandedCard not expanded 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <div
+          aria-label="Title"
+          class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+          role="button"
+          style="min-height: 100%; pointer-events: auto;"
+        >
+          <div
+            class="MuiCardContent-root content"
+          >
+            <div
+              class="header"
+            >
+              <svg
+                class="icon"
+              />
+              <h5
+                class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              >
+                Title
+              </h5>
+            </div>
+            <div
+              class="body"
+            >
+              Body
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <div
+        aria-label="Title"
+        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%; pointer-events: auto;"
+      >
+        <div
+          class="MuiCardContent-root content"
+        >
+          <div
+            class="header"
+          >
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            >
+              Title
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Body
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`ExpandableCard component it expands the card when changing isExpanded 1`] = `
 <div>
   <div
     style="min-width: 0px; height: 0px;"
   >
     <div
-      aria-label="Lorem Ipsum"
+      aria-label="Title"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
       style="pointer-events: auto; height: 0px;"
@@ -1478,13 +1724,13 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 1
           <h5
             class="MuiTypography-root title Typography MuiTypography-h5"
           >
-            Lorem Ipsum
+            Title
           </h5>
         </div>
         <div
           class="body"
         >
-          Sit dolor amet
+          Body
         </div>
       </div>
     </div>
@@ -1498,7 +1744,7 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 2
     style=""
   >
     <div
-      aria-label="Lorem Ipsum"
+      aria-label="Title"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
       style="pointer-events: auto; min-height: 100%;"
@@ -1515,13 +1761,13 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 2
           <h5
             class="MuiTypography-root title title--static Typography MuiTypography-h5"
           >
-            Lorem Ipsum
+            Title
           </h5>
         </div>
         <div
           class="body"
         >
-          Sit dolor amet
+          Body
         </div>
       </div>
     </div>
@@ -1537,112 +1783,125 @@ Array [
 ]
 `;
 
-exports[`ExpandableCard component renders an expanded card 1`] = `
-<div>
-  <div>
-    <div
-      aria-label="Lorem Ipsum"
-      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%; pointer-events: auto;"
-    >
-      <div
-        class="MuiCardContent-root content"
-      >
+exports[`ExpandableCard component should call onResize on a window resize and match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
         <div
-          class="header"
+          aria-label="Title"
+          class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+          role="button"
+          style="min-height: 100%; pointer-events: auto;"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
+          <div
+            class="MuiCardContent-root content"
           >
-            Lorem Ipsum
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
+            <div
+              class="header"
+            >
+              <svg
+                class="icon"
+              />
+              <h5
+                class="MuiTypography-root title Typography MuiTypography-h5"
+              >
+                Title
+              </h5>
+            </div>
+            <div
+              class="body"
+            >
+              Body
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component renders correctly 1`] = `
-<div>
-  <div>
-    <div
-      aria-label="Lorem Ipsum"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%; pointer-events: auto;"
-    >
+  </body>,
+  "container": <div>
+    <div>
       <div
-        class="MuiCardContent-root content"
+        aria-label="Title"
+        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        role="button"
+        style="min-height: 100%; pointer-events: auto;"
       >
         <div
-          class="header"
+          class="MuiCardContent-root content"
         >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+          <div
+            class="header"
           >
-            Lorem Ipsum
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-        <div
-          class="footer"
-        >
-          consectetur adipiscing elit
+            <svg
+              class="icon"
+            />
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              Title
+            </h5>
+          </div>
+          <div
+            class="body"
+          >
+            Body
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`ExpandableCard component renders with no footer 1`] = `
-<div>
-  <div>
-    <div
-      aria-label="Lorem Ipsum"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
-      role="button"
-      style="min-height: 100%; pointer-events: auto;"
-    >
-      <div
-        class="MuiCardContent-root content"
-      >
-        <div
-          class="header"
-        >
-          <svg
-            class="icon"
-          />
-          <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
-          >
-            Lorem Ipsum
-          </h5>
-        </div>
-        <div
-          class="body"
-        >
-          Sit dolor amet
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
