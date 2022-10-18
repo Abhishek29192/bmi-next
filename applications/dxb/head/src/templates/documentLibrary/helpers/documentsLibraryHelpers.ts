@@ -1,4 +1,5 @@
 import { Filter } from "@bmi/components/src";
+import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import { Format } from "../components/DocumentResults";
 import { ContentfulDocumentLibraryPage, DocumentType } from "../types";
@@ -75,11 +76,20 @@ export const sourceMapToDocumentType: Record<
   ALL: ""
 };
 
-export const compileESQuery = (filters, page, pageSize, source, resultType) => {
+export const compileESQuery = (
+  filters,
+  page,
+  pageSize,
+  source,
+  resultType,
+  assetTypes: AssetTypeData[] | null
+) => {
   const userSelectedFilterTerms = generateUserSelectedFilterTerms(filters);
   // eslint-disable-next-line security/detect-object-injection
   const documentType = sourceMapToDocumentType[source];
-
+  const assetTypePimCodes = (assetTypes || [])
+    .filter((item) => item.pimCode && item.pimCode.length > 0)
+    .map((item) => item.pimCode);
   return {
     size: pageSize,
     from: page * pageSize,
@@ -107,6 +117,12 @@ export const compileESQuery = (filters, page, pageSize, source, resultType) => {
               }
             }
           },
+          assetTypePimCodes &&
+            assetTypePimCodes.length > 0 && {
+              terms: {
+                "assetType.pimCode.keyword": [...assetTypePimCodes]
+              }
+            },
           ...userSelectedFilterTerms
         ].filter(Boolean)
       }

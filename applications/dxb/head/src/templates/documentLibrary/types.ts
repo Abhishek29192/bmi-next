@@ -4,6 +4,7 @@ import { Data as PageInfoData } from "../../components/PageInfo";
 import { RichTextData } from "../../components/RichText";
 import { Data as SiteData } from "../../components/Site";
 import { DocumentsFilters } from "../../schema/resolvers/types/DocumentsFilters";
+import { ContentfulAssetType as AssetTypeData } from "../../types/AssetType";
 import { ContentfulDocument } from "../../types/Document";
 import { ProductDocument } from "../../types/pim";
 import { ResultType, Source, URLFilter } from "../../utils/filters";
@@ -28,6 +29,7 @@ export interface ContentfulDocumentLibraryPage extends PageInfoData, PageData {
   categoryCodes: string[];
   breadcrumbTitle: string;
   documentsFilters: DocumentsFilters | null;
+  assetTypes: AssetTypeData[] | null;
 }
 
 export interface DocumentLibraryProps {
