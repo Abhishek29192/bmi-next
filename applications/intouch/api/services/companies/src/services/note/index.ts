@@ -64,7 +64,7 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
   );
 
   const {
-    rows: [{ first_name: firstName, last_name: lastName, email }]
+    rows: [author]
   } = await pgRootPool.query(
     `SELECT email, first_name, last_name FROM account WHERE id = $1 `,
     [authorId]
@@ -73,7 +73,9 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
   const dynamicContent = {
     project: `${projectDetails.name}`,
     projectId,
-    noteAuthor: `${firstName} ${lastName} (${email})`,
+    noteAuthor: author
+      ? `${author.first_name} ${author.last_name} (${author.email})`
+      : "",
     noteSnippet: body
   };
 

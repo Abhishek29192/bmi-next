@@ -71,6 +71,10 @@ describe("Note", () => {
     noteSnippet: args.input.note.body
   };
 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should create note with no company admin", async () => {
     context.user.can = () => true;
 
@@ -153,6 +157,83 @@ describe("Note", () => {
       {
         accountId: 2,
         email: "email2",
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+  });
+
+  it("should create note and send message with no author found", async () => {
+    const authorDetails = {
+      noteAuthor: "",
+      noteSnippet: args.input.note.body
+    };
+    context.user.can = () => true;
+
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [
+          {
+            name: "project_name",
+            companyId: 1,
+            marketId: 1
+          }
+        ]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: mockCompanyAdminUsers
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }))
+      .mockImplementationOnce(() => ({}));
+
+    await createNote(
+      resolve,
+      source,
+      {
+        input: {
+          note: {
+            projectId: 1,
+            body: "body"
+          }
+        }
+      },
+      context,
+      resolveInfo
+    );
+
+    expect(resolve).toBeCalled();
+    const calledTime = mockCompanyAdminUsers.length;
+    expect(sendMessageWithTemplate).toBeCalledTimes(calledTime);
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: mockCompanyAdminUsers[0].id,
+        email: mockCompanyAdminUsers[0].email,
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: mockCompanyAdminUsers[1].id,
+        email: mockCompanyAdminUsers[1].email,
         project: "project_name",
         projectId: 1,
         ...authorDetails
