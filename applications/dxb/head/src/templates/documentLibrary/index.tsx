@@ -64,6 +64,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     description,
     source,
     resultsType,
+    assetTypes,
     breadcrumbs,
     breadcrumbTitle,
     seo,
@@ -100,7 +101,14 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
 
     setIsLoading(true);
 
-    const query = compileESQuery(filters, page, pageSize, source, resultsType);
+    const query = compileESQuery(
+      filters,
+      page,
+      pageSize,
+      source,
+      resultsType,
+      assetTypes
+    );
     const result = await queryElasticSearch(
       query,
       process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
@@ -303,6 +311,9 @@ export const pageQuery = graphql`
       categoryCodes
       allowFilterBy
       resultsType
+      assetTypes {
+        pimCode
+      }
       documentsFilters {
         filters {
           filterCode
