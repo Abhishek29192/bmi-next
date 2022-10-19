@@ -117,12 +117,11 @@ export const compileESQuery = (
               }
             }
           },
-          assetTypePimCodes &&
-            assetTypePimCodes.length > 0 && {
-              terms: {
-                "assetType.pimCode.keyword": [...assetTypePimCodes]
-              }
-            },
+          assetTypePimCodes.length && {
+            terms: {
+              "assetType.pimCode.keyword": [...assetTypePimCodes]
+            }
+          },
           ...userSelectedFilterTerms
         ].filter(Boolean)
       }
