@@ -354,6 +354,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -484,6 +485,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -614,6 +616,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -891,6 +894,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -1015,6 +1019,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -1336,6 +1341,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;
@@ -1682,6 +1688,7 @@ Array [
     "summary": "Summary",
     "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
+    "visualiserAssets": undefined,
   },
 ]
 `;

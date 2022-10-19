@@ -168,7 +168,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "description",
       "longDescription",
       "shortDescription",
-      "productBenefits"
+      "productBenefits",
+      "visualiserAssets"
     );
 
     let measurementValue: string;

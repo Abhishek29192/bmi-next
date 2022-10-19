@@ -1,5 +1,6 @@
 import type {
   ApprovalStatus,
+  Asset,
   AssetTypeData,
   BaseProduct,
   Category as PimCategory,
@@ -65,6 +66,7 @@ export type Product = {
   path: string;
   subTitle: string;
   productReferences?: ProductReference[];
+  visualiserAssets?: readonly Asset[];
 } & {
   [extractedFilter: string]: any;
 };

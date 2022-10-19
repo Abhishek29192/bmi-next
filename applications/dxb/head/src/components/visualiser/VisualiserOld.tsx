@@ -33,22 +33,21 @@ import React, {
 import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
 import { useMicroCopy } from "./helpers/useMicroCopy";
-import HouseViewer from "./HouseViewer";
 import HouseViewerOld from "./HouseViewerOld";
 import styles from "./styles/VisualiserOld.module.scss";
-import TileViewer from "./TileViewer";
+import TileViewer from "./TileViewerOld";
 import { Colour, Material, Siding, Tile } from "./Types";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;
 } = {
-  "1": microCopy.materials.material1,
-  "2": microCopy.materials.material2,
-  "3": microCopy.materials.material3
+  "1": microCopy.materials.clay,
+  "2": microCopy.materials.concrete,
+  "3": microCopy.materials.metal
 };
 
 export type Parameters = {
-  tileId?: number;
+  tileId?: number | string;
   colourId?: number;
   sidingId?: number;
   viewMode?: "tile" | "roof";
@@ -436,10 +435,7 @@ const SharePopover = ({
 
 const viewerComponentMap = {
   tile: TileViewer,
-  roof:
-    process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
-      ? HouseViewer
-      : HouseViewerOld
+  roof: HouseViewerOld
 };
 
 const Visualiser = ({

@@ -22,11 +22,10 @@ import {
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { rotationAngleInRad } from "./constants/visualiser";
 import styles from "./styles/Viewer.module.scss";
-import { Colour, Siding, Tile } from "./Types";
+import { PIMTile, Siding } from "./Types";
 
 export interface Props {
-  tile: Tile;
-  colour: Colour;
+  tile: PIMTile;
   options: { contentSource: string };
   siding: Siding;
   setIsLoading: (isLoading: boolean) => void;
@@ -36,9 +35,10 @@ export interface State {
   isLoading: boolean;
   showRotationTooltip?: boolean;
   cameraPosition?: Vector3;
+  tileCode?: string;
 }
 
-const isVisualisatorEnabled =
+const isVisualiserEnabled =
   process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true";
 
 export default abstract class Viewer<
@@ -89,13 +89,13 @@ export default abstract class Viewer<
 
   /**
    * Check if any property values have changed. By default, this checks for
-   * props.tile and props.colour.
+   * props.tile.
    *
    * @param props Poperties to check if they have changed
    * @returns true if any have changed, false otherwise
    */
   propsChanged(props: P): boolean {
-    return props.tile !== this.props.tile || props.colour !== this.props.colour;
+    return props.tile.code !== this.props.tile.code;
   }
 
   UNSAFE_componentWillReceiveProps(props: P) {
@@ -312,18 +312,14 @@ export default abstract class Viewer<
 
   render() {
     return (
-      <div
-        className={
-          isVisualisatorEnabled ? styles["viewer-new"] : styles["viewer"]
-        }
-      >
+      <div className={styles["viewer-new"]}>
         <div
           className={styles["canvas"]}
           ref={(r) => {
             this.container = r;
           }}
         />
-        {isVisualisatorEnabled && (
+        {isVisualiserEnabled && (
           <div className={styles["controls"]}>
             <div className={styles["controls-group"]}>
               <Icon
