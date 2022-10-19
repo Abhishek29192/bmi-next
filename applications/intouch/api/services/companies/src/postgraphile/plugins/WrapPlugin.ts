@@ -8,7 +8,8 @@ import {
   UpdateGuaranteeInput,
   UpdateProjectMemberInput,
   CreateDoubleAcceptanceInput,
-  UpdateDoubleAcceptanceInput
+  UpdateDoubleAcceptanceInput,
+  UpdateMerchandiseTiersByMarketInput
 } from "@bmi/intouch-api-types";
 import {
   createCompany,
@@ -29,6 +30,7 @@ import Auth0 from "../../services/auth0";
 import * as companyDocumentMutation from "../../services/companyDocument";
 import * as doceboTierMutation from "../../services/doceboTier";
 import * as doubleAcceptanceMutation from "../../services/doubleAcceptance";
+import { updateMerchandiseTiersByMarket } from "../../services/merchandise";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -226,6 +228,16 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
               resolveInfo
             );
           }
+        }
+      },
+      updateMerchandiseTiersByMarket: {
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: UpdateMerchandiseTiersByMarketInput },
+          context: PostGraphileContext
+        ) {
+          return updateMerchandiseTiersByMarket(resolve, source, args, context);
         }
       }
     }

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediaGrid should render component 1`] = `
+<body>
+  <div>
+    <div
+      class="mediaGrid"
+    >
+      <div
+        class="meta"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+        >
+          countIndicator
+        </h6>
+      </div>
+      <div>
+        <div
+          class="tiles"
+        >
+          <div>
+            <div
+              class="content"
+            >
+              <button
+                class="MuiButtonBase-root MuiCardActionArea-root"
+                tabindex="0"
+                type="button"
+              >
+                <div
+                  class="outlined"
+                >
+                  <div
+                    class="MuiCardContent-root content"
+                  >
+                    <svg
+                      color="primary"
+                      style="width: 50px; display: block;"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="footer"
+                >
+                  <span
+                    class="MuiTypography-root title Typography MuiTypography-button"
+                  >
+                    mediaTool
+                  </span>
+                  <span
+                    class="MuiTypography-root meta Typography MuiTypography-button"
+                  >
+                    contentTypes.EXTERNAL_LINK
+                  </span>
+                </div>
+                <span
+                  class="MuiCardActionArea-focusHighlight"
+                />
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

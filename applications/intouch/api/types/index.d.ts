@@ -432,6 +432,7 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -1141,6 +1142,86 @@ export type AddressPatch = {
   town?: InputMaybe<Scalars["String"]>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
 };
+
+export type AddressTrading = Node & {
+  __typename?: "AddressTrading";
+  addressId?: Maybe<Scalars["Int"]>;
+  companyId?: Maybe<Scalars["Int"]>;
+  createdAt: Scalars["Datetime"];
+  id: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+};
+
+/**
+ * A condition to be used against `AddressTrading` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type AddressTradingCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `AddressTrading` object types. All fields are combined with a logical ‘and.’ */
+export type AddressTradingFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<AddressTradingFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<AddressTradingFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<AddressTradingFilter>>;
+};
+
+/** An input for mutations affecting `AddressTrading` */
+export type AddressTradingInput = {
+  addressId?: InputMaybe<Scalars["Int"]>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
+};
+
+/** Represents an update to a `AddressTrading`. Fields that are set will be updated. */
+export type AddressTradingPatch = {
+  addressId?: InputMaybe<Scalars["Int"]>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
+};
+
+/** A connection to a list of `AddressTrading` values. */
+export type AddressTradingsConnection = {
+  __typename?: "AddressTradingsConnection";
+  /** A list of edges which contains the `AddressTrading` and cursor to aid in pagination. */
+  edges: Array<AddressTradingsEdge>;
+  /** A list of `AddressTrading` objects. */
+  nodes: Array<AddressTrading>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `AddressTrading` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `AddressTrading` edge in the connection. */
+export type AddressTradingsEdge = {
+  __typename?: "AddressTradingsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `AddressTrading` at the end of the edge. */
+  node: AddressTrading;
+};
+
+/** Methods to use when ordering `AddressTrading`. */
+export type AddressTradingsOrderBy =
+  | "ID_ASC"
+  | "ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A connection to a list of `Address` values. */
 export type AddressesConnection = {
@@ -2501,6 +2582,7 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -2895,6 +2977,7 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -5130,6 +5213,38 @@ export type CreateAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
 };
 
+/** All input for the create `AddressTrading` mutation. */
+export type CreateAddressTradingInput = {
+  /** The `AddressTrading` to be created by this mutation. */
+  addressTrading: AddressTradingInput;
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+};
+
+/** The output of our create `AddressTrading` mutation. */
+export type CreateAddressTradingPayload = {
+  __typename?: "CreateAddressTradingPayload";
+  /** The `AddressTrading` that was created by this mutation. */
+  addressTrading?: Maybe<AddressTrading>;
+  /** An edge for our `AddressTrading`. May be used by Relay 1. */
+  addressTradingEdge?: Maybe<AddressTradingsEdge>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `AddressTrading` mutation. */
+export type CreateAddressTradingPayloadAddressTradingEdgeArgs = {
+  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
+};
+
 /** All input for the create `Certification` mutation. */
 export type CreateCertificationInput = {
   /** The `Certification` to be created by this mutation. */
@@ -5749,6 +5864,38 @@ export type CreateMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
 };
 
+/** All input for the create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `MerchandiseTier` to be created by this mutation. */
+  merchandiseTier: MerchandiseTierInput;
+};
+
+/** The output of our create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierPayload = {
+  __typename?: "CreateMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `MerchandiseTier` that was created by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
 /** All input for the create `Note` mutation. */
 export type CreateNoteInput = {
   /**
@@ -6162,6 +6309,49 @@ export type DeleteAddressPayload = {
 /** The output of our delete `Address` mutation. */
 export type DeleteAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
+};
+
+/** All input for the `deleteAddressTradingByNodeId` mutation. */
+export type DeleteAddressTradingByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `AddressTrading` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteAddressTrading` mutation. */
+export type DeleteAddressTradingInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `AddressTrading` mutation. */
+export type DeleteAddressTradingPayload = {
+  __typename?: "DeleteAddressTradingPayload";
+  /** The `AddressTrading` that was deleted by this mutation. */
+  addressTrading?: Maybe<AddressTrading>;
+  /** An edge for our `AddressTrading`. May be used by Relay 1. */
+  addressTradingEdge?: Maybe<AddressTradingsEdge>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedAddressTradingNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `AddressTrading` mutation. */
+export type DeleteAddressTradingPayloadAddressTradingEdgeArgs = {
+  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
 };
 
 /** All input for the `deleteCertificationByNodeId` mutation. */
@@ -7138,6 +7328,60 @@ export type DeleteMarketPayload = {
 /** The output of our delete `Market` mutation. */
 export type DeleteMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
+};
+
+/** All input for the `deleteMerchandiseTierByMarketIdAndTierCode` mutation. */
+export type DeleteMerchandiseTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** All input for the `deleteMerchandiseTierByNodeId` mutation. */
+export type DeleteMerchandiseTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `MerchandiseTier` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteMerchandiseTier` mutation. */
+export type DeleteMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `MerchandiseTier` mutation. */
+export type DeleteMerchandiseTierPayload = {
+  __typename?: "DeleteMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedMerchandiseTierNodeId?: Maybe<Scalars["ID"]>;
+  /** The `MerchandiseTier` that was deleted by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `MerchandiseTier` mutation. */
+export type DeleteMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
 };
 
 /** All input for the `deleteNoteByNodeId` mutation. */
@@ -11510,6 +11754,7 @@ export type Market = Node & {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
+  merchandiseSso?: Maybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -11895,6 +12140,7 @@ export type MarketInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -12191,6 +12437,7 @@ export type MarketPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -12346,12 +12593,18 @@ export type MediaFolderOrder =
 export type MediaTool = Entry & {
   __typename?: "MediaTool";
   contentfulMetadata: ContentfulMetadata;
+  cta?: Maybe<Scalars["String"]>;
   linkedFrom?: Maybe<MediaToolLinkingCollections>;
   media?: Maybe<Asset>;
   name?: Maybe<Scalars["String"]>;
   sys: Sys;
   thumbnail?: Maybe<Asset>;
   url?: Maybe<Scalars["String"]>;
+};
+
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+export type MediaToolCtaArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
@@ -12393,6 +12646,13 @@ export type MediaToolFilter = {
   AND?: InputMaybe<Array<InputMaybe<MediaToolFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<MediaToolFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  cta?: InputMaybe<Scalars["String"]>;
+  cta_contains?: InputMaybe<Scalars["String"]>;
+  cta_exists?: InputMaybe<Scalars["Boolean"]>;
+  cta_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  cta_not?: InputMaybe<Scalars["String"]>;
+  cta_not_contains?: InputMaybe<Scalars["String"]>;
+  cta_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   media_exists?: InputMaybe<Scalars["Boolean"]>;
   name?: InputMaybe<Scalars["String"]>;
   name_contains?: InputMaybe<Scalars["String"]>;
@@ -12433,6 +12693,8 @@ export type MediaToolLinkingCollectionsMediaFolderCollectionArgs = {
 };
 
 export type MediaToolOrder =
+  | "cta_ASC"
+  | "cta_DESC"
   | "name_ASC"
   | "name_DESC"
   | "sys_firstPublishedAt_ASC"
@@ -12445,6 +12707,89 @@ export type MediaToolOrder =
   | "sys_publishedVersion_DESC"
   | "url_ASC"
   | "url_DESC";
+
+export type MerchandiseTier = Node & {
+  __typename?: "MerchandiseTier";
+  id: Scalars["Int"];
+  marketId: Scalars["Int"];
+  merchandiseDivisionId?: Maybe<Scalars["Int"]>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  tierCode: Tier;
+};
+
+/**
+ * A condition to be used against `MerchandiseTier` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type MerchandiseTierCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `MerchandiseTier` object types. All fields are combined with a logical ‘and.’ */
+export type MerchandiseTierFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<MerchandiseTierFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<MerchandiseTierFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<MerchandiseTierFilter>>;
+};
+
+/** An input for mutations affecting `MerchandiseTier` */
+export type MerchandiseTierInput = {
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
+  merchandiseDivisionId?: InputMaybe<Scalars["Int"]>;
+  tierCode: Tier;
+};
+
+/** Represents an update to a `MerchandiseTier`. Fields that are set will be updated. */
+export type MerchandiseTierPatch = {
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  merchandiseDivisionId?: InputMaybe<Scalars["Int"]>;
+  tierCode?: InputMaybe<Tier>;
+};
+
+/** A connection to a list of `MerchandiseTier` values. */
+export type MerchandiseTiersConnection = {
+  __typename?: "MerchandiseTiersConnection";
+  /** A list of edges which contains the `MerchandiseTier` and cursor to aid in pagination. */
+  edges: Array<MerchandiseTiersEdge>;
+  /** A list of `MerchandiseTier` objects. */
+  nodes: Array<MerchandiseTier>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `MerchandiseTier` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `MerchandiseTier` edge in the connection. */
+export type MerchandiseTiersEdge = {
+  __typename?: "MerchandiseTiersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `MerchandiseTier` at the end of the edge. */
+  node: MerchandiseTier;
+};
+
+/** Methods to use when ordering `MerchandiseTier`. */
+export type MerchandiseTiersOrderBy =
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplate = Entry & {
@@ -12676,6 +13021,8 @@ export type Mutation = {
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
+  /** Creates a single `AddressTrading`. */
+  createAddressTrading?: Maybe<CreateAddressTradingPayload>;
   /** Creates a single `Certification`. */
   createCertification?: Maybe<CreateCertificationPayload>;
   createCompany?: Maybe<CreateCompanyPayload>;
@@ -12712,6 +13059,8 @@ export type Mutation = {
   createGuaranteePdf?: Maybe<PublishOutput>;
   /** Creates a single `Market`. */
   createMarket?: Maybe<CreateMarketPayload>;
+  /** Creates a single `MerchandiseTier`. */
+  createMerchandiseTier?: Maybe<CreateMerchandiseTierPayload>;
   /** Creates a single `Note`. */
   createNote?: Maybe<CreateNotePayload>;
   /** Creates a single `Notification`. */
@@ -12739,6 +13088,10 @@ export type Mutation = {
   deleteAddress?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using its globally unique id. */
   deleteAddressByNodeId?: Maybe<DeleteAddressPayload>;
+  /** Deletes a single `AddressTrading` using a unique key. */
+  deleteAddressTrading?: Maybe<DeleteAddressTradingPayload>;
+  /** Deletes a single `AddressTrading` using its globally unique id. */
+  deleteAddressTradingByNodeId?: Maybe<DeleteAddressTradingPayload>;
   /** Deletes a single `Certification` using a unique key. */
   deleteCertification?: Maybe<DeleteCertificationPayload>;
   /** Deletes a single `Certification` using its globally unique id. */
@@ -12836,6 +13189,12 @@ export type Mutation = {
   deleteMarketByDomain?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using its globally unique id. */
   deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
+  /** Deletes a single `MerchandiseTier` using a unique key. */
+  deleteMerchandiseTier?: Maybe<DeleteMerchandiseTierPayload>;
+  /** Deletes a single `MerchandiseTier` using a unique key. */
+  deleteMerchandiseTierByMarketIdAndTierCode?: Maybe<DeleteMerchandiseTierPayload>;
+  /** Deletes a single `MerchandiseTier` using its globally unique id. */
+  deleteMerchandiseTierByNodeId?: Maybe<DeleteMerchandiseTierPayload>;
   /** Deletes a single `Note` using a unique key. */
   deleteNote?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Note` using its globally unique id. */
@@ -12876,6 +13235,7 @@ export type Mutation = {
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
+  performMerchandiseSso?: Maybe<Scalars["String"]>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   releaseGuaranteePdf?: Maybe<PublishOutput>;
@@ -12896,6 +13256,10 @@ export type Mutation = {
   updateAddress?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
   updateAddressByNodeId?: Maybe<UpdateAddressPayload>;
+  /** Updates a single `AddressTrading` using a unique key and a patch. */
+  updateAddressTrading?: Maybe<UpdateAddressTradingPayload>;
+  /** Updates a single `AddressTrading` using its globally unique id and a patch. */
+  updateAddressTradingByNodeId?: Maybe<UpdateAddressTradingPayload>;
   /** Updates a single `Certification` using a unique key and a patch. */
   updateCertification?: Maybe<UpdateCertificationPayload>;
   /** Updates a single `Certification` using its globally unique id and a patch. */
@@ -12996,6 +13360,15 @@ export type Mutation = {
   updateMarketByDomain?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using its globally unique id and a patch. */
   updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
+  /** Updates a single `MerchandiseTier` using a unique key and a patch. */
+  updateMerchandiseTier?: Maybe<UpdateMerchandiseTierPayload>;
+  /** Updates a single `MerchandiseTier` using a unique key and a patch. */
+  updateMerchandiseTierByMarketIdAndTierCode?: Maybe<UpdateMerchandiseTierPayload>;
+  /** Updates a single `MerchandiseTier` using its globally unique id and a patch. */
+  updateMerchandiseTierByNodeId?: Maybe<UpdateMerchandiseTierPayload>;
+  updateMerchandiseTiersByMarket?: Maybe<
+    Array<Maybe<UpdateMerchandiseTiersByMarketResult>>
+  >;
   /** Updates a single `Note` using a unique key and a patch. */
   updateNote?: Maybe<UpdateNotePayload>;
   /** Updates a single `Note` using its globally unique id and a patch. */
@@ -13082,6 +13455,11 @@ export type MutationCreateAccountArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateAddressArgs = {
   input: CreateAddressInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateAddressTradingArgs = {
+  input: CreateAddressTradingInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13185,6 +13563,11 @@ export type MutationCreateMarketArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateMerchandiseTierArgs = {
+  input: CreateMerchandiseTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateNoteArgs = {
   input: CreateNoteInput;
 };
@@ -13253,6 +13636,16 @@ export type MutationDeleteAddressArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAddressByNodeIdArgs = {
   input: DeleteAddressByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAddressTradingArgs = {
+  input: DeleteAddressTradingInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAddressTradingByNodeIdArgs = {
+  input: DeleteAddressTradingByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13502,6 +13895,21 @@ export type MutationDeleteMarketByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierArgs = {
+  input: DeleteMerchandiseTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierByMarketIdAndTierCodeArgs = {
+  input: DeleteMerchandiseTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierByNodeIdArgs = {
+  input: DeleteMerchandiseTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteNoteArgs = {
   input: DeleteNoteInput;
 };
@@ -13618,6 +14026,11 @@ export type MutationMarkAllNotificationsAsReadArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationPerformMerchandiseSsoArgs = {
+  email: Scalars["String"];
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationProjectMembersAddArgs = {
   input: ProjectMembersAddInput;
 };
@@ -13675,6 +14088,16 @@ export type MutationUpdateAddressArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAddressByNodeIdArgs = {
   input: UpdateAddressByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAddressTradingArgs = {
+  input: UpdateAddressTradingInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAddressTradingByNodeIdArgs = {
+  input: UpdateAddressTradingByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13926,6 +14349,26 @@ export type MutationUpdateMarketByDomainArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMarketByNodeIdArgs = {
   input: UpdateMarketByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierArgs = {
+  input: UpdateMerchandiseTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierByMarketIdAndTierCodeArgs = {
+  input: UpdateMerchandiseTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierByNodeIdArgs = {
+  input: UpdateMerchandiseTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTiersByMarketArgs = {
+  input?: InputMaybe<UpdateMerchandiseTiersByMarketInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -15065,6 +15508,7 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -16438,6 +16882,11 @@ export type Query = Node & {
   address?: Maybe<Address>;
   /** Reads a single `Address` using its globally unique `ID`. */
   addressByNodeId?: Maybe<Address>;
+  addressTrading?: Maybe<AddressTrading>;
+  /** Reads a single `AddressTrading` using its globally unique `ID`. */
+  addressTradingByNodeId?: Maybe<AddressTrading>;
+  /** Reads and enables pagination through a set of `AddressTrading`. */
+  addressTradings?: Maybe<AddressTradingsConnection>;
   /** Reads and enables pagination through a set of `Address`. */
   addresses?: Maybe<AddressesConnection>;
   asset?: Maybe<Asset>;
@@ -16586,6 +17035,12 @@ export type Query = Node & {
   mediaFolderCollection?: Maybe<MediaFolderCollection>;
   mediaTool?: Maybe<MediaTool>;
   mediaToolCollection?: Maybe<MediaToolCollection>;
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  merchandiseTierByMarketIdAndTierCode?: Maybe<MerchandiseTier>;
+  /** Reads a single `MerchandiseTier` using its globally unique `ID`. */
+  merchandiseTierByNodeId?: Maybe<MerchandiseTier>;
+  /** Reads and enables pagination through a set of `MerchandiseTier`. */
+  merchandiseTiers?: Maybe<MerchandiseTiersConnection>;
   messageTemplate?: Maybe<MessageTemplate>;
   messageTemplateCollection?: Maybe<MessageTemplateCollection>;
   migration?: Maybe<Migration>;
@@ -16701,6 +17156,28 @@ export type QueryAddressArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryAddressByNodeIdArgs = {
   nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAddressTradingArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAddressTradingByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAddressTradingsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<AddressTradingCondition>;
+  filter?: InputMaybe<AddressTradingFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -17470,6 +17947,34 @@ export type QueryMediaToolCollectionArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierByMarketIdAndTierCodeArgs = {
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTiersArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<MerchandiseTierCondition>;
+  filter?: InputMaybe<MerchandiseTierFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryMessageTemplateArgs = {
   id: Scalars["String"];
   locale?: InputMaybe<Scalars["String"]>;
@@ -18155,6 +18660,7 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -18363,6 +18869,7 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -19510,6 +20017,52 @@ export type UpdateAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
 };
 
+/** All input for the `updateAddressTradingByNodeId` mutation. */
+export type UpdateAddressTradingByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `AddressTrading` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `AddressTrading` being updated. */
+  patch: AddressTradingPatch;
+};
+
+/** All input for the `updateAddressTrading` mutation. */
+export type UpdateAddressTradingInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `AddressTrading` being updated. */
+  patch: AddressTradingPatch;
+};
+
+/** The output of our update `AddressTrading` mutation. */
+export type UpdateAddressTradingPayload = {
+  __typename?: "UpdateAddressTradingPayload";
+  /** The `AddressTrading` that was updated by this mutation. */
+  addressTrading?: Maybe<AddressTrading>;
+  /** An edge for our `AddressTrading`. May be used by Relay 1. */
+  addressTradingEdge?: Maybe<AddressTradingsEdge>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `AddressTrading` mutation. */
+export type UpdateAddressTradingPayloadAddressTradingEdgeArgs = {
+  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
+};
+
 /** All input for the `updateCertificationByNodeId` mutation. */
 export type UpdateCertificationByNodeIdInput = {
   /**
@@ -20584,6 +21137,84 @@ export type UpdateMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
 };
 
+/** All input for the `updateMerchandiseTierByMarketIdAndTierCode` mutation. */
+export type UpdateMerchandiseTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+  tierCode: Tier;
+};
+
+/** All input for the `updateMerchandiseTierByNodeId` mutation. */
+export type UpdateMerchandiseTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `MerchandiseTier` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+};
+
+/** All input for the `updateMerchandiseTier` mutation. */
+export type UpdateMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+};
+
+/** The output of our update `MerchandiseTier` mutation. */
+export type UpdateMerchandiseTierPayload = {
+  __typename?: "UpdateMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `MerchandiseTier` that was updated by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `MerchandiseTier` mutation. */
+export type UpdateMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
+export type UpdateMerchandiseTiersByMarketInput = {
+  marketId?: InputMaybe<Scalars["Int"]>;
+  merchandiseT1?: InputMaybe<Scalars["Int"]>;
+  merchandiseT2?: InputMaybe<Scalars["Int"]>;
+  merchandiseT3?: InputMaybe<Scalars["Int"]>;
+  merchandiseT4?: InputMaybe<Scalars["Int"]>;
+  merchandiseT5?: InputMaybe<Scalars["Int"]>;
+  merchandiseT6?: InputMaybe<Scalars["Int"]>;
+  merchandiseT7?: InputMaybe<Scalars["Int"]>;
+};
+
+export type UpdateMerchandiseTiersByMarketResult = {
+  __typename?: "UpdateMerchandiseTiersByMarketResult";
+  id?: Maybe<Scalars["Int"]>;
+  market_id?: Maybe<Scalars["Int"]>;
+  merchandise_division_id?: Maybe<Scalars["Int"]>;
+  tier_code?: Maybe<Tier>;
+};
+
 /** All input for the `updateNoteByNodeId` mutation. */
 export type UpdateNoteByNodeIdInput = {
   /**
@@ -21059,6 +21690,7 @@ export type UserUpdateResponse = {
 export type _Entity =
   | Account
   | Address
+  | AddressTrading
   | Certification
   | Company
   | CompanyDocument
@@ -21077,6 +21709,7 @@ export type _Entity =
   | Guarantee
   | Invitation
   | Market
+  | MerchandiseTier
   | Note
   | Notification
   | Product
@@ -22826,6 +23459,7 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -22872,6 +23506,7 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -22918,6 +23553,7 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -22964,6 +23600,7 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -23010,6 +23647,7 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
@@ -23056,6 +23694,7 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */

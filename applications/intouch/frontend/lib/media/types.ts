@@ -17,7 +17,9 @@ export type MediaTool = Omit<ContentfulMediaTool, "contentfulMetadata"> & {
   __typename: "MediaTool";
 };
 
-export type MediaItem = MediaFolder["childrenCollection"]["items"][0];
+export type MediaItem = MediaFolder["childrenCollection"]["items"][0] & {
+  cta?: string;
+};
 
 export type GalleryItem = {
   type: "image" | "pdf" | "vimeo";

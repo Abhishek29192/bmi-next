@@ -372,6 +372,7 @@ export const MediaToolDetailsFragmentDoc = gql`
       ...ImageFragment
     }
     url
+    cta
   }
   ${ImageFragmentFragmentDoc}
 `;
@@ -1103,6 +1104,7 @@ export const UpdateMarketDocument = gql`
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
             merchandisingUrl
+            merchandiseSso
             projectsEnabled
             locationBiasRadiusKm
             gtag
@@ -1209,6 +1211,62 @@ export type UpdateDoceboTiersByMarketMutationOptions =
   Apollo.BaseMutationOptions<
     OperationTypes.UpdateDoceboTiersByMarketMutation,
     OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >;
+export const UpdateMerchandiseTiersByMarketDocument = gql`
+  mutation updateMerchandiseTiersByMarket(
+    $input: UpdateMerchandiseTiersByMarketInput!
+  ) {
+    updateMerchandiseTiersByMarket(input: $input) {
+      id
+      merchandise_division_id
+      market_id
+      tier_code
+    }
+  }
+`;
+export type UpdateMerchandiseTiersByMarketMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateMerchandiseTiersByMarketMutation,
+  OperationTypes.UpdateMerchandiseTiersByMarketMutationVariables
+>;
+
+/**
+ * __useUpdateMerchandiseTiersByMarketMutation__
+ *
+ * To run a mutation, you first call `useUpdateMerchandiseTiersByMarketMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateMerchandiseTiersByMarketMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateMerchandiseTiersByMarketMutation, { data, loading, error }] = useUpdateMerchandiseTiersByMarketMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateMerchandiseTiersByMarketMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateMerchandiseTiersByMarketMutation,
+    OperationTypes.UpdateMerchandiseTiersByMarketMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateMerchandiseTiersByMarketMutation,
+    OperationTypes.UpdateMerchandiseTiersByMarketMutationVariables
+  >(UpdateMerchandiseTiersByMarketDocument, options);
+}
+export type UpdateMerchandiseTiersByMarketMutationHookResult = ReturnType<
+  typeof useUpdateMerchandiseTiersByMarketMutation
+>;
+export type UpdateMerchandiseTiersByMarketMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateMerchandiseTiersByMarketMutation>;
+export type UpdateMerchandiseTiersByMarketMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.UpdateMerchandiseTiersByMarketMutation,
+    OperationTypes.UpdateMerchandiseTiersByMarketMutationVariables
   >;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
@@ -3401,6 +3459,7 @@ export const AccountByEmailDocument = gql`
         projectsEnabled
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
       }
       companyMembers {
         nodes {
@@ -4403,6 +4462,7 @@ export const GetMarketsByDomainDocument = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
+        merchandiseSso
         projectsEnabled
         gtag
         gtagMarketMedia
@@ -4670,6 +4730,54 @@ export type GetMediaFolderContentsQueryResult = Apollo.QueryResult<
   OperationTypes.GetMediaFolderContentsQuery,
   OperationTypes.GetMediaFolderContentsQueryVariables
 >;
+export const PerformMerchandiseSsoDocument = gql`
+  mutation performMerchandiseSso($email: String!) {
+    performMerchandiseSso(email: $email)
+  }
+`;
+export type PerformMerchandiseSsoMutationFn = Apollo.MutationFunction<
+  OperationTypes.PerformMerchandiseSsoMutation,
+  OperationTypes.PerformMerchandiseSsoMutationVariables
+>;
+
+/**
+ * __usePerformMerchandiseSsoMutation__
+ *
+ * To run a mutation, you first call `usePerformMerchandiseSsoMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `usePerformMerchandiseSsoMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [performMerchandiseSsoMutation, { data, loading, error }] = usePerformMerchandiseSsoMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function usePerformMerchandiseSsoMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.PerformMerchandiseSsoMutation,
+    OperationTypes.PerformMerchandiseSsoMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.PerformMerchandiseSsoMutation,
+    OperationTypes.PerformMerchandiseSsoMutationVariables
+  >(PerformMerchandiseSsoDocument, options);
+}
+export type PerformMerchandiseSsoMutationHookResult = ReturnType<
+  typeof usePerformMerchandiseSsoMutation
+>;
+export type PerformMerchandiseSsoMutationResult =
+  Apollo.MutationResult<OperationTypes.PerformMerchandiseSsoMutation>;
+export type PerformMerchandiseSsoMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.PerformMerchandiseSsoMutation,
+  OperationTypes.PerformMerchandiseSsoMutationVariables
+>;
 export const AccountInfoByEmailDocument = gql`
   query accountInfoByEmail($email: String!) {
     accountByEmail(email: $email) {
@@ -4913,6 +5021,7 @@ export const MarketsDocument = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
+        merchandiseSso
         projectsEnabled
         gtag
         gtagMarketMedia
@@ -4925,6 +5034,14 @@ export const MarketsDocument = gql`
         marketId
         tierCode
         doceboCatalogueId
+      }
+    }
+    merchandiseTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        merchandiseDivisionId
       }
     }
   }

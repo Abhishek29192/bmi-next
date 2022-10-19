@@ -92,6 +92,7 @@ export const CONTENTFUL_MEDIA_TOOL_DETAILS_FRAGMENT = gql`
       ...ImageFragment
     }
     url
+    cta
   }
 `;
 

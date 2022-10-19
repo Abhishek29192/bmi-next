@@ -1140,6 +1140,7 @@ export const ssrGetMediaFolderContents = {
 
   usePage: useGetMediaFolderContents
 };
+
 export async function getServerPageAccountInfoByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountInfoByEmailQueryVariables>,

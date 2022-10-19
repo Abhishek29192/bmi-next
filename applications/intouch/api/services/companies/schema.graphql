@@ -93,6 +93,40 @@ type Query implements Node {
     filter: AddressFilter
   ): AddressesConnection
 
+  """Reads and enables pagination through a set of `AddressTrading`."""
+  addressTradings(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `AddressTrading`."""
+    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AddressTradingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AddressTradingFilter
+  ): AddressTradingsConnection
+
   """Reads and enables pagination through a set of `Certification`."""
   certifications(
     """Only read the first `n` values of the set."""
@@ -517,6 +551,40 @@ type Query implements Node {
     filter: MarketFilter
   ): MarketsConnection
 
+  """Reads and enables pagination through a set of `MerchandiseTier`."""
+  merchandiseTiers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MerchandiseTier`."""
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MerchandiseTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MerchandiseTierFilter
+  ): MerchandiseTiersConnection
+
   """Reads and enables pagination through a set of `Note`."""
   notes(
     """Only read the first `n` values of the set."""
@@ -758,6 +826,7 @@ type Query implements Node {
   accountByEmail(email: String!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
+  addressTrading(id: Int!): AddressTrading
   certification(id: Int!): Certification
   company(id: Int!): Company
   companyByMarketIdAndName(marketId: Int!, name: String!): Company
@@ -777,6 +846,8 @@ type Query implements Node {
   market(id: Int!): Market
   marketByDomain(domain: String!): Market
   marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
+  merchandiseTier(id: Int!): MerchandiseTier
+  merchandiseTierByMarketIdAndTierCode(marketId: Int!, tierCode: Tier!): MerchandiseTier
   note(id: Int!): Note
   notification(id: Int!): Notification
   product(id: Int!): Product
@@ -996,6 +1067,14 @@ type Query implements Node {
     nodeId: ID!
   ): Address
 
+  """Reads a single `AddressTrading` using its globally unique `ID`."""
+  addressTradingByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `AddressTrading`.
+    """
+    nodeId: ID!
+  ): AddressTrading
+
   """Reads a single `Certification` using its globally unique `ID`."""
   certificationByNodeId(
     """
@@ -1077,6 +1156,14 @@ type Query implements Node {
     """The globally unique `ID` to be used in selecting a single `Market`."""
     nodeId: ID!
   ): Market
+
+  """Reads a single `MerchandiseTier` using its globally unique `ID`."""
+  merchandiseTierByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `MerchandiseTier`.
+    """
+    nodeId: ID!
+  ): MerchandiseTier
 
   """Reads a single `Note` using its globally unique `ID`."""
   noteByNodeId(
@@ -1624,6 +1711,7 @@ type Market implements Node {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
 
   """Reads and enables pagination through a set of `Account`."""
   accounts(
@@ -5257,6 +5345,79 @@ input AddressFilter {
   not: AddressFilter
 }
 
+"""A connection to a list of `AddressTrading` values."""
+type AddressTradingsConnection {
+  """A list of `AddressTrading` objects."""
+  nodes: [AddressTrading!]!
+
+  """
+  A list of edges which contains the `AddressTrading` and cursor to aid in pagination.
+  """
+  edges: [AddressTradingsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `AddressTrading` you could get from the connection."""
+  totalCount: Int!
+}
+
+type AddressTrading implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  companyId: Int
+  addressId: Int
+  tradingAddressMigrationId: String
+  createdAt: Datetime!
+}
+
+"""A `AddressTrading` edge in the connection."""
+type AddressTradingsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `AddressTrading` at the end of the edge."""
+  node: AddressTrading!
+}
+
+"""Methods to use when ordering `AddressTrading`."""
+enum AddressTradingsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `AddressTrading` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input AddressTradingCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+}
+
+"""
+A filter to be used against `AddressTrading` object types. All fields are combined with a logical ‘and.’
+"""
+input AddressTradingFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [AddressTradingFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [AddressTradingFilter!]
+
+  """Negates the expression."""
+  not: AddressTradingFilter
+}
+
 """A connection to a list of `DoceboTier` values."""
 type DoceboTiersConnection {
   """A list of `DoceboTier` objects."""
@@ -5526,6 +5687,88 @@ input MarketFilter {
   not: MarketFilter
 }
 
+"""A connection to a list of `MerchandiseTier` values."""
+type MerchandiseTiersConnection {
+  """A list of `MerchandiseTier` objects."""
+  nodes: [MerchandiseTier!]!
+
+  """
+  A list of edges which contains the `MerchandiseTier` and cursor to aid in pagination.
+  """
+  edges: [MerchandiseTiersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `MerchandiseTier` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type MerchandiseTier implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  marketId: Int!
+  tierCode: Tier!
+  merchandiseDivisionId: Int
+}
+
+"""A `MerchandiseTier` edge in the connection."""
+type MerchandiseTiersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MerchandiseTier` at the end of the edge."""
+  node: MerchandiseTier!
+}
+
+"""Methods to use when ordering `MerchandiseTier`."""
+enum MerchandiseTiersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `MerchandiseTier` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MerchandiseTierCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `marketId` field."""
+  marketId: Int
+}
+
+"""
+A filter to be used against `MerchandiseTier` object types. All fields are combined with a logical ‘and.’
+"""
+input MerchandiseTierFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `marketId` field."""
+  marketId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [MerchandiseTierFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MerchandiseTierFilter!]
+
+  """Negates the expression."""
+  not: MerchandiseTierFilter
+}
+
 """A connection to a list of `Int` values."""
 type InvitedByCompaniesConnection {
   """A list of `Int` objects."""
@@ -5573,7 +5816,7 @@ type IsPartOfProjectEdge {
 }
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | DoubleAcceptance | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | DoceboTier
+union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | DoubleAcceptance | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | AddressTrading | DoceboTier | MerchandiseTier
 
 scalar _Any
 
@@ -5598,6 +5841,14 @@ type Mutation {
     """
     input: CreateAddressInput!
   ): CreateAddressPayload
+
+  """Creates a single `AddressTrading`."""
+  createAddressTrading(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAddressTradingInput!
+  ): CreateAddressTradingPayload
 
   """Creates a single `Certification`."""
   createCertification(
@@ -5670,6 +5921,14 @@ type Mutation {
     """
     input: CreateMarketInput!
   ): CreateMarketPayload
+
+  """Creates a single `MerchandiseTier`."""
+  createMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMerchandiseTierInput!
+  ): CreateMerchandiseTierPayload
 
   """Creates a single `Note`."""
   createNote(
@@ -5774,6 +6033,24 @@ type Mutation {
     """
     input: UpdateAddressInput!
   ): UpdateAddressPayload
+
+  """
+  Updates a single `AddressTrading` using its globally unique id and a patch.
+  """
+  updateAddressTradingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAddressTradingByNodeIdInput!
+  ): UpdateAddressTradingPayload
+
+  """Updates a single `AddressTrading` using a unique key and a patch."""
+  updateAddressTrading(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAddressTradingInput!
+  ): UpdateAddressTradingPayload
 
   """
   Updates a single `Certification` using its globally unique id and a patch.
@@ -6031,6 +6308,32 @@ type Mutation {
     input: UpdateMarketByDoceboCatalogueIdInput!
   ): UpdateMarketPayload
 
+  """
+  Updates a single `MerchandiseTier` using its globally unique id and a patch.
+  """
+  updateMerchandiseTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierByNodeIdInput!
+  ): UpdateMerchandiseTierPayload
+
+  """Updates a single `MerchandiseTier` using a unique key and a patch."""
+  updateMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierInput!
+  ): UpdateMerchandiseTierPayload
+
+  """Updates a single `MerchandiseTier` using a unique key and a patch."""
+  updateMerchandiseTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierByMarketIdAndTierCodeInput!
+  ): UpdateMerchandiseTierPayload
+
   """Updates a single `Note` using its globally unique id and a patch."""
   updateNoteByNodeId(
     """
@@ -6220,6 +6523,22 @@ type Mutation {
     """
     input: DeleteAddressInput!
   ): DeleteAddressPayload
+
+  """Deletes a single `AddressTrading` using its globally unique id."""
+  deleteAddressTradingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAddressTradingByNodeIdInput!
+  ): DeleteAddressTradingPayload
+
+  """Deletes a single `AddressTrading` using a unique key."""
+  deleteAddressTrading(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAddressTradingInput!
+  ): DeleteAddressTradingPayload
 
   """Deletes a single `Certification` using its globally unique id."""
   deleteCertificationByNodeId(
@@ -6460,6 +6779,30 @@ type Mutation {
     """
     input: DeleteMarketByDoceboCatalogueIdInput!
   ): DeleteMarketPayload
+
+  """Deletes a single `MerchandiseTier` using its globally unique id."""
+  deleteMerchandiseTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierByNodeIdInput!
+  ): DeleteMerchandiseTierPayload
+
+  """Deletes a single `MerchandiseTier` using a unique key."""
+  deleteMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierInput!
+  ): DeleteMerchandiseTierPayload
+
+  """Deletes a single `MerchandiseTier` using a unique key."""
+  deleteMerchandiseTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierByMarketIdAndTierCodeInput!
+  ): DeleteMerchandiseTierPayload
 
   """Deletes a single `Note` using its globally unique id."""
   deleteNoteByNodeId(
@@ -6702,6 +7045,13 @@ type Mutation {
     """
     input: ReleaseGuaranteePdfInput!
   ): PublishOutput
+  performMerchandiseSso(email: String!): String
+  updateMerchandiseTiersByMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTiersByMarketInput
+  ): [UpdateMerchandiseTiersByMarketResult]
 }
 
 """The output of our create `Address` mutation."""
@@ -7193,6 +7543,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -7516,6 +7867,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -8870,6 +9222,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -11687,6 +12040,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -11966,6 +12320,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -16610,6 +16965,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -16884,6 +17240,7 @@ input MarketPatch {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -16960,6 +17317,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17471,6 +17829,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17643,6 +18002,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -18904,6 +19264,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19445,6 +19806,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19593,6 +19955,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19639,6 +20002,50 @@ input AddressOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate {
   An object where the defined keys will be set on the `company` being updated.
   """
   patch: CompanyPatch!
+}
+
+"""The output of our create `AddressTrading` mutation."""
+type CreateAddressTradingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `AddressTrading` that was created by this mutation."""
+  addressTrading: AddressTrading
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `AddressTrading`. May be used by Relay 1."""
+  addressTradingEdge(
+    """The method to use when ordering `AddressTrading`."""
+    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AddressTradingsEdge
+}
+
+"""All input for the create `AddressTrading` mutation."""
+input CreateAddressTradingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `AddressTrading` to be created by this mutation."""
+  addressTrading: AddressTradingInput!
+}
+
+"""An input for mutations affecting `AddressTrading`"""
+input AddressTradingInput {
+  id: Int
+  companyId: Int
+  addressId: Int
+  tradingAddressMigrationId: String
+  createdAt: Datetime
 }
 
 """The output of our create `Certification` mutation."""
@@ -20258,12 +20665,56 @@ input MarketInput {
   doceboCatalogueIdT2: Int
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
+  merchandiseSso: Boolean
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
   productsUsingId: ProductMarketIdFkeyInverseInput
   systemsUsingId: SystemMarketIdFkeyInverseInput
   systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+}
+
+"""The output of our create `MerchandiseTier` mutation."""
+type CreateMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MerchandiseTier` that was created by this mutation."""
+  merchandiseTier: MerchandiseTier
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MerchandiseTier`. May be used by Relay 1."""
+  merchandiseTierEdge(
+    """The method to use when ordering `MerchandiseTier`."""
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
+}
+
+"""All input for the create `MerchandiseTier` mutation."""
+input CreateMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `MerchandiseTier` to be created by this mutation."""
+  merchandiseTier: MerchandiseTierInput!
+}
+
+"""An input for mutations affecting `MerchandiseTier`"""
+input MerchandiseTierInput {
+  id: Int
+  marketId: Int!
+  tierCode: Tier!
+  merchandiseDivisionId: Int
 }
 
 """The output of our create `Note` mutation."""
@@ -20925,6 +21376,74 @@ input UpdateAddressInput {
   patch: AddressPatch!
 
   """Primary key"""
+  id: Int!
+}
+
+"""The output of our update `AddressTrading` mutation."""
+type UpdateAddressTradingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `AddressTrading` that was updated by this mutation."""
+  addressTrading: AddressTrading
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `AddressTrading`. May be used by Relay 1."""
+  addressTradingEdge(
+    """The method to use when ordering `AddressTrading`."""
+    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AddressTradingsEdge
+}
+
+"""All input for the `updateAddressTradingByNodeId` mutation."""
+input UpdateAddressTradingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `AddressTrading` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `AddressTrading` being updated.
+  """
+  patch: AddressTradingPatch!
+}
+
+"""
+Represents an update to a `AddressTrading`. Fields that are set will be updated.
+"""
+input AddressTradingPatch {
+  id: Int
+  companyId: Int
+  addressId: Int
+  tradingAddressMigrationId: String
+  createdAt: Datetime
+}
+
+"""All input for the `updateAddressTrading` mutation."""
+input UpdateAddressTradingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `AddressTrading` being updated.
+  """
+  patch: AddressTradingPatch!
   id: Int!
 }
 
@@ -21804,6 +22323,91 @@ input UpdateMarketByDoceboCatalogueIdInput {
   doceboCatalogueId: Int!
 }
 
+"""The output of our update `MerchandiseTier` mutation."""
+type UpdateMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MerchandiseTier` that was updated by this mutation."""
+  merchandiseTier: MerchandiseTier
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MerchandiseTier`. May be used by Relay 1."""
+  merchandiseTierEdge(
+    """The method to use when ordering `MerchandiseTier`."""
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
+}
+
+"""All input for the `updateMerchandiseTierByNodeId` mutation."""
+input UpdateMerchandiseTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MerchandiseTier` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+}
+
+"""
+Represents an update to a `MerchandiseTier`. Fields that are set will be updated.
+"""
+input MerchandiseTierPatch {
+  id: Int
+  marketId: Int
+  tierCode: Tier
+  merchandiseDivisionId: Int
+}
+
+"""All input for the `updateMerchandiseTier` mutation."""
+input UpdateMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+  id: Int!
+}
+
+"""
+All input for the `updateMerchandiseTierByMarketIdAndTierCode` mutation.
+"""
+input UpdateMerchandiseTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+  marketId: Int!
+  tierCode: Tier!
+}
+
 """The output of our update `Note` mutation."""
 type UpdateNotePayload {
   """
@@ -22439,6 +23043,54 @@ input DeleteAddressInput {
   clientMutationId: String
 
   """Primary key"""
+  id: Int!
+}
+
+"""The output of our delete `AddressTrading` mutation."""
+type DeleteAddressTradingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `AddressTrading` that was deleted by this mutation."""
+  addressTrading: AddressTrading
+  deletedAddressTradingNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `AddressTrading`. May be used by Relay 1."""
+  addressTradingEdge(
+    """The method to use when ordering `AddressTrading`."""
+    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AddressTradingsEdge
+}
+
+"""All input for the `deleteAddressTradingByNodeId` mutation."""
+input DeleteAddressTradingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `AddressTrading` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteAddressTrading` mutation."""
+input DeleteAddressTradingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
   id: Int!
 }
 
@@ -23156,6 +23808,67 @@ input DeleteMarketByDoceboCatalogueIdInput {
   The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
+}
+
+"""The output of our delete `MerchandiseTier` mutation."""
+type DeleteMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `MerchandiseTier` that was deleted by this mutation."""
+  merchandiseTier: MerchandiseTier
+  deletedMerchandiseTierNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `MerchandiseTier`. May be used by Relay 1."""
+  merchandiseTierEdge(
+    """The method to use when ordering `MerchandiseTier`."""
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
+}
+
+"""All input for the `deleteMerchandiseTierByNodeId` mutation."""
+input DeleteMerchandiseTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MerchandiseTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMerchandiseTier` mutation."""
+input DeleteMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+All input for the `deleteMerchandiseTierByMarketIdAndTierCode` mutation.
+"""
+input DeleteMerchandiseTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+  tierCode: Tier!
 }
 
 """The output of our delete `Note` mutation."""
@@ -24013,6 +24726,24 @@ input ReleaseGuaranteePdfInput {
 input ReleaseGuaranteePdfTemplateInput {
   mailSubject: String
   mailBody: String
+}
+
+type UpdateMerchandiseTiersByMarketResult {
+  id: Int
+  merchandise_division_id: Int
+  market_id: Int
+  tier_code: Tier
+}
+
+input UpdateMerchandiseTiersByMarketInput {
+  marketId: Int
+  merchandiseT1: Int
+  merchandiseT2: Int
+  merchandiseT3: Int
+  merchandiseT4: Int
+  merchandiseT5: Int
+  merchandiseT6: Int
+  merchandiseT7: Int
 }
 
 """

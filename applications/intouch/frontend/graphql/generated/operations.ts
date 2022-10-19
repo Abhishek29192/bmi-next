@@ -416,6 +416,7 @@ export type UpdateMarketMutation = {
           doceboInstallersBranchId?: string | null;
           doceboCompanyAdminBranchId?: string | null;
           merchandisingUrl?: string | null;
+          merchandiseSso?: boolean | null;
           projectsEnabled?: boolean | null;
           locationBiasRadiusKm?: number | null;
           gtag?: string | null;
@@ -436,6 +437,22 @@ export type UpdateDoceboTiersByMarketMutation = {
     __typename?: "UpdateDoceboTiersByMarketResult";
     id?: number | null;
     docebo_catalogue_id?: number | null;
+    market_id?: number | null;
+    tier_code?: SchemaTypes.Tier | null;
+  } | null> | null;
+};
+
+export type UpdateMerchandiseTiersByMarketMutationVariables =
+  SchemaTypes.Exact<{
+    input: SchemaTypes.UpdateMerchandiseTiersByMarketInput;
+  }>;
+
+export type UpdateMerchandiseTiersByMarketMutation = {
+  __typename?: "Mutation";
+  updateMerchandiseTiersByMarket?: Array<{
+    __typename?: "UpdateMerchandiseTiersByMarketResult";
+    id?: number | null;
+    merchandise_division_id?: number | null;
     market_id?: number | null;
     tier_code?: SchemaTypes.Tier | null;
   } | null> | null;
@@ -2125,6 +2142,7 @@ export type AccountByEmailQuery = {
       projectsEnabled?: boolean | null;
       doceboCompanyAdminBranchId?: string | null;
       doceboInstallersBranchId?: string | null;
+      merchandisingUrl?: string | null;
     } | null;
     companyMembers: {
       __typename?: "CompanyMembersConnection";
@@ -2889,6 +2907,7 @@ export type GetMarketsByDomainQuery = {
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
       merchandisingUrl?: string | null;
+      merchandiseSso?: boolean | null;
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
@@ -2965,6 +2984,7 @@ export type MediaToolDetailsFragment = {
   __typename: "MediaTool";
   name?: string | null;
   url?: string | null;
+  cta?: string | null;
   sys: { __typename?: "Sys"; id: string };
   media?: {
     __typename?: "Asset";
@@ -3018,6 +3038,7 @@ export type GetMediaFolderContentsQuery = {
               __typename: "MediaTool";
               name?: string | null;
               url?: string | null;
+              cta?: string | null;
               sys: { __typename?: "Sys"; id: string };
               media?: {
                 __typename?: "Asset";
@@ -3049,6 +3070,15 @@ export type GetMediaFolderContentsQuery = {
       } | null;
     } | null>;
   } | null;
+};
+
+export type PerformMerchandiseSsoMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type PerformMerchandiseSsoMutation = {
+  __typename?: "Mutation";
+  performMerchandiseSso?: string | null;
 };
 
 export type AccountInfoByEmailQueryVariables = SchemaTypes.Exact<{
@@ -3190,6 +3220,7 @@ export type MarketsQuery = {
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
       merchandisingUrl?: string | null;
+      merchandiseSso?: boolean | null;
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
@@ -3204,6 +3235,16 @@ export type MarketsQuery = {
       marketId: number;
       tierCode: SchemaTypes.Tier;
       doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+  merchandiseTiers?: {
+    __typename?: "MerchandiseTiersConnection";
+    nodes: Array<{
+      __typename?: "MerchandiseTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      merchandiseDivisionId?: number | null;
     }>;
   } | null;
 };
