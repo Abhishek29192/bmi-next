@@ -38,13 +38,15 @@ export const guaranteeFactory = (
     systemBySystemBmiRef: {
       id: 1,
       name: "TEST-SYS-2",
-      systemMembersBySystemBmiRef: { nodes: [] }
+      systemMembersBySystemBmiRef: { nodes: [] },
+      maximumValidityYears: 10
     },
     productByProductBmiRef: {
       id: 1,
       name: "TEST-PROD-1",
       brand: "brand",
-      family: "family"
+      family: "family",
+      maximumValidityYears: 10
     },
     reviewerAccountId: 1,
     status: "APPROVED",
