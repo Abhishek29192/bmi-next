@@ -19686,6 +19686,7 @@ A template for email and/or notifications [See type definition](https://app.cont
 type MessageTemplate implements Entry {
   contentfulMetadata: ContentfulMetadata!
   emailBody(locale: String): String
+  emailRecipient(locale: String): String
   event(locale: String): String
   format(locale: String): [String]
   linkedFrom(allowedLocales: [String]): MessageTemplateLinkingCollections
@@ -19712,6 +19713,13 @@ input MessageTemplateFilter {
   emailBody_not: String
   emailBody_not_contains: String
   emailBody_not_in: [String]
+  emailRecipient: String
+  emailRecipient_contains: String
+  emailRecipient_exists: Boolean
+  emailRecipient_in: [String]
+  emailRecipient_not: String
+  emailRecipient_not_contains: String
+  emailRecipient_not_in: [String]
   event: String
   event_contains: String
   event_exists: Boolean
@@ -19756,6 +19764,8 @@ type MessageTemplateLinkingCollections {
 }
 
 enum MessageTemplateOrder {
+  emailRecipient_ASC
+  emailRecipient_DESC
   event_ASC
   event_DESC
   notificationBody_ASC
@@ -33385,6 +33395,13 @@ input cfMessageTemplateNestedFilter {
   emailBody_not: String
   emailBody_not_contains: String
   emailBody_not_in: [String]
+  emailRecipient: String
+  emailRecipient_contains: String
+  emailRecipient_exists: Boolean
+  emailRecipient_in: [String]
+  emailRecipient_not: String
+  emailRecipient_not_contains: String
+  emailRecipient_not_in: [String]
   event: String
   event_contains: String
   event_exists: Boolean

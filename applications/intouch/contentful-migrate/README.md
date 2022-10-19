@@ -52,7 +52,7 @@ yarn workspace @bmi/intouch-contentful-migrate up
 This simply runs the down functions for the migration scripts.
 
 ```bash
-yarn workspace @bmi/intouch-contentful-migrate down <filename-to-run-down-to>
+yarn workspace @bmi/intouch-contentful-migrate down <filename-to-run-down-to> <content-type>
 ```
 
 ## Create roles

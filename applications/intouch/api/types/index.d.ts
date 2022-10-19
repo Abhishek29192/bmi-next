@@ -12451,6 +12451,7 @@ export type MessageTemplate = Entry & {
   __typename?: "MessageTemplate";
   contentfulMetadata: ContentfulMetadata;
   emailBody?: Maybe<Scalars["String"]>;
+  emailRecipient?: Maybe<Scalars["String"]>;
   event?: Maybe<Scalars["String"]>;
   format?: Maybe<Array<Maybe<Scalars["String"]>>>;
   linkedFrom?: Maybe<MessageTemplateLinkingCollections>;
@@ -12461,6 +12462,11 @@ export type MessageTemplate = Entry & {
 
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateEmailBodyArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
+export type MessageTemplateEmailRecipientArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
@@ -12508,6 +12514,13 @@ export type MessageTemplateFilter = {
   emailBody_not?: InputMaybe<Scalars["String"]>;
   emailBody_not_contains?: InputMaybe<Scalars["String"]>;
   emailBody_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient?: InputMaybe<Scalars["String"]>;
+  emailRecipient_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_exists?: InputMaybe<Scalars["Boolean"]>;
+  emailRecipient_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient_not?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   event?: InputMaybe<Scalars["String"]>;
   event_contains?: InputMaybe<Scalars["String"]>;
   event_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -12557,6 +12570,8 @@ export type MessageTemplateLinkingCollectionsGuaranteeTemplateCollectionArgs = {
 };
 
 export type MessageTemplateOrder =
+  | "emailRecipient_ASC"
+  | "emailRecipient_DESC"
   | "event_ASC"
   | "event_DESC"
   | "notificationBody_ASC"
@@ -21117,6 +21132,13 @@ export type CfMessageTemplateNestedFilter = {
   emailBody_not?: InputMaybe<Scalars["String"]>;
   emailBody_not_contains?: InputMaybe<Scalars["String"]>;
   emailBody_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient?: InputMaybe<Scalars["String"]>;
+  emailRecipient_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_exists?: InputMaybe<Scalars["Boolean"]>;
+  emailRecipient_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient_not?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   event?: InputMaybe<Scalars["String"]>;
   event_contains?: InputMaybe<Scalars["String"]>;
   event_exists?: InputMaybe<Scalars["Boolean"]>;
