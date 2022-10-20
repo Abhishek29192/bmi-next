@@ -116,7 +116,7 @@
         "facebook": "Facebook profiili",
         "publicEmail": "Sähköpostiosoite",
         "linkedIn": "LinkedIn profiili",
-        "ownerName": "Nimi",
+        "ownerFullname": "Nimi",
         "ownerPhone": "Puhelin",
         "ownerEmail": "Sähköpostiosoite"
       },
@@ -168,5 +168,7 @@
       "ALPHABETICAL": "Aakkosellinen",
       "UPDATED": "Viimeksi päivitetty"
     }
-  }
+  },
+  "companyAdministrators": "Järjestelmänvalvojat",
+  "companyMembers": "Asentajat/Jäsenet"
 }

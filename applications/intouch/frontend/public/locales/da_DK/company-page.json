@@ -116,7 +116,7 @@
         "facebook": "Facebook-profil",
         "publicEmail": "E-mailadresse",
         "linkedIn": "LinkedIn profil",
-        "ownerName": "Navn",
+        "ownerFullname": "Navn",
         "ownerPhone": "Telefon",
         "ownerEmail": "E-mailadresse"
       },
@@ -168,5 +168,7 @@
       "ALPHABETICAL": "Alfabetisk",
       "UPDATED": "Sidst opdateret"
     }
-  }
+  },
+  "companyAdministrators": "Administratorer",
+  "companyMembers": "Installatører/medlemmer"
 }

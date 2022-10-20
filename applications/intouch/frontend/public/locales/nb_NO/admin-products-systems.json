@@ -47,5 +47,9 @@
   "report": {
     "product": "Last ned produktrapport",
     "system": "Last ned systemrapport"
+  },
+  "productData": {
+    "name": "Produktnavn",
+    "uuid": "Produkt ID"
   }
 }

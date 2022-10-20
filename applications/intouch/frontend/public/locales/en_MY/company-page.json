@@ -116,7 +116,7 @@
         "facebook": "Facebook profile",
         "publicEmail": "E-mail address",
         "linkedIn": "LinkedIn profile",
-        "ownerName": "Name",
+        "ownerFullname": "Name",
         "ownerPhone": "Phone",
         "ownerEmail": "E-mail address"
       },
@@ -168,5 +168,7 @@
       "ALPHABETICAL": "Alphabetical",
       "UPDATED": "Last updated"
     }
-  }
+  },
+  "companyAdministrators": "Administrators",
+  "companyMembers": "Installers/Members"
 }
