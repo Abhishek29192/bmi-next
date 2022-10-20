@@ -1485,10 +1485,8 @@ export type GetGuaranteesReportQuery = {
       coverage?: SchemaTypes.GuaranteeCoverage | null;
       status?: SchemaTypes.RequestStatus | null;
       languageCode?: SchemaTypes.Language | null;
-      guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
       startDate?: any | null;
       expiryDate?: any | null;
-      signedFileStorageUrl?: string | null;
       fileStorageId?: string | null;
       project?: {
         __typename?: "Project";
@@ -1591,7 +1589,6 @@ export type GetProjectsReportQuery = {
           id: number;
           coverage?: SchemaTypes.GuaranteeCoverage | null;
           languageCode?: SchemaTypes.Language | null;
-          guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
           guaranteeType?: {
             __typename?: "ContentfulGuaranteeType";
             name?: string | null;

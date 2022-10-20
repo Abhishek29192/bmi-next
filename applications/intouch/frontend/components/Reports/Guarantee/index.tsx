@@ -133,13 +133,11 @@ export const GET_GUARANTEES_REPORT = gql`
         coverage
         status
         languageCode
-        guaranteeReferenceCode
         guaranteeType {
           name
         }
         startDate
         expiryDate
-        signedFileStorageUrl
         fileStorageId
         systemBySystemBmiRef {
           name
