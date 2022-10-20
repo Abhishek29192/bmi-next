@@ -141,7 +141,7 @@ const main = async (market?: string, environment?: string) => {
       }
       case "hubspot": {
         scriptSrc = `${scriptSrc} https://*.hsforms.com https://*.hsforms.net https://*.hubspot.com https://*.hsleadflows.net https://js.hscta.net https://js.hs-scripts.com https://js-eu1.hs-scripts.com https://js.hs-banner.com https://js-eu1.hs-banner.com https://js.hscollectedforms.net https://js-eu1.hscollectedforms.net https://js.hs-analytics.net https://js-eu1.hs-analytics.net https://*.hsadspixel.net https://vc.hotjar.io https://*.usemessages.com`;
-        imgSrc = `${imgSrc} https://f.hubspotusercontent00.net https://*.fs1.hubspotusercontent-na1.net https://*.hubspot.com https://*.hsforms.com`;
+        imgSrc = `${imgSrc} https://f.hubspotusercontent00.net https://*.fs1.hubspotusercontent-na1.net https://*.hubspot.com https://*.hsforms.com https://js.hsforms.net`;
         connectSrc = `${connectSrc} https://*.hubapi.com https://*.hs-banner.com https://hubspot-forms-static-embed.s3.amazonaws.com https://*.hsforms.com https://*.hubspot.com https://vc.hotjar.io`;
         frameSrc = `${frameSrc} https://*.hsforms.com`;
         break;
