@@ -270,7 +270,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   }
 
-  const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE}.toml`;
+  const redirectRegex = /\/?[a-zA-Z]{2}\//i;
+  const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE.replace(
+    redirectRegex,
+    ""
+  )}.toml`; // be/
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (fs.existsSync(redirectsTomlFile)) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
@@ -286,6 +290,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         })
       )
     );
+  } else {
+    console.log(`Redirect file ${redirectsTomlFile} not found.`);
   }
 };
 

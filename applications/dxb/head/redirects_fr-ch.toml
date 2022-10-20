@@ -1,51 +1,42 @@
 [[redirects]]
  from="/ch/fr-ch/telechargements"
- to="/fr-ch/telechargements-et-services/telechargements"
+ to="/ch/fr-ch/telechargements-et-services/telechargements"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/kontakt-neu"
- to="/fr-ch/contact/"
+ to="/ch/fr-ch/contact/"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/impressum"
- to="/fr-ch/impressum/"
+ to="/ch/fr-ch/impressum/"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/etancheite-toitures-terrasses-synthetiques"
- to="/fr-ch/etancheite-toitures-terrasses/les-synthetiques/"
+ to="/ch/fr-ch/etancheite-toitures-terrasses/les-synthetiques/"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/etancheite-toitures-terrasses-bitumineux"
- to="/fr-ch/etancheite-toitures-terrasses/les-bitumineux/"
+ to="/ch/fr-ch/etancheite-toitures-terrasses/les-bitumineux/"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/declaration-de-protection"
- to="/fr-ch/declaration-de-protection/"
+ to="/ch/fr-ch/declaration-de-protection/"
  force=true
 
 [[redirects]]
  from="/ch/fr-ch/couverture-de-toitures-en-pente"
- to="/fr-ch/couverture-de-toitures-en-pente/"
+ to="/ch/fr-ch/couverture-de-toitures-en-pente/"
  force=true
 
-[[redirects]]
- from="/ch/fr-ch/agb"
- to="/fr-ch/agb/"
- force=true
-
-[[redirects]]
- from="/ch/fr-ch"
- to="/fr-ch/"
- force=true
 
  # Redirect root to /fr-ch
 [[redirects]]
-  from = "/"
-  to = "/fr-ch"
-  status = 301
-  force = true
+  from="/"
+  to="/ch/fr-ch"
+  status=301
+  force=true

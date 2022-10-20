@@ -12,9 +12,12 @@ require("dotenv").config({
 const buildContent = () => {
   const templateFile = path.resolve(__dirname, "../netlify.toml");
 
+  const redirectRegex = /\/?[a-zA-Z]{2}\//i;
   const redirectsFile = path.resolve(
     __dirname,
-    "../redirects_" + process.env.SPACE_MARKET_CODE.toLowerCase() + ".toml"
+    "../redirects_" +
+      process.env.SPACE_MARKET_CODE.replace(redirectRegex, "").toLowerCase() +
+      ".toml"
   );
   // eslint-disable-next-line security/detect-non-literal-fs-filename
   if (fs.existsSync(redirectsFile)) {
