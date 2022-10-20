@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
-import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
+import { GuaranteeStatus, solutionGuaranteeValidate } from "./guarantee";
 
 dayjs.extend(isBetween);
 
@@ -49,7 +49,7 @@ export const findProjectGuarantee = (
 };
 
 export const getProjectGuaranteeStatus = (
-  project: DeepPartial<Project>
+  project: Project
 ): GuaranteeStatus => {
   const guarantee = findProjectGuarantee(project);
 
@@ -59,7 +59,7 @@ export const getProjectGuaranteeStatus = (
   }
 
   if (guarantee.status === "NEW") {
-    return guaranteePrerequsitesMet(guarantee) ? "READY" : "STARTED";
+    return solutionGuaranteeValidate(project).isValid ? "READY" : "STARTED";
   }
 
   // Other known statuses are handled in microcopy, with a fallback:

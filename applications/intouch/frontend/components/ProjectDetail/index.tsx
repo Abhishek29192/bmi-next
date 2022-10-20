@@ -215,9 +215,7 @@ const ProjectDetail = ({
           startDate={project.startDate}
           endDate={project.endDate}
           guaranteeType={getProjectGuaranteeType(project)}
-          guaranteeStatus={getProjectGuaranteeStatus(
-            project as DeepPartial<Project>
-          )}
+          guaranteeStatus={getProjectGuaranteeStatus(project as Project)}
           guaranteeEventType={getGuaranteeEventType(
             project as DeepPartial<Project>,
             account.id
