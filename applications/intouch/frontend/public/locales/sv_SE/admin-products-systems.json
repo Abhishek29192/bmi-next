@@ -47,5 +47,9 @@
   "report": {
     "product": "Ladda ner produktrapport",
     "system": "Ladda ner systemrapport"
+  },
+  "productData": {
+    "name": "Produktnamn",
+    "uuid": "Serienummer"
   }
 }

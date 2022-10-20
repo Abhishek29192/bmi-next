@@ -116,7 +116,7 @@
         "facebook": "Perfil do Facebook",
         "publicEmail": "Endereço de correio eletronico",
         "linkedIn": "Perfil do LinkedIn",
-        "ownerName": "Nome",
+        "ownerFullname": "Nome",
         "ownerPhone": "Telefone",
         "ownerEmail": "Endereço de correio eletronico"
       },
@@ -168,5 +168,7 @@
       "ALPHABETICAL": "Alfabética",
       "UPDATED": "Última atualização"
     }
-  }
+  },
+  "companyAdministrators": "Administradores",
+  "companyMembers": "Instaladores/Membros"
 }

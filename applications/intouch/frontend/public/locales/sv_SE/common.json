@@ -86,5 +86,9 @@
   },
   "generatingPdf": "Skapar PDF",
   "Sort by": "Sortera efter",
-  "requiredInformation": "Obligatorisk information"
+  "requiredInformation": "Obligatorisk information",
+  "button": {
+    "more": "Visa mer",
+    "less": "Visa mindre"
+  }
 }

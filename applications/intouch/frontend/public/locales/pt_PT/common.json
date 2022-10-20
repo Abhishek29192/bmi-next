@@ -86,5 +86,9 @@
   },
   "generatingPdf": "Gerando PDF",
   "Sort by": "Organizar por",
-  "requiredInformation": "informação requerida"
+  "requiredInformation": "informação requerida",
+  "button": {
+    "more": "Mostre mais",
+    "less": "Mostre menos"
+  }
 }

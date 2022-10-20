@@ -86,5 +86,9 @@
   },
   "generatingPdf": "Forbereder PDF",
   "Sort by": "Sorter etter",
-  "requiredInformation": "nødvendig informasjon"
+  "requiredInformation": "nødvendig informasjon",
+  "button": {
+    "more": "Vis mer",
+    "less": "Vis mindre"
+  }
 }

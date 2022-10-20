@@ -47,5 +47,9 @@
   "report": {
     "product": "Descarregar o relatório do produto",
     "system": "Descarregar relatório do sistema"
+  },
+  "productData": {
+    "name": "Nome do produto",
+    "uuid": "ID do produto"
   }
 }

@@ -47,5 +47,9 @@
   "report": {
     "product": "Lataa tuoteraportti",
     "system": "Lataa järjestelmäraportti"
+  },
+  "productData": {
+    "name": "Tuotteen nimi",
+    "uuid": "Tuotetunnus"
   }
 }
