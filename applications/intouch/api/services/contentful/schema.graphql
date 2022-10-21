@@ -1925,6 +1925,7 @@ type MessageTemplate implements Entry {
   linkedFrom(allowedLocales: [String]): MessageTemplateLinkingCollections
   event(locale: String): String
   format(locale: String): [String]
+  emailRecipient(locale: String): String
   subject(locale: String): String
   notificationBody(locale: String): String
   emailBody(locale: String): String
@@ -1951,6 +1952,13 @@ input MessageTemplateFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
+  emailRecipient_exists: Boolean
+  emailRecipient: String
+  emailRecipient_not: String
+  emailRecipient_in: [String]
+  emailRecipient_not_in: [String]
+  emailRecipient_contains: String
+  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String
@@ -1994,6 +2002,8 @@ type MessageTemplateLinkingCollections {
 enum MessageTemplateOrder {
   event_ASC
   event_DESC
+  emailRecipient_ASC
+  emailRecipient_DESC
   subject_ASC
   subject_DESC
   notificationBody_ASC
@@ -2256,6 +2266,19 @@ type Query {
     where: MediaToolFilter
     order: [MediaToolOrder]
   ): MediaToolCollection
+  messageTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): MessageTemplate
+  messageTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MessageTemplateFilter
+    order: [MessageTemplateOrder]
+  ): MessageTemplateCollection
   operationType(id: String!, preview: Boolean, locale: String): OperationType
   operationTypeCollection(
     skip: Int = 0
@@ -2278,19 +2301,6 @@ type Query {
     where: GuaranteeTemplateFilter
     order: [GuaranteeTemplateOrder]
   ): GuaranteeTemplateCollection
-  messageTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): MessageTemplate
-  messageTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MessageTemplateFilter
-    order: [MessageTemplateOrder]
-  ): MessageTemplateCollection
   faqTopic(id: String!, preview: Boolean, locale: String): FaqTopic
   faqTopicCollection(
     skip: Int = 0
@@ -2349,15 +2359,6 @@ type Query {
     where: EvidenceCategoryFilter
     order: [EvidenceCategoryOrder]
   ): EvidenceCategoryCollection
-  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaToolFilter
-    order: [MediaToolOrder]
-  ): MediaToolCollection
   marketContent(id: String!, preview: Boolean, locale: String): MarketContent
   marketContentCollection(
     skip: Int = 0
@@ -2813,6 +2814,13 @@ input cfMessageTemplateNestedFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
+  emailRecipient_exists: Boolean
+  emailRecipient: String
+  emailRecipient_not: String
+  emailRecipient_in: [String]
+  emailRecipient_not_in: [String]
+  emailRecipient_contains: String
+  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String

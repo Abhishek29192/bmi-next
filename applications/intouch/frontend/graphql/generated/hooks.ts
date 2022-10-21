@@ -1973,13 +1973,11 @@ export const GetGuaranteesReportDocument = gql`
         coverage
         status
         languageCode
-        guaranteeReferenceCode
         guaranteeType {
           name
         }
         startDate
         expiryDate
-        signedFileStorageUrl
         fileStorageId
         systemBySystemBmiRef {
           name
@@ -2133,7 +2131,6 @@ export const GetProjectsReportDocument = gql`
             id
             coverage
             languageCode
-            guaranteeReferenceCode
             guaranteeType {
               name
             }

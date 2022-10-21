@@ -93,40 +93,6 @@ type Query implements Node {
     filter: AddressFilter
   ): AddressesConnection
 
-  """Reads and enables pagination through a set of `AddressTrading`."""
-  addressTradings(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `AddressTrading`."""
-    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: AddressTradingCondition
-
-    """
-    A filter to be used in determining which values should be returned by the collection.
-    """
-    filter: AddressTradingFilter
-  ): AddressTradingsConnection
-
   """Reads and enables pagination through a set of `Certification`."""
   certifications(
     """Only read the first `n` values of the set."""
@@ -826,7 +792,6 @@ type Query implements Node {
   accountByEmail(email: String!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
-  addressTrading(id: Int!): AddressTrading
   certification(id: Int!): Certification
   company(id: Int!): Company
   companyByMarketIdAndName(marketId: Int!, name: String!): Company
@@ -1066,14 +1031,6 @@ type Query implements Node {
     """The globally unique `ID` to be used in selecting a single `Address`."""
     nodeId: ID!
   ): Address
-
-  """Reads a single `AddressTrading` using its globally unique `ID`."""
-  addressTradingByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `AddressTrading`.
-    """
-    nodeId: ID!
-  ): AddressTrading
 
   """Reads a single `Certification` using its globally unique `ID`."""
   certificationByNodeId(
@@ -5345,79 +5302,6 @@ input AddressFilter {
   not: AddressFilter
 }
 
-"""A connection to a list of `AddressTrading` values."""
-type AddressTradingsConnection {
-  """A list of `AddressTrading` objects."""
-  nodes: [AddressTrading!]!
-
-  """
-  A list of edges which contains the `AddressTrading` and cursor to aid in pagination.
-  """
-  edges: [AddressTradingsEdge!]!
-
-  """Information to aid in pagination."""
-  pageInfo: PageInfo!
-
-  """The count of *all* `AddressTrading` you could get from the connection."""
-  totalCount: Int!
-}
-
-type AddressTrading implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: Int!
-  companyId: Int
-  addressId: Int
-  tradingAddressMigrationId: String
-  createdAt: Datetime!
-}
-
-"""A `AddressTrading` edge in the connection."""
-type AddressTradingsEdge {
-  """A cursor for use in pagination."""
-  cursor: Cursor
-
-  """The `AddressTrading` at the end of the edge."""
-  node: AddressTrading!
-}
-
-"""Methods to use when ordering `AddressTrading`."""
-enum AddressTradingsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `AddressTrading` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input AddressTradingCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-}
-
-"""
-A filter to be used against `AddressTrading` object types. All fields are combined with a logical ‘and.’
-"""
-input AddressTradingFilter {
-  """Filter by the object’s `id` field."""
-  id: IntFilter
-
-  """Checks for all expressions in this list."""
-  and: [AddressTradingFilter!]
-
-  """Checks for any expressions in this list."""
-  or: [AddressTradingFilter!]
-
-  """Negates the expression."""
-  not: AddressTradingFilter
-}
-
 """A connection to a list of `DoceboTier` values."""
 type DoceboTiersConnection {
   """A list of `DoceboTier` objects."""
@@ -5816,7 +5700,7 @@ type IsPartOfProjectEdge {
 }
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | DoubleAcceptance | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | AddressTrading | DoceboTier | MerchandiseTier
+union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | DoubleAcceptance | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | DoceboTier | MerchandiseTier
 
 scalar _Any
 
@@ -5841,14 +5725,6 @@ type Mutation {
     """
     input: CreateAddressInput!
   ): CreateAddressPayload
-
-  """Creates a single `AddressTrading`."""
-  createAddressTrading(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateAddressTradingInput!
-  ): CreateAddressTradingPayload
 
   """Creates a single `Certification`."""
   createCertification(
@@ -6033,24 +5909,6 @@ type Mutation {
     """
     input: UpdateAddressInput!
   ): UpdateAddressPayload
-
-  """
-  Updates a single `AddressTrading` using its globally unique id and a patch.
-  """
-  updateAddressTradingByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAddressTradingByNodeIdInput!
-  ): UpdateAddressTradingPayload
-
-  """Updates a single `AddressTrading` using a unique key and a patch."""
-  updateAddressTrading(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAddressTradingInput!
-  ): UpdateAddressTradingPayload
 
   """
   Updates a single `Certification` using its globally unique id and a patch.
@@ -6523,22 +6381,6 @@ type Mutation {
     """
     input: DeleteAddressInput!
   ): DeleteAddressPayload
-
-  """Deletes a single `AddressTrading` using its globally unique id."""
-  deleteAddressTradingByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAddressTradingByNodeIdInput!
-  ): DeleteAddressTradingPayload
-
-  """Deletes a single `AddressTrading` using a unique key."""
-  deleteAddressTrading(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAddressTradingInput!
-  ): DeleteAddressTradingPayload
 
   """Deletes a single `Certification` using its globally unique id."""
   deleteCertificationByNodeId(
@@ -20004,50 +19846,6 @@ input AddressOnCompanyForCompanyRegisteredAddressIdFkeyNodeIdUpdate {
   patch: CompanyPatch!
 }
 
-"""The output of our create `AddressTrading` mutation."""
-type CreateAddressTradingPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """The `AddressTrading` that was created by this mutation."""
-  addressTrading: AddressTrading
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """An edge for our `AddressTrading`. May be used by Relay 1."""
-  addressTradingEdge(
-    """The method to use when ordering `AddressTrading`."""
-    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): AddressTradingsEdge
-}
-
-"""All input for the create `AddressTrading` mutation."""
-input CreateAddressTradingInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """The `AddressTrading` to be created by this mutation."""
-  addressTrading: AddressTradingInput!
-}
-
-"""An input for mutations affecting `AddressTrading`"""
-input AddressTradingInput {
-  id: Int
-  companyId: Int
-  addressId: Int
-  tradingAddressMigrationId: String
-  createdAt: Datetime
-}
-
 """The output of our create `Certification` mutation."""
 type CreateCertificationPayload {
   """
@@ -21376,74 +21174,6 @@ input UpdateAddressInput {
   patch: AddressPatch!
 
   """Primary key"""
-  id: Int!
-}
-
-"""The output of our update `AddressTrading` mutation."""
-type UpdateAddressTradingPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """The `AddressTrading` that was updated by this mutation."""
-  addressTrading: AddressTrading
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """An edge for our `AddressTrading`. May be used by Relay 1."""
-  addressTradingEdge(
-    """The method to use when ordering `AddressTrading`."""
-    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): AddressTradingsEdge
-}
-
-"""All input for the `updateAddressTradingByNodeId` mutation."""
-input UpdateAddressTradingByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `AddressTrading` to be updated.
-  """
-  nodeId: ID!
-
-  """
-  An object where the defined keys will be set on the `AddressTrading` being updated.
-  """
-  patch: AddressTradingPatch!
-}
-
-"""
-Represents an update to a `AddressTrading`. Fields that are set will be updated.
-"""
-input AddressTradingPatch {
-  id: Int
-  companyId: Int
-  addressId: Int
-  tradingAddressMigrationId: String
-  createdAt: Datetime
-}
-
-"""All input for the `updateAddressTrading` mutation."""
-input UpdateAddressTradingInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  An object where the defined keys will be set on the `AddressTrading` being updated.
-  """
-  patch: AddressTradingPatch!
   id: Int!
 }
 
@@ -23043,54 +22773,6 @@ input DeleteAddressInput {
   clientMutationId: String
 
   """Primary key"""
-  id: Int!
-}
-
-"""The output of our delete `AddressTrading` mutation."""
-type DeleteAddressTradingPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """The `AddressTrading` that was deleted by this mutation."""
-  addressTrading: AddressTrading
-  deletedAddressTradingNodeId: ID
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """An edge for our `AddressTrading`. May be used by Relay 1."""
-  addressTradingEdge(
-    """The method to use when ordering `AddressTrading`."""
-    orderBy: [AddressTradingsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): AddressTradingsEdge
-}
-
-"""All input for the `deleteAddressTradingByNodeId` mutation."""
-input DeleteAddressTradingByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `AddressTrading` to be deleted.
-  """
-  nodeId: ID!
-}
-
-"""All input for the `deleteAddressTrading` mutation."""
-input DeleteAddressTradingInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
   id: Int!
 }
 

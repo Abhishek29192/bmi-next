@@ -197,7 +197,6 @@ export const GET_PROJECTS_REPORT = gql`
             id
             coverage
             languageCode
-            guaranteeReferenceCode
             guaranteeType {
               name
             }
