@@ -96,6 +96,10 @@ export const performMerchandiseSso = async (_query, args, context) => {
       token: data.token
     };
 
+    // ToDo. Temporary debug. Remove after investigation.
+    const { token, ...rest } = postData;
+    logger.info("SSO data", rest);
+
     // Get register response from SSO portal.
     const { data: registerResponse } = await instance.post(`signup/`, {
       data: postData
