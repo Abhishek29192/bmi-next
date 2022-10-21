@@ -1589,8 +1589,10 @@ export type GetProjectsReportQuery = {
           id: number;
           coverage?: SchemaTypes.GuaranteeCoverage | null;
           languageCode?: SchemaTypes.Language | null;
+          status?: SchemaTypes.RequestStatus | null;
           guaranteeType?: {
             __typename?: "ContentfulGuaranteeType";
+            tiersAvailable?: Array<SchemaTypes.ContentfulTiers | null> | null;
             name?: string | null;
           } | null;
           guaranteeTypes?: {
