@@ -103,11 +103,16 @@ export const getMarketAdminsEmail = async (
 ) => {
   const { user } = context;
   const dbPool = getDbPool();
-  const emailRecipient = await getTemplateReceipient(context, event);
+  const emailRecipient = await (await getTemplateReceipient(context, event))
+    ?.split(",")
+    .map((email) => email.trim());
   const { rows: marketAdmins } = emailRecipient
-    ? await dbPool.query(`SELECT * FROM account WHERE email in ($1)`, [
-        emailRecipient
-      ])
+    ? await dbPool.query(
+        `SELECT * FROM account WHERE email in (${emailRecipient.map(
+          (_, id) => `$${id + 2}`
+        )}) and role = $1`,
+        ["MARKET_ADMIN", ...emailRecipient]
+      )
     : await dbPool.query(
         `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
         ["MARKET_ADMIN", user.marketId]

@@ -326,8 +326,35 @@ describe("Mailer", () => {
       const repsonse = await getMarketAdminsEmail(context, event);
 
       expect(dbPoolSpy).toHaveBeenCalledWith(
-        `SELECT * FROM account WHERE email in ($1)`,
-        [emailRecipient]
+        `SELECT * FROM account WHERE email in ($2) and role = $1`,
+        ["MARKET_ADMIN", emailRecipient]
+      );
+      expect(repsonse).toBe(marketAdmins);
+    });
+
+    it("multiple addresses", async () => {
+      const emailRecipient =
+        "email-recipient@test.com, email-recipient2@test.com,email-recipient3@test.com";
+      messageTemplateCollection.mockImplementationOnce(() => ({
+        items: [
+          {
+            emailRecipient
+          }
+        ]
+      }));
+      dbPoolSpy.mockImplementationOnce(() => ({
+        rows: marketAdmins
+      }));
+      const repsonse = await getMarketAdminsEmail(context, event);
+
+      expect(dbPoolSpy).toHaveBeenCalledWith(
+        `SELECT * FROM account WHERE email in (${emailRecipient
+          .split(",")
+          .map((_, id) => `$${id + 2}`)}) and role = $1`,
+        [
+          "MARKET_ADMIN",
+          ...emailRecipient.split(",").map((email) => email.trim())
+        ]
       );
       expect(repsonse).toBe(marketAdmins);
     });
