@@ -43,5 +43,6 @@ export const marketKeys = [
     label: "Location biasRadius Km"
   },
   { type: "text", key: "gtag", label: "Gtag" },
-  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" }
+  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" },
+  { type: "text", key: "optanonClass", label: "Optanon Category class" }
 ];

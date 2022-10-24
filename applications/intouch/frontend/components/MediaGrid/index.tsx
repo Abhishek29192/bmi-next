@@ -52,6 +52,7 @@ export const MediaGrid = ({
                 onMediaItemClick={onMediaItemClick}
                 account={account}
                 merchandiseSso={market.merchandiseSso}
+                optanonClass={market.optanonClass}
               />
             );
           })}

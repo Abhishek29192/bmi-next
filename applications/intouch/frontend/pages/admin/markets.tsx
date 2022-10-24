@@ -95,6 +95,7 @@ export const markets = gql`
         projectsEnabled
         gtag
         gtagMarketMedia
+        optanonClass
         locationBiasRadiusKm
       }
     }

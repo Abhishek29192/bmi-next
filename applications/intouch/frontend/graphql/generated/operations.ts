@@ -421,6 +421,7 @@ export type UpdateMarketMutation = {
           locationBiasRadiusKm?: number | null;
           gtag?: string | null;
           gtagMarketMedia?: string | null;
+          optanonClass?: string | null;
         }>;
       } | null;
     } | null;
@@ -2908,6 +2909,7 @@ export type GetMarketsByDomainQuery = {
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
+      optanonClass?: string | null;
       sendName?: string | null;
       sendMailbox?: string | null;
       locationBiasRadiusKm?: number | null;
@@ -2982,6 +2984,7 @@ export type MediaToolDetailsFragment = {
   name?: string | null;
   url?: string | null;
   cta?: string | null;
+  mediaItemClass?: string | null;
   sys: { __typename?: "Sys"; id: string };
   media?: {
     __typename?: "Asset";
@@ -3036,6 +3039,7 @@ export type GetMediaFolderContentsQuery = {
               name?: string | null;
               url?: string | null;
               cta?: string | null;
+              mediaItemClass?: string | null;
               sys: { __typename?: "Sys"; id: string };
               media?: {
                 __typename?: "Asset";
@@ -3221,6 +3225,7 @@ export type MarketsQuery = {
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
+      optanonClass?: string | null;
       locationBiasRadiusKm?: number | null;
     }>;
   } | null;
@@ -3390,6 +3395,7 @@ export type GetPartnerBrandsQuery = {
       newsItemUrl?: string | null;
       newsItemCta?: string | null;
       newsItemHeading?: string | null;
+      newsItemClass?: string | null;
       partnerBrandsCollection?: {
         __typename?: "MarketContentPartnerBrandsCollection";
         items: Array<{

@@ -373,6 +373,7 @@ export const MediaToolDetailsFragmentDoc = gql`
     }
     url
     cta
+    mediaItemClass
   }
   ${ImageFragmentFragmentDoc}
 `;
@@ -1109,6 +1110,7 @@ export const UpdateMarketDocument = gql`
             locationBiasRadiusKm
             gtag
             gtagMarketMedia
+            optanonClass
           }
         }
       }
@@ -4463,6 +4465,7 @@ export const GetMarketsByDomainDocument = gql`
         projectsEnabled
         gtag
         gtagMarketMedia
+        optanonClass
         sendName
         sendMailbox
         locationBiasRadiusKm
@@ -5022,6 +5025,7 @@ export const MarketsDocument = gql`
         projectsEnabled
         gtag
         gtagMarketMedia
+        optanonClass
         locationBiasRadiusKm
       }
     }
@@ -5462,6 +5466,7 @@ export const GetPartnerBrandsDocument = gql`
         newsItemUrl
         newsItemCta
         newsItemHeading
+        newsItemClass
       }
     }
     carouselCollection(

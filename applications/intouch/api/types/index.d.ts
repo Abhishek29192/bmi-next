@@ -437,6 +437,7 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -2507,6 +2508,7 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -2902,6 +2904,7 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -11606,6 +11609,7 @@ export type Market = Node & {
   name?: Maybe<Scalars["String"]>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars["ID"];
+  optanonClass?: Maybe<Scalars["String"]>;
   /** Reads and enables pagination through a set of `Product`. */
   products: ProductsConnection;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
@@ -11716,6 +11720,7 @@ export type MarketContent = Entry & {
   live?: Maybe<Scalars["String"]>;
   mediaLibraryRootCollection?: Maybe<MarketContentMediaLibraryRootCollection>;
   name?: Maybe<Scalars["String"]>;
+  newsItemClass?: Maybe<Scalars["String"]>;
   newsItemCta?: Maybe<Scalars["String"]>;
   newsItemHeading?: Maybe<Scalars["String"]>;
   newsItemUrl?: Maybe<Scalars["String"]>;
@@ -11775,6 +11780,11 @@ export type MarketContentMediaLibraryRootCollectionArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNameArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentNewsItemClassArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
@@ -11854,6 +11864,13 @@ export type MarketContentFilter = {
   name_not?: InputMaybe<Scalars["String"]>;
   name_not_contains?: InputMaybe<Scalars["String"]>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  newsItemClass?: InputMaybe<Scalars["String"]>;
+  newsItemClass_contains?: InputMaybe<Scalars["String"]>;
+  newsItemClass_exists?: InputMaybe<Scalars["Boolean"]>;
+  newsItemClass_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  newsItemClass_not?: InputMaybe<Scalars["String"]>;
+  newsItemClass_not_contains?: InputMaybe<Scalars["String"]>;
+  newsItemClass_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   newsItemCta?: InputMaybe<Scalars["String"]>;
   newsItemCta_contains?: InputMaybe<Scalars["String"]>;
   newsItemCta_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -11916,6 +11933,8 @@ export type MarketContentOrder =
   | "live_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "newsItemClass_ASC"
+  | "newsItemClass_DESC"
   | "newsItemCta_ASC"
   | "newsItemCta_DESC"
   | "newsItemHeading_ASC"
@@ -11990,6 +12009,7 @@ export type MarketInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -12287,6 +12307,7 @@ export type MarketPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -12441,6 +12462,7 @@ export type MediaTool = Entry & {
   cta?: Maybe<Scalars["String"]>;
   linkedFrom?: Maybe<MediaToolLinkingCollections>;
   media?: Maybe<Asset>;
+  mediaItemClass?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   sys: Sys;
   thumbnail?: Maybe<Asset>;
@@ -12461,6 +12483,11 @@ export type MediaToolLinkedFromArgs = {
 export type MediaToolMediaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+export type MediaToolMediaItemClassArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
@@ -12498,6 +12525,13 @@ export type MediaToolFilter = {
   cta_not?: InputMaybe<Scalars["String"]>;
   cta_not_contains?: InputMaybe<Scalars["String"]>;
   cta_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mediaItemClass?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_contains?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_exists?: InputMaybe<Scalars["Boolean"]>;
+  mediaItemClass_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mediaItemClass_not?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_not_contains?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   media_exists?: InputMaybe<Scalars["Boolean"]>;
   name?: InputMaybe<Scalars["String"]>;
   name_contains?: InputMaybe<Scalars["String"]>;
@@ -12540,6 +12574,8 @@ export type MediaToolLinkingCollectionsMediaFolderCollectionArgs = {
 export type MediaToolOrder =
   | "cta_ASC"
   | "cta_DESC"
+  | "mediaItemClass_ASC"
+  | "mediaItemClass_DESC"
   | "name_ASC"
   | "name_DESC"
   | "sys_firstPublishedAt_ASC"
@@ -15323,6 +15359,7 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -18448,6 +18485,7 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -18657,6 +18695,7 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23200,6 +23239,7 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23247,6 +23287,7 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23294,6 +23335,7 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23341,6 +23383,7 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23388,6 +23431,7 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -23435,6 +23479,7 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;

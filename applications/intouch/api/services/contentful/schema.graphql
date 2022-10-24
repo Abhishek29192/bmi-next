@@ -1609,6 +1609,7 @@ type MarketContent implements Entry {
   newsItemHeading(locale: String): String
   newsItemUrl(locale: String): String
   newsItemCta(locale: String): String
+  newsItemClass(locale: String): String
   footerLinksCollection(
     skip: Int = 0
     limit: Int = 100
@@ -1670,6 +1671,13 @@ input MarketContentFilter {
   newsItemCta_not_in: [String]
   newsItemCta_contains: String
   newsItemCta_not_contains: String
+  newsItemClass_exists: Boolean
+  newsItemClass: String
+  newsItemClass_not: String
+  newsItemClass_in: [String]
+  newsItemClass_not_in: [String]
+  newsItemClass_contains: String
+  newsItemClass_not_contains: String
   footerLinksCollection_exists: Boolean
   contactUsPage_exists: Boolean
   externalLinkLabel_exists: Boolean
@@ -1729,6 +1737,8 @@ enum MarketContentOrder {
   newsItemUrl_DESC
   newsItemCta_ASC
   newsItemCta_DESC
+  newsItemClass_ASC
+  newsItemClass_DESC
   externalLinkLabel_ASC
   externalLinkLabel_DESC
   externalLinkUrl_ASC
@@ -1845,6 +1855,7 @@ type MediaTool implements Entry {
   media(preview: Boolean, locale: String): Asset
   url(locale: String): String
   cta(locale: String): String
+  mediaItemClass(locale: String): String
 }
 
 type MediaToolCollection {
@@ -1880,6 +1891,13 @@ input MediaToolFilter {
   cta_not_in: [String]
   cta_contains: String
   cta_not_contains: String
+  mediaItemClass_exists: Boolean
+  mediaItemClass: String
+  mediaItemClass_not: String
+  mediaItemClass_in: [String]
+  mediaItemClass_not_in: [String]
+  mediaItemClass_contains: String
+  mediaItemClass_not_contains: String
   OR: [MediaToolFilter]
   AND: [MediaToolFilter]
 }
@@ -1906,6 +1924,8 @@ enum MediaToolOrder {
   url_DESC
   cta_ASC
   cta_DESC
+  mediaItemClass_ASC
+  mediaItemClass_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -2279,6 +2299,15 @@ type Query {
     where: MessageTemplateFilter
     order: [MessageTemplateOrder]
   ): MessageTemplateCollection
+  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
+  marketContentCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MarketContentFilter
+    order: [MarketContentOrder]
+  ): MarketContentCollection
   operationType(id: String!, preview: Boolean, locale: String): OperationType
   operationTypeCollection(
     skip: Int = 0
@@ -2359,15 +2388,6 @@ type Query {
     where: EvidenceCategoryFilter
     order: [EvidenceCategoryOrder]
   ): EvidenceCategoryCollection
-  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
-  marketContentCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MarketContentFilter
-    order: [MarketContentOrder]
-  ): MarketContentCollection
   trainingContent(
     id: String!
     preview: Boolean

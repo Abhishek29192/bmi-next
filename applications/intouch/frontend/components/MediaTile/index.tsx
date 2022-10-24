@@ -20,6 +20,7 @@ export type MediaTileProps = {
   onMediaItemClick: (mediaItem: MediaItem) => any;
   account: Account;
   merchandiseSso: boolean;
+  optanonClass?: string;
 };
 
 const MERCHANDISE_SSO_URL = "/api/merchandise-sso";
@@ -60,7 +61,8 @@ export const MediaTile = ({
   mediaItem,
   onMediaItemClick,
   account,
-  merchandiseSso
+  merchandiseSso,
+  optanonClass
 }: MediaTileProps) => {
   const { t } = useTranslation("toolkit");
 
@@ -92,10 +94,14 @@ export const MediaTile = ({
           onClick={() => {
             onMediaItemClick(mediaItem);
           }}
+          data-testid={`media-tile-element-${mediaItem.sys.id}`}
         >
           <div className="outlined">
             <CardContent className={styles.content}>
-              <MediaTileThumbnail mediaItem={mediaItem} />
+              <MediaTileThumbnail
+                mediaItem={mediaItem}
+                optanonClass={optanonClass}
+              />
             </CardContent>
           </div>
 
