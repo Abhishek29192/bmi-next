@@ -237,7 +237,6 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
         "${base_url}/no/p/zanda-arktis-normalstein-svart-betong-289333998/"
-        "${base_url}/no/s/tradition-plus-takpanne-13759858/"
         "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
         "${base_url}/no/find-a-merchant/"
         "${base_url}/no/search/?q=zanda"
