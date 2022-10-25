@@ -24,24 +24,23 @@ export type Point = google.maps.Point;
 /* global google */
 export type Google = typeof google;
 
-export function computeDistanceBetween(
+export const computeDistanceBetween = (
   start: LatLngLiteral,
   end: LatLngLiteral
-) {
-  return start && typeof google !== "undefined"
+): number | undefined =>
+  typeof google !== "undefined"
     ? google.maps.geometry.spherical.computeDistanceBetween(
         new google.maps.LatLng(start.lat, start.lng),
         new google.maps.LatLng(end.lat, end.lng)
       )
     : undefined;
-}
 
-export function loadGoogleApi(
+export const loadGoogleApi = async (
   apiKey: LoaderOptions["apiKey"],
   libraries: LoaderOptions["libraries"]
-) {
+): Promise<typeof google> => {
   const loader = new Loader({ apiKey, version: "weekly", libraries });
-  return loader.load();
-}
+  return await loader.load();
+};
 
 export default createContext<Google | null>(null);

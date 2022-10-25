@@ -25,11 +25,7 @@ module.exports = {
   ],
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  roots: [
-    "<rootDir>/applications",
-    "<rootDir>/functions",
-    "<rootDir>/libraries"
-  ],
+  roots: ["<rootDir>/applications"],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
