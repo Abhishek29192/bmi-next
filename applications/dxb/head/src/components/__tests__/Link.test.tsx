@@ -8,7 +8,6 @@ import {
   getLinkURL,
   Link
 } from "../Link";
-import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -18,30 +17,10 @@ describe("Link component", () => {
   process.env.GATSBY_HUBSPOT_CTA_URL =
     "https://cta-redirect.hubspot.com/cta/redirect/";
   const onClick = jest.fn();
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
   describe("Link function", () => {
-    it("returns a Link correctly", () => {
-      const cta: LinkData = {
-        __typename: "ContentfulLink",
-        id: "string",
-        label: "string",
-        icon: null,
-        isLabelHidden: null,
-        url: "https://www.external.co.uk",
-        linkedPage: null,
-        type: DataTypeEnum.External,
-        parameters: null,
-        dialogContent: null,
-        hubSpotCTAID: null
-      };
-      // TODO: The rest of these tests need fixing to match this one.
-      const { container } = render(
-        <SiteContextProvider value={getMockSiteContext()}>
-          <Link data={cta}>{cta.label}</Link>
-        </SiteContextProvider>
-      );
-      expect(container).toMatchSnapshot();
-    });
-
     it("ensure clicking link works", () => {
       const cta: LinkData = {
         __typename: "ContentfulLink",
@@ -57,7 +36,7 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { container, getByText } = render(
+      const { getByText } = render(
         <Link component="a" data={cta} onClick={onClick}>
           {cta.label}
         </Link>
@@ -65,7 +44,6 @@ describe("Link component", () => {
 
       fireEvent.click(getByText("ImALink"));
       expect(onClick).toHaveBeenCalledTimes(1);
-      expect(container).toMatchSnapshot();
     });
 
     it("ensure clicking Dialog link works", () => {
@@ -83,14 +61,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { container, getByText } = render(
-        <Link component="a" data={cta}>
+      const { getByText } = render(
+        <Link component="a" data={cta} onClick={onClick}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-      expect(container).toMatchSnapshot();
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     it("ensure clicking Calculator link works", () => {
@@ -108,14 +86,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { container, getByText } = render(
-        <Link component="a" data={cta}>
+      const { getByText } = render(
+        <Link component="a" data={cta} onClick={onClick}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-      expect(container).toMatchSnapshot();
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     it("ensure clicking Visualiser link works", () => {
@@ -133,111 +111,14 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
 
-      const { container, getByText } = render(
-        <Link component="a" data={cta}>
+      const { getByText } = render(
+        <Link component="a" data={cta} onClick={onClick}>
           {cta.label}
         </Link>
       );
 
       fireEvent.click(getByText("ImALink"));
-      expect(container).toMatchSnapshot();
-    });
-
-    it("returns a Link correctly with Dialog promo", () => {
-      const promo: PromoData = {
-        __typename: "ContentfulPromo",
-        id: "testId",
-        name: "test",
-        title: "test",
-        subtitle: "I am a subtitle",
-        body: null,
-        tags: null,
-        brandLogo: null,
-        featuredMedia: null,
-        featuredVideo: null,
-        cta: null,
-        backgroundColor: null
-      };
-      const data: LinkData = {
-        __typename: "ContentfulLink",
-        id: "string",
-        label: "string",
-        icon: null,
-        isLabelHidden: null,
-        url: "https://www.external.co.uk",
-        linkedPage: null,
-        type: DataTypeEnum.External,
-        parameters: null,
-        dialogContent: promo,
-        hubSpotCTAID: null
-      };
-
-      const { container } = render(
-        <Link component="a" data={data}>
-          {data.label}
-        </Link>
-      );
-
-      expect(container).toMatchSnapshot();
-    });
-
-    it("handles parameters being non-null properly", () => {
-      const promo: PromoData = {
-        __typename: "ContentfulPromo",
-        id: "testId",
-        name: "test",
-        title: "test",
-        subtitle: "I am a subtitle",
-        body: null,
-        tags: null,
-        brandLogo: null,
-        featuredMedia: null,
-        featuredVideo: null,
-        cta: null,
-        backgroundColor: null
-      };
-      const data: LinkData = {
-        __typename: "ContentfulLink",
-        id: "string",
-        label: "string",
-        icon: null,
-        isLabelHidden: null,
-        url: "https://www.external.co.uk",
-        linkedPage: null,
-        type: DataTypeEnum.External,
-        parameters: { key: "value" },
-        dialogContent: promo,
-        hubSpotCTAID: null
-      };
-
-      const { container } = render(
-        <Link component="a" data={data}>
-          {data.label}
-        </Link>
-      );
-      expect(container).toMatchSnapshot();
-    });
-
-    it("HubSpot CTA renders correctly", () => {
-      const data: LinkData = {
-        __typename: "ContentfulLink",
-        id: "link",
-        label: "String",
-        icon: null,
-        isLabelHidden: false,
-        url: null,
-        linkedPage: null,
-        type: DataTypeEnum.HubSpotCta,
-        parameters: null,
-        dialogContent: null,
-        hubSpotCTAID: "123abc"
-      };
-      const { container } = render(
-        <SiteContextProvider value={getMockSiteContext()}>
-          <Link data={data}>{data.label}</Link>
-        </SiteContextProvider>
-      );
-      expect(container).toMatchSnapshot();
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     it("Dialog closes properly", () => {
@@ -282,14 +163,38 @@ describe("Link component", () => {
 
   describe("getClickableActionFromUrl function", () => {
     it("returns a Link router to page path", () => {
-      expect(
-        getClickableActionFromUrl({ path: "some-page" }, undefined, "en")
-      ).toMatchSnapshot();
+      const res = getClickableActionFromUrl(
+        { path: "some-page" },
+        undefined,
+        "en"
+      );
+      expect(res).toEqual(
+        expect.objectContaining({
+          model: "routerLink",
+          to: "/en/some-page/"
+        })
+      );
+      expect(res["data-gtm"]).toEqual(
+        JSON.stringify({ id: "cta-click1", action: "/en/some-page/" })
+      );
     });
     it("returns a url", () => {
-      expect(
-        getClickableActionFromUrl(undefined, "http://example.com", "en")
-      ).toMatchSnapshot();
+      const res = getClickableActionFromUrl(
+        undefined,
+        "http://example.com",
+        "en"
+      );
+      expect(res).toEqual(
+        expect.objectContaining({
+          href: "http://example.com",
+          model: "htmlLink",
+          rel: "noopener noreferrer",
+          target: "_blank"
+        })
+      );
+      expect(res["data-gtm"]).toEqual(
+        JSON.stringify({ id: "cta-click1", action: "http://example.com" })
+      );
     });
     it("returns undefined", () => {
       expect(
@@ -298,9 +203,20 @@ describe("Link component", () => {
     });
 
     it("internal urls doesn't open in a new window", () => {
-      expect(
-        getClickableActionFromUrl(undefined, "http://www.bmigroup.com", "en")
-      ).toMatchSnapshot();
+      const res = getClickableActionFromUrl(
+        undefined,
+        "http://www.bmigroup.com",
+        "en"
+      );
+      expect(res).toEqual(
+        expect.objectContaining({
+          href: "http://www.bmigroup.com",
+          model: "htmlLink"
+        })
+      );
+      expect(res["data-gtm"]).toEqual(
+        JSON.stringify({ id: "cta-click1", action: "http://www.bmigroup.com" })
+      );
     });
 
     it("returns external returns correctly", () => {
@@ -312,7 +228,19 @@ describe("Link component", () => {
         "ImALabel",
         DataTypeEnum.External
       );
-      expect(clickableAction).toMatchSnapshot();
+      expect(clickableAction).toEqual(
+        expect.objectContaining({
+          model: "routerLink",
+          to: "/en/some-page/"
+        })
+      );
+      expect(clickableAction["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "/en/some-page/",
+          label: "ImALabel"
+        })
+      );
     });
 
     it("returns asset returns correctly", () => {
@@ -324,7 +252,19 @@ describe("Link component", () => {
         "ImALabel",
         DataTypeEnum.Asset
       );
-      expect(clickableAction).toMatchSnapshot();
+      expect(clickableAction).toEqual(
+        expect.objectContaining({
+          href: "assetUrl",
+          model: "download"
+        })
+      );
+      expect(clickableAction["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "assetUrl",
+          label: "ImALabel"
+        })
+      );
     });
 
     it("override gtm correctly", () => {
@@ -341,67 +281,114 @@ describe("Link component", () => {
       expect(clickableAction["data-gtm"]).toBe(
         JSON.stringify({ id: "foo1", label: "foo", action: "foo.com" })
       );
-      expect(clickableAction).toMatchSnapshot();
+      expect(clickableAction).toEqual(
+        expect.objectContaining({
+          href: "foo.com",
+          model: "htmlLink"
+        })
+      );
     });
   });
 
   describe("getCTA function", () => {
     it("returns a cta object with a Promo cta", () => {
-      expect(
-        getCTA(
-          {
-            cta: {
-              __typename: "ContentfulLink",
-              id: "string",
-              label: "string",
-              icon: null,
-              isLabelHidden: null,
-              url: "https://www.external.co.uk",
-              linkedPage: null,
-              type: DataTypeEnum.External,
-              parameters: null,
-              dialogContent: null,
-              hubSpotCTAID: null
-            }
-          },
-          "no",
-          "Go to Page"
-        )
-      ).toMatchSnapshot();
+      const res = getCTA(
+        {
+          cta: {
+            __typename: "ContentfulLink",
+            id: "string",
+            label: "string",
+            icon: null,
+            isLabelHidden: null,
+            url: "https://www.external.co.uk",
+            linkedPage: null,
+            type: DataTypeEnum.External,
+            parameters: null,
+            dialogContent: null,
+            hubSpotCTAID: null
+          }
+        },
+        "no",
+        "Go to Page"
+      );
+
+      expect(res["action"]).toEqual(
+        expect.objectContaining({
+          href: "https://www.external.co.uk",
+          model: "htmlLink",
+          rel: "noopener noreferrer",
+          target: "_blank"
+        })
+      );
+      expect(res["action"]["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "https://www.external.co.uk",
+          label: "string"
+        })
+      );
+      expect(res["label"]).toEqual("string");
     });
     it("returns a cta object with page", () => {
-      expect(
-        getCTA(
-          {
-            path: "/contact-us"
-          },
-          "no",
-          "Go to Page"
-        )
-      ).toMatchSnapshot();
+      const res = getCTA(
+        {
+          path: "/contact-us"
+        },
+        "no",
+        "Go to Page"
+      );
+
+      expect(res["action"]).toEqual(
+        expect.objectContaining({
+          model: "routerLink",
+          to: "/no/contact-us/"
+        })
+      );
+      expect(res["action"]["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "/no/contact-us/",
+          label: "Go to Page"
+        })
+      );
+      expect(res["label"]).toEqual("Go to Page");
     });
     it("returns a cta object with asset url", () => {
-      expect(
-        getCTA(
-          {
-            cta: {
-              __typename: "ContentfulLink",
-              id: "string",
-              label: "string",
-              icon: null,
-              isLabelHidden: null,
-              url: "https://www.external.co.uk",
-              linkedPage: null,
-              type: DataTypeEnum.External,
-              parameters: null,
-              dialogContent: null,
-              hubSpotCTAID: null
-            }
-          },
-          "no",
-          "Go to Page"
-        )
-      ).toMatchSnapshot();
+      const res = getCTA(
+        {
+          cta: {
+            __typename: "ContentfulLink",
+            id: "string",
+            label: "string",
+            icon: null,
+            isLabelHidden: null,
+            url: "https://www.external.co.uk",
+            linkedPage: null,
+            type: DataTypeEnum.External,
+            parameters: null,
+            dialogContent: null,
+            hubSpotCTAID: null
+          }
+        },
+        "no",
+        "Go to Page"
+      );
+      expect(res["action"]).toEqual(
+        expect.objectContaining({
+          href: "https://www.external.co.uk",
+          model: "htmlLink",
+          rel: "noopener noreferrer",
+          target: "_blank"
+        })
+      );
+      expect(res["action"]["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "https://www.external.co.uk",
+          label: "string"
+        })
+      );
+      expect(res["label"]).toEqual("string");
     });
 
     it("returns a null object with page without path", () => {
@@ -413,7 +400,7 @@ describe("Link component", () => {
           "no",
           "Go to Page"
         )
-      ).toMatchSnapshot();
+      ).toBeNull();
     });
 
     it("returns a null object with page with empty path", () => {
@@ -425,36 +412,48 @@ describe("Link component", () => {
           "no",
           "Go to Page"
         )
-      ).toMatchSnapshot();
+      ).toBeNull();
     });
 
     it("returns a cta object with a simple page cta", () => {
-      expect(
-        getCTA(
-          {
-            cta: {
-              __typename: "ContentfulLink",
-              id: "string",
-              label: "string",
-              icon: null,
-              asset: {
-                file: {
-                  url: "https://somelink.com"
-                }
-              },
-              isLabelHidden: null,
-              url: "https://www.external.co.uk",
-              linkedPage: null,
-              type: DataTypeEnum.External,
-              parameters: null,
-              dialogContent: null,
-              hubSpotCTAID: null
-            }
-          },
-          "no",
-          "Go to Page"
-        )
-      ).toMatchSnapshot();
+      const res = getCTA(
+        {
+          cta: {
+            __typename: "ContentfulLink",
+            id: "string",
+            label: "string",
+            icon: null,
+            asset: {
+              file: {
+                url: "https://somelink.com"
+              }
+            },
+            isLabelHidden: null,
+            url: "https://www.external.co.uk",
+            linkedPage: null,
+            type: DataTypeEnum.External,
+            parameters: null,
+            dialogContent: null,
+            hubSpotCTAID: null
+          }
+        },
+        "no",
+        "Go to Page"
+      );
+      expect(res["action"]).toEqual(
+        expect.objectContaining({
+          href: "https://somelink.com",
+          model: "download"
+        })
+      );
+      expect(res["action"]["data-gtm"]).toEqual(
+        JSON.stringify({
+          id: "cta-click1",
+          action: "https://somelink.com",
+          label: "string"
+        })
+      );
+      expect(res["label"]).toEqual("string");
     });
 
     it("returns a null object when a simple page without cta", () => {
@@ -466,7 +465,7 @@ describe("Link component", () => {
           "no",
           "Go to Page"
         )
-      ).toMatchSnapshot();
+      ).toBeNull();
     });
   });
 
