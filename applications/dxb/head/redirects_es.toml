@@ -5278,6 +5278,92 @@
  to="/es/cubierta-inclinada/tejas-hormigon/"
  force=true
 
+# new batch of redirects
+[[redirects]]
+ from="/es/p/curva-cobert-45-x-20-rojo-curva-cobert-45-x-20-rojo-cerámica-1537894575/"
+ to="/es/p/curva-cobert-curva-cobert-45-x-20-rojo-cer%C3%A1mica-1537894575/"
+ force=true
+
+[[redirects]]
+ from="/es/p/monarflex-rmb-400-400-4m-3977348219/"
+ to="/es/p/monarflex-rmb-400-4m-3977348219/"
+ force=true
+
+[[redirects]]
+ from="/es/p/monarflex-rmb-400-2m-400-2m-2862247765/"
+ to="/es/p/monarflex-rmb-400-2m-2862247765/"
+ force=true
+
+[[redirects]]
+ from="/es/p/klinker-k2-teja-de-ventilación-rojo-viejo-rojo-viejo-cerámica-3172255406/"
+ to="/es/p/klinker-k2-teja-de-ventilaci%C3%B3n-rojo-viejo-cer%C3%A1mica-3172255406/"
+ force=true
+
+[[redirects]]
+ from="/es/p/curva-collado-20-teja-decorativa-rojo-cerámica-2058864322/"
+ to="/es/cubierta-inclinada/todos-los-productos-cubierta-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/es/p/gredos-teja-de-ventilación-gris-pizarra-gris-pizarra-hormigón-3846709751/"
+ to="/es/p/gredos-teja-de-ventilaci%C3%B3n-gris-pizarra-hormig%C3%B3n-3846709751/"
+ force=true
+
+[[redirects]]
+ from="/es/p/gredos-rojo-viejo-rojo-viejo-hormigón-4082907166/"
+ to="/es/p/gredos-rojo-viejo-hormig%C3%B3n-4082907166/"
+ force=true
+
+[[redirects]]
+ from="/es/p/láminas-tpo-everguard-extreme-lámina-1-5-mm-tpo-3530345930/"
+ to="/es/p/l%C3%A1minas-tpo-everguard-everguard-tpo-white-1-5-mm-tpo-2997240719/"
+ force=true
+
+[[redirects]]
+ from="/es/p/teide-teja-remate-lateral-izquierdo-bronce-bronce-hormigón-3157824169/"
+ to="/es/p/teide-teja-remate-lateral-izquierdo-bronce-hormig%C3%B3n-3157824169/"
+ force=true
+
+[[redirects]]
+ from="/es/p/lógica-plana-teja-de-ventilación-magma-magma-2780255700/"
+ to="/es/p/l%C3%B3gica-plana-teja-de-ventilaci%C3%B3n-magma-2780255700/"
+ force=true
+
+[[redirects]]
+ from="/es/p/posifix-silvacane-litoral-silvacane-litoral-cerámica-1558960961/"
+ to="/es/p/posifix-silvacane-litoral-cer%C3%A1mica-1558960961/"
+ force=true
+
+[[redirects]]
+ from="/es/p/tejadillo-de-remate-tejadillo-de-remate-2941165638/"
+ to="/es/p/chimenea-modular-cl%C3%A1sica-tejadillo-de-remate-2941165638/"
+ force=true
+
+[[redirects]]
+ from="/es/p/klinker-k2-viejo-castilla-viejo-castilla-cerámica-808602913/"
+ to="/es/p/klinker-k2-viejo-castilla-cer%C3%A1mica-808602913/"
+ force=true
+
+[[redirects]]
+ from="/es/productos-y-sistemas-para-tejados/products/bmi/film-transpirable"
+ to="/es/cubierta-inclinada/sistemas-cubierta-inclinada/"
+ force=true
+
+[[redirects]]
+ from="/es/p/láminas-tpo-everguard-extreme-lámina-1-5-mm-tpo-3530345930/"
+ to="/es/p/l%C3%A1minas-tpo-everguard-everguard-tpo-white-1-5-mm-tpo-2997240719/"
+ force=true
+
+[[redirects]]
+ from="/es/p/paradiene-40-1-gs-en-6-m-nox-activ-paradiene-40-1-gs-en-6-m-nox-activ-sbs-66986457/"
+ to="/es/p/nox-activ-paradiene-40-1-gs-en-6-m-nox-activ-sbs-66986457/"
+ force=true
+
+[[redirects]]
+ from="/es/p/guadarrama-pináculo-cumbrera-musgo-seco-hormigón-924608127/"
+ to="/es/cubierta-inclinada/todos-los-productos-cubierta-inclinada/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Guadarrama%22%5D%7D%2C%7B%22name%22%3A%22generalInformation.materials%22%2C%22value%22%3A%5B%22CONCRETE%22%5D%7D%5D"
+ force=true
+
 # Redirects all sitecore sxa downloads
 [[redirects]]
  from = "/es/sxa/file/*"
