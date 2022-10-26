@@ -2980,6 +2980,11 @@
  to="https://www.bmigroup.com/es/blog/10-tejados-de-pelicula/"
  force=true
 
+ [[redirects]]
+ from="/es/instalador-del-mes-cubiertas-dos-hermanas"
+ to="https://www.bmigroup.com/es/blog/instalador-del-mes-cubiertas-dos-hermanas/"
+ force=true
+ 
 # if no redirects are found for ES, fall back to relevant root page
 
 [[redirects]]

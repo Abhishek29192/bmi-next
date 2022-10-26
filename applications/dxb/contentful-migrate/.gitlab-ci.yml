@@ -469,6 +469,24 @@ deploy_gatsby_cloud_poland:
     DXB_MARKET_ID: "PL"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_space_6:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "space_6"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_space_6:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_6
+  variables:
+    DXB_MARKET_ID: "space_6"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_space_7:
   extends: .migrate_content
   rules:
@@ -539,6 +557,24 @@ deploy_gatsby_cloud_space_10:
     - migrate_content_space_10
   variables:
     DXB_MARKET_ID: "space_10"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+migrate_content_space_11:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "space_11"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_space_11:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_11
+  variables:
+    DXB_MARKET_ID: "space_11"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
 migrate_content_group:
@@ -716,6 +752,12 @@ update_mc_poland:
   variables:
     DXB_MARKET_ID: "PL"
 
+update_mc_space_6:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "space_6"
+    IS_CONSOLIDATED: "true"
+
 update_mc_space_7:
   extends: .update_mc
   variables:
@@ -738,6 +780,12 @@ update_mc_space_10:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "space_10"
+    IS_CONSOLIDATED: "true"
+
+update_mc_space_11:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "space_11"
     IS_CONSOLIDATED: "true"
 
 update_mc_group:

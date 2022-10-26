@@ -1143,86 +1143,6 @@ export type AddressPatch = {
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
 };
 
-export type AddressTrading = Node & {
-  __typename?: "AddressTrading";
-  addressId?: Maybe<Scalars["Int"]>;
-  companyId?: Maybe<Scalars["Int"]>;
-  createdAt: Scalars["Datetime"];
-  id: Scalars["Int"];
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars["ID"];
-  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
-};
-
-/**
- * A condition to be used against `AddressTrading` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export type AddressTradingCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: InputMaybe<Scalars["Int"]>;
-};
-
-/** A filter to be used against `AddressTrading` object types. All fields are combined with a logical ‘and.’ */
-export type AddressTradingFilter = {
-  /** Checks for all expressions in this list. */
-  and?: InputMaybe<Array<AddressTradingFilter>>;
-  /** Filter by the object’s `id` field. */
-  id?: InputMaybe<IntFilter>;
-  /** Negates the expression. */
-  not?: InputMaybe<AddressTradingFilter>;
-  /** Checks for any expressions in this list. */
-  or?: InputMaybe<Array<AddressTradingFilter>>;
-};
-
-/** An input for mutations affecting `AddressTrading` */
-export type AddressTradingInput = {
-  addressId?: InputMaybe<Scalars["Int"]>;
-  companyId?: InputMaybe<Scalars["Int"]>;
-  createdAt?: InputMaybe<Scalars["Datetime"]>;
-  id?: InputMaybe<Scalars["Int"]>;
-  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
-};
-
-/** Represents an update to a `AddressTrading`. Fields that are set will be updated. */
-export type AddressTradingPatch = {
-  addressId?: InputMaybe<Scalars["Int"]>;
-  companyId?: InputMaybe<Scalars["Int"]>;
-  createdAt?: InputMaybe<Scalars["Datetime"]>;
-  id?: InputMaybe<Scalars["Int"]>;
-  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
-};
-
-/** A connection to a list of `AddressTrading` values. */
-export type AddressTradingsConnection = {
-  __typename?: "AddressTradingsConnection";
-  /** A list of edges which contains the `AddressTrading` and cursor to aid in pagination. */
-  edges: Array<AddressTradingsEdge>;
-  /** A list of `AddressTrading` objects. */
-  nodes: Array<AddressTrading>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `AddressTrading` you could get from the connection. */
-  totalCount: Scalars["Int"];
-};
-
-/** A `AddressTrading` edge in the connection. */
-export type AddressTradingsEdge = {
-  __typename?: "AddressTradingsEdge";
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars["Cursor"]>;
-  /** The `AddressTrading` at the end of the edge. */
-  node: AddressTrading;
-};
-
-/** Methods to use when ordering `AddressTrading`. */
-export type AddressTradingsOrderBy =
-  | "ID_ASC"
-  | "ID_DESC"
-  | "NATURAL"
-  | "PRIMARY_KEY_ASC"
-  | "PRIMARY_KEY_DESC";
-
 /** A connection to a list of `Address` values. */
 export type AddressesConnection = {
   __typename?: "AddressesConnection";
@@ -5213,38 +5133,6 @@ export type CreateAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the create `AddressTrading` mutation. */
-export type CreateAddressTradingInput = {
-  /** The `AddressTrading` to be created by this mutation. */
-  addressTrading: AddressTradingInput;
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars["String"]>;
-};
-
-/** The output of our create `AddressTrading` mutation. */
-export type CreateAddressTradingPayload = {
-  __typename?: "CreateAddressTradingPayload";
-  /** The `AddressTrading` that was created by this mutation. */
-  addressTrading?: Maybe<AddressTrading>;
-  /** An edge for our `AddressTrading`. May be used by Relay 1. */
-  addressTradingEdge?: Maybe<AddressTradingsEdge>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** The output of our create `AddressTrading` mutation. */
-export type CreateAddressTradingPayloadAddressTradingEdgeArgs = {
-  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
-};
-
 /** All input for the create `Certification` mutation. */
 export type CreateCertificationInput = {
   /** The `Certification` to be created by this mutation. */
@@ -6309,49 +6197,6 @@ export type DeleteAddressPayload = {
 /** The output of our delete `Address` mutation. */
 export type DeleteAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
-};
-
-/** All input for the `deleteAddressTradingByNodeId` mutation. */
-export type DeleteAddressTradingByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `AddressTrading` to be deleted. */
-  nodeId: Scalars["ID"];
-};
-
-/** All input for the `deleteAddressTrading` mutation. */
-export type DeleteAddressTradingInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars["String"]>;
-  id: Scalars["Int"];
-};
-
-/** The output of our delete `AddressTrading` mutation. */
-export type DeleteAddressTradingPayload = {
-  __typename?: "DeleteAddressTradingPayload";
-  /** The `AddressTrading` that was deleted by this mutation. */
-  addressTrading?: Maybe<AddressTrading>;
-  /** An edge for our `AddressTrading`. May be used by Relay 1. */
-  addressTradingEdge?: Maybe<AddressTradingsEdge>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  deletedAddressTradingNodeId?: Maybe<Scalars["ID"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** The output of our delete `AddressTrading` mutation. */
-export type DeleteAddressTradingPayloadAddressTradingEdgeArgs = {
-  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
 };
 
 /** All input for the `deleteCertificationByNodeId` mutation. */
@@ -13021,8 +12866,6 @@ export type Mutation = {
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
-  /** Creates a single `AddressTrading`. */
-  createAddressTrading?: Maybe<CreateAddressTradingPayload>;
   /** Creates a single `Certification`. */
   createCertification?: Maybe<CreateCertificationPayload>;
   createCompany?: Maybe<CreateCompanyPayload>;
@@ -13088,10 +12931,6 @@ export type Mutation = {
   deleteAddress?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using its globally unique id. */
   deleteAddressByNodeId?: Maybe<DeleteAddressPayload>;
-  /** Deletes a single `AddressTrading` using a unique key. */
-  deleteAddressTrading?: Maybe<DeleteAddressTradingPayload>;
-  /** Deletes a single `AddressTrading` using its globally unique id. */
-  deleteAddressTradingByNodeId?: Maybe<DeleteAddressTradingPayload>;
   /** Deletes a single `Certification` using a unique key. */
   deleteCertification?: Maybe<DeleteCertificationPayload>;
   /** Deletes a single `Certification` using its globally unique id. */
@@ -13256,10 +13095,6 @@ export type Mutation = {
   updateAddress?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
   updateAddressByNodeId?: Maybe<UpdateAddressPayload>;
-  /** Updates a single `AddressTrading` using a unique key and a patch. */
-  updateAddressTrading?: Maybe<UpdateAddressTradingPayload>;
-  /** Updates a single `AddressTrading` using its globally unique id and a patch. */
-  updateAddressTradingByNodeId?: Maybe<UpdateAddressTradingPayload>;
   /** Updates a single `Certification` using a unique key and a patch. */
   updateCertification?: Maybe<UpdateCertificationPayload>;
   /** Updates a single `Certification` using its globally unique id and a patch. */
@@ -13458,11 +13293,6 @@ export type MutationCreateAddressArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateAddressTradingArgs = {
-  input: CreateAddressTradingInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateCertificationArgs = {
   input: CreateCertificationInput;
 };
@@ -13636,16 +13466,6 @@ export type MutationDeleteAddressArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAddressByNodeIdArgs = {
   input: DeleteAddressByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteAddressTradingArgs = {
-  input: DeleteAddressTradingInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteAddressTradingByNodeIdArgs = {
-  input: DeleteAddressTradingByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -14088,16 +13908,6 @@ export type MutationUpdateAddressArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAddressByNodeIdArgs = {
   input: UpdateAddressByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateAddressTradingArgs = {
-  input: UpdateAddressTradingInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateAddressTradingByNodeIdArgs = {
-  input: UpdateAddressTradingByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -16882,11 +16692,6 @@ export type Query = Node & {
   address?: Maybe<Address>;
   /** Reads a single `Address` using its globally unique `ID`. */
   addressByNodeId?: Maybe<Address>;
-  addressTrading?: Maybe<AddressTrading>;
-  /** Reads a single `AddressTrading` using its globally unique `ID`. */
-  addressTradingByNodeId?: Maybe<AddressTrading>;
-  /** Reads and enables pagination through a set of `AddressTrading`. */
-  addressTradings?: Maybe<AddressTradingsConnection>;
   /** Reads and enables pagination through a set of `Address`. */
   addresses?: Maybe<AddressesConnection>;
   asset?: Maybe<Asset>;
@@ -17156,28 +16961,6 @@ export type QueryAddressArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryAddressByNodeIdArgs = {
   nodeId: Scalars["ID"];
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryAddressTradingArgs = {
-  id: Scalars["Int"];
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryAddressTradingByNodeIdArgs = {
-  nodeId: Scalars["ID"];
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryAddressTradingsArgs = {
-  after?: InputMaybe<Scalars["Cursor"]>;
-  before?: InputMaybe<Scalars["Cursor"]>;
-  condition?: InputMaybe<AddressTradingCondition>;
-  filter?: InputMaybe<AddressTradingFilter>;
-  first?: InputMaybe<Scalars["Int"]>;
-  last?: InputMaybe<Scalars["Int"]>;
-  offset?: InputMaybe<Scalars["Int"]>;
-  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -20017,52 +19800,6 @@ export type UpdateAddressPayloadAddressEdgeArgs = {
   orderBy?: InputMaybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the `updateAddressTradingByNodeId` mutation. */
-export type UpdateAddressTradingByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `AddressTrading` to be updated. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `AddressTrading` being updated. */
-  patch: AddressTradingPatch;
-};
-
-/** All input for the `updateAddressTrading` mutation. */
-export type UpdateAddressTradingInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: InputMaybe<Scalars["String"]>;
-  id: Scalars["Int"];
-  /** An object where the defined keys will be set on the `AddressTrading` being updated. */
-  patch: AddressTradingPatch;
-};
-
-/** The output of our update `AddressTrading` mutation. */
-export type UpdateAddressTradingPayload = {
-  __typename?: "UpdateAddressTradingPayload";
-  /** The `AddressTrading` that was updated by this mutation. */
-  addressTrading?: Maybe<AddressTrading>;
-  /** An edge for our `AddressTrading`. May be used by Relay 1. */
-  addressTradingEdge?: Maybe<AddressTradingsEdge>;
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** The output of our update `AddressTrading` mutation. */
-export type UpdateAddressTradingPayloadAddressTradingEdgeArgs = {
-  orderBy?: InputMaybe<Array<AddressTradingsOrderBy>>;
-};
-
 /** All input for the `updateCertificationByNodeId` mutation. */
 export type UpdateCertificationByNodeIdInput = {
   /**
@@ -21690,7 +21427,6 @@ export type UserUpdateResponse = {
 export type _Entity =
   | Account
   | Address
-  | AddressTrading
   | Certification
   | Company
   | CompanyDocument
