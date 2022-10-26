@@ -559,6 +559,24 @@ deploy_gatsby_cloud_space_10:
     DXB_MARKET_ID: "space_10"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
+migrate_content_space_11:
+  extends: .migrate_content
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    DXB_MARKET_ID: "space_11"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
+deploy_gatsby_cloud_space_11:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_11
+  variables:
+    DXB_MARKET_ID: "space_11"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
+
 migrate_content_group:
   extends: .migrate_content
   rules:
@@ -762,6 +780,12 @@ update_mc_space_10:
   extends: .update_mc
   variables:
     DXB_MARKET_ID: "space_10"
+    IS_CONSOLIDATED: "true"
+
+update_mc_space_11:
+  extends: .update_mc
+  variables:
+    DXB_MARKET_ID: "space_11"
     IS_CONSOLIDATED: "true"
 
 update_mc_group:
