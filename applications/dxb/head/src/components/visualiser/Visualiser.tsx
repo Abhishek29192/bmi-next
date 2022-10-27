@@ -49,7 +49,7 @@ export type Parameters = {
   sidings: Siding[];
 };
 
-type Props = {
+export type Props = {
   contentSource: string;
   open: boolean;
   onClose: () => void;
@@ -584,9 +584,11 @@ const Visualiser = ({
                   handleOnClick({
                     type: "product-link",
                     label: getMicroCopy(microCopy.readMore),
-                    data: { variantCode: activeTile.code }
+                    data: {
+                      variantCode: activeTile.code,
+                      productPath: activeTile.path
+                    }
                   });
-                  handleOnClose();
                 }}
               >
                 <span className={styles["details-text"]}>

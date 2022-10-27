@@ -20,7 +20,8 @@ const tile: PIMTile = {
   thicknessReduction: 0,
   invert: false,
   invertY: false,
-  mainImage: "https://main_image.png"
+  mainImage: "https://main_image.png",
+  path: ""
 };
 
 export default tile;

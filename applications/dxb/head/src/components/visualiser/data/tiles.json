@@ -35,7 +35,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000634_Zanda_Arktis_main_tile_antique_red"
+          "variantCode": "133000634_Zanda_Arktis_main_tile_antique_red",
+          "path": "/p/zanda-arktis-normalstein-antikk-rød-betong-2841298874"
         },
         {
           "tileId": 2,
@@ -51,7 +52,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000133_Zanda_Arktis_main_tile_black"
+          "variantCode": "133000133_Zanda_Arktis_main_tile_black",
+          "path": "/p/zanda-arktis-normalstein-svart-betong-289333998"
         },
         {
           "tileId": 2,
@@ -67,7 +69,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000533_Zanda_Arktis_main_tile_red"
+          "variantCode": "133000533_Zanda_Arktis_main_tile_red",
+          "path": "/p/zanda-arktis-normalstein-rød-betong-833752477"
         },
         {
           "tileId": 2,
@@ -83,7 +86,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000633_Zanda_Arktis_main_tile_clayred"
+          "variantCode": "133000633_Zanda_Arktis_main_tile_clayred",
+          "path": "/p/zanda-arktis-normalstein-teglrød-betong-1528740557"
         },
         {
           "tileId": 2,
@@ -99,7 +103,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000233_Zanda_Arktis_main_tile_grey"
+          "variantCode": "133000233_Zanda_Arktis_main_tile_grey",
+          "path": "/p/zanda-arktis-normalstein-grå-betong-2495854128"
         },
         {
           "tileId": 2,
@@ -115,7 +120,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "133000234_Zanda_Arktis_main_tile_antique_grey"
+          "variantCode": "133000234_Zanda_Arktis_main_tile_antique_grey",
+          "path": "/p/zanda-arktis-normalstein-antikk-grå-betong-1832641415"
         }
       ],
       "revisionId": null,
@@ -157,7 +163,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "175200624_Zanda_Protector_main_tile_clayred"
+          "variantCode": "175200624_Zanda_Protector_main_tile_clayred",
+          "path": "/p/zanda-protector-normalstein-teglrød-betong-1856300947"
         },
         {
           "tileId": 3,
@@ -173,7 +180,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "175200522_Zanda_Protector_main_tile_red"
+          "variantCode": "175200522_Zanda_Protector_main_tile_red",
+          "path": "/p/zanda-protector-normalstein-rød-betong-619975412"
         },
         {
           "tileId": 3,
@@ -189,7 +197,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "175200224_Zanda_Protector_main_tile_grey"
+          "variantCode": "175200224_Zanda_Protector_main_tile_grey",
+          "path": "/p/zanda-protector-normalstein-grå-betong-3844278835"
         },
         {
           "tileId": 3,
@@ -205,7 +214,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "175200122_Zanda_Protector_main_tile_black"
+          "variantCode": "175200122_Zanda_Protector_main_tile_black",
+          "path": "/p/zanda-protector-normalstein-svart-betong-935895622"
         }
       ],
       "revisionId": null,
@@ -247,7 +257,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "174000512_Zanda_Classic_main_tile_red"
+          "variantCode": "174000512_Zanda_Classic_main_tile_red",
+          "path": "/p/zanda-classic-normalstein-rød-betong-1699793767"
         },
         {
           "tileId": 4,
@@ -263,7 +274,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "174000615_Zanda_Classic_main_tile_clayred"
+          "variantCode": "174000615_Zanda_Classic_main_tile_clayred",
+          "path": "/p/zanda-classic-normalstein-teglrød-betong-2862044849"
         },
         {
           "tileId": 4,
@@ -279,7 +291,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "174000112_Zanda_Classic_main_tile_black"
+          "variantCode": "174000112_Zanda_Classic_main_tile_black",
+          "path": "/p/zanda-classic-normalstein-svart-betong-3092280942"
         },
         {
           "tileId": 4,
@@ -295,7 +308,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "174000226_Zanda_Classic_main_tile_dark_grey"
+          "variantCode": "174000226_Zanda_Classic_main_tile_dark_grey",
+          "path": "/p/zanda-classic-normalstein-mørk-grå-betong-281132146"
         }
       ],
       "revisionId": null,
@@ -337,7 +351,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "172020501_Zanda_Vestland_main_tile_clayred"
+          "variantCode": "172020501_Zanda_Vestland_main_tile_clayred",
+          "path": "/p/zanda-vestland-normalstein-teglrød-betong-1461184903"
         },
         {
           "tileId": 5,
@@ -353,7 +368,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "172020607_Zanda_Vestland_main_tile_antique"
+          "variantCode": "172020607_Zanda_Vestland_main_tile_antique",
+          "path": "/p/zanda-vestland-normalstein-antikk-betong-835708647"
         },
         {
           "tileId": 5,
@@ -369,7 +385,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "172020101_Zanda_Vestland_main_tile_black"
+          "variantCode": "172020101_Zanda_Vestland_main_tile_black",
+          "path": "/p/zanda-vestland-normalstein-koks-betong-1185720138"
         }
       ],
       "revisionId": null,
@@ -411,7 +428,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "143000211_Zanda_Minster_main_tile_dark_grey"
+          "variantCode": "143000211_Zanda_Minster_main_tile_dark_grey",
+          "path": "/p/zanda-minster-normalstein-mørk-grå-betong-4104038613"
         },
         {
           "tileId": 6,
@@ -427,7 +445,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "143000208_Zanda_Minster_main_tile_dark_slate"
+          "variantCode": "143000208_Zanda_Minster_main_tile_dark_slate",
+          "path": "/p/zanda-minster-normalstein-mørk-skifer-betong-1532137436"
         }
       ],
       "revisionId": null,
@@ -469,7 +488,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "136500112_Zanda_Evo_maintile_black"
+          "variantCode": "136500112_Zanda_Evo_maintile_black",
+          "path": "/p/zanda-evo-normalstein-sort-1848898999"
         },
         {
           "tileId": 7,
@@ -485,7 +505,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "136500217_Zanda_Evo_maintile_dark_grey"
+          "variantCode": "136500217_Zanda_Evo_maintile_dark_grey",
+          "path": "/p/zanda-evo-normalstein-mørk-grå-1882940936"
         }
       ],
       "revisionId": null,
@@ -527,7 +548,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001255_Turmalin_main_tile_glazed_crystal_grey"
+          "variantCode": "197001255_Turmalin_main_tile_glazed_crystal_grey",
+          "path": "/p/turmalin-normalstein-krystallgrå-glasert-tegl-2224556301"
         },
         {
           "tileId": 8,
@@ -543,7 +565,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001157_Turmalin_main_tile_glazed_black"
+          "variantCode": "197001157_Turmalin_main_tile_glazed_black",
+          "path": "/p/turmalin-normalstein-svart-glasert-tegl-3587906102"
         },
         {
           "tileId": 8,
@@ -559,7 +582,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001251_Turmalin_main_tile_glazed_grey"
+          "variantCode": "197001251_Turmalin_main_tile_glazed_grey",
+          "path": "/p/turmalin-normalstein-krystallgrå-glasert-tegl-2224556301/"
         },
         {
           "tileId": 8,
@@ -575,7 +599,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001141_Turmalin_main_tile_engobed_black"
+          "variantCode": "197001141_Turmalin_main_tile_engobed_black",
+          "path": "/p/turmalin-normalstein-svart-engobert-tegl-2332014644/"
         },
         {
           "tileId": 8,
@@ -591,7 +616,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001242_Turmalin_main_tile_engobed_grey"
+          "variantCode": "197001242_Turmalin_main_tile_engobed_grey",
+          "path": "/p/turmalin-normalstein-grå-engobert-tegl-141519982"
         },
         {
           "tileId": 8,
@@ -607,7 +633,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "197001604_Turmalin_main_tile_uncoated_red"
+          "variantCode": "197001604_Turmalin_main_tile_uncoated_red",
+          "path": "/p/turmalin-normalstein-naturell-ubehandlet-overflate-tegl-4209812013"
         }
       ],
       "revisionId": null,
@@ -649,7 +676,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190131408_KDN_main_tile_glazed_jet_black"
+          "variantCode": "190131408_KDN_main_tile_glazed_jet_black",
+          "path": "/p/kdn-normalstein-kullsvart-glasert-tegl-2944774053"
         },
         {
           "tileId": 9,
@@ -665,7 +693,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012431_KDN_main_tile_glazed_silver_black"
+          "variantCode": "190012431_KDN_main_tile_glazed_silver_black",
+          "path": "/p/kdn-normalstein-sølvsvart-glasert-tegl-752807605"
         },
         {
           "tileId": 9,
@@ -681,7 +710,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012407_KDN_main_tile_glazed_light_brown"
+          "variantCode": "190012407_KDN_main_tile_glazed_light_brown",
+          "path": ""
         },
         {
           "tileId": 9,
@@ -697,7 +727,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012406_KDN_main_tile_glazed_dark_brown"
+          "variantCode": "190012406_KDN_main_tile_glazed_dark_brown",
+          "path": "/p/kdn-normalstein-mørk-brun-glasert-tegl-4074624969"
         },
         {
           "tileId": 9,
@@ -713,7 +744,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012430_KDN_main_tile_glazed_wine_red"
+          "variantCode": "190012430_KDN_main_tile_glazed_wine_red",
+          "path": "/p/kdn-normalstein-vinrød-glasert-tegl-1824510820"
         },
         {
           "tileId": 9,
@@ -729,7 +761,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012433_KDN_main_tile_glazed_purple"
+          "variantCode": "190012433_KDN_main_tile_glazed_purple",
+          "path": ""
         },
         {
           "tileId": 9,
@@ -745,7 +778,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012618_KDN_main_tile_engobed_autumn_red"
+          "variantCode": "190012618_KDN_main_tile_engobed_autumn_red",
+          "path": "/p/kdn-normalstein-høstrød-engobert-tegl-2859352675"
         },
         {
           "tileId": 9,
@@ -761,7 +795,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190012116_KDN_main_tile_uncoated_natural"
+          "variantCode": "190012116_KDN_main_tile_uncoated_natural",
+          "path": "/p/kdn-normalstein-ubehandlet-overflate-tegl-2920158636"
         }
       ],
       "revisionId": null,
@@ -803,7 +838,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "184000151_Hollander_V_main_tile_glazed_black"
+          "variantCode": "184000151_Hollander_V_main_tile_glazed_black",
+          "path": "/p/hollander-v-normalstein-svart-matt-glasert-tegl-2361342454"
         },
         {
           "tileId": 10,
@@ -819,7 +855,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "184000154_Hollander_V_main_tile_glazed_black_matt"
+          "variantCode": "184000154_Hollander_V_main_tile_glazed_black_matt",
+          "path": "/p/hollander-v-normalstein-svart-matt-glasert-tegl-1289019750/"
         },
         {
           "tileId": 10,
@@ -835,7 +872,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "184000142_Hollander_V_main_tile_engobed_black"
+          "variantCode": "184000142_Hollander_V_main_tile_engobed_black",
+          "path": "/p/hollander-v-normalstein-brunsvart-engobert-tegl-1477734107"
         },
         {
           "tileId": 10,
@@ -851,7 +889,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "184000241_Hollander_V_main_tile_engobed_grey"
+          "variantCode": "184000241_Hollander_V_main_tile_engobed_grey",
+          "path": "/p/hollander-v-normalstein-grå-engobert-tegl-1310690751"
         },
         {
           "tileId": 10,
@@ -867,7 +906,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "184000603_Hollander_V_main_tile_uncoated_red"
+          "variantCode": "184000603_Hollander_V_main_tile_uncoated_red",
+          "path": "/p/hollander-v-normalstein-naturell-ubehandlet-overflate-tegl-3202017543"
         },
         {
           "tileId": 10,
@@ -883,7 +923,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": null
+          "variantCode": null,
+          "path": ""
         }
       ],
       "revisionId": null,
@@ -925,7 +966,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190230608_Nortegl_main_tile_glazed_black"
+          "variantCode": "190230608_Nortegl_main_tile_glazed_black",
+          "path": "/p/nortegl-normalstein-svart-glasert-tegl-1169340928"
         },
         {
           "tileId": 11,
@@ -941,7 +983,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190001611_Nortegl_main_tile_engobed_autumn_red"
+          "variantCode": "190001611_Nortegl_main_tile_engobed_autumn_red",
+          "path": "/p/nortegl-normalstein-høstrød-engobert-tegl-599643966"
         },
         {
           "tileId": 11,
@@ -957,7 +1000,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190001608_Nortegl_main_tile_engobed_black"
+          "variantCode": "190001608_Nortegl_main_tile_engobed_black",
+          "path": "/p/nortegl-normalstein-svart-engobert-tegl-4019630205/"
         },
         {
           "tileId": 11,
@@ -973,7 +1017,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "190001101_Nortegl_main_tile_uncoated_clay"
+          "variantCode": "190001101_Nortegl_main_tile_uncoated_clay",
+          "path": "/p/nortegl-normalstein-naturell-ubehandlet-overflate-tegl-2632884317"
         }
       ],
       "revisionId": null,
@@ -1015,7 +1060,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "112012143_Nova_main_tile_glazed_black"
+          "variantCode": "112012143_Nova_main_tile_glazed_black",
+          "path": "/p/nova-normalstein-svart-glasert-tegl-1471025223"
         },
         {
           "tileId": 12,
@@ -1031,7 +1077,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "112012141_Nova_main_tile_engobed_black"
+          "variantCode": "112012141_Nova_main_tile_engobed_black",
+          "path": "/p/nova-normalstein-svart-engobert-tegl-2199998508"
         },
         {
           "tileId": 12,
@@ -1047,7 +1094,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "112012604_Nova_main_tile_uncoated_clay"
+          "variantCode": "112012604_Nova_main_tile_uncoated_clay",
+          "path": "/p/nova-normalstein-naturell-ubehandlet-overflate-tegl-2104027701"
         }
       ],
       "revisionId": null,
@@ -1089,7 +1137,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "101000102_Dantegl_main_tile_uncoated_red"
+          "variantCode": "101000102_Dantegl_main_tile_uncoated_red",
+          "path": "/p/dantegl-normalstein-naturell-ubehandlet-overflate-tegl-4016207286"
         }
       ],
       "revisionId": null,
@@ -1131,7 +1180,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "000400_AeroDek_Tradition_Plus_tile_black"
+          "variantCode": "000400_AeroDek_Tradition_Plus_tile_black",
+          "path": "/p/tradition-plus-takpanne-sort-metall-600174295/"
         },
         {
           "tileId": 14,
@@ -1147,7 +1197,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "001470_AeroDek_Tradition_Plus_tile_antique_grey"
+          "variantCode": "001470_AeroDek_Tradition_Plus_tile_antique_grey",
+          "path": "/p/tradition-plus-takpanne-grå-antikk-metall-762513707"
         },
         {
           "tileId": 14,
@@ -1163,7 +1214,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "210018_AeroDek_Tradition_Plus_tile_antique_red"
+          "variantCode": "210018_AeroDek_Tradition_Plus_tile_antique_red",
+          "path": "/p/tradition-plus-takpanne-rød-antikk-metall-3879108570/"
         },
         {
           "tileId": 14,
@@ -1179,7 +1231,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "080101_AeroDek_Tradition_Plus_tile_clayred"
+          "variantCode": "080101_AeroDek_Tradition_Plus_tile_clayred",
+          "path": "/p/tradition-plus-takpanne-teglrød-metall-1968567585"
         }
       ],
       "revisionId": null,
@@ -1221,7 +1274,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "002222_AeroDek_Robust_Plus_tile_pepperstone"
+          "variantCode": "002222_AeroDek_Robust_Plus_tile_pepperstone",
+          "path": "/p/robust-plus-takpanne-pepperstone-metall-4032589843"
         },
         {
           "tileId": 15,
@@ -1237,7 +1291,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200450_AeroDek_Robust_Plus_tile_antique_grey"
+          "variantCode": "200450_AeroDek_Robust_Plus_tile_antique_grey",
+          "path": "/p/robust-plus-takpanne-grå-antikk-metall-3762089517"
         }
       ],
       "revisionId": null,
@@ -1279,7 +1334,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200020_AeroDek_Unique_Plus_tile_black"
+          "variantCode": "200020_AeroDek_Unique_Plus_tile_black",
+          "path": "/p/unique-plus-takpanne-sort-metall-2940608890"
         },
         {
           "tileId": 17,
@@ -1295,7 +1351,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200762_AeroDek_Unique_Plus_tile_black_matt"
+          "variantCode": "200762_AeroDek_Unique_Plus_tile_black_matt",
+          "path": "/p/unique-plus-takpanne-matt-sort-metall-280808891"
         },
         {
           "tileId": 17,
@@ -1311,7 +1368,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200502_AeroDek_Unique_Plus_tile_graphite_matt"
+          "variantCode": "200502_AeroDek_Unique_Plus_tile_graphite_matt",
+          "path": "/p/unique-plus-takpanne-matt-grafitt-metall-258584391"
         },
         {
           "tileId": 17,
@@ -1327,7 +1385,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200458_AeroDek_Unique_Plus_tile_clayred_matt"
+          "variantCode": "200458_AeroDek_Unique_Plus_tile_clayred_matt",
+          "path": ""
         }
       ],
       "revisionId": null,
@@ -1369,7 +1428,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "201022_AeroDek_Tradition_Tile_Black"
+          "variantCode": "201022_AeroDek_Tradition_Tile_Black",
+          "path": "/p/tradition-takpanne-sort-3109776858"
         },
         {
           "tileId": 18,
@@ -1385,7 +1445,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "201023_Aerodek_Tradition_antique_grey"
+          "variantCode": "201023_Aerodek_Tradition_antique_grey",
+          "path": "/p/tradition-takpanne-grå-antikk-30384410"
         },
         {
           "tileId": 18,
@@ -1401,7 +1462,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "210019_AeroDek_Tradition_antique_red"
+          "variantCode": "210019_AeroDek_Tradition_antique_red",
+          "path": "/p/tradition-takpanne-rød-antikk-3436028375"
         }
       ],
       "revisionId": null,
@@ -1443,7 +1505,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200531_Quadro_tile_graphite_matt"
+          "variantCode": "200531_Quadro_tile_graphite_matt",
+          "path": "/p/quadro-plus-takpanne-matt-grafitt-metall-2351509566"
         },
         {
           "tileId": 19,
@@ -1459,7 +1522,8 @@
           "revisionId": null,
           "isDraft": false,
           "type": "TileColour",
-          "variantCode": "200800_Quadro_tile_black_matt"
+          "variantCode": "200800_Quadro_tile_black_matt",
+          "path": "/p/quadro-plus-takpanne-matt-sort-metall-2117419460"
         }
       ],
       "revisionId": null,
