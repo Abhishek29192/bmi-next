@@ -86,19 +86,27 @@ export const updateDocuments = async (
 
   const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`.toLowerCase();
 
-  await client.deleteByQuery({
-    index: index,
-    body: {
-      query: {
-        bool: {
-          must: {
-            term: { "productBaseCode.keyword": itemCode }
+  // it is possible that the index doesnt exist at first time
+  // hence this can throw error, tested using local es server
+  // we need to continue to process later part..hence try/catch block
+  try {
+    await client.deleteByQuery({
+      index: index,
+      body: {
+        query: {
+          bool: {
+            must: {
+              term: { "productBaseCode.keyword": itemCode }
+            }
           }
         }
       }
-    }
-  });
-
+    });
+  } catch (e) {
+    logger.error({
+      message: `tried to delete document by query: ${JSON.stringify(e)}`
+    });
+  }
   const bulkAssetsOperations = getChunks(assets).map((c) =>
     getAssetsBulkOperations(index, c)
   );
