@@ -1055,6 +1055,10 @@ from = "/fr/s/adepar-js-r4-silver-+-parafor-jardin-silver-1869841402/"
 to = "/fr/s/adepar-js-r4-silver-parafor-jardin-silver-1869841402/"
 force = true
 
+[[redirects]]
+from = "/fr/syst%C3%A8mes-climat-de-montagne/"
+to = "/fr/systemes-climat-de-montagne/"
+force = true
 
 # Redirect root to /fr.
 [[redirects]]
