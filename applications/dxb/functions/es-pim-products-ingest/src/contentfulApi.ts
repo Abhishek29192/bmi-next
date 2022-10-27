@@ -38,7 +38,7 @@ const getAssetTypes = async (
   });
 
   if (totalAssetTypeCount > limit) {
-    if (foundSoFar < totalAssetTypeCount) {
+    while (foundSoFar < totalAssetTypeCount) {
       const assetTypes = await client.getEntries<AssetType>(
         generateQuery(foundSoFar)
       );

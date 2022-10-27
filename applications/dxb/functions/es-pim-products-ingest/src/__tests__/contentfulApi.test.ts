@@ -78,13 +78,14 @@ describe("getAssetTypes", () => {
     });
   });
 
-  it("should paginated return transformed asset types", async () => {
+  it("should paginate and return transformed asset types", async () => {
     const locale = "en-US";
     const assetType = createFullyPopulatedAssetType();
     getEntries.mockResolvedValue(
       createResponse({
         items: [createEntry({ fields: assetType })],
-        total: 10
+        total: 10,
+        limit: 1
       })
     );
 
@@ -98,10 +99,16 @@ describe("getAssetTypes", () => {
       }
     ]);
     expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledTimes(10);
     expect(getEntries).toBeCalledWith({
       content_type: "assetType",
       locale,
       skip: 0
+    });
+    expect(getEntries).lastCalledWith({
+      content_type: "assetType",
+      locale,
+      skip: 9
     });
   });
 
