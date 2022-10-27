@@ -1,0 +1,6 @@
+# Redirect root to /ie
+[[redirects]]
+  from = "/"
+  to = "/ie"
+  status = 301
+  force = true
