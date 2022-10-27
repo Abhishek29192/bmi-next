@@ -42,8 +42,10 @@ const getAssetTypes = async (
       const assetTypes = await client.getEntries<AssetType>(
         generateQuery(foundSoFar)
       );
-      assetTypesToReturn.concat(assetTypes.items);
-      foundSoFar = foundSoFar + assetTypes.items.length;
+      if (assetTypes && assetTypes.items) {
+        assetTypesToReturn.concat(assetTypes.items);
+        foundSoFar = foundSoFar + assetTypes.items.length;
+      }
     }
   }
 
