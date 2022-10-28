@@ -23,7 +23,6 @@ beforeEach(() => {
 
 describe("computeDistanceBetween", () => {
   it("returns undefined if google is undefined", () => {
-    global.google = undefined;
     expect(
       computeDistanceBetween(createLatLngLiteral(), createLatLngLiteral())
     ).toBeUndefined();
