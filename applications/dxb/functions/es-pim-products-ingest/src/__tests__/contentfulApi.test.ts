@@ -54,6 +54,7 @@ describe("getAssetTypes", () => {
     expect(getEntries).toBeCalledWith({
       content_type: "assetType",
       locale,
+      limit: 1000,
       skip: 0
     });
   });
@@ -74,6 +75,7 @@ describe("getAssetTypes", () => {
     expect(getEntries).toBeCalledWith({
       content_type: "assetType",
       locale,
+      limit: 1000,
       skip: 0
     });
   });
@@ -103,11 +105,13 @@ describe("getAssetTypes", () => {
     expect(getEntries).toBeCalledWith({
       content_type: "assetType",
       locale,
+      limit: 1000,
       skip: 0
     });
     expect(getEntries).lastCalledWith({
       content_type: "assetType",
       locale,
+      limit: 1000,
       skip: 9
     });
   });
@@ -143,7 +147,8 @@ describe("getAssetTypes", () => {
     expect(getEntries).lastCalledWith({
       content_type: "assetType",
       locale,
-      skip: 0
+      skip: 0,
+      limit: 1000
     });
   });
 
@@ -169,7 +174,8 @@ describe("getAssetTypes", () => {
       content_type: "assetType",
       locale,
       "metadata.tags.sys.id[all]": tag,
-      skip: 0
+      skip: 0,
+      limit: 1000
     });
   });
 });

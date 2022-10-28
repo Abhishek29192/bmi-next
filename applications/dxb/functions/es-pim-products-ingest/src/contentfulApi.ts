@@ -4,6 +4,8 @@ import { getContentfulClient } from "@bmi/functions-contentful-client";
 import type { Entry } from "contentful";
 import { ProductDocumentNameMap } from "./types";
 
+const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
+
 const getAssetTypes = async (
   locale: string,
   tag?: string
@@ -20,7 +22,8 @@ const getAssetTypes = async (
       content_type: "assetType",
       locale,
       ...(tag && { "metadata.tags.sys.id[all]": tag }),
-      skip: skip
+      skip: skip,
+      limit: MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE
     };
   };
 
