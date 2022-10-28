@@ -85,7 +85,7 @@ export const performMerchandiseSso = async (_query, args, context) => {
       users_division: division,
       users_branch: defaultBranch,
       users_company: account?.company_name || "",
-      users_add: "",
+      users_add: "Test add",
       users_town: account?.town || "",
       users_county: account?.country || "",
       users_postcode: account?.postcode || "",
