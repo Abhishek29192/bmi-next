@@ -2,7 +2,13 @@ type MarketServices =
   | "bimObject"
   | "cloudFlare"
   | "facebook"
-  | "googleAdServices"
+  | "googleAdConversions"
+  | "googleAdRemarketing"
+  | "googleFloodlight"
+  | "googleMaps"
+  | "googleOptimize"
+  | "googleRecaptcha"
+  | "googleTagManager"
   | "hotJar"
   | "hubspot"
   | "leadoo"
@@ -16,7 +22,8 @@ type MarketServices =
   | "sketchFab"
   | "theTradeDesk"
   | "twitter"
-  | "walls";
+  | "walls"
+  | "youtube";
 
 export type MarketOptions = {
   frameSrcExtras?: string;
@@ -36,7 +43,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -44,7 +57,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "sketchFab",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   be: {
@@ -56,7 +70,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -65,7 +85,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   de: {
@@ -77,7 +98,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -87,7 +114,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "speedCurve",
       "theTradeDesk",
-      "walls"
+      "walls",
+      "youtube"
     ]
   },
   es: {
@@ -98,7 +126,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -107,7 +141,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "speedCurve",
-      "twitter"
+      "twitter",
+      "youtube"
     ]
   },
   fi: {
@@ -119,7 +154,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -127,7 +168,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   fr: {
@@ -137,14 +179,21 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   group: {
@@ -154,7 +203,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -162,7 +217,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "speedCurve",
-      "walls"
+      "walls",
+      "youtube"
     ]
   },
   id: {
@@ -172,7 +228,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -181,7 +243,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   it: {
@@ -191,14 +254,48 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  my: {
+    gcpRegion: "asia-africa",
+    name: "malaysia",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "leadoo",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "outBrain",
+      "speedCurve",
+      "walls",
+      "youtube"
     ]
   },
   nl: {
@@ -210,7 +307,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -218,27 +321,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "pointerPro",
-      "speedCurve"
-    ]
-  },
-  my: {
-    gcpRegion: "asia-africa",
-    name: "malaysia",
-    services: [
-      "bimObject",
-      "cloudFlare",
-      "facebook",
-      "googleAdServices",
-      "hotJar",
-      "hubspot",
-      "leadoo",
-      "linkedin",
-      "mopinion",
-      "mouseFlow",
-      "oneTrust",
-      "outBrain",
       "speedCurve",
-      "walls"
+      "youtube"
     ]
   },
   no: {
@@ -247,7 +331,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -256,24 +346,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "pointerPro",
-      "speedCurve"
-    ]
-  },
-  pt: {
-    gcpRegion: "eu-southwests",
-    name: "portugal",
-    services: [
-      "bimObject",
-      "cloudFlare",
-      "facebook",
-      "googleAdServices",
-      "hotJar",
-      "hubspot",
-      "linkedin",
-      "mopinion",
-      "mouseFlow",
-      "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   pl: {
@@ -283,7 +357,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -292,7 +372,32 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  pt: {
+    gcpRegion: "eu-southwests",
+    name: "portugal",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "speedCurve",
+      "youtube"
     ]
   },
   qa: {
@@ -302,7 +407,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -315,7 +426,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "sketchFab",
       "speedCurve",
       "theTradeDesk",
-      "walls"
+      "walls",
+      "youtube"
     ]
   },
   ro: {
@@ -325,7 +437,13 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -334,7 +452,8 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   tr: {
@@ -343,12 +462,19 @@ const allMarketOptions: Record<string, MarketOptions> = {
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hubspot",
       "linkedin",
       "mopinion",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   uk: {
@@ -357,14 +483,21 @@ const allMarketOptions: Record<string, MarketOptions> = {
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   za: {
@@ -374,13 +507,20 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   }
 };
