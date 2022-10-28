@@ -46,7 +46,40 @@ exports[`MediaTileThumbnail should render vimeo MediaTool component 1`] = `
   <div>
     <div>
       <iframe
-        class="iframe"
+        class="iframe test-001"
+        frameborder="0"
+        height="100%"
+        sandbox="allow-scripts allow-same-origin"
+        scrolling="yes"
+        src="https://player.vimeo.com/video/vimeo.com?title=0&portrait=0&controls=0&sidedock=0"
+        width="100%"
+      />
+      <div
+        class="playButton"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+          focusable="false"
+          style="font-size: 2rem; display: block;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8 5v14l11-7z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`MediaTileThumbnail should render vimeo MediaTool component with default optanonClass 1`] = `
+<body>
+  <div>
+    <div>
+      <iframe
+        class="iframe test"
         frameborder="0"
         height="100%"
         sandbox="allow-scripts allow-same-origin"

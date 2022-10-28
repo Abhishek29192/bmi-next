@@ -1669,6 +1669,7 @@ type Market implements Node {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
 
   """Reads and enables pagination through a set of `Account`."""
   accounts(
@@ -7386,6 +7387,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -7710,6 +7712,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -9065,6 +9068,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -11883,6 +11887,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -12163,6 +12168,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -16808,6 +16814,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17083,6 +17090,7 @@ input MarketPatch {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17160,6 +17168,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17672,6 +17681,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -17845,6 +17855,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19107,6 +19118,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19649,6 +19661,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -19798,6 +19811,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
@@ -20464,6 +20478,7 @@ input MarketInput {
   doceboCatalogueIdT3: Int
   doceboCatalogueIdT4: Int
   merchandiseSso: Boolean
+  optanonClass: String
   accountsUsingId: AccountMarketIdFkeyInverseInput
   companiesUsingId: CompanyMarketIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput

@@ -489,6 +489,7 @@ export const updateMarket = gql`
             locationBiasRadiusKm
             gtag
             gtagMarketMedia
+            optanonClass
           }
         }
       }

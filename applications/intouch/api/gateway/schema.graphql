@@ -936,6 +936,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -4400,6 +4401,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -5153,6 +5155,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -18586,6 +18589,7 @@ type Market implements Node {
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
   nodeId: ID!
+  optanonClass: String
 
   """
   Reads and enables pagination through a set of `Product`.
@@ -18791,6 +18795,7 @@ type MarketContent implements Entry {
     skip: Int = 0
   ): MarketContentMediaLibraryRootCollection
   name(locale: String): String
+  newsItemClass(locale: String): String
   newsItemCta(locale: String): String
   newsItemHeading(locale: String): String
   newsItemUrl(locale: String): String
@@ -18854,6 +18859,13 @@ input MarketContentFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  newsItemClass: String
+  newsItemClass_contains: String
+  newsItemClass_exists: Boolean
+  newsItemClass_in: [String]
+  newsItemClass_not: String
+  newsItemClass_not_contains: String
+  newsItemClass_not_in: [String]
   newsItemCta: String
   newsItemCta_contains: String
   newsItemCta_exists: Boolean
@@ -18911,6 +18923,8 @@ enum MarketContentOrder {
   live_DESC
   name_ASC
   name_DESC
+  newsItemClass_ASC
+  newsItemClass_DESC
   newsItemCta_ASC
   newsItemCta_DESC
   newsItemHeading_ASC
@@ -19042,6 +19056,7 @@ input MarketInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -19576,6 +19591,7 @@ input MarketPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -19741,6 +19757,7 @@ type MediaTool implements Entry {
   cta(locale: String): String
   linkedFrom(allowedLocales: [String]): MediaToolLinkingCollections
   media(locale: String, preview: Boolean): Asset
+  mediaItemClass(locale: String): String
   name(locale: String): String
   sys: Sys!
   thumbnail(locale: String, preview: Boolean): Asset
@@ -19765,6 +19782,13 @@ input MediaToolFilter {
   cta_not: String
   cta_not_contains: String
   cta_not_in: [String]
+  mediaItemClass: String
+  mediaItemClass_contains: String
+  mediaItemClass_exists: Boolean
+  mediaItemClass_in: [String]
+  mediaItemClass_not: String
+  mediaItemClass_not_contains: String
+  mediaItemClass_not_in: [String]
   media_exists: Boolean
   name: String
   name_contains: String
@@ -19802,6 +19826,8 @@ type MediaToolLinkingCollections {
 enum MediaToolOrder {
   cta_ASC
   cta_DESC
+  mediaItemClass_ASC
+  mediaItemClass_DESC
   name_ASC
   name_DESC
   sys_firstPublishedAt_ASC
@@ -23786,6 +23812,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -29297,6 +29324,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -29711,6 +29739,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37216,6 +37245,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37310,6 +37340,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37404,6 +37435,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37498,6 +37530,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37592,6 +37625,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37686,6 +37720,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """

@@ -28,6 +28,7 @@ export type GalleryItem = {
   title: string;
   description?: string;
   fileUrl?: string;
+  mediaItemClass?: string;
 };
 
 export type MediaGalleryState = {

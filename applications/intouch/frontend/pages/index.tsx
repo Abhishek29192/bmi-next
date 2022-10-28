@@ -215,6 +215,7 @@ export const GET_PARTNER_BRANDS = gql`
         newsItemUrl
         newsItemCta
         newsItemHeading
+        newsItemClass
       }
     }
     carouselCollection(
@@ -428,7 +429,7 @@ const FeedHolder = ({
             height="400px"
             width="100%"
             frameBorder="0"
-            className={styles.embed}
+            className={`${styles.embed} ${marketContent?.newsItemClass}`}
           />
           <Button
             variant="outlined"

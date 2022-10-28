@@ -8,11 +8,20 @@ import styles from "./styles.module.scss";
 
 type Props = {
   mediaItem: MediaItem;
+  optanonClass?: string;
 };
 
 const THUMBNAIL_MAX_WIDTH = 300;
 
-const VimeoIFrameThumbnail = ({ videoUrl }: { videoUrl: string }) => (
+const VimeoIFrameThumbnail = ({
+  videoUrl,
+  optanonClass,
+  mediaItemClass
+}: {
+  videoUrl: string;
+  optanonClass: string;
+  mediaItemClass: string;
+}) => (
   <div>
     <iframe
       src={`${getVimeoEmbedUrl(
@@ -22,7 +31,9 @@ const VimeoIFrameThumbnail = ({ videoUrl }: { videoUrl: string }) => (
       width="100%"
       scrolling="yes"
       frameBorder="0"
-      className={styles.iframe}
+      className={`${styles.iframe} ${
+        mediaItemClass?.length ? mediaItemClass : optanonClass
+      }`}
       sandbox="allow-scripts allow-same-origin"
     />
 
@@ -36,7 +47,7 @@ const VimeoIFrameThumbnail = ({ videoUrl }: { videoUrl: string }) => (
   </div>
 );
 
-export const MediaTileThumbnail = ({ mediaItem }: Props) => {
+export const MediaTileThumbnail = ({ mediaItem, optanonClass }: Props) => {
   if (mediaItem.__typename === "MediaFolder") {
     return <Icon source={Folder} style={{ fontSize: 64 }} color="primary" />;
   }
@@ -54,10 +65,17 @@ export const MediaTileThumbnail = ({ mediaItem }: Props) => {
     );
   }
   const externalMediaUrl = mediaItem.url;
+  const mediaItemClass = mediaItem.mediaItemClass;
   if (externalMediaUrl?.includes("vimeo")) {
     // Vimeo doesn't provide a thumbnail url without making an additional request to Vimeo
     // rendering an iframe without controls to avoid making the extra request
-    return <VimeoIFrameThumbnail videoUrl={externalMediaUrl} />;
+    return (
+      <VimeoIFrameThumbnail
+        videoUrl={externalMediaUrl}
+        optanonClass={optanonClass}
+        mediaItemClass={mediaItemClass}
+      />
+    );
   }
   // fallback icon
   return (
