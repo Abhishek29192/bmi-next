@@ -27,7 +27,6 @@ const EmbeddedAssetBlock = ({
   node: Block;
   className: string;
 }) => {
-  console.log(JSON.stringify(node));
   const data: FileData = node.data.target;
   const { title, file } = data;
 
