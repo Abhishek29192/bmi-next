@@ -84,9 +84,22 @@ export default {
       if (!source.documents || !source.documents.length) {
         return [];
       }
+      const marketFilters = process.env.MARKET_TAG_NAME
+        ? {
+            metadata: {
+              tags: {
+                elemMatch: {
+                  contentful_id: {
+                    eq: process.env.MARKET_TAG_NAME
+                  }
+                }
+              }
+            }
+          }
+        : {};
       const { entries } = await context.nodeModel.findAll<AssetType>(
         {
-          query: {},
+          query: { filter: marketFilters },
           type: "ContentfulAssetType"
         },
         { connectionType: "ContentfulAssetType" }

@@ -1,3 +1,4 @@
+import { AssetType } from "../../templates/documentLibrary/types";
 import { ProductFilter } from "../../types/pim";
 import {
   ContentfulAssetType,
@@ -131,6 +132,53 @@ const getDocumentsFilters = async (
 };
 
 export default {
+  contentfulAssetTypes: {
+    type: "[AssetType]!",
+    async resolve(
+      source: ContentfulDocumentLibraryPage,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<AssetType[]> {
+      let assetTypes: ContentfulAssetType[];
+      if (source.assetTypes___NODE && source.assetTypes___NODE.length) {
+        assetTypes = await Promise.all(
+          source.assetTypes___NODE.map(async (id) => {
+            return (await context.nodeModel.getNodeById({
+              id,
+              type: "ContentfulAssetType"
+            })) as ContentfulAssetType;
+          })
+        );
+      } else {
+        const marketFilters = process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: {
+                      eq: process.env.MARKET_TAG_NAME
+                    }
+                  }
+                }
+              }
+            }
+          : {};
+        const { entries } =
+          await context.nodeModel.findAll<ContentfulAssetType>(
+            { query: { filter: marketFilters }, type: "ContentfulAssetType" },
+            { connectionType: "ContentfulAssetType" }
+          );
+        assetTypes = entries ? [...entries] : [];
+      }
+
+      return assetTypes.map((assetType) => ({
+        name: assetType.name,
+        code: assetType.code,
+        description: assetType.description,
+        pimCode: assetType.pimCode
+      }));
+    }
+  },
   documentsFilters: {
     type: "DocumentsFiltersResponse",
     async resolve(
@@ -149,8 +197,21 @@ export default {
           })
         );
       } else {
+        const marketFilters = process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: {
+                      eq: process.env.MARKET_TAG_NAME
+                    }
+                  }
+                }
+              }
+            }
+          : {};
         const { entries } = await context.nodeModel.findAll<Node>(
-          { query: {}, type: "ContentfulAssetType" },
+          { query: { filter: marketFilters }, type: "ContentfulAssetType" },
           { connectionType: "ContentfulAssetType" }
         );
         assetTypes = entries ? [...entries] : [];

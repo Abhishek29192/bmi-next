@@ -1,11 +1,21 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import {
+  createDocument as createContentfulDocument,
+  createEntry,
+  Document as ContentfulDocument
+} from "@bmi/contentful-types";
+import {
+  ContentfulDocument as EsContentfulDocument,
+  createContentfulDocument as createEsContentfulDocument
+} from "@bmi/elasticsearch-types";
+import {
   createProduct,
   createProductsApiResponse,
   createSystem,
   createSystemsApiResponse,
   PimTypes
 } from "@bmi/pim-types";
+import { Entry } from "contentful";
 import { Request, Response } from "express";
 import mockConsole from "jest-mock-console";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
@@ -29,6 +39,29 @@ jest.mock("@google-cloud/pubsub", () => {
   return { PubSub: mPubSub };
 });
 
+const getDocuments: jest.Mock<
+  Promise<Entry<ContentfulDocument>[]>,
+  [string, number, string | undefined]
+> = jest.fn();
+jest.mock("../contentful", () => ({
+  getDocuments: (locale: string, page: number, tag?: string) =>
+    getDocuments(locale, page, tag)
+}));
+
+const transformDocuments: jest.Mock<
+  EsContentfulDocument[],
+  [Entry<ContentfulDocument>[]]
+> = jest.fn();
+jest.mock("../documentTransformer", () => ({
+  transformDocuments: (documents: Entry<ContentfulDocument>[]) =>
+    transformDocuments(documents)
+}));
+
+const indexIntoES: jest.Mock<Promise<void>, [ContentfulDocument[]]> = jest.fn();
+jest.mock("../elasticsearch", () => ({
+  indexIntoES: (documents: ContentfulDocument[]) => indexIntoES(documents)
+}));
+
 beforeAll(() => {
   mockConsole();
 });
@@ -36,6 +69,8 @@ beforeAll(() => {
 beforeEach(() => {
   process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";
   process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
+  process.env.LOCALE = "en";
+  process.env.MARKET_LOCALE = "en-US";
   jest.resetAllMocks();
   jest.resetModules();
 });
@@ -60,8 +95,11 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publishMessage).toHaveBeenCalledTimes(0);
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.GCP_PROJECT_ID = originalGcpProjectId;
@@ -77,8 +115,11 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publishMessage).toHaveBeenCalledTimes(0);
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
@@ -94,11 +135,54 @@ describe("handleRequest", () => {
 
     await handleRequest(request, response);
 
-    expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publishMessage).toHaveBeenCalledTimes(0);
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.LOCALE = originalLocale;
+  });
+
+  it("should return 500 if MARKET_LOCALE is not set", async () => {
+    const originalMarketLocale = process.env.MARKET_LOCALE;
+    delete process.env.MARKET_LOCALE;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.MARKET_LOCALE = originalMarketLocale;
+  });
+
+  it("should return 500 if ES_INDEX_NAME_DOCUMENTS is not set", async () => {
+    const origianlEsIndexNameDocuments = process.env.ES_INDEX_NAME_DOCUMENTS;
+    delete process.env.ES_INDEX_NAME_DOCUMENTS;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.ES_INDEX_NAME_DOCUMENTS = origianlEsIndexNameDocuments;
   });
 
   it("should return 400 if body is not provided", async () => {
@@ -112,6 +196,10 @@ describe("handleRequest", () => {
       error: "type, startPage and numberOfPages was not provided."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if body does not contain type", async () => {
@@ -126,6 +214,10 @@ describe("handleRequest", () => {
     expect(response.status).toBeCalledWith(400);
     expect(response.send).toBeCalledWith({ error: "type was not provided." });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if body does not contain startPage", async () => {
@@ -142,6 +234,10 @@ describe("handleRequest", () => {
       error: "startPage must be a number greater than or equal to 0."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if startPage is less than 0", async () => {
@@ -159,6 +255,10 @@ describe("handleRequest", () => {
       error: "startPage must be a number greater than or equal to 0."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if body does not contain numberOfPages", async () => {
@@ -175,6 +275,10 @@ describe("handleRequest", () => {
       error: "numberOfPages must be a number greater than 0."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if numberOfPages is less than 0", async () => {
@@ -192,6 +296,10 @@ describe("handleRequest", () => {
       error: "numberOfPages must be a number greater than 0."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should return 400 if numberOfPages is 0", async () => {
@@ -209,6 +317,10 @@ describe("handleRequest", () => {
       error: "numberOfPages must be a number greater than 0."
     });
     expect(fetchData).not.toHaveBeenCalled();
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should error when fetching data from PIM throws error", async () => {
@@ -229,6 +341,10 @@ describe("handleRequest", () => {
       process.env.LOCALE,
       fullFetchRequest.startPage
     );
+    expect(publishMessage).not.toHaveBeenCalled();
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should error when publishing data to pub/sub throws error", async () => {
@@ -258,6 +374,36 @@ describe("handleRequest", () => {
         item: productsApiResponse.products[0]
       }
     });
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should do nothing if no products found", async () => {
+    const productsApiResponse = createProductsApiResponse({ products: [] });
+    fetchData.mockReturnValue(productsApiResponse);
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      process.env.LOCALE,
+      fullFetchRequest.startPage
+    );
+    expect(publishMessage).not.toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse.products[0]
+      }
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should publish products data to pub/sub", async () => {
@@ -282,6 +428,9 @@ describe("handleRequest", () => {
       }
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should publish multiple messages from single page with multiple products to pub/sub", async () => {
@@ -315,6 +464,36 @@ describe("handleRequest", () => {
       }
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should do nothing if no systems found", async () => {
+    const systemsApiResponse = createSystemsApiResponse({ systems: [] });
+    fetchData.mockReturnValue(systemsApiResponse);
+    const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      process.env.LOCALE,
+      fullFetchRequest.startPage
+    );
+    expect(publishMessage).not.toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: systemsApiResponse.systems[0]
+      }
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should publish systems data to pub/sub", async () => {
@@ -339,6 +518,9 @@ describe("handleRequest", () => {
       }
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should publish multiple messages from single page with multiple systems to pub/sub", async () => {
@@ -372,6 +554,9 @@ describe("handleRequest", () => {
       }
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
   });
 
   it("should publish data from multiple pages to pub/sub", async () => {
@@ -415,5 +600,105 @@ describe("handleRequest", () => {
       }
     });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(getDocuments).not.toHaveBeenCalled();
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should error when fetching data from Contentful throws error", async () => {
+    getDocuments.mockRejectedValue(Error("Expected error"));
+    const fullFetchRequest = createFullFetchRequest({ type: "documents" });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(getDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      fullFetchRequest.startPage,
+      undefined
+    );
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+  });
+
+  it("should do nothing when no documents found", async () => {
+    getDocuments.mockResolvedValueOnce([]);
+    const fullFetchRequest = createFullFetchRequest({ type: "documents" });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(getDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      fullFetchRequest.startPage,
+      undefined
+    );
+    expect(transformDocuments).not.toHaveBeenCalled();
+    expect(indexIntoES).not.toHaveBeenCalled();
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+  });
+
+  it("should error when indexing documents into Elasticsearch throws error", async () => {
+    const contentfulDocuments = [
+      createEntry({
+        fields: createContentfulDocument()
+      })
+    ];
+    getDocuments.mockResolvedValueOnce(contentfulDocuments);
+    const esContentfulDocuments = [createEsContentfulDocument()];
+    transformDocuments.mockReturnValueOnce(esContentfulDocuments);
+    const fullFetchRequest = createFullFetchRequest({ type: "documents" });
+    indexIntoES.mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(getDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      fullFetchRequest.startPage,
+      undefined
+    );
+    expect(transformDocuments).toHaveBeenCalledWith(contentfulDocuments);
+    expect(indexIntoES).toHaveBeenCalledWith(esContentfulDocuments);
+  });
+
+  it("should filter documents by TAG and index transformed documents into Elasticsearch", async () => {
+    process.env.TAG = "contentful-tag";
+    const contentfulDocuments = [
+      createEntry({
+        fields: createContentfulDocument()
+      })
+    ];
+    getDocuments.mockResolvedValueOnce(contentfulDocuments);
+    const esContentfulDocuments = [createEsContentfulDocument()];
+    transformDocuments.mockReturnValueOnce(esContentfulDocuments);
+    const fullFetchRequest = createFullFetchRequest({ type: "documents" });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(getDocuments).toHaveBeenCalledWith(
+      process.env.MARKET_LOCALE,
+      fullFetchRequest.startPage,
+      process.env.TAG
+    );
+    expect(transformDocuments).toHaveBeenCalledWith(contentfulDocuments);
+    expect(indexIntoES).toHaveBeenCalledWith(esContentfulDocuments);
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    delete process.env.TAG;
   });
 });

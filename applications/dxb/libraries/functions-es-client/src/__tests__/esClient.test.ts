@@ -16,7 +16,7 @@ beforeEach(() => {
   jest.resetModules();
 });
 
-const getEsClient = async () => (await import("../index")).getEsClient();
+const getEsClient = async () => (await import("../esClient")).getEsClient();
 
 describe("getEsClient with USE_LOCAL_ES as true", () => {
   it("should return a new client set from ES_CLOUD_ID", async () => {

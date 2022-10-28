@@ -9,10 +9,8 @@ const createContentfulDocument = (
   title: "contentful-document-title",
   assetType: createAssetType(),
   featuredMedia: {
-    __typename: "ContentfulImage",
     type: "Decorative",
     altText: "alt text",
-    caption: null,
     focalPoint: {
       x: 0,
       y: 0

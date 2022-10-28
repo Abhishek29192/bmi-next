@@ -13,6 +13,10 @@ export const getJpgImage = (ogImageUrl: string) => {
 };
 
 export type GallerySectionImage = Omit<ImageData, "image"> & {
+  __typename: "ContentfulImage";
+  caption?: {
+    caption: string;
+  } | null;
   image: ImageData["image"] & {
     thumbnail: {
       src: string;
@@ -50,7 +54,7 @@ export const transformMediaSrc = (
       case "ContentfulImage":
         return {
           media: renderImage(item),
-          thumbnail: item.image.thumbnail.src || null,
+          thumbnail: item.image.thumbnail.src || undefined,
           caption: item.caption?.caption || undefined,
           altText: item.altText || undefined,
           isVideo: false

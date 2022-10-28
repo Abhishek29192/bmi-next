@@ -67,7 +67,6 @@ describe("transformMediaSrc function", () => {
         videoUrl: "https://youtu.be/01SUXJmB9Ik",
         previewMedia: {
           altText: "ContentfulVideoAltText",
-          __typename: "ContentfulImage",
           type: "Descriptive",
           image: {
             thumbnail: {
@@ -77,9 +76,6 @@ describe("transformMediaSrc function", () => {
               fileName: "fileName",
               url: "fileNameURL"
             }
-          },
-          caption: {
-            caption: "Caption"
           },
           focalPoint: null
         },
@@ -128,7 +124,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
+  it("should return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -155,7 +151,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", () => {
+  it("should return correct object if typeName === ContentfulVideo and subtitle is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulVideo",
@@ -165,7 +161,6 @@ describe("transformMediaSrc function", () => {
         videoUrl: "https://youtu.be/01SUXJmB9Ik",
         previewMedia: {
           altText: "ContentfulVideoAltText",
-          __typename: "ContentfulImage",
           type: "Descriptive",
           image: {
             thumbnail: {
@@ -175,9 +170,6 @@ describe("transformMediaSrc function", () => {
               fileName: "fileName",
               url: "fileNameURL"
             }
-          },
-          caption: {
-            caption: "Caption"
           },
           focalPoint: null
         },
@@ -199,7 +191,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
+  it("should return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -224,7 +216,7 @@ describe("transformMediaSrc function", () => {
 
     expect(expectResult[0]).toEqual(
       expect.objectContaining({
-        thumbnail: null,
+        thumbnail: undefined,
         isVideo: false,
         caption: "CAPTION",
         altText: "alt text"
@@ -232,7 +224,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item caption is null", () => {
+  it("should return correct object if typeName === ContentfulImage and item caption is null", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
@@ -263,7 +255,7 @@ describe("transformMediaSrc function", () => {
     );
   });
 
-  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", () => {
+  it("should return correct object if typeName === ContentfulImage and item altText is empty string", () => {
     const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",

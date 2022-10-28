@@ -19,8 +19,6 @@ const createPimDocument = (
   __typename: "PIMDocument",
   productName: "product-name",
   productBaseCode: "product-base-code",
-  productCategories: [],
-  productFilters: [],
   ...pimDocument
 });
 

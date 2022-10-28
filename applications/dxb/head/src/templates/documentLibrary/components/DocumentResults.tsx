@@ -1,70 +1,50 @@
-import { graphql } from "gatsby";
-import React, { useMemo } from "react";
-import DocumentSimpleTableResults from "../../../components/DocumentSimpleTableResults";
-import { ContentfulDocument as DocumentData } from "../../../types/Document";
+import React from "react";
 import {
-  ProductDocument as PIMDocument,
-  SystemDocument as PIMSystemDocument
-} from "../../../types/pim";
-import groupBy from "../../../utils/groupBy";
+  ContentfulDocument,
+  PimProductDocument
+} from "@bmi/elasticsearch-types";
+import DocumentSimpleTableResults, {
+  AvailableHeader
+} from "../../../components/DocumentSimpleTableResults";
+import { AssetType } from "../types";
 import DocumentCardsResults from "./DocumentCardsResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
-export type DocumentResultData = PIMDocument | DocumentData | PIMSystemDocument;
+export type DocumentResultData = ContentfulDocument | PimProductDocument;
 
 export type Format = "simpleTable" | "technicalTable" | "cards";
 
 type Props = {
   data: DocumentResultData[];
+  assetTypes: AssetType[];
   format: Format;
-  page: number;
 };
 
-const documentResultsMap: Record<Format, React.ElementType> = {
-  simpleTable: DocumentSimpleTableResults,
-  technicalTable: DocumentTechnicalTableResults,
-  cards: DocumentCardsResults
-};
+const DocumentResults = ({ data, assetTypes, format }: Props) => {
+  if (format === "simpleTable") {
+    const tableHeaders: AvailableHeader[] = [
+      "typeCode" as const,
+      "title" as const,
+      "download" as const,
+      "add" as const
+    ].filter((header) => !(assetTypes.length < 2 && header.includes("type")));
+    return (
+      <DocumentSimpleTableResults documents={data} headers={tableHeaders} />
+    );
+  }
 
-const DOCUMENTS_PER_PAGE = 24;
-
-const DocumentResults = ({ data, format, page }: Props) => {
-  // eslint-disable-next-line security/detect-object-injection
-  const ResultsComponent = documentResultsMap[format];
-  const assetTypesCount = useMemo(
-    () =>
-      Object.keys(groupBy(data, (document) => document.assetType.code)).length,
-    [data]
-  );
-  const tableHeaders = ["typeCode", "title", "download", "add"].filter(
-    (header) => !(assetTypesCount < 2 && header.includes("type"))
-  );
-
-  return (
-    <>
-      <ResultsComponent
-        documents={data}
-        page={page}
-        documentsPerPage={DOCUMENTS_PER_PAGE}
-        headers={tableHeaders}
+  if (format === "technicalTable") {
+    // TODO: Sort out the forced type cast
+    return (
+      <DocumentTechnicalTableResults
+        documents={data as PimProductDocument[]}
+        assetTypes={assetTypes}
       />
-    </>
-  );
+    );
+  }
+
+  // TODO: Sort out the forced type cast
+  return <DocumentCardsResults documents={data as ContentfulDocument[]} />;
 };
 
 export default DocumentResults;
-
-export const query = graphql`
-  fragment DocumentResultsFragment on Document {
-    __typename
-    ...DocumentFragment
-    ...PIMDocumentFragment
-    ... on PIMDocument {
-      productFilters {
-        code
-        filterCode
-        value
-      }
-    }
-  }
-`;

@@ -95,8 +95,11 @@ const getScoringWeight = (classifications?: readonly PimClassification[]) =>
       )?.featureValues[0].value || "0"
   );
 
-export const transformSystem = (system: PimSystem): EsSystem => {
+export const transformSystem = (system: PimSystem): EsSystem | undefined => {
   const { approvalStatus, type, code, name, shortDescription } = system;
+  if (!name) {
+    return undefined;
+  }
   const brand = getBrand(system.categories);
   const hashedCode = generateHashFromString(code);
   const images = mapImages(groupImages(system.images || []), "MASTER_IMAGE");

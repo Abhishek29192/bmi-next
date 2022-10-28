@@ -1,12 +1,14 @@
-import { ProductDocument, SystemDocument } from "../types/pim";
-
 export interface AssetUniqueFileCountMap {
   uniqueFileMap: { [fileName: string]: number };
   fileIndexCount: number[];
 }
 
 const createAssetFileCountMap = (
-  assets: (ProductDocument | SystemDocument)[]
+  assets: {
+    title: string;
+    extension: string | null;
+    realFileName: string | null;
+  }[]
 ): AssetUniqueFileCountMap => {
   const uniqueFileMap = {};
   const fileIndexCount = assets.map((asset) => {
@@ -41,7 +43,7 @@ export const generateFileNamebyTitle = (
 
 export const generateFilenameByRealFileName = (
   assetFileCountMap: AssetUniqueFileCountMap,
-  asset: ProductDocument | SystemDocument,
+  asset: { extension: string | null; realFileName: string | null },
   index: number
 ): string => {
   if (!assetFileCountMap.uniqueFileMap[asset.realFileName]) {

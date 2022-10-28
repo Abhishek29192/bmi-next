@@ -17,13 +17,18 @@ import filesize from "filesize";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import {
+  ContentfulDocument as EsContentfulDocument,
+  PimProductDocument as EsPimDocument,
+  PimSystemDocument as EsPimSystemDocument
+} from "@bmi/elasticsearch-types";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { ContentfulDocument as DocumentData } from "../types/Document";
+import { ContentfulDocument } from "../types/Document";
 import {
-  ProductDocument as PIMDocument,
+  ProductDocument as FsPimDocument,
   PseudoZipPIMDocument,
-  SystemDocument as PIMSystemDocument
+  SystemDocument as FsPimSystemDocument
 } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
@@ -37,7 +42,7 @@ import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
-type AvailableHeader =
+export type AvailableHeader =
   | "typeCode"
   | "type"
   | "name"
@@ -46,15 +51,16 @@ type AvailableHeader =
   | "add";
 
 export type Document =
-  | DocumentData
-  | PIMDocument
-  | PIMSystemDocument
-  | PseudoZipPIMDocument;
+  | ContentfulDocument
+  | FsPimDocument
+  | FsPimSystemDocument
+  | PseudoZipPIMDocument
+  | EsContentfulDocument
+  | EsPimDocument
+  | EsPimSystemDocument;
 
 export type Props = {
   documents: readonly Document[];
-  page: number;
-  documentsPerPage: number;
   headers?: AvailableHeader[];
 };
 
@@ -79,9 +85,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
     if (header === "typeCode") {
       return (
         <Table.Cell className={styles["table-cell"]} key={key}>
-          <abbr title={document.assetType.name}>
-            {(document.assetType as DocumentData["assetType"]).code}
-          </abbr>
+          <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
         </Table.Cell>
       );
     }
@@ -94,7 +98,6 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
       );
     }
 
-    // TODO: Why not have change the value of title to be from docName in the resolver?
     if (header === "name") {
       if (
         document.__typename === "PIMDocument" ||
@@ -131,7 +134,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
               variant="text"
               action={{
                 model: "htmlLink",
-                href: (document as PIMDocument).url,
+                href: (document as FsPimDocument).url,
                 target: "_blank",
                 rel: "noopener noreferrer"
               }}
@@ -191,7 +194,13 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 };
 
 export const mapAssetToFileDownload = (
-  data: DocumentData | PIMDocument | PIMSystemDocument
+  data:
+    | ContentfulDocument
+    | FsPimDocument
+    | FsPimSystemDocument
+    | EsContentfulDocument
+    | EsPimDocument
+    | EsPimSystemDocument
 ): FileDownloadButtonProps => {
   if (
     data.__typename === "PIMDocument" ||
@@ -374,12 +383,15 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
     </GTMButton>
   ) : null;
 
-export const getCount = (documents: Document[]): number => {
-  return documents.length;
-};
-
 const typenameToSizeMap: Record<
-  (PIMDocument | DocumentData | PIMSystemDocument)["__typename"],
+  (
+    | ContentfulDocument
+    | FsPimDocument
+    | FsPimSystemDocument
+    | EsContentfulDocument
+    | EsPimDocument
+    | EsPimSystemDocument
+  )["__typename"],
   string | number
 > = {
   ContentfulDocument: "asset.file.details.size",
@@ -389,21 +401,15 @@ const typenameToSizeMap: Record<
 
 const DocumentSimpleTableResults = ({
   documents,
-  page,
-  documentsPerPage,
   headers = ["typeCode", "title", "download", "add"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { list } = useContext(DownloadListContext);
-  const paginatedDocuments = documents.slice(
-    (page - 1) * documentsPerPage,
-    page * documentsPerPage
-  );
 
   if (isMobile) {
-    return <DocumentSimpleTableResultsMobile documents={paginatedDocuments} />;
+    return <DocumentSimpleTableResultsMobile documents={documents} />;
   }
 
   return (
@@ -424,7 +430,7 @@ const DocumentSimpleTableResults = ({
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {paginatedDocuments.map((document, index) => {
+          {documents.map((document, index) => {
             if (!document) {
               return;
             }

@@ -4,5 +4,5 @@ build_elasticsearch-types:
     - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:
-    WORKSPACE: "@bmi/pim-types"
-    ROOT_DIR: "applications/dxb/libraries/pim-types"
+    WORKSPACE: "@bmi/elasticsearch-types"
+    ROOT_DIR: "applications/dxb/libraries/elasticsearch-types"

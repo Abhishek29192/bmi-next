@@ -1,12 +1,12 @@
-import React from "react";
 import { fireEvent } from "@testing-library/react";
+import React from "react";
+import { DataTypeEnum } from "../../components/Link";
+import { Data as SlideData } from "../../components/Promo";
+import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
 import BrandLandingPage, {
   Props as BrandLandingPageData
 } from "../brand-landing-page";
-import { createMockSiteData } from "../../test/mockSiteData";
-import { Data as SlideData } from "../../components/Promo";
-import { DataTypeEnum } from "../../components/Link";
 
 describe("Brand Landing Page Template", () => {
   const slide: SlideData = {
@@ -187,10 +187,8 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.featuredVideo = null;
     newData.contentfulBrandLandingPage.featuredMedia = {
-      __typename: "ContentfulImage",
       type: null,
       altText: "featuredMediaAltText",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {
@@ -248,10 +246,8 @@ describe("Brand Landing Page Template", () => {
         ...slide,
         featuredVideo: null,
         featuredMedia: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "featuredMediaAltText",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {

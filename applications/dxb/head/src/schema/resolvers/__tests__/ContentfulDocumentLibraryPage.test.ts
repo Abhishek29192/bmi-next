@@ -146,7 +146,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
@@ -210,7 +210,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
@@ -267,7 +267,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
@@ -325,7 +325,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
@@ -382,7 +382,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
@@ -496,7 +496,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -553,7 +553,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -611,7 +611,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -668,7 +668,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -725,7 +725,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -876,7 +876,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -978,7 +978,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1061,7 +1061,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1138,7 +1138,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1234,7 +1234,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1311,7 +1311,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1388,7 +1388,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1484,7 +1484,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     });
 
     expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
+      { query: { filter: {} }, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
@@ -1507,5 +1507,121 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
+  });
+
+  it("should filter asset types by MARKET_TAG_NAME if provided", async () => {
+    const originalMarketTagName = process.env.MARKET_TAG_NAME;
+    process.env.MARKET_TAG_NAME = "market__norway";
+
+    const assetType = { id: "asset-type-1" };
+    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
+    mockResolveDocumentsFiltersFromContentful.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option1", value: "value1" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      }
+    ]);
+    mockResolveDocumentsFiltersFromProducts.mockResolvedValueOnce([
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option2", value: "value2" }]
+      },
+      {
+        label: "filter1",
+        filterCode: "filter-code-1",
+        options: [{ label: "option3", value: "value3" }]
+      },
+      {
+        label: "filter2",
+        filterCode: "filter-code-2",
+        options: [{ label: "option2", value: "value2" }]
+      }
+    ]);
+
+    const source: ContentfulDocumentLibraryPageType = {
+      id: "source",
+      resultsType: "Card Collection",
+      source: "ALL",
+      children: null,
+      parent: null,
+      internal: null,
+      assetTypes___NODE: null,
+      allowFilterBy: ["appearanceAttributes.colour"]
+    };
+
+    const documentsFilters =
+      await ContentfulDocumentLibraryPage.documentsFilters.resolve(
+        source,
+        null,
+        context
+      );
+
+    expect(documentsFilters).toEqual({
+      filters: [
+        {
+          label: "filter1",
+          filterCode: "filter-code-1",
+          options: [
+            { label: "option1", value: "value1" },
+            { label: "option2", value: "value2" },
+            { label: "option3", value: "value3" }
+          ]
+        },
+        {
+          label: "filter2",
+          filterCode: "filter-code-2",
+          options: [{ label: "option2", value: "value2" }]
+        }
+      ]
+    });
+
+    expect(mockFindAll).toHaveBeenCalledWith(
+      {
+        query: {
+          filter: {
+            metadata: {
+              tags: {
+                elemMatch: {
+                  contentful_id: {
+                    eq: process.env.MARKET_TAG_NAME
+                  }
+                }
+              }
+            }
+          }
+        },
+        type: "ContentfulAssetType"
+      },
+      { connectionType: "ContentfulAssetType" }
+    );
+    expect(mockResolveDocumentsFiltersFromContentful).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+    expect(mockResolveDocumentsFiltersFromProducts).toHaveBeenCalledWith(
+      [assetType],
+      {
+        source,
+        context
+      },
+      ["Brand"]
+    );
+
+    expect(mockGetNodeById).not.toHaveBeenCalled();
+    expect(mockSortPimDocuments).not.toHaveBeenCalled();
+    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
+
+    process.env.MARKET_TAG_NAME = originalMarketTagName;
   });
 });

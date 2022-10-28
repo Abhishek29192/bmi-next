@@ -57,14 +57,16 @@ export const isLinkAsset = (asset: PimAsset) => {
 
 export const isImageAsset = (asset: PimAsset) => {
   return (
-    asset.realFileName?.search(/.jpg/i) > -1 ||
-    asset.realFileName?.search(/.png/i) > -1
+    asset.realFileName &&
+    (asset.realFileName.search(/.jpg/i) > -1 ||
+      asset.realFileName.search(/.png/i) > -1)
   );
 };
 
 const isPDFAsset = (asset: PimAsset) => {
   return (
-    asset.url?.indexOf(".pdf") > -1 || asset.realFileName?.indexOf(".pdf") > -1
+    asset.url?.indexOf(".pdf") > -1 ||
+    (asset.realFileName && asset.realFileName.indexOf(".pdf") > -1)
   );
 };
 

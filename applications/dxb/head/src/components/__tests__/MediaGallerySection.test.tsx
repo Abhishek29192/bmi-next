@@ -1,5 +1,5 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 import MediaGallerySection, { Data } from "../MediaGallerySection";
 import { RichTextData } from "../RichText";
 
@@ -95,10 +95,8 @@ describe("MediaGallerySection component", () => {
           defaultYouTubePreviewImage:
             "https://i.ytimg.com/vi/youtube-id/maxresdefault.jpg",
           previewMedia: {
-            __typename: "ContentfulImage",
             type: null,
             altText: "Lorem ipsum video image alt text",
-            caption: null,
             focalPoint: null,
             image: {
               thumbnail: {

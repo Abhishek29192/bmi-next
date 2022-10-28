@@ -1,20 +1,23 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import {
+  createFullyPopulatedPimProductDocument,
+  createPimProductDocument,
+  PimProductDocument
+} from "@bmi/elasticsearch-types";
 import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
-import { ProductDocument } from "../../../../types/pim";
 import createAssetType, {
   createAssetTypeInvalid
 } from "../../../../__tests__/helpers/AssetTypeHelper";
-import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
 
 describe("MobileDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
     it("when only single documents are present for asset types", () => {
       const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument()]],
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        ["product1", [createPimProductDocument()]],
         ["product3", []]
       ];
 
@@ -37,8 +40,8 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           name: "doesn't matter but looks good"
         })
       ];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument({ assetType: assetTypes[0] })]],
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        ["product1", [createPimProductDocument({ assetType: assetTypes[0] })]],
         ["product3", []]
       ];
 
@@ -54,9 +57,36 @@ describe("MobileDocumentTechnicalTableResults component", () => {
     });
 
     it("when multiple documents are present for asset types", () => {
-      const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument(), createPimDocument()]],
+      const assetTypes = [
+        createAssetType({
+          code: "pim-code",
+          pimCode: "pim-code"
+        })
+      ];
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        [
+          "product1",
+          [
+            createPimProductDocument(
+              createFullyPopulatedPimProductDocument({
+                assetType: {
+                  code: "pim-code",
+                  pimCode: "pim-code",
+                  name: "pim-code"
+                }
+              })
+            ),
+            createPimProductDocument(
+              createFullyPopulatedPimProductDocument({
+                assetType: {
+                  code: "pim-code",
+                  pimCode: "pim-code",
+                  name: "pim-code"
+                }
+              })
+            )
+          ]
+        ],
         ["product3", []]
       ];
 
@@ -73,27 +103,25 @@ describe("MobileDocumentTechnicalTableResults component", () => {
 
     it("when valid asset types are used", () => {
       const assetTypes: AssetTypeData[] = [
-        createAssetType({ pimCode: "pim-code", id: "id" })
+        createAssetType({ code: "pim-code", pimCode: "pim-code" })
       ];
-      const documentsByProduct: [string, ProductDocument[]][] = [
+      const documentsByProduct: [string, PimProductDocument[]][] = [
         [
           "product1",
           [
-            createPimDocument({
+            createFullyPopulatedPimProductDocument({
               assetType: {
                 code: "pim-code",
                 pimCode: "pim-code",
-                name: "pim-code",
-                id: "id"
+                name: "pim-code"
               },
               isLinkDocument: false
             }),
-            createPimDocument({
+            createPimProductDocument({
               assetType: {
-                code: "pim-code",
-                pimCode: "pim-code",
-                name: "pim-code",
-                id: "id-2"
+                code: "pim-code-2",
+                pimCode: "pim-code-2",
+                name: "pim-code-2"
               },
               isLinkDocument: false,
               format: "image/jpg"
@@ -118,26 +146,24 @@ describe("MobileDocumentTechnicalTableResults component", () => {
 
     it("when invalid asset types are used", () => {
       const assetTypes: AssetTypeData[] = [
-        createAssetTypeInvalid({ id: "id" })
+        createAssetTypeInvalid({ code: "inValid" })
       ];
-      const documentsByProduct: [string, ProductDocument[]][] = [
+      const documentsByProduct: [string, PimProductDocument[]][] = [
         [
           "product1",
           [
-            createPimDocument({
+            createFullyPopulatedPimProductDocument({
               assetType: {
                 code: "inValid",
                 pimCode: "inValid",
-                name: "inValid",
-                id: "id"
+                name: "inValid"
               }
             }),
-            createPimDocument({
+            createPimProductDocument({
               assetType: {
                 code: "inValid-2",
                 pimCode: "inValid-2",
-                name: "inValid-2",
-                id: "id-2"
+                name: "inValid-2"
               }
             })
           ]

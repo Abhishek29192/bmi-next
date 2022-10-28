@@ -1,43 +1,54 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
+import {
+  createSys,
+  Document as ContentfulDocument
+} from "@bmi/contentful-types";
+import {
+  ContentfulDocument as EsContentfulDocument,
+  createContentfulDocument as createEsContentfulDocument
+} from "@bmi/elasticsearch-types";
 import { Request, Response } from "@google-cloud/functions-framework";
-import { Entry } from "contentful-management";
-import mockConsole from "jest-mock-console";
-import { ESContentfulDocument } from "../es-model";
-import SampleContentfulDeleteWebhook from "./resources/sample_contentfulWebhook_DeletedEntry.json";
-import SampleContentfulEntryWebhook from "./resources/sample_contentfulWebhook_entry.json";
-import SampleContentfulEntry from "./resources/sample_contentful_entry.json";
-
-const REQUEST_SECRET = "some secret";
+import { Entry } from "contentful";
+import createContentfulDeletedRequestBody from "./helpers/contentfulDeletedRequestBodyHelper";
+import createContentfulPublishedRequestBody from "./helpers/contentfulPublishedRequestBodyHelper";
 
 const getEsClient = jest.fn();
-const ping = jest.fn();
 const index = jest.fn();
 const mockDelete = jest.fn();
-const checkEnvVariables = jest.fn();
-const checkAuthorization = jest.fn();
-const checkHttpMethod = jest.fn();
-const transformDocument = jest.fn();
-const handleEsClientError = jest.fn();
-
+const mockClient = {
+  index: (...params: any[]) => index(...params),
+  delete: (...params: any[]) => mockDelete(...params)
+};
+getEsClient.mockResolvedValue(mockClient);
 jest.mock("@bmi/functions-es-client", () => {
-  return { getEsClient: (...args: any[]) => getEsClient(...args) };
+  return { getEsClient: (...params: any[]) => getEsClient(...params) };
 });
-jest.mock("../helpers", () => {
-  return {
-    checkEnvVariables: (response: Response) => checkEnvVariables(response),
-    checkHttpMethod: (request: Request, response: Response) =>
-      checkHttpMethod(request, response),
-    checkAuthorization: (request: Request, response: Response) =>
-      checkAuthorization(request, response),
-    transformDocument: (data: Entry) => transformDocument(data),
-    handleEsClientError: (params: any) => handleEsClientError(params)
-  };
-});
+
+const checkEnvVariablesMissing: jest.Mock<boolean, [Response]> = jest.fn();
+const checkAuthorization: jest.Mock<boolean, [Request, Response]> = jest.fn();
+const checkHttpMethod: jest.Mock<boolean, [Request, Response]> = jest.fn();
+jest.mock("../helpers", () => ({
+  checkEnvVariablesMissing: (response: Response) =>
+    checkEnvVariablesMissing(response),
+  checkAuthorization: (request: Request, response: Response) =>
+    checkAuthorization(request, response),
+  checkHttpMethod: (request: Request, response: Response) =>
+    checkHttpMethod(request, response)
+}));
+
+const transformDocument: jest.Mock<
+  Promise<EsContentfulDocument>,
+  [Entry<ContentfulDocument>]
+> = jest.fn();
+jest.mock("../documentTransformer", () => ({
+  transformDocument: (document: Entry<ContentfulDocument>) =>
+    transformDocument(document)
+}));
 
 const updateESDocumentsIndex = async (
   request: Partial<Request>,
   response: Partial<Response>
-): Promise<ESContentfulDocument> =>
+): Promise<ContentfulDocument> =>
   (await import("../index")).updateESDocumentsIndex(
     request as Request,
     response as Response
@@ -46,128 +57,156 @@ const updateESDocumentsIndex = async (
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  mockConsole();
-
-  getEsClient.mockImplementation(() => ({
-    ping: (callback: () => any) => ping(callback),
-    index: (callback: () => any) => index(callback),
-    delete: (callback: () => any) => mockDelete(callback)
-  }));
 });
 
-const mockESDocument = {
-  __typename: "ContentfulDocument",
-  id: SampleContentfulEntryWebhook.sys.id,
-  title: SampleContentfulEntryWebhook.fields.title[`en-US`],
-  titleAndSize: `${SampleContentfulEntryWebhook.fields.title[`en-US`]}_${
-    SampleContentfulEntry.includes.Asset[0].fields.file["en-US"].details.size
-  }`,
-  realFileName:
-    SampleContentfulEntry.includes.Asset[0].fields.file["en-US"].fileName,
-  asset: {
-    file: {
-      ...SampleContentfulEntry.includes.Asset[0].fields.file["en-US"],
-      contentType: "application/pdf"
-    }
-  },
-  assetType: {
-    name: SampleContentfulEntry.includes.Entry[1].fields.name,
-    code: SampleContentfulEntry.includes.Entry[1].fields.code,
-    pimCode: SampleContentfulEntry.includes.Entry[1].fields.pimCode
-  },
-  featuredMedia: {
-    altText: SampleContentfulEntry.includes.Entry[0].fields.altText,
-    image: {
-      description: SampleContentfulEntry.includes.Asset[1].fields.description,
-      file: {
-        ...SampleContentfulEntry.includes.Asset[1].fields.file["en-US"]
-      },
-      title: SampleContentfulEntry.includes.Asset[1].fields.title
-    },
-    title: SampleContentfulEntry.includes.Entry[0].fields.title
-  }
-};
+beforeEach(() => {
+  process.env.ES_INDEX_NAME_DOCUMENTS = "es_test_index";
+});
 
 describe("updateESDocumentsIndex", () => {
-  beforeEach(() => {
-    process.env.ES_INDEX_NAME_DOCUMENTS = "es_test_index";
-    transformDocument.mockResolvedValue(mockESDocument);
-  });
-
-  it("should do nothing if webhook provide wrong contentType ID", async () => {
+  it("should do nothing if env variables are missing", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(true);
     const request = mockRequest(
       "POST",
       {
-        authorization: `Bearer ${REQUEST_SECRET}`
+        authorization: "Bearer some-super-secret-token"
       },
-      undefined,
-      {
-        metadata: {},
-        sys: {
-          contentType: {
-            sys: {
-              id: "contentful-builtin-asset-content-type"
-            }
-          }
-        },
-        fields: {}
-      }
+      "http://localhost:9000",
+      createContentfulPublishedRequestBody()
     );
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
-    expect(getEsClient).not.toBeCalled();
-    expect(transformDocument).not.toBeCalled();
-    expect(index).not.toBeCalled();
-    expect(mockDelete).not.toBeCalled();
-    expect(console.log).toBeCalledWith(
-      JSON.stringify({
-        severity: "WARNING",
-        message:
-          "Function doesn't support webhooks with contentType ID other then 'document.'"
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).not.toHaveBeenCalled();
+    expect(checkHttpMethod).not.toHaveBeenCalled();
+    expect(getEsClient).not.toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
+  });
+
+  it("should do nothing if check authorisation fails", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(true);
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer invalid-token"
+      },
+      "http://localhost:9000",
+      createContentfulPublishedRequestBody()
+    );
+    const response = mockResponse();
+
+    await updateESDocumentsIndex(request, response);
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).not.toHaveBeenCalled();
+    expect(getEsClient).not.toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
+  });
+
+  it("should do nothing if check HTTP method is not POST", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(true);
+    const request = mockRequest(
+      "GET",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      createContentfulPublishedRequestBody()
+    );
+    const response = mockResponse();
+
+    await updateESDocumentsIndex(request, response);
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).not.toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
+  });
+
+  it("should return status 400 if body doesn't have a body", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    const request = mockRequest("POST", {
+      authorization: "Bearer some-super-secret-token"
+    });
+    const response = mockResponse();
+
+    await updateESDocumentsIndex(request, response);
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(400);
+    expect(getEsClient).not.toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+  });
+
+  it("should return status 400 if content type ID is not 'document'", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      createContentfulPublishedRequestBody({
+        sys: createSys({
+          contentType: {
+            sys: { type: "Link", linkType: "ContentType", id: "page" }
+          }
+        })
       })
     );
-  });
-  it("should do nothing if some of the checks failed", async () => {
-    const request = mockRequest(
-      "OPTIONS",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      {
-        metadata: {},
-        sys: {
-          contentType: {
-            sys: {
-              id: "document"
-            }
-          }
-        },
-        fields: {}
-      }
-    );
     const response = mockResponse();
-    checkHttpMethod.mockReturnValueOnce(true);
 
     await updateESDocumentsIndex(request, response);
-    expect(getEsClient).not.toBeCalled();
-    expect(transformDocument).not.toBeCalled();
-    expect(index).not.toBeCalled();
-    expect(mockDelete).not.toBeCalled();
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(response.sendStatus).toHaveBeenCalledWith(400);
+    expect(getEsClient).not.toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
   });
 
-  it("should error if getEsClient throws error", async () => {
-    getEsClient.mockRejectedValue(Error("Expected error"));
+  it("should throw error if getEsClient throws an error", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    getEsClient.mockRejectedValueOnce(Error("Expected error"));
     const request = mockRequest(
       "POST",
       {
-        authorization: `Bearer ${REQUEST_SECRET}`
+        authorization: "Bearer some-super-secret-token"
       },
-      undefined,
-      SampleContentfulEntryWebhook
+      "http://localhost:9000",
+      createContentfulPublishedRequestBody()
     );
     const response = mockResponse();
+
     try {
       await updateESDocumentsIndex(request, response);
       expect(false).toEqual("An error should have been thrown");
@@ -175,142 +214,216 @@ describe("updateESDocumentsIndex", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(getEsClient).toBeCalled();
-    expect(transformDocument).toBeCalledTimes(0);
-    expect(index).toBeCalledTimes(0);
-    expect(mockDelete).toBeCalledTimes(0);
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
   });
 
-  it("should call ES index method if webhook has 'Entry' type", async () => {
+  it("should return status 400 when transformDocument throws error", async () => {
+    const contentfulPublishedRequestBody =
+      createContentfulPublishedRequestBody();
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    transformDocument.mockRejectedValueOnce(Error("Expected error"));
     const request = mockRequest(
       "POST",
       {
-        authorization: `Bearer ${REQUEST_SECRET}`
+        authorization: "Bearer some-super-secret-token"
       },
-      undefined,
-      SampleContentfulEntryWebhook
+      "http://localhost:9000",
+      contentfulPublishedRequestBody
     );
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
 
-    expect(index).toBeCalledWith({
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(transformDocument).toHaveBeenCalledWith(
+      contentfulPublishedRequestBody
+    );
+    expect(response.sendStatus).toHaveBeenCalledWith(400);
+    expect(index).not.toHaveBeenCalled();
+    expect(mockDelete).not.toHaveBeenCalled();
+  });
+
+  it("should throw error when index into ES throws error", async () => {
+    const contentfulPublishedRequestBody =
+      createContentfulPublishedRequestBody();
+    const transformedDocument = createEsContentfulDocument();
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    transformDocument.mockResolvedValueOnce(transformedDocument);
+    index.mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      contentfulPublishedRequestBody
+    );
+    const response = mockResponse();
+
+    try {
+      await updateESDocumentsIndex(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(transformDocument).toHaveBeenCalledWith(
+      contentfulPublishedRequestBody
+    );
+    expect(index).toHaveBeenCalledWith({
       index: process.env.ES_INDEX_NAME_DOCUMENTS,
-      id: SampleContentfulEntryWebhook.sys.id,
-      body: mockESDocument
+      id: transformedDocument.id,
+      body: transformedDocument
     });
-    delete process.env.ES_INDEX_NAME_DOCUMENTS;
+    expect(mockDelete).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
   });
-  it("should call ES delete method if webhook has 'DeletedEntry' type", async () => {
-    const request = mockRequest(
-      "POST",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      SampleContentfulDeleteWebhook
-    );
-    const response = mockResponse();
 
-    await updateESDocumentsIndex(request, response);
-
-    expect(mockDelete).toBeCalledWith({
-      index: process.env.ES_INDEX_NAME_DOCUMENTS,
-      id: SampleContentfulDeleteWebhook.sys.id
-    });
-    delete process.env.ES_INDEX_NAME_DOCUMENTS;
-  });
-  it("shouldn't perform index operation if document wasn't transformed", async () => {
-    transformDocument.mockResolvedValueOnce(undefined);
-    const request = mockRequest(
-      "POST",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      SampleContentfulEntryWebhook
-    );
-    const response = mockResponse();
-
-    await updateESDocumentsIndex(request, response);
-    expect(console.log).toBeCalledWith(
-      JSON.stringify({
-        severity: "ERROR",
-        message: "Nothing to index"
-      })
-    );
-    expect(index).not.toBeCalled();
-  });
-  it("should print error if index operation return error", async () => {
-    const mockErrorMessage = "test error";
-    index.mockImplementationOnce(() => {
-      throw new Error(mockErrorMessage);
-    });
-    const request = mockRequest(
-      "POST",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      SampleContentfulEntryWebhook
-    );
-    const response = mockResponse();
-
-    await updateESDocumentsIndex(request, response);
-    expect(index).toBeCalled();
-    expect(handleEsClientError).toBeCalledWith({
-      error: Error(mockErrorMessage)
-    });
-  });
-  it("should print error if delete operation return error", async () => {
-    const mockErrorMessage = "test error";
-    mockDelete.mockImplementationOnce(() => {
-      throw new Error(mockErrorMessage);
-    });
-    const request = mockRequest(
-      "POST",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      SampleContentfulDeleteWebhook
-    );
-    const response = mockResponse();
-
-    await updateESDocumentsIndex(request, response);
-    expect(mockDelete).toBeCalled();
-    expect(handleEsClientError).toBeCalledWith({
-      error: Error(mockErrorMessage)
-    });
-  });
-  it("should print warning message if webhook provides wrong entity type", async () => {
-    const request = mockRequest(
-      "POST",
-      {
-        authorization: `Bearer ${REQUEST_SECRET}`
-      },
-      undefined,
-      {
-        metadata: {},
-        sys: {
-          type: "wrong type",
-          contentType: {
-            sys: {
-              id: "document"
-            }
-          }
+  it("should return status 200 when index into ES is successful", async () => {
+    const contentfulPublishedRequestBody =
+      createContentfulPublishedRequestBody();
+    const transformedDocument = createEsContentfulDocument();
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    transformDocument.mockResolvedValueOnce(transformedDocument);
+    index.mockResolvedValueOnce({
+      body: {
+        _shards: {
+          total: 2,
+          failed: 0,
+          successful: 2
         },
-        fields: {}
+        _index: process.env.ES_INDEX_NAME_DOCUMENTS,
+        _id: transformedDocument.id,
+        _version: 1,
+        _seq_no: 0,
+        _primary_term: 1,
+        result: "created"
       }
+    });
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      contentfulPublishedRequestBody
     );
     const response = mockResponse();
 
     await updateESDocumentsIndex(request, response);
-    expect(console.log).toBeCalledWith(
-      JSON.stringify({
-        severity: "WARNING",
-        message: "Webhook provides wrong type."
-      })
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(transformDocument).toHaveBeenCalledWith(
+      contentfulPublishedRequestBody
     );
+    expect(index).toHaveBeenCalledWith({
+      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      id: transformedDocument.id,
+      body: transformedDocument
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(mockDelete).not.toHaveBeenCalled();
+  });
+
+  it("should throw error when delete from ES throws error", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    mockDelete.mockRejectedValueOnce(Error("Expected error"));
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      createContentfulDeletedRequestBody()
+    );
+    const response = mockResponse();
+
+    try {
+      await updateESDocumentsIndex(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(mockDelete).toHaveBeenCalledWith({
+      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      id: request.body.sys.id
+    });
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
+    expect(response.sendStatus).not.toHaveBeenCalled();
+  });
+
+  it("should return status 200 when delete from ES is successful", async () => {
+    checkEnvVariablesMissing.mockReturnValueOnce(false);
+    checkAuthorization.mockReturnValueOnce(false);
+    checkHttpMethod.mockReturnValueOnce(false);
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: "Bearer some-super-secret-token"
+      },
+      "http://localhost:9000",
+      createContentfulDeletedRequestBody()
+    );
+    const response = mockResponse();
+    mockDelete.mockResolvedValueOnce({
+      body: {
+        _shards: {
+          total: 2,
+          failed: 0,
+          successful: 2
+        },
+        _index: process.env.ES_INDEX_NAME_DOCUMENTS,
+        _id: request.body.sys.id,
+        _version: 2,
+        _primary_term: 1,
+        _seq_no: 5,
+        result: "deleted"
+      }
+    });
+
+    await updateESDocumentsIndex(request, response);
+
+    expect(checkEnvVariablesMissing).toHaveBeenCalledWith(response);
+    expect(checkAuthorization).toHaveBeenCalledWith(request, response);
+    expect(checkHttpMethod).toHaveBeenCalledWith(request, response);
+    expect(getEsClient).toHaveBeenCalled();
+    expect(mockDelete).toHaveBeenCalledWith({
+      index: process.env.ES_INDEX_NAME_DOCUMENTS,
+      id: request.body.sys.id
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+    expect(transformDocument).not.toHaveBeenCalled();
+    expect(index).not.toHaveBeenCalled();
   });
 });

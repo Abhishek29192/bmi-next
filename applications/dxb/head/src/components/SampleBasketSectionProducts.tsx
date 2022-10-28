@@ -1,19 +1,19 @@
-import React from "react";
 import { Button, Icon, OverviewCard, Typography } from "@bmi/components";
+import { isDefined } from "@bmi/utils";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 import { Remove } from "@material-ui/icons";
 import { navigate } from "gatsby";
-import { useMediaQuery, useTheme } from "@material-ui/core";
-import { isDefined } from "@bmi/utils";
-import { getPathWithCountryCode } from "../utils/path";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {
   ACTION_TYPES,
   Sample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
-import styles from "./styles/SampleBasketSectionProducts.module.scss";
+import { getPathWithCountryCode } from "../utils/path";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
+import styles from "./styles/SampleBasketSectionProducts.module.scss";
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -25,10 +25,8 @@ const SampleBasketSectionProducts = () => {
   const sampleCards = basketState.products.map((sample) => {
     const media = renderImage(
       {
-        __typename: "ContentfulImage",
         type: "Descriptive",
         altText: sample.name,
-        caption: { caption: sample.name },
         image: {
           file: {
             fileName: sample.name,

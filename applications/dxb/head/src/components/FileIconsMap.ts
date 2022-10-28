@@ -1,3 +1,4 @@
+import React from "react";
 import { iconMap } from "@bmi/components";
 import { Format } from "./types";
 

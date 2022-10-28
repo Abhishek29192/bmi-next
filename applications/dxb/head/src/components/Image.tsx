@@ -1,6 +1,6 @@
-import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
+import React from "react";
 
 type ImageData = {
   file: {
@@ -11,14 +11,10 @@ type ImageData = {
 };
 
 export type Data = {
-  __typename: "ContentfulImage";
   altText: string | null;
-  type: "Decorative" | "Descriptive" | null;
+  type?: "Decorative" | "Descriptive" | null;
   image: ImageData;
-  caption: {
-    caption: string;
-  } | null;
-  focalPoint: {
+  focalPoint?: {
     x: number;
     y: number;
   } | null;
@@ -109,12 +105,8 @@ export const query = graphql`
   }
 
   fragment BaseImageFragment on ContentfulImage {
-    __typename
     type
     altText
-    caption {
-      caption
-    }
     type
     focalPoint {
       x
@@ -148,6 +140,10 @@ export const query = graphql`
 
   fragment ImageGallerySlideFragment on ContentfulImage {
     ...BaseImageFragment
+    __typename
+    caption {
+      caption
+    }
     image {
       ...AssetFragment
       gatsbyImageData(

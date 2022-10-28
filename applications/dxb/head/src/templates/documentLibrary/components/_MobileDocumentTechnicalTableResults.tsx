@@ -9,19 +9,16 @@ import {
   iconMap
 } from "@bmi/components";
 import React from "react";
+import { PimProductDocument } from "@bmi/elasticsearch-types";
 import { Format } from "../../../components/types";
-import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
-import {
-  ProductDocument as PIMProductDocument,
-  SystemDocument as PIMSystemDocument
-} from "../../../types/pim";
 import withGTM from "../../../utils/google-tag-manager";
+import { AssetType } from "../types";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
-  documentsByProduct: [string, (PIMProductDocument | PIMSystemDocument)[]][];
-  assetTypes: AssetTypeData[];
+  documentsByProduct: [string, PimProductDocument[]][];
+  assetTypes: AssetType[];
   fileIconsMap: Record<Format, React.ComponentType>;
 }
 
@@ -44,7 +41,7 @@ const MobileDocumentTechnicalTableResults = ({
                 (asset) =>
                   "productBaseCode" in asset &&
                   asset.productBaseCode !== undefined
-              ) as PIMProductDocument | undefined
+              ) as PimProductDocument | undefined
             )?.productBaseCode
           }-${index}`;
           return (
@@ -61,11 +58,8 @@ const MobileDocumentTechnicalTableResults = ({
                   : productName}
               </GTMAccordionSummary>
               {assetTypes.map((assetType, index) => {
-                const filteredAssets: (
-                  | PIMProductDocument
-                  | PIMSystemDocument
-                )[] = assets.filter(
-                  ({ assetType: { id } }) => id === assetType.id
+                const filteredAssets: PimProductDocument[] = assets.filter(
+                  ({ assetType: { code } }) => code === assetType.code
                 );
 
                 return filteredAssets.map((asset, assetIndex) => (

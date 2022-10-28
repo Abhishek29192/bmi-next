@@ -1,38 +1,15 @@
 import type {
   ApprovalStatus,
   Asset,
-  AssetTypeData,
   BaseProduct,
   Category as PimCategory,
   Classification,
   Image as PimImage,
-  PIMDocumentBase,
-  PIMDocumentData,
-  PIMLinkDocumentData,
+  Mime,
   ProductReferenceType,
   ReferenceTarget,
   System as PimSystem
 } from "@bmi/pim-types";
-
-export type Operation = "index" | "delete" | "create" | "update";
-
-export type BulkOperationInstruction = any; // TODO
-
-export type EsPIMDocumenBase = Omit<
-  PIMDocumentBase,
-  "assetType" | "product"
-> & {
-  assetType: Pick<AssetTypeData, "code" | "name" | "pimCode">;
-  productBaseCode: string;
-  productName: string;
-  noIndex: boolean;
-} & {
-  [extractedFilter: string]: any;
-};
-
-export type EsPIMDocumentData = EsPIMDocumenBase &
-  PIMDocumentData & { titleAndSize: string };
-export type EsPIMLinkDocumentData = EsPIMDocumenBase & PIMLinkDocumentData;
 
 export type Category = {
   code: string;
@@ -88,4 +65,79 @@ export type System = {
   scoringWeight: number;
   shortDescription?: string;
   type?: string;
+};
+
+export type ContentfulAssetType = {
+  name: string;
+  code: string;
+};
+
+export type ContentfulImage = {
+  altText: string;
+  image: {
+    file: {
+      fileName: string;
+      url: string;
+    };
+  };
+  title: string;
+  // TODO: is type needed if we don't consume focal point?
+  type?: "Decorative" | "Descriptive";
+  focalPoint?: { x: number; y: number };
+};
+
+export type ContentfulDocument = {
+  __typename: "ContentfulDocument";
+  id: string;
+  title: string;
+  titleAndSize: string;
+  realFileName: string;
+  assetType: ContentfulAssetType;
+  featuredMedia?: ContentfulImage;
+  asset: {
+    file: {
+      url: string;
+      fileName: string;
+      contentType: string;
+      details: {
+        size: number;
+      };
+    };
+  };
+  // TODO: Should this be defined like this?
+  BRAND?: {
+    name: string;
+    code: string;
+  };
+  noIndex: boolean;
+};
+
+type PimDocumentBase = {
+  id: string;
+  title: string;
+  url: string;
+  assetType: {
+    code: string;
+    name: string;
+    pimCode: string;
+  };
+  isLinkDocument: boolean;
+  fileSize: number;
+  format?: Mime | string;
+  extension: string;
+  realFileName: string;
+  titleAndSize: string;
+  noIndex: boolean;
+} & {
+  [extractedFilter: string]: any;
+};
+
+export type PimSystemDocument = PimDocumentBase & {
+  __typename: "PIMSystemDocument";
+};
+
+export type PimProductDocument = PimDocumentBase & {
+  __typename: "PIMDocument";
+  productBaseCode: string;
+  productName: string;
 };

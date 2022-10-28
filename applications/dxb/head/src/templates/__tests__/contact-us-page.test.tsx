@@ -1,7 +1,7 @@
 import React from "react";
-import ContactUsPage, { Data } from "../contact-us-page";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
+import ContactUsPage, { Data } from "../contact-us-page";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: any } = {
@@ -354,10 +354,8 @@ describe("Contact us page", () => {
     const newData = { ...data };
     newData.contentfulContactUsPage.featuredVideo = null;
     newData.contentfulContactUsPage.featuredMedia = {
-      __typename: "ContentfulImage",
       type: null,
       altText: "featuredMediaAltText",
-      caption: null,
       focalPoint: null,
       image: {
         gatsbyImageData: {

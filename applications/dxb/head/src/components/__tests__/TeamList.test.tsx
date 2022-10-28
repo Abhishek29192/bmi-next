@@ -1,5 +1,5 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import TeamList, { Data } from "../TeamList";
 
 describe("TeamList component", () => {
@@ -9,10 +9,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -57,10 +55,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -97,10 +93,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -137,10 +131,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -177,10 +169,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -217,10 +207,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -257,10 +245,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -297,10 +283,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -337,10 +321,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -377,10 +359,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {
@@ -428,10 +408,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profileImage: {
-          __typename: "ContentfulImage",
           type: null,
           altText: "Lorem ipsum",
-          caption: null,
           focalPoint: null,
           image: {
             gatsbyImageData: {

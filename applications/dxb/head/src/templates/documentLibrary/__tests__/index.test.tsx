@@ -11,7 +11,7 @@ import { DocumentLibraryPageContext } from "../types";
 import {
   createCollapseData,
   createData,
-  creatESDocumentHitResponseMock,
+  createESDocumentHitResponseMock,
   filtersMock
 } from "../__mocks__/index.mock";
 
@@ -31,12 +31,13 @@ const mockQueryES = jest
   .spyOn(elasticSearch, "queryElasticSearch")
   .mockResolvedValue({
     hits: {
-      hits: [creatESDocumentHitResponseMock()],
+      hits: [createESDocumentHitResponseMock()],
       total: {
         value: 1
       }
     }
   });
+
 interface Params {
   pageData?: any;
   pageContext?: DocumentLibraryPageContext;
@@ -155,7 +156,7 @@ describe("Document Library page", () => {
     const collapseData = createCollapseData();
     mockQueryES.mockResolvedValueOnce({
       hits: {
-        hits: [creatESDocumentHitResponseMock({}, collapseData)],
+        hits: [createESDocumentHitResponseMock({}, collapseData)],
         total: {
           value: 2
         }
@@ -169,7 +170,7 @@ describe("Document Library page", () => {
     expect(
       container.querySelector(".DocumentTechnicalTableResults")
     ).toBeTruthy();
-    expect(container.querySelector('a[href="https://url"]')).toBeTruthy();
+    expect(container.querySelector(`a[href="https://url"]`)).toBeTruthy();
     expect(container.querySelector(".results")).toBeTruthy();
     expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
   });
@@ -309,16 +310,16 @@ describe("Document Library page", () => {
   it("should show the correct documents after clicking the pagination", async () => {
     jest.spyOn(window, "scrollTo").mockImplementation();
     const mockESDocumentsList = Array.from(Array(count + 1)).map((_, index) =>
-      creatESDocumentHitResponseMock({
+      createESDocumentHitResponseMock({
         title: `documentTitle${index}`,
         titleAndSize: `AeroDek_${index}`
       })
     );
-    const mockLaslEsDocument = mockESDocumentsList.slice(-1);
+    const mockLastEsDocument = mockESDocumentsList.slice(-1);
     mockQueryES
       .mockResolvedValueOnce({
         hits: {
-          hits: [...mockESDocumentsList]
+          hits: [...mockESDocumentsList.slice(0, 24)]
         },
         aggregations: {
           unique_documents_count: { value: count + 1 }
@@ -326,7 +327,7 @@ describe("Document Library page", () => {
       })
       .mockResolvedValueOnce({
         hits: {
-          hits: [...mockLaslEsDocument]
+          hits: [...mockLastEsDocument]
         },
         aggregations: {
           unique_documents_count: { value: 1 }
@@ -350,8 +351,8 @@ describe("Document Library page", () => {
     });
   });
 
-  it("should render downloadList baner if user select document from the table", async () => {
-    const eSDocumentMock = creatESDocumentHitResponseMock()._source;
+  it("should render downloadList banner if user select document from the table", async () => {
+    const eSDocumentMock = createESDocumentHitResponseMock()._source;
     const { queryByText, getByText, findByLabelText } = renderWithProviders({});
     const checkbox = await findByLabelText(
       `MC: documentLibrary.download ${eSDocumentMock.title}`
@@ -370,7 +371,7 @@ describe("Document Library page", () => {
       "handleDownloadClick"
     );
     const mockESDocumentsList = Array.from(Array(2)).map((_, index) =>
-      creatESDocumentHitResponseMock({
+      createESDocumentHitResponseMock({
         title: `documentTitle${index}`,
         titleAndSize: `AeroDek_${index}`
       })
@@ -403,7 +404,7 @@ describe("Document Library page", () => {
 
   it("should show tooltip when reach max limit", async () => {
     const mockESDocumentsList = Array.from(Array(2)).map((_, index) =>
-      creatESDocumentHitResponseMock({
+      createESDocumentHitResponseMock({
         title: `documentTitle${index}`,
         titleAndSize: `AeroDek_${index}`,
         fileSize: 104857600

@@ -593,6 +593,13 @@ type ContentfulDocument implements Node {
 
 union Document = ContentfulDocument | PIMDocument
 
+type AssetType {
+  name: String!
+  code: String!
+  description: ContentfulRichText
+  pimCode: String
+}
+
 type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   id: ID!
   contentful_id: String!
@@ -608,7 +615,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   description: ContentfulRichText
   source: String
-  assetTypes: [ContentfulAssetType] @link(from: "assetTypes___NODE")
+  contentfulAssetTypes: [AssetType]!
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulCategory] @link(from: "tags___NODE")
@@ -798,8 +805,6 @@ type ProductDocument {
   url: String!
   productBaseCode: String!
   productName: String!
-  # TODO: remove when document filtering is done with Elastic search
-  productCategories: [ProductDocumentCategory]!
 }
 
 type ProductDocumentCategory {
@@ -841,7 +846,7 @@ type Feature {
 
 type DocumentsFiltersResponse {
   filters: [PLPFilter]!
-} 
+}
 
 
 type PIMDocument {
@@ -1056,6 +1061,7 @@ union NextStep = ContentfulSystemConfiguratorResult | ContentfulTitleWithContent
 
 type ContentfulSystemConfiguratorResult implements Node {
   id: ID!
+  contentful_id: String!
   node_locale: String!
   label: String!
   title: String!
@@ -1065,6 +1071,7 @@ type ContentfulSystemConfiguratorResult implements Node {
 
 type ContentfulSystemConfiguratorAnswer implements Node {
   id: ID!
+  contentful_id: String!
   node_locale: String!
   label: String!
   title: String!
@@ -1074,6 +1081,7 @@ type ContentfulSystemConfiguratorAnswer implements Node {
 
 type ContentfulSystemConfiguratorQuestion implements Node {
   id: ID!
+  contentful_id: String!
   node_locale: String!
   label: String!
   title: String!
@@ -1083,6 +1091,7 @@ type ContentfulSystemConfiguratorQuestion implements Node {
 
 type ContentfulSystemConfiguratorSection implements Node {
   id: ID!
+  contentful_id: String!
   node_locale: String!
   label: String
   title: String
