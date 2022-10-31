@@ -49,7 +49,7 @@ export type Image = {
   altText: string;
   caption?: string;
   focalPoint?: {
-    focalPoint: {
+    focalPoint?: {
       x: number;
       y: number;
     };
