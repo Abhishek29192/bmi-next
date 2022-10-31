@@ -5223,6 +5223,47 @@
  to="/pt/cobertura-inclinada/todos-os-produtos-de-cobertura-inclinada/"
  force=true
 
+# new batch of redirects
+[[redirects]]
+ from="/pt/p/telha-lógica-plana-luna-luna-meio-brilho-cerâmica-360017758/"
+ to="/pt/p/l%C3%B3gica-plana-meia-telha-luna-meio-brilho-cer%C3%A2mica-3689900323/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/remate-lateral-esquerdo-vermelho-vermelho-natural-cerâmica-2356442140/"
+ to="/pt/p/piemontesa-remate-lateral-esquerdo-natural-natural-cer%C3%A2mica-2173404173/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/lógica-marselha-beirado-canal-ébano-mate-cerâmica-1419255657/"
+ to="/pt/p/l%C3%B3gica-marselha-beirado-canal-vermelho-natural-cer%C3%A2mica-1133210662/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/clima-pro-t-380-1-22-x-0-78m-60-mm-t-380-60-mm-3741635183/"
+ to="/pt/p/clima-pro-t-380-60-mm-3741635183/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/telha-suporte-de-chaminé-vermelho-vermelho-natural-cerâmica-319773469/"
+ to="/pt/p/l%C3%B3gica-plana-telha-sa%C3%ADda-de-fumos-vermelho-natural-cer%C3%A2mica-2246425403/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/clima-pro-t-380-1-22-x-0-78m-100-mm-t-380-100-mm-2635594254/"
+ to="/pt/p/clima-pro-t-380-100-mm-2635594254/?pathname=%2Fpt%2Fsearch%2F&q=clima%20pro%20t%20380"
+ force=true
+
+[[redirects]]
+ from="/pt/p/telha-piemontesa-campestre-sem-hidrofugação-campestre-cerâmica-4162634300/"
+ to="/pt/p/piemontesa-meia-telha-campestre-cer%C3%A2mica-609434245/"
+ force=true
+
+[[redirects]]
+ from="/pt/p/telha-suporte-de-chaminé-natural-com-hidrofugação-natural-natural-cerâmica-416651547/"
+ to="/pt/search/?q=telha%20suporte%20de%20chamin%C3%A9%20natural"
+ force=true
+
 # Redirects all sitecore sxa downloads
 [[redirects]]
  from = "/pt/sxa/file/*"

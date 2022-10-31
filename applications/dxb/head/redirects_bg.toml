@@ -1,0 +1,6 @@
+# Redirect root to /bg
+[[redirects]]
+  from = "/"
+  to = "/bg"
+  status = 301
+  force = true

@@ -155,6 +155,7 @@ export const createData = (
     allowFilterBy: null,
     source: "PIM",
     resultsType: "Simple",
+    assetTypes: [],
     documentsFilters: { filters: [...documentFilters] },
     breadcrumbs: [
       {
