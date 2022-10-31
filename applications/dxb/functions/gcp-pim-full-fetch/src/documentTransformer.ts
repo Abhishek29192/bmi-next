@@ -63,7 +63,7 @@ const getFeaturedMedia = (
       url: featuredMedia.fields.image.fields.file.url
     }
   },
-  focalPoint: featuredMedia.fields.focalPoint && {
+  focalPoint: featuredMedia.fields.focalPoint?.focalPoint && {
     x: featuredMedia.fields.focalPoint.focalPoint.x,
     y: featuredMedia.fields.focalPoint.focalPoint.y
   }
