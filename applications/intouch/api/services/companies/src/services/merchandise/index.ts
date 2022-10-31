@@ -18,6 +18,7 @@ export type ssoAccount = {
   market_id: number;
   merchandising_url: string;
   domain: string;
+  first_line: string;
 };
 
 export const performMerchandiseSso = async (_query, args, context) => {
@@ -28,7 +29,7 @@ export const performMerchandiseSso = async (_query, args, context) => {
   // Get account data from DB.
   const { rows: accounts } = await pgClient.query(
     `select account.id as account_id, account.first_name, account.last_name, account.phone, company.name as company_name, company.tier,
-    address.town, address.country, address.postcode, market.merchandising_url, market.domain, account.market_id
+    address.town, address.country, address.postcode, address.first_line, market.merchandising_url, market.domain, account.market_id
     from account
     left join market on market.id = account.market_id
     left join company_member on company_member.account_id = account.id
@@ -84,21 +85,17 @@ export const performMerchandiseSso = async (_query, args, context) => {
       users_sname: account.last_name,
       users_division: division,
       users_branch: defaultBranch,
-      users_company: account?.company_name || "",
-      users_add: "Test add",
-      users_town: account?.town || "",
-      users_county: account?.country || "",
-      users_postcode: account?.postcode || "",
-      users_tel: account.phone || "",
+      users_company: account?.company_name || "N/a",
+      users_add: account?.first_line || "N/a",
+      users_town: account?.town || "N/a",
+      users_county: account?.country || "N/a",
+      users_postcode: account?.postcode || "N/a",
+      users_tel: account.phone || "N/a",
       users_state: 1,
       users_country: marketMap?.country || "",
       users_lang: marketMap?.lang || "",
       token: data.token
     };
-
-    // ToDo. Temporary debug. Remove after investigation.
-    const { token, ...rest } = postData;
-    logger.info("SSO data", rest);
 
     // Get register response from SSO portal.
     const { data: registerResponse } = await instance.post(`signup/`, {
