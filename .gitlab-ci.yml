@@ -143,3 +143,262 @@ open_mr_prod_to_preprod_to_master:
       else
         echo "No need to open merge request for production"
       fi
+
+environment_definer:
+  stage: post deploy
+  rules:
+   - if: !reference [.run_for_prod_release, rules, if]
+  when: manual
+  script:
+    - |
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; 
+      then
+        echo "Production release -> $CI_COMMIT_TAG"
+        echo "env -> prod"
+        echo "env=prod" > auto_test.env
+      else
+        echo "Something went wrong: the release type is unknown"
+        exit 1
+      fi
+  artifacts:
+    reports:
+      dotenv: auto_test.env
+  
+.auto_tests:
+  stage: post deploy
+  rules: 
+  - if: !reference [.run_for_prod_release, rules, if]
+  variables:
+    project: $market
+    browser: $browser
+    market: $market
+    smoke: $smoke
+    env: $env
+    tag: $tag
+  script:
+    - |
+      apt-get update
+      apt-get install -y jq
+
+      red='\033[41m'
+      green='\033[0;92m'
+      blue='\033[0;94m'
+      nc='\033[0m'
+      printf "${blue} Triggering remote pipeline ${nc}${green}\n"
+
+      curl -X POST \
+      -F token=$DXB_TA_TOKEN \
+      -F ref=develop \
+      -F "variables[project]=$project" \
+      -F "variables[browser]=$browser" \
+      -F "variables[market]=$market" \
+      -F "variables[smoke]=$smoke" \
+      -F "variables[env]=$env" \
+      -F "variables[tag]=$tag" \
+      https://gitlab.com/api/v4/projects/31983248/trigger/pipeline | jq -r ".web_url"
+
+      printf "${nc}${red} Follow next link for ${market^^} market pipeline ↑ ${nc}" 
+  needs:
+    job: environment_definer
+    artifacts: true
+  allow_failure: true
+
+test_france:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "fr"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_germany:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "de"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_uk:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "uk"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_norway:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "no"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_austria:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "at"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_finland:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "fi"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_netherlands:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "nl"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_italy:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "it"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_turkey:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "tr"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_za:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "za"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_group:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "group"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_spain:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "es"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_portugal:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "pt"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_malaysia:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "my"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_indonesia:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "id"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_romania:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "ro"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_china:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "cn"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_czechia:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "cz"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_hungary:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "hu"
+    smoke: "true"
+    env: $env
+    tag: $market
+
+test_slovakia:
+  extends: .auto_tests
+  variables:
+    project: "dxb-webui"
+    browser: "chrome"
+    market: "sk"
+    smoke: "true"
+    env: $env
+    tag: $market
