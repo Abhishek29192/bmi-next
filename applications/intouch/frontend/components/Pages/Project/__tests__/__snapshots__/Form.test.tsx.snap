@@ -120,7 +120,18 @@ Object {
                       >
                         <svg
                           class="technologyIcon"
-                        />
+                          viewBox="0 0 48 44.488"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v44.488H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.PITCHED
                       </div>
                     </label>
@@ -159,7 +170,17 @@ Object {
                         <svg
                           class="technologyIcon"
                           viewBox="0 7 48 48"
-                        />
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v48H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.FLAT
                       </div>
                     </label>
@@ -742,7 +763,18 @@ Object {
                     >
                       <svg
                         class="technologyIcon"
-                      />
+                        viewBox="0 0 48 44.488"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v44.488H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.PITCHED
                     </div>
                   </label>
@@ -781,7 +813,17 @@ Object {
                       <svg
                         class="technologyIcon"
                         viewBox="0 7 48 48"
-                      />
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v48H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.FLAT
                     </div>
                   </label>
@@ -1419,7 +1461,18 @@ Object {
                       >
                         <svg
                           class="technologyIcon"
-                        />
+                          viewBox="0 0 48 44.488"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v44.488H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.PITCHED
                         <span
                           class="MuiTouchRipple-root"
@@ -1460,7 +1513,17 @@ Object {
                         <svg
                           class="technologyIcon"
                           viewBox="0 7 48 48"
-                        />
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v48H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.FLAT
                         <span
                           class="MuiTouchRipple-root"
@@ -2034,7 +2097,18 @@ Object {
                     >
                       <svg
                         class="technologyIcon"
-                      />
+                        viewBox="0 0 48 44.488"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v44.488H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.PITCHED
                       <span
                         class="MuiTouchRipple-root"
@@ -2075,7 +2149,17 @@ Object {
                       <svg
                         class="technologyIcon"
                         viewBox="0 7 48 48"
-                      />
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v48H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.FLAT
                       <span
                         class="MuiTouchRipple-root"
@@ -2706,7 +2790,18 @@ Object {
                       >
                         <svg
                           class="technologyIcon"
-                        />
+                          viewBox="0 0 48 44.488"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v44.488H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.PITCHED
                         <span
                           class="MuiTouchRipple-root"
@@ -2747,7 +2842,17 @@ Object {
                         <svg
                           class="technologyIcon"
                           viewBox="0 7 48 48"
-                        />
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v48H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.FLAT
                         <span
                           class="MuiTouchRipple-root"
@@ -3321,7 +3426,18 @@ Object {
                     >
                       <svg
                         class="technologyIcon"
-                      />
+                        viewBox="0 0 48 44.488"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v44.488H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.PITCHED
                       <span
                         class="MuiTouchRipple-root"
@@ -3362,7 +3478,17 @@ Object {
                       <svg
                         class="technologyIcon"
                         viewBox="0 7 48 48"
-                      />
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v48H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.FLAT
                       <span
                         class="MuiTouchRipple-root"
@@ -3994,7 +4120,18 @@ Object {
                       >
                         <svg
                           class="technologyIcon"
-                        />
+                          viewBox="0 0 48 44.488"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v44.488H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.PITCHED
                       </div>
                     </label>
@@ -4033,7 +4170,17 @@ Object {
                         <svg
                           class="technologyIcon"
                           viewBox="0 7 48 48"
-                        />
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h48v48H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                         addProject.dialog.form.values.technology.FLAT
                       </div>
                     </label>
@@ -4605,7 +4752,18 @@ Object {
                     >
                       <svg
                         class="technologyIcon"
-                      />
+                        viewBox="0 0 48 44.488"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v44.488H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M24 3 1 20.961l2.53 3.4 3.743-2.929v20.056h33.454V21.431l3.743 2.908L47 20.961Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.PITCHED
                     </div>
                   </label>
@@ -4644,7 +4802,17 @@ Object {
                       <svg
                         class="technologyIcon"
                         viewBox="0 7 48 48"
-                      />
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h48v48H0z"
+                          fill="none"
+                        />
+                        <path
+                          d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                          fill="currentColor"
+                        />
+                      </svg>
                       addProject.dialog.form.values.technology.FLAT
                     </div>
                   </label>

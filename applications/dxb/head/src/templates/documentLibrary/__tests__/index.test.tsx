@@ -1,5 +1,5 @@
 /* eslint-disable prefer-spread */
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";

@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

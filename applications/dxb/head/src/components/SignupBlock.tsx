@@ -1,6 +1,11 @@
 /* eslint-disable no-unreachable */
-import { Button, ButtonProps, Dialog, SignupBlock } from "@bmi/components";
-import { SignupBlockTheme } from "@bmi/components/src/signup-block/SignupBlock";
+import {
+  Button,
+  ButtonProps,
+  Dialog,
+  SignupBlock,
+  SignupBlockTheme
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";

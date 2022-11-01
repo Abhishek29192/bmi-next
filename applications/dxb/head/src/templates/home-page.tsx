@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Hero, Search } from "@bmi/components";
+import { Button, ButtonProps, Hero, Search } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Brands, { Data as BrandData } from "../components/Brands";

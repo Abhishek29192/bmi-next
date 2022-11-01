@@ -1,17 +1,21 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { Typography } from "@bmi/components";
-import { useTranslation } from "next-i18next";
+import {
+  FlatRoof,
+  Icon,
+  PitchedRoof,
+  Typography
+} from "@bmi-digital/components";
 import { Technology } from "@bmi/intouch-api-types";
-import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import React, { useEffect, useMemo, useState } from "react";
+import { useAccountContext } from "../../context/AccountContext";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { isSuperOrMarketAdmin } from "../../lib/account";
+import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
-import { useAccountContext } from "../../context/AccountContext";
-import { isSuperOrMarketAdmin } from "../../lib/account";
-import { GetProjectsQuery } from "../../graphql/generated/operations";
-import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
-import styles from "./styles.module.scss";
 import SidePanelFooter from "./SidePanelFooter";
+import styles from "./styles.module.scss";
 
 const getProjectFilters = (t, isPowerfulUser: boolean) => {
   const technologyFilters = [

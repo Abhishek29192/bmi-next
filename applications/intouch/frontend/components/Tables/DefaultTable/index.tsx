@@ -1,8 +1,7 @@
-import React, { useRef, useState, useMemo } from "react";
-import { Table } from "@bmi/components";
-import { Pagination } from "@bmi/components";
-import classNames from "classnames";
+import { Pagination, Table } from "@bmi-digital/components";
 import { useMediaQuery, useTheme } from "@material-ui/core";
+import classNames from "classnames";
+import React, { useMemo, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 
 export type DefaultTablesProps = {

@@ -9,7 +9,7 @@ import {
   SelectMenuItem,
   TextField,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useMarketContext } from "../../context/MarketContext";
@@ -17,6 +17,8 @@ import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { BUSINESS_TYPES } from "../../lib/constants";
 import AccessControl from "../../lib/permissions/AccessControl";
+import { parseMarketTag } from "../../lib/utils";
+import { getDateOnlyString } from "../../lib/utils/date";
 import { getNestedValue, spreadObjectKeys } from "../../lib/utils/object";
 import {
   validateEmailInput,
@@ -25,8 +27,6 @@ import {
 } from "../../lib/validations/utils";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
-import { parseMarketTag } from "../../lib/utils";
-import { getDateOnlyString } from "../../lib/utils/date";
 import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
@@ -212,13 +212,13 @@ export const SetCompanyDetailsDialog = ({
           }}
           data-testid="company-details-form"
         >
-          <Grid container xs={12} spacing={3}>
-            <Grid item xs={12} lg={6}>
+          <Grid nonce={undefined} container xs={12} spacing={3}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <Typography variant="h6" className={styles.sectionText}>
                 {t("company-page:edit_dialog.sections.registered_details")}
               </Typography>
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <Typography
                 variant="default"
                 className={styles.requiredInformation}
@@ -227,8 +227,8 @@ export const SetCompanyDetailsDialog = ({
               </Typography>
             </Grid>
           </Grid>
-          <Grid container xs={12} spacing={3}>
-            <Grid item xs={12} lg={6}>
+          <Grid nonce={undefined} container xs={12} spacing={3}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField {...getFieldProps("name")} isRequired />
               <TextField
                 {...getFieldProps("registeredAddress.firstLine")}
@@ -261,7 +261,7 @@ export const SetCompanyDetailsDialog = ({
               />
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField {...getFieldProps("taxNumber")} isRequired />
 
               <Select {...getFieldProps("businessType")} isRequired>
@@ -388,8 +388,14 @@ export const SetCompanyDetailsDialog = ({
             {t("company-page:edit_dialog.sections.contact_details")}
           </Typography>
 
-          <Grid container xs={12} alignContent="stretch" spacing={3}>
-            <Grid item xs={12} lg={6}>
+          <Grid
+            nonce={undefined}
+            container
+            xs={12}
+            alignContent="stretch"
+            spacing={3}
+          >
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("phone")}
                 type="tel"
@@ -405,7 +411,7 @@ export const SetCompanyDetailsDialog = ({
               />
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("publicEmail")}
                 getValidationError={validateEmail}
@@ -421,15 +427,15 @@ export const SetCompanyDetailsDialog = ({
             {t("company-page:edit_dialog.sections.owner_details")}
           </Typography>
 
-          <Grid container xs={12} spacing={3}>
-            <Grid item xs={12} lg={6}>
+          <Grid nonce={undefined} container xs={12} spacing={3}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerFullname")}
                 autoComplete="off"
               />
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerPhone")}
                 type="tel"
@@ -437,7 +443,7 @@ export const SetCompanyDetailsDialog = ({
               />
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <TextField
                 {...getFieldProps("ownerEmail")}
                 getValidationError={validateEmail}

@@ -1,5 +1,5 @@
 // TODO: Move to under visualiser
-import { MicroCopy } from "@bmi/components";
+import { MicroCopy } from "@bmi-digital/components";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { graphql, navigate } from "gatsby";
 import queryString from "query-string";

@@ -1,5 +1,5 @@
+import { Grid } from "@bmi-digital/components";
 import React from "react";
-import { Grid } from "@bmi/components";
 import { DimensionsValues, Roof } from "../types/roof";
 import InputTextField from "./subcomponents/_InputTextField";
 import Protrusions from "./_Protrusions";

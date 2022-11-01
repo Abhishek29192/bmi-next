@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import {
+  AlertBanner,
+  Dialog,
+  Typography,
+  Upload
+} from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { AlertBanner, Typography } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Upload } from "@bmi/components";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 type UploadDialogProps = {

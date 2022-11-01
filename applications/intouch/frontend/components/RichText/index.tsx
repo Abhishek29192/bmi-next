@@ -1,15 +1,15 @@
 /* eslint-disable react/display-name */
-import React from "react";
+import { Typography } from "@bmi-digital/components";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import {
   BLOCKS,
-  MARKS,
-  INLINES,
+  Document,
   Inline,
-  Document
+  INLINES,
+  MARKS
 } from "@contentful/rich-text-types";
 import Link from "next/link";
-import { Typography } from "@bmi/components";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export type RichTextProps = {

@@ -1,6 +1,6 @@
-import React from "react";
+import { Checkbox, Dialog, Grid } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Checkbox, Dialog, Grid } from "@bmi/components";
+import React from "react";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import styles from "../../Pages/Project/CreateProject/styles.module.scss";
 import { getFieldLabel } from "../../Pages/Project/Form";
@@ -40,8 +40,8 @@ const ConfirmDialog = ({
     >
       <Dialog.Title hasUnderline>{t(dialogState.title)}</Dialog.Title>
       <Dialog.Content>{t(dialogState.description)}</Dialog.Content>
-      <Grid container>
-        <Grid item sm={6}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item sm={6}>
           {dialogState.inspectionFlag && (
             <AccessControl dataModel="project" action="inspection">
               <div className={styles.inspectionWrapper}>
@@ -56,7 +56,7 @@ const ConfirmDialog = ({
             </AccessControl>
           )}
         </Grid>
-        <Grid item sm={6}>
+        <Grid nonce={undefined} item sm={6}>
           <Dialog.Actions
             confirmLabel={t("projectActions.cta.confirm")}
             onConfirmClick={dialogState.onConfirm}

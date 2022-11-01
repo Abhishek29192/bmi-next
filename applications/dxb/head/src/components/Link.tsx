@@ -1,7 +1,11 @@
-import uniqueId from "lodash-es/uniqueId";
-import { Clickable, ClickableAction, transformHyphens } from "@bmi/components";
-import { Dialog } from "@bmi/components";
+import {
+  Clickable,
+  ClickableAction,
+  Dialog,
+  transformHyphens
+} from "@bmi-digital/components";
 import { graphql, Link as GatsbyLink } from "gatsby";
+import uniqueId from "lodash-es/uniqueId";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
 import { getPathWithCountryCode } from "../utils/path";

@@ -1,4 +1,4 @@
-import { transformHyphens } from "@bmi/components";
+import { transformHyphens } from "@bmi-digital/components";
 import React from "react";
 import { Helmet, HelmetProps } from "react-helmet";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";

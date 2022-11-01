@@ -1,6 +1,6 @@
-import React from "react";
+import { Typography } from "@bmi-digital/components";
 import Avatar from "@material-ui/core/Avatar";
-import { Typography } from "@bmi/components";
+import React from "react";
 import { EmailLink, PhoneNumberLink } from "../../IconLink";
 import styles from "./styles.module.scss";
 

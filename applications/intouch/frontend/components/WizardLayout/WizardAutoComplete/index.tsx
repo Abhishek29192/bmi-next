@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import { Autocomplete, Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Autocomplete } from "@bmi/components";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
 export type WizardAutoCompleteOptions = {
@@ -95,8 +93,13 @@ const WizardAutoCompleteRenderOption = ({
   secondaryText
 }: WizardAutoCompleteRenderOptionProps) => {
   return (
-    <Grid container className={styles["option"]} data-testid={`option-${id}`}>
-      <Grid item xs>
+    <Grid
+      nonce={undefined}
+      container
+      className={styles["option"]}
+      data-testid={`option-${id}`}
+    >
+      <Grid nonce={undefined} item xs>
         <Typography>{text}</Typography>
         {secondaryText && (
           <Typography variant="body3" color="textSecondary">

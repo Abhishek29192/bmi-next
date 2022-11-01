@@ -42,7 +42,9 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
-  transformIgnorePatterns: ["node_modules/(?!(three|lodash-es)/)"],
+  transformIgnorePatterns: [
+    "node_modules/(?!(three|lodash-es|@bmi-digital/components)/)"
+  ],
   setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: [
     "jest-mock-console/dist/setupTestFramework.js",

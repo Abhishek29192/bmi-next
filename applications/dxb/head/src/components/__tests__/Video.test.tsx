@@ -1,4 +1,4 @@
-import { YoutubeVideoProps } from "@bmi/components/src";
+import { YoutubeVideoProps } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { Data } from "../Image";
@@ -20,7 +20,7 @@ jest.mock("../Image", () => ({
   default: () => <div data-testid="image"></div>
 }));
 
-jest.mock("@bmi/components", () => ({
+jest.mock("@bmi-digital/components", () => ({
   YoutubeVideo: (props: YoutubeVideoProps) => (
     <div
       data-testid="wrapper"

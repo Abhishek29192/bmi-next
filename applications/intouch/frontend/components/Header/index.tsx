@@ -1,34 +1,32 @@
-import React, { useState, useMemo } from "react";
-import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { BMI } from "@bmi/components";
-import { Notifications, Menu, Close } from "@material-ui/icons";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import Drawer from "@material-ui/core/Drawer";
-import Avatar from "@material-ui/core/Avatar";
 import { gql } from "@apollo/client";
-import {
-  findAccountTier,
-  findAccountCompany,
-  isSuperOrMarketAdmin
-} from "../../lib/account";
-import { Link } from "../Link";
-import UserMenu from "../UserMenu";
-import { Sidebar } from "../Sidebar";
-import { NotificationsPanel } from "../NotificationsPanel";
+import { BMI, Icon, Typography } from "@bmi-digital/components";
+import Avatar from "@material-ui/core/Avatar";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import IconButton from "@material-ui/core/IconButton";
+import { Close, Menu, Notifications } from "@material-ui/icons";
+import { useTranslation } from "next-i18next";
+import React, { useMemo, useState } from "react";
 import { useAccountContext } from "../../context/AccountContext";
-import log from "../../lib/logger";
-import { mergeByKey } from "../../lib/utils/object";
+import {
+  useGetTierBenefitQuery,
+  useMarkAllNotificationsAsReadMutation
+} from "../../graphql/generated/hooks";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import {
-  useMarkAllNotificationsAsReadMutation,
-  useGetTierBenefitQuery
-} from "../../graphql/generated/hooks";
+  findAccountCompany,
+  findAccountTier,
+  isSuperOrMarketAdmin
+} from "../../lib/account";
+import log from "../../lib/logger";
 import AccessControl from "../../lib/permissions/AccessControl";
 import { parseMarketTag } from "../../lib/utils";
+import { mergeByKey } from "../../lib/utils/object";
+import { Link } from "../Link";
+import { NotificationsPanel } from "../NotificationsPanel";
+import { Sidebar } from "../Sidebar";
+import UserMenu from "../UserMenu";
 import styles from "./styles.module.scss";
 
 type HeaderLink = {

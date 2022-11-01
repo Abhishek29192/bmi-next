@@ -1,7 +1,7 @@
-import React from "react";
-import { Typography } from "@bmi/components";
-import { useTranslation } from "next-i18next";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { InfoPair } from "../../InfoPair";
 import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";

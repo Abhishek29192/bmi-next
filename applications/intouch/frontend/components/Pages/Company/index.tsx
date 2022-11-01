@@ -1,5 +1,5 @@
-import { Grid } from "@bmi/components";
 import React from "react";
+import { Grid } from "@bmi-digital/components";
 import { useTranslation } from "react-i18next";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
 import { ROLES } from "../../../lib/constants";
@@ -48,12 +48,13 @@ export const CompanyPage = ({
         <IncompleteProfileAlert missingFields={missingFields} />
       )}
       <Grid
+        nonce={undefined}
         container
         spacing={3}
         className={GridStyles.outerGrid}
         alignItems="stretch"
       >
-        <Grid item xs={12} lg={7} xl={8}>
+        <Grid nonce={undefined} item xs={12} lg={7} xl={8}>
           <CompanyDetails
             company={company}
             showName={false}
@@ -85,7 +86,7 @@ export const CompanyPage = ({
             }}
           />
         </Grid>
-        <Grid item xs={12} lg={5} xl={4}>
+        <Grid nonce={undefined} item xs={12} lg={5} xl={4}>
           <RewardSummary company={company} />
           <CompanyRegisteredDetails
             company={company}
@@ -104,7 +105,7 @@ export const CompanyPage = ({
           )}
         </Grid>
         <AccessControl dataModel="company" action="editOperations">
-          <Grid item xs={12} lg={12} xl={12}>
+          <Grid nonce={undefined} item xs={12} lg={12} xl={12}>
             <CompanyActionsCard
               title={t("companyActionsTitle")}
               company={company}

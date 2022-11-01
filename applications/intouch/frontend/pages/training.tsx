@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { Course } from "@bmi/intouch-api-types";
-import { Grid } from "@bmi/components";
-import { useTranslation } from "next-i18next";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { Grid } from "@bmi-digital/components";
+import { Course } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React, { useState } from "react";
+import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 import { TrainingCover } from "../components/Cards/TrainingCover";
-import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
-import GridStyles from "../styles/Grid.module.scss";
-import {
-  TrainingQuery,
-  GetGlobalDataQuery
-} from "../graphql/generated/operations";
-import { withPage } from "../lib/middleware/withPage";
-import {
-  getServerPageTraining,
-  getServerPageDoceboTiersByMarketId
-} from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 import layoutStyles from "../components/Layout/styles.module.scss";
-import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
-import { sortCourses } from "../lib/utils/course";
+import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
+import {
+  GetGlobalDataQuery,
+  TrainingQuery
+} from "../graphql/generated/operations";
+import {
+  getServerPageDoceboTiersByMarketId,
+  getServerPageTraining
+} from "../graphql/generated/page";
 import { findAccountCompany } from "../lib/account";
+import { withPage } from "../lib/middleware/withPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
+import { sortCourses } from "../lib/utils/course";
+import GridStyles from "../styles/Grid.module.scss";
 
 type PageProps = {
   trainingData: {
@@ -99,12 +99,13 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
           onFilterChange={() => setActiveCourse(null)}
         />
         <Grid
+          nonce={undefined}
           container
           spacing={2}
           className={GridStyles.outerGrid}
           alignItems="stretch"
         >
-          <Grid item>
+          <Grid nonce={undefined} item>
             {!activeCourse ? (
               <TrainingCover
                 trainingContentCollection={trainingContentCollection}

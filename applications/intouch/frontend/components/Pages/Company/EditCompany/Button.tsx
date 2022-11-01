@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
+import { Button } from "@bmi-digital/components";
 import EditIcon from "@material-ui/icons/Edit";
-import { Button } from "@bmi/components";
+import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { EditCompanyDialog, OnCompanyUpdateSuccess } from "./Dialog";

@@ -1,13 +1,12 @@
-import React from "react";
+import { Grid, Typography } from "@bmi-digital/components";
 import Avatar from "@material-ui/core/Avatar";
-import { Typography } from "@bmi/components";
-import { Grid } from "@bmi/components";
 import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
+import React from "react";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { Address } from "../../../Address";
 import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
 import { InfoPair } from "../../../InfoPair";
-import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
@@ -46,9 +45,9 @@ export const CompanyDetails = ({
       ) : null}
 
       <div className={styles.body}>
-        <Grid container spacing={3}>
+        <Grid nonce={undefined} container spacing={3}>
           {showLogo ? (
-            <Grid item xs={12} sm={3}>
+            <Grid nonce={undefined} item xs={12} sm={3}>
               {logo ? (
                 <img src={logo} alt="" className={styles.logo} />
               ) : (
@@ -59,7 +58,7 @@ export const CompanyDetails = ({
               )}
             </Grid>
           ) : null}
-          <Grid item xs={12} sm={9}>
+          <Grid nonce={undefined} item xs={12} sm={9}>
             {showAboutUs && company.aboutUs ? (
               <div>
                 <InfoPair title={t("company-page:details.aboutUs")}>
@@ -68,8 +67,8 @@ export const CompanyDetails = ({
               </div>
             ) : null}
 
-            <Grid container spacing={3}>
-              <Grid item xs={12} xl={6}>
+            <Grid nonce={undefined} container spacing={3}>
+              <Grid nonce={undefined} item xs={12} xl={6}>
                 {showName ? (
                   <InfoPair title={t("company-page:details.name")}>
                     {company.name}
@@ -99,7 +98,7 @@ export const CompanyDetails = ({
                 )}
               </Grid>
 
-              <Grid item xs={12} xl={6}>
+              <Grid nonce={undefined} item xs={12} xl={6}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <InfoPair title={t("company-page:details.contactDetails")}>
                     {company.phone ? (

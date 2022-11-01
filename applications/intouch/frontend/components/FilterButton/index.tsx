@@ -1,4 +1,4 @@
-import { Chip } from "@bmi/components";
+import { Chip } from "@bmi-digital/components";
 import React from "react";
 import styles from "./styles.module.scss";
 

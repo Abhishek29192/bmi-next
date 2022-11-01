@@ -9,7 +9,7 @@ import {
   Section,
   ThemeOptions,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import CheckIcon from "@material-ui/icons/Check";
 import { makeStyles } from "@material-ui/styles";

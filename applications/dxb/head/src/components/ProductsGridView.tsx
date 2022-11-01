@@ -4,7 +4,7 @@ import {
   OverviewCard,
   OverviewCardProps,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";

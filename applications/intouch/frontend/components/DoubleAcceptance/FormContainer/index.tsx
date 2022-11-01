@@ -1,17 +1,23 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { useTranslation } from "next-i18next";
-import { Checkbox, Dialog, Grid, Form, TextField } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Document } from "@contentful/rich-text-types";
 import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import log from "../../../lib/logger";
-import styles from "../styles.module.scss";
-import { Props as DoubleAcceptanceProps } from "../../../pages/double-acceptance/[tempToken]";
+import {
+  Checkbox,
+  Dialog,
+  Form,
+  Grid,
+  TextField,
+  Typography
+} from "@bmi-digital/components";
+import { Document } from "@contentful/rich-text-types";
+import { useTranslation } from "next-i18next";
+import React, { useCallback, useMemo, useState } from "react";
 import { RichText } from "../../../components/RichText";
 import {
-  updateDoubleAcceptance,
-  releaseGuaranteePdf
+  releaseGuaranteePdf,
+  updateDoubleAcceptance
 } from "../../../lib/doubleAcceptance";
+import log from "../../../lib/logger";
+import { Props as DoubleAcceptanceProps } from "../../../pages/double-acceptance/[tempToken]";
+import styles from "../styles.module.scss";
 
 type Props = {
   doubleAcceptance: DoubleAcceptanceProps["doubleAcceptance"];
@@ -99,13 +105,13 @@ const FormContainer = ({
 
   return (
     <div className={styles.container}>
-      <Grid container>
-        <Grid item xs={12}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item xs={12}>
           <Typography variant="h4" hasUnderline>
             {t("title")}
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid nonce={undefined} item xs={12}>
           <div>
             {(
               t("description", {
@@ -118,8 +124,8 @@ const FormContainer = ({
         </Grid>
       </Grid>
       <div className={styles.body}>
-        <Grid container>
-          <Grid item xs={12}>
+        <Grid nonce={undefined} container>
+          <Grid nonce={undefined} item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("warrantyPeriod")}
             </Typography>
@@ -127,13 +133,13 @@ const FormContainer = ({
               "years"
             )}`}</div>
           </Grid>
-          <Grid item xs={12}>
+          <Grid nonce={undefined} item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("guaranteeScope")}
             </Typography>
             <div>{doubleAcceptance.guaranteeTemplate.guaranteeScope}</div>
           </Grid>
-          <Grid item xs={12}>
+          <Grid nonce={undefined} item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
               {t("guaranteeConditions")}
             </Typography>
@@ -166,8 +172,8 @@ const FormContainer = ({
           }}
           data-testid="double-acceptance-form"
         >
-          <Grid container>
-            <Grid item xs={12}>
+          <Grid nonce={undefined} container>
+            <Grid nonce={undefined} item xs={12}>
               <Checkbox
                 name={"acknowledge"}
                 label={t("form.fields.acceptance.label")}
@@ -175,9 +181,9 @@ const FormContainer = ({
                 onChange={(value) => onItemChange("acknowledge", value)}
               />
             </Grid>
-            <Grid item xs={12}>
-              <Grid container>
-                <Grid item xs={6}>
+            <Grid nonce={undefined} item xs={12}>
+              <Grid nonce={undefined} container>
+                <Grid nonce={undefined} item xs={6}>
                   <TextField
                     name="firstName"
                     label={t("form.fields.firstname.label")}
@@ -188,7 +194,7 @@ const FormContainer = ({
                     disabled={!formData.acknowledge}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid nonce={undefined} item xs={6}>
                   <TextField
                     name="lastName"
                     label={t("form.fields.lastname.label")}
@@ -203,7 +209,7 @@ const FormContainer = ({
             </Grid>
             {enableSubmitButton && (
               <React.Fragment>
-                <Grid item xs={12}>
+                <Grid nonce={undefined} item xs={12}>
                   <Typography variant="h4" className={styles.subtitle}>
                     {t("acceptanceTitle")}
                   </Typography>
@@ -219,7 +225,7 @@ const FormContainer = ({
                     ))}
                   </div>
                 </Grid>
-                <Grid item xs={12} lg={12}>
+                <Grid nonce={undefined} item xs={12} lg={12}>
                   <Form.ButtonWrapper>
                     <Form.Button
                       variant="outlined"

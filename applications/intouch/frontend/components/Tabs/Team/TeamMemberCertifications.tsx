@@ -1,11 +1,11 @@
-import React from "react";
-import { Technology } from "@bmi/intouch-api-types";
-import { SvgIcon } from "@material-ui/core";
 import {
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import { Technology } from "@bmi/intouch-api-types";
+import { SvgIcon } from "@material-ui/core";
+import React from "react";
 
 const CERTIFICATION_ICONS: {
   [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;

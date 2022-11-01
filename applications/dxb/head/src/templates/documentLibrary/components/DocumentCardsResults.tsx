@@ -1,4 +1,9 @@
-import { Button, Grid, OverviewCard, OverviewCardProps } from "@bmi/components";
+import {
+  Button,
+  Grid,
+  OverviewCard,
+  OverviewCardProps
+} from "@bmi-digital/components";
 import { ContentfulDocument } from "@bmi/elasticsearch-types";
 import React from "react";
 import { iconMap } from "../../../components/Icon";

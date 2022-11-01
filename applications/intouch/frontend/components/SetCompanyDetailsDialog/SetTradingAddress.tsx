@@ -1,3 +1,11 @@
+import {
+  FormContext,
+  Grid,
+  TextField,
+  TextFieldProps,
+  Typography
+} from "@bmi-digital/components";
+import { Point } from "@bmi/intouch-api-types";
 import React, {
   useCallback,
   useContext,
@@ -6,18 +14,10 @@ import React, {
   useState
 } from "react";
 import { useTranslation } from "react-i18next";
-import { Point } from "@bmi/intouch-api-types";
-import { FormContext } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-// if this MR which updates "withFormControl", is compatible with DXB
-// https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
-// we can just use the controlled "TextField" instead of wrapping it with a forked withFormControl
-import { TextFieldProps, TextField } from "@bmi/components";
-import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
-import { AddressAutocomplete } from "../AddressAutocomplete";
 import { getNestedValue } from "../../lib/utils/object";
+import { AddressAutocomplete } from "../AddressAutocomplete";
+import withFormControlWithFormValues from "../withFormControlForked";
 import styles from "./styles.module.scss";
 
 const ControlledTextInput = withFormControlWithFormValues<
@@ -138,8 +138,14 @@ export const SetTradingAddress = ({
 
   return (
     <>
-      <Grid container xs={12} spacing={3} style={{ marginBottom: 12 }}>
-        <Grid item xs={12}>
+      <Grid
+        nonce={undefined}
+        container
+        xs={12}
+        spacing={3}
+        style={{ marginBottom: 12 }}
+      >
+        <Grid nonce={undefined} item xs={12}>
           <AddressAutocomplete
             name=""
             fullWidth
@@ -158,8 +164,8 @@ export const SetTradingAddress = ({
 
       {showInputFields && (
         <>
-          <Grid container xs={12} spacing={3}>
-            <Grid item xs={12}>
+          <Grid nonce={undefined} container xs={12} spacing={3}>
+            <Grid nonce={undefined} item xs={12}>
               <Typography variant="h6" className={styles.sectionText}>
                 {t(
                   "company-page:edit_dialog.sections.trading_address_fields_heading"
@@ -189,15 +195,15 @@ export const SetTradingAddress = ({
             </Grid>
           </Grid>
 
-          <Grid container xs={12} spacing={3}>
-            <Grid item xs={12} lg={6}>
+          <Grid nonce={undefined} container xs={12} spacing={3}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <ControlledTextInput
                 {...getFieldProps("country")}
                 autoComplete="no-autocomplete"
               />
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid nonce={undefined} item xs={12} lg={6}>
               <ControlledTextInput
                 {...getFieldProps("postcode")}
                 autoComplete="no-autocomplete"

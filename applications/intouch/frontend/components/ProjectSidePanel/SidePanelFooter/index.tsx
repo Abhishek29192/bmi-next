@@ -1,11 +1,11 @@
-import React, { useState, useMemo } from "react";
-import { Button } from "@bmi/components";
+import { Button } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { NewProjectDialog } from "../../Pages/Project/CreateProject/Dialog";
+import React, { useMemo, useState } from "react";
+import { useAccountContext } from "../../../context/AccountContext";
 import { findAccountCompany } from "../../../lib/account";
 import AccessControl from "../../../lib/permissions/AccessControl";
+import { NewProjectDialog } from "../../Pages/Project/CreateProject/Dialog";
 import { GuaranteeReport, ProjectReport, UploadReport } from "../../Reports";
-import { useAccountContext } from "../../../context/AccountContext";
 import styles from "../styles.module.scss";
 
 export const ProjectSidePanelFooter = () => {

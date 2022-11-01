@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { Button } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Carousel } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { BMI } from "@bmi/components";
-import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import ChevronLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
-import { Typography } from "@bmi/components";
+import {
+  BMI,
+  Button,
+  Carousel,
+  Dialog,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import DownloadIcon from "@material-ui/icons/GetApp";
+import ChevronLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
+import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { useTranslation } from "next-i18next";
-import { getVimeoEmbedUrl } from "../../lib/media/utils";
+import React, { useState } from "react";
 import { GalleryItem } from "../../lib/media/types";
+import { getVimeoEmbedUrl } from "../../lib/media/utils";
 import styles from "./styles.module.scss";
 
 type Props = {

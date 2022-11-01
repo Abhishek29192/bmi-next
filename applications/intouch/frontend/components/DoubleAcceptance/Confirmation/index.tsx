@@ -1,8 +1,8 @@
-import React from "react";
+import { Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Typography, Grid } from "@bmi/components";
-import styles from "../styles.module.scss";
+import React from "react";
 import { useMarketContext } from "../../../context/MarketContext";
+import styles from "../styles.module.scss";
 
 const Confirmation = () => {
   const { t } = useTranslation("double-acceptance");
@@ -15,13 +15,18 @@ const Confirmation = () => {
         {t("confirmation.title")}
       </Typography>
       <div className={styles.body}>
-        <Grid container>
+        <Grid nonce={undefined} container>
           {t<string, string[]>("confirmation.description", {
             returnObjects: true,
             interpolation: { escapeValue: false },
             website
           }).map((description, id) => (
-            <Grid item xs={12} key={`double-acceptance-description-${id}`}>
+            <Grid
+              nonce={undefined}
+              item
+              xs={12}
+              key={`double-acceptance-description-${id}`}
+            >
               <span dangerouslySetInnerHTML={{ __html: description }} />
             </Grid>
           ))}

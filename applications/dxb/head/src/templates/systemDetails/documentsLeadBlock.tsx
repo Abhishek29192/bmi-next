@@ -1,4 +1,4 @@
-import { DownloadList, LeadBlock } from "@bmi/components";
+import { DownloadList, LeadBlock } from "@bmi-digital/components";
 import React, { useRef, useState } from "react";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";

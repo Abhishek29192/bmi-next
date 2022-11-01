@@ -1,22 +1,21 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Table } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { useTranslation } from "next-i18next";
-import { ProjectMember, CompanyMember } from "@bmi/intouch-api-types";
 import { gql } from "@apollo/client";
+import { Button, Table } from "@bmi-digital/components";
+import { CompanyMember, ProjectMember } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import React, { useEffect, useMemo, useState } from "react";
 import {
+  GetProjectDocument,
+  useAddProjectsMemberMutation,
   useDeleteProjectMemberMutation,
   useGetProjectCompanyMembersLazyQuery,
-  useAddProjectsMemberMutation,
-  GetProjectDocument,
   useUpdateProjectMemberMutation
 } from "../../../graphql/generated/hooks";
-import { NoContent } from "../../NoContent";
-import AccessControl from "../../../lib/permissions/AccessControl";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import AccessControl from "../../../lib/permissions/AccessControl";
+import { NoContent } from "../../NoContent";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
-import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
+import { TeamMemberItem } from "./TeamMemberItem";
 
 export type TeamTabProps = {
   projectId: number;

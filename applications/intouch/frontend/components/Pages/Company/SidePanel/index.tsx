@@ -1,13 +1,13 @@
-import React, { useState, useMemo } from "react";
-import { Typography } from "@bmi/components";
-import { useTranslation } from "next-i18next";
+import { Typography } from "@bmi-digital/components";
 import { SvgIcon } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
+import { useTranslation } from "next-i18next";
+import React, { useMemo, useState } from "react";
 import { GetCompaniesByMarketQuery } from "../../../../graphql/generated/operations";
-import { CompanyReport } from "../../../Reports";
-import { FilterResult } from "../../../FilterResult";
-import { SidePanel } from "../../../SidePanel";
 import AccessControl from "../../../../lib/permissions/AccessControl";
+import { FilterResult } from "../../../FilterResult";
+import { CompanyReport } from "../../../Reports";
+import { SidePanel } from "../../../SidePanel";
 
 type CompaniesSidePanelProps = {
   companies: GetCompaniesByMarketQuery["companies"]["nodes"];

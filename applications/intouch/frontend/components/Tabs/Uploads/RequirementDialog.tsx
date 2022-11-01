@@ -1,7 +1,7 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
-import { Button, Dialog } from "@bmi/components";
+import { Button, Dialog } from "@bmi-digital/components";
 import { Document } from "@contentful/rich-text-types";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { RichText } from "../../RichText";
 
 export type RequirementDialogProps = {

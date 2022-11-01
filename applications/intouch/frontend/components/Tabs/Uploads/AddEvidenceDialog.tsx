@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "next-i18next";
-import { Dialog, Typography } from "@bmi/components";
-import { Upload } from "@bmi/components";
-import { Select, SelectMenuItem } from "@bmi/components";
+import {
+  Dialog,
+  Select,
+  SelectMenuItem,
+  Typography,
+  Upload
+} from "@bmi-digital/components";
 import {
   ContentfulEvidenceCategory,
   CustomEvidenceCategoryKey,
   EvidenceCategoryType
 } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import React, { useEffect, useState } from "react";
 import { DeepPartial } from "../../../lib/utils/types";
 import styles from "./styles.module.scss";
 

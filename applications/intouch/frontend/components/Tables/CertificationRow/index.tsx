@@ -1,13 +1,13 @@
-import React from "react";
-import { Table } from "@bmi/components";
 import {
-  Icon,
   CertificationFlatRoof,
   CertificationOtherTraining,
-  CertificationPitchedRoof
-} from "@bmi/components";
-import { formatDate } from "../../../lib/utils/date";
+  CertificationPitchedRoof,
+  Icon,
+  Table
+} from "@bmi-digital/components";
+import React from "react";
 import { GetUserProfileQuery } from "../../../graphql/generated/operations";
+import { formatDate } from "../../../lib/utils/date";
 import styles from "./styles.module.scss";
 
 export type CertificationRowProps = {

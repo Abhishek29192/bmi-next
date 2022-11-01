@@ -1,21 +1,21 @@
-import React, { useMemo } from "react";
-import capitalize from "lodash/capitalize";
+import { Typography } from "@bmi-digital/components";
 import { Operation } from "@bmi/intouch-api-types";
-import { Typography } from "@bmi/components";
+import capitalize from "lodash/capitalize";
 import { useTranslation } from "next-i18next";
-import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import React, { useMemo } from "react";
+import {
+  ContextProps,
+  useCompanyPageContext
+} from "../../../../context/CompanyPageContext";
+import { useMarketContext } from "../../../../context/MarketContext";
 import { useGetTierBenefitQuery } from "../../../../graphql/generated/hooks";
-import { InfoPair } from "../../../InfoPair";
+import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { parseMarketTag } from "../../../../lib/utils";
+import { formatDate } from "../../../../lib/utils/date";
 import { Address } from "../../../Address";
+import { InfoPair } from "../../../InfoPair";
 import { OnCompanyUpdateSuccess } from "../../../SetCompanyDetailsDialog";
 import { EditCompanyButton } from "../EditCompany/Button";
-import { parseMarketTag } from "../../../../lib/utils";
-import { useMarketContext } from "../../../../context/MarketContext";
-import {
-  useCompanyPageContext,
-  ContextProps
-} from "../../../../context/CompanyPageContext";
-import { formatDate } from "../../../../lib/utils/date";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {

@@ -1,10 +1,10 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { MediaTile } from "../";
 import { MediaItem } from "../../../lib/media/types";
 import { META_TYPES } from "../../../lib/media/utils";
-import { fireEvent, render, screen } from "../../../lib/tests/utils";
 import { generateAccount } from "../../../lib/tests/factories/account";
+import { fireEvent, render, screen } from "../../../lib/tests/utils";
 
 const onMediaItemClickMock = jest.fn();
 

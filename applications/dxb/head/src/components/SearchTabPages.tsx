@@ -1,4 +1,4 @@
-import { Filter, Grid } from "@bmi/components";
+import { Filter, Grid } from "@bmi-digital/components";
 import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";

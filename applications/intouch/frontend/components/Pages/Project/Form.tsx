@@ -1,19 +1,21 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
-import { Guarantee } from "@bmi/intouch-api-types";
-import { Form, FormProps } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Project } from "@bmi/intouch-api-types";
+import {
+  Form,
+  FormProps,
+  Grid,
+  TextField,
+  Typography
+} from "@bmi-digital/components";
+import { Guarantee, Project } from "@bmi/intouch-api-types";
 import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
-import { getDateOnlyString } from "../../../lib/utils/date";
-import { findProjectGuarantee } from "../../../lib/utils/project";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { getDateOnlyString } from "../../../lib/utils/date";
 import { getNestedValue } from "../../../lib/utils/object";
-import TechnologyInput from "./TechnologyInput";
+import { findProjectGuarantee } from "../../../lib/utils/project";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
+import TechnologyInput from "./TechnologyInput";
 
 export const getFieldLabel = (t, fieldName: string) =>
   t(`project-page:addProject.dialog.form.fields.${fieldName}`);
@@ -94,13 +96,13 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
 
   return (
     <Form className={styles.form} onSubmit={onSubmit} rightAlignButton>
-      <Grid container xs={12} spacing={3}>
-        <Grid item xs={12} lg={6}>
+      <Grid nonce={undefined} container xs={12} spacing={3}>
+        <Grid nonce={undefined} item xs={12} lg={6}>
           <Typography variant="h5" className={styles.sectionTitle}>
             {t("project-page:addProject.dialog.sections.projectDetails.title")}
           </Typography>
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid nonce={undefined} item xs={12} lg={6}>
           <Typography variant="default" className={styles.requiredInformation}>
             * {t("common:requiredInformation")}
           </Typography>
@@ -130,8 +132,8 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
       <Typography variant="h6" className={styles.sectionTitle}>
         {t("project-page:addProject.dialog.sections.dates.title")}
       </Typography>
-      <Grid container>
-        <Grid item sm={6}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item sm={6}>
           <TextField
             {...getFieldPropsFn(t, "startDate")}
             type="date"
@@ -157,8 +159,8 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
       <TextField {...getFieldPropsFn(t, "siteAddress.firstLine")} isRequired />
       <TextField {...getFieldPropsFn(t, "siteAddress.secondLine")} />
       <TextField {...getFieldPropsFn(t, "siteAddress.town")} isRequired />
-      <Grid container>
-        <Grid item lg={6}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item lg={6}>
           <TextField
             {...getFieldPropsFn(t, "siteAddress.postcode")}
             isRequired

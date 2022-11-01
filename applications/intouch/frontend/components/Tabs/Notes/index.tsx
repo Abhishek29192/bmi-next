@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import { Button, Table } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Table } from "@bmi/components";
-import { Button } from "@bmi/components";
-import AccessControl from "../../../lib/permissions/AccessControl";
+import React, { useState } from "react";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import { NoContent } from "../../NoContent";
-import styles from "./styles.module.scss";
 import { AddNoteDialog } from "./AddNoteDialog";
+import styles from "./styles.module.scss";
 
 type NoteItemProps = {
   body: string;

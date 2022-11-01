@@ -39,7 +39,7 @@ export const getDeleteOperation = (
   ];
 };
 
-export const performBulkOperations = async <T>(
+export const performBulkOperations = async <T extends Record<string, any>>(
   client: Client,
   operations: (DeleteOperation | IndexOperation | T)[][],
   index: string

@@ -1,6 +1,6 @@
-import React from "react";
-import { CompanyDetailProps } from "@bmi/components";
+import { CompanyDetailProps } from "@bmi-digital/components";
 import { Account } from "@bmi/intouch-api-types";
+import React from "react";
 import { UserCard } from ".";
 
 export default {

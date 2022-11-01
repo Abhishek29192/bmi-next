@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@bmi/components";
+import { ThemeOptions } from "@bmi-digital/components";
 import { makeStyles } from "@material-ui/styles";
 
 export const useStyles = makeStyles(

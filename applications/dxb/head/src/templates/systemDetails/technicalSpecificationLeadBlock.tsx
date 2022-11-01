@@ -2,13 +2,13 @@ import {
   Accordion,
   AccordionSummaryProps,
   Button,
+  ButtonProps,
   Grid,
   LeadBlock,
   PostItCard,
   Table,
   Typography
-} from "@bmi/components";
-import { ButtonProps } from "@bmi/components/src";
+} from "@bmi-digital/components";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import Link from "../../components/Link";

@@ -1,4 +1,4 @@
-import { Button, HeroItem } from "@bmi/components";
+import { Button, HeroItem } from "@bmi-digital/components";
 import React from "react";
 import { renderImage } from "../../components/Image";
 import Link from "../../components/Link";

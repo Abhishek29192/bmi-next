@@ -1,20 +1,20 @@
-import React, { useCallback } from "react";
+import { gql } from "@apollo/client";
+import { Dialog } from "@bmi-digital/components";
+import {
+  ProjectCompanyIdFkeyInput,
+  ProjectSiteAddressIdFkeyInput
+} from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { gql } from "@apollo/client";
+import React, { useCallback } from "react";
+import { useAccountContext } from "../../../../context/AccountContext";
 import {
-  ProjectSiteAddressIdFkeyInput,
-  ProjectCompanyIdFkeyInput
-} from "@bmi/intouch-api-types";
-import { Dialog } from "@bmi/components";
-import ProjectForm from "../Form";
-import { spreadObjectKeys } from "../../../../lib/utils/object";
-import {
-  useCreateProjectMutation,
-  useAddRewardRecordMutation
+  useAddRewardRecordMutation,
+  useCreateProjectMutation
 } from "../../../../graphql/generated/hooks";
 import log from "../../../../lib/logger";
-import { useAccountContext } from "../../../../context/AccountContext";
+import { spreadObjectKeys } from "../../../../lib/utils/object";
+import ProjectForm from "../Form";
 import styles from "./styles.module.scss";
 
 export type NewProjectDialogProps = {

@@ -1,6 +1,6 @@
-import React from "react";
+import { Grid, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { Grid, Section } from "@bmi/components";
+import React from "react";
 import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 

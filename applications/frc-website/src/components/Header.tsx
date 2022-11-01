@@ -2,7 +2,7 @@ import {
   Container,
   Icopal as IcopalLogoSVG,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "gatsby";
 import React from "react";

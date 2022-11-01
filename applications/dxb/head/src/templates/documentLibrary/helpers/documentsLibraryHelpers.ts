@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/components/src";
+import { Filter } from "@bmi-digital/components";
 import { ResultType, Source } from "../../../utils/filters";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
 import { Format } from "../components/DocumentResults";

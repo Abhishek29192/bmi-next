@@ -1,5 +1,10 @@
-import { Grid, MediaGallery, Section, Thumbnail } from "@bmi/components";
-import { ThumbnailProps } from "@bmi/components/src";
+import {
+  Grid,
+  MediaGallery,
+  Section,
+  Thumbnail,
+  ThumbnailProps
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";

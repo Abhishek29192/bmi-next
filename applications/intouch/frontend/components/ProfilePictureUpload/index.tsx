@@ -1,7 +1,6 @@
-import React, { useCallback, useState } from "react";
+import { Button, Typography } from "@bmi-digital/components";
 import Avatar, { AvatarProps } from "@material-ui/core/Avatar";
-import { Button } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import React, { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
 
 type ProfilePictureUploadProps = {

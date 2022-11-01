@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { generateAccount } from "../../../lib/tests/factories/account";
 import { fireEvent, renderAsDeep, screen } from "../../../lib/tests/utils";

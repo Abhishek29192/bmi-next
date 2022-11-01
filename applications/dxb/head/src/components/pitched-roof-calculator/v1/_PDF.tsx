@@ -1,5 +1,3 @@
-import React from "react";
-import { isElement } from "react-is";
 import {
   Canvas,
   Document,
@@ -11,9 +9,11 @@ import {
   Text,
   View
 } from "@bmi-digital/react-pdf-maker";
-import { ResultsObject, ResultsRow } from "../types";
-import EffraNormal from "../fonts/Effra_Rg.ttf";
+import React from "react";
+import { isElement } from "react-is";
 import EffraBold from "../fonts/Effra_Bd.ttf";
+import EffraNormal from "../fonts/Effra_Rg.ttf";
+import { ResultsObject, ResultsRow } from "../types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */

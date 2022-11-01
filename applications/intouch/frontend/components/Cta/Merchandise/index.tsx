@@ -1,10 +1,10 @@
-import { useTranslation } from "next-i18next";
-import { Button } from "@bmi/components";
 import React from "react";
+import { Button } from "@bmi-digital/components";
 import { Account } from "@bmi/intouch-api-types";
-import { Link } from "../../Link";
+import { useTranslation } from "next-i18next";
 import can from "../../../lib/permissions/can";
 import { getGtmData } from "../../../lib/utils/gtm";
+import { Link } from "../../Link";
 
 export const MerchandiseCTA = ({
   ctaName,

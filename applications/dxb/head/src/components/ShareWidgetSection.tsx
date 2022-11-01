@@ -1,10 +1,13 @@
-import { Button, ButtonProps } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { ShareWidget } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  Section,
+  ShareWidget
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 
 export type Data = {

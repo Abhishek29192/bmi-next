@@ -1,13 +1,11 @@
-import React from "react";
-import { Icon } from "@bmi/components";
-import { BMI } from "@bmi/components";
-import { Button } from "@bmi/components";
+import { BMI, Button, Icon } from "@bmi-digital/components";
 import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
+import React from "react";
 import { GetProjectQuery } from "../../graphql/generated/operations";
-import WizardContextWrapper, { GuaranteeWizardData } from "./WizardContext";
 import styles from "./styles.module.scss";
 import { WizardBody } from "./WizardBody";
+import WizardContextWrapper, { GuaranteeWizardData } from "./WizardContext";
 import { WizardFooter } from "./WizardFooter";
 
 export type WizardProps = {

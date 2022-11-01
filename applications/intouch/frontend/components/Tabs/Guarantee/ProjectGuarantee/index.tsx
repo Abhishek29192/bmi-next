@@ -1,9 +1,6 @@
-import React from "react";
+import { AlertBanner, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
-import { ProductGuarantee } from "../ProductGuarantee";
-import { SolutionGuarantee } from "../SolutionGuarantee";
+import React from "react";
 import { NoContent } from "../../../../components/NoContent";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import {
@@ -11,6 +8,8 @@ import {
   SolutionGuaranteeValidationError,
   SolutionGuaranteeValidationErrorMessage
 } from "../../../../lib/utils/guarantee";
+import { ProductGuarantee } from "../ProductGuarantee";
+import { SolutionGuarantee } from "../SolutionGuarantee";
 import { SystemGuarantee } from "../SystemGuarantee";
 import styles from "./styles.module.scss";
 

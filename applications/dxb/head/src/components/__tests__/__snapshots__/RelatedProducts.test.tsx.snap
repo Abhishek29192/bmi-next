@@ -186,7 +186,13 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                               class="AnchorLink-icon-57"
                               data-testid="internal"
                               focusable="false"
-                            />
+                              viewBox="0 0 16 16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                              />
+                            </svg>
                           </span>
                         </div>
                       </div>
@@ -392,7 +398,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                               class="AnchorLink-icon-115"
                               data-testid="internal"
                               focusable="false"
-                            />
+                              viewBox="0 0 16 16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                              />
+                            </svg>
                           </span>
                         </div>
                       </div>
@@ -450,7 +462,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                               class="AnchorLink-icon-115"
                               data-testid="internal"
                               focusable="false"
-                            />
+                              viewBox="0 0 16 16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                              />
+                            </svg>
                           </span>
                         </div>
                       </div>
@@ -508,7 +526,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                               class="AnchorLink-icon-115"
                               data-testid="internal"
                               focusable="false"
-                            />
+                              viewBox="0 0 16 16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                              />
+                            </svg>
                           </span>
                         </div>
                       </div>

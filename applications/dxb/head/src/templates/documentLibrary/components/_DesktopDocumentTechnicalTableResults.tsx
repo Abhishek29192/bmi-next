@@ -7,7 +7,7 @@ import {
   IconButtonProps,
   iconMap,
   Table
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";

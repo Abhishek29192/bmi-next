@@ -1,4 +1,8 @@
-import { BMI as brandLogo, ContainerDialog, Icon } from "@bmi/components";
+import {
+  BMI as brandLogo,
+  ContainerDialog,
+  Icon
+} from "@bmi-digital/components";
 import { LinearProgress } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { graphql } from "gatsby";

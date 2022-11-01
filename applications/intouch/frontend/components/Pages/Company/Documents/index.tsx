@@ -1,26 +1,32 @@
-import React, { useState, useEffect } from "react";
 import { gql } from "@apollo/client";
-import { Typography } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Icon, FilePDF, FilePNG, FileJPG, FileJPEG } from "@bmi/components";
+import {
+  Button,
+  FileJPEG,
+  FileJPG,
+  FilePDF,
+  FilePNG,
+  Icon,
+  Table,
+  Typography
+} from "@bmi-digital/components";
+import { CompanyDocumentType } from "@bmi/intouch-api-types";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useTranslation } from "next-i18next";
-import { CompanyDocumentType } from "@bmi/intouch-api-types";
-import log from "../../../../lib/logger";
-import { NoContent } from "../../../NoContent";
-import { SimpleCard } from "../../../Cards/SimpleCard";
-import AccessControl from "../../../../lib/permissions/AccessControl";
-import { CompanyDocumentsFragmentFragment } from "../../../../graphql/generated/operations";
+import React, { useEffect, useState } from "react";
 import {
   useCreateCompanyDocumentsMutation,
   useDeleteCompanyDocumentMutation
 } from "../../../../graphql/generated/hooks";
+import { CompanyDocumentsFragmentFragment } from "../../../../graphql/generated/operations";
+import log from "../../../../lib/logger";
 import { formatFileSize } from "../../../../lib/media/utils";
+import AccessControl from "../../../../lib/permissions/AccessControl";
 import { formatDate } from "../../../../lib/utils/date";
-import { UploadDialog } from "./UploadDialog";
+import { SimpleCard } from "../../../Cards/SimpleCard";
+import { NoContent } from "../../../NoContent";
 import ConfirmDialog from "./ConfirmDialog";
 import styles from "./styles.module.scss";
+import { UploadDialog } from "./UploadDialog";
 
 export type CompanyDocumentsProps = {
   companyId: number;

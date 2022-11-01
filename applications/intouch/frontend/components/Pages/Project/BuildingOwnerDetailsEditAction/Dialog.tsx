@@ -1,18 +1,20 @@
-import React, { useCallback } from "react";
-import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi/components";
-import { ProjectBuildingOwnerAddressIdFkeyInput } from "@bmi/intouch-api-types";
+import { Dialog } from "@bmi-digital/components";
+import {
+  Project,
+  ProjectBuildingOwnerAddressIdFkeyInput
+} from "@bmi/intouch-api-types";
 import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
-import { Project } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import React, { useCallback } from "react";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import log from "../../../../lib/logger";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
 import { findProjectGuarantee } from "../../../../lib/utils/project";
-import log from "../../../../lib/logger";
 import BuildingOwnerForm from "../BuildingOwnerForm";
-import { isFieldDisabled } from "../Form";
 // TODO: move/split styles?
 import styles from "../CreateProject/styles.module.scss";
+import { isFieldDisabled } from "../Form";
 
 type BuildingOwnerDetailsEditDialogProps = {
   project: GetProjectQuery["project"];

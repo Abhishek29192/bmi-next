@@ -41,7 +41,7 @@ import Logo, {
   Wierer,
   Wolfin,
   Zanda
-} from "../";
+} from "..";
 import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Logo component", () => {

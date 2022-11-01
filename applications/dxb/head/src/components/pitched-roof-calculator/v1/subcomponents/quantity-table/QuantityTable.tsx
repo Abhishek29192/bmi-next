@@ -1,4 +1,4 @@
-import { Icon, Table, Typography } from "@bmi/components";
+import { Icon, Table, Typography } from "@bmi-digital/components";
 import { Delete } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";

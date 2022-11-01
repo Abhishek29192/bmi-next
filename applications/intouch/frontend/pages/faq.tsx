@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from "react";
+import { gql } from "@apollo/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { Accordion, Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Accordion, Typography, Grid } from "@bmi/components";
-import { gql } from "@apollo/client";
-import { withPage } from "../lib/middleware/withPage";
+import React, { useCallback, useState } from "react";
 import { Layout } from "../components/Layout";
-import styles from "../styles/Faq.module.scss";
-import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
-import { findAccountTier } from "../lib/account";
-import { getServerPageGetFaqTopics } from "../graphql/generated/page";
 import { RichText } from "../components/RichText";
 import { useGetFaqItemLazyQuery } from "../graphql/generated/hooks";
+import { getServerPageGetFaqTopics } from "../graphql/generated/page";
+import { findAccountTier } from "../lib/account";
+import { withPage } from "../lib/middleware/withPage";
+import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
+import styles from "../styles/Faq.module.scss";
 
 const FaqPage = ({ faqTopicCollection, globalPageData }) => {
   const { t } = useTranslation("common");
@@ -46,11 +46,12 @@ const FaqPage = ({ faqTopicCollection, globalPageData }) => {
 
   return (
     <Layout title={t("FAQ")} pageData={globalPageData}>
-      <Grid spacing={0} container>
+      <Grid nonce={undefined} spacing={0} container>
         {[...faqTopicCollection.items]
           .sort((a, b) => a.weight - b.weight)
           .map(({ listCollection, title }, id) => (
             <Grid
+              nonce={undefined}
               key={`accordion-topic-${id}`}
               className={styles.faqContent}
               xs={12}

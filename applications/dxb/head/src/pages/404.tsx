@@ -1,4 +1,4 @@
-import { Button, PromoSection, Typography } from "@bmi/components";
+import { Button, PromoSection, Typography } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import FallbackComponent from "../components/FallbackComponent";

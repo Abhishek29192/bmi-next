@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
-import { Icon } from "@bmi/components";
+import { Icon } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { useTranslation } from "next-i18next";
-import { Link } from "../Link";
+import React, { useMemo } from "react";
 import { useAccountContext } from "../../context/AccountContext";
 import { getSidebarLinks } from "../../lib/navigation/sidebar";
+import { Link } from "../Link";
 import styles from "./styles.module.scss";
 
 export type SideBarLinkProps = {

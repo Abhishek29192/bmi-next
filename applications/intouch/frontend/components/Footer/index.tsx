@@ -1,6 +1,5 @@
+import { BMI, Icon, Logo, StandardPale } from "@bmi-digital/components";
 import React from "react";
-import { Icon } from "@bmi/components";
-import { Logo, BMI, StandardPale } from "@bmi/components";
 import styles from "./styles.module.scss";
 
 export type Props = {

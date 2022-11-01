@@ -5,7 +5,7 @@ import {
   QUERY_KEY,
   Section,
   Tabs
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";

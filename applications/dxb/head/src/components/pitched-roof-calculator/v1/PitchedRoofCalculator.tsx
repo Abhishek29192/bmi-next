@@ -1,9 +1,9 @@
-import React, { Suspense, useCallback, useEffect, useState } from "react";
-import { ContainerDialog } from "@bmi/components";
+import { ContainerDialog } from "@bmi-digital/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
-import { EmailFormValues } from "../types/EmailFormValues";
 import { Data } from "../types";
+import { EmailFormValues } from "../types/EmailFormValues";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(

@@ -1,4 +1,4 @@
-import { Button, Hero, HeroItem, Section } from "@bmi/components";
+import { Button, Hero, HeroItem, Section } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";

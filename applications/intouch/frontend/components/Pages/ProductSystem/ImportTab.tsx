@@ -1,13 +1,10 @@
 import { gql } from "@apollo/client";
-import React, { useState, useCallback } from "react";
+import { AlertBanner, Button, Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { AlertBanner } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
+import React, { useCallback, useState } from "react";
 import { useBulkImportMutation } from "../../../graphql/generated/hooks";
-import styles from "./styles.module.scss";
 import ErrorsAlert from "./ErrorsAlert";
+import styles from "./styles.module.scss";
 
 const renderList = (label, list) =>
   list?.length > 0 && (
@@ -80,8 +77,14 @@ const ImportTab = () => {
   };
 
   return (
-    <Grid spacing={0} container>
-      <Grid className={styles.importContent} xs={12} spacing={3} container>
+    <Grid nonce={undefined} spacing={0} container>
+      <Grid
+        nonce={undefined}
+        className={styles.importContent}
+        xs={12}
+        spacing={3}
+        container
+      >
         <div>
           <Typography variant="h3" hasUnderline>
             Please upload the files
@@ -103,10 +106,16 @@ const ImportTab = () => {
         </div>
       </Grid>
       {importResult && (
-        <Grid className={styles.importContent} xs={12} spacing={3} container>
+        <Grid
+          nonce={undefined}
+          className={styles.importContent}
+          xs={12}
+          spacing={3}
+          container
+        >
           {!hasError() && (
             <>
-              <Grid item xs={6}>
+              <Grid nonce={undefined} item xs={6}>
                 {renderList(
                   t("productToInsert"),
                   importResult?.productsToInsert
@@ -117,13 +126,13 @@ const ImportTab = () => {
                 )}
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid nonce={undefined} item xs={6}>
                 {renderList(t("systemToInsert"), importResult?.systemsToInsert)}
                 {renderList(t("systemToUpdate"), importResult?.systemsToUpdate)}
               </Grid>
 
               {importResult?.message?.severity !== "error" && (
-                <Grid item xs={12}>
+                <Grid nonce={undefined} item xs={12}>
                   <Button
                     style={{ marginTop: 15 }}
                     onClick={() => submit(false)}
@@ -135,7 +144,7 @@ const ImportTab = () => {
             </>
           )}
 
-          <Grid item xs={12}>
+          <Grid nonce={undefined} item xs={12}>
             {importResult?.message && (
               <AlertBanner severity={importResult.message.severity}>
                 <AlertBanner.Title>
@@ -148,7 +157,13 @@ const ImportTab = () => {
       )}
 
       {hasError() ? (
-        <Grid className={styles.importContent} xs={12} spacing={3} container>
+        <Grid
+          nonce={undefined}
+          className={styles.importContent}
+          xs={12}
+          spacing={3}
+          container
+        >
           <ErrorsAlert
             {...{
               errorSystemsToUpdate: importResult?.errorSystemsToUpdate,

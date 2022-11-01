@@ -1,5 +1,4 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
-import logger from "@bmi-digital/functions-logger";
 import {
   AnchorLink,
   Button,
@@ -16,7 +15,8 @@ import {
   TextField,
   Typography,
   Upload
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import logger from "@bmi-digital/functions-logger";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import classNames from "classnames";

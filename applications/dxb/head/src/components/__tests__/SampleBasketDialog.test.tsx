@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
@@ -82,18 +82,22 @@ describe("SampleBasketDialog component", () => {
   it("renders correctly when sample basket is empty", () => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([]));
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketDialog title="Basket title" />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketDialog title="Basket title" />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
     expect(container.querySelector(".cart-drawer")).not.toBeInTheDocument();
   });
 
   it("should remove sample", () => {
     render(
-      <BasketContextProvider>
-        <SampleBasketDialog title="Basket title" />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketDialog title="Basket title" />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -112,14 +116,16 @@ describe("SampleBasketDialog component", () => {
     );
 
     const { getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BasketContextProvider>
-          <SampleBasketDialog
-            title="Basket title"
-            basketAction={basketAction}
-          />
-        </BasketContextProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BasketContextProvider>
+            <SampleBasketDialog
+              title="Basket title"
+              basketAction={basketAction}
+            />
+          </BasketContextProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
     expect(
       getByRole("link", { name: "MC: pdp.overview.completeSampleOrder" })
@@ -129,9 +135,11 @@ describe("SampleBasketDialog component", () => {
     const toggleCart = jest.fn();
 
     render(
-      <BasketContextProvider>
-        <SampleBasketDialog title="Basket title" toggleCart={toggleCart} />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketDialog title="Basket title" toggleCart={toggleCart} />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.queryByText("MC: pdp.overview.continueBrowsing"));

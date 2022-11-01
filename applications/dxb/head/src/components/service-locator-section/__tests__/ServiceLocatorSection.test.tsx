@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
@@ -14,8 +14,8 @@ import { googleMock } from "../__mocks__/google";
 
 let callMarkerOnClick;
 
-jest.mock("@bmi/components", () => {
-  const originalModule = jest.requireActual("@bmi/components");
+jest.mock("@bmi-digital/components", () => {
+  const originalModule = jest.requireActual("@bmi-digital/components");
 
   const GoogleMap = jest
     .fn()

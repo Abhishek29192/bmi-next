@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@material-ui/core";
 import { render, screen } from "@testing-library/react";
 import React from "react";

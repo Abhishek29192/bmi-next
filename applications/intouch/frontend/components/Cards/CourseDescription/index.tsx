@@ -1,12 +1,10 @@
-import React from "react";
+import { Button, Icon, Typography } from "@bmi-digital/components";
 import { Technology } from "@bmi/intouch-api-types";
-import { Typography } from "@bmi/components";
-import { Icon } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
-import { SimpleCard } from "../SimpleCard";
+import React from "react";
 import { technologyIcon, technologyNames } from "../../../lib/utils/course";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type CourseDescriptionProps = {

@@ -1,25 +1,24 @@
-import React, { useCallback, useMemo, useState } from "react";
+import { Breadcrumbs, Tabs } from "@bmi-digital/components";
 import { useRouter } from "next/router";
-import { Breadcrumbs } from "@bmi/components";
-import { Tabs } from "@bmi/components";
+import React, { useCallback, useMemo, useState } from "react";
+import { useMarketContext } from "../../../context/MarketContext";
 import {
-  MediaTool,
+  GalleryItem,
   MediaFolder,
   MediaFolders,
-  RootFolders,
-  MediaItem,
   MediaGalleryState,
-  GalleryItem
+  MediaItem,
+  MediaTool,
+  RootFolders
 } from "../../../lib/media/types";
 import {
-  getMediaContentType,
   getMediaAltText,
+  getMediaContentType,
   isExternalLink,
   isVimeo
 } from "../../../lib/media/utils";
-import { MediaGrid } from "../../MediaGrid";
 import { MediaGallery } from "../../MediaGallery";
-import { useMarketContext } from "../../../context/MarketContext";
+import { MediaGrid } from "../../MediaGrid";
 
 type Props = {
   rootFolders: RootFolders;

@@ -1,12 +1,11 @@
+import { Icon, Typography } from "@bmi-digital/components";
+import { Technology } from "@bmi/intouch-api-types";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Typography } from "@bmi/components";
-import { Technology } from "@bmi/intouch-api-types";
-import { Icon } from "@bmi/components";
-import { FilterResult } from "../../FilterResult";
 import { SidePanel } from "../";
 import { TrainingQuery } from "../../../graphql/generated/operations";
 import { getTechnology, technologyIcon } from "../../../lib/utils/course";
+import { FilterResult } from "../../FilterResult";
 import styles from "./styles.module.scss";
 
 const DEFAULT_FILTER_CRITERIA = "all";

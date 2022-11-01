@@ -1,15 +1,18 @@
-import React, { FormEvent, useState } from "react";
-import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
-import { Form, InputValue } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import log from "../../../../lib/logger";
+import {
+  Dialog,
+  Form,
+  InputValue,
+  TextField,
+  Typography
+} from "@bmi-digital/components";
+import { useTranslation } from "next-i18next";
+import React, { FormEvent, useState } from "react";
 import {
   GetProjectDocument,
   useAddProjectNoteMutation
 } from "../../../../graphql/generated/hooks";
+import log from "../../../../lib/logger";
 import styles from "./styles.module.scss";
 
 type AddNoteDialogProps = {

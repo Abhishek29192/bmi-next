@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from "react";
+import { Button } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Button } from "@bmi/components";
-import MaybeTooltip from "../../../MaybeTooltip";
+import React, { useMemo, useState } from "react";
+import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { isProjectEditable } from "../../../../lib/utils/project";
-import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import MaybeTooltip from "../../../MaybeTooltip";
 import ProjectCopyAction from "../ProjectCopyAction/Button";
 import { ProjectEditActionDialog } from "./Dialog";
 

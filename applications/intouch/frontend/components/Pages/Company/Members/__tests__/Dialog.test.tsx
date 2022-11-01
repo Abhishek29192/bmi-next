@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";

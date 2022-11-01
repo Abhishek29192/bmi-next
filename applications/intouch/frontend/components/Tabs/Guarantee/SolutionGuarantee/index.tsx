@@ -1,8 +1,12 @@
+import {
+  Arrow,
+  Button,
+  FilePDF,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Icon, FilePDF, Arrow } from "@bmi/components";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { ProductCard } from "../ProductCard";

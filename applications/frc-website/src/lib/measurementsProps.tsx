@@ -1,4 +1,4 @@
-import { Typography } from "@bmi/components";
+import { Typography } from "@bmi-digital/components";
 import React from "react";
 import details1 from "../images/details1.jpeg";
 import details2 from "../images/details2.jpeg";

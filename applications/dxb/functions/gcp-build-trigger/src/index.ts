@@ -173,11 +173,11 @@ export const build: HttpFunction = async (_req, res) => {
       });
     }
 
-    if (functionsFinished) {
+    if (!functionsFinished) {
       logger.info({ message: "Waiting for the functions to finish." });
     }
 
-    if (messagesConsumedFromPubSub) {
+    if (!messagesConsumedFromPubSub) {
       logger.info({
         message: "Messages are still on the Pub/Sub waiting to be handled."
       });

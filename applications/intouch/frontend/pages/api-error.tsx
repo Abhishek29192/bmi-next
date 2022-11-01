@@ -1,20 +1,19 @@
-import React from "react";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { useTranslation } from "next-i18next";
 import { Session } from "@auth0/nextjs-auth0";
+import { Grid, Typography } from "@bmi-digital/components";
 import { Account } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import GridStyles from "../styles/Grid.module.scss";
+import React from "react";
 import { Layout } from "../components/Layout/Unauthenticated";
 import { getAuth0Instance } from "../lib/auth0";
-import { withPage } from "../lib/middleware/withPage";
-import { withPublicPage } from "../lib/middleware/withPublicPage";
 import {
-  generatePageError,
   ErrorStatusCode,
+  generatePageError,
   withPageError
 } from "../lib/error";
+import { withPage } from "../lib/middleware/withPage";
+import { withPublicPage } from "../lib/middleware/withPublicPage";
+import GridStyles from "../styles/Grid.module.scss";
 
 type Props = {
   message: string;
@@ -42,13 +41,14 @@ const ErrorPageApi = ({ message }: Props) => {
   return (
     <Layout title="Error" isError={true}>
       <Grid
+        nonce={undefined}
         container
         spacing={3}
         className={GridStyles.outerGrid}
         alignItems="center"
         justify="center"
       >
-        <Grid item>
+        <Grid nonce={undefined} item>
           <Typography component="h1" variant="h1">
             {t(message)}
           </Typography>

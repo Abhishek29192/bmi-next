@@ -1,12 +1,16 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { Card, CardContent, CardHeader } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { Delete } from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Icon,
+  Table,
+  Typography
+} from "@bmi-digital/components";
 import { Product } from "@bmi/intouch-api-types";
+import IconButton from "@material-ui/core/IconButton";
+import { Delete } from "@material-ui/icons";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export type WizardSystemDetailCardProp = {

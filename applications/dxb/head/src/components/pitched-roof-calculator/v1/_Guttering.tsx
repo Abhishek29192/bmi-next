@@ -1,9 +1,7 @@
+import { CardRadioGroup, FormContext, Grid } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { FormContext } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { AnalyticsContext } from "../helpers/analytics";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import {
   Guttering as GutteringType,
   GutteringVariant,

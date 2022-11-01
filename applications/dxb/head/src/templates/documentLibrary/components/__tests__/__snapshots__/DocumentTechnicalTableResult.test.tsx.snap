@@ -70,7 +70,13 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                     >
                       <svg
                         class="DocumentTechnicalTableResults-formatIcon-6 format-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer-9"
@@ -81,7 +87,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                       class="DocumentTechnicalTableResults-infoIconContainer-8"
                     >
                       <div
-                        class="ToggleCard-root-43"
+                        class="Tooltip-root-43"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root IconButton-root-55 iconButton IconButton-42-54 IconButton-text-57"
@@ -118,7 +124,15 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <svg />
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                       </a>
                     </div>
                   </div>
@@ -203,7 +217,13 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                     >
                       <svg
                         class="DocumentTechnicalTableResults-formatIcon-69 format-icon"
-                      />
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                        />
+                      </svg>
                     </div>
                     <div
                       class="DocumentTechnicalTableResults-iconContainer-72"
@@ -214,7 +234,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                       class="DocumentTechnicalTableResults-infoIconContainer-71"
                     >
                       <div
-                        class="ToggleCard-root-106"
+                        class="Tooltip-root-106"
                       >
                         <button
                           class="MuiButtonBase-root MuiIconButton-root IconButton-root-118 iconButton IconButton-42-117 IconButton-text-120"
@@ -251,7 +271,15 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <svg />
+                        <svg
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                            fill="currentColor"
+                          />
+                        </svg>
                       </a>
                     </div>
                   </div>

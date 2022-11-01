@@ -1,53 +1,52 @@
 import { gql } from "@apollo/client";
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { useTranslation } from "next-i18next";
 import {
+  AnchorLink,
+  Button,
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof,
+  FlatRoof,
   Grid,
   Icon,
-  FlatRoof,
   PitchedRoof,
-  AnchorLink
-} from "@bmi/components";
-import { SvgIcon } from "@material-ui/core";
+  Typography
+} from "@bmi-digital/components";
 import {
-  Technology,
-  Role,
   Account,
-  AccountStatus
+  AccountStatus,
+  Role,
+  Technology
 } from "@bmi/intouch-api-types";
+import { SvgIcon, useMediaQuery, useTheme } from "@material-ui/core";
 import classnames from "classnames";
-import { useMediaQuery, useTheme } from "@material-ui/core";
-import { SidePanel } from "../../../SidePanel";
-import { FilterResult } from "../../../FilterResult";
-import { sortByFirstName } from "../../../../lib/utils/account";
-import { TeamMembersQuery } from "../../../../graphql/generated/operations";
-import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
-import { TableContainer } from "../../../TableContainer";
-import { DefaultTable } from "../../../Tables";
-import { UserCard } from "../../../UserCard";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useAccountContext } from "../../../../context/AccountContext";
 import {
   useDeleteCompanyMemberMutation,
-  useTeamMembersLazyQuery
+  useTeamMembersLazyQuery,
+  useUpdateRoleAccountMutation
 } from "../../../../graphql/generated/hooks";
-import AccessControl from "../../../../lib/permissions/AccessControl";
-import { formatDate } from "../../../../lib/utils";
-import { useAccountContext } from "../../../../context/AccountContext";
+import { TeamMembersQuery } from "../../../../graphql/generated/operations";
 import {
   findAccountCompany,
   isSuperOrMarketAdmin
 } from "../../../../lib/account";
+import AccessControl from "../../../../lib/permissions/AccessControl";
+import { formatDate } from "../../../../lib/utils";
+import { sortByFirstName } from "../../../../lib/utils/account";
+import { FilterResult } from "../../../FilterResult";
 import layoutStyles from "../../../Layout/styles.module.scss";
 import { TeamReport } from "../../../Reports";
+import { SidePanel } from "../../../SidePanel";
+import { TableContainer } from "../../../TableContainer";
+import { DefaultTable } from "../../../Tables";
+import { UserCard } from "../../../UserCard";
+import CompanyMemberActionCard from "./Action";
+import Alert from "./Alert";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
-import Alert from "./Alert";
-import CompanyMemberActionCard from "./Action";
 
 export const REMOVE_MEMBER = gql`
   mutation deleteCompanyMember($id: Int!) {
@@ -351,8 +350,8 @@ const CompanyMembers = ({ data }: PageProps) => {
           ))}
         </SidePanel>
         <div className={styles.detail}>
-          <Grid container className={styles.userDetail}>
-            <Grid className={styles.item} item xs={12} lg={8}>
+          <Grid nonce={undefined} container className={styles.userDetail}>
+            <Grid nonce={undefined} className={styles.item} item xs={12} lg={8}>
               <TableContainer
                 title={t("team-page:table.title")}
                 testid="certification-table"
@@ -426,8 +425,8 @@ const CompanyMembers = ({ data }: PageProps) => {
                 </TableContainer>
               )}
             </Grid>
-            <Grid className={styles.item} item xs={12} lg={4}>
-              <Grid item xs={12}>
+            <Grid nonce={undefined} className={styles.item} item xs={12} lg={4}>
+              <Grid nonce={undefined} item xs={12}>
                 <div className={styles.userCard}>
                   <UserCard
                     testid="user-card"
@@ -463,6 +462,7 @@ const CompanyMembers = ({ data }: PageProps) => {
               {!isMobile && (
                 <AccessControl dataModel="company" action="changeStatus">
                   <Grid
+                    nonce={undefined}
                     item
                     xs={12}
                     style={{ marginTop: 30 }}

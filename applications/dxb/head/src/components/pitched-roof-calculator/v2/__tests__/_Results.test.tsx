@@ -1,5 +1,5 @@
+import { TextField, ThemeProvider } from "@bmi-digital/components";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import { TextField, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";

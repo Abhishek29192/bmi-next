@@ -1,15 +1,12 @@
+import { Button, Grid, Tabs, Typography } from "@bmi-digital/components";
 import React from "react";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Tabs } from "@bmi/components";
 import GridStyles from "../../styles/Grid.module.scss";
-import { Projects } from "../SidePanel/index.stories";
-import { NoProjectsCard } from "../Cards/NoProjects";
 import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
+import { NoProjectsCard } from "../Cards/NoProjects";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { ProjectsInsight } from "../Cards/ProjectsInsight";
 import { TabCard } from "../Cards/TabCard";
+import { Projects } from "../SidePanel/index.stories";
 import { GuaranteeTab } from "../Tabs/Guarantee";
 import { UploadsTab } from "../Tabs/Uploads";
 import { Layout, LayoutProps } from ".";
@@ -25,13 +22,14 @@ export default {
 export const NoProjects = ({ title }: LayoutProps) => (
   <Layout title={title}>
     <Grid
+      nonce={undefined}
       container
       spacing={3}
       className={GridStyles.outerGrid}
       alignItems="stretch"
       style={{ height: "calc(100% + 24px)" }}
     >
-      <Grid item xs={12}>
+      <Grid nonce={undefined} item xs={12}>
         <NoProjectsCard title="No projects to display">
           <Typography variant="subtitle2">
             You have not added any new projects yet!
@@ -57,12 +55,13 @@ export const Team = ({ title }: LayoutProps) => (
     <div style={{ display: "flex" }}>
       <Projects />
       <Grid
+        nonce={undefined}
         container
         spacing={3}
         className={GridStyles.outerGrid}
         alignItems="stretch"
       >
-        <Grid item xs={12} md={8}>
+        <Grid nonce={undefined} item xs={12} md={8}>
           <ProjectsHeader
             title="Old Brompton Library"
             technology="FLAT"
@@ -96,10 +95,10 @@ export const Team = ({ title }: LayoutProps) => (
           />
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid nonce={undefined} item xs={12} md={4}>
           <ProjectsInsight daysRemaining={180} certifiedInstallers={0} />
         </Grid>
-        <Grid item xs={12}>
+        <Grid nonce={undefined} item xs={12}>
           <Tabs initialValue="one">
             <Tabs.TabPanel heading="Team" index="one">
               <TabCard></TabCard>

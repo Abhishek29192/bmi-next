@@ -1,16 +1,19 @@
+import {
+  Button,
+  CardInput,
+  FormContext,
+  Grid,
+  InputValue,
+  RawTextField
+} from "@bmi-digital/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { RawTextField } from "@bmi/components";
-import { FormContext, InputValue } from "@bmi/components";
-import { CardInput } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { getFieldTypes, Type } from "../helpers/fieldTypes";
 import { AnalyticsContext } from "../helpers/analytics";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import styles from "./_Protrusions.module.scss";
-import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import { getFieldTypes, Type } from "../helpers/fieldTypes";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import protrusionTypes from "./calculation/protrusions";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import styles from "./_Protrusions.module.scss";
 
 type SelectProtrusionProps = {
   id: string;

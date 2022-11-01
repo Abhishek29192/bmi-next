@@ -1,7 +1,5 @@
+import { Hero, HeroItem, SpotlightHero } from "@bmi-digital/components";
 import React from "react";
-import { Hero } from "@bmi/components";
-import { SpotlightHero } from "@bmi/components";
-import { HeroItem } from "@bmi/components";
 
 type heroLevelType = 1 | 2 | 3;
 export const renderHero = (

@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  EqualHeights,
+  Grid,
+  ProfileCard
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { Grid } from "@bmi/components";
-import { ProfileCard } from "@bmi/components";
-import { EqualHeights } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { useSiteContext } from "./Site";
-import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import Image, { Data as ImageData } from "./Image";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   name: string;

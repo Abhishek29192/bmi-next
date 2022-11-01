@@ -1,4 +1,4 @@
-import { Accordion, Table, Typography } from "@bmi/components";
+import { Accordion, Table, Typography } from "@bmi-digital/components";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { Product } from "../types/pim";

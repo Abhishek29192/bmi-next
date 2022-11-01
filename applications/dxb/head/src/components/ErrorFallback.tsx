@@ -1,11 +1,9 @@
+import { Button, PromoSection, Typography } from "@bmi-digital/components";
 import React from "react";
-import { Button } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { PromoSection } from "@bmi/components";
-import { Data as PromoData } from "./Promo";
-import { getClickableActionFromUrl } from "./Link";
-import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
+import { getClickableActionFromUrl } from "./Link";
+import { Data as PromoData } from "./Promo";
+import { renderVideo } from "./Video";
 
 const ErrorFallback = ({
   countryCode,

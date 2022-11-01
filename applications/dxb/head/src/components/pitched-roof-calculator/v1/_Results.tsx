@@ -1,4 +1,3 @@
-import React, { useContext, useMemo, useState } from "react";
 import {
   Checkbox,
   Form,
@@ -6,9 +5,10 @@ import {
   Grid,
   TextField,
   Typography
-} from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
+} from "@bmi-digital/components";
+import React, { useContext, useMemo, useState } from "react";
 import { AnalyticsContext } from "../helpers/analytics";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import {
   Guttering,
   LengthBasedProduct,
@@ -18,17 +18,17 @@ import {
   Underlay,
   VergeOption
 } from "../types";
-import { Line, LinesMap, Measurements } from "../types/roof";
 import { EmailFormValues } from "../types/EmailFormValues";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
+import { Line, LinesMap, Measurements } from "../types/roof";
 import { battenCalc } from "./calculation/calculate";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
+import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import { GutteringSelections } from "./_Guttering";
 import styles from "./_Results.module.scss";
 import { TileOptionsSeletions } from "./_TileOptions";
-import { GutteringSelections } from "./_Guttering";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;

@@ -1,4 +1,9 @@
-import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import {
+  Grid,
+  RadioPane,
+  RadioPaneProps,
+  Section
+} from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
 import { graphql } from "gatsby";

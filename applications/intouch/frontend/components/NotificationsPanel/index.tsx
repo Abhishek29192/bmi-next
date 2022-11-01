@@ -1,10 +1,10 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
+import { Typography } from "@bmi-digital/components";
 import { Notification as NotificationType } from "@bmi/intouch-api-types";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isToday from "dayjs/plugin/isToday";
-import { Typography } from "@bmi/components";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { Notification } from "../Notification";
 import styles from "./styles.module.scss";
 

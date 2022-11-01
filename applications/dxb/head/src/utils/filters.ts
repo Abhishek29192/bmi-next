@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/components";
+import { Filter } from "@bmi-digital/components";
 import QueryString from "query-string";
 import { useEffect, useState } from "react";
 import { ProductFilter } from "../types/pim";

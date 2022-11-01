@@ -1,12 +1,12 @@
-import React from "react";
-import { ThemeProvider } from "@bmi/components";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { ThemeProvider } from "@bmi-digital/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { getServerPageGetCompany } from "../graphql/generated/page";
+import React from "react";
+import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
 import { GetCompanyQuery } from "../graphql/generated/operations";
+import { getServerPageGetCompany } from "../graphql/generated/page";
 import { findAccountCompany } from "../lib/account";
 import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { EditCompanyDialog } from "../components/Pages/Company/EditCompany/Dialog";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 type Props = GlobalPageProps & {

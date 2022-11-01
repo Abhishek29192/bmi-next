@@ -55,7 +55,13 @@ exports[`NextBestActions component renders correctly 1`] = `
                       class="AnchorLink-icon-56"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       test
                     </span>
@@ -105,7 +111,13 @@ exports[`NextBestActions component renders correctly 1`] = `
                       class="AnchorLink-icon-56"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>
@@ -182,7 +194,13 @@ exports[`NextBestActions component renders name with no title 1`] = `
                       class="AnchorLink-icon-215"
                       data-testid="internal"
                       focusable="false"
-                    />
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
                     <span>
                       string
                     </span>

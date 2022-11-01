@@ -1,4 +1,4 @@
-import { TableOfContent } from "@bmi/components";
+import { TableOfContent } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import { useConfig } from "../contexts/ConfigProvider";

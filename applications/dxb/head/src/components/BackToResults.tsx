@@ -1,4 +1,4 @@
-import { Button, ButtonProps, QUERY_KEY } from "@bmi/components";
+import { Button, ButtonProps, QUERY_KEY } from "@bmi-digital/components";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import React, { FC, ReactChild } from "react";

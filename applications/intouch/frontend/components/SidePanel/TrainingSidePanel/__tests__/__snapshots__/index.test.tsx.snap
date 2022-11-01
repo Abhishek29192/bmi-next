@@ -383,7 +383,18 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -490,7 +501,14 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1058,7 +1076,18 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1165,7 +1194,14 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1373,7 +1409,18 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1480,7 +1527,14 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1688,7 +1742,18 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 0h48v48H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>
@@ -1795,7 +1860,14 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
                 >
                   <svg
                     class="technologyIcon"
-                  />
+                    viewBox="0 0 48 36.309"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.727 20.535V28.6L24 36.309 39.273 28.6v-8.065L24 28.24ZM24 0 0 12.1l24 12.1 19.636-9.9v13.94H48V12.1Z"
+                      fill="#3b3b3b"
+                    />
+                  </svg>
                   enrolled
                 </p>
               </div>

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";

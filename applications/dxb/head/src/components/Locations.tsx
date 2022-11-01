@@ -1,11 +1,10 @@
+import { Button, Grid } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
+import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import { useSiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";
-import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 
 export type Data = ContactDetailsData[];
 

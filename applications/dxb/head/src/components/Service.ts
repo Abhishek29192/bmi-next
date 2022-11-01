@@ -1,5 +1,5 @@
+import { RoofProLevel } from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { RoofProLevel } from "@bmi/components";
 import { Data as ServiceType } from "./ServiceType";
 
 export enum EntryTypeEnum {

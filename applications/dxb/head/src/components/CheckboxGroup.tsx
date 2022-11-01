@@ -1,4 +1,8 @@
-import { checkboxStyles, Typography, withFormControl } from "@bmi/components";
+import {
+  checkboxStyles,
+  Typography,
+  withFormControl
+} from "@bmi-digital/components";
 import {
   Checkbox as MuiCheckbox,
   CheckboxProps,

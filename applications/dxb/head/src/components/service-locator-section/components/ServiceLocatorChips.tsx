@@ -1,12 +1,10 @@
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Chip, ChipProps } from "@bmi/components";
+import { Chip, ChipProps, Grid, Typography } from "@bmi-digital/components";
 import React from "react";
-import styles from "../styles/ServiceLocatorSection.module.scss";
-import { useSiteContext } from "../../Site";
-import { ServiceTypesPrefixesEnum, ServiceTypeFilter } from "../../Service";
-import { Data as ServiceType } from "../../ServiceType";
 import withGTM from "../../../utils/google-tag-manager";
+import { ServiceTypeFilter, ServiceTypesPrefixesEnum } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
+import { useSiteContext } from "../../Site";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 
 interface ServiceLocatorChipsProps {
   microCopyPrefix: ServiceTypesPrefixesEnum;

@@ -1,21 +1,23 @@
-import React from "react";
-import Link from "next/link";
-import { Icon } from "@bmi/components";
-import { BMI } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
-import { Button } from "@bmi/components";
+import { gql } from "@apollo/client";
+import {
+  AlertBanner,
+  BMI,
+  Button,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
 import Dialog from "@material-ui/core/Dialog";
 import CloseIcon from "@material-ui/icons/Close";
 import { useTranslation } from "next-i18next";
-import { gql } from "@apollo/client";
-import { InfoPair } from "../../../InfoPair";
-import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import Link from "next/link";
+import React from "react";
 import {
   GetProjectDocument,
   useUpdateGuaranteeMutation
 } from "../../../../graphql/generated/hooks";
+import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { InlineAddress } from "../../../Address/inlineAddress";
+import { InfoPair } from "../../../InfoPair";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteeReviewProps = {

@@ -1,42 +1,44 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useTranslation } from "next-i18next";
-import { Button } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
-import { Accordion } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import Check from "@material-ui/icons/Check";
 import { gql } from "@apollo/client";
 import {
-  EvidenceCategoryType,
-  CustomEvidenceCategoryKey,
-  RequestStatus,
-  Guarantee
-} from "@bmi/intouch-api-types";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { Project } from "@bmi/intouch-api-types";
+  Accordion,
+  AnchorLink,
+  Button,
+  Table,
+  Typography
+} from "@bmi-digital/components";
 import {
-  useAddEvidencesMutation,
+  CustomEvidenceCategoryKey,
+  EvidenceCategoryType,
+  Guarantee,
+  Project,
+  RequestStatus
+} from "@bmi/intouch-api-types";
+import Check from "@material-ui/icons/Check";
+import DeleteIcon from "@material-ui/icons/Delete";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import { useTranslation } from "next-i18next";
+import React, { useCallback, useEffect, useState } from "react";
+import { useAccountContext } from "../../../context/AccountContext";
+import {
   GetProjectDocument,
+  useAddEvidencesMutation,
   useDeleteEvidenceItemMutation
 } from "../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
-import { NoContent } from "../../NoContent";
-import { MediaGalleryState, GalleryItem } from "../../../lib/media/types";
-import { MediaGallery } from "../../MediaGallery";
+import { GalleryItem, MediaGalleryState } from "../../../lib/media/types";
+import AccessControl from "../../../lib/permissions/AccessControl";
+import can from "../../../lib/permissions/can";
 import {
   findProjectGuarantee,
   getGuaranteeStatus
 } from "../../../lib/utils/project";
-import AccessControl from "../../../lib/permissions/AccessControl";
-import can from "../../../lib/permissions/can";
 import { DeepPartial } from "../../../lib/utils/types";
 import { getMappedEvidenceCategory } from "../../../lib/utils/uploads";
-import { useAccountContext } from "../../../context/AccountContext";
-import styles from "./styles.module.scss";
+import { MediaGallery } from "../../MediaGallery";
+import { NoContent } from "../../NoContent";
 import { AddEvidenceDialog } from "./AddEvidenceDialog";
 import RequirementDialog from "./RequirementDialog";
+import styles from "./styles.module.scss";
 
 type Evidence = {
   id: number;

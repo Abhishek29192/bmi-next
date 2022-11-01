@@ -1,11 +1,11 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
 import { selectedRooferMock } from "../__mocks__/markers";
 
-jest.mock("@bmi/components", () => {
-  const originalModule = jest.requireActual("@bmi/components");
+jest.mock("@bmi-digital/components", () => {
+  const originalModule = jest.requireActual("@bmi-digital/components");
   const GoogleMap = jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">

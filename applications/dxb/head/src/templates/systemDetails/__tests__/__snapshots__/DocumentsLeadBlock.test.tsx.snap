@@ -85,7 +85,13 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                         >
                           <svg
                             class="DocumentSimpleTableResults-externalLinkIcon-11"
-                          />
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                            />
+                          </svg>
                         </span>
                         <span
                           class="MuiTouchRipple-root"

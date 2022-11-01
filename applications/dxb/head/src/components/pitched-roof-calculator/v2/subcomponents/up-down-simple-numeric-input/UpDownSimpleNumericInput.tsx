@@ -1,4 +1,4 @@
-import { Button, Icon, withFormControl } from "@bmi/components";
+import { Button, Icon, withFormControl } from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import classnames from "classnames";

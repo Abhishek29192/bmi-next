@@ -5,7 +5,7 @@ import {
   Grid,
   InputValue,
   RawTextField
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useContext, useEffect, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";

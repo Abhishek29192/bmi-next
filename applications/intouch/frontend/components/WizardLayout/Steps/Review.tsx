@@ -1,12 +1,11 @@
-import React, { Fragment } from "react";
-import { Typography } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
+import { AlertBanner, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
+import React, { Fragment } from "react";
+import { InlineAddress } from "../../Address/inlineAddress";
 import { InfoPair } from "../../InfoPair";
 import { useWizardContext } from "../WizardContext";
 import { WizardProductDetailCard } from "../WizardProductDetailCard";
 import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
-import { InlineAddress } from "../../Address/inlineAddress";
 import styles from "./styles.module.scss";
 
 type SectionContainer = {

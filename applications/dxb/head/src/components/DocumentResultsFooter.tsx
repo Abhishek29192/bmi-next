@@ -4,7 +4,7 @@ import {
   DownloadList,
   DownloadListContext,
   Pagination
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import classnames from "classnames";

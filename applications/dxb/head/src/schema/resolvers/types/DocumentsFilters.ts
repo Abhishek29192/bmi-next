@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/components/src";
+import { Filter } from "@bmi-digital/components";
 
 export type DocumentsFilters = {
   filters: Filter[];

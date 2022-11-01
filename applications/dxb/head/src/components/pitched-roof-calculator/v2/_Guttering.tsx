@@ -1,4 +1,4 @@
-import { FormContext, Grid } from "@bmi/components";
+import { FormContext, Grid } from "@bmi-digital/components";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";

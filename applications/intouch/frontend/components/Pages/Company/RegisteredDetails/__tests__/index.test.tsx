@@ -1,6 +1,6 @@
-import React from "react";
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { screen } from "@testing-library/react";
+import React from "react";
 import { CompanyRegisteredDetails, formatCompanyOperations } from "..";
 import { mockCompany } from "../../../../../fixtures/company";
 import { OPERATION_TYPES } from "../../../../../lib/constants";

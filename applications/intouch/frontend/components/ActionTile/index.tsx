@@ -1,9 +1,7 @@
-import React from "react";
+import { BMI, Icon, Typography } from "@bmi-digital/components";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import { Typography } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { BMI } from "@bmi/components";
 import classnames from "classnames";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export type ActionTileProps = {

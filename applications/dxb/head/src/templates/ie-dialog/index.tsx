@@ -1,4 +1,4 @@
-import { Button, Dialog } from "@bmi/components";
+import { Button, Dialog } from "@bmi-digital/components";
 import { ErrorOutlineOutlined } from "@material-ui/icons";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { graphql } from "gatsby";

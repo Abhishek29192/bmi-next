@@ -1,25 +1,25 @@
-import React from "react";
-import { graphql } from "gatsby";
 import {
   AnchorLink,
   AnchorLinkProps,
   Button,
-  ButtonProps
-} from "@bmi/components";
-import { ExpandableLinksTextCard } from "@bmi/components";
-import { MasonryGrid } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { ClickableAction } from "@bmi/components";
+  ButtonProps,
+  ClickableAction,
+  ExpandableLinksTextCard,
+  MasonryGrid,
+  Section
+} from "@bmi-digital/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
+import { graphql } from "gatsby";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import { useSiteContext } from "./Site";
 import {
+  Data as LinkData,
   getClickableActionFromUrl,
-  NavigationData,
-  Data as LinkData
+  NavigationData
 } from "./Link";
+import { useSiteContext } from "./Site";
 
 export type Data = {
   __typename: "ContentfulLinkColumnsSection";

@@ -1,10 +1,10 @@
+import { gql } from "@apollo/client";
+import { Button, Grid, Typography } from "@bmi-digital/components";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { gql } from "@apollo/client";
-import { Button, Grid, Typography } from "@bmi/components";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
-import { SmallProfileCard } from "../../../Cards/SmallProfileCard";
 import { sortByLastName } from "../../../../lib/utils/account";
+import { SmallProfileCard } from "../../../Cards/SmallProfileCard";
 import styles from "./styles.module.scss";
 
 type AdminsProps = {
@@ -42,9 +42,9 @@ export const CompanyAdmins = ({
           {title}
         </Typography>
       )}
-      <Grid container spacing={3} alignItems="stretch">
+      <Grid nonce={undefined} container spacing={3} alignItems="stretch">
         {sortByLastName(admins.slice(0, countToShow)).map(({ account }) => (
-          <Grid item xs={12} md={6} key={account.id}>
+          <Grid nonce={undefined} item xs={12} md={6} key={account.id}>
             <SmallProfileCard
               name={[account.firstName, account.lastName].join(" ")}
               jobTitle={t(`roles.${account.role}`)}

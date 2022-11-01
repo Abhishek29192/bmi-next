@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { useMediaQuery } from "@material-ui/core";
 import { render } from "@testing-library/react";

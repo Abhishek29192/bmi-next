@@ -5,7 +5,7 @@ import {
   Icon,
   iconMap,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { GetApp } from "@material-ui/icons";
 import classnames from "classnames";
 import filesize from "filesize";

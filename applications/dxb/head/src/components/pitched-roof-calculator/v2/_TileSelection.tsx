@@ -3,7 +3,7 @@ import {
   Typography,
   withFormControl,
   WithFormControlProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { Grid } from "@material-ui/core";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";

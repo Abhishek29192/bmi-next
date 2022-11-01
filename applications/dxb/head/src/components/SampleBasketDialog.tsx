@@ -1,11 +1,15 @@
-import { Button, Icon, Typography } from "@bmi/components";
+import {
+  Button,
+  ClickableAction,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
 import {
   ArrowForward as ArrowForwardIcon,
   Close,
   Delete as DeleteIcon
 } from "@material-ui/icons";
 import classnames from "classnames";
-import { ClickableAction } from "components/src/anchor-link";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {

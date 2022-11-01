@@ -4,8 +4,8 @@
 // TODO: use @bmi-digital/components/form withFormControl - if this MR is merged
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 
-import React, { useEffect, useContext, useState, ElementType } from "react";
-import { FormContext, ValidationResult } from "@bmi/components";
+import { FormContext, ValidationResult } from "@bmi-digital/components";
+import React, { ElementType, useContext, useEffect, useState } from "react";
 
 export type InputValue = string | number | boolean | File[] | string[];
 

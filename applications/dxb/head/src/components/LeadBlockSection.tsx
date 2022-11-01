@@ -5,14 +5,14 @@ import {
   LeadBlock,
   Section,
   TableOfContent
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { BLOCKS } from "@contentful/rich-text-types";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { graphql } from "gatsby";
 import React from "react";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { microCopy } from "../constants/microCopies";
-import withGTM from "../utils/google-tag-manager";
 import { useConfig } from "../contexts/ConfigProvider";
+import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import RichText, { parseReachDataRawFields, RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";

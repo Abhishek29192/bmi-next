@@ -4,7 +4,7 @@ import {
   AnchorLinkProps,
   transformHyphens,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { Options } from "@contentful/rich-text-react-renderer";
 import {
   Block,

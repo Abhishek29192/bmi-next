@@ -1,4 +1,4 @@
-import { QUERY_KEY, ThemeProvider } from "@bmi/components";
+import { QUERY_KEY, ThemeProvider } from "@bmi-digital/components";
 import { useMediaQuery } from "@material-ui/core";
 import { render } from "@testing-library/react";
 import QueryString from "query-string";

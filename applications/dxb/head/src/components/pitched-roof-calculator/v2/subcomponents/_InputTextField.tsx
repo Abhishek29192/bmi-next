@@ -1,4 +1,4 @@
-import { TextField } from "@bmi/components";
+import { TextField } from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../../Site";
 import { getFieldTypes, Type } from "../../helpers/fieldTypes";

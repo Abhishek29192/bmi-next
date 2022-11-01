@@ -1,11 +1,15 @@
-import React from "react";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  ButtonProps,
+  PostItCard,
+  Typography
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
-import { PostItCard } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { getClickableActionFromUrl, Data as LinkData } from "./Link";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
 export type Props = {

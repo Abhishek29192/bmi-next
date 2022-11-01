@@ -9,7 +9,7 @@ import {
   FilterProps,
   Filters,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";

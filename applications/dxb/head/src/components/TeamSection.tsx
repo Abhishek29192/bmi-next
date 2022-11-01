@@ -1,11 +1,14 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Grid } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { Section, SectionBackgroundColor } from "@bmi/components";
-import { Container } from "@bmi/components";
+import {
+  Container,
+  Grid,
+  Section,
+  SectionBackgroundColor,
+  Tabs
+} from "@bmi-digital/components";
 import { Tab, TabProps } from "@material-ui/core";
 import classnames from "classnames";
+import { graphql } from "gatsby";
+import React from "react";
 import RichText, { RichTextData } from "../components/RichText";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import withGTM from "../utils/google-tag-manager";

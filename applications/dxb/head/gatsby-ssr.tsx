@@ -1,5 +1,5 @@
 import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import type { GatsbySSR } from "gatsby";
 import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";

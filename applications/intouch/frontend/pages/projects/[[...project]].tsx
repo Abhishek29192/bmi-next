@@ -1,30 +1,29 @@
-import React, { useMemo, useState, useCallback, useEffect } from "react";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import can from "../../lib/permissions/can";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { Grid, Typography } from "@bmi-digital/components";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { NoProjectsCard } from "../../components/Cards/NoProjects";
+import { Layout } from "../../components/Layout";
+import layoutStyles from "../../components/Layout/styles.module.scss";
+import ProjectDetail from "../../components/ProjectDetail";
+import { ProjectSidePanel } from "../../components/ProjectSidePanel";
+import { useMarketContext } from "../../context/MarketContext";
+import ProjectPageContextWrapper from "../../context/ProjectPageContext";
+import { useGetProjectsLazyQuery } from "../../graphql/generated/hooks";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { getServerPageGetProjects } from "../../graphql/generated/page";
+import { isSuperOrMarketAdmin } from "../../lib/account";
 import {
   ErrorStatusCode,
   generatePageError,
   withPageError
 } from "../../lib/error";
 import { GlobalPageProps, withPage } from "../../lib/middleware/withPage";
+import can from "../../lib/permissions/can";
 import GridStyles from "../../styles/Grid.module.scss";
-import { ProjectSidePanel } from "../../components/ProjectSidePanel";
-import ProjectDetail from "../../components/ProjectDetail";
-import { Layout } from "../../components/Layout";
-import layoutStyles from "../../components/Layout/styles.module.scss";
-import { NoProjectsCard } from "../../components/Cards/NoProjects";
-import { GetProjectsQuery } from "../../graphql/generated/operations";
-import { useGetProjectsLazyQuery } from "../../graphql/generated/hooks";
-import { getServerPageGetProjects } from "../../graphql/generated/page";
-import { isSuperOrMarketAdmin } from "../../lib/account";
-import { useMarketContext } from "../../context/MarketContext";
-import ProjectPageContextWrapper from "../../context/ProjectPageContext";
 
 export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projectsByMarket"];
@@ -104,13 +103,14 @@ const Projects = ({
             selectedProjectId={activeProject}
           />
           <Grid
+            nonce={undefined}
             container
             spacing={3}
             className={GridStyles.outerGrid}
             alignItems="stretch"
           >
             {activeProject === null ? (
-              <Grid item xs={12}>
+              <Grid nonce={undefined} item xs={12}>
                 <NoProjectsCard title={t("project-page:noProjects.title")}>
                   <Typography variant="subtitle2">
                     {t("project-page:noProjects.body1")}

@@ -4,9 +4,9 @@ import {
   CardRadioGroup as RadioGroup,
   CardRadioGroupProps,
   WithFormControlProps
-} from "@bmi/components";
-import React from "react";
+} from "@bmi-digital/components";
 import classnames from "classnames";
+import React from "react";
 import styles from "./CardGroup.module.scss";
 
 type RadioGroupProps = CardRadioGroupProps & WithFormControlProps<string>;

@@ -277,7 +277,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="AnchorLink-icon-1460"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
                 <div>
@@ -292,7 +298,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="AnchorLink-icon-1460"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -598,7 +610,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1537 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -687,7 +729,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1537 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -776,7 +848,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1537 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -865,7 +967,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1537 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -1414,7 +1546,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="AnchorLink-icon-1604"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
                 <div>
@@ -1429,7 +1567,13 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       class="AnchorLink-icon-1604"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -1733,7 +1877,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1681 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -1820,7 +1994,37 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             >
                               <svg
                                 class="DocumentSimpleTableResults-downloadIcon-1681 download-icon"
-                              />
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h32v32H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M21 2H8v28h21V10Z"
+                                  fill="#aeb1b1"
+                                />
+                                <path
+                                  d="M9 29V3h12v7h7v19Z"
+                                  fill="#fff"
+                                />
+                                <rect
+                                  fill="#d43533"
+                                  height="10"
+                                  rx="1"
+                                  width="21"
+                                  x="3"
+                                  y="15"
+                                />
+                                <g
+                                  fill="#fff"
+                                >
+                                  <path
+                                    d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                                  />
+                                </g>
+                              </svg>
                             </span>
                             10 B
                           </span>
@@ -2349,7 +2553,13 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                       class="AnchorLink-icon-1748"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
                 <div>
@@ -2364,7 +2574,13 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                       class="AnchorLink-icon-1748"
                       data-testid="external"
                       focusable="false"
-                    />
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -2770,7 +2986,37 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1393 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -2857,7 +3103,37 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1393 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -2944,7 +3220,37 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1393 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -3031,7 +3337,37 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1393 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -3263,7 +3599,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 class="AnchorLink-icon-36"
                 data-testid="external"
                 focusable="false"
-              />
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
             </a>
           </div>
           <div>
@@ -3278,7 +3620,13 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
                 class="AnchorLink-icon-36"
                 data-testid="external"
                 focusable="false"
-              />
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                />
+              </svg>
             </a>
           </div>
         </div>
@@ -3517,7 +3865,37 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1249 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -3604,7 +3982,37 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1249 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -3691,7 +4099,37 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1249 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>
@@ -3778,7 +4216,37 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       >
                         <svg
                           class="DocumentSimpleTableResults-downloadIcon-1249 download-icon"
-                        />
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 0h32v32H0z"
+                            fill="none"
+                          />
+                          <path
+                            d="M21 2H8v28h21V10Z"
+                            fill="#aeb1b1"
+                          />
+                          <path
+                            d="M9 29V3h12v7h7v19Z"
+                            fill="#fff"
+                          />
+                          <rect
+                            fill="#d43533"
+                            height="10"
+                            rx="1"
+                            width="21"
+                            x="3"
+                            y="15"
+                          />
+                          <g
+                            fill="#fff"
+                          >
+                            <path
+                              d="M6 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2H7v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM11 17h2.214A2.838 2.838 0 0 1 16 19.885V20a2.8 2.8 0 0 1-2.592 2.994.914.914 0 0 0-.128.006H11Zm1 1v4h1.116a1.757 1.757 0 0 0 1.9-1.602v-.004A1.729 1.729 0 0 0 15 20c0-1.628-1.222-2-2.244-2ZM17 23v-6h4v1h-3v1.5h2.5v1H18V23Z"
+                            />
+                          </g>
+                        </svg>
                       </span>
                       10 B
                     </span>

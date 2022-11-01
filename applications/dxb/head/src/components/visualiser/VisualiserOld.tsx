@@ -13,7 +13,7 @@ import {
   TileColour,
   ToggleCard,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Popover from "@material-ui/core/Popover";
 import SvgIcon from "@material-ui/core/SvgIcon";

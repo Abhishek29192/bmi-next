@@ -1,9 +1,9 @@
-import React from "react";
+import { Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { Layout } from "../Layout";
+import React from "react";
 import { useAccountContext } from "../../context/AccountContext";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import { Layout } from "../Layout";
 import styles from "./styles.module.scss";
 
 export type ErrorViewProps = {

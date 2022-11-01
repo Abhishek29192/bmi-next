@@ -1,26 +1,25 @@
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
-import Dialog from "@material-ui/core/Dialog";
-import { Dialog as Modal } from "@bmi/components";
 import { gql } from "@apollo/client";
+import { Dialog as Modal } from "@bmi-digital/components";
 import {
   GuaranteeCoverage,
   GuaranteeReferenceCode,
   Language
 } from "@bmi/intouch-api-types";
-import {
-  CreateGuaranteeMutationVariables,
-  GetProjectQuery
-} from "../../../graphql/generated/operations";
+import Dialog from "@material-ui/core/Dialog";
+import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
 import { WizardOverlay } from "../../../components/WizardLayout";
 import { GuaranteeWizardData } from "../../../components/WizardLayout/WizardContext";
-import log from "../../../lib/logger";
-
 import {
   GetProjectDocument,
   useCreateGuaranteeMutation,
   useCreateGuaranteePdfMutation
 } from "../../../graphql/generated/hooks";
+import {
+  CreateGuaranteeMutationVariables,
+  GetProjectQuery
+} from "../../../graphql/generated/operations";
+import log from "../../../lib/logger";
 
 type ApplyGuaranteeDialogProps = {
   isOpen: boolean;

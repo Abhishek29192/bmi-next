@@ -1,4 +1,4 @@
-import { Grid } from "@bmi/components";
+import { Grid } from "@bmi-digital/components";
 import React from "react";
 import { DimensionsValues, RoofV2 as Roof } from "../types/roof";
 import InputTextField from "./subcomponents/_InputTextField";

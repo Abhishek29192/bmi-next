@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { Certification } from "@bmi/intouch-api-types";
 import {
   fireEvent,

@@ -1,13 +1,12 @@
-import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
-import { Button } from "@bmi/components";
-import { Dialog } from "@bmi/components";
+import { Button, Dialog } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
+import React, { useCallback, useState } from "react";
 import { useAccountContext } from "../../../../context/AccountContext";
-import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
-import logger from "../../../../lib/logger";
 import { useLeaveCompanyMutation } from "../../../../graphql/generated/hooks";
+import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { findAccountCompany } from "../../../../lib/account";
+import logger from "../../../../lib/logger";
 import styles from "./styles.module.scss";
 
 export type LeaveCompanyButtonProps = {

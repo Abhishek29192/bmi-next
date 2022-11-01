@@ -1,25 +1,14 @@
-import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
-import { Grid } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
-import { useTranslation } from "next-i18next";
-import { Project } from "@bmi/intouch-api-types";
+import { Grid, Tabs, Typography } from "@bmi-digital/components";
+import {
+  GuaranteeEventType,
+  Project,
+  ProjectMember
+} from "@bmi/intouch-api-types";
 import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
-import can from "../../lib/permissions/can";
-import { ProjectsHeader } from "../Cards/ProjectsHeader";
-import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
-import { ProjectsInsight } from "../Cards/ProjectsInsight";
-import { TabCard } from "../Cards/TabCard";
-import { TeamTab } from "../Tabs/Team";
-import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab } from "../Tabs/Uploads";
-import { NoProjectsCard } from "../Cards/NoProjects";
-import { NoteTab } from "../Tabs/Notes";
-import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
-import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
-import BuildingOwnerDetailsEditButton from "../Pages/Project/BuildingOwnerDetailsEditAction/Button";
+import { useTranslation } from "next-i18next";
+import React, { useCallback, useState } from "react";
+import { useAccountContext } from "../../context/AccountContext";
 import {
   GetProjectDocument,
   useCreateGuaranteePdfMutation,
@@ -27,18 +16,30 @@ import {
   useUpdateGuaranteeMutation
 } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
-import {
-  getProjectStatus,
-  getProjectGuaranteeStatus,
-  getGuaranteeEventType,
-  isProjectApprovable,
-  isSolutionOrSystemGuaranteeExist,
-  getGuaranteeStatus,
-  getProjectDaysRemaining,
-  getProjectCertifiedInstallers
-} from "../../lib/utils/project";
 import log from "../../lib/logger";
-import { useAccountContext } from "../../context/AccountContext";
+import can from "../../lib/permissions/can";
+import {
+  getGuaranteeEventType,
+  getGuaranteeStatus,
+  getProjectCertifiedInstallers,
+  getProjectDaysRemaining,
+  getProjectGuaranteeStatus,
+  getProjectStatus,
+  isProjectApprovable,
+  isSolutionOrSystemGuaranteeExist
+} from "../../lib/utils/project";
+import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
+import { NoProjectsCard } from "../Cards/NoProjects";
+import { ProjectActionsCard } from "../Cards/ProjectActionsCard";
+import { ProjectsHeader } from "../Cards/ProjectsHeader";
+import { ProjectsInsight } from "../Cards/ProjectsInsight";
+import { TabCard } from "../Cards/TabCard";
+import BuildingOwnerDetailsEditButton from "../Pages/Project/BuildingOwnerDetailsEditAction/Button";
+import ProjectEditAction from "../Pages/Project/ProjectEditAction/Button";
+import { GuaranteeTab } from "../Tabs/Guarantee";
+import { NoteTab } from "../Tabs/Notes";
+import { TeamTab } from "../Tabs/Team";
+import { UploadsTab } from "../Tabs/Uploads";
 
 type ProjectDetailProps = {
   projectId: number;
@@ -111,7 +112,7 @@ const ProjectDetail = ({
 
   if (!projectId) {
     return (
-      <Grid item xs={12}>
+      <Grid nonce={undefined} item xs={12}>
         <NoProjectsCard title={t("noProjecSelected.title")}>
           <Typography variant="subtitle2">
             {t("noProjecSelected.body1")}
@@ -201,7 +202,7 @@ const ProjectDetail = ({
 
   return (
     <>
-      <Grid item xs={12} md={8}>
+      <Grid nonce={undefined} item xs={12} md={8}>
         <ProjectsHeader
           title={project.name}
           technology={project.technology}
@@ -238,7 +239,7 @@ const ProjectDetail = ({
         />
       </Grid>
 
-      <Grid item xs={12} md={4}>
+      <Grid nonce={undefined} item xs={12} md={4}>
         <ProjectsInsight
           daysRemaining={getProjectDaysRemaining(
             project.startDate,
@@ -247,7 +248,7 @@ const ProjectDetail = ({
           certifiedInstallers={getProjectCertifiedInstallers(project)}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid nonce={undefined} item xs={12}>
         <Tabs initialValue="one">
           <Tabs.TabPanel heading={t("tabs.team")} index="one">
             <TabCard>
@@ -284,7 +285,7 @@ const ProjectDetail = ({
           </Tabs.TabPanel>
         </Tabs>
       </Grid>
-      <Grid item xs={12}>
+      <Grid nonce={undefined} item xs={12}>
         {can(account, "project", "adminActions", {
           isArchived: project.hidden
         }) ? (

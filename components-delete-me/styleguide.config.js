@@ -18,7 +18,7 @@ module.exports = {
     const componentName = path.basename(componentPath, ".tsx");
 
     // NOTE: this is displayed under the component name
-    return `import { ${componentName} } from "@bmi/components";`;
+    return `import { ${componentName} } from "@bmi-digital/components";`;
   },
   getExampleFilename: (componentPath) => {
     const specificComponentExampleFile = path

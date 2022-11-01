@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from "react";
 import { gql } from "@apollo/client";
-import { useTranslation } from "next-i18next";
-import { Card, CardContent, CardActions, Checkbox } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import {
-  useUpdateProjectHiddenMutation,
-  useUpdateProjectInspectionMutation,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Checkbox,
+  Typography
+} from "@bmi-digital/components";
+import { GuaranteeEventType } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { useProjectPageContext } from "../../../context/ProjectPageContext";
+import {
+  useAddProjectNoteMutation,
   useRestartGuaranteeMutation,
-  useAddProjectNoteMutation
+  useUpdateProjectHiddenMutation,
+  useUpdateProjectInspectionMutation
 } from "../../../graphql/generated/hooks";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
 import log from "../../../lib/logger";
 import AccessControl from "../../../lib/permissions/AccessControl";
-import { useProjectPageContext } from "../../../context/ProjectPageContext";
-import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { getFieldLabel } from "../../Pages/Project/Form";
-import styles from "./styles.module.scss";
 import Dialog, { DialogProps } from "./Dialog";
+import styles from "./styles.module.scss";
 
 type ProjectActionsCardProps = {
   projectId: number;

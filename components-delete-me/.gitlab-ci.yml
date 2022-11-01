@@ -13,8 +13,8 @@ test_components:
         - jest/**/*
         - yarn.lock
   variables:
-    WORKSPACE: "@bmi/components"
-    ROOT_DIR: "components"
+    WORKSPACE: "@bmi/components-delete-me"
+    ROOT_DIR: "components-delete-me"
 
 build_components:
   extends: .build_yarn_workspace
@@ -22,8 +22,8 @@ build_components:
     - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:
-    WORKSPACE: "@bmi/components"
-    ROOT_DIR: "components"
+    WORKSPACE: "@bmi/components-delete-me"
+    ROOT_DIR: "components-delete-me"
 
 build_styleguide:
   extends: .build_yarn_workspace
@@ -31,10 +31,10 @@ build_styleguide:
     - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:
-    ROOT_DIR: components
-    WORKSPACE: "@bmi/components"
+    ROOT_DIR: components-delete-me
+    WORKSPACE: "@bmi/components-delete-me"
   script:
-    - yarn workspace @bmi/components workbench:build
+    - yarn workspace @bmi/components-delete-me workbench:build
   artifacts:
     paths:
       - components/styleguide

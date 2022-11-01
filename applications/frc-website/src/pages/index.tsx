@@ -1,4 +1,4 @@
-import { Button, Grid, Hero, Typography } from "@bmi/components";
+import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { Link } from "gatsby";

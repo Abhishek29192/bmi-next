@@ -1,4 +1,4 @@
-import * as GoogleMockApi from "@bmi/components";
+import * as GoogleMockApi from "@bmi-digital/components";
 import * as devLog from "../../../utils/devLog";
 import createService from "../../../__tests__/helpers/ServiceHelper";
 import { ServiceTypeFilter } from "../../Service";

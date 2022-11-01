@@ -1,21 +1,25 @@
-import React from "react";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
+import {
+  Button,
+  FlatRoof,
+  Icon,
+  PitchedRoof,
+  Typography
+} from "@bmi-digital/components";
 import { GuaranteeEventType, Technology } from "@bmi/intouch-api-types";
-import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
-import { useTranslation } from "next-i18next";
 import capitalize from "lodash/capitalize";
+import { useTranslation } from "next-i18next";
+import React from "react";
+import { useAccountContext } from "../../../context/AccountContext";
+import { isSuperOrMarketAdmin } from "../../../lib/account";
+import AccessControl from "../../../lib/permissions/AccessControl";
+import { formatDate } from "../../../lib/utils/date";
 import {
   GuaranteeStatus,
   guaranteeStatusIcons
 } from "../../../lib/utils/guarantee";
-import AccessControl from "../../../lib/permissions/AccessControl";
-import { formatDate } from "../../../lib/utils/date";
 import { Address, AddressProps } from "../../Address";
 import { InfoPair } from "../../InfoPair";
 import { SimpleCard } from "../SimpleCard";
-import { isSuperOrMarketAdmin } from "../../../lib/account";
-import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
 export type ProjectsHeaderProps = {

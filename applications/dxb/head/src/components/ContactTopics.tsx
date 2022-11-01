@@ -7,7 +7,7 @@ import {
   IconList,
   ThemeOptions,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import BuildIcon from "@material-ui/icons/Build";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";

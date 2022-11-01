@@ -10,7 +10,7 @@ import {
   TileColour,
   ToggleCard,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { useMediaQuery } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Popover from "@material-ui/core/Popover";

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { Product } from "@bmi/intouch-api-types";
 import React, { useRef } from "react";
 import { WizardSystemDetailCard } from "..";

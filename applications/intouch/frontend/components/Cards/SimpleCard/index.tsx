@@ -1,6 +1,6 @@
-import React from "react";
-import { Card } from "@bmi/components";
+import { Card } from "@bmi-digital/components";
 import CardContent from "@material-ui/core/CardContent";
+import React from "react";
 import styles from "./styles.module.scss";
 
 type SimpleCardProps = React.HTMLAttributes<HTMLDivElement> & {

@@ -1,13 +1,16 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
-import { Form, FormProps } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import {
+  Form,
+  FormProps,
+  Grid,
+  TextField,
+  Typography
+} from "@bmi-digital/components";
 import { Project } from "@bmi/intouch-api-types";
 import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
-import { findProjectGuarantee } from "../../../lib/utils/project";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { findProjectGuarantee } from "../../../lib/utils/project";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
 import { getValue, isFieldDisabled } from "./Form";
@@ -54,13 +57,19 @@ const ProjectForm = ({
         {t("buildingOwnerDetails.edit.description")}
       </Typography>
 
-      <Grid container xs={12} spacing={0}>
-        <Grid item xs={12} lg={6}>
+      <Grid nonce={undefined} container xs={12} spacing={0}>
+        <Grid nonce={undefined} item xs={12} lg={6}>
           <Typography variant="h5" className={styles.sectionTitle}>
             {t("buildingOwnerDetails.edit.sections.contactDetails.title")}
           </Typography>
         </Grid>
-        <Grid className={styles.sectionRequiredInformation} item xs={12} lg={6}>
+        <Grid
+          nonce={undefined}
+          className={styles.sectionRequiredInformation}
+          item
+          xs={12}
+          lg={6}
+        >
           <Typography variant="default" className={styles.requiredInformation}>
             * {t("common:requiredInformation")}
           </Typography>
@@ -85,8 +94,8 @@ const ProjectForm = ({
         {...getFieldPropsFn(t, "buildingOwnerAddress.town")}
         isRequired
       />
-      <Grid container>
-        <Grid item lg={6}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item lg={6}>
           <TextField
             {...getFieldPropsFn(t, "buildingOwnerAddress.postcode")}
             isRequired

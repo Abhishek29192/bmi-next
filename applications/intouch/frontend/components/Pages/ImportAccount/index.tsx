@@ -1,10 +1,7 @@
-import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
+import { AlertBanner, Form, Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
+import React, { useCallback, useState } from "react";
 import { useImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/hooks";
 import { ImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/operations";
 import { getNestedValue } from "../../../lib/utils/object";
@@ -86,8 +83,14 @@ const ImportAccount = () => {
   );
 
   return (
-    <Grid spacing={0} container>
-      <Grid className={styles.importContent} xs={12} spacing={3} container>
+    <Grid nonce={undefined} spacing={0} container>
+      <Grid
+        nonce={undefined}
+        className={styles.importContent}
+        xs={12}
+        spacing={3}
+        container
+      >
         <Typography variant="h3" hasUnderline>
           {t("uploadFile")}
         </Typography>
@@ -118,6 +121,7 @@ const ImportAccount = () => {
       </Grid>
       {importResult.title ? (
         <Grid
+          nonce={undefined}
           data-testid="alert-banner"
           className={styles.importContent}
           xs={12}
@@ -154,13 +158,14 @@ const ImportAccount = () => {
               <div className={styles.list}>
                 {importResult.companies.slice(0, 50).map((company, index) => (
                   <Grid
+                    nonce={undefined}
                     key={`company-${index}`}
                     style={{ marginTop: 30 }}
                     spacing={0}
                     direction="row"
                     container
                   >
-                    <Grid xs={6} item>
+                    <Grid nonce={undefined} xs={6} item>
                       <Typography key={`title-${company.name}`} variant="h5">
                         Company
                       </Typography>
@@ -200,7 +205,7 @@ const ImportAccount = () => {
                         )
                       )}
                     </Grid>
-                    <Grid xs={6} item>
+                    <Grid nonce={undefined} xs={6} item>
                       <div className={styles.listItem}>
                         <Typography
                           key={company.name}

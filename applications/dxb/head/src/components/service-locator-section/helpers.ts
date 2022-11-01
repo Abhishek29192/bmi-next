@@ -2,7 +2,7 @@ import {
   computeDistanceBetween,
   LatLngLiteral,
   MarkerOptionsWithData
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import uniqBy from "lodash-es/uniqBy";
 import { ServiceTypeFilter } from "../Service";
 import { Data as ServiceType } from "../ServiceType";

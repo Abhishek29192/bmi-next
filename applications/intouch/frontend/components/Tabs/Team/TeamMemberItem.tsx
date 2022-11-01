@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import { useTranslation } from "next-i18next";
-import { Table } from "@bmi/components";
-import { Button } from "@bmi/components";
+import { Button, Table } from "@bmi-digital/components";
 import { ProjectMember, Technology } from "@bmi/intouch-api-types";
-import DeleteIcon from "@material-ui/icons/Delete";
-import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBox from "@material-ui/icons/CheckBox";
+import CheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
+import DeleteIcon from "@material-ui/icons/Delete";
 import classnames from "classnames";
-import AccessControl from "../../../lib/permissions/AccessControl";
+import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
-import TeamMemberCertification from "./TeamMemberCertifications";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
+import TeamMemberCertification from "./TeamMemberCertifications";
 
 type TeamMemberItemProps = {
   project: GetProjectQuery["project"];

@@ -1,14 +1,14 @@
-import React from "react";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { Section } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Section } from "@bmi/components";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
-import { findAccountTier } from "../lib/account";
-import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
-import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { Layout } from "../components/Layout";
+import React from "react";
 import { BrandCard } from "../components/Cards/BrandCard";
+import { Layout } from "../components/Layout";
+import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
+import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
+import { findAccountTier } from "../lib/account";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 
 type PartnerBrandPageProps = GlobalPageProps & {

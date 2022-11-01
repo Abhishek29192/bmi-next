@@ -1,7 +1,6 @@
-import React from "react";
+import { Button, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
+import React from "react";
 
 const EmailVerification = () => {
   const { t } = useTranslation("email-verification");

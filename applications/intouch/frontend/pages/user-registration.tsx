@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { ThemeProvider } from "@bmi/components";
-import { useTranslation } from "next-i18next";
-import { Account } from "@bmi/intouch-api-types";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { TextField } from "@bmi/components";
-import { Checkbox } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Form } from "@bmi/components";
+import {
+  Checkbox,
+  Dialog,
+  Form,
+  TextField,
+  ThemeProvider
+} from "@bmi-digital/components";
+import { Account } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Link from "next/link";
+import React, { useState } from "react";
 import { useUpdateAccountMutation } from "../graphql/generated/hooks";
 import { withPage } from "../lib/middleware/withPage";
 import { getMarketAndEnvFromReq } from "../lib/utils";

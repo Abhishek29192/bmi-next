@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { History } from "@reach/router";
 import { screen, waitFor } from "@testing-library/dom";
 import React from "react";

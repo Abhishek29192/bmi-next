@@ -1,8 +1,7 @@
-import React from "react";
+import { Button, Typography } from "@bmi-digital/components";
 import { Document } from "@contentful/rich-text-types";
-import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
+import React from "react";
 import { RichText } from "../../RichText";
 import styles from "./styles.module.scss";
 

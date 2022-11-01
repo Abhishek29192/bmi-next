@@ -1,13 +1,11 @@
-import React from "react";
+import { Checkbox, Grid, Typography } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
-import { Grid } from "@bmi/components";
-import { Checkbox } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import AccessControl from "../../lib/permissions/AccessControl";
+import React from "react";
+import { useCompanyPageContext } from "../../context/CompanyPageContext";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
+import AccessControl from "../../lib/permissions/AccessControl";
 import { InfoPair } from "../InfoPair";
 import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
-import { useCompanyPageContext } from "../../context/CompanyPageContext";
 
 type Props = {
   operations: GetCompanyQuery["company"]["companyOperationsByCompany"]["nodes"];
@@ -46,11 +44,17 @@ export const SetCompanyOperations = ({ operations }: Props) => {
         {t("edit_dialog.form.fields.operationTypes")}
       </Typography>
 
-      <Grid container xs={12} spacing={0} style={{ marginBottom: "1.5rem" }}>
+      <Grid
+        nonce={undefined}
+        container
+        xs={12}
+        spacing={0}
+        style={{ marginBottom: "1.5rem" }}
+      >
         {operationTypes.map(({ type, displayName }, idx) => {
           const defaultValue = operations.some((o) => o.operation === type);
           return (
-            <Grid item xs={6} key={`${type}-${idx}`}>
+            <Grid nonce={undefined} item xs={6} key={`${type}-${idx}`}>
               <Checkbox
                 name={`operationTypes.${type}`}
                 label={displayName}

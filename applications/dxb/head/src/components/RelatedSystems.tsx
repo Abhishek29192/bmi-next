@@ -5,7 +5,7 @@ import {
   OverviewCardProps,
   Section,
   SectionBackgroundColor
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { Add as AddIcon } from "@material-ui/icons";
 import { graphql, Link } from "gatsby";

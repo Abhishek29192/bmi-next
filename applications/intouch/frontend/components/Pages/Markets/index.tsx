@@ -1,31 +1,33 @@
 import { gql } from "@apollo/client";
-import React, { useState, useCallback, useEffect, Fragment } from "react";
-import { useTranslation } from "next-i18next";
-import { AlertBanner } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Checkbox } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import classnames from "classnames";
-import { SidePanel } from "../../SidePanel";
-import { FilterResult } from "../../FilterResult";
-import { formatDate } from "../../../lib/utils";
 import {
-  useUpdateMarketMutation,
+  AlertBanner,
+  Button,
+  Checkbox,
+  Form,
+  Grid,
+  TextField,
+  Typography
+} from "@bmi-digital/components";
+import classnames from "classnames";
+import { useTranslation } from "next-i18next";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
+import {
   useUpdateDoceboTiersByMarketMutation,
+  useUpdateMarketMutation,
   useUpdateMerchandiseTiersByMarketMutation
 } from "../../../graphql/generated/hooks";
 import {
   MarketsQuery,
   UpdateMarketMutation
 } from "../../../graphql/generated/operations";
+import { formatDate } from "../../../lib/utils";
+import { FilterResult } from "../../FilterResult";
 import layoutStyles from "../../Layout/styles.module.scss";
-import styles from "./styles.module.scss";
+import { SidePanel } from "../../SidePanel";
 import { marketKeys } from "./config";
-import { RewardSystemForm } from "./RewardSystemForm";
 import { RewardCategory } from "./RewardCategory";
+import { RewardSystemForm } from "./RewardSystemForm";
+import styles from "./styles.module.scss";
 
 type Props = {
   markets: MarketsQuery["markets"];
@@ -350,9 +352,10 @@ const MarketPage = ({
                     style={{ width: "100%" }}
                     {...{ testId: "market-form" }}
                   >
-                    <Grid container>
-                      <Grid xs={12} item>
+                    <Grid nonce={undefined} container>
+                      <Grid nonce={undefined} xs={12} item>
                         <Grid
+                          nonce={undefined}
                           item
                           xs={12}
                           container
@@ -362,7 +365,7 @@ const MarketPage = ({
                           justifyContent="space-between"
                           style={{ display: "flex" }}
                         >
-                          <Grid item xs={10}>
+                          <Grid nonce={undefined} item xs={10}>
                             <Typography
                               variant="h3"
                               hasUnderline
@@ -371,7 +374,7 @@ const MarketPage = ({
                               {selectedItem.name}
                             </Typography>
                           </Grid>
-                          <Grid item xs={2}>
+                          <Grid nonce={undefined} item xs={2}>
                             <Button
                               className={styles.editBtn}
                               onClick={() => setIsEditing(!isEditing)}
@@ -384,7 +387,7 @@ const MarketPage = ({
                       </Grid>
                       {marketKeys.map(({ key, type, label }) =>
                         type === "checkbox" ? (
-                          <Grid item xs={12} key={key}>
+                          <Grid nonce={undefined} item xs={12} key={key}>
                             <Checkbox
                               name={key}
                               label={label}
@@ -395,7 +398,7 @@ const MarketPage = ({
                             />
                           </Grid>
                         ) : (
-                          <Grid key={key} xs={12} item>
+                          <Grid nonce={undefined} key={key} xs={12} item>
                             <TextField
                               fullWidth
                               name={key}
@@ -437,8 +440,13 @@ const MarketPage = ({
                     )}
                 </Fragment>
               ) : (
-                <Grid {...{ testId: "market-details" }} container>
+                <Grid
+                  nonce={undefined}
+                  {...{ testId: "market-details" }}
+                  container
+                >
                   <Grid
+                    nonce={undefined}
                     item
                     xs={12}
                     spacing={0}
@@ -447,7 +455,7 @@ const MarketPage = ({
                     justifyContent="space-between"
                     style={{ display: "flex" }}
                   >
-                    <Grid item xs={10}>
+                    <Grid nonce={undefined} item xs={10}>
                       <Typography
                         variant="h3"
                         hasUnderline
@@ -456,7 +464,7 @@ const MarketPage = ({
                         {selectedItem.name}
                       </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid nonce={undefined} item xs={2}>
                       <Button
                         className={styles.editBtn}
                         onClick={() => setIsEditing(!isEditing)}
@@ -467,7 +475,7 @@ const MarketPage = ({
                     </Grid>
                   </Grid>
                   {marketKeys.map(({ key, type, label }) => (
-                    <Grid key={key} item xs={12}>
+                    <Grid nonce={undefined} key={key} item xs={12}>
                       <Typography
                         component="h6"
                         variant="h6"

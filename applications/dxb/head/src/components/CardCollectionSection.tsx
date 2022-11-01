@@ -11,7 +11,7 @@ import {
   transformHyphens,
   Typography,
   withClickable
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { graphql } from "gatsby";

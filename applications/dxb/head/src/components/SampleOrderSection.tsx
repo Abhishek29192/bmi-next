@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Section } from "@bmi/components";
+import { Button, ButtonProps, Section } from "@bmi-digital/components";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { microCopy } from "../constants/microCopies";

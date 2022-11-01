@@ -1,23 +1,23 @@
-import React from "react";
-import { Session } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Session } from "@auth0/nextjs-auth0";
+import { Typography } from "@bmi-digital/components";
 import { Document } from "@contentful/rich-text-types";
-import { Typography } from "@bmi/components";
-import { getAuth0Instance } from "../lib/auth0";
-import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { withPublicPage } from "../lib/middleware/withPublicPage";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React from "react";
 import { Layout as AuthenticatedLayout } from "../components/Layout";
 import { Layout as UnauthenticatedLayout } from "../components/Layout/Unauthenticated";
 import { RichText } from "../components/RichText";
+import { getServerPageGetContentArticleContent } from "../graphql/generated/page";
+import { getAuth0Instance } from "../lib/auth0";
 import {
   ErrorStatusCode,
   generatePageError,
   withPageError
 } from "../lib/error";
-import { getServerPageGetContentArticleContent } from "../graphql/generated/page";
-import styles from "../styles/ContentArticle.module.scss";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
+import { withPublicPage } from "../lib/middleware/withPublicPage";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
+import styles from "../styles/ContentArticle.module.scss";
 
 export const GET_CONTENT_ARTICLE_CONTENT = gql`
   query getContentArticleContent($relativePath: String!, $tag: String!) {

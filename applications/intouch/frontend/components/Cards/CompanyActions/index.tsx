@@ -1,12 +1,11 @@
-import { Button } from "@bmi/components";
+import { Button, Typography } from "@bmi-digital/components";
 import { CompanyStatus } from "@bmi/intouch-api-types";
-import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import React, { useCallback, useState } from "react";
 import { useUpdateCompanyDetailsMutation } from "../../../graphql/generated/hooks";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { OnCompanyUpdateSuccess } from "../../SetCompanyDetailsDialog";
 import log from "../../../lib/logger";
+import { OnCompanyUpdateSuccess } from "../../SetCompanyDetailsDialog";
 import { SimpleCard } from "../SimpleCard";
 
 export type CompanyActionsCardProps = {

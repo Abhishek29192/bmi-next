@@ -1,4 +1,4 @@
-import { FormContext, ThemeProvider } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi-digital/components";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";

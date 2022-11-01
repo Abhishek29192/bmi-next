@@ -1,5 +1,5 @@
+import { Box, Design } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { Box, Design } from "@bmi/components";
 import { Account } from "@bmi/intouch-api-types";
 import {
   Build,
@@ -9,8 +9,8 @@ import {
   Place,
   School
 } from "@material-ui/icons";
-import { findAccountCompany } from "../../lib/account";
 import { QuizIcon } from "../../components/icons";
+import { findAccountCompany } from "../../lib/account";
 import can from "../../lib/permissions/can";
 
 type Link = {

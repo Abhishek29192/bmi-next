@@ -1,4 +1,4 @@
-import { Form, Grid, TextField } from "@bmi/components";
+import { Form, Grid, TextField } from "@bmi-digital/components";
 import React from "react";
 import styles from "./FlatRoofCalculator.module.scss";
 import { maxLengthValidator } from "./utils/maxLengthValidator";

@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import { CompanyDetails, CompanyDetailProps } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import Avatar from "@material-ui/core/Avatar";
-import { Button } from "@bmi/components";
+import {
+  Button,
+  CompanyDetailProps,
+  CompanyDetails,
+  Typography
+} from "@bmi-digital/components";
 import { Account, Role } from "@bmi/intouch-api-types";
+import Avatar from "@material-ui/core/Avatar";
 import { useTranslation } from "next-i18next";
-import AccessControl from "../../lib/permissions/AccessControl";
-import { isSuperOrMarketAdmin, isSuperAdmin } from "../../lib/account";
+import React, { useState } from "react";
 import { useAccountContext } from "../../context/AccountContext";
+import { isSuperAdmin, isSuperOrMarketAdmin } from "../../lib/account";
+import AccessControl from "../../lib/permissions/AccessControl";
 import ConfirmDialog, { DialogProps } from "./Dialog";
-
 import styles from "./styles.module.scss";
 
 export type UserCardProps = {

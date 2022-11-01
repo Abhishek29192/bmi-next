@@ -3,9 +3,9 @@ import {
   ButtonProps,
   Header as HeaderComponent,
   HidePrint,
-  Tab,
   TabProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import Tab from "@material-ui/core/Tab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";

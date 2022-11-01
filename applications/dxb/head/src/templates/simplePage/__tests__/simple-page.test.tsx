@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import {
   createHistory,
   createMemorySource,
@@ -7,6 +7,7 @@ import {
 import { render, RenderResult } from "@testing-library/react";
 import React from "react";
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
+import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as NextBestActionsData } from "../../../components/NextBestActions";
@@ -16,7 +17,6 @@ import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import SimplePage, { Data, Props } from "../components/simple-page";
 import {
   cta,

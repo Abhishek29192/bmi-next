@@ -1,6 +1,5 @@
+import { AnchorLink, Typography } from "@bmi-digital/components";
 import React, { useMemo } from "react";
-import { Typography } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
 import getRecaptchaPrivacyContent, {
   RecaptchaPolicyContentType
 } from "./RecaptchaContentProvider";

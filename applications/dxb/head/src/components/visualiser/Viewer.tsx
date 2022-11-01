@@ -1,4 +1,4 @@
-import { Icon, Tooltip } from "@bmi/components";
+import { Icon, Tooltip } from "@bmi-digital/components";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import {
   Add,

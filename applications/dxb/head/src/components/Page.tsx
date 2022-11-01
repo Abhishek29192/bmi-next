@@ -1,4 +1,4 @@
-import { BackToTop, MicroCopy } from "@bmi/components";
+import { BackToTop, MicroCopy } from "@bmi-digital/components";
 import { graphql, navigate } from "gatsby";
 import React from "react";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
@@ -9,8 +9,8 @@ import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
-import { getPathWithCountryCode } from "../utils/path";
 import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
+import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";

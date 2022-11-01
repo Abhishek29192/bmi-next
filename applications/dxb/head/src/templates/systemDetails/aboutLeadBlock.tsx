@@ -9,7 +9,7 @@ import {
   ThemeOptions,
   transformHyphens,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
 import { makeStyles } from "@material-ui/styles";

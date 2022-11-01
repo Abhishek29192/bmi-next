@@ -1,9 +1,9 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
-import { Button } from "@bmi/components";
+import { Button } from "@bmi-digital/components";
 import { ArrowBack } from "@material-ui/icons";
-import { useWizardContext } from "./WizardContext";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import styles from "./styles.module.scss";
+import { useWizardContext } from "./WizardContext";
 
 export const WizardFooter = () => {
   const { t } = useTranslation("project-page");

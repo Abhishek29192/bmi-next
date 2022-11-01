@@ -1,18 +1,18 @@
-import React, { MouseEvent } from "react";
 import {
+  Autocomplete,
   GeocoderResult as GoogleGeocoderResult,
-  LatLngLiteral as GoogleLatLngLiteral
-} from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Autocomplete } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { GoogleAutocomplete } from "@bmi/components";
-import { GeolocationButton } from "@bmi/components";
+  GeolocationButton,
+  GoogleAutocomplete,
+  Grid,
+  LatLngLiteral as GoogleLatLngLiteral,
+  Typography
+} from "@bmi-digital/components";
+import React, { MouseEvent } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
-import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getFilterOptions } from "../helpers";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 
 interface SearchLocationBlockProps {
   autocompleteLabel: string;

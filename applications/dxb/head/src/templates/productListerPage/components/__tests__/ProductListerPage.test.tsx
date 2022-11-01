@@ -1,5 +1,5 @@
+import { Filter, ThemeProvider } from "@bmi-digital/components";
 import * as all from "@bmi-digital/use-dimensions";
-import { Filter, ThemeProvider } from "@bmi/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {

@@ -1,4 +1,4 @@
-import { MediaGallery, ThemeProvider } from "@bmi/components";
+import { MediaGallery, ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import { Link } from "gatsby";
 import React from "react";

@@ -6,7 +6,7 @@ import {
   OverviewCardProps,
   Section,
   Tabs
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import AddIcon from "@material-ui/icons/Add";
 import { graphql, Link } from "gatsby";

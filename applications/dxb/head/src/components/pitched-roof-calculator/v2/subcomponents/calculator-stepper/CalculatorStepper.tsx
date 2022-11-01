@@ -1,4 +1,4 @@
-import { Button, Form, Typography } from "@bmi/components";
+import { Button, Form, Typography } from "@bmi-digital/components";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Divider from "@material-ui/core/Divider";

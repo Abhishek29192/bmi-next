@@ -1,9 +1,8 @@
-import React from "react";
-import { Icon } from "@bmi/components";
+import { BMI, Icon } from "@bmi-digital/components";
 import { Folder, PlayArrow } from "@material-ui/icons";
-import { BMI } from "@bmi/components";
-import { resizeContentfulImage, getVimeoEmbedUrl } from "../../lib/media/utils";
+import React from "react";
 import { MediaItem } from "../../lib/media/types";
+import { getVimeoEmbedUrl, resizeContentfulImage } from "../../lib/media/utils";
 import styles from "./styles.module.scss";
 
 type Props = {

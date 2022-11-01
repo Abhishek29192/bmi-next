@@ -1,15 +1,15 @@
-import React from "react";
+import { Icon } from "@bmi-digital/components";
 import Button from "@material-ui/core/Button";
-import { useTranslation } from "next-i18next";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { KeyboardArrowDown, Person } from "@material-ui/icons";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { Icon } from "@bmi/components";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import styles from "./styles.module.scss";
 
 const useStyles = makeStyles((theme: Theme) =>

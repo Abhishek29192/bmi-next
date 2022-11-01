@@ -1,5 +1,5 @@
+import { ThemeProvider } from "@bmi-digital/components";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import { ThemeProvider } from "@bmi/components";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";

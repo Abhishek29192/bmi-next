@@ -1,10 +1,9 @@
-import React from "react";
-import { BmiThemeProvider } from "@bmi/components";
-import { StylesProvider } from "@material-ui/styles";
+import { BmiThemeProvider } from "@bmi-digital/components";
 import { CssBaseline } from "@material-ui/core";
-
-import "../storybook.css";
+import { StylesProvider } from "@material-ui/styles";
+import React from "react";
 import "../../styles/globals.css";
+import "../storybook.css";
 
 export const ThemeDecorator = (Story) => (
   <StylesProvider injectFirst={true}>

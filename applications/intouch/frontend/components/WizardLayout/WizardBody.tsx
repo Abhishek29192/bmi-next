@@ -1,9 +1,9 @@
-import React from "react";
-import { Typography } from "@bmi/components";
+import { Typography } from "@bmi-digital/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTranslation } from "next-i18next";
-import { useWizardContext } from "./WizardContext";
+import React from "react";
 import styles from "./styles.module.scss";
+import { useWizardContext } from "./WizardContext";
 
 export type WizardBodyProps = {
   children: React.ReactNode | React.ReactNode[];

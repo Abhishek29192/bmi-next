@@ -1,4 +1,4 @@
-import { Form, ThemeProvider } from "@bmi/components";
+import { Form, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";

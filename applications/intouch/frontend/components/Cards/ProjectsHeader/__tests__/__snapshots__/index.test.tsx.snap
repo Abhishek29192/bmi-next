@@ -19,7 +19,18 @@ exports[`ProjectsHeader component render correctly 1`] = `
         </h3>
         <svg
           class="technologyIcon"
-        />
+          viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h48v48H0z"
+            fill="none"
+          />
+          <path
+            d="M23.95 19.084H2.014v3.18l4.363-.022v22.76h35.146v-22.76h4.547v-3.16Z"
+            fill="currentColor"
+          />
+        </svg>
       </div>
       <div
         class="body"

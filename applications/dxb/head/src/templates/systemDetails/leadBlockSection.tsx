@@ -1,4 +1,3 @@
-import { SVGImport } from "@bmi-digital/svg-import";
 import {
   Button,
   ButtonProps,
@@ -7,7 +6,8 @@ import {
   Section,
   ThemeOptions,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import { SVGImport } from "@bmi-digital/svg-import";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import CheckIcon from "@material-ui/icons/Check";

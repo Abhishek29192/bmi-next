@@ -1,4 +1,4 @@
-import { Container, CTACard, Grid } from "@bmi/components";
+import { Container, CTACard, Grid } from "@bmi-digital/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";

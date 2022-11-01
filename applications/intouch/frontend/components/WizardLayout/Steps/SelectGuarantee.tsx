@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Tooltip } from "@bmi/components";
+import { AlertBanner, Tooltip } from "@bmi-digital/components";
 import { GuaranteeType } from "@bmi/intouch-api-types";
-import { AlertBanner } from "@bmi/components";
 import { useTranslation } from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { useMarketContext } from "../../../context/MarketContext";
+import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated/hooks";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { parseMarketTag } from "../../../lib/utils";
 import { ActionTile } from "../../ActionTile";
 import { useWizardContext } from "../WizardContext";
-import { GetProjectQuery } from "../../../graphql/generated/operations";
-import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated/hooks";
-import { parseMarketTag } from "../../../lib/utils";
-import { useMarketContext } from "../../../context/MarketContext";
 
 export type SelectGuaranteeType = {
   guaranteeType: GuaranteeType;
@@ -76,6 +75,7 @@ const SelectGuarantee = () => {
           title={t(guarantee.tooltipHint)}
           key={guarantee.guaranteeType.name}
           style={{ padding: "5px" }}
+          nonce={undefined}
         >
           <div>
             <ActionTile

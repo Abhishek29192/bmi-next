@@ -1,4 +1,4 @@
-import { Typography } from "@bmi/components";
+import { Typography } from "@bmi-digital/components";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";

@@ -1,9 +1,9 @@
 // istanbul ignore file: doesn't hold any logic
-import { Filter } from "@bmi/components/src";
+import { Filter } from "@bmi-digital/components";
 import { Data as SiteData } from "../../../components/Site";
+import createContentfulAssetType from "../../../schema/resolvers/types/helpers/ContentfulAssetTypeHelper";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { ContentfulDocumentLibraryPage } from "../types";
-import createContentfulAssetType from "../../../schema/resolvers/types/helpers/ContentfulAssetTypeHelper";
 
 export const createDocument = (customFields = {}) => {
   return {

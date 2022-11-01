@@ -6,7 +6,7 @@ import {
   Grid,
   Hero,
   Section
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";

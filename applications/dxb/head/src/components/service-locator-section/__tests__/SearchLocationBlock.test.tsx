@@ -1,4 +1,4 @@
-import { GoogleApi, ThemeProvider } from "@bmi/components";
+import { GoogleApi, ThemeProvider } from "@bmi-digital/components";
 import { act, fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { SearchLocationBlock } from "../components";

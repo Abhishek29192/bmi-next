@@ -1,11 +1,10 @@
 /* eslint-disable security/detect-unsafe-regex */
-import React from "react";
-import PhoneIcon from "@material-ui/icons/Phone";
-import EmailIcon from "@material-ui/icons/Email";
-import PublicIcon from "@material-ui/icons/Public";
-import { Icon } from "@bmi/components";
+import { Icon, Typography } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { Typography } from "@bmi/components";
+import EmailIcon from "@material-ui/icons/Email";
+import PhoneIcon from "@material-ui/icons/Phone";
+import PublicIcon from "@material-ui/icons/Public";
+import React from "react";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
 

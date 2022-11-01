@@ -1,8 +1,5 @@
+import { Grid, Hero, Section, Typography } from "@bmi-digital/components";
 import React from "react";
-import { Hero } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Typography } from "@bmi/components";
 import { Layout, LayoutProps } from ".";
 
 export default {
@@ -57,8 +54,8 @@ export const CompanyHome = ({ title }: LayoutProps) => (
     />
 
     <Section backgroundColor="white" isSlim>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
+      <Grid nonce={undefined} container>
+        <Grid nonce={undefined} item xs={12} lg={6}>
           <Section.Title>BMI Partner Brands</Section.Title>
           <Typography>
             BMI is pleased to offer RoofPro members special discounts and

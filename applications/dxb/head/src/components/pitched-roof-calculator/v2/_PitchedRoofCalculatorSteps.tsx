@@ -1,4 +1,4 @@
-import { AnchorLink } from "@bmi/components";
+import { AnchorLink } from "@bmi-digital/components";
 import { Grid } from "@material-ui/core";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { microCopy } from "../../../constants/microCopies";

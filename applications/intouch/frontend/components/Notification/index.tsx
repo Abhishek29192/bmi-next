@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from "react";
-import { Typography } from "@bmi/components";
-import { useTranslation } from "next-i18next";
-import ReactTimeAgo from "react-time-ago";
+import { Typography } from "@bmi-digital/components";
 import classnames from "classnames";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import ReactMarkdown from "react-markdown";
+import ReactTimeAgo from "react-time-ago";
+import "../../lib/reactTimeAgo";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
-import "../../lib/reactTimeAgo";
 
 export type NotificationProps = {
   message: string;

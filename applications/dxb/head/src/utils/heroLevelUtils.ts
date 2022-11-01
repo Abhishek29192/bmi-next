@@ -1,9 +1,9 @@
-import { Button, HeroItem, transformHyphens } from "@bmi/components";
+import { Button, HeroItem, transformHyphens } from "@bmi-digital/components";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import { Data as VideoData, renderVideo } from "../components/Video";
 import { Data as ImageData, renderImage } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
+import { Data as VideoData, renderVideo } from "../components/Video";
 
 export const generateHeroLevel = (
   heroType: string,

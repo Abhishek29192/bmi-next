@@ -1,4 +1,4 @@
-import { Filter, FilterProps, Grid } from "@bmi/components";
+import { Filter, FilterProps, Grid } from "@bmi-digital/components";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";

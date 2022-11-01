@@ -1,4 +1,9 @@
-import { Button, Icon, OverviewCard, Typography } from "@bmi/components";
+import {
+  Button,
+  Icon,
+  OverviewCard,
+  Typography
+} from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import { Remove } from "@material-ui/icons";

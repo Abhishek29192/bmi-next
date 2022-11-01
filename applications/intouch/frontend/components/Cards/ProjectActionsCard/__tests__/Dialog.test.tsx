@@ -1,10 +1,10 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import Dialog from "../Dialog";
-import { renderWithUserProvider } from "../../../../lib/tests/utils";
-import AccountProvider from "../../../../lib/tests/fixtures/account";
 import { generateAccount } from "../../../../lib/tests/factories/account";
+import AccountProvider from "../../../../lib/tests/fixtures/account";
+import { renderWithUserProvider } from "../../../../lib/tests/utils";
+import Dialog from "../Dialog";
 
 describe("Dialog", () => {
   const onCancelSpy = jest.fn();

@@ -274,7 +274,21 @@ exports[`General Error render correctly 1`] = `
             >
               <svg
                 class="Header-logo-26"
-              />
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h250v250H0z"
+                  fill="#009fe3"
+                />
+                <g
+                  fill="#fff"
+                >
+                  <path
+                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                  />
+                </g>
+              </svg>
             </a>
             <nav
               aria-label="Navigation"
@@ -297,13 +311,11 @@ exports[`General Error render correctly 1`] = `
                     role="tablist"
                   >
                     <a
-                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-8 Header-navItemNoChildren-28"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
-                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -318,7 +330,7 @@ exports[`General Error render correctly 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-148 PrivateTabIndicator-colorSecondary-150 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-138 PrivateTabIndicator-colorSecondary-140 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -565,7 +577,7 @@ exports[`General Error render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="PromoSection-root-115 Section-root-122 Section-white-126"
+      class="PromoSection-root-105 Section-root-112 Section-white-116"
     >
       <div
         class="Container-root-43"
@@ -574,22 +586,22 @@ exports[`General Error render correctly 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root PromoSection-grid-121 MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root PromoSection-grid-111 MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
               class="MuiGrid-root Grid-item-103 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
             >
               <div
-                class="PromoSection-content-118"
+                class="PromoSection-content-108"
               >
                 <h2
-                  class="MuiTypography-root PromoSection-title-116 Typography-root-95 Typography-underline-97 MuiTypography-h2"
+                  class="MuiTypography-root PromoSection-title-106 Typography-root-95 Typography-underline-97 MuiTypography-h2"
                   data-testid="typography"
                 >
                   errorGeneralTitle
                 </h2>
                 <h3
-                  class="MuiTypography-root PromoSection-subtitle-117 Typography-root-95 MuiTypography-h3"
+                  class="MuiTypography-root PromoSection-subtitle-107 Typography-root-95 MuiTypography-h3"
                   data-testid="typography"
                 >
                   errorGeneralTitle
@@ -612,7 +624,7 @@ exports[`General Error render correctly 1`] = `
     class="HidePrint-root-1"
   >
     <div
-      class="Footer-root-132"
+      class="Footer-root-122"
       data-testid="footer"
     >
       <div
@@ -636,22 +648,37 @@ exports[`General Error render correctly 1`] = `
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-139"
+            class="Footer-secondaryNavigation-129"
           >
             <div
-              class="Footer-logo-140"
+              class="Footer-logo-130"
             >
-              <svg />
+              <svg
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h250v250H0z"
+                  fill="#009fe3"
+                />
+                <g
+                  fill="#fff"
+                >
+                  <path
+                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                  />
+                </g>
+              </svg>
             </div>
             <ul
-              class="Footer-list-138 Footer-listInline-141"
+              class="Footer-list-128 Footer-listInline-131"
             >
               <li
-                class="Footer-listItem-133"
+                class="Footer-listItem-123"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-text Button-text-46 Button-textDarkBg-50 Footer-link-137 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-text Button-text-46 Button-textDarkBg-50 Footer-link-127 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                   href="https://www.external.co.uk"
                   rel="noopener noreferrer"
@@ -669,11 +696,11 @@ exports[`General Error render correctly 1`] = `
                 </a>
               </li>
               <li
-                class="Footer-listItem-133"
+                class="Footer-listItem-123"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-text Button-text-46 Button-textDarkBg-50 Footer-link-137 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-text Button-text-46 Button-textDarkBg-50 Footer-link-127 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
                   href="/no/sitemap/"
                   role="button"
@@ -691,9 +718,122 @@ exports[`General Error render correctly 1`] = `
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-142"
+              class="Footer-standardLogo-132"
             >
-              <svg />
+              <svg
+                data-name="logo Standard Centred"
+                viewBox="0 0 250 63.347"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 44.595h2.928v18.444H0z"
+                  data-name="Rectangle 102"
+                />
+                <path
+                  d="m9.248 50.246 6.987 12.849h2.723v-18.5h-2.98v12.844L8.94 44.595H6.268v18.5h2.98Z"
+                  data-name="Path 19"
+                />
+                <path
+                  d="M34.525 61.806c.822-.873 1.233-2.415 1.233-4.727v-6.422c0-2.312-.411-3.9-1.233-4.727-.822-.873-2.363-1.284-4.573-1.284H22.76V63.09h7.244c2.156 0 3.699-.462 4.521-1.284Zm-2.312-1.952a3.3 3.3 0 0 1-2.466.668h-4.11V47.215h4.11a3.3 3.3 0 0 1 2.466.668 4.469 4.469 0 0 1 .617 2.826v6.319a4.469 4.469 0 0 1-.617 2.826Z"
+                  data-name="Path 20"
+                />
+                <path
+                  d="M48.603 44.595v12.639a4.469 4.469 0 0 1-.617 2.826 3.233 3.233 0 0 1-2.415.668h-1.592a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.617-2.826V44.595h-2.928v12.639q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.9c2.261 0 3.751-.411 4.573-1.284q1.233-1.233 1.233-4.778V44.595Z"
+                  data-name="Path 21"
+                />
+                <path
+                  d="M66.173 54.51a5.152 5.152 0 0 0-2.826-1.439l-3.6-.925a5.057 5.057 0 0 1-2.055-.822 2.482 2.482 0 0 1-.411-1.593v-.719a1.912 1.912 0 0 1 .514-1.593 3.638 3.638 0 0 1 2-.411h1.233a3.517 3.517 0 0 1 2 .411 1.912 1.912 0 0 1 .514 1.593v1.13h2.928v-.873c0-1.8-.36-3.083-1.13-3.751s-2.209-1.028-4.316-1.028h-1.336c-2.158 0-3.6.36-4.316 1.028-.771.668-1.13 1.952-1.13 3.751v.514a5.488 5.488 0 0 0 .719 3.185 5.152 5.152 0 0 0 2.826 1.439l3.6.925a4.725 4.725 0 0 1 2.055.822 2.482 2.482 0 0 1 .411 1.593v1.079a1.912 1.912 0 0 1-.514 1.593 3.638 3.638 0 0 1-2 .411h-1.284a3.518 3.518 0 0 1-2-.411 1.912 1.912 0 0 1-.514-1.593v-1.182h-2.927v.873c0 1.8.36 3.083 1.13 3.75s2.209 1.028 4.316 1.028h1.387c2.158 0 3.6-.36 4.316-1.028.771-.668 1.13-1.952 1.13-3.75v-.825a5.018 5.018 0 0 0-.72-3.182Z"
+                  data-name="Path 22"
+                />
+                <path
+                  d="M73.058 47.215v15.88h2.928v-15.88h4.47v-2.62H68.074v2.62Z"
+                  data-name="Path 23"
+                />
+                <path
+                  d="M94.123 49.938c0-2-.411-3.391-1.284-4.162s-2.363-1.13-4.521-1.13h-6.834V63.09h2.928v-5.96h3.751l2.877 5.96h3.083l-3.083-6.217a3.793 3.793 0 0 0 2.363-1.593 6.873 6.873 0 0 0 .719-3.442Zm-9.659-2.723h4.007a2.786 2.786 0 0 1 2.107.616 3.022 3.022 0 0 1 .565 2.158v1.8a3.3 3.3 0 0 1-.565 2.158 2.866 2.866 0 0 1-2.107.617h-4.007Z"
+                  data-name="Path 24"
+                />
+                <path
+                  d="M97.359 44.595h2.928v18.444h-2.928z"
+                  data-name="Rectangle 103"
+                />
+                <path
+                  d="M114.776 60.522h-8.22v-5.395h7.09v-2.62h-7.09v-5.292h8.066v-2.62h-10.995v18.5h11.149Z"
+                  data-name="Path 25"
+                />
+                <path
+                  d="M128.545 54.51a5.152 5.152 0 0 0-2.826-1.439l-3.6-.925a5.057 5.057 0 0 1-2.055-.822 2.483 2.483 0 0 1-.411-1.593v-.719a1.913 1.913 0 0 1 .514-1.593 3.638 3.638 0 0 1 2-.411h1.233a3.517 3.517 0 0 1 2 .411 1.912 1.912 0 0 1 .514 1.593v1.13h2.928v-.873c0-1.8-.36-3.083-1.13-3.751s-2.209-1.028-4.316-1.028h-1.336c-2.158 0-3.6.36-4.316 1.028-.771.668-1.13 1.952-1.13 3.751v.514a5.489 5.489 0 0 0 .719 3.185 5.152 5.152 0 0 0 2.826 1.439l3.6.925a4.725 4.725 0 0 1 2.055.822 2.482 2.482 0 0 1 .411 1.593v1.079a1.912 1.912 0 0 1-.514 1.593 3.638 3.638 0 0 1-2 .411h-1.284a3.518 3.518 0 0 1-2-.411 1.912 1.912 0 0 1-.514-1.593v-1.182h-2.927v.873c0 1.8.36 3.083 1.13 3.75s2.209 1.028 4.316 1.028h1.387c2.158 0 3.6-.36 4.316-1.028.771-.668 1.13-1.952 1.13-3.75v-.825a5.377 5.377 0 0 0-.72-3.182Z"
+                  data-name="Path 26"
+                />
+                <path
+                  d="M149.352 57.747c0 1.439-.206 1.85-.617 2.312a3.233 3.233 0 0 1-2.415.668h-1.54a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.616-2.826v-6.781a4.469 4.469 0 0 1 .616-2.826 3.234 3.234 0 0 1 2.415-.668h1.54a3.156 3.156 0 0 1 2.415.668c.411.462.617.873.617 2.312v1.233h2.928v-1.284c0-2.312-.411-3.391-1.233-4.264s-2.363-1.284-4.573-1.284h-1.85c-2.261 0-3.75.411-4.573 1.284q-1.233 1.233-1.233 4.778v6.837q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.85c2.261 0 3.751-.411 4.573-1.284.822-.822 1.233-1.9 1.233-4.264v-1.238h-2.928Z"
+                  data-name="Path 27"
+                />
+                <path
+                  d="M166.872 45.673c-.822-.822-2.363-1.284-4.572-1.284h-1.9c-2.261 0-3.75.411-4.573 1.284q-1.233 1.233-1.233 4.778v6.838q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.9c2.26 0 3.75-.411 4.572-1.284q1.233-1.233 1.233-4.778v-6.838q0-3.545-1.233-4.778Zm-2.312 14.386a3.233 3.233 0 0 1-2.415.668h-1.592a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.617-2.826v-6.782a4.469 4.469 0 0 1 .617-2.826 3.233 3.233 0 0 1 2.415-.668h1.593a3.156 3.156 0 0 1 2.415.668 4.469 4.469 0 0 1 .617 2.826v6.782a4.469 4.469 0 0 1-.618 2.826Z"
+                  data-name="Path 28"
+                />
+                <path
+                  d="M170.982 44.595v18.5h2.928V48.14l4.472 11.255 2.723-.051 4.521-11.354v15.1h2.98V44.595h-4.524l-4.316 11.611-4.314-11.611Z"
+                  data-name="Path 29"
+                />
+                <path
+                  d="M194.359 47.215h4.059a2.259 2.259 0 0 1 2.723 2.774v2.057a3.3 3.3 0 0 1-.565 2.158 3.008 3.008 0 0 1-2.158.617h-4.059Zm8.477 8.991c.873-.771 1.284-2.158 1.284-4.162v-2.106c0-2-.411-3.391-1.284-4.162s-2.363-1.13-4.573-1.13h-6.884V63.09h2.98v-5.7h3.9c2.162-.003 3.704-.414 4.577-1.184Z"
+                  data-name="Path 30"
+                />
+                <path
+                  d="m219.071 63.09-5.806-18.444h-3.648l-5.805 18.444h3.083l1.182-3.751h7.035l1.182 3.751Zm-4.778-6.217h-5.5l2.774-8.837Z"
+                  data-name="Path 31"
+                />
+                <path
+                  d="m223.849 50.246 7.193 12.844h2.776V44.595h-3.031v12.844l-7.246-12.844h-2.723v18.5h3.031Z"
+                  data-name="Path 32"
+                />
+                <path
+                  d="M244.143 56.977 250 44.595h-2.928l-4.316 9.3-4.316-9.3h-2.928l5.857 12.382v6.118h2.774Z"
+                  data-name="Path 33"
+                />
+                <path
+                  d="M52.059 15.259h-3.6l-5.7 19.42h3.031l1.13-3.956h6.884l1.13 3.956h2.774Zm-4.418 12.947 2.723-9.3 2.672 9.3Z"
+                  data-name="Path 34"
+                />
+                <path
+                  d="M66.7 23.274a4.457 4.457 0 0 0 1.8 1.85 12.991 12.991 0 0 0 2.312.976 12.638 12.638 0 0 0 2.312.565 7.321 7.321 0 0 1 1.8.565 1.409 1.409 0 0 1 .771 1.079v.668a1.4 1.4 0 0 1-.411.976 1.519 1.519 0 0 1-1.028.308h-2.315a1.478 1.478 0 0 1-1.028-.462 1.594 1.594 0 0 1-.462-1.13v-.206c0-.462-.206-.668-.565-.668h-3.288c-.411 0-.617.206-.617.668v.206a7.124 7.124 0 0 0 1.593 4.213 4.506 4.506 0 0 0 3.75 1.8h3.545a4.691 4.691 0 0 0 3.751-1.593 6.242 6.242 0 0 0 1.541-3.956v-.514a6.059 6.059 0 0 0-.976-3.545 5.145 5.145 0 0 0-2.415-1.9 17.813 17.813 0 0 0-2.826-.822 13.06 13.06 0 0 1-2.415-.719c-.668-.257-1.028-.668-1.028-1.182v-.465a1.4 1.4 0 0 1 .411-.976 1.519 1.519 0 0 1 1.028-.308h2.055a1.478 1.478 0 0 1 1.028.462 1.594 1.594 0 0 1 .462 1.13v.206c0 .411.206.668.617.668h3.288c.36 0 .565-.206.565-.668v-.206a7.417 7.417 0 0 0-1.541-4.213 4.506 4.506 0 0 0-3.751-1.8h-3.34a4.692 4.692 0 0 0-3.751 1.593 6.242 6.242 0 0 0-1.541 3.956v.308a6.069 6.069 0 0 0 .669 3.136Z"
+                  data-name="Path 35"
+                />
+                <path
+                  d="M82.627 19.06h2.312v9.453a7.124 7.124 0 0 0 1.593 4.213 4.6 4.6 0 0 0 3.8 1.8h3.288c.411 0 .617-.206.617-.668V30.62c0-.462-.206-.668-.617-.668h-2.158a1.478 1.478 0 0 1-1.028-.462 1.594 1.594 0 0 1-.462-1.13v-9.3h3.6c.411 0 .616-.206.616-.668v-3.288c0-.462-.205-.668-.616-.668h-3.6V9.453h-5.035v4.984h-2.312c-.411 0-.616.206-.616.668v3.288c0 .411.205.668.616.668Z"
+                  data-name="Path 36"
+                />
+                <path
+                  d="M125.989 18.702h.514a1.457 1.457 0 0 1 1.13.514 1.556 1.556 0 0 1 .514 1.13v13.512a.619.619 0 0 0 .514.668h3.9a.58.58 0 0 0 .668-.514V20.14a6.422 6.422 0 0 0-1.9-4.367 6.168 6.168 0 0 0-4.418-1.747h-.617a4.2 4.2 0 0 0-4.007 2.261h-.308v-1.336c0-.462-.206-.719-.617-.719h-3.8a.64.64 0 0 0-.719.514v19.009a.618.618 0 0 0 .514.668h3.9a.58.58 0 0 0 .668-.514V20.962a4.382 4.382 0 0 1 4.059-2.261Z"
+                  data-name="Path 37"
+                />
+                <path
+                  d="M147.362 29.593a1.652 1.652 0 0 1-1.081.514h-2.98a1.446 1.446 0 0 1-1.079-.514 1.594 1.594 0 0 1-.462-1.13v-8.118a1.594 1.594 0 0 1 .462-1.13 1.652 1.652 0 0 1 1.079-.514h2.98a1.446 1.446 0 0 1 1.079.514 1.594 1.594 0 0 1 .462 1.13v8.118a1.406 1.406 0 0 1-.46 1.13Zm.205-14.026a3.012 3.012 0 0 0-2.723-1.49h-2.672a4.472 4.472 0 0 0-3.8 1.644 7.273 7.273 0 0 0-1.49 4.418v8.478a8 8 0 0 0 1.49 4.418 4.532 4.532 0 0 0 3.8 1.644h2.672a2.958 2.958 0 0 0 2.723-1.49h.308v.617c0 .462.205.668.668.668h3.6a.6.6 0 0 0 .668-.668v-26.1c0-.462-.205-.719-.668-.719h-3.6c-.36 0-.565.257-.565.719v7.861Z"
+                  data-name="Path 38"
+                />
+                <path
+                  d="m188.158 18.29.257-3.237a.766.766 0 0 0-.462-.771 7.165 7.165 0 0 0-2.107-.206 4.054 4.054 0 0 0-4.007 2.261h-.257v-1.335c0-.462-.154-.719-.514-.719h-3.391c-.411 0-.616.257-.616.719v18.855c0 .462.205.668.616.668h3.34c.411 0 .616-.205.616-.668v-12.9c.719-1.49 2-2.209 4.008-2.209l2 .206c.308 0 .514-.257.514-.668Z"
+                  data-name="Path 39"
+                />
+                <path
+                  d="M200.845 29.593a1.911 1.911 0 0 1-1.13.514h-3.083a1.768 1.768 0 0 1-1.644-1.644v-8.118a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h3.083a1.768 1.768 0 0 1 1.644 1.644v8.118a1.911 1.911 0 0 1-.514 1.13Zm.157-14.026a3.177 3.177 0 0 0-2.826-1.49h-2.774a4.83 4.83 0 0 0-3.956 1.644 7.672 7.672 0 0 0-1.541 4.418v8.478a7.672 7.672 0 0 0 1.541 4.418 4.73 4.73 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V7.706a.64.64 0 0 0-.514-.719h-3.9c-.411 0-.565.257-.565.719v7.861Z"
+                  data-name="Path 40"
+                />
+                <path
+                  d="M167.656 29.588a1.911 1.911 0 0 1-1.13.514h-2.928a1.768 1.768 0 0 1-1.644-1.644v-8.113a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h2.928a1.768 1.768 0 0 1 1.644 1.644v8.118a1.912 1.912 0 0 1-.514 1.125Zm-5.238-15.1c-3.751 0-5.5 3.237-5.5 6.268v7.861a7.672 7.672 0 0 0 1.541 4.418 4.729 4.729 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V14.488Z"
+                  data-name="Path 41"
+                />
+                <path
+                  d="M107.339 29.588a1.911 1.911 0 0 1-1.13.514h-2.929a1.768 1.768 0 0 1-1.644-1.644v-8.113a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h2.928a1.768 1.768 0 0 1 1.644 1.644v8.118a1.911 1.911 0 0 1-.513 1.125Zm-5.289-15.1c-3.75 0-5.5 3.237-5.5 6.268v7.861a7.672 7.672 0 0 0 1.541 4.418 4.73 4.73 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V14.488Z"
+                  data-name="Path 42"
+                />
+                <path
+                  d="M117.666 5.395a1.516 1.516 0 0 0-.565 1.13v3.956c0 .36.257.514.565.257l6.885-5.238a1.021 1.021 0 0 1 1.079 0l6.833 5.24c.308.206.565.1.565-.257V6.525a1.714 1.714 0 0 0-.565-1.13L125.63.154a1.021 1.021 0 0 0-1.079 0Z"
+                  data-name="Path 43"
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -701,12 +841,12 @@ exports[`General Error render correctly 1`] = `
     </div>
   </div>
   <div
-    class="BackToTop-root-144 BackToTop-hidden-145"
+    class="BackToTop-root-134 BackToTop-hidden-135"
   >
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-contained Button-contained-47 BackToTop-button-146 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-45 MuiButton-contained Button-contained-47 BackToTop-button-136 MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
@@ -715,7 +855,7 @@ exports[`General Error render correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root BackToTop-icon-147"
+          class="MuiSvgIcon-root BackToTop-icon-137"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -736,33 +876,33 @@ exports[`General Error render correctly 1`] = `
 exports[`General Error render correctly when errorGeneral is falsy 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-153 Header-headersmall-155 Header-headermedium-156 Header-headerlarge-157 MuiPaper-elevation3"
+    class="MuiPaper-root Header-root-143 Header-headersmall-145 Header-headermedium-146 Header-headerlarge-147 MuiPaper-elevation3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-158"
+      class="Header-utilitiesBar-148"
       role="navigation"
     >
       <div
-        class="Container-root-194"
+        class="Container-root-184"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <ul>
             <li
-              class="Header-navItem-159"
+              class="Header-navItem-149"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Header-utilitiesButton-160 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Header-utilitiesButton-150 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
                 <span
-                  class="MuiButton-label Button-label-199"
+                  class="MuiButton-label Button-label-189"
                 >
                   string
                 </span>
@@ -772,29 +912,29 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </a>
             </li>
             <li
-              class="Header-navItem-159"
+              class="Header-navItem-149"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Header-utilitiesButton-160 Header-languageSelectionButton-161 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Header-utilitiesButton-150 Header-languageSelectionButton-151 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-199"
+                  class="MuiButton-label Button-label-189"
                 >
                   <img
                     alt="Norge"
-                    class="Header-languageIcon-165"
+                    class="Header-languageIcon-155"
                     height="16px"
                     src="/icons/flags/no.svg"
                     width="20px"
                   />
                   NO
                   <span
-                    class="Header-downArrow-162"
+                    class="Header-downArrow-152"
                   >
                     ▾
                   </span>
@@ -809,12 +949,12 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-166 Header-languageDrawer-167"
+      class="Header-drawer-156 Header-languageDrawer-157"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-207 iconButton IconButton-medium-213 IconButton-contained-208 Header-closeButton-168"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-197 iconButton IconButton-medium-203 IconButton-contained-198 Header-closeButton-158"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
@@ -839,22 +979,22 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
         />
       </button>
       <div
-        class="Header-backNavigation-169"
+        class="Header-backNavigation-159"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 Header-backButton-170 MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 Header-backButton-160 MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label Button-label-199"
+            class="MuiButton-label Button-label-189"
           >
             <span
-              class="MuiButton-startIcon Button-startIcon-200 MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon Button-startIcon-190 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root Header-chevronLeft-171"
+                class="MuiSvgIcon-root Header-chevronLeft-161"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -870,46 +1010,46 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
           />
         </button>
         <hr
-          class="Header-separator-172"
+          class="Header-separator-162"
         />
       </div>
       <div
-        class="Container-root-194 Header-languageContainer-173"
+        class="Container-root-184 Header-languageContainer-163"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="LanguageSelection-root-240"
+            class="LanguageSelection-root-230"
           >
             <div>
               <h6
-                class="MuiTypography-root LanguageSelection-heading-241 Typography-root-246 MuiTypography-h6"
+                class="MuiTypography-root LanguageSelection-heading-231 Typography-root-236 MuiTypography-h6"
                 data-testid="typography"
               >
                 Europe
               </h6>
               <div
-                class="MuiGrid-root LanguageSelection-container-242 MuiGrid-container MuiGrid-align-items-xs-center"
+                class="MuiGrid-root LanguageSelection-container-232 MuiGrid-container MuiGrid-align-items-xs-center"
               >
                 <div
-                  class="MuiGrid-root LanguageSelection-item-243 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root LanguageSelection-item-233 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 LanguageSelection-link-244 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 LanguageSelection-link-234 MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-199"
+                      class="MuiButton-label Button-label-189"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon-200 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon Button-startIcon-190 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-languageIcon-245"
+                          class="LanguageSelection-languageIcon-235"
                           height="16px"
                           src="/icons/flags/al.svg"
                           width="20px"
@@ -923,23 +1063,23 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-item-243 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root LanguageSelection-item-233 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 LanguageSelection-link-244 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 LanguageSelection-link-234 MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-199"
+                      class="MuiButton-label Button-label-189"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon-200 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon Button-startIcon-190 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-languageIcon-245"
+                          class="LanguageSelection-languageIcon-235"
                           height="16px"
                           src="/icons/flags/at.svg"
                           width="20px"
@@ -953,23 +1093,23 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   </a>
                 </div>
                 <div
-                  class="MuiGrid-root LanguageSelection-item-243 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                  class="MuiGrid-root LanguageSelection-item-233 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 LanguageSelection-link-244 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 LanguageSelection-link-234 MuiButton-textPrimary"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Norge\\",\\"action\\":\\"/no/\\"}"
                     href="/no"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-199"
+                      class="MuiButton-label Button-label-189"
                     >
                       <span
-                        class="MuiButton-startIcon Button-startIcon-200 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon Button-startIcon-190 MuiButton-iconSizeMedium"
                       >
                         <img
-                          class="LanguageSelection-languageIcon-245"
+                          class="LanguageSelection-languageIcon-235"
                           height="16px"
                           src="/icons/flags/no.svg"
                           width="20px"
@@ -989,29 +1129,43 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-174"
+      class="Header-navigationBar-164"
     >
       <div
-        class="Container-root-194"
+        class="Container-root-184"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="Header-navigationBarContent-175"
+            class="Header-navigationBarContent-165"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-176"
+              class="Header-logoLink-166"
               href="/no/"
             >
               <svg
-                class="Header-logo-177"
-              />
+                class="Header-logo-167"
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h250v250H0z"
+                  fill="#009fe3"
+                />
+                <g
+                  fill="#fff"
+                >
+                  <path
+                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                  />
+                </g>
+              </svg>
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-178"
+              class="Header-navigation-168"
               role="navigation"
             >
               <div
@@ -1030,13 +1184,11 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     role="tablist"
                   >
                     <a
-                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-159 Header-navItemNoChildren-179"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-149 Header-navItemNoChildren-169"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
-                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -1051,18 +1203,18 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-299 PrivateTabIndicator-colorSecondary-301 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-279 PrivateTabIndicator-colorSecondary-281 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-181"
+              class="Header-navigationBarButtons-171"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-207 iconButton IconButton-medium-213 IconButton-contained-208 Header-searchButton-183"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root-197 iconButton IconButton-medium-203 IconButton-contained-198 Header-searchButton-173"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
@@ -1087,7 +1239,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-207 iconButton IconButton-medium-213 IconButton-text-209 Header-burgerButton-185"
+                class="MuiButtonBase-root MuiIconButton-root IconButton-root-197 iconButton IconButton-medium-203 IconButton-text-199 Header-burgerButton-175"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -1117,17 +1269,17 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-186"
+      class="MuiBackdrop-root Header-backdrop-176"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-166 Header-navDrawer-187"
+      class="Header-drawer-156 Header-navDrawer-177"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-207 iconButton IconButton-medium-213 IconButton-contained-208 Header-closeButton-168"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-197 iconButton IconButton-medium-203 IconButton-contained-198 Header-closeButton-158"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -1151,15 +1303,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
         />
       </button>
       <nav
-        class="Navigation-root-216"
+        class="Navigation-root-206"
       >
         <div
-          class="Navigation-navigationList-222 Navigation-offset0-217"
+          class="Navigation-navigationList-212 Navigation-offset0-207"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-230 Typography-root-246 MuiTypography-h6"
+                class="MuiTypography-root Navigation-mainMenuTitle-220 Typography-root-236 MuiTypography-h6"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -1168,14 +1320,14 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
                 <span
-                  class="MuiButton-label Button-label-199"
+                  class="MuiButton-label Button-label-189"
                 >
                   string
                 </span>
@@ -1185,18 +1337,18 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </a>
             </li>
             <ul
-              class="Navigation-utilities-234"
+              class="Navigation-utilities-224"
             >
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="https://www.external.co.uk"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label Button-label-199"
+                    class="MuiButton-label Button-label-189"
                   >
                     string
                   </span>
@@ -1208,20 +1360,20 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Navigation-navigationListButton-237 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Navigation-navigationListButton-227 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-199"
+                  class="MuiButton-label Button-label-189"
                 >
                   <span
-                    class="Navigation-languageButtonContent-235"
+                    class="Navigation-languageButtonContent-225"
                   >
                     <img
                       alt="Norge"
-                      class="Navigation-languageIcon-236"
+                      class="Navigation-languageIcon-226"
                       height="16px"
                       src="/icons/flags/no.svg"
                       width="20px"
@@ -1233,7 +1385,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-228"
+                      class="MuiSvgIcon-root Navigation-chevronRight-218"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1253,15 +1405,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-188"
+      class="Header-searchDrawerContainer-178"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-166 Header-searchDrawer-190"
+        class="Header-drawer-156 Header-searchDrawer-180"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-207 iconButton IconButton-medium-213 IconButton-contained-208 Header-closeButton-168"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-197 iconButton IconButton-medium-203 IconButton-contained-198 Header-closeButton-158"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
@@ -1285,7 +1437,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-246 MuiTypography-h4"
+          class="MuiTypography-root Typography-root-236 MuiTypography-h4"
           data-testid="typography"
         >
           MC: search.title
@@ -1298,48 +1450,48 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="PromoSection-root-266 Section-root-273 Section-white-277"
+      class="PromoSection-root-246 Section-root-253 Section-white-257"
     >
       <div
-        class="Container-root-194"
+        class="Container-root-184"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root PromoSection-grid-272 MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root PromoSection-grid-252 MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root Grid-item-254 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root Grid-item-244 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
             >
               <div
-                class="PromoSection-content-269"
+                class="PromoSection-content-249"
               >
                 <h2
-                  class="MuiTypography-root PromoSection-title-267 Typography-root-246 Typography-underline-248 MuiTypography-h2"
+                  class="MuiTypography-root PromoSection-title-247 Typography-root-236 Typography-underline-238 MuiTypography-h2"
                   data-testid="typography"
                 >
                   Error:General.title
                 </h2>
                 <h3
-                  class="MuiTypography-root PromoSection-subtitle-268 Typography-root-246 MuiTypography-h3"
+                  class="MuiTypography-root PromoSection-subtitle-248 Typography-root-236 MuiTypography-h3"
                   data-testid="typography"
                 >
                   Error:General.title
                 </h3>
                 <p
-                  class="MuiTypography-root Typography-root-246 MuiTypography-body2 MuiTypography-gutterBottom"
+                  class="MuiTypography-root Typography-root-236 MuiTypography-body2 MuiTypography-gutterBottom"
                   data-testid="typography"
                 >
                   Error:General.subtitle
                 </p>
                 <button
-                  class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-contained Button-contained-198 MuiButton-containedPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-contained Button-contained-188 MuiButton-containedPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label Button-label-199"
+                    class="MuiButton-label Button-label-189"
                   >
                     Error:General.cta.label
                   </span>
@@ -1350,7 +1502,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root Grid-item-254 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root Grid-item-244 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
             />
           </div>
         </div>
@@ -1358,14 +1510,14 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
   </div>
   <div
-    class="HidePrint-root-152"
+    class="HidePrint-root-142"
   >
     <div
-      class="Footer-root-283"
+      class="Footer-root-263"
       data-testid="footer"
     >
       <div
-        class="Container-root-194"
+        class="Container-root-184"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -1374,10 +1526,10 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
-              class="MuiGrid-root Grid-item-254 MuiGrid-item"
+              class="MuiGrid-root Grid-item-244 MuiGrid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-246 MuiTypography-h4"
+                class="MuiTypography-root Typography-root-236 MuiTypography-h4"
                 data-testid="typography"
               >
                 string
@@ -1385,22 +1537,37 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-290"
+            class="Footer-secondaryNavigation-270"
           >
             <div
-              class="Footer-logo-291"
+              class="Footer-logo-271"
             >
-              <svg />
+              <svg
+                viewBox="0 0 250 250"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h250v250H0z"
+                  fill="#009fe3"
+                />
+                <g
+                  fill="#fff"
+                >
+                  <path
+                    d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
+                  />
+                </g>
+              </svg>
             </div>
             <ul
-              class="Footer-list-289 Footer-listInline-292"
+              class="Footer-list-269 Footer-listInline-272"
             >
               <li
-                class="Footer-listItem-284"
+                class="Footer-listItem-264"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Button-textDarkBg-201 Footer-link-288 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Button-textDarkBg-191 Footer-link-268 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                   href="https://www.external.co.uk"
                   rel="noopener noreferrer"
@@ -1408,7 +1575,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   target="_blank"
                 >
                   <span
-                    class="MuiButton-label Button-label-199"
+                    class="MuiButton-label Button-label-189"
                   >
                     string
                   </span>
@@ -1418,18 +1585,18 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 </a>
               </li>
               <li
-                class="Footer-listItem-284"
+                class="Footer-listItem-264"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-text Button-text-197 Button-textDarkBg-201 Footer-link-288 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-text Button-text-187 Button-textDarkBg-191 Footer-link-268 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
                   href="/no/sitemap/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label Button-label-199"
+                    class="MuiButton-label Button-label-189"
                   >
                     MC: global.sitemap
                   </span>
@@ -1440,9 +1607,122 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-293"
+              class="Footer-standardLogo-273"
             >
-              <svg />
+              <svg
+                data-name="logo Standard Centred"
+                viewBox="0 0 250 63.347"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 44.595h2.928v18.444H0z"
+                  data-name="Rectangle 102"
+                />
+                <path
+                  d="m9.248 50.246 6.987 12.849h2.723v-18.5h-2.98v12.844L8.94 44.595H6.268v18.5h2.98Z"
+                  data-name="Path 19"
+                />
+                <path
+                  d="M34.525 61.806c.822-.873 1.233-2.415 1.233-4.727v-6.422c0-2.312-.411-3.9-1.233-4.727-.822-.873-2.363-1.284-4.573-1.284H22.76V63.09h7.244c2.156 0 3.699-.462 4.521-1.284Zm-2.312-1.952a3.3 3.3 0 0 1-2.466.668h-4.11V47.215h4.11a3.3 3.3 0 0 1 2.466.668 4.469 4.469 0 0 1 .617 2.826v6.319a4.469 4.469 0 0 1-.617 2.826Z"
+                  data-name="Path 20"
+                />
+                <path
+                  d="M48.603 44.595v12.639a4.469 4.469 0 0 1-.617 2.826 3.233 3.233 0 0 1-2.415.668h-1.592a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.617-2.826V44.595h-2.928v12.639q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.9c2.261 0 3.751-.411 4.573-1.284q1.233-1.233 1.233-4.778V44.595Z"
+                  data-name="Path 21"
+                />
+                <path
+                  d="M66.173 54.51a5.152 5.152 0 0 0-2.826-1.439l-3.6-.925a5.057 5.057 0 0 1-2.055-.822 2.482 2.482 0 0 1-.411-1.593v-.719a1.912 1.912 0 0 1 .514-1.593 3.638 3.638 0 0 1 2-.411h1.233a3.517 3.517 0 0 1 2 .411 1.912 1.912 0 0 1 .514 1.593v1.13h2.928v-.873c0-1.8-.36-3.083-1.13-3.751s-2.209-1.028-4.316-1.028h-1.336c-2.158 0-3.6.36-4.316 1.028-.771.668-1.13 1.952-1.13 3.751v.514a5.488 5.488 0 0 0 .719 3.185 5.152 5.152 0 0 0 2.826 1.439l3.6.925a4.725 4.725 0 0 1 2.055.822 2.482 2.482 0 0 1 .411 1.593v1.079a1.912 1.912 0 0 1-.514 1.593 3.638 3.638 0 0 1-2 .411h-1.284a3.518 3.518 0 0 1-2-.411 1.912 1.912 0 0 1-.514-1.593v-1.182h-2.927v.873c0 1.8.36 3.083 1.13 3.75s2.209 1.028 4.316 1.028h1.387c2.158 0 3.6-.36 4.316-1.028.771-.668 1.13-1.952 1.13-3.75v-.825a5.018 5.018 0 0 0-.72-3.182Z"
+                  data-name="Path 22"
+                />
+                <path
+                  d="M73.058 47.215v15.88h2.928v-15.88h4.47v-2.62H68.074v2.62Z"
+                  data-name="Path 23"
+                />
+                <path
+                  d="M94.123 49.938c0-2-.411-3.391-1.284-4.162s-2.363-1.13-4.521-1.13h-6.834V63.09h2.928v-5.96h3.751l2.877 5.96h3.083l-3.083-6.217a3.793 3.793 0 0 0 2.363-1.593 6.873 6.873 0 0 0 .719-3.442Zm-9.659-2.723h4.007a2.786 2.786 0 0 1 2.107.616 3.022 3.022 0 0 1 .565 2.158v1.8a3.3 3.3 0 0 1-.565 2.158 2.866 2.866 0 0 1-2.107.617h-4.007Z"
+                  data-name="Path 24"
+                />
+                <path
+                  d="M97.359 44.595h2.928v18.444h-2.928z"
+                  data-name="Rectangle 103"
+                />
+                <path
+                  d="M114.776 60.522h-8.22v-5.395h7.09v-2.62h-7.09v-5.292h8.066v-2.62h-10.995v18.5h11.149Z"
+                  data-name="Path 25"
+                />
+                <path
+                  d="M128.545 54.51a5.152 5.152 0 0 0-2.826-1.439l-3.6-.925a5.057 5.057 0 0 1-2.055-.822 2.483 2.483 0 0 1-.411-1.593v-.719a1.913 1.913 0 0 1 .514-1.593 3.638 3.638 0 0 1 2-.411h1.233a3.517 3.517 0 0 1 2 .411 1.912 1.912 0 0 1 .514 1.593v1.13h2.928v-.873c0-1.8-.36-3.083-1.13-3.751s-2.209-1.028-4.316-1.028h-1.336c-2.158 0-3.6.36-4.316 1.028-.771.668-1.13 1.952-1.13 3.751v.514a5.489 5.489 0 0 0 .719 3.185 5.152 5.152 0 0 0 2.826 1.439l3.6.925a4.725 4.725 0 0 1 2.055.822 2.482 2.482 0 0 1 .411 1.593v1.079a1.912 1.912 0 0 1-.514 1.593 3.638 3.638 0 0 1-2 .411h-1.284a3.518 3.518 0 0 1-2-.411 1.912 1.912 0 0 1-.514-1.593v-1.182h-2.927v.873c0 1.8.36 3.083 1.13 3.75s2.209 1.028 4.316 1.028h1.387c2.158 0 3.6-.36 4.316-1.028.771-.668 1.13-1.952 1.13-3.75v-.825a5.377 5.377 0 0 0-.72-3.182Z"
+                  data-name="Path 26"
+                />
+                <path
+                  d="M149.352 57.747c0 1.439-.206 1.85-.617 2.312a3.233 3.233 0 0 1-2.415.668h-1.54a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.616-2.826v-6.781a4.469 4.469 0 0 1 .616-2.826 3.234 3.234 0 0 1 2.415-.668h1.54a3.156 3.156 0 0 1 2.415.668c.411.462.617.873.617 2.312v1.233h2.928v-1.284c0-2.312-.411-3.391-1.233-4.264s-2.363-1.284-4.573-1.284h-1.85c-2.261 0-3.75.411-4.573 1.284q-1.233 1.233-1.233 4.778v6.837q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.85c2.261 0 3.751-.411 4.573-1.284.822-.822 1.233-1.9 1.233-4.264v-1.238h-2.928Z"
+                  data-name="Path 27"
+                />
+                <path
+                  d="M166.872 45.673c-.822-.822-2.363-1.284-4.572-1.284h-1.9c-2.261 0-3.75.411-4.573 1.284q-1.233 1.233-1.233 4.778v6.838q0 3.468 1.233 4.778c.822.822 2.363 1.284 4.573 1.284h1.9c2.26 0 3.75-.411 4.572-1.284q1.233-1.233 1.233-4.778v-6.838q0-3.545-1.233-4.778Zm-2.312 14.386a3.233 3.233 0 0 1-2.415.668h-1.592a3.156 3.156 0 0 1-2.415-.668 4.469 4.469 0 0 1-.617-2.826v-6.782a4.469 4.469 0 0 1 .617-2.826 3.233 3.233 0 0 1 2.415-.668h1.593a3.156 3.156 0 0 1 2.415.668 4.469 4.469 0 0 1 .617 2.826v6.782a4.469 4.469 0 0 1-.618 2.826Z"
+                  data-name="Path 28"
+                />
+                <path
+                  d="M170.982 44.595v18.5h2.928V48.14l4.472 11.255 2.723-.051 4.521-11.354v15.1h2.98V44.595h-4.524l-4.316 11.611-4.314-11.611Z"
+                  data-name="Path 29"
+                />
+                <path
+                  d="M194.359 47.215h4.059a2.259 2.259 0 0 1 2.723 2.774v2.057a3.3 3.3 0 0 1-.565 2.158 3.008 3.008 0 0 1-2.158.617h-4.059Zm8.477 8.991c.873-.771 1.284-2.158 1.284-4.162v-2.106c0-2-.411-3.391-1.284-4.162s-2.363-1.13-4.573-1.13h-6.884V63.09h2.98v-5.7h3.9c2.162-.003 3.704-.414 4.577-1.184Z"
+                  data-name="Path 30"
+                />
+                <path
+                  d="m219.071 63.09-5.806-18.444h-3.648l-5.805 18.444h3.083l1.182-3.751h7.035l1.182 3.751Zm-4.778-6.217h-5.5l2.774-8.837Z"
+                  data-name="Path 31"
+                />
+                <path
+                  d="m223.849 50.246 7.193 12.844h2.776V44.595h-3.031v12.844l-7.246-12.844h-2.723v18.5h3.031Z"
+                  data-name="Path 32"
+                />
+                <path
+                  d="M244.143 56.977 250 44.595h-2.928l-4.316 9.3-4.316-9.3h-2.928l5.857 12.382v6.118h2.774Z"
+                  data-name="Path 33"
+                />
+                <path
+                  d="M52.059 15.259h-3.6l-5.7 19.42h3.031l1.13-3.956h6.884l1.13 3.956h2.774Zm-4.418 12.947 2.723-9.3 2.672 9.3Z"
+                  data-name="Path 34"
+                />
+                <path
+                  d="M66.7 23.274a4.457 4.457 0 0 0 1.8 1.85 12.991 12.991 0 0 0 2.312.976 12.638 12.638 0 0 0 2.312.565 7.321 7.321 0 0 1 1.8.565 1.409 1.409 0 0 1 .771 1.079v.668a1.4 1.4 0 0 1-.411.976 1.519 1.519 0 0 1-1.028.308h-2.315a1.478 1.478 0 0 1-1.028-.462 1.594 1.594 0 0 1-.462-1.13v-.206c0-.462-.206-.668-.565-.668h-3.288c-.411 0-.617.206-.617.668v.206a7.124 7.124 0 0 0 1.593 4.213 4.506 4.506 0 0 0 3.75 1.8h3.545a4.691 4.691 0 0 0 3.751-1.593 6.242 6.242 0 0 0 1.541-3.956v-.514a6.059 6.059 0 0 0-.976-3.545 5.145 5.145 0 0 0-2.415-1.9 17.813 17.813 0 0 0-2.826-.822 13.06 13.06 0 0 1-2.415-.719c-.668-.257-1.028-.668-1.028-1.182v-.465a1.4 1.4 0 0 1 .411-.976 1.519 1.519 0 0 1 1.028-.308h2.055a1.478 1.478 0 0 1 1.028.462 1.594 1.594 0 0 1 .462 1.13v.206c0 .411.206.668.617.668h3.288c.36 0 .565-.206.565-.668v-.206a7.417 7.417 0 0 0-1.541-4.213 4.506 4.506 0 0 0-3.751-1.8h-3.34a4.692 4.692 0 0 0-3.751 1.593 6.242 6.242 0 0 0-1.541 3.956v.308a6.069 6.069 0 0 0 .669 3.136Z"
+                  data-name="Path 35"
+                />
+                <path
+                  d="M82.627 19.06h2.312v9.453a7.124 7.124 0 0 0 1.593 4.213 4.6 4.6 0 0 0 3.8 1.8h3.288c.411 0 .617-.206.617-.668V30.62c0-.462-.206-.668-.617-.668h-2.158a1.478 1.478 0 0 1-1.028-.462 1.594 1.594 0 0 1-.462-1.13v-9.3h3.6c.411 0 .616-.206.616-.668v-3.288c0-.462-.205-.668-.616-.668h-3.6V9.453h-5.035v4.984h-2.312c-.411 0-.616.206-.616.668v3.288c0 .411.205.668.616.668Z"
+                  data-name="Path 36"
+                />
+                <path
+                  d="M125.989 18.702h.514a1.457 1.457 0 0 1 1.13.514 1.556 1.556 0 0 1 .514 1.13v13.512a.619.619 0 0 0 .514.668h3.9a.58.58 0 0 0 .668-.514V20.14a6.422 6.422 0 0 0-1.9-4.367 6.168 6.168 0 0 0-4.418-1.747h-.617a4.2 4.2 0 0 0-4.007 2.261h-.308v-1.336c0-.462-.206-.719-.617-.719h-3.8a.64.64 0 0 0-.719.514v19.009a.618.618 0 0 0 .514.668h3.9a.58.58 0 0 0 .668-.514V20.962a4.382 4.382 0 0 1 4.059-2.261Z"
+                  data-name="Path 37"
+                />
+                <path
+                  d="M147.362 29.593a1.652 1.652 0 0 1-1.081.514h-2.98a1.446 1.446 0 0 1-1.079-.514 1.594 1.594 0 0 1-.462-1.13v-8.118a1.594 1.594 0 0 1 .462-1.13 1.652 1.652 0 0 1 1.079-.514h2.98a1.446 1.446 0 0 1 1.079.514 1.594 1.594 0 0 1 .462 1.13v8.118a1.406 1.406 0 0 1-.46 1.13Zm.205-14.026a3.012 3.012 0 0 0-2.723-1.49h-2.672a4.472 4.472 0 0 0-3.8 1.644 7.273 7.273 0 0 0-1.49 4.418v8.478a8 8 0 0 0 1.49 4.418 4.532 4.532 0 0 0 3.8 1.644h2.672a2.958 2.958 0 0 0 2.723-1.49h.308v.617c0 .462.205.668.668.668h3.6a.6.6 0 0 0 .668-.668v-26.1c0-.462-.205-.719-.668-.719h-3.6c-.36 0-.565.257-.565.719v7.861Z"
+                  data-name="Path 38"
+                />
+                <path
+                  d="m188.158 18.29.257-3.237a.766.766 0 0 0-.462-.771 7.165 7.165 0 0 0-2.107-.206 4.054 4.054 0 0 0-4.007 2.261h-.257v-1.335c0-.462-.154-.719-.514-.719h-3.391c-.411 0-.616.257-.616.719v18.855c0 .462.205.668.616.668h3.34c.411 0 .616-.205.616-.668v-12.9c.719-1.49 2-2.209 4.008-2.209l2 .206c.308 0 .514-.257.514-.668Z"
+                  data-name="Path 39"
+                />
+                <path
+                  d="M200.845 29.593a1.911 1.911 0 0 1-1.13.514h-3.083a1.768 1.768 0 0 1-1.644-1.644v-8.118a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h3.083a1.768 1.768 0 0 1 1.644 1.644v8.118a1.911 1.911 0 0 1-.514 1.13Zm.157-14.026a3.177 3.177 0 0 0-2.826-1.49h-2.774a4.83 4.83 0 0 0-3.956 1.644 7.672 7.672 0 0 0-1.541 4.418v8.478a7.672 7.672 0 0 0 1.541 4.418 4.73 4.73 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V7.706a.64.64 0 0 0-.514-.719h-3.9c-.411 0-.565.257-.565.719v7.861Z"
+                  data-name="Path 40"
+                />
+                <path
+                  d="M167.656 29.588a1.911 1.911 0 0 1-1.13.514h-2.928a1.768 1.768 0 0 1-1.644-1.644v-8.113a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h2.928a1.768 1.768 0 0 1 1.644 1.644v8.118a1.912 1.912 0 0 1-.514 1.125Zm-5.238-15.1c-3.751 0-5.5 3.237-5.5 6.268v7.861a7.672 7.672 0 0 0 1.541 4.418 4.729 4.729 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V14.488Z"
+                  data-name="Path 41"
+                />
+                <path
+                  d="M107.339 29.588a1.911 1.911 0 0 1-1.13.514h-2.929a1.768 1.768 0 0 1-1.644-1.644v-8.113a1.65 1.65 0 0 1 .514-1.13 1.911 1.911 0 0 1 1.13-.514h2.928a1.768 1.768 0 0 1 1.644 1.644v8.118a1.911 1.911 0 0 1-.513 1.125Zm-5.289-15.1c-3.75 0-5.5 3.237-5.5 6.268v7.861a7.672 7.672 0 0 0 1.541 4.418 4.73 4.73 0 0 0 3.9 1.644h2.774a3.177 3.177 0 0 0 2.826-1.49h.308v.617a.58.58 0 0 0 .514.668h3.853a.619.619 0 0 0 .668-.514V14.488Z"
+                  data-name="Path 42"
+                />
+                <path
+                  d="M117.666 5.395a1.516 1.516 0 0 0-.565 1.13v3.956c0 .36.257.514.565.257l6.885-5.238a1.021 1.021 0 0 1 1.079 0l6.833 5.24c.308.206.565.1.565-.257V6.525a1.714 1.714 0 0 0-.565-1.13L125.63.154a1.021 1.021 0 0 0-1.079 0Z"
+                  data-name="Path 43"
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -1450,21 +1730,21 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
   </div>
   <div
-    class="BackToTop-root-295 BackToTop-hidden-296"
+    class="BackToTop-root-275 BackToTop-hidden-276"
   >
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root Button-root-196 MuiButton-contained Button-contained-198 BackToTop-button-297 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-186 MuiButton-contained Button-contained-188 BackToTop-button-277 MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label Button-label-199"
+        class="MuiButton-label Button-label-189"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root BackToTop-icon-298"
+          class="MuiSvgIcon-root BackToTop-icon-278"
           focusable="false"
           viewBox="0 0 24 24"
         >

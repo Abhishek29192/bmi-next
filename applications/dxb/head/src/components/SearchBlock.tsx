@@ -1,10 +1,13 @@
-import { InputValue } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { PostItCard } from "@bmi/components";
-import { Search, QUERY_KEY } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import {
+  Grid,
+  InputValue,
+  PostItCard,
+  QUERY_KEY,
+  Search,
+  Typography
+} from "@bmi-digital/components";
 import classnames from "classnames";
-import React, { FormEvent, useState, useEffect } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import RichText from "../components/RichText";
 import { getPathWithCountryCode } from "../utils/path";
 import styles from "./styles/SearchBlock.module.scss";

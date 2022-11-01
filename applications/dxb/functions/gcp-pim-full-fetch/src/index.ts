@@ -28,12 +28,8 @@ const pubSubClient = new PubSub({
 let topicPublisher: Topic;
 const getTopicPublisher = () => {
   if (!topicPublisher) {
-    logger.error({ message: "No topicPublisher" });
     topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
   }
-  logger.info({
-    message: `TopicPublisher is ${topicPublisher}`
-  });
   return topicPublisher;
 };
 

@@ -1,15 +1,20 @@
-import React, { useEffect, useContext } from "react";
-import { useTranslation } from "next-i18next";
+import {
+  FlatRoof,
+  FormContext,
+  Grid,
+  Icon,
+  PitchedRoof,
+  RadioGroup,
+  TextFieldProps,
+  Typography,
+  ValidationResult
+} from "@bmi-digital/components";
 import { Technology } from "@bmi/intouch-api-types";
-import { FormContext, ValidationResult } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { RadioGroup } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
-import { TextFieldProps } from "@bmi/components";
-import { getFieldValueLabel } from "./Form";
+import { useTranslation } from "next-i18next";
+import React, { useContext, useEffect } from "react";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
+import { getFieldValueLabel } from "./Form";
 
 const FlatIconWrapper: React.FunctionComponent<
   React.SVGProps<SVGSVGElement>
@@ -79,9 +84,9 @@ const TechnologyInput = (props: TechnologyInputProps) => {
   return (
     // TODO: types still don't align on `name`.
     <RadioGroup {...props} name={name}>
-      <Grid container className={styles.technologyGrid}>
+      <Grid nonce={undefined} container className={styles.technologyGrid}>
         {["PITCHED", "FLAT"].map((value) => (
-          <Grid item md={6} key={value}>
+          <Grid nonce={undefined} item md={6} key={value}>
             <RadioGroup.Item
               name={name}
               value={value}

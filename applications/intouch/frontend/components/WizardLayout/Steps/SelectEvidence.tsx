@@ -1,6 +1,6 @@
-import React from "react";
-import { Upload } from "@bmi/components";
+import { Upload } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
+import React from "react";
 import { useWizardContext } from "../WizardContext";
 
 const SelectEvidence = () => {

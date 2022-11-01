@@ -17,7 +17,7 @@ export type HeroItem = {
   media?: React.ReactElement<AcceptedNode>;
   /** Only required for level 1 */
   children: React.ReactNode;
-  cta?: React.ReactNode;
+  cta?: React.ReactElement;
   hasUnderline?: boolean;
 };
 

@@ -1,10 +1,14 @@
-import React from "react";
-import { Typography } from "@bmi/components";
-import { Card, CardContent, CardHeader } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { Delete } from "@material-ui/icons";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Icon,
+  Typography
+} from "@bmi-digital/components";
 import IconButton from "@material-ui/core/IconButton";
+import { Delete } from "@material-ui/icons";
 import classnames from "classnames";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export type WizardProductDetailCardProp = {

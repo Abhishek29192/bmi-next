@@ -6,12 +6,12 @@ import {
   ProductOverviewPaneProps,
   Thumbnail,
   ThumbnailProps
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";

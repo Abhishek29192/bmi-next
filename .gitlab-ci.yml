@@ -16,7 +16,6 @@ include:
   - local: "/applications/redirects-website-nl-monier/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-redland/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-icopal/.gitlab-ci.yml"
-  - local: "/components/.gitlab-ci.yml"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
@@ -147,7 +146,7 @@ open_mr_prod_to_preprod_to_master:
 environment_definer:
   stage: post deploy
   rules:
-   - if: !reference [.run_for_prod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   when: manual
   script:
     - |
@@ -163,11 +162,11 @@ environment_definer:
   artifacts:
     reports:
       dotenv: auto_test.env
-  
+
 .auto_tests:
   stage: post deploy
-  rules: 
-  - if: !reference [.run_for_prod_release, rules, if]
+  rules:
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     project: $market
     browser: $browser
@@ -197,7 +196,7 @@ environment_definer:
       -F "variables[tag]=$tag" \
       https://gitlab.com/api/v4/projects/31983248/trigger/pipeline | jq -r ".web_url"
 
-      printf "${nc}${red} Follow next link for ${market^^} market pipeline ↑ ${nc}" 
+      printf "${nc}${red} Follow next link for ${market^^} market pipeline ↑ ${nc}"
   needs:
     job: environment_definer
     artifacts: true

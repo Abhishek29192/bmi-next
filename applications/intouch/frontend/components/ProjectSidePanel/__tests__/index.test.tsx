@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent } from "@testing-library/react";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
 import { default as React, Dispatch } from "react";

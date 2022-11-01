@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { BLOCKS, Document, INLINES } from "@contentful/rich-text-types";
 import { render } from "@testing-library/react";
 import React from "react";

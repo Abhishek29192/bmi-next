@@ -1,10 +1,10 @@
-import React from "react";
-import { useTranslation } from "next-i18next";
+import { Typography } from "@bmi-digital/components";
 import UserIcon from "@material-ui/icons/Person";
-import { Typography } from "@bmi/components";
+import { useTranslation } from "next-i18next";
+import React from "react";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { SimpleCard } from "../SimpleCard";
 import { EmailLink, PhoneNumberLink } from "../../IconLink";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 type BmiContactDetailsProps = {

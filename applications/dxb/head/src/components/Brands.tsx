@@ -5,7 +5,7 @@ import {
   Grid,
   logoIconMap,
   Section
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { graphql, Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";

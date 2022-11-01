@@ -1,19 +1,19 @@
-import React, { useMemo, ReactNode } from "react";
-import { useTranslation } from "react-i18next";
+import { Typography } from "@bmi-digital/components";
+import { Account } from "@bmi/intouch-api-types";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import { Typography } from "@bmi/components";
-import { Account } from "@bmi/intouch-api-types";
+import React, { ReactNode, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { MediaItem } from "../../lib/media/types";
 import {
   getMediaItemMeta,
   getMediaItemSize,
   isExternalLink
 } from "../../lib/media/utils";
-import { Link } from "../Link";
 import can from "../../lib/permissions/can";
-import { MediaTileThumbnail } from "./Thumbnail";
+import { Link } from "../Link";
 import styles from "./styles.module.scss";
+import { MediaTileThumbnail } from "./Thumbnail";
 
 export type MediaTileProps = {
   mediaItem: MediaItem;

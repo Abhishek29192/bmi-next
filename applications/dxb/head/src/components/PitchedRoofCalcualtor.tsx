@@ -1,5 +1,5 @@
+import { MicroCopy } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
-import { MicroCopy } from "@bmi/components";
 import fetch from "node-fetch";
 import React, {
   createContext,

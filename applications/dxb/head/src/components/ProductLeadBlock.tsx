@@ -10,7 +10,7 @@ import {
   Tabs,
   ThemeOptions,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";

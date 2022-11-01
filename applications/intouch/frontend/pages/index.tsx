@@ -1,30 +1,32 @@
-import React, { useMemo, useState } from "react";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
-import { useTranslation } from "next-i18next";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import {
+  Button,
+  Carousel,
+  Hero,
+  OverviewCard,
+  Section,
+  Typography
+} from "@bmi-digital/components";
 import { Account } from "@bmi/intouch-api-types";
-import { Button } from "@bmi/components";
-import { Hero } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Carousel } from "@bmi/components";
-import { OverviewCard } from "@bmi/components";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React, { useMemo, useState } from "react";
+import { SimpleCard } from "../components/Cards/SimpleCard";
+import { MerchandiseCTA } from "../components/Cta/Merchandise";
+import { Layout } from "../components/Layout";
+import { Link } from "../components/Link";
+import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dialog";
+import { RichText } from "../components/RichText";
 import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
-import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
-import { Layout } from "../components/Layout";
-import { SimpleCard } from "../components/Cards/SimpleCard";
-import { RichText } from "../components/RichText";
-import { Link } from "../components/Link";
-import logger from "../lib/logger";
 import { findAccountCompany, findAccountTier } from "../lib/account";
-import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dialog";
+import logger from "../lib/logger";
+import { GlobalPageProps, withPage } from "../lib/middleware/withPage";
 import AccessControl from "../lib/permissions/AccessControl";
-import styles from "../styles/Homepage.module.scss";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
-import { MerchandiseCTA } from "../components/Cta/Merchandise";
 import { getGtmData } from "../lib/utils/gtm";
+import styles from "../styles/Homepage.module.scss";
 
 export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];

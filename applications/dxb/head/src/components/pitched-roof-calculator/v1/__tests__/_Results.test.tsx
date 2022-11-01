@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";

@@ -1,4 +1,5 @@
-import { Button, Typography } from "@bmi/components";
+import { Button, Section, Typography } from "@bmi-digital/components";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import React, {
   useCallback,
   useContext,
@@ -6,12 +7,13 @@ import React, {
   useMemo,
   useState
 } from "react";
-import { Section } from "@bmi/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import { microCopy } from "../../../constants/microCopies";
 import { devLog } from "../../../utils/devLog";
+import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import FormSection from "../../FormSection";
+import RichText from "../../RichText";
 import { useSiteContext } from "../../Site";
+import { Data as TitleWithContentType } from "../../TitleWithContent";
 import { SourceType } from "../../types/FormSectionTypes";
 import { AnalyticsContext } from "../helpers/analytics";
 import { ResultsRow } from "../types";
@@ -22,9 +24,6 @@ import {
   TileOptionSelections,
   Underlay
 } from "../types/v2";
-import { Data as TitleWithContentType } from "../../TitleWithContent";
-import RichText from "../../RichText";
-import { useIsMobileDevice } from "../../../utils/useIsMobileDevice";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";

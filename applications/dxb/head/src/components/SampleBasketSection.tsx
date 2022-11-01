@@ -1,4 +1,4 @@
-import { Button, Section } from "@bmi/components";
+import { Button, Section } from "@bmi-digital/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import React, { useEffect, useState } from "react";

@@ -1,8 +1,7 @@
+import { Button, Hero } from "@bmi-digital/components";
 import React from "react";
-import { Hero } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { TrainingProcessCard } from "../TrainingProcess";
 import { TrainingQuery } from "../../../graphql/generated/operations";
+import { TrainingProcessCard } from "../TrainingProcess";
 
 type TrainingCoverProps = {
   trainingContentCollection: TrainingQuery["trainingContentCollection"];

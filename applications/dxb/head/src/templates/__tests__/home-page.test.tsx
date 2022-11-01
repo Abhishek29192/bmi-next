@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as OverlapCardData } from "../../components/OverlapCards";

@@ -17,7 +17,7 @@ import {
 } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
-import { GTM } from "../";
+import { GTM } from "..";
 import Button from "../button/Button";
 import Clickable, {
   ClickableAction,

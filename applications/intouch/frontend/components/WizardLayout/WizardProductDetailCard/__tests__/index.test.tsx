@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { WizardProductDetailCard } from "..";
 import { render } from "../../../../lib/tests/utils";

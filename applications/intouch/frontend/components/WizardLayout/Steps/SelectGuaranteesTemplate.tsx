@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Select, SelectMenuItem } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
+import React, { useEffect, useState } from "react";
+import { useMarketContext } from "../../../context/MarketContext";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
 import { GetGuaranteeTemplatesQuery } from "../../../graphql/generated/operations";
-import { useWizardContext } from "../WizardContext";
 import { parseMarketTag } from "../../../lib/utils";
-import { useMarketContext } from "../../../context/MarketContext";
+import { useWizardContext } from "../WizardContext";
 
 const SelectGuaranteesTemplate = () => {
   const { data, setData, previousStep, gotoNext, gotoBack } =

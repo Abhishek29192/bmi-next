@@ -1,4 +1,3 @@
-import logger from "@bmi-digital/functions-logger";
 import {
   Button,
   ButtonProps,
@@ -8,7 +7,8 @@ import {
   Icon,
   iconMap,
   Table
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import logger from "@bmi-digital/functions-logger";
 import {
   ContentfulDocument as EsContentfulDocument,
   PimProductDocument as EsPimDocument,

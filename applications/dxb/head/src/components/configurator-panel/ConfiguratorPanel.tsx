@@ -1,4 +1,4 @@
-import { Typography } from "@bmi/components";
+import { Typography } from "@bmi-digital/components";
 import Accordion, { AccordionProps } from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";

@@ -1,11 +1,9 @@
+import { Grid, Hero, Typography } from "@bmi-digital/components";
 import React from "react";
-import { Grid } from "@bmi/components";
-import { Hero } from "@bmi/components";
-import { Typography } from "@bmi/components";
 import { TrainingQuery } from "../../graphql/generated/operations";
+import GridStyles from "../../styles/Grid.module.scss";
 import { CourseDescription } from "../Cards/CourseDescription";
 import { TrainingProcessCard } from "../Cards/TrainingProcess";
-import GridStyles from "../../styles/Grid.module.scss";
 import { Training } from "../SidePanel/index.stories";
 import { Layout, LayoutProps } from ".";
 
@@ -46,12 +44,13 @@ export const Main = ({ title }: LayoutProps) => (
     <div style={{ display: "flex" }}>
       <Training />
       <Grid
+        nonce={undefined}
         container
         spacing={3}
         className={GridStyles.outerGrid}
         alignItems="stretch"
       >
-        <Grid item xs={12}>
+        <Grid nonce={undefined} item xs={12}>
           <Hero media={media} title="BMI Academy" level={1}>
             BMI Academy offers the best training and the most comprehensive
             educational resources for roofing specialists in Poland. BMI Academy
@@ -77,12 +76,13 @@ export const TrainingCoursePage = ({ title }: LayoutProps) => (
     <div style={{ display: "flex" }}>
       <Training />
       <Grid
+        nonce={undefined}
         container
         spacing={3}
         className={GridStyles.outerGrid}
         alignItems="stretch"
       >
-        <Grid item xs={12} lg={8}>
+        <Grid nonce={undefined} item xs={12} lg={8}>
           <CourseDescription
             title="Basic competency programme (BCP)"
             type="Pitched roof"

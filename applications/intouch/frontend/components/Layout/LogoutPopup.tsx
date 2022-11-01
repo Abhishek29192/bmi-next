@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { useIdleTimer } from "react-idle-timer";
+import { Dialog, Typography } from "@bmi-digital/components";
 import { Warning } from "@material-ui/icons";
+import { useTranslation } from "next-i18next";
+import React, { useEffect, useRef, useState } from "react";
+import { useIdleTimer } from "react-idle-timer";
 import styles from "./styles.module.scss";
 
 type Props = {

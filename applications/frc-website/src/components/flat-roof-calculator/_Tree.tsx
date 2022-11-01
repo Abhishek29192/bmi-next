@@ -1,4 +1,4 @@
-import { FormContext, FormValues, RadioGroup } from "@bmi/components";
+import { FormContext, FormValues, RadioGroup } from "@bmi-digital/components";
 import React, { useContext, useMemo } from "react";
 import { Path, Tree as CalculatorDataTree } from "./types/CalculatorData";
 import { FieldsDisplay } from "./types/FieldsDisplay";

@@ -1,7 +1,7 @@
-import React from "react";
-import { Pagination } from "@bmi/components";
+import { Pagination } from "@bmi-digital/components";
 import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
+import React from "react";
 import styles from "./styles/ResultsPagination.module.scss";
 
 export const useGlobalResPaginationStyles = makeStyles(

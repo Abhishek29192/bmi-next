@@ -7,7 +7,7 @@ import {
   Icon,
   IconButtonProps,
   iconMap
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import React from "react";

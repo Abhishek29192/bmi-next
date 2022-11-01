@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi/components";
+import { ThemeProvider } from "@bmi-digital/components";
 import { render, waitForElementToBeRemoved } from "@testing-library/react";
 import React from "react";
 import WelcomeDialog, { Data } from "../WelcomeDialog";

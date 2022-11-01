@@ -4,7 +4,7 @@ import {
   AnchorLinkProps,
   Grid,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React from "react";
 import { useSiteContext } from "../../components/Site";
 import { microCopy } from "../../constants/microCopies";

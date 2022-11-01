@@ -1,10 +1,10 @@
+import { CardRadioGroup } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { AnalyticsContext } from "../helpers/analytics";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { Roof, RoofType } from "../types/roof";
-import FieldContainer from "./subcomponents/_FieldContainer";
 import roofs from "./calculation/roofs";
+import FieldContainer from "./subcomponents/_FieldContainer";
 
 type RoofSelectionRowProps = {
   title: string;

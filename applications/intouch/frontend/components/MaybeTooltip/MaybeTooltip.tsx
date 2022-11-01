@@ -1,5 +1,5 @@
+import { Tooltip, TooltipProps } from "@bmi-digital/components";
 import React from "react";
-import { Tooltip, TooltipProps } from "@bmi/components";
 
 export type MaybeTooltipProps = {
   show: boolean;
@@ -12,7 +12,7 @@ const MaybeTooltip = ({ children, show, ...props }: MaybeTooltipProps) => {
 
   // Span to accommodate tooltip hover behaviour while child may be disabled.
   return (
-    <Tooltip {...props}>
+    <Tooltip nonce={undefined} {...props}>
       <span>{children}</span>
     </Tooltip>
   );

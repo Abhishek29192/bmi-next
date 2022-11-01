@@ -1,4 +1,4 @@
-import { Button, Dialog, Grid, Typography } from "@bmi/components";
+import { Button, Dialog, Grid, Typography } from "@bmi-digital/components";
 import HelpIcon from "@material-ui/icons/Help";
 import classnames from "classnames";
 import React, { useState } from "react";

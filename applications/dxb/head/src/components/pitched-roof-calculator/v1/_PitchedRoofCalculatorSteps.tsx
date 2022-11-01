@@ -1,8 +1,8 @@
+import { BMI as brandLogo, Icon } from "@bmi-digital/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { BMI as brandLogo } from "@bmi/components";
-import { Icon } from "@bmi/components";
 import { AnalyticsContext } from "../helpers/analytics";
 import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
+import { Data, MainTile, MainTileVariant, Underlay } from "../types";
 import { EmailFormValues } from "../types/EmailFormValues";
 import {
   DimensionsValues,
@@ -11,20 +11,19 @@ import {
   Protrusion,
   Roof
 } from "../types/roof";
-import { Data, MainTile, MainTileVariant, Underlay } from "../types";
-import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
-import RoofSelection from "./_RoofSelection";
-import RoofDimensions from "./_RoofDimensions";
-import TileSelection from "./_TileSelection";
-import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
-import VariantSelection from "./_VariantSelection";
-import UnderlaySelection from "./_UnderlaySelection";
-import Guttering, { GutteringSelections } from "./_Guttering";
 import { calculateArea } from "./calculation/calculate";
-import Results from "./_Results";
-import protrusionTypes from "./calculation/protrusions";
-import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import protrusionTypes from "./calculation/protrusions";
+import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
+import Guttering, { GutteringSelections } from "./_Guttering";
+import styles from "./_PitchedRoofCalculatorSteps.module.scss";
+import Results from "./_Results";
+import RoofDimensions from "./_RoofDimensions";
+import RoofSelection from "./_RoofSelection";
+import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
+import TileSelection from "./_TileSelection";
+import UnderlaySelection from "./_UnderlaySelection";
+import VariantSelection from "./_VariantSelection";
 
 export type Step =
   | "select-roof"

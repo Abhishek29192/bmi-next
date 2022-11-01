@@ -1,4 +1,10 @@
-import { AnchorLink, Bullets, Button, Grid, Typography } from "@bmi/components";
+import {
+  AnchorLink,
+  Bullets,
+  Button,
+  Grid,
+  Typography
+} from "@bmi-digital/components";
 import Divider from "@material-ui/core/Divider";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";

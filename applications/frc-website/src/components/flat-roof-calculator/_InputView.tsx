@@ -1,4 +1,4 @@
-import { Button, Form, FormProps, Typography } from "@bmi/components";
+import { Button, Form, FormProps, Typography } from "@bmi-digital/components";
 import Divider from "@material-ui/core/Divider";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";

@@ -1,4 +1,4 @@
-import { FormContext, ThemeProvider } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { getMicroCopy, MicroCopy } from "../../helpers/microCopy";

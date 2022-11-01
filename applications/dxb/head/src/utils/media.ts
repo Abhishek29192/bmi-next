@@ -1,4 +1,4 @@
-import { MediaData } from "@bmi/components";
+import { MediaData } from "@bmi-digital/components";
 import { Data as ImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
 

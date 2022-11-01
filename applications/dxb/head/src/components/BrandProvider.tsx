@@ -2,9 +2,8 @@ import {
   DialogClassNameContext,
   ThemeOptions,
   ThemeProvider
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import React, { createContext } from "react";
-
 import { useConfig } from "../contexts/ConfigProvider";
 
 export const BrandClassNameContext = createContext<string | null>(null);

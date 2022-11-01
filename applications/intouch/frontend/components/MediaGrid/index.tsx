@@ -1,11 +1,11 @@
-import React from "react";
+import { Typography } from "@bmi-digital/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { Typography } from "@bmi/components";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { MediaFolder, MediaItem } from "../../lib/media/types";
-import { MediaTile } from "../MediaTile";
 import { useAccountContext } from "../../context/AccountContext";
 import { useMarketContext } from "../../context/MarketContext";
+import { MediaFolder, MediaItem } from "../../lib/media/types";
+import { MediaTile } from "../MediaTile";
 import styles from "./styles.module.scss";
 
 export type MediaGridProps = {

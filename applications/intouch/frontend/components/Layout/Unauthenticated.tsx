@@ -1,11 +1,9 @@
-import React from "react";
+import { BMI, Icon, ThemeProvider } from "@bmi-digital/components";
 import classnames from "classnames";
 import Head from "next/head";
-import { Icon } from "@bmi/components";
-import { ThemeProvider } from "@bmi/components";
-import { BMI } from "@bmi/components";
-import { Footer, Props as FooterProps } from "../Footer";
+import React from "react";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import { Footer, Props as FooterProps } from "../Footer";
 import styles from "./styles.module.scss";
 
 export type LayoutProps = {

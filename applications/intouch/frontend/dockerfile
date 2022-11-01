@@ -18,7 +18,6 @@ COPY .eslintrc.js .
 COPY .lintstagedrc.js .
 COPY ./@types ./@types
 
-COPY ./components ./components
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/libraries ./applications/intouch/libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
@@ -56,7 +55,6 @@ COPY .eslintrc.js .
 COPY .lintstagedrc.js .
 COPY ./@types ./@types
 
-COPY ./components ./components
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/libraries ./applications/intouch/libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types

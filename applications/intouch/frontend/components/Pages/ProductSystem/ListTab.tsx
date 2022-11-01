@@ -1,30 +1,30 @@
 import { gql } from "@apollo/client";
-import React, { useState, useCallback, useEffect } from "react";
-import { useTranslation } from "next-i18next";
-import { Product, System } from "@bmi/intouch-api-types";
 import {
-  Checkbox,
-  TextField,
   Button,
+  Checkbox,
   Form,
   Grid,
+  TextField,
   Typography
-} from "@bmi/components";
+} from "@bmi-digital/components";
+import { Product, System } from "@bmi/intouch-api-types";
 import classnames from "classnames";
+import { useTranslation } from "next-i18next";
+import React, { useCallback, useEffect, useState } from "react";
 import { SidePanel } from "../../../components/SidePanel";
-import { FilterResult } from "../../FilterResult";
-import { formatDate } from "../../../lib/utils";
 import { useMarketContext } from "../../../context/MarketContext";
 import {
   useUpdateProductMutation,
   useUpdateSystemMutation
 } from "../../../graphql/generated/hooks";
 import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
-import { ProductReport, SystemReport } from "../../Reports";
-import layoutStyles from "../../Layout/styles.module.scss";
 import AccessControl from "../../../lib/permissions/AccessControl";
-import styles from "./styles.module.scss";
+import { formatDate } from "../../../lib/utils";
+import { FilterResult } from "../../FilterResult";
+import layoutStyles from "../../Layout/styles.module.scss";
+import { ProductReport, SystemReport } from "../../Reports";
 import { ProductTable } from "./ProductTable";
+import styles from "./styles.module.scss";
 
 export type ProductsTabProps = {
   type: "product" | "system";
@@ -260,16 +260,17 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
               style={{ width: "100%" }}
               data-testid="product-tab-form"
             >
-              <Grid container>
-                <Grid xs={12} item>
+              <Grid nonce={undefined} container>
+                <Grid nonce={undefined} xs={12} item>
                   <Grid
+                    nonce={undefined}
                     xs={12}
                     container
                     direction="row"
                     alignItems="flex-start"
                     justify="space-between"
                   >
-                    <Grid item xs={10}>
+                    <Grid nonce={undefined} item xs={10}>
                       <Typography
                         variant="h4"
                         hasUnderline
@@ -278,7 +279,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                         {t(`form.${type}Title`)}
                       </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid nonce={undefined} item xs={2}>
                       <Button
                         className={styles.editBtn}
                         onClick={() => setIsEditing(!isEditing)}
@@ -288,7 +289,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid nonce={undefined} item xs={12}>
                   <TextField
                     fullWidth
                     name="name"
@@ -297,7 +298,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     onChange={(value) => onItemChange("name", value)}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid nonce={undefined} item xs={12}>
                   <TextField
                     fullWidth
                     isTextArea
@@ -313,7 +314,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     dataModel="productsAdmin"
                     action="updateConfidentialFields"
                   >
-                    <Grid item xs={12}>
+                    <Grid nonce={undefined} item xs={12}>
                       <TextField
                         fullWidth
                         rows={5}
@@ -323,7 +324,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                         onChange={(value) => onItemChange("family", value)}
                       />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid nonce={undefined} item xs={12}>
                       <TextField
                         fullWidth
                         rows={5}
@@ -335,7 +336,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     </Grid>
                   </AccessControl>
                 )}
-                <Grid item xs={12}>
+                <Grid nonce={undefined} item xs={12}>
                   <Checkbox
                     name="published"
                     label={t("published")}
@@ -347,7 +348,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                   dataModel="productsAdmin"
                   action="updateConfidentialFields"
                 >
-                  <Grid item xs={12}>
+                  <Grid nonce={undefined} item xs={12}>
                     <TextField
                       fullWidth
                       type="number"
@@ -372,8 +373,9 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
               </Form.ButtonWrapper>
             </Form>
           ) : (
-            <Grid container data-testid="product-tab-details">
+            <Grid nonce={undefined} container data-testid="product-tab-details">
               <Grid
+                nonce={undefined}
                 item
                 xs={12}
                 container
@@ -383,7 +385,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                 justify="space-between"
                 style={{ display: "flex" }}
               >
-                <Grid item xs={10}>
+                <Grid nonce={undefined} item xs={10}>
                   <Typography
                     variant="h3"
                     hasUnderline
@@ -392,7 +394,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                     {selectedItem.name}
                   </Typography>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid nonce={undefined} item xs={2}>
                   <Button
                     className={styles.editBtn}
                     onClick={() => setIsEditing(!isEditing)}
@@ -405,7 +407,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                 ? productDetailToShow
                 : systemDetailToShow
               ).map(({ key, type }) => (
-                <Grid key={key} item xs={12}>
+                <Grid nonce={undefined} key={key} item xs={12}>
                   <Typography component="h6" variant="h6">
                     {t(key)}
                   </Typography>
@@ -414,7 +416,7 @@ const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
                   </Typography>
                 </Grid>
               ))}
-              <Grid item xs={12}>
+              <Grid nonce={undefined} item xs={12}>
                 {products.length > 0 && <ProductTable products={products} />}
               </Grid>
             </Grid>

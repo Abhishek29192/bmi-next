@@ -1,8 +1,7 @@
+import { CardCheckboxGroup, CardRadioGroup } from "@bmi-digital/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { CardCheckboxGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import { AnalyticsContext } from "../helpers/analytics";
+import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
 import {
   Accessory,
   LengthBasedProduct,

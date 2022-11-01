@@ -1,11 +1,10 @@
-import React, { useState } from "react";
 import { gql } from "@apollo/client";
+import { Button, ProfileCard } from "@bmi-digital/components";
+import { Edit, Email, Phone } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
-import { ProfileCard } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { Email, Phone, Edit } from "@material-ui/icons";
-import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
+import React, { useState } from "react";
 import { useResetPasswordMutation } from "../../../../graphql/generated/hooks";
+import { GetUserProfileQuery } from "../../../../graphql/generated/operations";
 import { EditUserProfileDialog } from "../EditUserDialog";
 import CompletedDialog, { DialogProps } from "./Dialog";
 import styles from "./styles.module.scss";

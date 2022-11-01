@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Dialog } from "@bmi/components";
+import { Dialog } from "@bmi-digital/components";
 import classnames from "classnames";
-import useStickyState from "../utils/sticky-state";
+import { graphql } from "gatsby";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
+import useStickyState from "../utils/sticky-state";
+import BrandLogo from "./BrandLogo";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import BrandLogo from "./BrandLogo";
 import styles from "./styles/WelcomeDialog.module.scss";
 
 export type Data = {

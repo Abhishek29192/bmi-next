@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/components",
+  "name": "@bmi/components-delete-me",
   "version": "1.2.0-monorepo",
   "license": "UNLICENSED",
   "src": "src/index.ts",
@@ -634,8 +634,8 @@
     "@types/googlemaps": "^3.43.2",
     "@types/jest": "^27.0.2",
     "@types/node": "^14.14.10",
-    "@types/react": "^16.13.1",
-    "@types/react-dom": "^16.9.14",
+    "@types/react": "^16.14.34",
+    "@types/react-dom": "^16.9.17",
     "@types/react-is": "^16.7.2",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/react-swipeable-views-core": "^0.13.0",

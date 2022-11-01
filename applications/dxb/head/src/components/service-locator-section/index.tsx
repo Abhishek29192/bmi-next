@@ -8,7 +8,7 @@ import {
   loadGoogleApi,
   Section,
   Tabs
-} from "@bmi/components";
+} from "@bmi-digital/components";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";

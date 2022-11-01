@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Button } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
+import { AlertBanner, Button } from "@bmi-digital/components";
 import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { guaranteeApplicationValidate } from "../../../lib/utils/guarantee";
-import styles from "./styles.module.scss";
 import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
 import { ProjectGuarantee } from "./ProjectGuarantee";
 import SolutionGuaranteeReviewDialog from "./SolutionGuaranteeReviewDialog";
+import styles from "./styles.module.scss";
 
 export type GuaranteeTabProps = {
   project: GetProjectQuery["project"];
