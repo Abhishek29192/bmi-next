@@ -106,7 +106,6 @@ export const updateDocuments = async (
     logger.error({
       message: `tried to delete document by query: ${JSON.stringify(e)}`
     });
-    throw e;
   }
   const bulkAssetsOperations = getChunks(assets).map((c) =>
     getAssetsBulkOperations(index, c)
