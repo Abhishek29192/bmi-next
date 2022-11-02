@@ -57,13 +57,19 @@ const getAssetTypes = async (
   `
   });
 
-  return assetTypesToReturn
+  const assetTypesResult = assetTypesToReturn
     .filter(({ fields: { pimCode } }) => pimCode)
     .map(({ fields: { name, code, pimCode } }) => ({
       name,
       code,
       pimCode: pimCode!
     }));
+
+  logger.info({
+    message: `assetTypes result returned : ${JSON.stringify(assetTypesResult)}
+  `
+  });
+  return assetTypesResult;
 };
 
 const getProductDocumentNameMap = async (

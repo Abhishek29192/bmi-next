@@ -378,17 +378,21 @@ describe("updateDocuments", () => {
     expect(count).not.toBeCalled();
   });
 
-  it("should throw error when deleteByQuery throws error", async () => {
+  it("should continue indexing document when deleteByQuery throws error", async () => {
     const index = process.env.ES_INDEX_NAME_DOCUMENTS;
     const itemCode = "itemCode";
-    deleteByQuery.mockRejectedValueOnce(Error("Expected error"));
+    const pimDocuments = [createPimProductDocument()];
+    const bulkOperations = [
+      { index: { _index: index, _id: pimDocuments[0].id } },
+      pimDocuments[0]
+    ];
+    deleteByQuery.mockRejectedValueOnce(Error("Throw unexpected error"));
 
-    try {
-      await updateDocuments([createPimProductDocument()], itemCode);
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toEqual("Expected error");
-    }
+    getChunks.mockReturnValueOnce([pimDocuments]);
+    getIndexOperation.mockReturnValueOnce(bulkOperations);
+    count.mockResolvedValueOnce({ body: { count: 1 } });
+
+    await updateDocuments([createPimProductDocument()], itemCode);
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
@@ -403,11 +407,19 @@ describe("updateDocuments", () => {
         }
       }
     });
-    expect(getChunks).not.toBeCalled();
-    expect(getIndexOperation).not.toBeCalled();
+    expect(getChunks).toBeCalledWith(pimDocuments);
+    expect(getIndexOperation).toBeCalledWith(
+      index,
+      pimDocuments[0],
+      pimDocuments[0].id
+    );
     expect(getDeleteOperation).not.toBeCalled();
-    expect(performBulkOperations).not.toBeCalled();
-    expect(count).not.toBeCalled();
+    expect(performBulkOperations).toBeCalledWith(
+      mockClient,
+      [bulkOperations],
+      index
+    );
+    expect(count).toBeCalledWith({ index });
   });
 
   it("should throw error when performBulkOperations throws error", async () => {
