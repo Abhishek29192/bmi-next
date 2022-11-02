@@ -109,7 +109,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Tier
+          edit_dialog.form.fields.tier
         </h6>
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
