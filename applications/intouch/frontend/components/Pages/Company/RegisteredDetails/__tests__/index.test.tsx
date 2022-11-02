@@ -252,7 +252,7 @@ describe("CompanyRegisteredDetails", () => {
     });
 
     it("no tier", () => {
-      expect(screen.queryByText("Tier")).toBeFalsy();
+      expect(screen.queryByText("edit_dialog.form.fields.tier")).toBeFalsy();
     });
 
     it("no operations", () => {

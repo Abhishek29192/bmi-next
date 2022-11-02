@@ -107,7 +107,9 @@ export const CompanyRegisteredDetails = ({
         ) : null}
 
         {tier && tierName ? (
-          <InfoPair title={t("Tier")}>{tierName}</InfoPair>
+          <InfoPair title={t("company-page:edit_dialog.form.fields.tier")}>
+            {tierName}
+          </InfoPair>
         ) : null}
 
         {operations.length > 0 ? (
