@@ -37,7 +37,7 @@ export const transformDocument = async (
       },
       title: featuredMedia.fields.title,
       type: featuredMedia.fields.type,
-      focalPoint: featuredMedia.fields.focalPoint && {
+      focalPoint: featuredMedia.fields.focalPoint?.focalPoint && {
         x: featuredMedia.fields.focalPoint?.focalPoint.x,
         y: featuredMedia.fields.focalPoint?.focalPoint.y
       }
