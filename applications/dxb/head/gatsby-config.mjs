@@ -550,8 +550,7 @@ const config = {
             resolve: "gatsby-plugin-no-sourcemaps"
           }
         ]
-      : []),
-    `@bmi/gatsby-plugin-meta-redirect` // make sure to put last in the array
+      : [])
   ],
   flags: {
     DEV_SSR: true,
