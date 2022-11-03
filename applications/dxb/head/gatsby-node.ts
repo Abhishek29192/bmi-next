@@ -285,21 +285,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   const redirects = await getRedirects(
-    redirectsFileName,
+    `${__dirname}/${redirectsFileName}`,
     contentfulRedirectsFileUrl
   );
 
-  if (redirects) {
-    await Promise.all(
-      redirects.map((redirect) =>
-        createRedirect({
-          fromPath: redirect.from,
-          toPath: redirect.to,
-          isPermanent: !redirect.status || redirect.status === "301"
-        })
-      )
-    );
-  }
+  await Promise.all(
+    redirects.map((redirect) =>
+      createRedirect({
+        fromPath: redirect.from,
+        toPath: redirect.to,
+        isPermanent: !redirect.status || redirect.status === "301"
+      })
+    )
+  );
 };
 
 const areValuesEqual = (a, b) => {
