@@ -167,7 +167,7 @@ describe("getRedirects", () => {
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
-        'Expected "=" or [ \\t] but "{" found.'
+        'Expected "=" or [ \\t] but "f" found.'
       );
     }
 
