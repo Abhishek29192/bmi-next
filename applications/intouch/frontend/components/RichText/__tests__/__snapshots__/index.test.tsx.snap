@@ -15,6 +15,11 @@ exports[`RichText component check existing data from mock 1`] = `
     >
       Heading 2
     </h2>
+    <div
+      id="ot-sdk-cookie-policy"
+    >
+       
+    </div>
     <h3
       class="MuiTypography-root title Typography MuiTypography-h3"
     >
