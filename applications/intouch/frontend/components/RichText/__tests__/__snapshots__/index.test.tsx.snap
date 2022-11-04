@@ -16,6 +16,7 @@ exports[`RichText component check existing data from mock 1`] = `
       Heading 2
     </h2>
     <div
+      class="otSdkWrapper"
       id="ot-sdk-cookie-policy"
     >
        

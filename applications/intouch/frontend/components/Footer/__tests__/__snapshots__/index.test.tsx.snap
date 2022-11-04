@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component no links case 1`] = `
+<div>
+  <div
+    class="footer"
+  >
+    <svg
+      style="width: 50px;"
+    />
+    <nav
+      class="footerNav"
+    />
+    <svg
+      style="width: 120px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`Footer Component renders correctly 1`] = `
+<div>
+  <div
+    class="footer"
+  >
+    <svg
+      style="width: 50px;"
+    />
+    <nav
+      class="footerNav"
+    >
+      <a
+        href="/contact"
+      >
+        Contact
+      </a>
+    </nav>
+    <svg
+      style="width: 120px;"
+    />
+  </div>
+</div>
+`;
