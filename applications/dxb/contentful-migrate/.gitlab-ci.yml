@@ -69,7 +69,7 @@ build_contentful_migrate:
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
 
-      yarn workspace @bmi/dxb-contentful-migrate prod
+      yarn workspace @bmi/dxb-contentful-migrate start
 
 .deploy_gatsby_cloud:
   stage: deploy

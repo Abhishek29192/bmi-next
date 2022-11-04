@@ -29,7 +29,7 @@ export type MarketOptions = {
   frameSrcExtras?: string;
   scriptSrcExtras?: string;
   gcpRegion: string;
-  name: string;
+  gatsbySiteName: string;
   services: MarketServices[];
 };
 
@@ -38,7 +38,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras:
       "https://windsogrechner.topdach.at https://www.dichtdach-generator.at https://windsogrechner.bramac.at https://bmi-dachgalerie.at https://*.bmi-dachgalerie.at",
     gcpRegion: "eu-central",
-    name: "austria",
+    gatsbySiteName: "austria",
     services: [
       "bimObject",
       "cloudFlare",
@@ -65,7 +65,35 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras:
       "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm",
     gcpRegion: "eu-west",
-    name: "belgium",
+    gatsbySiteName: "belgiumnlc",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "outBrain",
+      "pointerPro",
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  "fr-be": {
+    frameSrcExtras:
+      "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm",
+    gcpRegion: "eu-west",
+    gatsbySiteName: "belgiumfrc",
     services: [
       "bimObject",
       "cloudFlare",
@@ -93,7 +121,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras:
       "https://bmi-braas-tegalit.web.app https://de-rufus.bmigroup.com https://www.firesmart.de https://braas-dachbildservice.digitalgenossen.de https://www.braas-profinetz.de https://www.braas-software.de/VisualizerDE/ https://dachkalkulator.bmi.webmodulservice.de https://www.braas-software.de https://bmi-aussendienst.digitalgenossen.de https://angebote.icopal.de https://www.ausschreiben.de https://ausschreiben.de https://hosting.maileon.com https://*.meindach.de https://bmi-rufus.digitalgenossen.de",
     gcpRegion: "eu-central",
-    name: "germany",
+    gatsbySiteName: "germany",
     services: [
       "bimObject",
       "cloudFlare",
@@ -121,7 +149,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   es: {
     frameSrcExtras: "https://planreforma.com",
     gcpRegion: "eu-southwest",
-    name: "spain",
+    gatsbySiteName: "spain",
     services: [
       "bimObject",
       "cloudFlare",
@@ -149,7 +177,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras: "https://*.logentia.com https://*.interactiveads.ai",
     scriptSrcExtras: "https://info.bmigroup.fi https://hyttjo.com",
     gcpRegion: "eu-north",
-    name: "finland",
+    gatsbySiteName: "finland",
     services: [
       "bimObject",
       "cloudFlare",
@@ -174,7 +202,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   fr: {
     gcpRegion: "eu-west",
-    name: "france",
+    gatsbySiteName: "france",
     services: [
       "bimObject",
       "cloudFlare",
@@ -198,7 +226,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   group: {
     gcpRegion: "eu-west",
-    name: "group",
+    gatsbySiteName: "group",
     services: [
       "bimObject",
       "cloudFlare",
@@ -223,7 +251,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   id: {
     gcpRegion: "asia-africa",
-    name: "indonesia",
+    gatsbySiteName: "indonesia",
     services: [
       "bimObject",
       "cloudFlare",
@@ -249,7 +277,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   it: {
     gcpRegion: "eu-south",
-    name: "italy",
+    gatsbySiteName: "italy",
     services: [
       "bimObject",
       "cloudFlare",
@@ -273,7 +301,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   my: {
     gcpRegion: "asia-africa",
-    name: "malaysia",
+    gatsbySiteName: "malaysia",
     services: [
       "bimObject",
       "cloudFlare",
@@ -302,7 +330,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras:
       "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm https://webapp.utopis-platform.net",
     gcpRegion: "eu-west",
-    name: "netherlands",
+    gatsbySiteName: "netherlands",
     services: [
       "bimObject",
       "cloudFlare",
@@ -327,7 +355,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   no: {
     gcpRegion: "eu-north",
-    name: "norway",
+    gatsbySiteName: "norway",
     services: [
       "cloudFlare",
       "facebook",
@@ -352,7 +380,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   pl: {
     gcpRegion: "eu-east",
-    name: "poland",
+    gatsbySiteName: "poland",
     services: [
       "bimObject",
       "cloudFlare",
@@ -378,7 +406,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   pt: {
     gcpRegion: "eu-southwests",
-    name: "portugal",
+    gatsbySiteName: "portugal",
     services: [
       "bimObject",
       "cloudFlare",
@@ -402,7 +430,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   qa: {
     gcpRegion: "qa",
-    name: "qa",
+    gatsbySiteName: "qa",
     services: [
       "bimObject",
       "cloudFlare",
@@ -432,7 +460,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   ro: {
     gcpRegion: "eu-southeast",
-    name: "romania",
+    gatsbySiteName: "romania",
     services: [
       "bimObject",
       "cloudFlare",
@@ -458,7 +486,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   tr: {
     gcpRegion: "asia-africa",
-    name: "turkey",
+    gatsbySiteName: "turkey",
     services: [
       "cloudFlare",
       "facebook",
@@ -479,7 +507,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   uk: {
     gcpRegion: "eu-west",
-    name: "uk",
+    gatsbySiteName: "uk",
     services: [
       "cloudFlare",
       "facebook",
@@ -502,7 +530,7 @@ const allMarketOptions: Record<string, MarketOptions> = {
   },
   za: {
     gcpRegion: "asia-africa",
-    name: "southafrica",
+    gatsbySiteName: "southafrica",
     services: [
       "bimObject",
       "cloudFlare",
