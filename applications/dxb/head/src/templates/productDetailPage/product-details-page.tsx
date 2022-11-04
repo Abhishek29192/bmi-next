@@ -1,39 +1,38 @@
-import { Container, CTACard, Grid, GridSize, Section } from "@bmi/components";
+import { Container, Section } from "@bmi/components";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import BackToResults from "../components/BackToResults";
-import Breadcrumbs from "../components/Breadcrumbs";
-import ExploreBar from "../components/ExploreBar";
-import { renderImage } from "../components/Image";
-import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSection";
-import { getCTA } from "../components/Link";
-import Page, { Data as PageData } from "../components/Page";
-import ProductLeadBlock from "../components/ProductLeadBlock";
+import BackToResults from "../../components/BackToResults";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import ExploreBar from "../../components/ExploreBar";
+
+import KeyAssetTypesDownloadSection from "../../components/KeyAssetTypesDownloadSection";
+import Page, { Data as PageData } from "../../components/Page";
+import ProductLeadBlock from "../../components/ProductLeadBlock";
 import ProductOverview, {
   Data as ProductOverviewData
-} from "../components/ProductOverview";
-import RelatedProducts from "../components/RelatedProducts";
-import SampleOrderSection from "../components/SampleOrderSection";
-import ShareWidgetSection from "../components/ShareWidgetSection";
-import { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
-import { microCopy } from "../constants/microCopies";
-import { Product } from "../types/pim";
-import { createActionLabel } from "../utils/createActionLabelForAnalytics";
-import { transformMediaSrc } from "../utils/media";
+} from "../../components/ProductOverview";
+import RelatedProducts from "../../components/RelatedProducts";
+import SampleOrderSection from "../../components/SampleOrderSection";
+import ShareWidgetSection from "../../components/ShareWidgetSection";
+import { Data as SiteData } from "../../components/Site";
+
+import { microCopy } from "../../constants/microCopies";
+import { Product } from "../../types/pim";
+import { transformMediaSrc } from "../../utils/media";
 import {
   getProductAttributes,
   transformImages,
   UnavailableMicroCopies,
   UnavailableMicroCopiesEnum
-} from "../utils/product-details-transforms";
+} from "../../utils/product-details-transforms";
+import { PdpCardsSection } from "./components/pdp-cards";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
 };
 
-type Props = {
+export type Props = {
   pageContext: {
     productCode: string;
     siteId: string;
@@ -48,7 +47,7 @@ type Props = {
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, contentfulSite } = data;
-  const { resources, countryCode } = contentfulSite;
+  const { resources } = contentfulSite;
   const pageData: PageData = {
     breadcrumbs: product.breadcrumbs,
     signupBlock: resources.pdpSignupBlock,
@@ -100,13 +99,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
         return (
           <>
-            {product.breadcrumbs.length > 0 && (
-              <Section backgroundColor="pearl" isSlim>
-                <BackToResults>
-                  <Breadcrumbs data={product.breadcrumbs} />
-                </BackToResults>
-              </Section>
-            )}
+            <Section backgroundColor="pearl" isSlim>
+              <BackToResults>
+                <Breadcrumbs data={product.breadcrumbs} />
+              </BackToResults>
+            </Section>
             <Container>
               <ProductOverview
                 data={{
@@ -140,12 +137,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   product={product}
                   maximumSamples={maximumSamples}
                   sampleBasketLinkInfo={sampleBasketLink}
-                  actionLabel={createActionLabel(
-                    product.name,
-                    product.colour,
-                    product.textureFamily,
-                    product.measurements?.label
-                  )}
                 />
                 {Object.keys(product.keyAssetDocuments).length > 0 && (
                   <KeyAssetTypesDownloadSection
@@ -171,57 +162,33 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 documentDisplayFormat={resources?.documentDisplayFormat}
               />
             </Section>
-            <RelatedProducts
-              countryCode={pageContext.countryCode}
-              products={product.relatedProducts}
-            />
+            {product.relatedProducts && (
+              <RelatedProducts
+                countryCode={pageContext.countryCode}
+                products={product.relatedProducts}
+              />
+            )}
             {resources?.pdpCardsTitle && resources.pdpCards && (
-              <Section backgroundColor="alabaster">
-                <Section.Title>{resources.pdpCardsTitle}</Section.Title>
-                <Grid container spacing={3}>
-                  {resources.pdpCards.map(
-                    (
-                      { title, featuredVideo, featuredMedia, ...data },
-                      index,
-                      cards
-                    ) => {
-                      const cta = getCTA(data, countryCode, title);
-                      return (
-                        <Grid
-                          item
-                          key={`card-${index}`}
-                          xs={12}
-                          sm={6}
-                          md={4}
-                          lg={(12 / Math.max(cards.length, 3)) as GridSize}
-                        >
-                          <CTACard
-                            title={title}
-                            media={
-                              featuredVideo
-                                ? renderVideo(featuredVideo)
-                                : renderImage(featuredMedia)
-                            }
-                            clickableArea={featuredVideo ? "heading" : "full"}
-                            action={cta?.action}
-                          />
-                        </Grid>
-                      );
-                    }
-                  )}
-                </Grid>
-              </Section>
+              <PdpCardsSection
+                resources={{
+                  pdpCards: resources.pdpCards,
+                  pdpCardsTitle: resources?.pdpCardsTitle
+                }}
+                countryCode={pageContext.countryCode}
+              />
             )}
             {resources?.pdpExploreBar && (
-              <Section backgroundColor="alabaster">
+              <Section backgroundColor="alabaster" className="ExploreBar">
                 <ExploreBar data={resources.pdpExploreBar} />
               </Section>
             )}
-            {product.breadcrumbs && (
-              <Section backgroundColor="pearl" isSlim>
-                <Breadcrumbs data={product.breadcrumbs} />
-              </Section>
-            )}
+            <Section
+              backgroundColor="pearl"
+              isSlim
+              className="ProductBreadcrumbs"
+            >
+              <Breadcrumbs data={product?.breadcrumbs} />
+            </Section>
           </>
         );
       }}

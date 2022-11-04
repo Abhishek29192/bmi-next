@@ -44,7 +44,9 @@ const createProductPages = async (
     }
   } = result;
 
-  const component = path.resolve("./src/templates/product-details-page.tsx");
+  const component = path.resolve(
+    "./src/templates/productDetailPage/product-details-page.tsx"
+  );
   await Promise.all(
     products.map(async (product) => {
       if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false") {

@@ -1,7 +1,7 @@
 import { DataTypeEnum } from "../components/Link";
 import { Data as SiteData } from "../components/Site";
 
-export const createMockSiteData = (): SiteData => ({
+export const createMockSiteData = (siteData?: Partial<SiteData>): SiteData => ({
   node_locale: "en-GB",
   homePage: {
     title: "Home"
@@ -1551,5 +1551,6 @@ export const createMockSiteData = (): SiteData => ({
     }
   ],
   pitchedRoofCalculatorConfig: null,
-  visualiserHouseTypes: null
+  visualiserHouseTypes: null,
+  ...siteData
 });
