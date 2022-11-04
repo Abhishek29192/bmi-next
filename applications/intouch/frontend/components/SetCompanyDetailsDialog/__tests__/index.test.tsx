@@ -11,6 +11,7 @@ import AccountContextWrapper from "../../../lib/tests/fixtures/account";
 import MarketContextWrapper from "../../../lib/tests/fixtures/market";
 import { generateCompany } from "../../../lib/tests/factories/company";
 import { generateTierBenefitItem } from "../../../lib/tests/factories/contentful/tierBenefitCollection";
+import { generateAccount } from "../../../lib/tests/factories/account";
 
 const useGetTierBenefitQuerySpy = jest.fn().mockImplementation(() => ({
   tierBenefitCollection: {
@@ -30,6 +31,16 @@ jest.mock("../../../graphql/generated/hooks", () => {
   };
 });
 const onSubmitSpy = jest.fn();
+jest.mock("../../../context/CompanyPageContext", () => ({
+  useCompanyPageContext: jest.fn().mockImplementation(() => ({
+    operationTypes: [
+      {
+        type: "FLAT",
+        displayName: "Flat"
+      }
+    ]
+  }))
+}));
 
 describe("SetCompanyDetailsDialog component", () => {
   afterEach(() => {
@@ -306,5 +317,36 @@ describe("SetCompanyDetailsDialog component", () => {
         )
       ).toBeTruthy();
     }, 10000);
+  });
+
+  it("User cannot editOperations", () => {
+    renderWithUserProvider(
+      <MarketContextWrapper>
+        <AccountContextWrapper account={generateAccount({ role: "INSTALLER" })}>
+          <SetCompanyDetailsDialog
+            title={"title"}
+            isOpen={true}
+            onCloseClick={() => {}}
+            onSubmit={() => {}}
+            errorMessage={null}
+            loading={false}
+            mapsApiKey={null}
+            company={{
+              ...generateCompany({
+                companyOperationsByCompany: {
+                  nodes: [{ operation: "FLAT" }]
+                }
+              }),
+              status: "NEW"
+            }}
+          />
+        </AccountContextWrapper>
+      </MarketContextWrapper>
+    );
+
+    expect(
+      screen.queryByText("edit_dialog.form.fields.operationTypes")
+    ).toBeTruthy();
+    expect(screen.queryByText("Flat companyOperationsSuffix")).toBeTruthy();
   });
 });

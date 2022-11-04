@@ -15,6 +15,7 @@ jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));
+
 describe("SystemGuarantee Component", () => {
   const mockSystemGuarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0] =
     {
@@ -24,6 +25,7 @@ describe("SystemGuarantee Component", () => {
       status: "APPROVED",
       systemBySystemBmiRef: mockSystem
     };
+
   it("renders correctly", () => {
     const { container } = renderWithI18NProvider(
       <SystemGuarantee guarantee={mockSystemGuarantee} />
@@ -31,10 +33,13 @@ describe("SystemGuarantee Component", () => {
 
     expect(container).toMatchSnapshot();
   });
+
   it("renders correctly with download button", () => {
     mockSystemGuarantee.signedFileStorageUrl = "signed-url";
     const { container } = renderWithI18NProvider(
-      <SystemGuarantee guarantee={mockSystemGuarantee} />
+      <SystemGuarantee
+        guarantee={{ ...mockSystemGuarantee, status: "ISSUED" }}
+      />
     );
 
     expect(container).toMatchSnapshot();

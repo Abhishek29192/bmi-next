@@ -1,0 +1,13 @@
+{
+  "dialog": {
+    "title": "Slutför registreringen",
+    "form": {
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "agree_label": "Jag håller med om BMI",
+      "terms_condition": "Villkor",
+      "and": "och",
+      "privacy_policy": "Integritetspolicy"
+    }
+  }
+}

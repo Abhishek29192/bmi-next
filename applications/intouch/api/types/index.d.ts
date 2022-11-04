@@ -432,10 +432,12 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -2501,10 +2503,12 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -2895,10 +2899,12 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -5749,6 +5755,38 @@ export type CreateMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
 };
 
+/** All input for the create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `MerchandiseTier` to be created by this mutation. */
+  merchandiseTier: MerchandiseTierInput;
+};
+
+/** The output of our create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierPayload = {
+  __typename?: "CreateMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `MerchandiseTier` that was created by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `MerchandiseTier` mutation. */
+export type CreateMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
 /** All input for the create `Note` mutation. */
 export type CreateNoteInput = {
   /**
@@ -7138,6 +7176,60 @@ export type DeleteMarketPayload = {
 /** The output of our delete `Market` mutation. */
 export type DeleteMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
+};
+
+/** All input for the `deleteMerchandiseTierByMarketIdAndTierCode` mutation. */
+export type DeleteMerchandiseTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** All input for the `deleteMerchandiseTierByNodeId` mutation. */
+export type DeleteMerchandiseTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `MerchandiseTier` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteMerchandiseTier` mutation. */
+export type DeleteMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `MerchandiseTier` mutation. */
+export type DeleteMerchandiseTierPayload = {
+  __typename?: "DeleteMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedMerchandiseTierNodeId?: Maybe<Scalars["ID"]>;
+  /** The `MerchandiseTier` that was deleted by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `MerchandiseTier` mutation. */
+export type DeleteMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
 };
 
 /** All input for the `deleteNoteByNodeId` mutation. */
@@ -9073,6 +9165,7 @@ export type GuaranteeCoverage = "PRODUCT" | "SOLUTION" | "SYSTEM";
 export type GuaranteeEventType =
   | "APPROVE_SOLUTION"
   | "ASSIGN_SOLUTION"
+  | "BO_ACCEPTED_SOLUTION"
   | "REASSIGN_SOLUTION"
   | "REJECT_SOLUTION"
   | "SUBMIT_SOLUTION"
@@ -11509,12 +11602,14 @@ export type Market = Node & {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: Maybe<Scalars["Int"]>;
+  merchandiseSso?: Maybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: Maybe<Scalars["String"]>;
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars["ID"];
+  optanonClass?: Maybe<Scalars["String"]>;
   /** Reads and enables pagination through a set of `Product`. */
   products: ProductsConnection;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
@@ -11625,6 +11720,7 @@ export type MarketContent = Entry & {
   live?: Maybe<Scalars["String"]>;
   mediaLibraryRootCollection?: Maybe<MarketContentMediaLibraryRootCollection>;
   name?: Maybe<Scalars["String"]>;
+  newsItemClass?: Maybe<Scalars["String"]>;
   newsItemCta?: Maybe<Scalars["String"]>;
   newsItemHeading?: Maybe<Scalars["String"]>;
   newsItemUrl?: Maybe<Scalars["String"]>;
@@ -11684,6 +11780,11 @@ export type MarketContentMediaLibraryRootCollectionArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContentNameArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentNewsItemClassArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
@@ -11763,6 +11864,13 @@ export type MarketContentFilter = {
   name_not?: InputMaybe<Scalars["String"]>;
   name_not_contains?: InputMaybe<Scalars["String"]>;
   name_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  newsItemClass?: InputMaybe<Scalars["String"]>;
+  newsItemClass_contains?: InputMaybe<Scalars["String"]>;
+  newsItemClass_exists?: InputMaybe<Scalars["Boolean"]>;
+  newsItemClass_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  newsItemClass_not?: InputMaybe<Scalars["String"]>;
+  newsItemClass_not_contains?: InputMaybe<Scalars["String"]>;
+  newsItemClass_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   newsItemCta?: InputMaybe<Scalars["String"]>;
   newsItemCta_contains?: InputMaybe<Scalars["String"]>;
   newsItemCta_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -11825,6 +11933,8 @@ export type MarketContentOrder =
   | "live_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "newsItemClass_ASC"
+  | "newsItemClass_DESC"
   | "newsItemCta_ASC"
   | "newsItemCta_DESC"
   | "newsItemHeading_ASC"
@@ -11894,10 +12004,12 @@ export type MarketInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -12190,10 +12302,12 @@ export type MarketPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -12345,12 +12459,19 @@ export type MediaFolderOrder =
 export type MediaTool = Entry & {
   __typename?: "MediaTool";
   contentfulMetadata: ContentfulMetadata;
+  cta?: Maybe<Scalars["String"]>;
   linkedFrom?: Maybe<MediaToolLinkingCollections>;
   media?: Maybe<Asset>;
+  mediaItemClass?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   sys: Sys;
   thumbnail?: Maybe<Asset>;
   url?: Maybe<Scalars["String"]>;
+};
+
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+export type MediaToolCtaArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
@@ -12362,6 +12483,11 @@ export type MediaToolLinkedFromArgs = {
 export type MediaToolMediaArgs = {
   locale?: InputMaybe<Scalars["String"]>;
   preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
+export type MediaToolMediaItemClassArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
 };
 
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
@@ -12392,6 +12518,20 @@ export type MediaToolFilter = {
   AND?: InputMaybe<Array<InputMaybe<MediaToolFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<MediaToolFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  cta?: InputMaybe<Scalars["String"]>;
+  cta_contains?: InputMaybe<Scalars["String"]>;
+  cta_exists?: InputMaybe<Scalars["Boolean"]>;
+  cta_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  cta_not?: InputMaybe<Scalars["String"]>;
+  cta_not_contains?: InputMaybe<Scalars["String"]>;
+  cta_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mediaItemClass?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_contains?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_exists?: InputMaybe<Scalars["Boolean"]>;
+  mediaItemClass_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  mediaItemClass_not?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_not_contains?: InputMaybe<Scalars["String"]>;
+  mediaItemClass_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   media_exists?: InputMaybe<Scalars["Boolean"]>;
   name?: InputMaybe<Scalars["String"]>;
   name_contains?: InputMaybe<Scalars["String"]>;
@@ -12432,6 +12572,10 @@ export type MediaToolLinkingCollectionsMediaFolderCollectionArgs = {
 };
 
 export type MediaToolOrder =
+  | "cta_ASC"
+  | "cta_DESC"
+  | "mediaItemClass_ASC"
+  | "mediaItemClass_DESC"
   | "name_ASC"
   | "name_DESC"
   | "sys_firstPublishedAt_ASC"
@@ -12445,11 +12589,95 @@ export type MediaToolOrder =
   | "url_ASC"
   | "url_DESC";
 
+export type MerchandiseTier = Node & {
+  __typename?: "MerchandiseTier";
+  id: Scalars["Int"];
+  marketId: Scalars["Int"];
+  merchandiseDivisionId?: Maybe<Scalars["Int"]>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  tierCode: Tier;
+};
+
+/**
+ * A condition to be used against `MerchandiseTier` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type MerchandiseTierCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `MerchandiseTier` object types. All fields are combined with a logical ‘and.’ */
+export type MerchandiseTierFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<MerchandiseTierFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<MerchandiseTierFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<MerchandiseTierFilter>>;
+};
+
+/** An input for mutations affecting `MerchandiseTier` */
+export type MerchandiseTierInput = {
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
+  merchandiseDivisionId?: InputMaybe<Scalars["Int"]>;
+  tierCode: Tier;
+};
+
+/** Represents an update to a `MerchandiseTier`. Fields that are set will be updated. */
+export type MerchandiseTierPatch = {
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  merchandiseDivisionId?: InputMaybe<Scalars["Int"]>;
+  tierCode?: InputMaybe<Tier>;
+};
+
+/** A connection to a list of `MerchandiseTier` values. */
+export type MerchandiseTiersConnection = {
+  __typename?: "MerchandiseTiersConnection";
+  /** A list of edges which contains the `MerchandiseTier` and cursor to aid in pagination. */
+  edges: Array<MerchandiseTiersEdge>;
+  /** A list of `MerchandiseTier` objects. */
+  nodes: Array<MerchandiseTier>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `MerchandiseTier` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `MerchandiseTier` edge in the connection. */
+export type MerchandiseTiersEdge = {
+  __typename?: "MerchandiseTiersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `MerchandiseTier` at the end of the edge. */
+  node: MerchandiseTier;
+};
+
+/** Methods to use when ordering `MerchandiseTier`. */
+export type MerchandiseTiersOrderBy =
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
+
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplate = Entry & {
   __typename?: "MessageTemplate";
   contentfulMetadata: ContentfulMetadata;
   emailBody?: Maybe<Scalars["String"]>;
+  emailRecipient?: Maybe<Scalars["String"]>;
   event?: Maybe<Scalars["String"]>;
   format?: Maybe<Array<Maybe<Scalars["String"]>>>;
   linkedFrom?: Maybe<MessageTemplateLinkingCollections>;
@@ -12460,6 +12688,11 @@ export type MessageTemplate = Entry & {
 
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplateEmailBodyArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
+export type MessageTemplateEmailRecipientArgs = {
   locale?: InputMaybe<Scalars["String"]>;
 };
 
@@ -12507,6 +12740,13 @@ export type MessageTemplateFilter = {
   emailBody_not?: InputMaybe<Scalars["String"]>;
   emailBody_not_contains?: InputMaybe<Scalars["String"]>;
   emailBody_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient?: InputMaybe<Scalars["String"]>;
+  emailRecipient_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_exists?: InputMaybe<Scalars["Boolean"]>;
+  emailRecipient_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient_not?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   event?: InputMaybe<Scalars["String"]>;
   event_contains?: InputMaybe<Scalars["String"]>;
   event_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -12556,6 +12796,8 @@ export type MessageTemplateLinkingCollectionsGuaranteeTemplateCollectionArgs = {
 };
 
 export type MessageTemplateOrder =
+  | "emailRecipient_ASC"
+  | "emailRecipient_DESC"
   | "event_ASC"
   | "event_DESC"
   | "notificationBody_ASC"
@@ -12696,6 +12938,8 @@ export type Mutation = {
   createGuaranteePdf?: Maybe<PublishOutput>;
   /** Creates a single `Market`. */
   createMarket?: Maybe<CreateMarketPayload>;
+  /** Creates a single `MerchandiseTier`. */
+  createMerchandiseTier?: Maybe<CreateMerchandiseTierPayload>;
   /** Creates a single `Note`. */
   createNote?: Maybe<CreateNotePayload>;
   /** Creates a single `Notification`. */
@@ -12820,6 +13064,12 @@ export type Mutation = {
   deleteMarketByDomain?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using its globally unique id. */
   deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
+  /** Deletes a single `MerchandiseTier` using a unique key. */
+  deleteMerchandiseTier?: Maybe<DeleteMerchandiseTierPayload>;
+  /** Deletes a single `MerchandiseTier` using a unique key. */
+  deleteMerchandiseTierByMarketIdAndTierCode?: Maybe<DeleteMerchandiseTierPayload>;
+  /** Deletes a single `MerchandiseTier` using its globally unique id. */
+  deleteMerchandiseTierByNodeId?: Maybe<DeleteMerchandiseTierPayload>;
   /** Deletes a single `Note` using a unique key. */
   deleteNote?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Note` using its globally unique id. */
@@ -12860,6 +13110,7 @@ export type Mutation = {
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   markAllNotificationsAsRead?: Maybe<MarkAllNotificationsAsReadPayload>;
+  performMerchandiseSso?: Maybe<Scalars["String"]>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   releaseGuaranteePdf?: Maybe<PublishOutput>;
@@ -12980,6 +13231,15 @@ export type Mutation = {
   updateMarketByDomain?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using its globally unique id and a patch. */
   updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
+  /** Updates a single `MerchandiseTier` using a unique key and a patch. */
+  updateMerchandiseTier?: Maybe<UpdateMerchandiseTierPayload>;
+  /** Updates a single `MerchandiseTier` using a unique key and a patch. */
+  updateMerchandiseTierByMarketIdAndTierCode?: Maybe<UpdateMerchandiseTierPayload>;
+  /** Updates a single `MerchandiseTier` using its globally unique id and a patch. */
+  updateMerchandiseTierByNodeId?: Maybe<UpdateMerchandiseTierPayload>;
+  updateMerchandiseTiersByMarket?: Maybe<
+    Array<Maybe<UpdateMerchandiseTiersByMarketResult>>
+  >;
   /** Updates a single `Note` using a unique key and a patch. */
   updateNote?: Maybe<UpdateNotePayload>;
   /** Updates a single `Note` using its globally unique id and a patch. */
@@ -13166,6 +13426,11 @@ export type MutationCreateGuaranteePdfArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateMarketArgs = {
   input: CreateMarketInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateMerchandiseTierArgs = {
+  input: CreateMerchandiseTierInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13486,6 +13751,21 @@ export type MutationDeleteMarketByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierArgs = {
+  input: DeleteMerchandiseTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierByMarketIdAndTierCodeArgs = {
+  input: DeleteMerchandiseTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMerchandiseTierByNodeIdArgs = {
+  input: DeleteMerchandiseTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteNoteArgs = {
   input: DeleteNoteInput;
 };
@@ -13599,6 +13879,11 @@ export type MutationLinkAccountToCompanyArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationMarkAllNotificationsAsReadArgs = {
   input: MarkAllNotificationsAsReadInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationPerformMerchandiseSsoArgs = {
+  email: Scalars["String"];
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13910,6 +14195,26 @@ export type MutationUpdateMarketByDomainArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMarketByNodeIdArgs = {
   input: UpdateMarketByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierArgs = {
+  input: UpdateMerchandiseTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierByMarketIdAndTierCodeArgs = {
+  input: UpdateMerchandiseTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTierByNodeIdArgs = {
+  input: UpdateMerchandiseTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMerchandiseTiersByMarketArgs = {
+  input?: InputMaybe<UpdateMerchandiseTiersByMarketInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -14584,6 +14889,86 @@ export type Operation =
   | "SOLAR"
   | "TILE";
 
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationType = Entry & {
+  __typename?: "OperationType";
+  contentfulMetadata: ContentfulMetadata;
+  displayName?: Maybe<Scalars["String"]>;
+  linkedFrom?: Maybe<OperationTypeLinkingCollections>;
+  sys: Sys;
+  type?: Maybe<Scalars["String"]>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeDisplayNameArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+/** Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType) */
+export type OperationTypeTypeArgs = {
+  locale?: InputMaybe<Scalars["String"]>;
+};
+
+export type OperationTypeCollection = {
+  __typename?: "OperationTypeCollection";
+  items: Array<Maybe<OperationType>>;
+  limit: Scalars["Int"];
+  skip: Scalars["Int"];
+  total: Scalars["Int"];
+};
+
+export type OperationTypeFilter = {
+  AND?: InputMaybe<Array<InputMaybe<OperationTypeFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<OperationTypeFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  displayName?: InputMaybe<Scalars["String"]>;
+  displayName_contains?: InputMaybe<Scalars["String"]>;
+  displayName_exists?: InputMaybe<Scalars["Boolean"]>;
+  displayName_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  displayName_not?: InputMaybe<Scalars["String"]>;
+  displayName_not_contains?: InputMaybe<Scalars["String"]>;
+  displayName_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  sys?: InputMaybe<SysFilter>;
+  type?: InputMaybe<Scalars["String"]>;
+  type_contains?: InputMaybe<Scalars["String"]>;
+  type_exists?: InputMaybe<Scalars["Boolean"]>;
+  type_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  type_not?: InputMaybe<Scalars["String"]>;
+  type_not_contains?: InputMaybe<Scalars["String"]>;
+  type_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+};
+
+export type OperationTypeLinkingCollections = {
+  __typename?: "OperationTypeLinkingCollections";
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+export type OperationTypeLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+};
+
+export type OperationTypeOrder =
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC"
+  | "type_ASC"
+  | "type_DESC";
+
 /** Information about pagination in a connection. */
 export type PageInfo = {
   __typename?: "PageInfo";
@@ -14969,10 +15354,12 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -16490,6 +16877,12 @@ export type Query = Node & {
   mediaFolderCollection?: Maybe<MediaFolderCollection>;
   mediaTool?: Maybe<MediaTool>;
   mediaToolCollection?: Maybe<MediaToolCollection>;
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  merchandiseTierByMarketIdAndTierCode?: Maybe<MerchandiseTier>;
+  /** Reads a single `MerchandiseTier` using its globally unique `ID`. */
+  merchandiseTierByNodeId?: Maybe<MerchandiseTier>;
+  /** Reads and enables pagination through a set of `MerchandiseTier`. */
+  merchandiseTiers?: Maybe<MerchandiseTiersConnection>;
   messageTemplate?: Maybe<MessageTemplate>;
   messageTemplateCollection?: Maybe<MessageTemplateCollection>;
   migration?: Maybe<Migration>;
@@ -16508,6 +16901,8 @@ export type Query = Node & {
   notificationByNodeId?: Maybe<Notification>;
   /** Reads and enables pagination through a set of `Notification`. */
   notifications?: Maybe<NotificationsConnection>;
+  operationType?: Maybe<OperationType>;
+  operationTypeCollection?: Maybe<OperationTypeCollection>;
   partnerBrand?: Maybe<PartnerBrand>;
   partnerBrandCollection?: Maybe<PartnerBrandCollection>;
   product?: Maybe<Product>;
@@ -17372,6 +17767,34 @@ export type QueryMediaToolCollectionArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierByMarketIdAndTierCodeArgs = {
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTierByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMerchandiseTiersArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<MerchandiseTierCondition>;
+  filter?: InputMaybe<MerchandiseTierFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryMessageTemplateArgs = {
   id: Scalars["String"];
   locale?: InputMaybe<Scalars["String"]>;
@@ -17452,6 +17875,23 @@ export type QueryNotificationsArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<NotificationsOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryOperationTypeArgs = {
+  id: Scalars["String"];
+  locale?: InputMaybe<Scalars["String"]>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryOperationTypeCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]>;
+  locale?: InputMaybe<Scalars["String"]>;
+  order?: InputMaybe<Array<InputMaybe<OperationTypeOrder>>>;
+  preview?: InputMaybe<Scalars["Boolean"]>;
+  skip?: InputMaybe<Scalars["Int"]>;
+  where?: InputMaybe<OperationTypeFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -18040,10 +18480,12 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -18248,10 +18690,12 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   language: Language;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -20469,6 +20913,84 @@ export type UpdateMarketPayloadMarketEdgeArgs = {
   orderBy?: InputMaybe<Array<MarketsOrderBy>>;
 };
 
+/** All input for the `updateMerchandiseTierByMarketIdAndTierCode` mutation. */
+export type UpdateMerchandiseTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+  tierCode: Tier;
+};
+
+/** All input for the `updateMerchandiseTierByNodeId` mutation. */
+export type UpdateMerchandiseTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `MerchandiseTier` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+};
+
+/** All input for the `updateMerchandiseTier` mutation. */
+export type UpdateMerchandiseTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `MerchandiseTier` being updated. */
+  patch: MerchandiseTierPatch;
+};
+
+/** The output of our update `MerchandiseTier` mutation. */
+export type UpdateMerchandiseTierPayload = {
+  __typename?: "UpdateMerchandiseTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `MerchandiseTier` that was updated by this mutation. */
+  merchandiseTier?: Maybe<MerchandiseTier>;
+  /** An edge for our `MerchandiseTier`. May be used by Relay 1. */
+  merchandiseTierEdge?: Maybe<MerchandiseTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `MerchandiseTier` mutation. */
+export type UpdateMerchandiseTierPayloadMerchandiseTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<MerchandiseTiersOrderBy>>;
+};
+
+export type UpdateMerchandiseTiersByMarketInput = {
+  marketId?: InputMaybe<Scalars["Int"]>;
+  merchandiseT1?: InputMaybe<Scalars["Int"]>;
+  merchandiseT2?: InputMaybe<Scalars["Int"]>;
+  merchandiseT3?: InputMaybe<Scalars["Int"]>;
+  merchandiseT4?: InputMaybe<Scalars["Int"]>;
+  merchandiseT5?: InputMaybe<Scalars["Int"]>;
+  merchandiseT6?: InputMaybe<Scalars["Int"]>;
+  merchandiseT7?: InputMaybe<Scalars["Int"]>;
+};
+
+export type UpdateMerchandiseTiersByMarketResult = {
+  __typename?: "UpdateMerchandiseTiersByMarketResult";
+  id?: Maybe<Scalars["Int"]>;
+  market_id?: Maybe<Scalars["Int"]>;
+  merchandise_division_id?: Maybe<Scalars["Int"]>;
+  tier_code?: Maybe<Tier>;
+};
+
 /** All input for the `updateNoteByNodeId` mutation. */
 export type UpdateNoteByNodeIdInput = {
   /**
@@ -20962,6 +21484,7 @@ export type _Entity =
   | Guarantee
   | Invitation
   | Market
+  | MerchandiseTier
   | Note
   | Notification
   | Product
@@ -21017,6 +21540,13 @@ export type CfMessageTemplateNestedFilter = {
   emailBody_not?: InputMaybe<Scalars["String"]>;
   emailBody_not_contains?: InputMaybe<Scalars["String"]>;
   emailBody_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient?: InputMaybe<Scalars["String"]>;
+  emailRecipient_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_exists?: InputMaybe<Scalars["Boolean"]>;
+  emailRecipient_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  emailRecipient_not?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_contains?: InputMaybe<Scalars["String"]>;
+  emailRecipient_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
   event?: InputMaybe<Scalars["String"]>;
   event_contains?: InputMaybe<Scalars["String"]>;
   event_exists?: InputMaybe<Scalars["Boolean"]>;
@@ -22704,10 +23234,12 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -22750,10 +23282,12 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -22796,10 +23330,12 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -22842,10 +23378,12 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -22888,10 +23426,12 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
@@ -22934,10 +23474,12 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   language?: InputMaybe<Language>;
   /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
   locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: InputMaybe<Scalars["String"]>;
   /** A short name for the market, e.g. Italy, Norway, Netherlands */
   name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;

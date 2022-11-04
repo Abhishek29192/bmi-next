@@ -28,13 +28,14 @@ const FormContainer = ({
 }: Props) => {
   const { t } = useTranslation(["double-acceptance", "common"]);
   const [formData, setFormData] = useState({
-    acceptance: false,
+    acknowledge: false,
     firstName: null,
     lastName: null
   });
+  const [acceptance, setAcceptance] = useState(false);
   const [showDialog, setShowDialog] = useState({ open: false, title: "" });
   const handleSubmit = useCallback(
-    async (event, { firstName, lastName, acceptance }) => {
+    async (event, { firstName, lastName }) => {
       event.preventDefault();
 
       try {
@@ -55,18 +56,20 @@ const FormContainer = ({
           }
         });
         if (data) {
-          await customApolloClient.mutate({
-            mutation: releaseGuaranteePdf,
-            variables: {
-              input: {
-                id: doubleAcceptance.guaranteeId,
-                template: {
-                  mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
-                  mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+          if (acceptance) {
+            await customApolloClient.mutate({
+              mutation: releaseGuaranteePdf,
+              variables: {
+                input: {
+                  id: doubleAcceptance.guaranteeId,
+                  template: {
+                    mailBody: doubleAcceptance.guaranteeTemplate.mailBody,
+                    mailSubject: doubleAcceptance.guaranteeTemplate.mailSubject
+                  }
                 }
               }
-            }
-          });
+            });
+          }
           onUpdateDoubleAcceptanceCompleted({
             ...doubleAcceptance,
             completed: true
@@ -79,7 +82,7 @@ const FormContainer = ({
         });
       }
     },
-    [doubleAcceptance, updateDoubleAcceptance, customApolloClient]
+    [doubleAcceptance, updateDoubleAcceptance, customApolloClient, acceptance]
   );
   const onItemChange = useCallback(
     (name, value) => {
@@ -118,9 +121,11 @@ const FormContainer = ({
         <Grid container>
           <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
-              {t("warantyPeriod")}
+              {t("warrantyPeriod")}
             </Typography>
-            <div>{`${doubleAcceptance.maximumValidityYears}`}</div>
+            <div>{`${doubleAcceptance.maximumValidityYears} ${t(
+              "years"
+            )}`}</div>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h4" className={styles.subtitle}>
@@ -164,10 +169,10 @@ const FormContainer = ({
           <Grid container>
             <Grid item xs={12}>
               <Checkbox
-                name={"acceptance"}
+                name={"acknowledge"}
                 label={t("form.fields.acceptance.label")}
-                checked={formData.acceptance}
-                onChange={(value) => onItemChange("acceptance", value)}
+                checked={formData.acknowledge}
+                onChange={(value) => onItemChange("acknowledge", value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -180,7 +185,7 @@ const FormContainer = ({
                     onChange={(value) => onItemChange("firstName", value)}
                     fullWidth
                     isRequired
-                    disabled={!formData.acceptance}
+                    disabled={!formData.acknowledge}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -191,7 +196,7 @@ const FormContainer = ({
                     onChange={(value) => onItemChange("lastName", value)}
                     fullWidth
                     isRequired
-                    disabled={!formData.acceptance}
+                    disabled={!formData.acknowledge}
                   />
                 </Grid>
               </Grid>
@@ -218,26 +223,28 @@ const FormContainer = ({
                   <Form.ButtonWrapper>
                     <Form.Button
                       variant="outlined"
-                      onClick={() =>
+                      onClick={() => {
+                        setAcceptance(false);
                         setShowDialog({
                           open: true,
                           title: t("dialog.title", {
                             acceptance: t("reject").toLowerCase()
                           })
-                        })
-                      }
+                        });
+                      }}
                     >
                       {t("reject")}
                     </Form.Button>
                     <Form.Button
-                      onClick={() =>
+                      onClick={() => {
+                        setAcceptance(true);
                         setShowDialog({
                           open: true,
                           title: t("dialog.title", {
                             acceptance: t("accept").toLowerCase()
                           })
-                        })
-                      }
+                        });
+                      }}
                     >
                       {t("accept")}
                     </Form.Button>
@@ -252,7 +259,7 @@ const FormContainer = ({
         open={showDialog.open}
         onCloseClick={() => setShowDialog({ ...showDialog, open: false })}
       >
-        <Dialog.Title hasUnderline>{t("dialog.title")}</Dialog.Title>
+        <Dialog.Title hasUnderline>{showDialog.title}</Dialog.Title>
         <Dialog.Content>{t("dialog.description")}</Dialog.Content>
         <Dialog.Content>
           <Form rightAlignButton>

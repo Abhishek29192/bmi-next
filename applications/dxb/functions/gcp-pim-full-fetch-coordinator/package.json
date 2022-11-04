@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "@bmi/fetch-retry": "0.0.0",
+    "@bmi/functions-contentful-client": "0.0.0",
     "@bmi/functions-es-client": "0.0.0",
     "@bmi/functions-firestore": "0.0.0",
     "@bmi/pim-api": "0.0.0",
     "@bmi-digital/functions-logger": "^1.3.3",
     "@google-cloud/functions-framework": "^3.0.0",
-    "contentful": "^9.1.33",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "cta": {
+      "MERCHANDISE": "Få reda på mer",
+      "TRAINING": "BMI Academy",
+      "PROJECT": "Skapa projekt"
+    }
+  },
+  "partnerBrands": {
+    "title": "BMI-partnermärken",
+    "description": "BMI är glada att kunna erbjuda RoofPro-medlemmar speciella rabatter och kampanjer tillgängliga från våra partnervarumärken, inklusive DJI, Expensify och SIXT. Dessa organisationer ger medlemmar tillgång till kompletterande produkter och tjänster på förmånliga villkor, inklusive drönare, utgiftshanteringslösningar, fordonsuthyrning och mobilitetslösningar.",
+    "ctaLabel": "Läs mer"
+  },
+  "linkedin": {
+    "ctaLabel": "Läs mer"
+  }
+}

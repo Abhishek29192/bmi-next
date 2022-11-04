@@ -1,0 +1,174 @@
+{
+  "titleMember": "Firma",
+  "titleAdmin": "Firmy",
+  "details": {
+    "title": "Szczegóły firmy",
+    "name": "Nazwa firmy",
+    "aboutUs": "Opis Firmy",
+    "tradingAddress": "Adres siedziby głównej",
+    "owner": "Właściciel firmy",
+    "contactDetails": "Informacje kontaktowe",
+    "registeredDetails": "Zarejestrowane dane",
+    "referenceNumber": "Numer członkowski",
+    "registeredAddress": "Zarejestrowany adres",
+    "taxNumber": "Numer VAT firmy",
+    "phone": "Telefon"
+  },
+  "noCompanies": "Na tym rynku nie ma jeszcze firm",
+  "search": {
+    "inputLabel": "Wyszukaj firmę",
+    "profileComplete": "Profil ukończony",
+    "profileIncomplete": "Profil niekompletny"
+  },
+  "supportTitle": "Wsparcie Roofpro",
+  "certificationsTitle": "Certyfikaty BMI",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Telefon",
+      "publicEmail": "E-mail",
+      "aboutUs": "Opis",
+      "tradingAddress": "Adres handlowy",
+      "logo": "Logo"
+    },
+    "warning": "Podaj wymagane informacje wymienione poniżej, aby BMI mogło promować Twoją firmę wśród właścicieli budynków.",
+    "closeAlertAccessibilityLabel": "Zamknij alert"
+  },
+  "businessType": {
+    "CONTRACTOR": "Kontrahent",
+    "ARCHITECT": "Architekt",
+    "MERCHANT": "Kupiec",
+    "CORP_DEVELOPER": "Deweloper"
+  },
+  "companyOperations": "Typ operacji",
+  "companyOperationsSuffix": "zadaszenie",
+  "operationTypes": {
+    "FLAT": "mieszkanie",
+    "PITCHED": "rozbił",
+    "SOLAR": "słoneczny",
+    "BITUMEN": "bitum",
+    "TILE": "płytka",
+    "COATER": "powlekacz",
+    "GREEN": "Zielony"
+  },
+  "companyActionsTitle": "Działania firmy",
+  "companyActions": {
+    "activate": "Aktywuj firmę",
+    "deactivate": "Dezaktywuj firmę"
+  },
+  "register_dialog": {
+    "title": "Zarejestruj firmę"
+  },
+  "edit_dialog": {
+    "title": "Szczegóły firmy",
+    "sections": {
+      "registered_details": "Zarejestrowane dane",
+      "trading_address": "Adres handlowy",
+      "trading_address_fields_heading": "Informacje kontaktowe",
+      "trading_address_description": "Podaj wymagane informacje wymienione poniżej, aby BMI mogło promować Twoją firmę wśród właścicieli budynków.",
+      "contact_details": "Szczegóły kontaktu",
+      "owner_details": "Dane właściciela firmy"
+    },
+    "form": {
+      "fields": {
+        "name": "Zarejestrowaną nazwą",
+        "registeredAddress": {
+          "firstLine": "Wiersz adresu 1",
+          "secondLine": "Wiersz adresu 2",
+          "town": "Miasto/Miasto",
+          "postcode": "Kod pocztowy / ZIP",
+          "region": "Region",
+          "country": "Kraj",
+          "coordinates": {
+            "x": "Szerokość",
+            "y": "Długość geograficzna"
+          }
+        },
+        "tradingAddress": {
+          "autocomplete": "Kod pocztowy, miasto lub ulica",
+          "firstLine": "Wiersz adresu 1",
+          "secondLine": "Wiersz adresu 2",
+          "town": "Miasto/Miasto",
+          "postcode": "Kod pocztowy / ZIP",
+          "region": "Region",
+          "country": "Kraj",
+          "coordinates": {
+            "x": "Szerokość",
+            "y": "Długość geograficzna"
+          }
+        },
+        "logo": {
+          "label": "Logo",
+          "alt_text": "Logo firmy",
+          "buttons": {
+            "upload": "Prześlij nowe zdjęcie",
+            "remove": "Usunąć"
+          },
+          "fileTypesMessage": "Możesz przesyłać pliki jpg, gif lub png.",
+          "fileSizeMessage": "Maksymalny rozmiar pliku 3mb."
+        },
+        "taxNumber": "Numer identyfikacji podatkowej",
+        "businessType": "Rodzaj działalności",
+        "operationTypes": "Rodzaje operacji",
+        "tier": "Szczebel",
+        "aboutUs": "Opis Firmy",
+        "phone": "Telefon",
+        "website": "Strona internetowa firmy",
+        "facebook": "profil na Facebooku",
+        "publicEmail": "Adres e-mail",
+        "linkedIn": "Profil LinkedIn",
+        "ownerFullname": "Nazwa",
+        "ownerPhone": "Telefon",
+        "ownerEmail": "Adres e-mail"
+      },
+      "actions": {
+        "submit": "Zapisz i zamknij",
+        "cancel": "Anulować"
+      },
+      "maxCharacters": "Maksymalnie 255 znaków"
+    }
+  },
+  "report": "Pobierz listę firm",
+  "document": {
+    "title": "Dokumenty firmowe",
+    "noContent": "Nie przesłano jeszcze żadnych dokumentów",
+    "addDocument": "Dodaj dokument",
+    "headers": {
+      "document": "Dokument",
+      "date": "Data",
+      "download": "ŚCIĄGNIJ"
+    },
+    "uploadDialog": {
+      "title": "Przesyłanie dokumentów",
+      "buttonLabel": "Prześlij pliki",
+      "microcopy": {
+        "drop": "Upuszczać",
+        "browse": "Przeglądaj"
+      },
+      "instruction": "Możesz dodawać pliki",
+      "confirmLabel": "Prześlij pliki",
+      "cancelLabel": "Anulować",
+      "fileValidationMessage": "Nie możesz przesyłać plików większych niż {{fileSize}}",
+      "evidence_category": "Kategoria dowodów",
+      "total_files_size": "Przekroczono łączny rozmiar plików - {{totalSize}}",
+      "fileAlreadyExisting": "Nazwa pliku już istnieje",
+      "genericError": "Ogólny błąd"
+    },
+    "confirmDialog": {
+      "title": "Dokument firmowy",
+      "body": "Usunąć dokument?",
+      "confirmLabel": "Potwierdzać",
+      "cancelLabel": "Anulować"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Imię już używane",
+  "errorCompanyReferenceUniqueViolation": "Numer już używany",
+  "errorUniqueViolation": "Nieunikalny",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alfabetyczny",
+      "UPDATED": "Ostatnio zaktualizowany"
+    }
+  },
+  "companyAdministrators": "Administratorzy",
+  "companyMembers": "Instalatorzy/Członkowie"
+}

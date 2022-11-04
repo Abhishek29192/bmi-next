@@ -34,9 +34,7 @@ const mockUseMediaQuery = useMediaQuery as jest.Mock<
 
 function renderDocumentResults(props?: Partial<Props>) {
   const defaultProps: Props = {
-    documents: [],
-    page: 1,
-    documentsPerPage: 10
+    documents: []
   };
   return render(<DocumentSimpleTableResults {...defaultProps} {...props} />);
 }
@@ -108,8 +106,7 @@ describe("DocumentSimpleTableResult", () => {
       it("should render documents", () => {
         renderDocumentResults({
           documents: [null],
-          headers: ["typeCode", "type", "name", "title", "download", "add"],
-          documentsPerPage: 1
+          headers: ["typeCode", "type", "name", "title", "download", "add"]
         });
         expect(
           screen.queryAllByRole("checkbox", {

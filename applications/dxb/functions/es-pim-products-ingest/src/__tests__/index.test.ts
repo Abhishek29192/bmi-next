@@ -1,30 +1,28 @@
 import {
+  createPimProductDocument,
+  createPimSystemDocument,
   createProduct as createEsProduct,
   createSystem as createEsSystem,
-  EsPIMDocumentData,
-  EsPIMLinkDocumentData,
+  // PimDocument as EsPimDocument,
+  // PimDocument,
+  // PimLinkDocument as EsPimLinkDocument,
+  // PimLinkDocument,
+  PimProductDocument,
+  PimSystemDocument,
   Product as EsProduct,
   System as EsSystem
 } from "@bmi/elasticsearch-types";
-
-import {
-  createProduct as createPimProduct,
-  createSystem as createPimSystem,
-  Product,
-  System
-} from "@bmi/pim-types";
+import { Product, System } from "@bmi/pim-types";
 import {
   createDeleteProductMessage,
+  createUpdateCategoryMessage,
   createUpdateProductMessage,
   createUpdateSystemMessage,
   DeleteItem,
   ItemType,
   Message
 } from "@bmi/pub-sub-types";
-import { RequestParams } from "@elastic/elasticsearch";
 import mockConsole from "jest-mock-console";
-import { buildEsProducts, buildEsSystems } from "../index";
-import { createPimDocument } from "./helpers/PimDocumentHelper";
 
 const createEvent = (message?: Message): { data: string } => {
   if (!message) {
@@ -40,14 +38,6 @@ const createContext = (): {
   message: { data: {} as Message }
 });
 
-const getEsClient = jest.fn();
-const ping = jest.fn();
-const bulk = jest.fn();
-const count = jest.fn();
-jest.mock("@bmi/functions-es-client", () => {
-  return { getEsClient: (...args: []) => getEsClient(...args) };
-});
-
 const transformProduct = jest.fn();
 jest.mock("../transformProducts", () => ({
   transformProduct: (product: Product): EsProduct[] => transformProduct(product)
@@ -61,23 +51,29 @@ jest.mock("../transformSystems", () => ({
 const transformDocuments = jest.fn();
 jest.mock("../transformDocuments", () => ({
   transformDocuments: (
-    item: Product[] | System[]
-  ): (EsPIMDocumentData | EsPIMLinkDocumentData)[] => transformDocuments(item)
+    item: Product[] | System[],
+    locale: string,
+    tag?: string
+  ): (PimProductDocument | PimSystemDocument)[] =>
+    transformDocuments(item, locale, tag)
 }));
 
-const deleteESItemByCode = jest.fn();
-jest.mock("../deleteESItemByCode", () => ({
-  deleteESItemByCode: (items: DeleteItem[], type: string) =>
-    deleteESItemByCode(items, type)
+const deleteEsItemByCode = jest.fn();
+jest.mock("../deleteEsItemByCode", () => ({
+  deleteEsItemByCode: (items: DeleteItem[], type: string) =>
+    deleteEsItemByCode(items, type)
 }));
-const updateElasticSearch = jest.fn();
+const updateItems = jest.fn();
+const updateDocuments = jest.fn();
 jest.mock("../elasticsearch", () => ({
-  updateElasticSearch: (
+  updateItems: (
     itemType: ItemType,
-    esProducts: readonly (EsProduct | EsSystem)[],
-    assets: readonly (EsPIMDocumentData | EsPIMLinkDocumentData)[],
+    esProducts: readonly (EsProduct | EsSystem)[]
+  ) => updateItems(itemType, esProducts),
+  updateDocuments: (
+    assets: readonly (PimProductDocument | PimSystemDocument)[],
     itemCode: string
-  ) => updateElasticSearch(itemType, esProducts, assets, itemCode)
+  ) => updateDocuments(assets, itemCode)
 }));
 
 beforeAll(() => {
@@ -87,12 +83,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-
-  getEsClient.mockImplementation(() => ({
-    ping: (callback: () => void) => ping(callback),
-    bulk: (params: RequestParams.Bulk) => bulk(params),
-    count: (params: RequestParams.Count) => count(params)
-  }));
+  process.env.MARKET_LOCALE = "en-US";
 });
 
 const handleMessage = async (
@@ -105,180 +96,260 @@ const handleMessage = async (
 ): Promise<void> => (await import("../index")).handleMessage(event, context);
 
 describe("handleMessage", () => {
-  it("should error if getEsClient throws error", async () => {
-    getEsClient.mockRejectedValue(Error("Expected error"));
+  it("should throw error if MARKET_LOCALE is not set", async () => {
+    const originalMarketLocale = process.env.MARKET_LOCALE;
+    delete process.env.MARKET_LOCALE;
+
+    const message = createDeleteProductMessage();
 
     try {
-      await handleMessage(createEvent(), createContext());
+      await handleMessage(createEvent(message), createContext());
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual(
+        "MARKET_LOCALE has not been set."
+      );
+    }
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
+
+    process.env.MARKET_LOCALE = originalMarketLocale;
+  });
+
+  it("should do nothing if event data is empty", async () => {
+    await handleMessage(createEvent(), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
+  });
+
+  it("should do nothing if itemType is CATEGORIES", async () => {
+    const message = createUpdateCategoryMessage();
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
+  });
+
+  it("should throw error if deleteEsItemByCode throws error", async () => {
+    deleteEsItemByCode.mockRejectedValueOnce(Error("Expected error"));
+
+    const message = createDeleteProductMessage();
+
+    try {
+      await handleMessage(createEvent(message), createContext());
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(getEsClient).toBeCalled();
-    expect(ping).toBeCalledTimes(0);
-    expect(transformProduct).toBeCalledTimes(0);
-    expect(transformSystem).toBeCalledTimes(0);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
+    expect(deleteEsItemByCode).toBeCalledWith(message.item, message.itemType);
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
   });
 
-  it("should do nothing if ES cluster is not available", async () => {
-    ping.mockImplementation((args) => {
-      args({});
-    });
+  it("should delete item", async () => {
+    const message = createDeleteProductMessage();
 
-    await handleMessage(createEvent(), createContext());
+    await handleMessage(createEvent(message), createContext());
 
-    expect(getEsClient).toBeCalled();
-    expect(ping).toBeCalled();
-    expect(transformProduct).toBeCalledTimes(0);
-    expect(transformSystem).toBeCalledTimes(0);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
-  });
-
-  it("should do nothing if event data is empty", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
-
-    await handleMessage(createEvent(), createContext());
-
-    expect(getEsClient).toBeCalled();
-    expect(ping).toBeCalled();
-    expect(transformProduct).toBeCalledTimes(0);
-    expect(transformSystem).toBeCalledTimes(0);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
+    expect(deleteEsItemByCode).toBeCalledWith(message.item, message.itemType);
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
   });
 
   it("should do nothing if transform product returns empty array", async () => {
-    ping.mockImplementation((args) => {
-      args();
-    });
     transformProduct.mockReturnValue([]);
 
     const message = createUpdateProductMessage();
+
     await handleMessage(createEvent(message), createContext());
 
-    expect(getEsClient).toBeCalled();
-    expect(ping).toBeCalled();
+    expect(deleteEsItemByCode).not.toBeCalled();
     expect(transformProduct).toBeCalledWith(message.item);
-    expect(transformSystem).toBeCalledTimes(0);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
   });
 
-  it("should execute updateElasticSearch function if type of message is 'UPDATED'-'PRODUCTS'", async () => {
-    ping.mockImplementation((args) => Promise.resolve(args));
-    transformProduct.mockReturnValue([createEsProduct()]);
-    transformDocuments.mockReturnValue([createPimDocument()]);
+  it("should do nothing if transform system returns undefined", async () => {
+    transformSystem.mockReturnValue(undefined);
+
+    const message = createUpdateSystemMessage();
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.item);
+    expect(transformDocuments).not.toBeCalled();
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
+  });
+
+  it("should update Elasticsearch with only transformed products if no documents found", async () => {
+    const transformedProducts = [createEsProduct()];
+    transformProduct.mockReturnValue(transformedProducts);
+    transformDocuments.mockResolvedValueOnce([]);
 
     const message = createUpdateProductMessage();
+
     await handleMessage(createEvent(message), createContext());
 
-    const pimProduct = createPimProduct();
-
-    const expectedVariant = buildEsProducts(pimProduct);
-    const transformedDocuments = await transformDocuments(pimProduct.assets);
-
-    expect(updateElasticSearch).toBeCalledWith(
-      "PRODUCTS",
-      expectedVariant,
-      transformedDocuments,
-      pimProduct.code
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).toBeCalledWith(message.item);
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      undefined
     );
+    expect(updateItems).toBeCalledWith("PRODUCTS", transformedProducts);
+    expect(updateDocuments).not.toBeCalled();
   });
 
-  it("should execute updateElasticSearch function with undefined transormed documents", async () => {
-    ping.mockImplementation((args) => Promise.resolve(args));
-    transformProduct.mockReturnValue([createEsProduct()]);
-    transformDocuments.mockReturnValue(undefined);
+  it("should update Elasticsearch with only transformed sytems if no documents found", async () => {
+    const transformedSystems = createEsSystem();
+    transformSystem.mockReturnValue(transformedSystems);
+    transformDocuments.mockResolvedValueOnce([]);
 
-    const message: Message = {
-      type: "UPDATED",
-      itemType: "PRODUCTS",
-      item: createPimProduct()
-    };
+    const message = createUpdateSystemMessage();
+
     await handleMessage(createEvent(message), createContext());
 
-    const pimProduct = createPimProduct();
-
-    const expectedVariant = buildEsProducts(pimProduct);
-    const transformedDocuments = await transformDocuments(pimProduct.assets);
-
-    expect(updateElasticSearch).toBeCalledWith(
-      "PRODUCTS",
-      expectedVariant,
-      transformedDocuments,
-      pimProduct.code
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.item);
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      undefined
     );
+    expect(updateItems).toBeCalledWith("SYSTEMS", [transformedSystems]);
+    expect(updateDocuments).not.toBeCalled();
   });
 
-  it("should execute updateElasticSearch function if type of message is 'UPDATED'-'PRODUCTS' with empty documents array", async () => {
-    ping.mockImplementation((args) => Promise.resolve(args));
-    transformProduct.mockReturnValue([createPimProduct()]);
-    transformDocuments.mockReturnValue([]);
+  it("should throw error when transformDocuments throws error", async () => {
+    const transformedProducts = [createEsProduct()];
+    transformProduct.mockReturnValue(transformedProducts);
+    transformDocuments.mockRejectedValueOnce(Error("Expected error"));
 
-    const message: Message = {
-      type: "UPDATED",
-      itemType: "PRODUCTS",
-      item: createPimProduct()
-    };
-    await handleMessage(createEvent(message), createContext());
+    const message = createUpdateProductMessage();
 
-    const pimProduct = createPimProduct();
-
-    const expectedVariant = buildEsProducts(pimProduct);
-    const transformedDocuments = await transformDocuments(pimProduct.assets);
-
-    expect(updateElasticSearch).toBeCalledWith(
-      "PRODUCTS",
-      expectedVariant,
-      transformedDocuments,
-      pimProduct.code
-    );
-  });
-
-  it("should execute updateElasticSearch function if type of message is 'UPDATED'-'SYSTEMS'", async () => {
-    ping.mockImplementation((args) => Promise.resolve(args));
-    transformProduct.mockReturnValue([createEsSystem()]);
-    transformDocuments.mockReturnValue([createPimDocument()]);
-
-    const message: Message = createUpdateSystemMessage();
-    await handleMessage(createEvent(message), createContext());
-
-    const pimSystem = createPimSystem();
-
-    const expectedVariant = buildEsSystems(pimSystem);
-    const transformedDocuments = await transformDocuments(pimSystem.assets);
-
-    expect(updateElasticSearch).toBeCalledWith(
-      "SYSTEMS",
-      expectedVariant,
-      transformedDocuments,
-      pimSystem.code
-    );
-  });
-
-  describe("delete operation", () => {
-    const createContext = (): {
-      message: { data: Message };
-    } => ({
-      message: { data: {} as Message }
-    });
-    it("should perform delete operation if item's code provided on delete message ", async () => {
-      ping.mockImplementation((args) => Promise.resolve(args));
-
-      const message = createDeleteProductMessage();
-
+    try {
       await handleMessage(createEvent(message), createContext());
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
 
-      expect(getEsClient).toBeCalled();
-      expect(ping).toBeCalled();
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).toBeCalledWith(message.item);
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      undefined
+    );
+    expect(updateItems).not.toBeCalled();
+    expect(updateDocuments).not.toBeCalled();
+  });
 
-      expect(deleteESItemByCode).toBeCalledWith(message.item, "PRODUCTS");
-    });
+  it("should update Elasticsearch with transformed products and documents if documents found", async () => {
+    const transformedProducts = [createEsProduct()];
+    const transformedDocuments = [createPimProductDocument()];
+    transformProduct.mockReturnValue(transformedProducts);
+    transformDocuments.mockResolvedValueOnce(transformedDocuments);
+
+    const message = createUpdateProductMessage();
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).toBeCalledWith(message.item);
+    expect(transformSystem).not.toBeCalled();
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      undefined
+    );
+    expect(updateItems).toBeCalledWith("PRODUCTS", transformedProducts);
+    expect(updateDocuments).toBeCalledWith(
+      transformedDocuments,
+      message.item.code
+    );
+  });
+
+  it("should update Elasticsearch with transformed sytems and documents if documents found", async () => {
+    const transformedSystems = createEsSystem();
+    const transformedDocuments = [createPimProductDocument()];
+    transformSystem.mockReturnValue(transformedSystems);
+    transformDocuments.mockResolvedValueOnce(transformedDocuments);
+
+    const message = createUpdateSystemMessage();
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.item);
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      undefined
+    );
+    expect(updateItems).toBeCalledWith("SYSTEMS", [transformedSystems]);
+    expect(updateDocuments).toBeCalledWith(
+      transformedDocuments,
+      message.item.code
+    );
+  });
+
+  it("should pass TAG to transformDocuments if set", async () => {
+    process.env.TAG = "market__belgium";
+    const transformedSystems = createEsSystem();
+    const transformedDocuments = [createPimSystemDocument()];
+    transformSystem.mockReturnValue(transformedSystems);
+    transformDocuments.mockResolvedValueOnce(transformedDocuments);
+
+    const message = createUpdateSystemMessage();
+
+    await handleMessage(createEvent(message), createContext());
+
+    expect(deleteEsItemByCode).not.toBeCalled();
+    expect(transformProduct).not.toBeCalled();
+    expect(transformSystem).toBeCalledWith(message.item);
+    expect(transformDocuments).toBeCalledWith(
+      message.item,
+      process.env.MARKET_LOCALE,
+      process.env.TAG
+    );
+    expect(updateItems).toBeCalledWith("SYSTEMS", [transformedSystems]);
+    expect(updateDocuments).toBeCalledWith(
+      transformedDocuments,
+      message.item.code
+    );
+    delete process.env.TAG;
   });
 });

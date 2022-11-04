@@ -37,10 +37,8 @@ const pageInfo: PlpPageInfoData = {
   tags: null,
   date: null,
   featuredMedia: {
-    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
-    caption: null,
     focalPoint: null,
     image: {
       gatsbyImageData: {

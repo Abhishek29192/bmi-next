@@ -1,29 +1,28 @@
 {
+  "title": "Din BMI-garanti venter på at blive gjort krav på!",
+  "reject": "Nedgang",
   "accept": "Acceptere",
-  "acceptanceDescription": [
-    "Hvis du vælger at acceptere, så følger BMI garantidokumentationen i en separat e-mail sammen med en fuld kopi af vilkår og betingelser.",
-    "Hvis du vælger at takke nej, bortfalder BMI-garantien, og entreprenøren får besked."
-  ],
-  "acceptanceTitle": "Bekræft venligst nedenfor for enten at acceptere eller afvise BMI-garantien.",
-  "confirmation": {
-    "description": [
-      "BMI arbejder tæt sammen med entreprenører for at sikre, at du modtager de højeste standarder for håndværk, forbedrede garantier og den fortsatte support og service, du har brug for for at holde dit tag i den bedst mulige stand.",
-      "For yderligere information om BMI, og hvis du har brug for at komme i kontakt, besøg venligst {{website}}."
-    ],
-    "title": "Tak fordi du valgte BMI til at dække dit tag!"
+  "dialog": {
+    "title": "Er du sikker på, at du vil {{acceptance}} BMI-garantien?",
+    "description": "Vælger du at acceptere BMI-garantien, modtager du garantidokumentationen i en separat e-mail. Vælger du at afslå BMI-garantien, vil den blive annulleret, og entreprenøren får besked.",
+    "cta": {
+      "back": "Tilbage",
+      "confirm": "Bekræfte"
+    }
   },
   "description": [
     "Vi er glade for at kunne bekræfte, at en ny BMI-garanti er tilgængelig, som du kan gøre krav på, for at give ro i sindet og beskyttelse for din ejendom og dens beboere.",
     "Dette garantitilbud er tilgængeligt i en begrænset periode, så læs venligst detaljerne nedenfor, og klik for at acceptere eller afslå dette tilbud."
   ],
-  "dialog": {
-    "cta": {
-      "back": "Tilbage",
-      "confirm": "Bekræfte"
-    },
-    "description": "Hvis du nedgang BMI-garantien, vælger du ikke at modtage den tilbudte garanti, og den vil blive annulleret.",
-    "title": "Er du sikker på, at du vil {{acceptance}} BMI-garantien?"
-  },
+  "warrantyPeriod": "Garantiperiode:",
+  "guaranteeScope": "Garantiens dækning:",
+  "guaranteeConditions": "Garantibetingelser:",
+  "guaranteeConditionsDescription": "Ved at klikke på 'Acceptere' accepterer du denne garanti og erklærer at have læst og specifikt accepteret følgende betingelser:",
+  "acceptanceTitle": "Bekræft venligst nedenfor for enten at acceptere eller afvise BMI-garantien.",
+  "acceptanceDescription": [
+    "Hvis du vælger at acceptere, så følger BMI garantidokumentationen i en separat e-mail sammen med en fuld kopi af vilkår og betingelser.",
+    "Hvis du vælger at takke nej, bortfalder BMI-garantien, og entreprenøren får besked."
+  ],
   "form": {
     "fields": {
       "acceptance": {
@@ -37,10 +36,12 @@
       }
     }
   },
-  "guaranteeConditions": "Garantibetingelser:",
-  "guaranteeConditionsDescription": "Ved at klikke på 'Acceptere' accepterer du denne garanti og erklærer at have læst og specifikt accepteret følgende betingelser:",
-  "guaranteeScope": "Garantiens dækning:",
-  "reject": "Nedgang",
-  "title": "Din BMI-garanti venter på at blive gjort krav på!",
-  "warrantyPeriod": "Garantiperiode:"
+  "confirmation": {
+    "title": "Tak fordi du valgte BMI til at dække dit tag!",
+    "description": [
+      "BMI arbejder tæt sammen med entreprenører for at sikre, at du modtager de højeste standarder for håndværk, forbedrede garantier og den fortsatte support og service, du har brug for for at holde dit tag i den bedst mulige stand.",
+      "For yderligere information om BMI, og hvis du har brug for at komme i kontakt, besøg venligst {{website}}."
+    ]
+  },
+  "years": "år"
 }

@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Arquiteto",
-  "About Us": "Sobre nós",
-  "Account": "Minha conta",
-  "CONTRACTOR": "Empreiteiro",
-  "CORP_DEVELOPER": "Promotor",
+  "Home": "Inicio",
+  "Projects": "Projetos",
+  "Training": "Formação",
+  "Team": "Equipamento",
   "Companies": "Empresas",
   "Company": "Empresa",
-  "Company Description": "Descrição da Empresa",
-  "Download": "Descarregar  ",
-  "Edit": "Editar",
-  "Home": "Inicio",
+  "Tools": "Ferramentas",
   "Inventory": "Inventário",
-  "Logout": "Fechar Sessão",
-  "MERCHANT": "Distribuidor",
-  "Main office address": "Endereço da sede",
+  "Edit": "Editar",
+  "Search": "Procurar",
   "No Options": "sem opções",
-  "Notifications": "Notificações",
-  "Products": "Produtos",
+  "Show me": "mostre-me",
+  "Account": "Minha conta",
   "Profile": "Perfil",
-  "Projects": "Projetos",
-  "Registered Address": "Endereço registrado",
+  "Logout": "Fechar Sessão",
+  "Notifications": "Notificações",
+  "deactivatedCompany": "Empresa desativada",
+  "results available": "Resultados disponíveis",
+  "Company Description": "Descrição da Empresa",
+  "About Us": "Sobre nós",
   "Registered Details": "dados de registo",
   "Registered Name": "nome registrado",
-  "SavePdf": "Descarregar PDF",
-  "Search": "Procurar",
-  "Show me": "mostre-me",
-  "Sort by": "Organizar por",
-  "Team": "Equipamento",
-  "Tools": "Ferramentas",
-  "Training": "Formação",
+  "Registered Address": "Endereço registrado",
+  "Main office address": "Endereço da sede",
+  "CONTRACTOR": "Empreiteiro",
+  "ARCHITECT": "Arquiteto",
+  "MERCHANT": "Distribuidor",
+  "CORP_DEVELOPER": "Promotor",
   "aria": {
     "navigation": "Navegação",
     "notifications": "Notificações"
   },
-  "certificationLabels": {
-    "certification": "Certificação",
-    "expiry": "Expiração",
-    "type": "tipo"
-  },
-  "certifications": {
-    "flat": "Plana",
-    "other": "outros",
-    "pitched": "Inclinado"
-  },
-  "deactivatedCompany": "Empresa desativada",
-  "error_messages": {
-    "email_format": "endereço de correio eletronico invalido",
-    "phone_number_format": "telefone inválido",
-    "required": "Obrigatoriedade",
-    "url_format": "URL inválido"
-  },
-  "fallback": {
-    "noResults": "Não há resultados",
-    "notAdded": "não adicionado"
-  },
-  "generatingPdf": "Gerando PDF",
-  "notifications": {
-    "earlier": "Antes de",
-    "older": "Mais de 2 meses",
-    "today": "Hoje"
-  },
-  "requiredInformation": "informação requerida",
-  "results available": "Resultados disponíveis",
   "roles": {
-    "AUDITOR": "Auditor",
-    "COMPANY_ADMIN": "Gerente de empresa",
     "INSTALLER": "Membro",
+    "COMPANY_ADMIN": "Gerente de empresa",
     "MARKET_ADMIN": "Administrador de BMI",
-    "SUPER_ADMIN": "super administrador"
-  },
-  "session": {
-    "dialog": {
-      "content": "Você esteve inativo por um tempo e esta sessão irá expirar e você será desconectado automaticamente.",
-      "continue": "estender sessão",
-      "logout": "Fechar Sessão",
-      "title": "Sua sessão expirará em {{counter}}"
-    }
+    "SUPER_ADMIN": "super administrador",
+    "AUDITOR": "Auditor"
   },
   "tier": {
     "T1": "Membro",
@@ -86,9 +47,48 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Obrigatoriedade",
+    "url_format": "URL inválido",
+    "email_format": "endereço de correio eletronico invalido",
+    "phone_number_format": "telefone inválido"
+  },
+  "Products": "Produtos",
+  "fallback": {
+    "notAdded": "não adicionado",
+    "noResults": "Não há resultados"
+  },
+  "Download": "Descarregar  ",
+  "SavePdf": "Descarregar PDF",
   "visitWebsite": "visite o site",
+  "certifications": {
+    "pitched": "Inclinado",
+    "flat": "Plana",
+    "other": "outros"
+  },
+  "certificationLabels": {
+    "type": "tipo",
+    "certification": "Certificação",
+    "expiry": "Expiração"
+  },
+  "notifications": {
+    "today": "Hoje",
+    "earlier": "Antes de",
+    "older": "Mais de 2 meses"
+  },
+  "session": {
+    "dialog": {
+      "title": "Sua sessão expirará em {{counter}}",
+      "content": "Você esteve inativo por um tempo e esta sessão irá expirar e você será desconectado automaticamente.",
+      "logout": "Fechar Sessão",
+      "continue": "estender sessão"
+    }
+  },
+  "generatingPdf": "Gerando PDF",
+  "Sort by": "Organizar por",
+  "requiredInformation": "informação requerida",
   "button": {
     "more": "Mostre mais",
-    "less": "mostre menos"
+    "less": "Mostre menos"
   }
 }

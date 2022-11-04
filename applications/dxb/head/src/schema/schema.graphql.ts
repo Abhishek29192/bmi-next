@@ -434,7 +434,7 @@ union ContentfulSection =
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
   | ContentfulIframe
-  | ContentfulSystemConfiguratorBlock
+  | ContentfulSystemConfiguratorSection
   | ContentfulTeamSection
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
@@ -593,6 +593,13 @@ type ContentfulDocument implements Node {
 
 union Document = ContentfulDocument | PIMDocument
 
+type AssetType {
+  name: String!
+  code: String!
+  description: ContentfulRichText
+  pimCode: String
+}
+
 type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   id: ID!
   contentful_id: String!
@@ -608,7 +615,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
   description: ContentfulRichText
   source: String
-  assetTypes: [ContentfulAssetType] @link(from: "assetTypes___NODE")
+  contentfulAssetTypes: [AssetType]!
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulCategory] @link(from: "tags___NODE")
@@ -765,6 +772,7 @@ type Product implements Node @dontInfer {
   guaranteesAndWarrantiesLinks: [PIMAsset]!
   hashedCode: String!
   isSampleOrderAllowed: Boolean
+  isVisualiserAvailable: Boolean
   keyAssetDocuments: [KeyAssetDocument]
   masterImage: PIMImage
   materials: String
@@ -797,8 +805,6 @@ type ProductDocument {
   url: String!
   productBaseCode: String!
   productName: String!
-  # TODO: remove when document filtering is done with Elastic search
-  productCategories: [ProductDocumentCategory]!
 }
 
 type ProductDocumentCategory {
@@ -840,7 +846,7 @@ type Feature {
 
 type DocumentsFiltersResponse {
   filters: [PLPFilter]!
-} 
+}
 
 
 type PIMDocument {
@@ -1051,19 +1057,45 @@ type RegionJson implements Node @dontInfer {
   menu: [CountryJSON]!
 }
 
-union NextStep = ContentfulSystemConfiguratorBlock | ContentfulTitleWithContent
+union NextStep = ContentfulSystemConfiguratorResult | ContentfulTitleWithContent | ContentfulSystemConfiguratorQuestion
 
-type ContentfulSystemConfiguratorBlock implements Node {
+type ContentfulSystemConfiguratorResult implements Node {
   id: ID!
+  contentful_id: String!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  recommendedSystems: [String!]!
+}
+
+type ContentfulSystemConfiguratorAnswer implements Node {
+  id: ID!
+  contentful_id: String!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  nextStep: NextStep! @link(from: "nextStep___NODE")
+}
+
+type ContentfulSystemConfiguratorQuestion implements Node {
+  id: ID!
+  contentful_id: String!
+  node_locale: String!
+  label: String!
+  title: String!
+  description: ContentfulRichText
+  answers: [ContentfulSystemConfiguratorAnswer!]! @link(from: "answers___NODE")
+}
+
+type ContentfulSystemConfiguratorSection implements Node {
+  id: ID!
+  contentful_id: String!
   node_locale: String!
   label: String
   title: String
   description: ContentfulRichText
-  type: String
-  question: ContentfulSystemConfiguratorBlock @link(from: "question___NODE")
-  answers: [ContentfulSystemConfiguratorBlock] @link(from: "answers___NODE")
-  noResultItems: [ContentfulTitleWithContent] @link(from: "noResultItems___NODE")
-  recommendedSystems: [String!]
-  nextStep: NextStep @link(from: "nextStep___NODE")
+  question: ContentfulSystemConfiguratorQuestion! @link(from: "question___NODE")
 }
 `;

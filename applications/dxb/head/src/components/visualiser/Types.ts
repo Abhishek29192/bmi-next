@@ -8,6 +8,12 @@ declare global {
 
 export type Material = "1" | "2" | "3";
 
+export enum Category {
+  Clay = "clay",
+  Concrete = "concrete",
+  Metal = "metal"
+}
+
 export type Colour = {
   tileId: number;
   name: string;
@@ -69,6 +75,29 @@ export type Siding = {
   isDraft: boolean;
   creatorUser: unknown;
   type: string;
+};
+
+export type PIMTile = {
+  name: string;
+  category: Category;
+  colour: string;
+  normalMapRef: string;
+  metallicRoughnessMapRef: string;
+  verticalOverlap: number;
+  horizontalOverlap: number;
+  horizontalOffset: number;
+  highDetailMeshRef: string;
+  lowDetailMeshRef: string;
+  diffuseMapRef: string;
+  ridgeRef: string;
+  ridgeEndRef: string;
+  snowFenceActive: boolean;
+  isLargeTile: boolean;
+  code: string;
+  thicknessReduction?: number;
+  invert?: boolean;
+  invertY?: boolean;
+  mainImage: string;
 };
 
 export interface HouseType {

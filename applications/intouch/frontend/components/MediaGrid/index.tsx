@@ -4,6 +4,8 @@ import { Typography } from "@bmi/components";
 import { useTranslation } from "react-i18next";
 import { MediaFolder, MediaItem } from "../../lib/media/types";
 import { MediaTile } from "../MediaTile";
+import { useAccountContext } from "../../context/AccountContext";
+import { useMarketContext } from "../../context/MarketContext";
 import styles from "./styles.module.scss";
 
 export type MediaGridProps = {
@@ -21,8 +23,11 @@ export const MediaGrid = ({
 }: MediaGridProps) => {
   const { t } = useTranslation("toolkit");
 
+  const { account } = useAccountContext();
+  const { market } = useMarketContext();
+
   if (items.length === 0) {
-    return <p>{t("noItems")}</p>;
+    return <p data-testid={"noMediaGridItems"}>{t("noItems")}</p>;
   }
 
   return (
@@ -34,7 +39,7 @@ export const MediaGrid = ({
       </div>
       <div>
         {isLoading && (
-          <div className={styles.loading}>
+          <div data-testid={"circularProgress"} className={styles.loading}>
             <CircularProgress size={200} color="primary" />
           </div>
         )}
@@ -45,6 +50,9 @@ export const MediaGrid = ({
                 key={mediaItem.sys?.id}
                 mediaItem={mediaItem}
                 onMediaItemClick={onMediaItemClick}
+                account={account}
+                merchandiseSso={market.merchandiseSso}
+                optanonClass={market.optanonClass}
               />
             );
           })}

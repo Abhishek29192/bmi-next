@@ -1,6 +1,6 @@
-import React from "react";
 import { Block } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
+import React from "react";
 
 type FileData = {
   title: string;

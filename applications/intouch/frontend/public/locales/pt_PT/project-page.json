@@ -1,174 +1,367 @@
 {
-  "CUSTOM": "arquivos personalizados",
+  "Projects": "Projetos",
   "MISCELLANEOUS": "Arquivos de suporte",
   "PROOF_OF_PURCHASE": "Fatura de compra",
-  "Projects": "Projetos",
+  "CUSTOM": "arquivos personalizados",
+  "search": {
+    "inputLabel": "Encontre um projeto"
+  },
   "addProject": {
     "cta": "criar projeto",
     "dialog": {
-      "form": {
-        "actions": {
-          "submit": "Guardar e fechar"
-        },
-        "fields": {
-          "description": "Descrição do projeto",
-          "endDate": "Data de conclusão do projeto",
-          "inspection": "Inspeção",
-          "name": "Nome do projeto",
-          "roofArea": "Area total do telhado (m2)",
-          "siteAddress": {
-            "country": "País",
-            "firstLine": "Endereço 1",
-            "postcode": "Código postal",
-            "region": "Província",
-            "secondLine": "Endereço 2",
-            "town": "Localização"
-          },
-          "startDate": "Data de início do projeto",
-          "technology": "Tipo de projeto"
-        },
-        "hints": {
-          "technology": {
-            "FLAT": "O telhado é revestido com Telas asfalticas, telas sintéticas e geralmente é horizontal e plana.",
-            "PITCHED": "A cobertura é revestida com telhas cerâmicas, de Cimento ou metálicas e possui inclinação."
-          }
-        },
-        "values": {
-          "technology": {
-            "FLAT": "Plana",
-            "PITCHED": "Inclinado"
-          }
-        }
-      },
+      "title": "criar projeto",
       "sections": {
-        "dates": {
-          "title": "datas do projeto"
-        },
         "projectDetails": {
           "title": "dados do projeto"
+        },
+        "dates": {
+          "title": "datas do projeto"
         },
         "siteAddress": {
           "title": "endereço do edificio"
         }
       },
-      "title": "criar projeto"
-    }
-  },
-  "bool": {
-    "False": "Não",
-    "True": "Sim"
-  },
-  "buildingOwnerDetails": {
-    "address": "Endereço do proprietário do edifício",
-    "company": "Empresa",
-    "edit": {
-      "description": "Você pode adicionar os detalhes do proprietário do edifício posteriormente, antes de solicitar uma garantia.",
       "form": {
-        "actions": {
-          "submit": "Guardar e fechar"
-        },
         "fields": {
-          "buildingOwnerAddress": {
-            "country": "País",
-            "firstLine": "Linha de endereço registrada 1",
+          "name": "Nome do projeto",
+          "technology": "Tipo de projeto",
+          "inspection": "Inspeção",
+          "roofArea": "Area total do telhado (m2)",
+          "description": "Descrição do projeto",
+          "startDate": "Data de início do projeto",
+          "endDate": "Data de conclusão do projeto",
+          "siteAddress": {
+            "firstLine": "Endereço 1",
+            "secondLine": "Endereço 2",
+            "town": "Localização",
             "postcode": "Código postal",
             "region": "Província",
-            "secondLine": "Linha de endereço registrada 2",
-            "town": "Localização"
-          },
+            "country": "País"
+          }
+        },
+        "values": {
+          "technology": {
+            "PITCHED": "Inclinado",
+            "FLAT": "Plana"
+          }
+        },
+        "hints": {
+          "technology": {
+            "PITCHED": "A cobertura é revestida com telhas cerâmicas, de Cimento ou metálicas e possui inclinação.",
+            "FLAT": "O telhado é revestido com Telas asfalticas, telas sintéticas e geralmente é horizontal e plana."
+          }
+        },
+        "actions": {
+          "submit": "Guardar e fechar"
+        }
+      }
+    }
+  },
+  "projectDetails": {
+    "code": "Código do projeto",
+    "status": "Estado do projeto",
+    "archived": "Arquivado?",
+    "roofArea": "Area total do telhado (m2)",
+    "buildingAddress": "endereço do prédio",
+    "description": "Descrição do projeto",
+    "startDate": "Data de início do projeto",
+    "endDate": "Data de conclusão do projeto",
+    "guaranteeType": "garantia",
+    "guaranteeStatus": "Estado de garantia",
+    "cta": {
+      "ASSIGN_SOLUTION": "Atribuido a mim",
+      "REASSIGN_SOLUTION": "Reatribuido a mim",
+      "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
+      "NOT_ASSIGNABLE": "não atribuível",
+      "edit": "Editar",
+      "copy": "Cópia de?"
+    },
+    "hints": {
+      "projectEditGuaranteeStatus": "Os dados do projeto não podem ser editados devido ao estado da garantia."
+    },
+    "loading": "Carregando dados do projeto",
+    "error": "Erro ao carregar os dados do projeto"
+  },
+  "buildingOwnerDetails": {
+    "title": "Detalhes do proprietário",
+    "noContent": "Os dados do proprietário do edifício não foram incorporados a este projeto",
+    "name": "Nome",
+    "email": "Correio eletrônico",
+    "company": "Empresa",
+    "address": "Endereço do proprietário do edifício",
+    "edit": {
+      "title": "Detalhes do proprietário do edifício",
+      "description": "Você pode adicionar os detalhes do proprietário do edifício posteriormente, antes de solicitar uma garantia.",
+      "sections": {
+        "contactDetails": {
+          "title": "Informação de contato"
+        },
+        "buildingOwnerAddress": {
+          "title": "Direção"
+        }
+      },
+      "form": {
+        "fields": {
           "buildingOwnerCompany": "Nome da companhia",
           "buildingOwnerFirstname": "Nome",
           "buildingOwnerLastname": "Sobrenome",
-          "buildingOwnerMail": "Correio eletrônico"
-        }
-      },
-      "sections": {
-        "buildingOwnerAddress": {
-          "title": "Direção"
+          "buildingOwnerMail": "Correio eletrônico",
+          "buildingOwnerAddress": {
+            "firstLine": "Linha de endereço registrada 1",
+            "secondLine": "Linha de endereço registrada 2",
+            "town": "Localização",
+            "postcode": "Código postal",
+            "region": "Província",
+            "country": "País"
+          }
         },
-        "contactDetails": {
-          "title": "Informação de contato"
+        "actions": {
+          "submit": "Guardar e fechar"
         }
-      },
-      "title": "Detalhes do proprietário do edifício"
+      }
+    }
+  },
+  "guarantee": {
+    "notRequested": "Não requerido",
+    "status": {
+      "NOT_APPLICABLE": "N / A",
+      "STARTED": "Iniciado",
+      "READY": "Preparar",
+      "SUBMITTED": "Aplicação submetida",
+      "REVIEW": "Aplicação submetida",
+      "REJECTED": "Retornou",
+      "APPROVED": "Passado",
+      "DECLINED": "Recusado",
+      "EXPIRED": "Expirado",
+      "ISSUED": "Publicado"
     },
-    "email": "Correio eletrônico",
-    "name": "Nome",
-    "noContent": "Os dados do proprietário do edifício não foram incorporados a este projeto",
-    "title": "Detalhes do proprietário"
-  },
-  "building_owner": {
-    "address": "Endereço do proprietário do edifício",
-    "contact_detail": "Dados de contacto do proprietário do edifício",
-    "email": "Correio eletronico do proprietário do edificio",
-    "title": "Detalhes do proprietário"
-  },
-  "copyDialog": {
-    "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
-    "copyOf": "Cópia de {{name}}",
-    "title": "Copie este projeto"
+    "type": {
+      "PRODUCT": "Garantia do produto",
+      "SYSTEM": "garantia de sistema",
+      "SOLUTION": "Garantia de solução"
+    },
+    "incompleteGuaranteeAlert": {
+      "title": "Informação requerida",
+      "description": "Para concluir sua inscrição, adicione um Instalador Responsável Certificado à equipe do projeto e carregue a evidência necessária na guia Envios."
+    }
   },
   "filters": {
     "labels": {
       "ALL": "Todos",
-      "ASSIGNED": "Atribuído",
+      "NOT_STARTED": "Não foi iniciado",
+      "IN_PROGRESS": "Em curso",
       "COMPLETED": "Finalizado",
       "FLAT": "Plana",
-      "IN_PROGRESS": "Em curso",
-      "MY_QUEUE": "minha Fila",
-      "NOT_STARTED": "Não foi iniciado",
       "PITCHED": "Inclinado",
+      "ARCHIVED": "Arquivado",
       "UNASSIGNED": "Não atribuído",
-      "ARCHIVED": "Arquivado"
+      "ASSIGNED": "Atribuído",
+      "MY_QUEUE": "minha Fila"
     }
   },
-  "guarantee": {
-    "incompleteGuaranteeAlert": {
-      "description": "Para concluir sua inscrição, adicione um Instalador Responsável Certificado à equipe do projeto e carregue a evidência necessária na guia Envios.",
-      "title": "Informação requerida"
+  "noProjects": {
+    "title": "Não há projetos para mostrar",
+    "body1": "Altere o filtro para visualizar diferentes tipos de projeto",
+    "body2": "Selecione um filtro diferente ou crie um projeto para começar"
+  },
+  "noProjectSelected": {
+    "title": "Não há projetos para mostrar",
+    "body1": "Você ainda não selecionou um projeto",
+    "body2": "Selecione o botão \"Criar projeto\" abaixo para começar"
+  },
+  "tabs": {
+    "team": "Equipa",
+    "guarantee": "garantia",
+    "uploads": "Documentação fornecida",
+    "notes": "Postagens"
+  },
+  "teamTab": {
+    "header": "Adicionar membro da equipa",
+    "table": {
+      "responsibleInstaller": "Instalador responsável",
+      "teamMember": "Membro da equipa",
+      "role": "Papel do usuário",
+      "certification": "Certificação BMI",
+      "remove": "Eliminar"
     },
-    "notRequested": "Não requerido",
-    "status": {
-      "APPROVED": "Passado",
-      "NOT_APPLICABLE": "N/A",
-      "READY": "Preparar",
-      "REJECTED": "Retornou",
-      "REVIEW": "Aplicação submetida",
-      "STARTED": "Iniciado",
-      "SUBMITTED": "Aplicação submetida"
+    "add_team_member_modal": {
+      "title": "Adicionar um instalador",
+      "caption": "Escolha os instaladores que irão trabalhar neste projeto.",
+      "table": {
+        "name": "Nome",
+        "email": "Correio eletrônico",
+        "certification": "Certificação"
+      },
+      "confirm_label": "Adicionar membros da equipa",
+      "cancel_label": "Cancelar"
     },
-    "type": {
-      "PRODUCT": "Garantia do produto",
-      "SOLUTION": "Garantia de solução",
-      "SYSTEM": "garantia de sistema"
+    "noContent": "Nenhum membro da equipa foi adicionado a este projeto."
+  },
+  "upload_tab": {
+    "header": "Adicionar ficheiro",
+    "add_evidence_modal": {
+      "title": "adicionar provas",
+      "button_label": "adicionar arquivos",
+      "microcopy": {
+        "drop": "Sair",
+        "browse": "Navegar"
+      },
+      "instruction": "você pode adicionar arquivos",
+      "confirm_label": "adicionar arquivos",
+      "cancel_label": "Cancelar",
+      "file_validation_message": "Você não pode adicionar arquivos maiores que",
+      "evidence_category": "Categoria de evidência",
+      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}"
+    },
+    "noContent": "Nenhuma documentação fornecida ainda",
+    "requirementModal": {
+      "title": "O que é necessario?"
     }
+  },
+  "guarantee_tab": {
+    "header": "solicitar uma garantia",
+    "nocontent_message": "A garantia ainda não foi solicitada",
+    "submit_solution": "Solicite uma Garantia de Solução",
+    "apply_guarantee": {
+      "title": "Registre-se para uma garantia",
+      "confirm_label": "Registro",
+      "cancel_label": "Cancelar",
+      "message": {
+        "not_available_tier": "Este tipo de garantia não está disponível no seu nível",
+        "guarantee_exists_error": "Você não pode solicitar uma Garantia de Solução ou Sistema para um projeto que já possui uma Garantia de Produto"
+      },
+      "review": {
+        "preferred_language": "língua preferida",
+        "header": "Documentação da garantia",
+        "product_title": "Dados do produto",
+        "system_title": "dados do sistema",
+        "receipt_title": "Dados da fatura de compra",
+        "receipt_subTitle": "Fatura de compra",
+        "alert_banner": {
+          "title": "Necessito saber",
+          "description": "Quando você nos enviar este pedido de garantia, o proprietário do edifício receberá um e-mail, solicitando que aceite ou recuse a garantia. Caso aceite, o proprietário do edifício receberá um segundo e-mail com a documentação da garantia anexada."
+        },
+        "responsible_installer": {
+          "title": "Um instalador responsável",
+          "description": "Vá para a guia da equipa do projeto e selecione um membro da equipa do projeto para atuar como o membro responsável. Essa pessoa deve ter uma certificação BMI em tecnologia de telhado inclinado ou plano que corresponda à tecnologia do projeto."
+        },
+        "required": {
+          "title": "Preencha sua inscrição fornecendo o seguinte:",
+          "evidence": "Fornecer evidências de apoio"
+        }
+      },
+      "wizard": {
+        "step1": {
+          "title": "Registre-se para uma garantia",
+          "subTitle": "Selecione o tipo de garantia"
+        },
+        "step2": {
+          "title": "Registre-se para uma garantia",
+          "subTitle": "Selecione o idioma preferido para a documentação da garantia",
+          "inputLabel": "Selecione o idioma"
+        },
+        "step3": {
+          "product_title": "Garantia do produto",
+          "product_subTitle": "Selecione o produto para documentação de garantia",
+          "system_title": "garantia de sistema",
+          "system_subTitle": "Selecione Sistema para Documentação de Garantia",
+          "solution_title": "Garantia de solução",
+          "solution_subTitle": "Selecione Sistema para Documentação de Garantia"
+        },
+        "step4": {
+          "title": "Dados da fatura de compra",
+          "subTitle": "Carregue uma cópia da fatura de compra dos produtos sobre os quais deseja uma garantia"
+        },
+        "step5": {
+          "title": "Verificar",
+          "subTitle": "Revise as informações fornecidas antes de enviar sua solicitação de garantia."
+        },
+        "stepDefault": {
+          "title": "Solicitação de garantia",
+          "subTitle": "Solicitação de garantia"
+        },
+        "footer": {
+          "goBack": "Anterior",
+          "next": "Próximo",
+          "submit": "Enviar solicitação de garantia"
+        }
+      },
+      "alert": {
+        "selectGuarantee": {
+          "title": "Não existe nenhum tipo de garantia disponível para este tipo de cobertura",
+          "message": "As garantias não estão disponíveis para este tipo de cobertura. Entre em contato com o administrador local da BMI para obter mais informações."
+        }
+      }
+    },
+    "applyGuarantee": {
+      "defaultDialog": {
+        "title": "O seu pedido de garantia está a ser processado e terá de ser aceite pelo proprietário do edifício antes de ser emitido.",
+        "description": "Uma vez aceito pelo proprietário do edifício, o certificado de garantia estará disponível para visualização e download na página Projetos.",
+        "confirm_label": "Fechar"
+      },
+      "solutionDialog": {
+        "title": "Solicitação de garantia iniciada",
+        "description": "Conclua sua solicitação enviando evidências na guia de documentação fornecida",
+        "confirm_label": "Fechar"
+      }
+    }
+  },
+  "building_owner": {
+    "title": "Detalhes do proprietário",
+    "contact_detail": "Dados de contacto do proprietário do edifício",
+    "email": "Correio eletronico do proprietário do edificio",
+    "address": "Endereço do proprietário do edifício"
+  },
+  "responsible_installer": {
+    "title": "Dados do instalador responsável",
+    "contact_detail": "Dados de contacto do instalador responsável",
+    "email": "Correio eletronico do instalador responsável",
+    "address": "Endereço do instalador responsável"
+  },
+  "productDetails": {
+    "name": "Nome do produto",
+    "family": "Família",
+    "brand": "Marca"
+  },
+  "projectActions": {
+    "heading": "ações do projeto",
+    "cta": {
+      "archive": "Arquivar projeto",
+      "unarchive": "Desarquivar projeto",
+      "requestInformation": "Solicite mais informações",
+      "approveGuarantee": "aprovar garantia",
+      "confirm": "confirme",
+      "cancel": "Cancelar"
+    }
+  },
+  "noteTab": {
+    "header": "Adiciona uma mensagem",
+    "table": {
+      "author": "Autor",
+      "note": "Mensagem",
+      "date": "Data"
+    },
+    "addNoteDialog": {
+      "title": "Adiciona uma mensagem",
+      "detailHeading": "Compartilhe informações sobre este projeto",
+      "cancel": "Cancelar",
+      "send": "Enviar  "
+    },
+    "noContent": "Nenhum item foi adicionado a este projeto."
   },
   "guaranteeApplyAlert": {
+    "title": "Você ainda não pode solicitar uma garantia",
     "message": {
       "buildingOwner": "Os dados do proprietário do prédio não estão completos",
-      "guaranteeType": "O Tipo de Garantia não está definido",
       "projectDetails": "Os dados do projeto não estão completos.",
-      "tier": "Não está a um nível que admita Garantias"
-    },
-    "title": "Você ainda não pode solicitar uma garantia"
-  },
-  "guaranteeApprovalAlert": {
-    "confirm": {
-      "description": "Você está prestes a aprovar uma solicitação de garantia de solução. A documentação da garantia agora será gerada automaticamente e enviada ao proprietário do edifício por e-mail. O instalador será notificado, mas você também poderá adicionar uma nota a este projeto.",
-      "title": "Está seguro?"
-    },
-    "reject": {
-      "description": "Você está prestes a rejeitar uma solicitação de garantia de solução. O instalador será notificado. Adicione uma nota a este projeto para confirmar ao instalador o que é necessário.",
-      "title": "Está seguro?"
+      "tier": "Não está a um nível que admita Garantias",
+      "guaranteeType": "O Tipo de Garantia não está definido"
     }
   },
-  "guaranteeRestart": {
-    "buttonLabel": "Restart Guarantee?",
-    "confirm": {
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
-      "title": "Restart Guarantee?"
-    },
-    "note": "A garantia associada a este projeto foi reiniciada, pelo que pode ser solicitada uma nova garantia"
+  "report": {
+    "project": "Relatório de Projetos",
+    "guarantee": "Relatório de garantias",
+    "projectUpload": "Relatório de uploads"
   },
   "guaranteeSubmitAlert": {
     "message": {
@@ -183,221 +376,31 @@
     },
     "title": "Você ainda não pode solicitar uma garantia"
   },
-  "guarantee_tab": {
-    "applyGuarantee": {
-      "defaultDialog": {
-        "confirm_label": "Fechar",
-        "description": "Um certificado para sua garantia estará disponível na página Projeto no InTouch.",
-        "title": "Sua garantia foi processada"
-      },
-      "solutionDialog": {
-        "confirm_label": "Fechar",
-        "description": "Conclua sua solicitação enviando evidências na guia de documentação fornecida",
-        "title": "Solicitação de garantia iniciada"
-      }
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Está seguro?",
+      "description": "Você está prestes a aprovar uma solicitação de garantia de solução. O proprietário do edifício receberá um e-mail solicitando que aceite ou recuse a garantia. Se o proprietário do edifício aceitar, receberá um segundo e-mail com a documentação da garantia anexada."
     },
-    "apply_guarantee": {
-      "alert": {
-        "selectGuarantee": {
-          "message": "As garantias não estão disponíveis para este tipo de cobertura. Entre em contato com o administrador local da BMI para obter mais informações.",
-          "title": "Não existe nenhum tipo de garantia disponível para este tipo de cobertura"
-        }
-      },
-      "cancel_label": "Cancelar",
-      "confirm_label": "Registro",
-      "message": {
-        "guarantee_exists_error": "Você não pode solicitar uma Garantia de Solução ou Sistema para um projeto que já possui uma Garantia de Produto",
-        "not_available_tier": "Este tipo de garantia não está disponível no seu nível"
-      },
-      "review": {
-        "alert_banner": {
-          "description": "Uma vez aprovada a garantia, o proprietário do edifício receberá automaticamente a documentação da garantia no endereço de e-mail fornecido.",
-          "title": "Necessito saber"
-        },
-        "header": "Documentação da garantia",
-        "preferred_language": "língua preferida",
-        "product_title": "Dados do produto",
-        "receipt_subTitle": "Fatura de compra",
-        "receipt_title": "Dados da fatura de compra",
-        "required": {
-          "evidence": "Fornecer evidências de apoio",
-          "title": "Preencha sua inscrição fornecendo o seguinte:"
-        },
-        "responsible_installer": {
-          "description": "Vá para a guia da equipa do projeto e selecione um membro da equipa do projeto para atuar como o membro responsável. Essa pessoa deve ter uma certificação BMI em tecnologia de telhado inclinado ou plano que corresponda à tecnologia do projeto.",
-          "title": "Um instalador responsável"
-        },
-        "system_title": "dados do sistema"
-      },
-      "title": "Registre-se para uma garantia",
-      "wizard": {
-        "footer": {
-          "goBack": "Anterior",
-          "next": "Próximo",
-          "submit": "Enviar solicitação de garantia"
-        },
-        "step1": {
-          "subTitle": "Selecione o tipo de garantia",
-          "title": "Registre-se para uma garantia"
-        },
-        "step2": {
-          "inputLabel": "Selecione o idioma",
-          "subTitle": "Selecione o idioma preferido para a documentação da garantia",
-          "title": "Registre-se para uma garantia"
-        },
-        "step3": {
-          "product_subTitle": "Selecione o produto para documentação de garantia",
-          "product_title": "Garantia do produto",
-          "solution_subTitle": "Selecione Sistema para Documentação de Garantia",
-          "solution_title": "Garantia de solução",
-          "system_subTitle": "Selecione Sistema para Documentação de Garantia",
-          "system_title": "garantia de sistema"
-        },
-        "step4": {
-          "subTitle": "Carregue uma cópia da fatura de compra dos produtos sobre os quais deseja uma garantia",
-          "title": "Dados da fatura de compra"
-        },
-        "step5": {
-          "subTitle": "Revise as informações fornecidas antes de enviar sua solicitação de garantia.",
-          "title": "Verificar"
-        },
-        "stepDefault": {
-          "subTitle": "Solicitação de garantia",
-          "title": "Solicitação de garantia"
-        }
-      }
-    },
-    "header": "solicitar uma garantia",
-    "nocontent_message": "A garantia ainda não foi solicitada",
-    "submit_solution": "Solicite uma Garantia de Solução"
-  },
-  "noProjectSelected": {
-    "body1": "Você ainda não selecionou um projeto",
-    "body2": "Selecione o botão \"Criar projeto\" abaixo para começar",
-    "title": "Não há projetos para mostrar"
-  },
-  "noProjects": {
-    "body1": "Altere o filtro para visualizar diferentes tipos de projeto",
-    "body2": "Selecione um filtro diferente ou crie um projeto para começar",
-    "title": "Não há projetos para mostrar"
-  },
-  "noteTab": {
-    "addNoteDialog": {
-      "cancel": "Cancelar",
-      "detailHeading": "Compartilhe informações sobre este projeto",
-      "send": "Enviar  ",
-      "title": "Adiciona uma mensagem"
-    },
-    "header": "Adiciona uma mensagem",
-    "noContent": "Nenhum item foi adicionado a este projeto.",
-    "table": {
-      "author": "Autor",
-      "date": "Data",
-      "note": "Mensagem"
+    "reject": {
+      "title": "Está seguro?",
+      "description": "Você está prestes a rejeitar uma solicitação de garantia de solução. O instalador será notificado. Adicione uma nota a este projeto para confirmar ao instalador o que é necessário."
     }
   },
-  "productDetails": {
-    "brand": "Marca",
-    "family": "Família",
-    "name": "Nome do produto"
-  },
-  "projectActions": {
-    "cta": {
-      "approveGuarantee": "aprovar garantia",
-      "archive": "Arquivar projeto",
-      "cancel": "Cancelar",
-      "confirm": "confirme",
-      "requestInformation": "Solicite mais informações",
-      "unarchive": "Desarquivar projeto"
-    },
-    "heading": "ações do projeto"
-  },
-  "projectDetails": {
-    "archived": "Arquivado?",
-    "buildingAddress": "endereço do prédio",
-    "code": "Código do projeto",
-    "cta": {
-      "ASSIGN_SOLUTION": "Atribuido a mim",
-      "NOT_ASSIGNABLE": "não atribuível",
-      "REASSIGN_SOLUTION": "Reatribuido a mim",
-      "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
-      "copy": "Cópia de?",
-      "edit": "Editar"
-    },
-    "description": "Descrição do projeto",
-    "endDate": "Data de conclusão do projeto",
-    "error": "Erro ao carregar os dados do projeto",
-    "guaranteeStatus": "Estado de garantia",
-    "guaranteeType": "garantia",
-    "hints": {
-      "projectEditGuaranteeStatus": "Os dados do projeto não podem ser editados devido ao estado da garantia."
-    },
-    "loading": "Carregando dados do projeto",
-    "roofArea": "Area total do telhado (m2)",
-    "startDate": "Data de início do projeto",
-    "status": "Estado do projeto"
-  },
-  "report": {
-    "guarantee": "Relatório de garantias",
-    "project": "Relatório de Projetos",
-    "projectUpload": "Relatório de uploads"
-  },
-  "responsible_installer": {
-    "address": "Endereço do instalador responsável",
-    "contact_detail": "Dados de contacto do instalador responsável",
-    "email": "Correio eletronico do instalador responsável",
-    "title": "Dados do instalador responsável"
-  },
-  "search": {
-    "inputLabel": "Encontre um projeto"
-  },
-  "tabs": {
-    "guarantee": "garantia",
-    "notes": "Postagens",
-    "team": "Equipa",
-    "uploads": "Documentação fornecida"
-  },
-  "teamTab": {
-    "add_team_member_modal": {
-      "cancel_label": "Cancelar",
-      "caption": "Escolha os instaladores que irão trabalhar neste projeto.",
-      "confirm_label": "Adicionar membros da equipa",
-      "table": {
-        "certification": "Certificação",
-        "email": "Correio eletrônico",
-        "name": "Nome"
-      },
-      "title": "Adicionar um instalador"
-    },
-    "header": "Adicionar membro da equipa",
-    "noContent": "Nenhum membro da equipa foi adicionado a este projeto.",
-    "table": {
-      "certification": "Certificação BMI",
-      "remove": "Eliminar",
-      "responsibleInstaller": "Instalador responsável",
-      "role": "Papel do usuário",
-      "teamMember": "Membro da equipa"
+  "guaranteeRestart": {
+    "note": "A garantia associada a este projeto foi reiniciada, pelo que pode ser solicitada uma nova garantia",
+    "buttonLabel": "Restart Guarantee?",
+    "confirm": {
+      "title": "Restart Guarantee?",
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
     }
   },
-  "upload_tab": {
-    "add_evidence_modal": {
-      "button_label": "adicionar arquivos",
-      "cancel_label": "Cancelar",
-      "confirm_label": "adicionar arquivos",
-      "evidence_category": "Categoria de evidência",
-      "file_validation_message": "Você não pode adicionar arquivos maiores que",
-      "instruction": "você pode adicionar arquivos",
-      "microcopy": {
-        "browse": "Navegar",
-        "drop": "Sair"
-      },
-      "title": "adicionar provas",
-      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}"
-    },
-    "header": "Adicionar ficheiro",
-    "noContent": "Nenhuma documentação fornecida ainda",
-    "requirementModal": {
-      "title": "O que é necessario?"
-    }
+  "copyDialog": {
+    "title": "Copie este projeto",
+    "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
+    "copyOf": "Cópia de {{name}}"
+  },
+  "bool": {
+    "True": "Sim",
+    "False": "Não"
   }
 }

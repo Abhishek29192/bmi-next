@@ -1,9 +1,0 @@
-{
-  "body": "An error occurred, please contact an administrator",
-  "errorAlreadyMember": "The user is already a member of another company",
-  "errorAuthentication": "Authentication error",
-  "errorInvitationNotFound": "Invitation not found",
-  "errorUserBlocked": "User is blocked",
-  "title": "Something went wrong",
-  "user_blocked": "User is blocked"
-}

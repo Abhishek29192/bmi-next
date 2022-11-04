@@ -2,8 +2,8 @@ import { SVGImport } from "@bmi-digital/svg-import";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import classnames from "classnames";
 import React, { Fragment } from "react";
-import { withClickable } from "../clickable/Clickable";
-import Media, { AcceptedNode } from "../media/Media";
+import { withClickable } from "../clickable";
+import Media, { AcceptedNode } from "../media";
 import Typography from "../typography/Typography";
 import { transformHyphens } from "../utils/commonUtils";
 import styles from "./OverviewCard.module.scss";
@@ -13,7 +13,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   titleVariant?: "h4" | "h5" | "h6";
   subtitle?: React.ReactNode;
   subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
-  children: React.ReactNode;
+  children?: React.ReactNode;
   hasChildrenWithoutMargin?: boolean;
   imageSize?: "cover" | "contain";
   media?: React.ReactElement<AcceptedNode>;

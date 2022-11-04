@@ -6,6 +6,7 @@ import {
   WithFormControlProps
 } from "@bmi/components";
 import React from "react";
+import classnames from "classnames";
 import styles from "./CardGroup.module.scss";
 
 type RadioGroupProps = CardRadioGroupProps & WithFormControlProps<string>;
@@ -24,11 +25,11 @@ const CardRadioGroup = (props: RadioGroupProps) => {
 
 CardRadioGroup.Item = RadioGroup.Item;
 
-const CardCheckboxGroup = (props: CheckboxGroupProps) => {
+const CardCheckboxGroup = ({ className, ...rest }: CheckboxGroupProps) => {
   return (
     <CheckBoxGroup
-      {...props}
-      className={styles["CardGroup"]}
+      {...rest}
+      className={classnames(styles["CardGroup"], className)}
       gridContainerClassName={styles["gridContainer"]}
     />
   );

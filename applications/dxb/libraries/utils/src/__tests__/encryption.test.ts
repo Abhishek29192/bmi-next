@@ -1,6 +1,5 @@
 import { generateDigestFromData, generateHashFromString } from "../encryption";
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import { waitFor } from "../waitFor";
 
 describe("generateHashFromString", () => {
   it("should hash a string into a murmur hash 3 string", () => {
@@ -12,7 +11,7 @@ describe("generateHashFromString", () => {
     const firstHash = generateHashFromString("some-data", true);
     expect(firstHash).not.toStrictEqual("875689107");
 
-    await sleep(10);
+    await waitFor(10);
 
     const secondHash = generateHashFromString("some-data", true);
     expect(firstHash).not.toStrictEqual("875689107");

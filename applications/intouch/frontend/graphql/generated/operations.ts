@@ -60,17 +60,6 @@ export type RestartGuaranteeMutation = {
   restartGuarantee?: string | null;
 };
 
-export type ContactDetailsCollectionFragmentFragment = {
-  __typename?: "ContactDetailsCollection";
-  items: Array<{
-    __typename?: "ContactDetails";
-    fullName?: string | null;
-    subHeading?: string | null;
-    email?: string | null;
-    phoneNumber?: string | null;
-  } | null>;
-};
-
 export type MarkAllNotificationsAsReadMutationVariables = SchemaTypes.Exact<{
   accountId: SchemaTypes.Scalars["Int"];
 }>;
@@ -146,33 +135,6 @@ export type CompanyAdminsFragmentFragment = {
       } | null;
     }>;
   };
-};
-
-export type CompanyDetailsFragmentFragment = {
-  __typename?: "Company";
-  name?: string | null;
-  businessType?: SchemaTypes.BusinessType | null;
-  logo?: string | null;
-  aboutUs?: string | null;
-  ownerFullname?: string | null;
-  ownerPhone?: string | null;
-  ownerEmail?: string | null;
-  phone?: string | null;
-  publicEmail?: string | null;
-  website?: string | null;
-  facebook?: string | null;
-  linkedIn?: string | null;
-  tradingAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
 };
 
 export type CompanyDocumentFragmentFragment = {
@@ -364,33 +326,6 @@ export type DeleteCompanyMemberMutation = {
   } | null;
 };
 
-export type CompanyRegisteredDetailsFragmentFragment = {
-  __typename?: "Company";
-  name?: string | null;
-  referenceNumber: number;
-  taxNumber?: string | null;
-  tier?: SchemaTypes.Tier | null;
-  registeredAddress?: {
-    __typename?: "Address";
-    id: number;
-    firstLine?: string | null;
-    secondLine?: string | null;
-    town?: string | null;
-    region?: string | null;
-    country?: string | null;
-    postcode?: string | null;
-    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
-  } | null;
-  companyOperationsByCompany: {
-    __typename?: "CompanyOperationsConnection";
-    nodes: Array<{
-      __typename?: "CompanyOperation";
-      id: number;
-      operation: SchemaTypes.Operation;
-    }>;
-  };
-};
-
 export type ImportAccountsCompaniesFromCvsMutationVariables =
   SchemaTypes.Exact<{
     input: SchemaTypes.ImportAccountsCompaniesFromCsvInput;
@@ -481,10 +416,12 @@ export type UpdateMarketMutation = {
           doceboInstallersBranchId?: string | null;
           doceboCompanyAdminBranchId?: string | null;
           merchandisingUrl?: string | null;
+          merchandiseSso?: boolean | null;
           projectsEnabled?: boolean | null;
           locationBiasRadiusKm?: number | null;
           gtag?: string | null;
           gtagMarketMedia?: string | null;
+          optanonClass?: string | null;
         }>;
       } | null;
     } | null;
@@ -501,6 +438,22 @@ export type UpdateDoceboTiersByMarketMutation = {
     __typename?: "UpdateDoceboTiersByMarketResult";
     id?: number | null;
     docebo_catalogue_id?: number | null;
+    market_id?: number | null;
+    tier_code?: SchemaTypes.Tier | null;
+  } | null> | null;
+};
+
+export type UpdateMerchandiseTiersByMarketMutationVariables =
+  SchemaTypes.Exact<{
+    input: SchemaTypes.UpdateMerchandiseTiersByMarketInput;
+  }>;
+
+export type UpdateMerchandiseTiersByMarketMutation = {
+  __typename?: "Mutation";
+  updateMerchandiseTiersByMarket?: Array<{
+    __typename?: "UpdateMerchandiseTiersByMarketResult";
+    id?: number | null;
+    merchandise_division_id?: number | null;
     market_id?: number | null;
     tier_code?: SchemaTypes.Tier | null;
   } | null> | null;
@@ -1533,10 +1486,8 @@ export type GetGuaranteesReportQuery = {
       coverage?: SchemaTypes.GuaranteeCoverage | null;
       status?: SchemaTypes.RequestStatus | null;
       languageCode?: SchemaTypes.Language | null;
-      guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
       startDate?: any | null;
       expiryDate?: any | null;
-      signedFileStorageUrl?: string | null;
       fileStorageId?: string | null;
       project?: {
         __typename?: "Project";
@@ -1555,10 +1506,17 @@ export type GetGuaranteesReportQuery = {
       guaranteeType?: {
         __typename?: "ContentfulGuaranteeType";
         name?: string | null;
-        maximumValidityYears?: number | null;
       } | null;
-      systemBySystemBmiRef?: { __typename?: "System"; name: string } | null;
-      productByProductBmiRef?: { __typename?: "Product"; name: string } | null;
+      systemBySystemBmiRef?: {
+        __typename?: "System";
+        name: string;
+        maximumValidityYears: number;
+      } | null;
+      productByProductBmiRef?: {
+        __typename?: "Product";
+        name: string;
+        maximumValidityYears: number;
+      } | null;
     }>;
   } | null;
 };
@@ -1632,9 +1590,10 @@ export type GetProjectsReportQuery = {
           id: number;
           coverage?: SchemaTypes.GuaranteeCoverage | null;
           languageCode?: SchemaTypes.Language | null;
-          guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
+          status?: SchemaTypes.RequestStatus | null;
           guaranteeType?: {
             __typename?: "ContentfulGuaranteeType";
+            tiersAvailable?: Array<SchemaTypes.ContentfulTiers | null> | null;
             name?: string | null;
           } | null;
           guaranteeTypes?: {
@@ -2183,6 +2142,7 @@ export type AccountByEmailQuery = {
       projectsEnabled?: boolean | null;
       doceboCompanyAdminBranchId?: string | null;
       doceboInstallersBranchId?: string | null;
+      merchandisingUrl?: string | null;
     } | null;
     companyMembers: {
       __typename?: "CompanyMembersConnection";
@@ -2331,634 +2291,69 @@ export type CreateSsoUrlMutation = {
   createSSOUrl?: { __typename?: "SSOUrlOutput"; url?: string | null } | null;
 };
 
-export type QueryDoceboTiersByMarketIdQueryVariables = SchemaTypes.Exact<{
-  marketId: SchemaTypes.Scalars["Int"];
-}>;
-
-export type QueryDoceboTiersByMarketIdQuery = {
-  __typename?: "Query";
-  doceboTiers?: {
-    __typename?: "DoceboTiersConnection";
-    nodes: Array<{
-      __typename?: "DoceboTier";
-      tierCode: SchemaTypes.Tier;
-      doceboCatalogueId?: number | null;
-    }>;
-  } | null;
+export type ContactDetailsCollectionFragmentFragment = {
+  __typename?: "ContactDetailsCollection";
+  items: Array<{
+    __typename?: "ContactDetails";
+    fullName?: string | null;
+    subHeading?: string | null;
+    email?: string | null;
+    phoneNumber?: string | null;
+  } | null>;
 };
 
-export type DoubleAcceptanceFragmentFragment = {
-  __typename?: "DoubleAcceptance";
-  id: number;
-  tempToken?: string | null;
-  expiryDate: any;
-  guaranteeId: number;
-  acceptanceDate?: any | null;
-};
-
-export type GetDoubleAcceptanceByValidTempTokenMutationVariables =
-  SchemaTypes.Exact<{
-    input: SchemaTypes.GetDoubleAcceptanceByValidTempTokenInput;
-  }>;
-
-export type GetDoubleAcceptanceByValidTempTokenMutation = {
-  __typename?: "Mutation";
-  getDoubleAcceptanceByValidTempToken?: {
-    __typename?: "GetDoubleAcceptanceByValidTempToken";
-    id?: number | null;
-    tempToken?: string | null;
-    expiryDate?: any | null;
-    guaranteeId?: number | null;
-    acceptanceDate?: any | null;
-    maximumValidityYears?: number | null;
-    technology?: SchemaTypes.Technology | null;
-    languageCode?: string | null;
-    coverage?: SchemaTypes.GuaranteeCoverage | null;
-  } | null;
-};
-
-export type UpdateDoubleAcceptanceMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.UpdateDoubleAcceptanceInput;
-}>;
-
-export type UpdateDoubleAcceptanceMutation = {
-  __typename?: "Mutation";
-  updateDoubleAcceptance?: {
-    __typename?: "UpdateDoubleAcceptancePayload";
-    doubleAcceptance?: {
-      __typename?: "DoubleAcceptance";
-      id: number;
-      tempToken?: string | null;
-      expiryDate: any;
-      guaranteeId: number;
-      acceptanceDate?: any | null;
-    } | null;
-  } | null;
-};
-
-export type ReleaseGuaranteePdfMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.ReleaseGuaranteePdfInput;
-}>;
-
-export type ReleaseGuaranteePdfMutation = {
-  __typename?: "Mutation";
-  releaseGuaranteePdf?: {
-    __typename?: "PublishOutput";
-    messageId?: string | null;
-  } | null;
-};
-
-export type GuaranteeTemplateDetailFragmentFragment = {
-  __typename?: "GuaranteeTemplate";
-  displayName?: string | null;
-  technology?: string | null;
-  coverage?: string | null;
-  languageCode?: string | null;
-  languageDescriptor?: string | null;
-  guaranteeScope?: string | null;
-  signatory?: string | null;
-  headingGuarantee?: string | null;
-  headingScope?: string | null;
-  headingProducts?: string | null;
-  headingBeneficiary?: string | null;
-  headingBuildingOwnerName?: string | null;
-  headingBuildingAddress?: string | null;
-  headingRoofArea?: string | null;
-  headingRoofType?: string | null;
-  headingContractor?: string | null;
-  headingContractorName?: string | null;
-  headingContractorId?: string | null;
-  headingStartDate?: string | null;
-  headingGuaranteeId?: string | null;
-  headingValidity?: string | null;
-  headingExpiry?: string | null;
-  footer?: string | null;
-  mailSubject?: string | null;
-  mailBody?: string | null;
-  filenamePrefix?: string | null;
-  titleLine1?: string | null;
-  titleLine2?: string | null;
-  roofType?: string | null;
-  onerousConditionsSummary?: string | null;
-  approvalMessage?: {
-    __typename?: "MessageTemplate";
-    event?: string | null;
-    subject?: string | null;
-    notificationBody?: string | null;
-    emailBody?: string | null;
-  } | null;
-  rejectionMessage?: {
-    __typename?: "MessageTemplate";
-    event?: string | null;
-    subject?: string | null;
-    notificationBody?: string | null;
-    emailBody?: string | null;
-  } | null;
-  logo?: {
-    __typename?: "Asset";
-    title?: string | null;
-    url?: string | null;
-  } | null;
-  maintenanceTemplate?: {
-    __typename?: "Asset";
-    fileName?: string | null;
-    url?: string | null;
-  } | null;
-  terms?: {
-    __typename?: "Asset";
-    fileName?: string | null;
-    url?: string | null;
-  } | null;
-  onerousConditionsText?: {
-    __typename?: "GuaranteeTemplateOnerousConditionsText";
-    json: any;
-  } | null;
-};
-
-export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
-  technology: SchemaTypes.Scalars["String"];
-  coverage: SchemaTypes.Scalars["String"];
-  language?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetGuaranteeTemplatesQuery = {
-  __typename?: "Query";
-  guaranteeTemplateCollection?: {
-    __typename?: "GuaranteeTemplateCollection";
-    items: Array<{
-      __typename?: "GuaranteeTemplate";
-      displayName?: string | null;
-      technology?: string | null;
-      coverage?: string | null;
-      languageCode?: string | null;
-      languageDescriptor?: string | null;
-      guaranteeScope?: string | null;
-      signatory?: string | null;
-      headingGuarantee?: string | null;
-      headingScope?: string | null;
-      headingProducts?: string | null;
-      headingBeneficiary?: string | null;
-      headingBuildingOwnerName?: string | null;
-      headingBuildingAddress?: string | null;
-      headingRoofArea?: string | null;
-      headingRoofType?: string | null;
-      headingContractor?: string | null;
-      headingContractorName?: string | null;
-      headingContractorId?: string | null;
-      headingStartDate?: string | null;
-      headingGuaranteeId?: string | null;
-      headingValidity?: string | null;
-      headingExpiry?: string | null;
-      footer?: string | null;
-      mailSubject?: string | null;
-      mailBody?: string | null;
-      filenamePrefix?: string | null;
-      titleLine1?: string | null;
-      titleLine2?: string | null;
-      roofType?: string | null;
-      onerousConditionsSummary?: string | null;
-      sys: { __typename?: "Sys"; id: string };
-      approvalMessage?: {
-        __typename?: "MessageTemplate";
-        event?: string | null;
-        subject?: string | null;
-        notificationBody?: string | null;
-        emailBody?: string | null;
-      } | null;
-      rejectionMessage?: {
-        __typename?: "MessageTemplate";
-        event?: string | null;
-        subject?: string | null;
-        notificationBody?: string | null;
-        emailBody?: string | null;
-      } | null;
-      logo?: {
-        __typename?: "Asset";
-        title?: string | null;
-        url?: string | null;
-      } | null;
-      maintenanceTemplate?: {
-        __typename?: "Asset";
-        fileName?: string | null;
-        url?: string | null;
-      } | null;
-      terms?: {
-        __typename?: "Asset";
-        fileName?: string | null;
-        url?: string | null;
-      } | null;
-      onerousConditionsText?: {
-        __typename?: "GuaranteeTemplateOnerousConditionsText";
-        json: any;
-      } | null;
-    } | null>;
-  } | null;
-};
-
-export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
-  domain: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetMarketsByDomainQuery = {
-  __typename?: "Query";
-  markets?: {
-    __typename?: "MarketsConnection";
-    nodes: Array<{
-      __typename?: "Market";
-      id: number;
-      name?: string | null;
-      cmsSpaceId?: string | null;
-      language: SchemaTypes.Language;
-      domain: string;
-      doceboInstallersBranchId?: string | null;
-      doceboCompanyAdminBranchId?: string | null;
-      merchandisingUrl?: string | null;
-      projectsEnabled?: boolean | null;
-      gtag?: string | null;
-      gtagMarketMedia?: string | null;
-      sendName?: string | null;
-      sendMailbox?: string | null;
-      locationBiasRadiusKm?: number | null;
-      geoMiddle?: { __typename?: "Point"; x: number; y: number } | null;
-    }>;
-  } | null;
-};
-
-export type ImageFragmentFragment = {
-  __typename?: "Asset";
-  title?: string | null;
-  description?: string | null;
-  contentType?: string | null;
-  fileName?: string | null;
-  size?: number | null;
-  url?: string | null;
-  width?: number | null;
-  height?: number | null;
-  sys: { __typename?: "Sys"; id: string };
-};
-
-export type GetMediaFoldersQueryVariables = SchemaTypes.Exact<{
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetMediaFoldersQuery = {
-  __typename?: "Query";
-  marketContentCollection?: {
-    __typename?: "MarketContentCollection";
-    items: Array<{
-      __typename?: "MarketContent";
-      mediaLibraryRootCollection?: {
-        __typename?: "MarketContentMediaLibraryRootCollection";
-        items: Array<{
-          __typename: "MediaFolder";
-          name?: string | null;
-          sys: { __typename?: "Sys"; id: string };
-        } | null>;
-      } | null;
-    } | null>;
-  } | null;
-  mediaFolderCollection?: {
-    __typename?: "MediaFolderCollection";
-    total: number;
-    items: Array<{
-      __typename: "MediaFolder";
-      name?: string | null;
-      sys: { __typename?: "Sys"; id: string };
-      childrenCollection?: {
-        __typename?: "MediaFolderChildrenCollection";
-        total: number;
-        items: Array<
-          | {
-              __typename: "MediaFolder";
-              name?: string | null;
-              sys: { __typename?: "Sys"; id: string };
-            }
-          | {
-              __typename: "MediaTool";
-              name?: string | null;
-              sys: { __typename?: "Sys"; id: string };
-            }
-          | null
-        >;
-      } | null;
-    } | null>;
-  } | null;
-};
-
-export type MediaToolDetailsFragment = {
-  __typename: "MediaTool";
+export type CompanyDetailsFragmentFragment = {
+  __typename?: "Company";
   name?: string | null;
-  url?: string | null;
-  sys: { __typename?: "Sys"; id: string };
-  media?: {
-    __typename?: "Asset";
-    title?: string | null;
-    description?: string | null;
-    contentType?: string | null;
-    fileName?: string | null;
-    size?: number | null;
-    url?: string | null;
-    width?: number | null;
-    height?: number | null;
-    sys: { __typename?: "Sys"; id: string };
-  } | null;
-  thumbnail?: {
-    __typename?: "Asset";
-    title?: string | null;
-    description?: string | null;
-    contentType?: string | null;
-    fileName?: string | null;
-    size?: number | null;
-    url?: string | null;
-    width?: number | null;
-    height?: number | null;
-    sys: { __typename?: "Sys"; id: string };
-  } | null;
-};
-
-export type GetMediaFolderContentsQueryVariables = SchemaTypes.Exact<{
-  mediaFolderId: SchemaTypes.Scalars["String"];
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetMediaFolderContentsQuery = {
-  __typename?: "Query";
-  mediaFolderCollection?: {
-    __typename?: "MediaFolderCollection";
-    items: Array<{
-      __typename: "MediaFolder";
-      name?: string | null;
-      sys: { __typename?: "Sys"; id: string };
-      childrenCollection?: {
-        __typename?: "MediaFolderChildrenCollection";
-        total: number;
-        items: Array<
-          | {
-              __typename: "MediaFolder";
-              name?: string | null;
-              sys: { __typename?: "Sys"; id: string };
-            }
-          | {
-              __typename: "MediaTool";
-              name?: string | null;
-              url?: string | null;
-              sys: { __typename?: "Sys"; id: string };
-              media?: {
-                __typename?: "Asset";
-                title?: string | null;
-                description?: string | null;
-                contentType?: string | null;
-                fileName?: string | null;
-                size?: number | null;
-                url?: string | null;
-                width?: number | null;
-                height?: number | null;
-                sys: { __typename?: "Sys"; id: string };
-              } | null;
-              thumbnail?: {
-                __typename?: "Asset";
-                title?: string | null;
-                description?: string | null;
-                contentType?: string | null;
-                fileName?: string | null;
-                size?: number | null;
-                url?: string | null;
-                width?: number | null;
-                height?: number | null;
-                sys: { __typename?: "Sys"; id: string };
-              } | null;
-            }
-          | null
-        >;
-      } | null;
-    } | null>;
-  } | null;
-};
-
-export type AccountInfoByEmailQueryVariables = SchemaTypes.Exact<{
-  email: SchemaTypes.Scalars["String"];
-}>;
-
-export type AccountInfoByEmailQuery = {
-  __typename?: "Query";
-  accountByEmail?: {
-    __typename?: "Account";
+  businessType?: SchemaTypes.BusinessType | null;
+  logo?: string | null;
+  aboutUs?: string | null;
+  ownerFullname?: string | null;
+  ownerPhone?: string | null;
+  ownerEmail?: string | null;
+  phone?: string | null;
+  publicEmail?: string | null;
+  website?: string | null;
+  facebook?: string | null;
+  linkedIn?: string | null;
+  tradingAddress?: {
+    __typename?: "Address";
     id: number;
-    role?: SchemaTypes.Role | null;
-    marketId?: number | null;
-    firstName?: string | null;
-    lastName?: string | null;
-    email: string;
-    doceboUserId?: number | null;
-    market?: {
-      __typename?: "Market";
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+};
+
+export type CompanyRegisteredDetailsFragmentFragment = {
+  __typename?: "Company";
+  name?: string | null;
+  referenceNumber: number;
+  taxNumber?: string | null;
+  tier?: SchemaTypes.Tier | null;
+  registeredAddress?: {
+    __typename?: "Address";
+    id: number;
+    firstLine?: string | null;
+    secondLine?: string | null;
+    town?: string | null;
+    region?: string | null;
+    country?: string | null;
+    postcode?: string | null;
+    coordinates?: { __typename?: "Point"; x: number; y: number } | null;
+  } | null;
+  companyOperationsByCompany: {
+    __typename?: "CompanyOperationsConnection";
+    nodes: Array<{
+      __typename?: "CompanyOperation";
       id: number;
-      domain: string;
-      projectsEnabled?: boolean | null;
-    } | null;
-    companyMembers: {
-      __typename?: "CompanyMembersConnection";
-      nodes: Array<{
-        __typename?: "CompanyMember";
-        company?: {
-          __typename?: "Company";
-          id: number;
-          status?: SchemaTypes.CompanyStatus | null;
-          name?: string | null;
-          tier?: SchemaTypes.Tier | null;
-        } | null;
-      }>;
-    };
-    projectMembers: {
-      __typename?: "ProjectMembersConnection";
-      totalCount: number;
-    };
-  } | null;
-};
-
-export type GetGlobalDataPublicQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
-}>;
-
-export type GetGlobalDataPublicQuery = {
-  __typename?: "Query";
-  marketContentCollection?: {
-    __typename?: "MarketContentCollection";
-    items: Array<{
-      __typename?: "MarketContent";
-      externalLinkUrl?: string | null;
-      externalLinkLabel?: string | null;
-      footerLinksCollection?: {
-        __typename?: "MarketContentFooterLinksCollection";
-        items: Array<{
-          __typename?: "ContentArticle";
-          title?: string | null;
-          relativePath?: string | null;
-        } | null>;
-      } | null;
-      contactUsPage?: {
-        __typename?: "ContentArticle";
-        title?: string | null;
-        relativePath?: string | null;
-      } | null;
-    } | null>;
-  } | null;
-};
-
-export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
-  relativePath: SchemaTypes.Scalars["String"];
-  tag: SchemaTypes.Scalars["String"];
-}>;
-
-export type GetContentArticleContentQuery = {
-  __typename?: "Query";
-  contentArticleCollection?: {
-    __typename?: "ContentArticleCollection";
-    items: Array<{
-      __typename?: "ContentArticle";
-      title?: string | null;
-      body?: {
-        __typename?: "ContentArticleBody";
-        json: any;
-        links: {
-          __typename?: "ContentArticleBodyLinks";
-          assets: {
-            __typename?: "ContentArticleBodyAssets";
-            block: Array<{
-              __typename?: "Asset";
-              url?: string | null;
-              title?: string | null;
-              width?: number | null;
-              height?: number | null;
-              description?: string | null;
-              sys: { __typename?: "Sys"; id: string };
-            } | null>;
-          };
-        };
-      } | null;
-    } | null>;
-  } | null;
-};
-
-export type ArticleContentLinksFragmentFragment = {
-  __typename?: "ContentArticleBodyLinks";
-  assets: {
-    __typename?: "ContentArticleBodyAssets";
-    block: Array<{
-      __typename?: "Asset";
-      url?: string | null;
-      title?: string | null;
-      width?: number | null;
-      height?: number | null;
-      description?: string | null;
-      sys: { __typename?: "Sys"; id: string };
-    } | null>;
+      operation: SchemaTypes.Operation;
+    }>;
   };
-};
-
-export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
-
-export type MarketsQuery = {
-  __typename?: "Query";
-  markets?: {
-    __typename?: "MarketsConnection";
-    nodes: Array<{
-      __typename?: "Market";
-      id: number;
-      language: SchemaTypes.Language;
-      domain: string;
-      cmsSpaceId?: string | null;
-      name?: string | null;
-      sendName?: string | null;
-      sendMailbox?: string | null;
-      doceboInstallersBranchId?: string | null;
-      doceboCompanyAdminBranchId?: string | null;
-      merchandisingUrl?: string | null;
-      projectsEnabled?: boolean | null;
-      gtag?: string | null;
-      gtagMarketMedia?: string | null;
-      locationBiasRadiusKm?: number | null;
-    }>;
-  } | null;
-  doceboTiers?: {
-    __typename?: "DoceboTiersConnection";
-    nodes: Array<{
-      __typename?: "DoceboTier";
-      id: number;
-      marketId: number;
-      tierCode: SchemaTypes.Tier;
-      doceboCatalogueId?: number | null;
-    }>;
-  } | null;
-};
-
-export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
-  marketId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
-}>;
-
-export type ProductsAndSystemsQuery = {
-  __typename?: "Query";
-  products?: {
-    __typename?: "ProductsConnection";
-    nodes: Array<{
-      __typename?: "Product";
-      id: number;
-      name: string;
-      brand: string;
-      family: string;
-      bmiRef: string;
-      updatedAt: any;
-      published: boolean;
-      technology: SchemaTypes.Technology;
-      description?: string | null;
-      maximumValidityYears: number;
-    }>;
-  } | null;
-  systems?: {
-    __typename?: "SystemsConnection";
-    nodes: Array<{
-      __typename?: "System";
-      id: number;
-      name: string;
-      bmiRef: string;
-      published: boolean;
-      updatedAt: any;
-      technology: SchemaTypes.Technology;
-      description?: string | null;
-      maximumValidityYears: number;
-    }>;
-  } | null;
-  systemMembers?: {
-    __typename?: "SystemMembersConnection";
-    nodes: Array<{
-      __typename?: "SystemMember";
-      systemBmiRef: string;
-      productByProductBmiRef?: {
-        __typename?: "Product";
-        id: number;
-        name: string;
-      } | null;
-    }>;
-  } | null;
-};
-
-export type DeleteInvitedUserMutationVariables = SchemaTypes.Exact<{
-  email: SchemaTypes.Scalars["String"];
-}>;
-
-export type DeleteInvitedUserMutation = {
-  __typename?: "Mutation";
-  deleteInvitedUser?: string | null;
-};
-
-export type ValidateSignupUserMutationVariables = SchemaTypes.Exact<{
-  email: SchemaTypes.Scalars["String"];
-}>;
-
-export type ValidateSignupUserMutation = {
-  __typename?: "Mutation";
-  validateSignupUser?: boolean | null;
 };
 
 export type CompanyPageDetailsFragmentFragment = {
@@ -3253,6 +2648,679 @@ export type GetCompanyQuery = {
   } | null;
 };
 
+export type GetOperationTypeCollectionQueryVariables = SchemaTypes.Exact<{
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetOperationTypeCollectionQuery = {
+  __typename?: "Query";
+  operationTypeCollection?: {
+    __typename?: "OperationTypeCollection";
+    items: Array<{
+      __typename?: "OperationType";
+      type?: string | null;
+      displayName?: string | null;
+    } | null>;
+  } | null;
+};
+
+export type QueryDoceboTiersByMarketIdQueryVariables = SchemaTypes.Exact<{
+  marketId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type QueryDoceboTiersByMarketIdQuery = {
+  __typename?: "Query";
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+};
+
+export type DoubleAcceptanceFragmentFragment = {
+  __typename?: "DoubleAcceptance";
+  id: number;
+  tempToken?: string | null;
+  expiryDate: any;
+  guaranteeId: number;
+  acceptanceDate?: any | null;
+};
+
+export type GetDoubleAcceptanceByValidTempTokenMutationVariables =
+  SchemaTypes.Exact<{
+    input: SchemaTypes.GetDoubleAcceptanceByValidTempTokenInput;
+  }>;
+
+export type GetDoubleAcceptanceByValidTempTokenMutation = {
+  __typename?: "Mutation";
+  getDoubleAcceptanceByValidTempToken?: {
+    __typename?: "GetDoubleAcceptanceByValidTempToken";
+    id?: number | null;
+    tempToken?: string | null;
+    expiryDate?: any | null;
+    guaranteeId?: number | null;
+    acceptanceDate?: any | null;
+    maximumValidityYears?: number | null;
+    technology?: SchemaTypes.Technology | null;
+    languageCode?: string | null;
+    coverage?: SchemaTypes.GuaranteeCoverage | null;
+  } | null;
+};
+
+export type UpdateDoubleAcceptanceMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateDoubleAcceptanceInput;
+}>;
+
+export type UpdateDoubleAcceptanceMutation = {
+  __typename?: "Mutation";
+  updateDoubleAcceptance?: {
+    __typename?: "UpdateDoubleAcceptancePayload";
+    doubleAcceptance?: {
+      __typename?: "DoubleAcceptance";
+      id: number;
+      tempToken?: string | null;
+      expiryDate: any;
+      guaranteeId: number;
+      acceptanceDate?: any | null;
+    } | null;
+  } | null;
+};
+
+export type ReleaseGuaranteePdfMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.ReleaseGuaranteePdfInput;
+}>;
+
+export type ReleaseGuaranteePdfMutation = {
+  __typename?: "Mutation";
+  releaseGuaranteePdf?: {
+    __typename?: "PublishOutput";
+    messageId?: string | null;
+  } | null;
+};
+
+export type GuaranteeTemplateDetailFragmentFragment = {
+  __typename?: "GuaranteeTemplate";
+  displayName?: string | null;
+  technology?: string | null;
+  coverage?: string | null;
+  languageCode?: string | null;
+  languageDescriptor?: string | null;
+  guaranteeScope?: string | null;
+  signatory?: string | null;
+  headingGuarantee?: string | null;
+  headingScope?: string | null;
+  headingProducts?: string | null;
+  headingBeneficiary?: string | null;
+  headingBuildingOwnerName?: string | null;
+  headingBuildingAddress?: string | null;
+  headingRoofArea?: string | null;
+  headingRoofType?: string | null;
+  headingContractor?: string | null;
+  headingContractorName?: string | null;
+  headingContractorId?: string | null;
+  headingStartDate?: string | null;
+  headingGuaranteeId?: string | null;
+  headingValidity?: string | null;
+  headingExpiry?: string | null;
+  footer?: string | null;
+  mailSubject?: string | null;
+  mailBody?: string | null;
+  filenamePrefix?: string | null;
+  titleLine1?: string | null;
+  titleLine2?: string | null;
+  roofType?: string | null;
+  onerousConditionsSummary?: string | null;
+  approvalMessage?: {
+    __typename?: "MessageTemplate";
+    event?: string | null;
+    subject?: string | null;
+    notificationBody?: string | null;
+    emailBody?: string | null;
+  } | null;
+  rejectionMessage?: {
+    __typename?: "MessageTemplate";
+    event?: string | null;
+    subject?: string | null;
+    notificationBody?: string | null;
+    emailBody?: string | null;
+  } | null;
+  logo?: {
+    __typename?: "Asset";
+    title?: string | null;
+    url?: string | null;
+  } | null;
+  maintenanceTemplate?: {
+    __typename?: "Asset";
+    fileName?: string | null;
+    url?: string | null;
+  } | null;
+  terms?: {
+    __typename?: "Asset";
+    fileName?: string | null;
+    url?: string | null;
+  } | null;
+  onerousConditionsText?: {
+    __typename?: "GuaranteeTemplateOnerousConditionsText";
+    json: any;
+  } | null;
+};
+
+export type GetGuaranteeTemplatesQueryVariables = SchemaTypes.Exact<{
+  technology: SchemaTypes.Scalars["String"];
+  coverage: SchemaTypes.Scalars["String"];
+  language?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["String"]>;
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetGuaranteeTemplatesQuery = {
+  __typename?: "Query";
+  guaranteeTemplateCollection?: {
+    __typename?: "GuaranteeTemplateCollection";
+    items: Array<{
+      __typename?: "GuaranteeTemplate";
+      displayName?: string | null;
+      technology?: string | null;
+      coverage?: string | null;
+      languageCode?: string | null;
+      languageDescriptor?: string | null;
+      guaranteeScope?: string | null;
+      signatory?: string | null;
+      headingGuarantee?: string | null;
+      headingScope?: string | null;
+      headingProducts?: string | null;
+      headingBeneficiary?: string | null;
+      headingBuildingOwnerName?: string | null;
+      headingBuildingAddress?: string | null;
+      headingRoofArea?: string | null;
+      headingRoofType?: string | null;
+      headingContractor?: string | null;
+      headingContractorName?: string | null;
+      headingContractorId?: string | null;
+      headingStartDate?: string | null;
+      headingGuaranteeId?: string | null;
+      headingValidity?: string | null;
+      headingExpiry?: string | null;
+      footer?: string | null;
+      mailSubject?: string | null;
+      mailBody?: string | null;
+      filenamePrefix?: string | null;
+      titleLine1?: string | null;
+      titleLine2?: string | null;
+      roofType?: string | null;
+      onerousConditionsSummary?: string | null;
+      sys: { __typename?: "Sys"; id: string };
+      approvalMessage?: {
+        __typename?: "MessageTemplate";
+        event?: string | null;
+        subject?: string | null;
+        notificationBody?: string | null;
+        emailBody?: string | null;
+      } | null;
+      rejectionMessage?: {
+        __typename?: "MessageTemplate";
+        event?: string | null;
+        subject?: string | null;
+        notificationBody?: string | null;
+        emailBody?: string | null;
+      } | null;
+      logo?: {
+        __typename?: "Asset";
+        title?: string | null;
+        url?: string | null;
+      } | null;
+      maintenanceTemplate?: {
+        __typename?: "Asset";
+        fileName?: string | null;
+        url?: string | null;
+      } | null;
+      terms?: {
+        __typename?: "Asset";
+        fileName?: string | null;
+        url?: string | null;
+      } | null;
+      onerousConditionsText?: {
+        __typename?: "GuaranteeTemplateOnerousConditionsText";
+        json: any;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
+  domain: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetMarketsByDomainQuery = {
+  __typename?: "Query";
+  markets?: {
+    __typename?: "MarketsConnection";
+    nodes: Array<{
+      __typename?: "Market";
+      id: number;
+      name?: string | null;
+      cmsSpaceId?: string | null;
+      language: SchemaTypes.Language;
+      domain: string;
+      doceboInstallersBranchId?: string | null;
+      doceboCompanyAdminBranchId?: string | null;
+      merchandisingUrl?: string | null;
+      merchandiseSso?: boolean | null;
+      projectsEnabled?: boolean | null;
+      gtag?: string | null;
+      gtagMarketMedia?: string | null;
+      optanonClass?: string | null;
+      sendName?: string | null;
+      sendMailbox?: string | null;
+      locationBiasRadiusKm?: number | null;
+      geoMiddle?: { __typename?: "Point"; x: number; y: number } | null;
+    }>;
+  } | null;
+};
+
+export type ImageFragmentFragment = {
+  __typename?: "Asset";
+  title?: string | null;
+  description?: string | null;
+  contentType?: string | null;
+  fileName?: string | null;
+  size?: number | null;
+  url?: string | null;
+  width?: number | null;
+  height?: number | null;
+  sys: { __typename?: "Sys"; id: string };
+};
+
+export type GetMediaFoldersQueryVariables = SchemaTypes.Exact<{
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetMediaFoldersQuery = {
+  __typename?: "Query";
+  marketContentCollection?: {
+    __typename?: "MarketContentCollection";
+    items: Array<{
+      __typename?: "MarketContent";
+      mediaLibraryRootCollection?: {
+        __typename?: "MarketContentMediaLibraryRootCollection";
+        items: Array<{
+          __typename: "MediaFolder";
+          name?: string | null;
+          sys: { __typename?: "Sys"; id: string };
+        } | null>;
+      } | null;
+    } | null>;
+  } | null;
+  mediaFolderCollection?: {
+    __typename?: "MediaFolderCollection";
+    total: number;
+    items: Array<{
+      __typename: "MediaFolder";
+      name?: string | null;
+      sys: { __typename?: "Sys"; id: string };
+      childrenCollection?: {
+        __typename?: "MediaFolderChildrenCollection";
+        total: number;
+        items: Array<
+          | {
+              __typename: "MediaFolder";
+              name?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+            }
+          | {
+              __typename: "MediaTool";
+              name?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+            }
+          | null
+        >;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type MediaToolDetailsFragment = {
+  __typename: "MediaTool";
+  name?: string | null;
+  url?: string | null;
+  cta?: string | null;
+  mediaItemClass?: string | null;
+  sys: { __typename?: "Sys"; id: string };
+  media?: {
+    __typename?: "Asset";
+    title?: string | null;
+    description?: string | null;
+    contentType?: string | null;
+    fileName?: string | null;
+    size?: number | null;
+    url?: string | null;
+    width?: number | null;
+    height?: number | null;
+    sys: { __typename?: "Sys"; id: string };
+  } | null;
+  thumbnail?: {
+    __typename?: "Asset";
+    title?: string | null;
+    description?: string | null;
+    contentType?: string | null;
+    fileName?: string | null;
+    size?: number | null;
+    url?: string | null;
+    width?: number | null;
+    height?: number | null;
+    sys: { __typename?: "Sys"; id: string };
+  } | null;
+};
+
+export type GetMediaFolderContentsQueryVariables = SchemaTypes.Exact<{
+  mediaFolderId: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetMediaFolderContentsQuery = {
+  __typename?: "Query";
+  mediaFolderCollection?: {
+    __typename?: "MediaFolderCollection";
+    items: Array<{
+      __typename: "MediaFolder";
+      name?: string | null;
+      sys: { __typename?: "Sys"; id: string };
+      childrenCollection?: {
+        __typename?: "MediaFolderChildrenCollection";
+        total: number;
+        items: Array<
+          | {
+              __typename: "MediaFolder";
+              name?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+            }
+          | {
+              __typename: "MediaTool";
+              name?: string | null;
+              url?: string | null;
+              cta?: string | null;
+              mediaItemClass?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+              media?: {
+                __typename?: "Asset";
+                title?: string | null;
+                description?: string | null;
+                contentType?: string | null;
+                fileName?: string | null;
+                size?: number | null;
+                url?: string | null;
+                width?: number | null;
+                height?: number | null;
+                sys: { __typename?: "Sys"; id: string };
+              } | null;
+              thumbnail?: {
+                __typename?: "Asset";
+                title?: string | null;
+                description?: string | null;
+                contentType?: string | null;
+                fileName?: string | null;
+                size?: number | null;
+                url?: string | null;
+                width?: number | null;
+                height?: number | null;
+                sys: { __typename?: "Sys"; id: string };
+              } | null;
+            }
+          | null
+        >;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type PerformMerchandiseSsoMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type PerformMerchandiseSsoMutation = {
+  __typename?: "Mutation";
+  performMerchandiseSso?: string | null;
+};
+
+export type AccountInfoByEmailQueryVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type AccountInfoByEmailQuery = {
+  __typename?: "Query";
+  accountByEmail?: {
+    __typename?: "Account";
+    id: number;
+    role?: SchemaTypes.Role | null;
+    marketId?: number | null;
+    firstName?: string | null;
+    lastName?: string | null;
+    email: string;
+    doceboUserId?: number | null;
+    market?: {
+      __typename?: "Market";
+      id: number;
+      domain: string;
+      projectsEnabled?: boolean | null;
+    } | null;
+    companyMembers: {
+      __typename?: "CompanyMembersConnection";
+      nodes: Array<{
+        __typename?: "CompanyMember";
+        company?: {
+          __typename?: "Company";
+          id: number;
+          status?: SchemaTypes.CompanyStatus | null;
+          name?: string | null;
+          tier?: SchemaTypes.Tier | null;
+        } | null;
+      }>;
+    };
+    projectMembers: {
+      __typename?: "ProjectMembersConnection";
+      totalCount: number;
+    };
+  } | null;
+};
+
+export type GetGlobalDataPublicQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGlobalDataPublicQuery = {
+  __typename?: "Query";
+  marketContentCollection?: {
+    __typename?: "MarketContentCollection";
+    items: Array<{
+      __typename?: "MarketContent";
+      externalLinkUrl?: string | null;
+      externalLinkLabel?: string | null;
+      footerLinksCollection?: {
+        __typename?: "MarketContentFooterLinksCollection";
+        items: Array<{
+          __typename?: "ContentArticle";
+          title?: string | null;
+          relativePath?: string | null;
+        } | null>;
+      } | null;
+      contactUsPage?: {
+        __typename?: "ContentArticle";
+        title?: string | null;
+        relativePath?: string | null;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
+  relativePath: SchemaTypes.Scalars["String"];
+  tag: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetContentArticleContentQuery = {
+  __typename?: "Query";
+  contentArticleCollection?: {
+    __typename?: "ContentArticleCollection";
+    items: Array<{
+      __typename?: "ContentArticle";
+      title?: string | null;
+      body?: {
+        __typename?: "ContentArticleBody";
+        json: any;
+        links: {
+          __typename?: "ContentArticleBodyLinks";
+          assets: {
+            __typename?: "ContentArticleBodyAssets";
+            block: Array<{
+              __typename?: "Asset";
+              url?: string | null;
+              title?: string | null;
+              width?: number | null;
+              height?: number | null;
+              description?: string | null;
+              sys: { __typename?: "Sys"; id: string };
+            } | null>;
+          };
+        };
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type ArticleContentLinksFragmentFragment = {
+  __typename?: "ContentArticleBodyLinks";
+  assets: {
+    __typename?: "ContentArticleBodyAssets";
+    block: Array<{
+      __typename?: "Asset";
+      url?: string | null;
+      title?: string | null;
+      width?: number | null;
+      height?: number | null;
+      description?: string | null;
+      sys: { __typename?: "Sys"; id: string };
+    } | null>;
+  };
+};
+
+export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
+
+export type MarketsQuery = {
+  __typename?: "Query";
+  markets?: {
+    __typename?: "MarketsConnection";
+    nodes: Array<{
+      __typename?: "Market";
+      id: number;
+      language: SchemaTypes.Language;
+      domain: string;
+      cmsSpaceId?: string | null;
+      name?: string | null;
+      sendName?: string | null;
+      sendMailbox?: string | null;
+      doceboInstallersBranchId?: string | null;
+      doceboCompanyAdminBranchId?: string | null;
+      merchandisingUrl?: string | null;
+      merchandiseSso?: boolean | null;
+      projectsEnabled?: boolean | null;
+      gtag?: string | null;
+      gtagMarketMedia?: string | null;
+      optanonClass?: string | null;
+      locationBiasRadiusKm?: number | null;
+    }>;
+  } | null;
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+  merchandiseTiers?: {
+    __typename?: "MerchandiseTiersConnection";
+    nodes: Array<{
+      __typename?: "MerchandiseTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      merchandiseDivisionId?: number | null;
+    }>;
+  } | null;
+};
+
+export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
+  marketId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
+}>;
+
+export type ProductsAndSystemsQuery = {
+  __typename?: "Query";
+  products?: {
+    __typename?: "ProductsConnection";
+    nodes: Array<{
+      __typename?: "Product";
+      id: number;
+      name: string;
+      brand: string;
+      family: string;
+      bmiRef: string;
+      updatedAt: any;
+      published: boolean;
+      technology: SchemaTypes.Technology;
+      description?: string | null;
+      maximumValidityYears: number;
+    }>;
+  } | null;
+  systems?: {
+    __typename?: "SystemsConnection";
+    nodes: Array<{
+      __typename?: "System";
+      id: number;
+      name: string;
+      bmiRef: string;
+      published: boolean;
+      updatedAt: any;
+      technology: SchemaTypes.Technology;
+      description?: string | null;
+      maximumValidityYears: number;
+    }>;
+  } | null;
+  systemMembers?: {
+    __typename?: "SystemMembersConnection";
+    nodes: Array<{
+      __typename?: "SystemMember";
+      systemBmiRef: string;
+      productByProductBmiRef?: {
+        __typename?: "Product";
+        id: number;
+        name: string;
+      } | null;
+    }>;
+  } | null;
+};
+
+export type DeleteInvitedUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type DeleteInvitedUserMutation = {
+  __typename?: "Mutation";
+  deleteInvitedUser?: string | null;
+};
+
+export type ValidateSignupUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type ValidateSignupUserMutation = {
+  __typename?: "Mutation";
+  validateSignupUser?: boolean | null;
+};
+
 export type GetFaqTopicsQueryVariables = SchemaTypes.Exact<{
   role: SchemaTypes.Scalars["String"];
   tier: SchemaTypes.Scalars["String"];
@@ -3329,6 +3397,7 @@ export type GetPartnerBrandsQuery = {
       newsItemUrl?: string | null;
       newsItemCta?: string | null;
       newsItemHeading?: string | null;
+      newsItemClass?: string | null;
       partnerBrandsCollection?: {
         __typename?: "MarketContentPartnerBrandsCollection";
         items: Array<{

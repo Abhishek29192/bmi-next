@@ -1,0 +1,55 @@
+{
+  "technology": "Technologia",
+  "bmiRef": "BmiRef",
+  "brand": "Marka",
+  "description": "Opis",
+  "family": "Rodzina",
+  "published": "Opublikowany",
+  "unpublished": "Nieopublikowane",
+  "maximumValidityYears": "Maksymalny okres ważności",
+  "updatedAt": "Zaktualizowano w",
+  "show": "Pokazać",
+  "edit": "Edytować",
+  "submit": "Składać",
+  "bulkImport": "Import luzem",
+  "products": "Produkty",
+  "system": "System",
+  "sidePanel": {
+    "search": {
+      "label": "Szukaj",
+      "noResult": "Nie znaleziono żadnych przedmiotów"
+    }
+  },
+  "dryRun": "Próba",
+  "confirm": "Potwierdź import",
+  "dryRunError": "W importowanych plikach jest jakiś błąd",
+  "importCompleted": "Import zakończony",
+  "productToInsert": "Ten produkt zostanie włożony",
+  "systemToInsert": "Te systemy zostaną wstawione",
+  "systemToUpdate": "Te systemy zostaną zaktualizowane",
+  "productToUpdate": "Ten produkt zostanie zaktualizowany",
+  "errorSystemsToUpdate": "System do aktualizacji",
+  "errorSystemsToInsert": "System do wstawienia",
+  "errorProductsToUpdate": "Produkt do aktualizacji",
+  "errorProductsToInsert": "Produkt do wstawienia",
+  "errorSystemMembersInsert": "Członek systemu do wstawienia",
+  "importError": "Wystąpił błąd podczas importu",
+  "form": {
+    "productTitle": "Edytuj produkt",
+    "systemTitle": "Edytuj system"
+  },
+  "errors": {
+    "filename_wrong_format": "Plik ma zły format",
+    "unauthorized": "Nieautoryzowany",
+    "wrong_env": "Niewłaściwe środowisko"
+  },
+  "dryRunCompleted": "Suchobieg zakończony",
+  "report": {
+    "product": "Pobierz raport o produkcie",
+    "system": "Pobierz raport systemowy"
+  },
+  "productData": {
+    "name": "Nazwa produktu",
+    "uuid": "ID produktu"
+  }
+}

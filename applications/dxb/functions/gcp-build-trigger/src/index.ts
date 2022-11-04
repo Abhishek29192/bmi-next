@@ -30,7 +30,7 @@ const monitorCheck = async (
     filter,
     interval: {
       endTime: { seconds: seconds },
-      startTime: { seconds: seconds - 240 }
+      startTime: { seconds: seconds - 540 } // 540 seconds timeout for build gcp function
     },
     view: "FULL"
   });
@@ -106,7 +106,7 @@ export const build: HttpFunction = async (_req, res) => {
 
   if (!NETLIFY_BUILD_HOOK) {
     logger.error({
-      message: "DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID was not provided"
+      message: "NETLIFY_BUILD_HOOK was not provided"
     });
     return res.sendStatus(500);
   }
@@ -145,7 +145,9 @@ export const build: HttpFunction = async (_req, res) => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     if (runtime > timeoutLimit) {
-      logger.error({ message: `Runtime exceeded ${timeoutLimit} seconds` });
+      logger.error({
+        message: `Runtime exceeded ${timeoutLimit / 1000} seconds`
+      });
       return res.sendStatus(500);
     }
 

@@ -19,6 +19,7 @@ type Props = {
   onClose: () => any;
   activeItem: GalleryItem;
   items: GalleryItem[];
+  optanonClass?: string;
 };
 
 const downloadAction = (url) => {
@@ -30,8 +31,18 @@ const downloadAction = (url) => {
   document.body.removeChild(link);
 };
 
-const VimeoIFrame = ({ url }: { url: string }) => {
+const VimeoIFrame = ({
+  url,
+  optanonClass,
+  mediaItemClass
+}: {
+  url: string;
+  optanonClass: string;
+  mediaItemClass: string;
+}) => {
   const [isLoading, setIsLoading] = useState(true);
+
+  const optanon = mediaItemClass?.length ? mediaItemClass : optanonClass;
 
   return (
     <div>
@@ -50,7 +61,7 @@ const VimeoIFrame = ({ url }: { url: string }) => {
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
-        className={styles.iframe}
+        className={`${styles.iframe} ${optanon}`}
         sandbox="allow-scripts allow-same-origin"
         data-testid="iframe-element"
       />
@@ -65,7 +76,13 @@ const Image = ({ src, alt }: { src: string; alt?: string }) => {
   return <img src={src} className={styles.image} alt={alt} />;
 };
 
-export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
+export const MediaGallery = ({
+  isOpen,
+  onClose,
+  activeItem,
+  items,
+  optanonClass
+}: Props) => {
   if (!activeItem) {
     return null;
   }
@@ -104,47 +121,53 @@ export const MediaGallery = ({ isOpen, onClose, activeItem, items }: Props) => {
         initialPage={currentIndex}
         onPageChange={setIndex}
       >
-        {items.map(({ id, type, title, fileUrl, url, description }) => {
-          return (
-            <Carousel.Slide key={id} className={styles.slide}>
-              {["image", "pdf"].includes(type) ? (
-                <div>
-                  <div className={styles.mediaHeader}>
-                    <Typography
-                      variant="subtitle2"
-                      display="block"
-                      className={styles.mediaTitle}
-                    >
-                      {title}
-                    </Typography>
-                    <Button
-                      data-testid="download-button"
-                      onClick={() => downloadAction(fileUrl)}
-                      color="primary"
-                      startIcon={<DownloadIcon />}
-                    >
-                      {t("common:Download")}
-                    </Button>
+        {items.map(
+          ({ id, type, title, fileUrl, url, description, mediaItemClass }) => {
+            return (
+              <Carousel.Slide key={id} className={styles.slide}>
+                {["image", "pdf"].includes(type) ? (
+                  <div>
+                    <div className={styles.mediaHeader}>
+                      <Typography
+                        variant="subtitle2"
+                        display="block"
+                        className={styles.mediaTitle}
+                      >
+                        {title}
+                      </Typography>
+                      <Button
+                        data-testid="download-button"
+                        onClick={() => downloadAction(fileUrl)}
+                        color="primary"
+                        startIcon={<DownloadIcon />}
+                      >
+                        {t("common:Download")}
+                      </Button>
+                    </div>
+                    <Image src={url} alt={description || title} />
                   </div>
-                  <Image src={url} alt={description || title} />
-                </div>
-              ) : (
-                <div>
-                  <div className={styles.mediaHeader}>
-                    <Typography
-                      variant="subtitle2"
-                      display="block"
-                      className={styles.mediaTitle}
-                    >
-                      {title}
-                    </Typography>
+                ) : (
+                  <div>
+                    <div className={styles.mediaHeader}>
+                      <Typography
+                        variant="subtitle2"
+                        display="block"
+                        className={styles.mediaTitle}
+                      >
+                        {title}
+                      </Typography>
+                    </div>
+                    <VimeoIFrame
+                      url={url}
+                      optanonClass={optanonClass}
+                      mediaItemClass={mediaItemClass}
+                    />
                   </div>
-                  <VimeoIFrame url={url} />
-                </div>
-              )}
-            </Carousel.Slide>
-          );
-        })}
+                )}
+              </Carousel.Slide>
+            );
+          }
+        )}
       </Carousel>
       <Button
         variant="text"

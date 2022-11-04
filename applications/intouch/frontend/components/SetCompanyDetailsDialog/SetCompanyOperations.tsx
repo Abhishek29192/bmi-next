@@ -1,14 +1,13 @@
-import capitalize from "lodash/capitalize";
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { Grid } from "@bmi/components";
 import { Checkbox } from "@bmi/components";
 import { Typography } from "@bmi/components";
-import { OPERATION_TYPES } from "../../lib/constants";
 import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { InfoPair } from "../InfoPair";
 import { formatCompanyOperations } from "../Pages/Company/RegisteredDetails";
+import { useCompanyPageContext } from "../../context/CompanyPageContext";
 
 type Props = {
   operations: GetCompanyQuery["company"]["companyOperationsByCompany"]["nodes"];
@@ -20,12 +19,14 @@ const ViewOperations = ({
   operations: Props["operations"];
 }) => {
   const { t } = useTranslation("company-page");
+  const { operationTypes } = useCompanyPageContext();
   return (
     operations?.length > 0 && (
       <InfoPair title={t("edit_dialog.form.fields.operationTypes")}>
         {formatCompanyOperations(
           t,
-          operations.map((node) => node.operation)
+          operations.map((node) => node.operation),
+          operationTypes
         )}
       </InfoPair>
     )
@@ -34,7 +35,7 @@ const ViewOperations = ({
 
 export const SetCompanyOperations = ({ operations }: Props) => {
   const { t } = useTranslation("company-page");
-
+  const { operationTypes } = useCompanyPageContext();
   return (
     <AccessControl
       action="editOperations"
@@ -46,15 +47,13 @@ export const SetCompanyOperations = ({ operations }: Props) => {
       </Typography>
 
       <Grid container xs={12} spacing={0} style={{ marginBottom: "1.5rem" }}>
-        {Object.entries(OPERATION_TYPES).map(([, operationType], idx) => {
-          const defaultValue = operations.some(
-            (o) => o.operation === operationType
-          );
+        {operationTypes.map(({ type, displayName }, idx) => {
+          const defaultValue = operations.some((o) => o.operation === type);
           return (
-            <Grid item xs={6} key={`${operationType}-${idx}`}>
+            <Grid item xs={6} key={`${type}-${idx}`}>
               <Checkbox
-                name={`operationTypes.${operationType}`}
-                label={capitalize(t(`operationTypes.${operationType}`))}
+                name={`operationTypes.${type}`}
+                label={displayName}
                 defaultValue={defaultValue}
                 defaultChecked={defaultValue}
               />

@@ -56,6 +56,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -75,6 +76,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -94,6 +96,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -113,6 +116,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-four"
                     id="tab-four"
                     role="tab"
                     tabindex="-1"
@@ -132,6 +136,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-five"
                     id="tab-five"
                     role="tab"
                     tabindex="-1"
@@ -151,6 +156,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
                     tabindex="-1"
@@ -170,6 +176,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-391"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-six"
                     id="tab-six"
                     role="tab"
                     tabindex="-1"
@@ -1034,6 +1041,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       <div
         aria-labelledby="tab-four"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
         id="tabpanel-four"
@@ -1187,6 +1195,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="true"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
                     id="tab-one"
                     role="tab"
                     tabindex="0"
@@ -1206,6 +1215,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
                     id="tab-two"
                     role="tab"
                     tabindex="-1"
@@ -1225,6 +1235,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-three"
                     id="tab-three"
                     role="tab"
                     tabindex="-1"
@@ -1244,6 +1255,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-four"
                     id="tab-four"
                     role="tab"
                     tabindex="-1"
@@ -1263,6 +1275,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-five"
                     id="tab-five"
                     role="tab"
                     tabindex="-1"
@@ -1282,6 +1295,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-seven"
                     id="tab-seven"
                     role="tab"
                     tabindex="-1"
@@ -1301,6 +1315,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-430"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-six"
                     id="tab-six"
                     role="tab"
                     tabindex="-1"
@@ -1975,6 +1990,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       <div
         aria-labelledby="tab-four"
         class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-four"
         heading="MC: pdp.leadBlock.bim"
         hidden=""
         id="tabpanel-four"
@@ -2059,6 +2075,599 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
       >
         <div
           class="MuiBox-root MuiBox-root-466 TabPanelBox"
+        >
+          <iframe
+            class="assetsIframe fixing-tool-iframe"
+            src="http://fixingToolIframeUrl"
+            title="undefined iFrame"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProductLeadBlock tests renders correctly when productDocuments is empty array 1`] = `
+<div>
+  <div
+    class="ProductLeadBlock"
+  >
+    <div
+      class="Tabs Tabs--primary"
+    >
+      <div
+        class="TabsBar"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root tabStyles-ContainerRoot-467 MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiTabs-root tabStyles-TabsRoot-468"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                >
+                  <button
+                    aria-controls="tabpanel-one"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469 Mui-selected"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-one"
+                    id="tab-one"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.about
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-two"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-two"
+                    id="tab-two"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.technicalSpecifications
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-four"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.bim\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-four"
+                    id="tab-four"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.bim
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-five"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalDrawings\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-five"
+                    id="tab-five"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.technicalDrawings
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-seven"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-seven"
+                    id="tab-seven"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.specification
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="tabpanel-six"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-469"
+                    data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.fixingTool\\",\\"action\\":\\"Selector – Tabs\\"}"
+                    data-testid="tab-six"
+                    id="tab-six"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      MC: pdp.leadBlock.fixingTool
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="PrivateTabIndicator-root-470 PrivateTabIndicator-colorPrimary-471 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-one"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="aboutTab"
+        heading="MC: pdp.leadBlock.about"
+        id="tabpanel-one"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-474 TabPanelBox"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="LeadBlockContentSection"
+              >
+                <div
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  Description
+                </div>
+              </div>
+              <div
+                class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+              >
+                <h5
+                  class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                >
+                  MC: pdp.leadBlock.guaranteesWarranties
+                </h5>
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <div>
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                    type="button"
+                  >
+                    <span />
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      data-testid="external"
+                      focusable="false"
+                    />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover inline-link Anchorlink MuiTypography-colorPrimary"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
+                    type="button"
+                  >
+                    <span />
+                    <svg
+                      aria-hidden="true"
+                      class="icon"
+                      data-testid="external"
+                      focusable="false"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div
+                class="GuaranteesAndAwardsAsset LeadBlockContentSection"
+              >
+                <h5
+                  class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h5"
+                >
+                  MC: pdp.leadBlock.awardsCertificates
+                </h5>
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <img
+                  alt="asset-name"
+                  class="image"
+                  src="http://localhost:8000/asset-real-file-name.jpg"
+                />
+                <br />
+                <span
+                  class="document"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-475 MuiButton-outlined MuiButton-outlinedPrimary"
+                    href="http://localhost:8000/asset-real-file-name.pdf"
+                    rel="noopener noreferrer"
+                    tabindex="0"
+                    target="_blank"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-478"
+                    >
+                      asset-name
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </span>
+                <span
+                  class="document"
+                >
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-475 MuiButton-outlined MuiButton-outlinedPrimary"
+                    href="http://localhost:8000/asset-real-file-name.pdf"
+                    rel="noopener noreferrer"
+                    tabindex="0"
+                    target="_blank"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-478"
+                    >
+                      asset-name
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+            >
+              <div
+                class="ColorPair ColorPair--blue-900"
+              >
+                <div
+                  class="PostItCard"
+                >
+                  <div
+                    class="section"
+                  >
+                    <h4
+                      class="MuiTypography-root Typography MuiTypography-h4"
+                    >
+                      MC: pdp.leadBlock.keyFeatures
+                    </h4>
+                    <div
+                      class="content"
+                    >
+                      <ul
+                        class="IconList"
+                      >
+                        <li
+                          class="ListItem ListItem--isCompact"
+                        >
+                          <div
+                            class="icon"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="content"
+                          >
+                            <p
+                              class="MuiTypography-root title Typography MuiTypography-body1"
+                            >
+                              product-benefit
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-two"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="technicalSpecificationsTab"
+        heading="MC: pdp.leadBlock.technicalSpecifications"
+        hidden=""
+        id="tabpanel-two"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-495 TabPanelBox"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="ProductTechnicalSpec"
+              >
+                <div>
+                  <table
+                    class="MuiTable-root Table Table--row-even-color"
+                  >
+                    <thead
+                      class="MuiTableHead-root ColorPair ColorPair--pearl"
+                    >
+                      <tr
+                        class="MuiTableRow-root MuiTableRow-head"
+                      >
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head"
+                          scope="col"
+                        >
+                          appearanceAttributes
+                        </th>
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head"
+                          scope="col"
+                        />
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="MuiTableBody-root"
+                    >
+                      <tr
+                        class="MuiTableRow-root"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                        >
+                          classification-feature-name
+                        </td>
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                        >
+                          classification-feature-value
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-four"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-four"
+        heading="MC: pdp.leadBlock.bim"
+        hidden=""
+        id="tabpanel-four"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-496 TabPanelBox"
+        >
+          <iframe
+            class="assetsIframe"
+            src="http://bimIframUrl"
+            title="BIM iFrame"
+          />
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-five"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="technicalDrawings"
+        heading="MC: pdp.leadBlock.technicalDrawings"
+        hidden=""
+        id="tabpanel-five"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-497 TabPanelBox"
+        >
+          <div
+            class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          >
+            <div
+              class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            >
+              <div
+                class="LeadBlockContentSection"
+              >
+                <div
+                  class="MediaGallery"
+                >
+                  <div
+                    class="image-wrapper"
+                  >
+                    <img
+                      alt="Alt text"
+                      class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+                      src="http://localhost:8000/image-main-source.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-seven"
+        class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+        data-testid="specification"
+        heading="MC: pdp.leadBlock.specification"
+        hidden=""
+        id="tabpanel-seven"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-498 TabPanelBox"
+        >
+          <iframe
+            class="assetsIframe specification-tab-iframe"
+            src="http://specificationIframeUrl"
+            title="undefined iFrame"
+          />
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-six"
+        class="MuiGrid-root TabPanel tab-container MuiGrid-item"
+        data-testid="fixingTool"
+        heading="MC: pdp.leadBlock.fixingTool"
+        hidden=""
+        id="tabpanel-six"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-499 TabPanelBox"
         >
           <iframe
             class="assetsIframe fixing-tool-iframe"

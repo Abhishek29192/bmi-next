@@ -4,12 +4,11 @@ import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { Response } from "node-fetch";
-import { processContentfulDocuments } from "./contentful";
+import { getNumberOfDocuments } from "./contentful";
 import {
   createElasticSearchIndex,
   deleteElasticSearchIndex,
-  ElasticsearchIndexes,
-  performBulkIndexing
+  ElasticsearchIndexes
 } from "./elasticsearch";
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
@@ -23,11 +22,17 @@ const {
   MARKET_LOCALE,
   CONTENTFUL_DELIVERY_TOKEN,
   SPACE_ID,
-  CONTENTFUL_ENVIRONMENT
+  CONTENTFUL_ENVIRONMENT,
+  TAG
 } = process.env;
 
+// The maximum number of entries returned by the API is 1000.
+// The API will throw a BadRequestError for values higher than 1000 and values other than an integer.
+// The default number of entries returned by the API is 100.
+const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
+
 const triggerFullFetch = async (
-  type: PimTypes,
+  type: PimTypes | "documents",
   lastStartPage: number,
   numberOfPages: number
 ): Promise<Response> => {
@@ -54,7 +59,20 @@ const triggerFullFetch = async (
 const triggerFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
-  const response = await fetchData(type, LOCALE!);
+  let response;
+  try {
+    response = await fetchData(type, LOCALE!);
+  } catch (error) {
+    if (
+      (error as Error).message.indexOf(
+        `Base site ${process.env.PIM_CATALOG_NAME} doesn't exist`
+      ) !== -1
+    ) {
+      return;
+    }
+    throw error;
+  }
+
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
   const promises: Promise<Response>[] = [];
@@ -67,6 +85,28 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
   }
   await Promise.all(promises);
   logger.info({ message: `Success for triggerFullFetchBatch type: ${type}.` });
+};
+
+const triggerDocumentsFullFetchBatch = async () => {
+  logger.info({ message: "Batching documents" });
+
+  const numberOfDocuments = await getNumberOfDocuments(MARKET_LOCALE!, TAG);
+  if (numberOfDocuments === 0) {
+    return;
+  }
+
+  const numberOfRequests = Math.ceil(
+    numberOfDocuments / MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE
+  );
+  const promises: Promise<Response>[] = [];
+  for (let i = 0; i < numberOfRequests; i++) {
+    const batchResponse = triggerFullFetch("documents", i, 1);
+    promises.push(batchResponse);
+  }
+  await Promise.all(promises);
+  logger.info({
+    message: `Success for triggerFullFetchBatch type: document.`
+  });
 };
 
 /**
@@ -138,12 +178,7 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   await triggerFullFetchBatch(PimTypes.Products);
   await triggerFullFetchBatch(PimTypes.Systems);
-
-  const esDocuments = await processContentfulDocuments();
-
-  if (esDocuments?.length) {
-    await performBulkIndexing(esDocuments);
-  }
+  await triggerDocumentsFullFetchBatch();
 
   fetch(BUILD_TRIGGER_ENDPOINT, {
     method: "POST",

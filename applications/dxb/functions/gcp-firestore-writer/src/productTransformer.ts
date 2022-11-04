@@ -16,7 +16,8 @@ import type {
   Category as PimCategory,
   Classification as PimClassification,
   Feature,
-  Product as PimProduct
+  Product as PimProduct,
+  Asset
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
@@ -246,6 +247,11 @@ export const transformProduct = (product: PimProduct): Product[] => {
           (variant.isSampleOrderAllowed ??
             product.isSampleOrderAllowed ??
             false),
+        isVisualiserAvailable: getIsVisualiserAvailable(
+          product.categories || [],
+          mergedClassifications,
+          variant.visualiserAssets || product.visualiserAssets
+        ),
         masterImage: mapImages(groupedImages, "MASTER_IMAGE")[0],
         materials,
         measurements: {
@@ -650,4 +656,102 @@ const getSizeLabel = (
       // Add extra space if units don't match
       .join(sameUnit ? "x" : " x ") + unit
   );
+};
+
+const getIsVisualiserAvailable = (
+  categories: readonly PimCategory[],
+  mergedClassifications: PimClassification[],
+  visualiserAssets?: readonly Asset[]
+): boolean => {
+  const requiredClassificationFeatures = [
+    "tilesAttributes.verticalOverlap",
+    "tilesAttributes.horizontalOverlap",
+    "tilesAttributes.horizontalOffset",
+    "tilesAttributes.snowFenceActive",
+    "tilesAttributes.largeTile",
+    "tilesAttributes.thicknessReduction"
+  ];
+
+  const hasChannel = categories.find(
+    (category) =>
+      category.categoryType === "Channel" && category.code === "VISUALISER"
+  );
+
+  if (!hasChannel) {
+    return false;
+  }
+
+  const hasNeededAssets = hasRequiredVisualiserAssets(visualiserAssets);
+  if (!hasNeededAssets) {
+    return false;
+  }
+
+  const requiredClassifications = mergedClassifications.filter(
+    (classification) =>
+      classification.code === "generalInformation" || "tilesAttributes"
+  );
+
+  const features = requiredClassifications.flatMap(
+    (classification) => classification.features || []
+  );
+
+  const category = features.find((feature) =>
+    feature.code.includes("generalInformation.classification")
+  );
+
+  if (
+    !category ||
+    !["clay", "metal", "concrete"].includes(
+      category.featureValues[0].value.toLowerCase()
+    )
+  ) {
+    return false;
+  }
+
+  return requiredClassificationFeatures.every((requiredFeature) =>
+    features.find(({ code, featureValues }) => {
+      const featureCode = code.replace("bmiClassificationCatalog/1.0/", "");
+
+      if (featureCode !== requiredFeature) {
+        return false;
+      }
+
+      if (
+        featureCode === "tilesAttributes.verticalOverlap" ||
+        featureCode === "tilesAttributes.horizontalOverlap" ||
+        featureCode === "tilesAttributes.horizontalOffset" ||
+        featureCode === "tilesAttributes.thicknessReduction"
+      ) {
+        return (
+          Number(featureValues[0].value) === 0 ||
+          Boolean(Number(featureValues[0].value))
+        );
+      }
+
+      return true;
+    })
+  );
+};
+
+const hasRequiredVisualiserAssets = (
+  visualiserAssets?: readonly Asset[]
+): boolean => {
+  const requiredAssets = [
+    "HIGH_DETAIL_MESH_REFERENCE",
+    "LOW_DETAIL_MESH_REFERENCE",
+    "METALLIC_ROUGHNESS_MAP_REFERENCE",
+    "NORMAL_MAP_REFERENCE",
+    "RIDGE_END_REFERENCE",
+    "RIDGE_REFERENCE"
+  ];
+
+  if (!visualiserAssets) {
+    return false;
+  }
+
+  return requiredAssets.every((assetType) => {
+    return visualiserAssets.find(
+      (visualiserAsset) => visualiserAsset.assetType === assetType
+    );
+  });
 };

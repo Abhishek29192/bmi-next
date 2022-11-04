@@ -1,7 +1,7 @@
 {
-  "certifiedInstallers": "Instaladores Certificados",
   "daysRemaining": "Número de días restantes",
-  "noCertifiedInstallers": "No hay instaladores certificados por BMI",
   "projectInsight": "Visión del proyecto",
+  "certifiedInstallers": "Instaladores Certificados",
+  "noCertifiedInstallers": "No hay instaladores certificados por BMI",
   "projectsInsightCertifiedInstallers": "Hay {{count}} instaladores certificados por BMI asignados a este proyecto"
 }

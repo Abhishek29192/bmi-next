@@ -2,8 +2,8 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { WebGLRenderer } from "three";
 import sidings from "../data/sidings.json";
-import tiles from "../data/tiles.json";
 import HouseViewer from "../HouseViewer";
+import tileMock from "./__mocks__/tile";
 
 const mockWebGLRenderer = WebGLRenderer as unknown as jest.Mock<WebGLRenderer>;
 
@@ -30,10 +30,9 @@ describe("HouseViewer", () => {
   it("should render WebGL scene", () => {
     render(
       <HouseViewer
-        tile={tiles.tiles[0] as any}
-        colour={tiles.tiles[0].colours[0]}
+        tile={tileMock}
         siding={sidings.sidings[0]}
-        setIsLoading={() => {}}
+        setIsLoading={jest.fn()}
         options={{
           contentSource: "url"
         }}

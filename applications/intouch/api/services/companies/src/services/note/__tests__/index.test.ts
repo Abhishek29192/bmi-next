@@ -1,9 +1,13 @@
 import { CreateNoteInput } from "@bmi/intouch-api-types";
 import { createNote } from "..";
-import { sendMessageWithTemplate } from "../../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  sendMailToMarketAdmins
+} from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
-  sendMessageWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn(),
+  sendMailToMarketAdmins: jest.fn()
 }));
 
 const mockCompanyAdminUsers = [
@@ -16,10 +20,11 @@ const mockCompanyAdminUsers = [
     email: "email2"
   }
 ];
-const mockMarketAdminUsers = [
+const mockAccounts = [
   {
-    id: 11,
-    email: "email11"
+    email: "authorEmail",
+    first_name: "Author first name",
+    last_name: "Author last name"
   }
 ];
 
@@ -55,13 +60,22 @@ describe("Note", () => {
     input: {
       note: {
         authorId: 1,
-        projectId: 1
+        projectId: 1,
+        body: "body"
       }
     }
   };
   const resolveInfo = {};
+  const authorDetails = {
+    noteAuthor: `${mockAccounts[0].first_name} ${mockAccounts[0].last_name} (${mockAccounts[0].email})`,
+    noteSnippet: args.input.note.body
+  };
 
-  it("should create note", async () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should create note with no company admin", async () => {
     context.user.can = () => true;
 
     mockQuery
@@ -79,7 +93,7 @@ describe("Note", () => {
         rows: []
       }))
       .mockImplementationOnce(() => ({
-        rows: []
+        rows: mockAccounts
       }))
       .mockImplementationOnce(() => ({}));
 
@@ -87,6 +101,15 @@ describe("Note", () => {
 
     expect(resolve).toBeCalled();
     expect(sendMessageWithTemplate).not.toBeCalled();
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
   });
 
   it("should create note and send message to company&&market admin", async () => {
@@ -107,16 +130,16 @@ describe("Note", () => {
         rows: mockCompanyAdminUsers
       }))
       .mockImplementationOnce(() => ({
-        rows: mockMarketAdminUsers
+        rows: mockAccounts
       }))
       .mockImplementationOnce(() => ({}));
 
     await createNote(resolve, source, args, context, resolveInfo);
 
     expect(resolve).toBeCalled();
-    const calledTime =
-      mockCompanyAdminUsers.length + mockMarketAdminUsers.length;
-    expect(sendMessageWithTemplate).toBeCalledTimes(calledTime);
+    expect(sendMessageWithTemplate).toBeCalledTimes(
+      mockCompanyAdminUsers.length
+    );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
       expect.any(Object),
       "NOTE_ADDED",
@@ -124,7 +147,8 @@ describe("Note", () => {
         accountId: 1,
         email: "email1",
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
       }
     );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
@@ -134,17 +158,94 @@ describe("Note", () => {
         accountId: 2,
         email: "email2",
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+  });
+
+  it("should create note and send message with no author found", async () => {
+    const authorDetails = {
+      noteAuthor: "",
+      noteSnippet: args.input.note.body
+    };
+    context.user.can = () => true;
+
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [
+          {
+            name: "project_name",
+            companyId: 1,
+            marketId: 1
+          }
+        ]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: mockCompanyAdminUsers
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }))
+      .mockImplementationOnce(() => ({}));
+
+    await createNote(
+      resolve,
+      source,
+      {
+        input: {
+          note: {
+            projectId: 1,
+            body: "body"
+          }
+        }
+      },
+      context,
+      resolveInfo
+    );
+
+    expect(resolve).toBeCalled();
+    const calledTime = mockCompanyAdminUsers.length;
+    expect(sendMessageWithTemplate).toBeCalledTimes(calledTime);
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: mockCompanyAdminUsers[0].id,
+        email: mockCompanyAdminUsers[0].email,
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
       }
     );
     expect(sendMessageWithTemplate).toHaveBeenCalledWith(
       expect.any(Object),
       "NOTE_ADDED",
       {
-        accountId: 11,
-        email: "email11",
+        accountId: mockCompanyAdminUsers[1].id,
+        email: mockCompanyAdminUsers[1].email,
         project: "project_name",
-        projectId: 1
+        projectId: 1,
+        ...authorDetails
+      }
+    );
+    expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        project: "project_name",
+        projectId: 1,
+        ...authorDetails
       }
     );
   });
@@ -162,9 +263,6 @@ describe("Note", () => {
             marketId: 1
           }
         ]
-      }))
-      .mockImplementationOnce(() => ({
-        rows: []
       }))
       .mockImplementationOnce(() => ({
         rows: []

@@ -194,6 +194,7 @@ export default gql`
     UNASSIGN_SOLUTION
     APPROVE_SOLUTION
     REJECT_SOLUTION
+    BO_ACCEPTED_SOLUTION
   }
   extend input UpdateGuaranteeInput {
     guaranteeEventType: GuaranteeEventType
@@ -363,6 +364,24 @@ export default gql`
     template: ReleaseGuaranteePdfTemplateInput
   }
 
+  type UpdateMerchandiseTiersByMarketResult {
+    id: Int
+    merchandise_division_id: Int
+    market_id: Int
+    tier_code: Tier
+  }
+
+  input UpdateMerchandiseTiersByMarketInput {
+    marketId: Int
+    merchandiseT1: Int
+    merchandiseT2: Int
+    merchandiseT3: Int
+    merchandiseT4: Int
+    merchandiseT5: Int
+    merchandiseT6: Int
+    merchandiseT7: Int
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -393,5 +412,9 @@ export default gql`
     ): GetDoubleAcceptanceByValidTempToken
     autoRejectDoubleAcceptance: String
     releaseGuaranteePdf(input: ReleaseGuaranteePdfInput!): PublishOutput
+    performMerchandiseSso(email: String!): String
+    updateMerchandiseTiersByMarket(
+      input: UpdateMerchandiseTiersByMarketInput
+    ): [UpdateMerchandiseTiersByMarketResult]
   }
 `;

@@ -1,53 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Sertifiseringer",
     "buttons": {
-      "removeProfilePicture": "Fjern",
-      "saveAndClose": "Lagre og lukk",
-      "uploadProfilePicture": "Last opp nytt bilde"
-    },
+      "editProfile": "Rediger",
+      "changePassword": "Endre passord"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Kontaktopplysninger",
-    "fileSizeMessage": "Maks filstørrelse 3 mb.",
-    "fileSizeValidationMessage": "Du kan ikke laste opp filer som er større enn",
+    "title": "Om oss",
     "fileTypesMessage": "Du kan laste opp jpg-, gif- eller png -filer.",
+    "fileSizeMessage": "Maks filstørrelse 3 mb.",
     "form": {
       "fields": {
-        "email": "Email",
         "firstName": "Fornavn",
         "lastName": "Etternavn",
+        "email": "Email",
         "phone": "Telefon",
         "photo": "Profil bilde"
       }
     },
-    "title": "Om oss"
+    "buttons": {
+      "uploadProfilePicture": "Last opp nytt bilde",
+      "removeProfilePicture": "Fjern",
+      "saveAndClose": "Lagre og lukk"
+    }
   },
   "leaveCompany": {
     "cta": "Forlater selskapet",
     "dialog": {
+      "title": "Er du sikker?",
       "content": "Alle sertifiseringer du har, forblir hos deg, selskapet vil ikke arve noen av sertifiseringene dine. Du vil ikke være medlem av noen prosjekter eller kunne se prosjektdetaljer. Selskapet vil ikke kunne nominere deg som ansvarlig installatør for prosjekter.",
       "cta": {
         "cancel": "Avbryt",
         "confirm": "Fortsett"
-      },
-      "title": "Er du sikker?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Register ditt selskap",
+    "body": "Register ditt selskap",
+    "cta": "Registrer"
   },
   "passwordReset": {
     "dialog": {
-      "error": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator",
+      "title": "Opprett passord",
       "success": "Vi har sendt deg en e -post med en lenke for å tilbakestille passordet ditt. Følg instruksjonene i e -posten.",
-      "title": "Opprett passord"
+      "error": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Endre passord",
-      "editProfile": "Rediger"
-    },
-    "certificationsHeading": "Sertifiseringer"
-  },
-  "registerCompany": {
-    "body": "Register ditt selskap",
-    "cta": "Registrer",
-    "heading": "Register ditt selskap"
   }
 }

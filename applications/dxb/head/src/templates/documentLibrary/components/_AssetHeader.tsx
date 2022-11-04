@@ -5,10 +5,10 @@ import React, { useState } from "react";
 import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
 import { microCopy } from "../../../constants/microCopies";
-import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
+import { AssetType } from "../types";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 
-const AssetHeader = ({ assetType }: { assetType: AssetTypeData }) => {
+const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
   const { name, code, description } = assetType;
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);

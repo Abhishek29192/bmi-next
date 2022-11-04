@@ -6,10 +6,14 @@ import {
   throwUniqueViolationError,
   getCompanyTier
 } from "..";
-import { sendMessageWithTemplate } from "../../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  sendMailToMarketAdmins
+} from "../../../services/mailer";
 
 jest.mock("../../../services/mailer", () => ({
-  sendMessageWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn(),
+  sendMailToMarketAdmins: jest.fn()
 }));
 
 const mockGetDbPoolQuery = jest.fn();
@@ -634,16 +638,12 @@ describe("Company", () => {
           [1]
         );
         expect(resolve).toHaveBeenCalledTimes(1);
-        expect(mockGetDbPoolQuery).toHaveBeenCalledWith(
-          `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
-          ["MARKET_ADMIN", 1]
-        );
+        expect(sendMessageWithTemplate).toHaveBeenCalledTimes(1);
+        expect(sendMailToMarketAdmins).toHaveBeenCalledTimes(1);
       });
 
       it("send email", async () => {
         const mailBody = {
-          accountId: context.user.id,
-          firstname: context.user.firstName,
           company: companyName,
           city: "town",
           companyCreator: context.user.email
@@ -672,82 +672,20 @@ describe("Company", () => {
           context,
           "COMPANY_REGISTERED",
           {
+            accountId: context.user.id,
+            firstname: context.user.firstName,
             email: context.user.email,
             ...mailBody
           }
         );
-        expect(sendMessageWithTemplate).toHaveBeenNthCalledWith(
-          2,
+        expect(sendMailToMarketAdmins).toHaveBeenNthCalledWith(
+          1,
           context,
           "COMPANY_REGISTERED",
           {
-            ...mailBody,
-            email: marketAdminEmail,
-            accountId: 3
+            ...mailBody
           }
         );
-      });
-
-      it("send email to multiple marketAdmins", async () => {
-        query
-          .mockReturnValueOnce({ rows: [{ id: 1, tier: "T1" }] })
-          .mockReturnValueOnce({
-            rows: [
-              {
-                first_line: "first_line",
-                town: "town",
-                postcode: "postcode",
-                country: "country"
-              }
-            ]
-          })
-          .mockReturnValue({});
-        mockGetDbPoolQuery.mockReturnValueOnce({
-          rows: [
-            { email: marketAdminEmail },
-            { email: `${marketAdminEmail}2`, id: 4 }
-          ]
-        });
-
-        await updateCompany(resolve, source, args, context, resolveInfo);
-
-        expect(sendMessageWithTemplate).toHaveBeenCalledTimes(3);
-        expect(sendMessageWithTemplate).toHaveBeenNthCalledWith(
-          3,
-          context,
-          "COMPANY_REGISTERED",
-          {
-            email: `${marketAdminEmail}2`,
-            accountId: 4,
-            firstname: context.user.firstName,
-            company: companyName,
-            city: "town",
-            companyCreator: context.user.email
-          }
-        );
-      });
-
-      it("send email to user only when no marketAdmin", async () => {
-        query
-          .mockReturnValueOnce({ rows: [{ id: 1, tier: "T1" }] })
-          .mockReturnValueOnce({
-            rows: [
-              {
-                first_line: "first_line",
-                town: "town",
-                postcode: "postcode",
-                country: "country"
-              }
-            ]
-          })
-          .mockReturnValue({});
-        mockGetDbPoolQuery.mockReturnValueOnce({
-          rows: []
-        });
-
-        await updateCompany(resolve, source, args, context, resolveInfo);
-
-        expect(sendMessageWithTemplate).toHaveBeenCalledTimes(1);
       });
     });
 

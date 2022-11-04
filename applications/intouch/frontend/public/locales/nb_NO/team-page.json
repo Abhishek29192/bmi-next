@@ -1,69 +1,68 @@
 {
-  "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator.",
-  "invitation": {
-    "dialog": {
-      "cancel": "Avbryt",
-      "emails": {
-        "helperText": "Legg til flere medlemmer ved å skille hver e -postadresse med et komma",
-        "label": "Mottakers epostadresse"
-      },
-      "errorAlreadyMember": "Brukeren er allerede medlem av et annet firma",
-      "errorInvitationNotFound": "Fant ingen invitarsjon",
-      "errorCommonFailure": "Mislykket svar. Vennligst sjekk detaljene og prøv igjen, eller kontakt din lokale BMI-administrator.",
-      "personalNote": {
-        "label": "Meldingen din (valgfritt)"
-      },
-      "send": "Send e-post",
-      "success": "Invitasjonen er sendt",
-      "title": "Invitere teammedlemmer"
-    }
-  },
-  "lastCompanyAdminError": "Du kan ikke fjerne den siste bedriftsadministratoren fra et selskap med mindre det er deaktivert av BMI",
-  "memberRemoved": "Medlemmet ble fjernet",
-  "projectTable": {
-    "endDate": "Sluttdato",
-    "project": "Prosjekt",
-    "startDate": "Startdato",
-    "title": "Prosjekter",
-    "type": "Type"
-  },
-  "report": "Last ned lagliste",
   "sidePanel": {
-    "inviteLabel": "+ Invitere teammedlemmer",
     "search": {
       "label": "Søk etter en bruker",
       "noResult": "Person ikke funnet"
-    }
+    },
+    "inviteLabel": "+ Invitere teammedlemmer"
   },
   "table": {
-    "certification": "Sertifisering",
-    "noResults": "Brukeren har ingen BMI sertifisering",
     "title": "Sertifisering",
     "type": "Type",
-    "validity": "Gyldighet"
+    "certification": "Sertifisering",
+    "validity": "Gyldighet",
+    "noResults": "Brukeren har ingen BMI sertifisering"
   },
-  "userActions": {
-    "action": {
-      "activate": "Aktiver bruker",
-      "deactivate": "Deaktiver bruker"
-    },
-    "title": "Bruker handlinger"
+  "invitation": {
+    "dialog": {
+      "title": "Invitere teammedlemmer",
+      "emails": {
+        "label": "Mottakers epostadresse",
+        "helperText": "Legg til flere medlemmer ved å skille hver e -postadresse med et komma"
+      },
+      "personalNote": {
+        "label": "Meldingen din (valgfritt)"
+      },
+      "cancel": "Avbryt",
+      "send": "Send e-post",
+      "success": "Invitasjonen er sendt",
+      "errorAlreadyMember": "Brukeren er allerede medlem av et annet firma",
+      "errorInvitationNotFound": "Fant ingen invitarsjon"
+    }
   },
   "user_card": {
     "add_admin": "Tilordne som bedriftsadministrator",
-    "add_auditor": "Stille opp som prosjektrevisor",
-    "cancel": "Avbryt",
-    "confirm": "Bekrefte",
     "remove": "Fjern fra selskap",
     "remove_admin": "Fjern som bedriftsadministrator",
-    "remove_auditor": "Fjern som prosjektrevisor",
-    "remove_user_dialog": {
-      "text": "Vil du fjerne dette medlemmet?",
-      "title": "Fjern fra selskap"
-    },
+    "confirm": "Bekrefte",
+    "cancel": "Avbryt",
     "role_dialog": {
-      "text": "Vil du endre rollen?",
-      "title": "Endre rolle"
+      "title": "Endre rolle",
+      "text": "Vil du endre rollen?"
+    },
+    "remove_user_dialog": {
+      "title": "Fjern fra selskap",
+      "text": "Vil du fjerne dette medlemmet?"
+    },
+    "remove_auditor": "Fjern som prosjektrevisor",
+    "add_auditor": "Stille opp som prosjektrevisor"
+  },
+  "memberRemoved": "Medlemmet ble fjernet",
+  "genericError": "En feil oppsto. Vennligst prøv igjen, eller kontakt en administrator.",
+  "lastCompanyAdminError": "Du kan ikke fjerne den siste bedriftsadministratoren fra et selskap med mindre det er deaktivert av BMI",
+  "report": "Last ned lagliste",
+  "userActions": {
+    "title": "Bruker handlinger",
+    "action": {
+      "activate": "Aktiver bruker",
+      "deactivate": "Deaktiver bruker"
     }
+  },
+  "projectTable": {
+    "title": "Prosjekter",
+    "type": "Type",
+    "project": "Prosjekt",
+    "startDate": "Startdato",
+    "endDate": "Sluttdato"
   }
 }

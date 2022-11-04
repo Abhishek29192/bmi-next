@@ -1,18 +1,20 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import {
+  createPimProductDocument,
+  PimProductDocument
+} from "@bmi/elasticsearch-types";
 import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
-import { ProductDocument } from "../../../../types/pim";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
-import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import DesktopDocumentTechnicalTableResults from "../_DesktopDocumentTechnicalTableResults";
 
 describe("DesktopDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
     it("when only single documents are present for asset types", () => {
       const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument()]],
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        ["product1", [createPimProductDocument()]],
         ["product3", []]
       ];
 
@@ -34,8 +36,8 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
           name: "doesn't matter but looks good"
         })
       ];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument({ assetType: assetTypes[0] })]],
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        ["product1", [createPimProductDocument({ assetType: assetTypes[0] })]],
         ["product3", []]
       ];
 
@@ -52,8 +54,8 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
 
     it("when multiple documents are present for asset types", () => {
       const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [string, ProductDocument[]][] = [
-        ["product1", [createPimDocument(), createPimDocument()]],
+      const documentsByProduct: [string, PimProductDocument[]][] = [
+        ["product1", [createPimProductDocument(), createPimProductDocument()]],
         ["product3", []]
       ];
 

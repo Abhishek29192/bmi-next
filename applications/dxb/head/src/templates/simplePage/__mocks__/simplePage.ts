@@ -76,10 +76,8 @@ export const sections = [
   }
 ];
 export const featuredMedia: ImageWithThumbnail = {
-  __typename: "ContentfulImage",
   type: null,
   altText: "Lorem ipsum",
-  caption: null,
   focalPoint: null,
   image: {
     file: {

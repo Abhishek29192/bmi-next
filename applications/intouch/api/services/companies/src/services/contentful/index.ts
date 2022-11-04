@@ -162,6 +162,7 @@ export const messageTemplate = async (client, event: EventMessage, tag) => {
         emailBody
         notificationBody
         format
+        emailRecipient
       }
     }
   }`;

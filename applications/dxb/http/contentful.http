@@ -2,20 +2,55 @@
 
 # @name Get all entries
 
-GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=roofer
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name Get entries by content type
+@contentType=document
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type={{contentType}}
+Authorization: Bearer {{contentfulToken}}
 
-GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?content_type=site
+###
+
+# @name Get entries by tag
+@tag=market__indonesia
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/?metadata.tags.sys.id[all]={{tag}}
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get entry by ID
+@id=40Z3K649zdfmvyffw08q3y
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/entries/{{id}}
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get all assets
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get entries by tag
+@tag=market__indonesia
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/?metadata.tags.sys.id[all]={{tag}}
+Authorization: Bearer {{contentfulToken}}
+
+###
+
+# @name Get asset by ID
+@id=70GS3lLVmrS7k71kH3iSbq
+GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/{{id}}
 Authorization: Bearer {{contentfulToken}}
 
 ###
 
 # @name Get system configurator next step
-
+@answerId=6WmMQzsO3A3yHy7rmihXC0
+@locale=en-US
 POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}
 Content-Type: application/json
 Authorization: Bearer {{contentfulDeliveryToken}}
@@ -104,7 +139,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 }
 
 {
-  "answerId": "6WmMQzsO3A3yHy7rmihXC0",
-  "locale": "en-US",
+  "answerId": "{{answerId}}",
+  "locale": "{{locale}}",
   "preview": true
 }

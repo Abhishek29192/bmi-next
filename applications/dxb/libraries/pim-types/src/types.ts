@@ -63,6 +63,13 @@ export type AssetAssetType =
   | "DATA_SHEETS"
   | "FIXING_TOOL"
   | "GUARANTIES"
+  | "HIGH_DETAIL_MESH_REFERENCE"
+  | "DIFFUSE_MAP_REFERENCE"
+  | "LOW_DETAIL_MESH_REFERENCE"
+  | "METALLIC_ROUGHNESS_MAP_REFERENCE"
+  | "NORMAL_MAP_REFERENCE"
+  | "RIDGE_END_REFERENCE"
+  | "RIDGE_REFERENCE"
   | "SPECIFICATION"
   | "VIDEO"
   | "WARRANTIES";
@@ -78,55 +85,13 @@ export type Mime =
   | "image/svg+xml"
   | "image/webp";
 
-export type PIMDocumentProduct = Pick<
-  Product,
-  "code" | "name" | "categories" | "classifications"
->;
-
-export type RichTextData = {
-  raw: string;
-  references: { __typename: string; contentful_id: string }[];
-};
-
-export type AssetTypeData = {
-  __typename: "ContentfulAssetType";
-  id: string;
-  name: string;
-  code: string;
-  description: RichTextData | null;
-  pimCode: string | null;
-};
-
-export type PIMDocumentBase = {
-  id: string;
-  title: string;
-  product: PIMDocumentProduct;
-  relatedProducts?: PIMDocumentProduct[];
-  url: string;
-  assetType: AssetTypeData;
-  isLinkDocument?: boolean;
-  docName?: string;
-};
-
-export type PIMLinkDocumentData = PIMDocumentBase & {
-  __typename: "PIMLinkDocument";
-};
-
-export type PIMDocumentData = PIMDocumentBase & {
-  __typename: "PIMDocument";
-  fileSize: number;
-  format: Mime | string;
-  extension: string;
-  realFileName: string;
-};
-
 export type Asset = {
   allowedToDownload: boolean;
   assetType?: AssetAssetType;
   fileSize: number;
   mime?: Mime;
   name: string;
-  realFileName: string; // includes file extension
+  realFileName?: string; // includes file extension
   url: string;
   format?: string;
 };
@@ -538,6 +503,7 @@ export type VariantOption = {
   productBenefits?: string[];
   productReferences?: ProductReference[];
   name?: string;
+  visualiserAssets?: readonly Asset[];
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -559,6 +525,7 @@ export type Product = {
   summary: string;
   variantOptions?: readonly VariantOption[];
   productReferences?: ProductReference[];
+  visualiserAssets?: readonly Asset[];
 };
 
 export enum PimTypes {

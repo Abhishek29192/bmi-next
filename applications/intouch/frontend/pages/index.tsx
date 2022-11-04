@@ -23,6 +23,7 @@ import { NewProjectDialog } from "../components/Pages/Project/CreateProject/Dial
 import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
+import { MerchandiseCTA } from "../components/Cta/Merchandise";
 
 export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
@@ -71,11 +72,7 @@ const mapHeroCarouselItems = (
         media: (
           <img className={styles.carouselImage} src={image?.url} alt={header} />
         ),
-        cta: (
-          <AccessControl dataModel="home" action={`CTA_${cta}`}>
-            {getCta(cta, { customUrl, customUrlButtonText })}
-          </AccessControl>
-        )
+        cta: getCta(cta, { customUrl, customUrlButtonText })
       };
     }
   );
@@ -83,6 +80,7 @@ const mapHeroCarouselItems = (
 
 // TODO: DRY up
 const DOCEBO_SSO_URL = "/api/docebo-sso";
+const MERCHANDISE_SSO_URL = "/api/merchandise-sso";
 
 const Homepage = ({
   marketContent,
@@ -110,26 +108,41 @@ const Homepage = ({
   ) => {
     if (ctaName === "PROJECT") {
       return (
-        <ProjectCTA
-          onClick={() => {
-            setNewProjectDialog(true);
-          }}
-        />
+        <AccessControl dataModel="home" action={`CTA_${ctaName}`}>
+          <ProjectCTA
+            onClick={() => {
+              setNewProjectDialog(true);
+            }}
+          />
+        </AccessControl>
       );
     }
     if (ctaName === "TRAINING") {
-      return <OtherCTA ctaName={ctaName} url={DOCEBO_SSO_URL} />;
+      return (
+        <AccessControl dataModel="home" action={`CTA_${ctaName}`}>
+          <OtherCTA ctaName={ctaName} url={DOCEBO_SSO_URL} />
+        </AccessControl>
+      );
     }
     if (ctaName === "MERCHANDISE") {
-      return <OtherCTA ctaName={ctaName} url={market.merchandisingUrl} />;
+      return (
+        <MerchandiseCTA
+          ctaName={ctaName}
+          url={MERCHANDISE_SSO_URL}
+          account={account}
+          merchandiseSso={market.merchandiseSso}
+        />
+      );
     }
     if (ctaName === "CUSTOM") {
       return (
-        <OtherCTA
-          ctaName={ctaName}
-          url={customUrl}
-          buttonText={customUrlButtonText}
-        />
+        <AccessControl dataModel="home" action={`CTA_${ctaName}`}>
+          <OtherCTA
+            ctaName={ctaName}
+            url={customUrl}
+            buttonText={customUrlButtonText}
+          />
+        </AccessControl>
       );
     }
     return null;
@@ -202,6 +215,7 @@ export const GET_PARTNER_BRANDS = gql`
         newsItemUrl
         newsItemCta
         newsItemHeading
+        newsItemClass
       }
     }
     carouselCollection(
@@ -415,7 +429,7 @@ const FeedHolder = ({
             height="400px"
             width="100%"
             frameBorder="0"
-            className={styles.embed}
+            className={`${styles.embed} ${marketContent?.newsItemClass}`}
           />
           <Button
             variant="outlined"

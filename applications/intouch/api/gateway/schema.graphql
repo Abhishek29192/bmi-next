@@ -925,6 +925,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -935,6 +936,7 @@ input AccountMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -4388,6 +4390,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -4398,6 +4401,7 @@ input CompanyMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -5140,6 +5144,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -5150,6 +5155,7 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -9700,6 +9706,53 @@ type CreateMarketPayload {
 }
 
 """
+All input for the create `MerchandiseTier` mutation.
+"""
+input CreateMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `MerchandiseTier` to be created by this mutation.
+  """
+  merchandiseTier: MerchandiseTierInput!
+}
+
+"""
+The output of our create `MerchandiseTier` mutation.
+"""
+type CreateMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `MerchandiseTier` that was created by this mutation.
+  """
+  merchandiseTier: MerchandiseTier
+
+  """
+  An edge for our `MerchandiseTier`. May be used by Relay 1.
+  """
+  merchandiseTierEdge(
+    """
+    The method to use when ordering `MerchandiseTier`.
+    """
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 All input for the create `Note` mutation.
 """
 input CreateNoteInput {
@@ -11822,6 +11875,79 @@ type DeleteMarketPayload {
     """
     orderBy: [MarketsOrderBy!] = [PRIMARY_KEY_ASC]
   ): MarketsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `deleteMerchandiseTierByMarketIdAndTierCode` mutation.
+"""
+input DeleteMerchandiseTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+  tierCode: Tier!
+}
+
+"""
+All input for the `deleteMerchandiseTierByNodeId` mutation.
+"""
+input DeleteMerchandiseTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MerchandiseTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteMerchandiseTier` mutation.
+"""
+input DeleteMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `MerchandiseTier` mutation.
+"""
+type DeleteMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedMerchandiseTierNodeId: ID
+
+  """
+  The `MerchandiseTier` that was deleted by this mutation.
+  """
+  merchandiseTier: MerchandiseTier
+
+  """
+  An edge for our `MerchandiseTier`. May be used by Relay 1.
+  """
+  merchandiseTierEdge(
+    """
+    The method to use when ordering `MerchandiseTier`.
+    """
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -14792,6 +14918,7 @@ enum GuaranteeCoverage {
 enum GuaranteeEventType {
   APPROVE_SOLUTION
   ASSIGN_SOLUTION
+  BO_ACCEPTED_SOLUTION
   REASSIGN_SOLUTION
   REJECT_SOLUTION
   SUBMIT_SOLUTION
@@ -18446,6 +18573,7 @@ type Market implements Node {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -18461,6 +18589,7 @@ type Market implements Node {
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
   nodeId: ID!
+  optanonClass: String
 
   """
   Reads and enables pagination through a set of `Product`.
@@ -18666,6 +18795,7 @@ type MarketContent implements Entry {
     skip: Int = 0
   ): MarketContentMediaLibraryRootCollection
   name(locale: String): String
+  newsItemClass(locale: String): String
   newsItemCta(locale: String): String
   newsItemHeading(locale: String): String
   newsItemUrl(locale: String): String
@@ -18729,6 +18859,13 @@ input MarketContentFilter {
   name_not: String
   name_not_contains: String
   name_not_in: [String]
+  newsItemClass: String
+  newsItemClass_contains: String
+  newsItemClass_exists: Boolean
+  newsItemClass_in: [String]
+  newsItemClass_not: String
+  newsItemClass_not_contains: String
+  newsItemClass_not_in: [String]
   newsItemCta: String
   newsItemCta_contains: String
   newsItemCta_exists: Boolean
@@ -18786,6 +18923,8 @@ enum MarketContentOrder {
   live_DESC
   name_ASC
   name_DESC
+  newsItemClass_ASC
+  newsItemClass_DESC
   newsItemCta_ASC
   newsItemCta_DESC
   newsItemHeading_ASC
@@ -18906,6 +19045,7 @@ input MarketInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -18916,6 +19056,7 @@ input MarketInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -19439,6 +19580,7 @@ input MarketPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -19449,6 +19591,7 @@ input MarketPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -19611,8 +19754,10 @@ Media which is hosted on Contentful [See type definition](https://app.contentful
 """
 type MediaTool implements Entry {
   contentfulMetadata: ContentfulMetadata!
+  cta(locale: String): String
   linkedFrom(allowedLocales: [String]): MediaToolLinkingCollections
   media(locale: String, preview: Boolean): Asset
+  mediaItemClass(locale: String): String
   name(locale: String): String
   sys: Sys!
   thumbnail(locale: String, preview: Boolean): Asset
@@ -19630,6 +19775,20 @@ input MediaToolFilter {
   AND: [MediaToolFilter]
   OR: [MediaToolFilter]
   contentfulMetadata: ContentfulMetadataFilter
+  cta: String
+  cta_contains: String
+  cta_exists: Boolean
+  cta_in: [String]
+  cta_not: String
+  cta_not_contains: String
+  cta_not_in: [String]
+  mediaItemClass: String
+  mediaItemClass_contains: String
+  mediaItemClass_exists: Boolean
+  mediaItemClass_in: [String]
+  mediaItemClass_not: String
+  mediaItemClass_not_contains: String
+  mediaItemClass_not_in: [String]
   media_exists: Boolean
   name: String
   name_contains: String
@@ -19665,6 +19824,10 @@ type MediaToolLinkingCollections {
 }
 
 enum MediaToolOrder {
+  cta_ASC
+  cta_DESC
+  mediaItemClass_ASC
+  mediaItemClass_DESC
   name_ASC
   name_DESC
   sys_firstPublishedAt_ASC
@@ -19679,12 +19842,144 @@ enum MediaToolOrder {
   url_DESC
 }
 
+type MerchandiseTier implements Node {
+  id: Int!
+  marketId: Int!
+  merchandiseDivisionId: Int
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  tierCode: Tier!
+}
+
+"""
+A condition to be used against `MerchandiseTier` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MerchandiseTierCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+}
+
+"""
+A filter to be used against `MerchandiseTier` object types. All fields are combined with a logical ‘and.’
+"""
+input MerchandiseTierFilter {
+  """
+  Checks for all expressions in this list.
+  """
+  and: [MerchandiseTierFilter!]
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: MerchandiseTierFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [MerchandiseTierFilter!]
+}
+
+"""
+An input for mutations affecting `MerchandiseTier`
+"""
+input MerchandiseTierInput {
+  id: Int
+  marketId: Int!
+  merchandiseDivisionId: Int
+  tierCode: Tier!
+}
+
+"""
+Represents an update to a `MerchandiseTier`. Fields that are set will be updated.
+"""
+input MerchandiseTierPatch {
+  id: Int
+  marketId: Int
+  merchandiseDivisionId: Int
+  tierCode: Tier
+}
+
+"""
+A connection to a list of `MerchandiseTier` values.
+"""
+type MerchandiseTiersConnection {
+  """
+  A list of edges which contains the `MerchandiseTier` and cursor to aid in pagination.
+  """
+  edges: [MerchandiseTiersEdge!]!
+
+  """
+  A list of `MerchandiseTier` objects.
+  """
+  nodes: [MerchandiseTier!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `MerchandiseTier` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `MerchandiseTier` edge in the connection.
+"""
+type MerchandiseTiersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `MerchandiseTier` at the end of the edge.
+  """
+  node: MerchandiseTier!
+}
+
+"""
+Methods to use when ordering `MerchandiseTier`.
+"""
+enum MerchandiseTiersOrderBy {
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
 """
 A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate)
 """
 type MessageTemplate implements Entry {
   contentfulMetadata: ContentfulMetadata!
   emailBody(locale: String): String
+  emailRecipient(locale: String): String
   event(locale: String): String
   format(locale: String): [String]
   linkedFrom(allowedLocales: [String]): MessageTemplateLinkingCollections
@@ -19711,6 +20006,13 @@ input MessageTemplateFilter {
   emailBody_not: String
   emailBody_not_contains: String
   emailBody_not_in: [String]
+  emailRecipient: String
+  emailRecipient_contains: String
+  emailRecipient_exists: Boolean
+  emailRecipient_in: [String]
+  emailRecipient_not: String
+  emailRecipient_not_contains: String
+  emailRecipient_not_in: [String]
   event: String
   event_contains: String
   event_exists: Boolean
@@ -19755,6 +20057,8 @@ type MessageTemplateLinkingCollections {
 }
 
 enum MessageTemplateOrder {
+  emailRecipient_ASC
+  emailRecipient_DESC
   event_ASC
   event_DESC
   notificationBody_ASC
@@ -20071,6 +20375,16 @@ type Mutation {
     """
     input: CreateMarketInput!
   ): CreateMarketPayload
+
+  """
+  Creates a single `MerchandiseTier`.
+  """
+  createMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMerchandiseTierInput!
+  ): CreateMerchandiseTierPayload
 
   """
   Creates a single `Note`.
@@ -20685,6 +20999,36 @@ type Mutation {
   ): DeleteMarketPayload
 
   """
+  Deletes a single `MerchandiseTier` using a unique key.
+  """
+  deleteMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierInput!
+  ): DeleteMerchandiseTierPayload
+
+  """
+  Deletes a single `MerchandiseTier` using a unique key.
+  """
+  deleteMerchandiseTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierByMarketIdAndTierCodeInput!
+  ): DeleteMerchandiseTierPayload
+
+  """
+  Deletes a single `MerchandiseTier` using its globally unique id.
+  """
+  deleteMerchandiseTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMerchandiseTierByNodeIdInput!
+  ): DeleteMerchandiseTierPayload
+
+  """
   Deletes a single `Note` using a unique key.
   """
   deleteNote(
@@ -20889,6 +21233,7 @@ type Mutation {
     """
     input: MarkAllNotificationsAsReadInput!
   ): MarkAllNotificationsAsReadPayload
+  performMerchandiseSso(email: String!): String
   projectMembersAdd(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -21474,6 +21819,42 @@ type Mutation {
     """
     input: UpdateMarketByNodeIdInput!
   ): UpdateMarketPayload
+
+  """
+  Updates a single `MerchandiseTier` using a unique key and a patch.
+  """
+  updateMerchandiseTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierInput!
+  ): UpdateMerchandiseTierPayload
+
+  """
+  Updates a single `MerchandiseTier` using a unique key and a patch.
+  """
+  updateMerchandiseTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierByMarketIdAndTierCodeInput!
+  ): UpdateMerchandiseTierPayload
+
+  """
+  Updates a single `MerchandiseTier` using its globally unique id and a patch.
+  """
+  updateMerchandiseTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTierByNodeIdInput!
+  ): UpdateMerchandiseTierPayload
+  updateMerchandiseTiersByMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMerchandiseTiersByMarketInput
+  ): [UpdateMerchandiseTiersByMarketResult]
 
   """
   Updates a single `Note` using a unique key and a patch.
@@ -22741,6 +23122,69 @@ enum Operation {
 }
 
 """
+Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType)
+"""
+type OperationType implements Entry {
+  contentfulMetadata: ContentfulMetadata!
+  displayName(locale: String): String
+  linkedFrom(allowedLocales: [String]): OperationTypeLinkingCollections
+  sys: Sys!
+  type(locale: String): String
+}
+
+type OperationTypeCollection {
+  items: [OperationType]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input OperationTypeFilter {
+  AND: [OperationTypeFilter]
+  OR: [OperationTypeFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  displayName: String
+  displayName_contains: String
+  displayName_exists: Boolean
+  displayName_in: [String]
+  displayName_not: String
+  displayName_not_contains: String
+  displayName_not_in: [String]
+  sys: SysFilter
+  type: String
+  type_contains: String
+  type_exists: Boolean
+  type_in: [String]
+  type_not: String
+  type_not_contains: String
+  type_not_in: [String]
+}
+
+type OperationTypeLinkingCollections {
+  entryCollection(
+    limit: Int = 100
+    locale: String
+    preview: Boolean
+    skip: Int = 0
+  ): EntryCollection
+}
+
+enum OperationTypeOrder {
+  displayName_ASC
+  displayName_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  type_ASC
+  type_DESC
+}
+
+"""
 Information about pagination in a connection.
 """
 type PageInfo {
@@ -23357,6 +23801,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -23367,6 +23812,7 @@ input ProductMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -27470,6 +27916,67 @@ type Query implements Node {
     skip: Int = 0
     where: MediaToolFilter
   ): MediaToolCollection
+  merchandiseTier(id: Int!): MerchandiseTier
+  merchandiseTierByMarketIdAndTierCode(
+    marketId: Int!
+    tierCode: Tier!
+  ): MerchandiseTier
+
+  """
+  Reads a single `MerchandiseTier` using its globally unique `ID`.
+  """
+  merchandiseTierByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `MerchandiseTier`.
+    """
+    nodeId: ID!
+  ): MerchandiseTier
+
+  """
+  Reads and enables pagination through a set of `MerchandiseTier`.
+  """
+  merchandiseTiers(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MerchandiseTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MerchandiseTierFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `MerchandiseTier`.
+    """
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersConnection
   messageTemplate(
     id: String!
     locale: String
@@ -27621,6 +28128,15 @@ type Query implements Node {
     """
     orderBy: [NotificationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): NotificationsConnection
+  operationType(id: String!, locale: String, preview: Boolean): OperationType
+  operationTypeCollection(
+    limit: Int = 100
+    locale: String
+    order: [OperationTypeOrder]
+    preview: Boolean
+    skip: Int = 0
+    where: OperationTypeFilter
+  ): OperationTypeCollection
   partnerBrand(id: String!, locale: String, preview: Boolean): PartnerBrand
   partnerBrandCollection(
     limit: Int = 100
@@ -28797,6 +29313,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -28807,6 +29324,7 @@ input SystemMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -29210,6 +29728,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -29220,6 +29739,7 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -32502,6 +33022,111 @@ type UpdateMarketPayload {
 }
 
 """
+All input for the `updateMerchandiseTierByMarketIdAndTierCode` mutation.
+"""
+input UpdateMerchandiseTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+  tierCode: Tier!
+}
+
+"""
+All input for the `updateMerchandiseTierByNodeId` mutation.
+"""
+input UpdateMerchandiseTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `MerchandiseTier` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+}
+
+"""
+All input for the `updateMerchandiseTier` mutation.
+"""
+input UpdateMerchandiseTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `MerchandiseTier` being updated.
+  """
+  patch: MerchandiseTierPatch!
+}
+
+"""
+The output of our update `MerchandiseTier` mutation.
+"""
+type UpdateMerchandiseTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `MerchandiseTier` that was updated by this mutation.
+  """
+  merchandiseTier: MerchandiseTier
+
+  """
+  An edge for our `MerchandiseTier`. May be used by Relay 1.
+  """
+  merchandiseTierEdge(
+    """
+    The method to use when ordering `MerchandiseTier`.
+    """
+    orderBy: [MerchandiseTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MerchandiseTiersEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+input UpdateMerchandiseTiersByMarketInput {
+  marketId: Int
+  merchandiseT1: Int
+  merchandiseT2: Int
+  merchandiseT3: Int
+  merchandiseT4: Int
+  merchandiseT5: Int
+  merchandiseT6: Int
+  merchandiseT7: Int
+}
+
+type UpdateMerchandiseTiersByMarketResult {
+  id: Int
+  market_id: Int
+  merchandise_division_id: Int
+  tier_code: Tier
+}
+
+"""
 All input for the `updateNoteByNodeId` mutation.
 """
 input UpdateNoteByNodeIdInput {
@@ -33251,6 +33876,7 @@ union _Entity =
   | Guarantee
   | Invitation
   | Market
+  | MerchandiseTier
   | Note
   | Notification
   | Product
@@ -33312,6 +33938,13 @@ input cfMessageTemplateNestedFilter {
   emailBody_not: String
   emailBody_not_contains: String
   emailBody_not_in: [String]
+  emailRecipient: String
+  emailRecipient_contains: String
+  emailRecipient_exists: Boolean
+  emailRecipient_in: [String]
+  emailRecipient_not: String
+  emailRecipient_not_contains: String
+  emailRecipient_not_in: [String]
   event: String
   event_contains: String
   event_exists: Boolean
@@ -36601,6 +37234,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -36611,6 +37245,7 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -36694,6 +37329,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -36704,6 +37340,7 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -36787,6 +37424,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -36797,6 +37435,7 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -36880,6 +37519,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -36890,6 +37530,7 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -36973,6 +37614,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -36983,6 +37625,7 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """
@@ -37066,6 +37709,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
   """
   locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -37076,6 +37720,7 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   A short name for the market, e.g. Italy, Norway, Netherlands
   """
   name: String
+  optanonClass: String
   productsUsingId: ProductMarketIdFkeyInverseInput
 
   """

@@ -32,23 +32,25 @@ export const SystemGuarantee = ({ guarantee }: SystemGuaranteesProps) => {
         <Typography variant="subtitle2">{system.description}</Typography>
       </div>
 
-      <div className={styles.body__footer}>
-        <Button
-          variant="outlined"
-          disabled={!signedFileStorageUrl}
-          action={{
-            model: "htmlLink",
-            href: signedFileStorageUrl,
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }}
-          startIcon={<Icon className={styles.body__logo} source={FilePDF} />}
-        >
-          {signedFileStorageUrl
-            ? t("common:SavePdf")
-            : t("common:generatingPdf")}
-        </Button>
-      </div>
+      {guarantee.status === "ISSUED" && (
+        <div className={styles.body__footer}>
+          <Button
+            variant="outlined"
+            disabled={!signedFileStorageUrl}
+            action={{
+              model: "htmlLink",
+              href: signedFileStorageUrl,
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }}
+            startIcon={<Icon className={styles.body__logo} source={FilePDF} />}
+          >
+            {signedFileStorageUrl
+              ? t("common:SavePdf")
+              : t("common:generatingPdf")}
+          </Button>
+        </div>
+      )}
 
       {products.length > 0 && <ProductCard products={products} />}
     </div>

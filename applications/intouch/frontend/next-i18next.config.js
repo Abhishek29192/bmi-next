@@ -16,8 +16,11 @@ const multiMarketDomains =
         { domain: `dev-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
         { domain: `dev-es.${baseUrlDomain}`, defaultLocale: "es_ES" },
         { domain: `dev-pt.${baseUrlDomain}`, defaultLocale: "pt_PT" },
-        { domain: `dev-my.${baseUrlDomain}`, defaultLocale: "ms_MY" },
-        { domain: `dev-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" }
+        { domain: `dev-my.${baseUrlDomain}`, defaultLocale: "en_MY" },
+        { domain: `dev-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" },
+        { domain: `dev-uk.${baseUrlDomain}`, defaultLocale: "en_UK" },
+        { domain: `dev-se.${baseUrlDomain}`, defaultLocale: "sv_SE" },
+        { domain: `dev-pl.${baseUrlDomain}`, defaultLocale: "pl_PL" }
       ]
     : process.env.APP_ENV === "uat"
     ? [
@@ -28,8 +31,11 @@ const multiMarketDomains =
         { domain: `uat-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
         { domain: `uat-es.${baseUrlDomain}`, defaultLocale: "es_ES" },
         { domain: `uat-pt.${baseUrlDomain}`, defaultLocale: "pt_PT" },
-        { domain: `uat-my.${baseUrlDomain}`, defaultLocale: "ms_MY" },
-        { domain: `uat-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" }
+        { domain: `uat-my.${baseUrlDomain}`, defaultLocale: "en_MY" },
+        { domain: `uat-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" },
+        { domain: `uat-uk.${baseUrlDomain}`, defaultLocale: "en_UK" },
+        { domain: `uat-se.${baseUrlDomain}`, defaultLocale: "sv_SE" },
+        { domain: `uat-pl.${baseUrlDomain}`, defaultLocale: "pl_PL" }
       ]
     : process.env.APP_ENV === "preprod"
     ? [
@@ -40,8 +46,11 @@ const multiMarketDomains =
         { domain: `preprod-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
         { domain: `preprod-es.${baseUrlDomain}`, defaultLocale: "es_ES" },
         { domain: `preprod-pt.${baseUrlDomain}`, defaultLocale: "pt_PT" },
-        { domain: `preprod-my.${baseUrlDomain}`, defaultLocale: "ms_MY" },
-        { domain: `preprod-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" }
+        { domain: `preprod-my.${baseUrlDomain}`, defaultLocale: "en_MY" },
+        { domain: `preprod-fi.${baseUrlDomain}`, defaultLocale: "fi_FI" },
+        { domain: `preprod-uk.${baseUrlDomain}`, defaultLocale: "en_UK" },
+        { domain: `preprod-se.${baseUrlDomain}`, defaultLocale: "sv_SE" },
+        { domain: `preprod-pl.${baseUrlDomain}`, defaultLocale: "pl_PL" }
       ]
     : [
         { domain: `it.${baseUrlDomain}`, defaultLocale: "it_IT" },
@@ -51,8 +60,11 @@ const multiMarketDomains =
         { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DE" },
         { domain: `es.${baseUrlDomain}`, defaultLocale: "es_ES" },
         { domain: `pt.${baseUrlDomain}`, defaultLocale: "pt_PT" },
-        { domain: `my.${baseUrlDomain}`, defaultLocale: "ms_MY" },
-        { domain: `fi.${baseUrlDomain}`, defaultLocale: "fi_FI" }
+        { domain: `my.${baseUrlDomain}`, defaultLocale: "en_MY" },
+        { domain: `fi.${baseUrlDomain}`, defaultLocale: "fi_FI" },
+        { domain: `uk.${baseUrlDomain}`, defaultLocale: "en_UK" },
+        { domain: `se.${baseUrlDomain}`, defaultLocale: "sv_SE" },
+        { domain: `pl.${baseUrlDomain}`, defaultLocale: "pl_PL" }
       ];
 
 module.exports = {
@@ -66,8 +78,11 @@ module.exports = {
       "de_DE",
       "es_ES",
       "pt_PT",
-      "ms_MY",
-      "fi_FI"
+      "en_MY",
+      "fi_FI",
+      "en_UK",
+      "sv_SE",
+      "pl_PL"
     ],
     defaultLocale: "en_EN",
     domains: multiMarketDomains

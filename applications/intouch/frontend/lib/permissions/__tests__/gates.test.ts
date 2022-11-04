@@ -1322,7 +1322,7 @@ describe("permissions/gates", () => {
       });
 
       it("role is INSTALLER ", () => {
-        expect(gates.home.CTA_MERCHANDISE[ROLES.INSTALLER]).toBe(true);
+        expect(gates.home.CTA_MERCHANDISE[ROLES.INSTALLER]).toBe(false);
       });
 
       it("role is AUDITOR ", () => {
@@ -1377,6 +1377,14 @@ describe("permissions/gates", () => {
     it("partnerBrandsCarousel", () => {
       expect(gates.home.partnerBrandsCarousel).toEqual(
         canSeePartnerBrandsCarousel
+      );
+    });
+  });
+
+  describe("gates.productsAdmin", () => {
+    it("updateConfidentialFields", () => {
+      expect(gates.productsAdmin.updateConfidentialFields).toEqual(
+        accountUtil.isSuperAdmin
       );
     });
   });

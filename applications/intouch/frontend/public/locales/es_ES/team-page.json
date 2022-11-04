@@ -1,68 +1,68 @@
 {
-  "genericError": "Ocurrió un error. Vuelva a intentarlo o comuníquese con un administrador de BMI.",
-  "invitation": {
-    "dialog": {
-      "cancel": "Cancelar",
-      "emails": {
-        "helperText": "Añada varios miembros del equipo separando cada dirección de correo electrónico con una coma",
-        "label": "Dirección email del destinatario"
-      },
-      "errorAlreadyMember": "El usuario ya es miembro de otra empresa",
-      "errorInvitationNotFound": "Invitación no encontrada",
-      "personalNote": {
-        "label": "Mensaje (opcional)"
-      },
-      "send": "Enviar correo electrónico",
-      "success": "La invitación ha sido enviada.",
-      "title": "Invitar a miembros del equipo"
-    }
-  },
-  "lastCompanyAdminError": "No puede eliminar al último administrador de la empresa de una empresa a menos que BMI lo haya desactivado.",
-  "memberRemoved": "Miembro eliminado con éxito de la empresa",
-  "projectTable": {
-    "endDate": "Fecha final",
-    "project": "Proyecto",
-    "startDate": "Fecha de inicio",
-    "title": "Proyectos",
-    "type": "Tipo"
-  },
-  "report": "Descargar listado de equipos",
   "sidePanel": {
-    "inviteLabel": " + Invitar a miembros del equipo",
     "search": {
       "label": "Buscar un usuario",
       "noResult": "Usuario no encontrado"
-    }
+    },
+    "inviteLabel": " + Invitar a miembros del equipo"
   },
   "table": {
-    "certification": "Certificación BMI",
-    "noResults": "El usuario no tiene certificaciones BMI",
     "title": "Certificaciones BMI",
     "type": "Tipo",
-    "validity": "Validez"
+    "certification": "Certificación BMI",
+    "validity": "Validez",
+    "noResults": "El usuario no tiene certificaciones BMI"
   },
-  "userActions": {
-    "action": {
-      "activate": "Activar usuario",
-      "deactivate": "Desactivar usuario"
-    },
-    "title": "Acciones del usuario"
+  "invitation": {
+    "dialog": {
+      "title": "Invitar a miembros del equipo",
+      "emails": {
+        "label": "Dirección email del destinatario",
+        "helperText": "Añada varios miembros del equipo separando cada dirección de correo electrónico con una coma"
+      },
+      "personalNote": {
+        "label": "Mensaje (opcional)"
+      },
+      "cancel": "Cancelar",
+      "send": "Enviar correo electrónico",
+      "success": "La invitación ha sido enviada.",
+      "errorAlreadyMember": "El usuario ya es miembro de otra empresa",
+      "errorInvitationNotFound": "Invitación no encontrada"
+    }
   },
   "user_card": {
     "add_admin": "Asignar como administrador de la empresa",
-    "add_auditor": "Asignar como auditor",
-    "cancel": "Cancelar",
-    "confirm": "Confirmar",
     "remove": "Eliminar de la empresa",
     "remove_admin": "Eliminar como administrador de la empresa",
-    "remove_auditor": "Eliminar como auditor",
-    "remove_user_dialog": {
-      "text": "¿Desea eliminar a este miembro de la empresa?",
-      "title": "Eliminar miembro de la empresa"
-    },
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
     "role_dialog": {
-      "text": "¿Quieres cambiar el rol del usuario?",
-      "title": "Cambiar rol de usuario"
+      "title": "Cambiar rol de usuario",
+      "text": "¿Quieres cambiar el rol del usuario?"
+    },
+    "remove_user_dialog": {
+      "title": "Eliminar miembro de la empresa",
+      "text": "¿Desea eliminar a este miembro de la empresa?"
+    },
+    "remove_auditor": "Eliminar como auditor",
+    "add_auditor": "Asignar como auditor"
+  },
+  "memberRemoved": "Miembro eliminado con éxito de la empresa",
+  "genericError": "Ocurrió un error. Vuelva a intentarlo o comuníquese con un administrador de BMI.",
+  "lastCompanyAdminError": "No puede eliminar al último administrador de la empresa de una empresa a menos que BMI lo haya desactivado.",
+  "report": "Descargar listado de equipos",
+  "userActions": {
+    "title": "Acciones del usuario",
+    "action": {
+      "activate": "Activar usuario",
+      "deactivate": "Desactivar usuario"
     }
+  },
+  "projectTable": {
+    "title": "Proyectos",
+    "type": "Tipo",
+    "project": "Proyecto",
+    "startDate": "Fecha de inicio",
+    "endDate": "Fecha final"
   }
 }

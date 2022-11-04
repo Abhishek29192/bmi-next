@@ -4,7 +4,12 @@ import {
   archiveProjects,
   annualProjectsInspection
 } from "../mutations";
-import * as emailsFactory from "../../guarantee";
+// import * as emailsFactory from "../../guarantee";
+import { sendMailToMarketAdmins } from "../../../services/mailer";
+
+jest.mock("../../../services/mailer", () => ({
+  sendMailToMarketAdmins: jest.fn()
+}));
 
 describe("Project", () => {
   const resolve = jest.fn();
@@ -246,18 +251,20 @@ describe("Project", () => {
     });
 
     describe("annualProjectsInspection", () => {
-      const resultMessage =
-        "Projects with id(s) 1 has been inspected for market undefined.";
-      it("normal case", async () => {
-        const mockMail = jest.fn();
-        jest
-          .spyOn(emailsFactory, "sendMailToMarketAdmins")
-          .mockImplementationOnce(() => mockMail);
+      const project = (id = 1) => ({
+        id,
+        project_name: `projectName${id}`,
+        company_name: `companyName${id}`
+      });
 
+      it("normal case", async () => {
+        const projectList = [project()];
+        const resultMessage =
+          "Projects with id(s) 1 has been inspected for market undefined.";
         query
           .mockImplementationOnce(() => jest.fn())
-          .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }))
-          .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }));
+          .mockImplementationOnce(() => ({ rows: projectList }))
+          .mockImplementationOnce(() => ({ rows: projectList }));
 
         const result = await annualProjectsInspection(
           resolve,
@@ -278,7 +285,66 @@ describe("Project", () => {
           "RELEASE SAVEPOINT graphql_annual_inspection_mutation"
         );
         expect(loggerInfo).toHaveBeenCalledWith(resultMessage);
+        expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+          context,
+          "ANNUAL_INSPECTION1",
+          {
+            project: `${projectList[0].project_name}`,
+            company: `${projectList[0].company_name}`
+          }
+        );
       });
+
+      it("Multiple projects being inspected", async () => {
+        const projectList = [project(), project(2)];
+        const resultMessage =
+          "Projects with id(s) 1,2 has been inspected for market undefined.";
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockImplementationOnce(() => ({
+            rows: projectList
+          }))
+          .mockImplementationOnce(() => ({ rows: projectList }));
+
+        const result = await annualProjectsInspection(
+          resolve,
+          source,
+          args,
+          context,
+          resolveInfo
+        );
+
+        expect(result).toBe(resultMessage);
+
+        expect(query).toHaveBeenNthCalledWith(
+          1,
+          "SAVEPOINT graphql_annual_inspection_mutation"
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          4,
+          "RELEASE SAVEPOINT graphql_annual_inspection_mutation"
+        );
+        expect(loggerInfo).toHaveBeenCalledWith(resultMessage);
+        expect(sendMailToMarketAdmins).toHaveBeenNthCalledWith(
+          1,
+          context,
+          "ANNUAL_INSPECTION1",
+          {
+            project: `${projectList[0].project_name}`,
+            company: `${projectList[0].company_name}`
+          }
+        );
+        expect(sendMailToMarketAdmins).toHaveBeenNthCalledWith(
+          2,
+          context,
+          "ANNUAL_INSPECTION1",
+          {
+            project: `${projectList[1].project_name}`,
+            company: `${projectList[1].company_name}`
+          }
+        );
+      });
+
       it("show logger info when no project to be inspected", async () => {
         query
           .mockImplementationOnce(() => jest.fn())
@@ -295,7 +361,9 @@ describe("Project", () => {
         expect(loggerInfo).toHaveBeenCalledWith(
           "No projects to be inspected for market undefined."
         );
+        expect(sendMailToMarketAdmins).not.toBeCalled();
       });
+
       it("throw error when failed to update DB", async () => {
         const errorObject = new Error("error");
         query

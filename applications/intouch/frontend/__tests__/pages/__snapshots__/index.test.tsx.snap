@@ -639,7 +639,7 @@ exports[`homepage render correctly 1`] = `
                   newsItemHeading
                 </h4>
                 <iframe
-                  class="embed"
+                  class="embed undefined"
                   frameborder="0"
                   height="400px"
                   src="newsItemUrl"

@@ -120,7 +120,7 @@ describe("FormContainer", () => {
 
     expect(container).toMatchSnapshot();
     expect(screen.queryByText("title")).toBeTruthy();
-    expect(screen.queryByText("warantyPeriod")).toBeTruthy();
+    expect(screen.queryByText("warrantyPeriod")).toBeTruthy();
     expect(screen.queryByText("guaranteeScope")).toBeTruthy();
     expect(screen.queryByText("guaranteeScopeDescription")).toBeTruthy();
     expect(screen.queryByText("guaranteeConditions")).toBeTruthy();
@@ -225,7 +225,7 @@ describe("FormContainer", () => {
   });
 
   describe("submit form", () => {
-    it("normal case", async () => {
+    it("Accept Double Acceptance", async () => {
       const doubleAcceptance = doubleAcceptanceFactory();
       mockApolloClientMutate
         .mockImplementationOnce(() => Promise.resolve({ data: {} }))
@@ -248,20 +248,20 @@ describe("FormContainer", () => {
       fireEvent.click(screen.getByText("accept"));
       fireEvent.click(screen.getByText("dialog.cta.confirm"));
 
-      expect(mockApolloClientMutate).toHaveBeenNthCalledWith(1, {
-        mutation: updateDoubleAcceptance,
-        variables: {
-          input: {
-            id: doubleAcceptance.id,
-            patch: {
-              signature: `firstName lastName`,
-              acceptance: true,
-              acceptanceDate: expect.any(String)
+      await waitFor(() => {
+        expect(mockApolloClientMutate).toHaveBeenNthCalledWith(1, {
+          mutation: updateDoubleAcceptance,
+          variables: {
+            input: {
+              id: doubleAcceptance.id,
+              patch: {
+                signature: `firstName lastName`,
+                acceptance: true,
+                acceptanceDate: expect.any(String)
+              }
             }
           }
-        }
-      });
-      await waitFor(() => {
+        });
         expect(mockApolloClientMutate).toHaveBeenNthCalledWith(2, {
           mutation: releaseGuaranteePdf,
           variables: {
@@ -273,6 +273,54 @@ describe("FormContainer", () => {
               }
             }
           }
+        });
+        expect(onUpdateDoubleAcceptanceCompleted).toHaveBeenCalledWith({
+          ...doubleAcceptance,
+          completed: true
+        });
+      });
+    });
+
+    it("Reject Double Acceptance", async () => {
+      const doubleAcceptance = doubleAcceptanceFactory();
+      mockApolloClientMutate
+        .mockImplementationOnce(() => Promise.resolve({ data: {} }))
+        .mockImplementationOnce(() => Promise.resolve({ data: {} }));
+      const { container } = renderWithI18NProvider(
+        <FormContainer
+          customApolloClient={apolloClient}
+          doubleAcceptance={doubleAcceptance}
+          onUpdateDoubleAcceptanceCompleted={onUpdateDoubleAcceptanceCompleted}
+        />
+      );
+
+      fireEvent.click(screen.getByText("form.fields.acceptance.label"));
+      fireEvent.change(container.querySelector("input[name='firstName']"), {
+        target: { value: "firstName" }
+      });
+      fireEvent.change(container.querySelector("input[name='lastName']"), {
+        target: { value: "lastName" }
+      });
+      fireEvent.click(screen.getByText("reject"));
+      fireEvent.click(screen.getByText("dialog.cta.confirm"));
+
+      await waitFor(() => {
+        expect(mockApolloClientMutate).toHaveBeenNthCalledWith(1, {
+          mutation: updateDoubleAcceptance,
+          variables: {
+            input: {
+              id: doubleAcceptance.id,
+              patch: {
+                signature: `firstName lastName`,
+                acceptance: false,
+                acceptanceDate: expect.any(String)
+              }
+            }
+          }
+        });
+        expect(mockApolloClientMutate).not.toHaveBeenCalledWith({
+          mutation: releaseGuaranteePdf,
+          variables: expect.any(Object)
         });
         expect(onUpdateDoubleAcceptanceCompleted).toHaveBeenCalledWith({
           ...doubleAcceptance,

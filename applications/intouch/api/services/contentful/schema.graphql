@@ -98,6 +98,12 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): EntryCollection
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): MediaToolCollection
   guaranteeTemplateCollection(
     skip: Int = 0
     limit: Int = 100
@@ -116,12 +122,6 @@ type AssetLinkingCollections {
     preview: Boolean
     locale: String
   ): CarouselItemCollection
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-  ): MediaToolCollection
   trainingContentCollection(
     skip: Int = 0
     limit: Int = 100
@@ -1609,6 +1609,7 @@ type MarketContent implements Entry {
   newsItemHeading(locale: String): String
   newsItemUrl(locale: String): String
   newsItemCta(locale: String): String
+  newsItemClass(locale: String): String
   footerLinksCollection(
     skip: Int = 0
     limit: Int = 100
@@ -1670,6 +1671,13 @@ input MarketContentFilter {
   newsItemCta_not_in: [String]
   newsItemCta_contains: String
   newsItemCta_not_contains: String
+  newsItemClass_exists: Boolean
+  newsItemClass: String
+  newsItemClass_not: String
+  newsItemClass_in: [String]
+  newsItemClass_not_in: [String]
+  newsItemClass_contains: String
+  newsItemClass_not_contains: String
   footerLinksCollection_exists: Boolean
   contactUsPage_exists: Boolean
   externalLinkLabel_exists: Boolean
@@ -1729,6 +1737,8 @@ enum MarketContentOrder {
   newsItemUrl_DESC
   newsItemCta_ASC
   newsItemCta_DESC
+  newsItemClass_ASC
+  newsItemClass_DESC
   externalLinkLabel_ASC
   externalLinkLabel_DESC
   externalLinkUrl_ASC
@@ -1844,6 +1854,8 @@ type MediaTool implements Entry {
   thumbnail(preview: Boolean, locale: String): Asset
   media(preview: Boolean, locale: String): Asset
   url(locale: String): String
+  cta(locale: String): String
+  mediaItemClass(locale: String): String
 }
 
 type MediaToolCollection {
@@ -1872,6 +1884,20 @@ input MediaToolFilter {
   url_not_in: [String]
   url_contains: String
   url_not_contains: String
+  cta_exists: Boolean
+  cta: String
+  cta_not: String
+  cta_in: [String]
+  cta_not_in: [String]
+  cta_contains: String
+  cta_not_contains: String
+  mediaItemClass_exists: Boolean
+  mediaItemClass: String
+  mediaItemClass_not: String
+  mediaItemClass_in: [String]
+  mediaItemClass_not_in: [String]
+  mediaItemClass_contains: String
+  mediaItemClass_not_contains: String
   OR: [MediaToolFilter]
   AND: [MediaToolFilter]
 }
@@ -1896,6 +1922,10 @@ enum MediaToolOrder {
   name_DESC
   url_ASC
   url_DESC
+  cta_ASC
+  cta_DESC
+  mediaItemClass_ASC
+  mediaItemClass_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -1915,6 +1945,7 @@ type MessageTemplate implements Entry {
   linkedFrom(allowedLocales: [String]): MessageTemplateLinkingCollections
   event(locale: String): String
   format(locale: String): [String]
+  emailRecipient(locale: String): String
   subject(locale: String): String
   notificationBody(locale: String): String
   emailBody(locale: String): String
@@ -1941,6 +1972,13 @@ input MessageTemplateFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
+  emailRecipient_exists: Boolean
+  emailRecipient: String
+  emailRecipient_not: String
+  emailRecipient_in: [String]
+  emailRecipient_not_in: [String]
+  emailRecipient_contains: String
+  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String
@@ -1984,6 +2022,8 @@ type MessageTemplateLinkingCollections {
 enum MessageTemplateOrder {
   event_ASC
   event_DESC
+  emailRecipient_ASC
+  emailRecipient_DESC
   subject_ASC
   subject_DESC
   notificationBody_ASC
@@ -2043,6 +2083,69 @@ type MigrationLinkingCollections {
 enum MigrationOrder {
   contentTypeId_ASC
   contentTypeId_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+"""
+Company Operation Type being used for display name and list options [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/operationType)
+"""
+type OperationType implements Entry {
+  sys: Sys!
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): OperationTypeLinkingCollections
+  type(locale: String): String
+  displayName(locale: String): String
+}
+
+type OperationTypeCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [OperationType]!
+}
+
+input OperationTypeFilter {
+  sys: SysFilter
+  contentfulMetadata: ContentfulMetadataFilter
+  type_exists: Boolean
+  type: String
+  type_not: String
+  type_in: [String]
+  type_not_in: [String]
+  type_contains: String
+  type_not_contains: String
+  displayName_exists: Boolean
+  displayName: String
+  displayName_not: String
+  displayName_in: [String]
+  displayName_not_in: [String]
+  displayName_contains: String
+  displayName_not_contains: String
+  OR: [OperationTypeFilter]
+  AND: [OperationTypeFilter]
+}
+
+type OperationTypeLinkingCollections {
+  entryCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+  ): EntryCollection
+}
+
+enum OperationTypeOrder {
+  type_ASC
+  type_DESC
+  displayName_ASC
+  displayName_DESC
   sys_id_ASC
   sys_id_DESC
   sys_publishedAt_ASC
@@ -2174,19 +2277,15 @@ type Query {
     where: AssetFilter
     order: [AssetOrder]
   ): AssetCollection
-  guaranteeTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): GuaranteeTemplate
-  guaranteeTemplateCollection(
+  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
+  mediaToolCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
-    where: GuaranteeTemplateFilter
-    order: [GuaranteeTemplateOrder]
-  ): GuaranteeTemplateCollection
+    where: MediaToolFilter
+    order: [MediaToolOrder]
+  ): MediaToolCollection
   messageTemplate(
     id: String!
     preview: Boolean
@@ -2200,6 +2299,37 @@ type Query {
     where: MessageTemplateFilter
     order: [MessageTemplateOrder]
   ): MessageTemplateCollection
+  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
+  marketContentCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MarketContentFilter
+    order: [MarketContentOrder]
+  ): MarketContentCollection
+  operationType(id: String!, preview: Boolean, locale: String): OperationType
+  operationTypeCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: OperationTypeFilter
+    order: [OperationTypeOrder]
+  ): OperationTypeCollection
+  guaranteeTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): GuaranteeTemplate
+  guaranteeTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: GuaranteeTemplateFilter
+    order: [GuaranteeTemplateOrder]
+  ): GuaranteeTemplateCollection
   faqTopic(id: String!, preview: Boolean, locale: String): FaqTopic
   faqTopicCollection(
     skip: Int = 0
@@ -2258,24 +2388,6 @@ type Query {
     where: EvidenceCategoryFilter
     order: [EvidenceCategoryOrder]
   ): EvidenceCategoryCollection
-  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaToolFilter
-    order: [MediaToolOrder]
-  ): MediaToolCollection
-  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
-  marketContentCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MarketContentFilter
-    order: [MarketContentOrder]
-  ): MarketContentCollection
   trainingContent(
     id: String!
     preview: Boolean
@@ -2722,6 +2834,13 @@ input cfMessageTemplateNestedFilter {
   format_contains_all: [String]
   format_contains_some: [String]
   format_contains_none: [String]
+  emailRecipient_exists: Boolean
+  emailRecipient: String
+  emailRecipient_not: String
+  emailRecipient_in: [String]
+  emailRecipient_not_in: [String]
+  emailRecipient_contains: String
+  emailRecipient_not_contains: String
   subject_exists: Boolean
   subject: String
   subject_not: String

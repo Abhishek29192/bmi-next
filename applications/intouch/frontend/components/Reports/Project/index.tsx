@@ -3,10 +3,14 @@ import { useTranslation } from "next-i18next";
 import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
 import { GetApp } from "@material-ui/icons";
+import { Project } from "@bmi/intouch-api-types";
 import { exportCsv } from "../../../lib/utils/report";
 import { useGetProjectsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { GetProjectsReportQuery } from "../../../graphql/generated/operations";
-import { getProjectStatus } from "../../../lib/utils/project";
+import {
+  getProjectStatus,
+  getProjectGuaranteeStatus
+} from "../../../lib/utils/project";
 import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import { isSuperOrMarketAdmin } from "../../../lib/account";
@@ -23,7 +27,7 @@ const getReportData = (
   t
 ) => {
   return [...projects.nodes]
-    .map((project) => {
+    .map((project: Project) => {
       const { siteAddress, company, guarantees, projectMembers, hidden } =
         project;
 
@@ -36,6 +40,9 @@ const getReportData = (
 
       const guaranteeTypeName =
         guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
+      const guaranteeStatus = t(
+        `guarantee.status.${getProjectGuaranteeStatus(project)}`
+      );
 
       const projectStatus = getProjectStatus(
         project.startDate,
@@ -62,8 +69,8 @@ const getReportData = (
         "Company Name": companyName,
         "Company Status": companyStatus,
         "Guarantee Type Name": guaranteeTypeName,
-        // eslint-disable-next-line security/detect-object-injection
-        "Project Status": projectStatusMap[projectStatus],
+        "Guarantee Status": guaranteeStatus,
+        "Project Status": projectStatusMap[`${projectStatus}`],
         "Project Member": projectMember
       };
     })
@@ -80,7 +87,7 @@ const getNonSuperUserReportData = (
   t
 ) => {
   return [...projects.nodes]
-    .map((project) => {
+    .map((project: Project) => {
       const { siteAddress, company, guarantees, projectMembers } = project;
 
       const siteAddressTown = [siteAddress?.town, siteAddress?.country]
@@ -90,7 +97,10 @@ const getNonSuperUserReportData = (
       const companyName = company?.name;
 
       const guaranteeTypeName =
-        guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
+        guarantees.nodes[0]?.guaranteeType?.name || "N/A";
+      const guaranteeStatus = t(
+        `guarantee.status.${getProjectGuaranteeStatus(project)}`
+      );
 
       const projectStatus = getProjectStatus(
         project.startDate,
@@ -115,8 +125,8 @@ const getNonSuperUserReportData = (
         "Site Address": siteAddressTown,
         "Company Name": companyName,
         "Guarantee Type Name": guaranteeTypeName,
-        // eslint-disable-next-line security/detect-object-injection
-        "Project Status": projectStatusMap[projectStatus],
+        "Guarantee Status": guaranteeStatus,
+        "Project Status": projectStatusMap[`${projectStatus}`],
         "Project Member": projectMember
       };
     })
@@ -197,8 +207,9 @@ export const GET_PROJECTS_REPORT = gql`
             id
             coverage
             languageCode
-            guaranteeReferenceCode
+            status
             guaranteeType {
+              tiersAvailable
               name
             }
             guaranteeTypes {

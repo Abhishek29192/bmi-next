@@ -1,15 +1,15 @@
 test_head:
   extends: .test_yarn_workspace
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
         - jest/**/*
         - yarn.lock
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -23,11 +23,11 @@ test_head:
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
   variables:
@@ -37,14 +37,14 @@ test_mr_coverage_head:
 compile_head_mr:
   extends: .compile_yarn_workspace
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
         - yarn.lock
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -56,16 +56,16 @@ compile_head_mr:
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
-  image: !reference [ .node-full-image, image ]
+  image: !reference [.node-full-image, image]
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
-  needs: [ ]
-  cache: { }
+  needs: []
+  cache: {}
   allow_failure: true
   timeout: 15m
   script:
@@ -80,8 +80,8 @@ wait_until_head_deployed_to_gatsby:
         updated_at=$(date -u +%s --date=$(echo $note | jq -r '.updated_at'))
         body=$(echo $note | jq '.body')
         if [[ $(($updated_at - $commit_time)) -gt 0 ]]; then
-          if [[ $body == *"Your build was successful!"* ]]; then
-            sed -n 's/.*\[See the Deploy preview here.\](\(.*\))\\n\\n##.*/\1/p' <<< $body > deploy_head
+          if [[ $body == *"## :white_check_mark: DXB/QA deploy preview ready"* ]]; then
+            sed -n 's/.*\[Deploy preview\](\(.*\))\\n\*.*/\1/p' <<< $body > deploy_head
             exit 0
           fi
           echo "Latest Gatsby build failed to build."
@@ -99,8 +99,8 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
-  cache: { }
+  image: !reference [.owasp-image, image]
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -120,12 +120,14 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
+  image: !reference [.owasp-image, image]
   timeout: 3h
-  cache: { }
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
+    - xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/${ZAP_ENVIRONMENT}.context
+    - xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginpageurl' -v "${BASE_URL}" applications/dxb/head/dast/${ZAP_ENVIRONMENT}.context
     - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || failed=true
     - cp /zap/wrk/gl-dast-report.json .
     - cp /zap/wrk/zap_output.html  .
@@ -141,7 +143,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -157,7 +159,6 @@ baseline_scan_head_preview:
       [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       export BASE_URL=$(cat deploy_head)
       [ -z "${BASE_URL}" ] && echo "Nothing deployed to test" && exit 0
-      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/mr.context
       export BASE_URL=${BASE_URL}/no
 
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
@@ -167,7 +168,7 @@ full_scan_head_qa:
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
   variables:
-    BASE_URL: https://bmi-dxb-head-qa.netlify.app/no
+    BASE_URL: https://dxbqa.gatsbyjs.io/no/
     ZAP_ENVIRONMENT: qa
 
 full_scan_head_pre_prod:
@@ -175,7 +176,6 @@ full_scan_head_pre_prod:
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_pre_prod'"
   variables:
-    BASE_URL: https://bmi-dxb-head-preproduction.netlify.app/no/
     ZAP_ENVIRONMENT: pre-production
 
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
@@ -186,7 +186,6 @@ baseline_scan_head_prod:
   rules:
     - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
   variables:
-    BASE_URL: https://bmi-dxb-head-production.netlify.app/no
     ZAP_ENVIRONMENT: production
 
 # https://github.com/GoogleChrome/lighthouse-ci
@@ -197,7 +196,7 @@ baseline_scan_head_prod:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: !reference [ .cypress-image, image ]
+  image: !reference [.cypress-image, image]
   script:
     - |
       params="--collect.settings.pwd=${NETLIFY_PWD}"
@@ -206,6 +205,7 @@ baseline_scan_head_prod:
       done
       yarn workspace @bmi/head lighthouse ${params}
   artifacts:
+    when: always
     paths:
       - applications/dxb/head/lighthouseci/reports
 
@@ -213,7 +213,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
@@ -234,11 +234,10 @@ lighthouseci_scan_head_preview:
       export LIGHTHOUSE_URLS=(
         "${base_url}/no/"
         "${base_url}/no/contact-us/"
-        "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
-        "${base_url}/no/p/unique-plus-takpanne-matt-grafitt-metall-258584391/"
-        "${base_url}/no/s/unique-plus-takpanne-4056043937/"
+        "${base_url}/no/p/zanda-arktis-normalstein-svart-betong-289333998/"
+        "${base_url}/no/s/test-no-zanda-system-282193240/"
         "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
         "${base_url}/no/find-a-merchant/"
         "${base_url}/no/search/?q=zanda"

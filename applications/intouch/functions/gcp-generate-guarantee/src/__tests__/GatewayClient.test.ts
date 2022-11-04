@@ -153,9 +153,9 @@ describe("GatewayClient", () => {
   it("updateGuaranteeStatus", async () => {
     const id = 1;
     const body = {
-      query: `mutation updatePendingGuaranteeStatus($id: Int!, $fileStorageId: String!) {
+      query: `mutation updateGuaranteeStatus($id: Int!) {
         updateGuarantee(
-          input: { id: $id, patch: { status: "ISSUED" } }
+          input: { id: $id, patch: { status: ISSUED }, guaranteeEventType: BO_ACCEPTED_SOLUTION}
         ) {
           guarantee {
             id

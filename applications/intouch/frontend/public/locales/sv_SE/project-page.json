@@ -1,0 +1,406 @@
+{
+  "Projects": "Projekt",
+  "MISCELLANEOUS": "Stödfiler",
+  "PROOF_OF_PURCHASE": "Köpbevis",
+  "CUSTOM": "Anpassade filer",
+  "search": {
+    "inputLabel": "Sök efter ett projekt"
+  },
+  "addProject": {
+    "cta": "Lägg till nytt projekt",
+    "dialog": {
+      "title": "Lägg till ett projekt",
+      "sections": {
+        "projectDetails": {
+          "title": "projekt detaljer"
+        },
+        "dates": {
+          "title": "Projektdatum"
+        },
+        "siteAddress": {
+          "title": "Webbplatsens adress"
+        }
+      },
+      "form": {
+        "fields": {
+          "name": "Projektnamn",
+          "technology": "Projekttyp",
+          "inspection": "Inspektion",
+          "roofArea": "Total takmått (m2)",
+          "description": "Projekt beskrivning",
+          "startDate": "Projektets startdatum",
+          "endDate": "Projektets slutdatum",
+          "siteAddress": {
+            "firstLine": "Adressrad 1",
+            "secondLine": "Adress Linje 2",
+            "town": "Stad/stad",
+            "postcode": "Postnummer / Zip",
+            "region": "Område",
+            "country": "Land"
+          }
+        },
+        "values": {
+          "technology": {
+            "PITCHED": "Branta",
+            "FLAT": "Låglutande"
+          }
+        },
+        "hints": {
+          "technology": {
+            "PITCHED": "Ett tak täckt med keramik eller plåtpannor. Vanligtvis är det sluttande",
+            "FLAT": "Ett tak täckt med bituminösa eller betongmaterial. Det är vanligtvis horisontellt och platt."
+          }
+        },
+        "actions": {
+          "submit": "Spara & Stäng"
+        }
+      }
+    }
+  },
+  "projectDetails": {
+    "code": "Projektkod",
+    "status": "Projektstatus",
+    "archived": "Arkiverad?",
+    "roofArea": "Total takmått",
+    "buildingAddress": "Byggnadsadress",
+    "description": "Projekt beskrivning",
+    "startDate": "Projektets startdatum",
+    "endDate": "Projektets slutdatum",
+    "guaranteeType": "Garanti",
+    "guaranteeStatus": "Garantistatus",
+    "cta": {
+      "ASSIGN_SOLUTION": "Tilldela mig",
+      "REASSIGN_SOLUTION": "Tilldela om till mig",
+      "UNASSIGN_SOLUTION": "Ta bort tilldelningen från mig",
+      "NOT_ASSIGNABLE": "Ej tilldelningsbar",
+      "edit": "Redigera",
+      "copy": "Kopiera?"
+    },
+    "hints": {
+      "projectEditGuaranteeStatus": "Projektdetaljer kan inte redigeras på grund av garantistatus."
+    },
+    "loading": "Laddar projektdetaljer",
+    "error": "Det gick inte att läsa in projektinformation."
+  },
+  "buildingOwnerDetails": {
+    "title": "Byggnadsägarens detaljer",
+    "noContent": "Byggnadsägardetaljer har inte lagts till i detta projekt",
+    "name": "namn",
+    "email": "E-post",
+    "company": "Företag",
+    "address": "Byggnadsägarens adress",
+    "edit": {
+      "title": "Byggnadsägarens uppgifter",
+      "description": "Du kan lägga till byggnadsägarens uppgifter senare innan du ansöker om garanti.",
+      "sections": {
+        "contactDetails": {
+          "title": "Kontaktuppgifter"
+        },
+        "buildingOwnerAddress": {
+          "title": "Adress"
+        }
+      },
+      "form": {
+        "fields": {
+          "buildingOwnerCompany": "Företagsnamn",
+          "buildingOwnerFirstname": "Förnamn",
+          "buildingOwnerLastname": "Efternamn",
+          "buildingOwnerMail": "E-postadress",
+          "buildingOwnerAddress": {
+            "firstLine": "Adressrad 1",
+            "secondLine": "Adress Linje 2",
+            "town": "Stad/stad",
+            "postcode": "Postnummer / Zip",
+            "region": "Område",
+            "country": "Land"
+          }
+        },
+        "actions": {
+          "submit": "Spara & stäng"
+        }
+      }
+    }
+  },
+  "guarantee": {
+    "notRequested": "Inte efterfrågat",
+    "status": {
+      "NOT_APPLICABLE": "N/A",
+      "STARTED": "Satte igång",
+      "READY": "Redo",
+      "SUBMITTED": "Lämnats",
+      "REVIEW": "Lämnats",
+      "REJECTED": "Returnerad",
+      "APPROVED": "Godkänd",
+      "DECLINED": "Tackade nej",
+      "EXPIRED": "Utgånget",
+      "ISSUED": "Utfärdad"
+    },
+    "type": {
+      "PRODUCT": "Produktgaranti",
+      "SYSTEM": "Systemgaranti",
+      "SOLUTION": "Lösningsgaranti"
+    },
+    "incompleteGuaranteeAlert": {
+      "title": "Information krävs",
+      "description": "För att slutföra din ansökan lägg till en certifierad ansvarig installatör till projektteamet och ladda upp bevisen som krävs på fliken Uppladdningar."
+    }
+  },
+  "filters": {
+    "labels": {
+      "ALL": "Allt",
+      "NOT_STARTED": "Ej påbörjad",
+      "IN_PROGRESS": "Pågående",
+      "COMPLETED": "Avslutad",
+      "FLAT": "Låglutande",
+      "PITCHED": "Branta",
+      "ARCHIVED": "Arkiverad",
+      "UNASSIGNED": "Otilldelad",
+      "ASSIGNED": "Tilldelad",
+      "MY_QUEUE": "Min kö"
+    }
+  },
+  "noProjects": {
+    "title": "Inga projekt att visa",
+    "body1": "Ändra filtret för att se olika typer av projekt",
+    "body2": "Välj ett annat filter eller skapa ett projekt för att komma igång"
+  },
+  "noProjectSelected": {
+    "title": "Inga projekt att visa",
+    "body1": "Du har inte valt något projekt än!",
+    "body2": "Välj &quot;projektet&quot; från sidofältet för att komma igång."
+  },
+  "tabs": {
+    "team": "Team",
+    "guarantee": "Garanti",
+    "uploads": "Uppladdningar",
+    "notes": "Anteckningar"
+  },
+  "teamTab": {
+    "header": "Lägg till en gruppmedlem",
+    "table": {
+      "responsibleInstaller": "Ansvarig installatör",
+      "teamMember": "Lagmedlem",
+      "role": "Roll",
+      "certification": "Certifiering",
+      "remove": "Ta bort"
+    },
+    "add_team_member_modal": {
+      "title": "Lägg till ett installationsprogram",
+      "caption": "Välj de installatörer som ska arbeta med det här projektet.",
+      "table": {
+        "name": "namn",
+        "email": "E-post",
+        "certification": "Certifiering"
+      },
+      "confirm_label": "Lägg till medlemmar",
+      "cancel_label": "Avbryt"
+    },
+    "noContent": "Inga gruppmedlemmar har lagts till i detta projekt"
+  },
+  "upload_tab": {
+    "header": "Ladda upp filer)",
+    "add_evidence_modal": {
+      "title": "Uppladdning av bevis",
+      "button_label": "Ladda upp filer",
+      "microcopy": {
+        "drop": "Släppa",
+        "browse": "Bläddra"
+      },
+      "instruction": "Du kan lägga till filer",
+      "confirm_label": "Ladda upp filer",
+      "cancel_label": "Avbryt",
+      "file_validation_message": "Du kan inte ladda upp filer som är större än",
+      "evidence_category": "Beviskategori",
+      "total_files_size": "Total filstorlek har överskridits - {{totalSize}}"
+    },
+    "noContent": "Inga uppladdningar ännu",
+    "requirementModal": {
+      "title": "Vad krävs?"
+    }
+  },
+  "guarantee_tab": {
+    "header": "Ansök om garanti",
+    "nocontent_message": "Ingen garanti har lagts till ännu",
+    "submit_solution": "Begär lösningsgaranti",
+    "apply_guarantee": {
+      "title": "Registrera dig för en garanti",
+      "confirm_label": "Registrera",
+      "cancel_label": "Avbryt",
+      "message": {
+        "not_available_tier": "Denna garantityp är inte tillgänglig i din nivå",
+        "guarantee_exists_error": "Du kan inte ha en lösning eller systemgaranti för ett projekt som redan har en produktgaranti"
+      },
+      "review": {
+        "preferred_language": "Önskat språk",
+        "header": "Garantidokumentation",
+        "product_title": "Produktinformation",
+        "system_title": "Systemdetaljer",
+        "receipt_title": "Kvittodetaljer",
+        "receipt_subTitle": "Kvitto på köp",
+        "alert_banner": {
+          "title": "Behöver veta",
+          "description": "När du skickar denna garantiförfrågan till oss kommer byggnadsägaren att få ett e-postmeddelande som ber dem att acceptera eller avslå garantin. Om byggnadsägaren accepterar kommer de att få ett andra e-postmeddelande med garantidokumentationen bifogad."
+        },
+        "responsible_installer": {
+          "title": "En ansvarig installatör",
+          "description": "Välj en installatör från projektteamet som agerar som ansvarig installatör. De bör ha ett certifikat i samma teknik som det projekt som du vill garantera."
+        },
+        "required": {
+          "title": "Fyll i din ansökan genom att ange följande:",
+          "evidence": "Tillhandahåll stödjande bevis"
+        }
+      },
+      "wizard": {
+        "step1": {
+          "title": "Registrera dig för en garanti",
+          "subTitle": "Välj önskad garantinivå"
+        },
+        "step2": {
+          "title": "Registrera dig för en garanti",
+          "subTitle": "Välj önskat språk för garantidokumentationen",
+          "inputLabel": "Välj språk"
+        },
+        "step3": {
+          "product_title": "Produktgaranti",
+          "product_subTitle": "Välj Produkt för garantidokumentationen",
+          "system_title": "Systemgaranti",
+          "system_subTitle": "Välj System för garantidokumentationen",
+          "solution_title": "Lösningsgaranti",
+          "solution_subTitle": "Välj System för garantidokumentationen"
+        },
+        "step4": {
+          "title": "Kvittodetaljer",
+          "subTitle": "Ladda upp en kopia av kvittot för den eller de produkter du vill garantera"
+        },
+        "step5": {
+          "title": "Recension",
+          "subTitle": "Läs igenom informationen som du har lämnat innan du skickar in din ansökan."
+        },
+        "stepDefault": {
+          "title": "Ansökan om garanti",
+          "subTitle": "Ansökan om garanti"
+        },
+        "footer": {
+          "goBack": "Gå tillbaka",
+          "next": "Nästa",
+          "submit": "Lämna in ansökan"
+        }
+      },
+      "alert": {
+        "selectGuarantee": {
+          "title": "Det finns ingen garantityp tillgänglig för deras teknik",
+          "message": "Det finns inga garantier för denna typ av tak. Kontakta din lokala BMI-administratör för mer information."
+        }
+      }
+    },
+    "applyGuarantee": {
+      "defaultDialog": {
+        "title": "Din garantibegäran håller på att behandlas och måste godkännas av byggnadsägaren innan den utfärdas.",
+        "description": "När det har godkänts av byggnadsägaren kommer garantibeviset att vara tillgängligt att se och ladda ner på sidan Projekt.",
+        "confirm_label": "Stänga"
+      },
+      "solutionDialog": {
+        "title": "Garantiansökan har startat",
+        "description": "Fyll i din ansökan genom att skicka in bevis på uppladdningsfliken.",
+        "confirm_label": "Stänga"
+      }
+    }
+  },
+  "building_owner": {
+    "title": "Byggnadsägarens detaljer",
+    "contact_detail": "Byggnads kontaktuppgifter",
+    "email": "Byggnadsägarens e-post",
+    "address": "Byggnadsägarens adress"
+  },
+  "responsible_installer": {
+    "title": "Ansvarig installatör detaljer",
+    "contact_detail": "Ansvarig installatör kontaktuppgifter",
+    "email": "E-post för ansvarig installatör",
+    "address": "Ansvarig installatörs adress"
+  },
+  "productDetails": {
+    "name": "Produktnamn",
+    "family": "Familj",
+    "brand": "varumärke"
+  },
+  "projectActions": {
+    "heading": "Projektåtgärder",
+    "cta": {
+      "archive": "Arkivprojekt",
+      "unarchive": "Ta bort projekt från arkiv",
+      "requestInformation": "Begär mer information",
+      "approveGuarantee": "Godkänn garanti",
+      "confirm": "Bekräfta",
+      "cancel": "Avbryt"
+    }
+  },
+  "noteTab": {
+    "header": "Lägg till anteckning",
+    "table": {
+      "author": "Författare",
+      "note": "Notera",
+      "date": "Datum"
+    },
+    "addNoteDialog": {
+      "title": "Lägg till en anteckning",
+      "detailHeading": "Dela information om detta projekt",
+      "cancel": "Avbryt",
+      "send": "Skicka"
+    },
+    "noContent": "Inga anteckningar har varit till detta projekt"
+  },
+  "guaranteeApplyAlert": {
+    "title": "Du kan inte ansöka om garanti ännu",
+    "message": {
+      "buildingOwner": "Uppgifter om byggherre Ägare är inte ifyllda",
+      "projectDetails": "Projektdetaljerna är inte färdiga",
+      "tier": "Du är inte i en nivå som stöder garantier",
+      "guaranteeType": "Garantityp är inte definierad"
+    }
+  },
+  "report": {
+    "project": "Projektrapport",
+    "guarantee": "Garantirapport",
+    "projectUpload": "Uppladdningsrapport"
+  },
+  "guaranteeSubmitAlert": {
+    "message": {
+      "buildingOwner": "Byggnadsägarens uppgifter är ofullständiga",
+      "certification": "Den nominerade Ansvarsfulla Installatören har för närvarande inte en certifiering i samma teknik som projektet",
+      "guaranteeType": "Garantityp är inte definierad",
+      "minumumEvidence": "Otillräckliga bevis laddade upp",
+      "notApplicable": "Garanti gäller ej",
+      "projectDetails": "Projektdetaljerna är ofullständiga",
+      "responsibleInstaller": "Ingen ansvarig installatör nominerad med erforderlig certifiering",
+      "tier": "Du är inte i en nivå som stöder garantier"
+    },
+    "title": "Du kan inte lämna in en garanti ännu"
+  },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Är du säker?",
+      "description": "Du är på väg att godkänna en begäran om lösningsgaranti. Byggnadsägaren kommer att få ett e-postmeddelande som ber dem att acceptera eller avböja garantin. Om byggnadsägaren accepterar kommer de att få ett andra e-postmeddelande med garantidokumentationen bifogad."
+    },
+    "reject": {
+      "title": "Är du säker?",
+      "description": "Du är på väg att avslå en begäran om lösningsgaranti. Installatören kommer att meddelas. Lägg till en anteckning till detta projekt för att bekräfta för installatören vad som krävs."
+    }
+  },
+  "guaranteeRestart": {
+    "note": "Garantin kopplad till detta projekt har startat om, så en ny garanti kan begäras",
+    "buttonLabel": "Omstartsgaranti?",
+    "confirm": {
+      "title": "Omstartsgaranti?",
+      "description": "Om du startar om en garanti tas garantin bort permanent från ett projekt, så en ny garanti kan begäras. Alla gruppmedlemmar och uppladdade filer som läggs till i projektet kommer att behållas."
+    }
+  },
+  "copyDialog": {
+    "title": "Kopiera detta projekt",
+    "content": "Vill du kopiera det här projektet (projektdetaljer och byggnadsägardetaljer) för att skapa ett nytt?",
+    "copyOf": "Kopia av {{name}}"
+  },
+  "bool": {
+    "True": "Ja",
+    "False": "Nej"
+  }
+}

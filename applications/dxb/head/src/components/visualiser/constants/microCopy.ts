@@ -13,9 +13,9 @@ export const microCopy = {
     description: "visualizer.tileSelector.description"
   },
   materials: {
-    material1: "visualizer.materials.material1",
-    material2: "visualizer.materials.material2",
-    material3: "visualizer.materials.material3"
+    clay: "visualizer.materials.clay",
+    metal: "visualizer.materials.metal",
+    concrete: "visualizer.materials.concrete"
   },
   sidingsSelector: {
     title: "visualizer.sidingsSelector.title"

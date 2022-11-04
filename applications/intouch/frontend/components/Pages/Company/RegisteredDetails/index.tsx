@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import capitalize from "lodash/capitalize";
-import { gql } from "@apollo/client";
 import { Operation } from "@bmi/intouch-api-types";
 import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
@@ -12,6 +11,10 @@ import { OnCompanyUpdateSuccess } from "../../../SetCompanyDetailsDialog";
 import { EditCompanyButton } from "../EditCompany/Button";
 import { parseMarketTag } from "../../../../lib/utils";
 import { useMarketContext } from "../../../../context/MarketContext";
+import {
+  useCompanyPageContext,
+  ContextProps
+} from "../../../../context/CompanyPageContext";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
@@ -20,9 +23,15 @@ export type CompanyRegisteredDetailsProps = {
   mapsApiKey: string;
 };
 
-export const formatCompanyOperations = (t, operations: Operation[]) => {
-  const operationLabels = operations.map((operation) =>
-    t(`company-page:operationTypes.${operation}`)
+export const formatCompanyOperations = (
+  t,
+  operations: Operation[],
+  operationTypes: ContextProps["value"]["operationTypes"]
+) => {
+  const operationLabels = operations.map(
+    (operation) =>
+      operationTypes?.find(({ type }) => type === operation)?.displayName ||
+      operation
   );
 
   const operationsText = operationLabels.reduce((str, o, idx) => {
@@ -30,7 +39,7 @@ export const formatCompanyOperations = (t, operations: Operation[]) => {
       return capitalize(o);
     }
     if (idx === operationLabels.length - 1) {
-      return `${str} and ${o}`;
+      return `${str} and ${o.toLowerCase()}`;
     }
     return `${str}, ${o}`;
   }, "");
@@ -55,6 +64,7 @@ export const CompanyRegisteredDetails = ({
     tier
   } = company;
   const { market } = useMarketContext();
+  const { operationTypes } = useCompanyPageContext();
   const contentfulTag = parseMarketTag(market?.domain);
   const { data: getTierBenefit } = useGetTierBenefitQuery({
     variables: { tag: contentfulTag }
@@ -97,12 +107,14 @@ export const CompanyRegisteredDetails = ({
         ) : null}
 
         {tier && tierName ? (
-          <InfoPair title={t("Tier")}>{tierName}</InfoPair>
+          <InfoPair title={t("company-page:edit_dialog.form.fields.tier")}>
+            {tierName}
+          </InfoPair>
         ) : null}
 
         {operations.length > 0 ? (
           <InfoPair title={t("company-page:companyOperations")}>
-            {formatCompanyOperations(t, operations)}
+            {formatCompanyOperations(t, operations, operationTypes)}
           </InfoPair>
         ) : null}
 
@@ -115,22 +127,3 @@ export const CompanyRegisteredDetails = ({
     </div>
   );
 };
-
-export const CompanyRegisteredDetailsFragment = gql`
-  fragment CompanyRegisteredDetailsFragment on Company {
-    name
-    referenceNumber
-    registeredAddress {
-      id
-      ...AddressLinesFragment
-    }
-    taxNumber
-    tier
-    companyOperationsByCompany {
-      nodes {
-        id
-        operation
-      }
-    }
-  }
-`;

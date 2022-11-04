@@ -13,6 +13,7 @@ import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { PimProductDocument } from "@bmi/elasticsearch-types";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
@@ -22,16 +23,15 @@ import { useSiteContext } from "../../../components/Site";
 import { Format } from "../../../components/types";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
-import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
-import { ProductDocument } from "../../../types/pim";
 import { downloadAs } from "../../../utils/client-download";
 import withGTM from "../../../utils/google-tag-manager";
+import { AssetType } from "../types";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
-  documentsByProduct: [string, ProductDocument[]][];
-  assetTypes: AssetTypeData[];
+  documentsByProduct: [string, PimProductDocument[]][];
+  assetTypes: AssetType[];
   fileIconsMap: Record<Format, React.ComponentType>;
 }
 
@@ -50,7 +50,7 @@ const DesktopDocumentTechnicalTableResults = ({
   const GTMClickable = withGTM<ClickableProps>(Clickable);
   const GTMButton = withGTM<IconButtonProps>(Button);
 
-  const singleDocument = (asset: ProductDocument) =>
+  const singleDocument = (asset: PimProductDocument) =>
     !asset.isLinkDocument ? (
       <GTMClickable
         model="download"
@@ -93,7 +93,7 @@ const DesktopDocumentTechnicalTableResults = ({
       </GTMButton>
     );
 
-  const multipleDocuments = (assets: ProductDocument[]) => {
+  const multipleDocuments = (assets: PimProductDocument[]) => {
     // this doesnt seem to be called now!
     // TODO : remove it??
 
@@ -114,13 +114,9 @@ const DesktopDocumentTechnicalTableResults = ({
         }
 
         const token = await executeRecaptcha();
-        const pimDocumentAssets: ProductDocument[] = assets.filter(
-          (asset): asset is ProductDocument =>
-            asset.__typename === "PIMDocument"
-        );
         const assetFileCountMap: AssetUniqueFileCountMap =
-          createAssetFileCountMap(pimDocumentAssets);
-        const documents = pimDocumentAssets.map((asset, index) => ({
+          createAssetFileCountMap(assets);
+        const documents = assets.map((asset, index) => ({
           href: asset.url,
           name:
             asset.realFileName && asset.realFileName !== ""
@@ -163,7 +159,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
         onClick={() => {
           downloadMultipleFiles();
-        }} //this doesnt seem to be called now!
+        }} //this doesn't seem to be called now!
         gtm={{
           id: "download1",
           label: "Download",
@@ -188,7 +184,7 @@ const DesktopDocumentTechnicalTableResults = ({
             {assetTypes.map((assetType, index) => {
               return (
                 <Table.Cell
-                  key={`asset-type-${assetType.id}-${index}`}
+                  key={`asset-type-${assetType.code}-${index}`}
                   className={styles["asset-type-cell"]}
                 >
                   {assetType.code}
@@ -230,7 +226,7 @@ const DesktopDocumentTechnicalTableResults = ({
                 </Table.Cell>
                 {assetTypes.map((assetType, index) => {
                   const filteredAssets = assets.filter(
-                    ({ assetType: { id } }) => id === assetType.id
+                    ({ assetType: { code } }) => code === assetType.code
                   );
 
                   if (!filteredAssets.length) {
@@ -249,7 +245,7 @@ const DesktopDocumentTechnicalTableResults = ({
 
                   return (
                     <Table.Cell
-                      key={`${productName}-asset-${assetType.id}`}
+                      key={`${productName}-asset-${assetType.code}`}
                       className={styles["align-center"]}
                     >
                       {filteredAssets.length === 1

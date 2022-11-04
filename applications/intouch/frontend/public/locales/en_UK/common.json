@@ -1,0 +1,94 @@
+{
+  "Home": "Home",
+  "Projects": "Projects",
+  "Training": "Training",
+  "Team": "Team",
+  "Companies": "Companies",
+  "Company": "Company",
+  "Tools": "Tools",
+  "Inventory": "Inventory",
+  "Edit": "Edit",
+  "Search": "Search",
+  "No Options": "No Options",
+  "Show me": "Show me",
+  "Account": "Account",
+  "Profile": "Profile",
+  "Logout": "Logout",
+  "Notifications": "Notifications",
+  "deactivatedCompany": "Company deactivated",
+  "results available": "results available",
+  "Company Description": "Company Description",
+  "About Us": "About Us",
+  "Registered Details": "Registered Details",
+  "Registered Name": "Registered Name",
+  "Registered Address": "Registered Address",
+  "Main office address": "Main office address",
+  "CONTRACTOR": "Contractor",
+  "ARCHITECT": "Architect",
+  "MERCHANT": "Merchant",
+  "CORP_DEVELOPER": "Developer",
+  "aria": {
+    "navigation": "Navigation",
+    "notifications": "Notifications"
+  },
+  "roles": {
+    "INSTALLER": "Installer",
+    "COMPANY_ADMIN": "Company administrator",
+    "MARKET_ADMIN": "Market administrator",
+    "SUPER_ADMIN": "Super admin",
+    "AUDITOR": "Auditor"
+  },
+  "tier": {
+    "T1": "Member",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite",
+    "T5": "Partner Plus",
+    "T6": "Expert Plus",
+    "T7": "Elite Plus"
+  },
+  "error_messages": {
+    "required": "Required",
+    "url_format": "Invalid URL",
+    "email_format": "Invalid email address",
+    "phone_number_format": "Invalid phone number"
+  },
+  "Products": "Products",
+  "fallback": {
+    "notAdded": "Not added",
+    "noResults": "No results found"
+  },
+  "Download": "Download",
+  "SavePdf": "Download PDF",
+  "visitWebsite": "Visit Website",
+  "certifications": {
+    "pitched": "Pitched",
+    "flat": "Flat",
+    "other": "Other"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Certification",
+    "expiry": "Expiry"
+  },
+  "notifications": {
+    "today": "Today",
+    "earlier": "Earlier",
+    "older": "Older than two months"
+  },
+  "session": {
+    "dialog": {
+      "title": "Your session will expire after {{counter}}",
+      "content": "You have been inactive for a while now and this session will expire and you will be automatically logged out.",
+      "logout": "Log out",
+      "continue": "Extend session"
+    }
+  },
+  "generatingPdf": "Generating PDF",
+  "Sort by": "Sort by",
+  "requiredInformation": "required information",
+  "button": {
+    "more": "Show more",
+    "less": "Show less"
+  }
+}

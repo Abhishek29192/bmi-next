@@ -1,95 +1,92 @@
 import logger from "@bmi-digital/functions-logger";
-import type { AssetTypeData } from "@bmi/pim-types";
-import { createClient, Environment, Space } from "contentful-management";
+import { AssetType, Resources } from "@bmi/contentful-types";
+import { getContentfulClient } from "@bmi/functions-contentful-client";
+import type { Entry } from "contentful";
 import { ProductDocumentNameMap } from "./types";
 
-const {
-  MARKET_LOCALE,
-  MANAGEMENT_ACCESS_TOKEN,
-  SPACE_ID,
-  CONTENTFUL_ENVIRONMENT
-} = process.env;
+const MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE = 1000;
 
-let spaceCache: Space | undefined;
-const getSpace = async (): Promise<Space> => {
-  if (!spaceCache) {
-    const client = createClient({
-      accessToken: MANAGEMENT_ACCESS_TOKEN!
-    });
+const getAssetTypes = async (
+  locale: string,
+  tag?: string
+): Promise<{ code: string; name: string; pimCode: string }[]> => {
+  // paginate and get ALL assetTypes from the environment.
+  // JIRA: https://bmigroup.atlassian.net/browse/DXB-4313
+  // suggests that documents can be excluded from indexing simply because
+  // the no of items from returned using contenful client can be less than
+  // total no of items present
+  const client = getContentfulClient();
+  let foundSoFar = 0;
+  const generateQuery = (skip: number) => {
+    return {
+      content_type: "assetType",
+      locale,
+      ...(tag && { "metadata.tags.sys.id[all]": tag }),
+      skip: skip,
+      limit: MAX_NUMBER_OF_DOCUMENTS_PER_RESPONSE
+    };
+  };
 
-    spaceCache = await client.getSpace(SPACE_ID!);
-  }
-  return spaceCache;
-};
+  const assetTypes = await client.getEntries<AssetType>(
+    generateQuery(foundSoFar)
+  );
 
-let environmentCache: Environment | undefined;
-const getEnvironment = async (space: Space): Promise<Environment> => {
-  if (!environmentCache) {
-    environmentCache = await space.getEnvironment(CONTENTFUL_ENVIRONMENT!);
-  }
-  return environmentCache;
-};
+  const assetTypesToReturn: Entry<AssetType>[] = [...assetTypes.items];
+  const totalAssetTypeCount = assetTypes.total;
+  const limit = assetTypes.limit;
+  foundSoFar = assetTypes.items.length;
 
-const getSpaceEnvironment = async (): Promise<Environment | undefined> => {
-  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
-    logger.error({
-      message: "MANAGEMENT_ACCESS_TOKEN has not been set."
-    });
-    return;
-  }
-  if (!process.env.SPACE_ID) {
-    logger.error({ message: "SPACE_ID has not been set." });
-    return;
-  }
-  if (!process.env.CONTENTFUL_ENVIRONMENT) {
-    logger.error({ message: "CONTENTFUL_ENVIRONMENT has not been set." });
-    return;
-  }
-  if (!process.env.MARKET_LOCALE) {
-    logger.error({ message: "MARKET_LOCALE has not been set." });
-    return;
-  }
-  const space = await getSpace();
-  const environment = await getEnvironment(space);
+  logger.info({
+    message: `total asset types in contentful : ${totalAssetTypeCount}, limit:${limit}`
+  });
 
-  return environment;
-};
-
-const getAssetTypes = async (): Promise<AssetTypeData[] | undefined> => {
-  const environment = await getSpaceEnvironment();
-  if (environment) {
-    const assetType = await environment.getEntries({
-      content_type: "assetType"
-    });
-
-    return assetType.items
-      .filter(({ fields: { name, code, pimCode } }) => name && code && pimCode)
-      .map(({ fields: { description, name, code, pimCode }, sys: { id } }) => ({
-        __typename: "ContentfulAssetType",
-        id,
-        description: description ? description[`${MARKET_LOCALE}`] : null,
-        name: name[`${MARKET_LOCALE}`],
-        code: code[`${MARKET_LOCALE}`],
-        pimCode: pimCode[`${MARKET_LOCALE}`]
-      }));
-  }
-};
-
-const getProductDocumentNameMap = async (): Promise<
-  ProductDocumentNameMap | undefined
-> => {
-  const environment = await getSpaceEnvironment();
-
-  if (environment) {
-    const resources = await environment.getEntries({
-      content_type: "resources"
-    });
-    const productDocumentNameMap =
-      resources.items[0].fields["productDocumentNameMap"];
-    if (productDocumentNameMap) {
-      return productDocumentNameMap[`${MARKET_LOCALE}`];
+  if (totalAssetTypeCount > limit) {
+    while (foundSoFar < totalAssetTypeCount) {
+      const assetTypes = await client.getEntries<AssetType>(
+        generateQuery(foundSoFar)
+      );
+      if (assetTypes && assetTypes.items) {
+        assetTypesToReturn.concat(assetTypes.items);
+        foundSoFar = foundSoFar + assetTypes.items.length;
+      }
     }
-    return "Document name";
   }
+
+  logger.info({
+    message: `Total assetTypes retrieved: ${assetTypesToReturn.length}
+  `
+  });
+
+  const assetTypesResult = assetTypesToReturn
+    .filter(({ fields: { pimCode } }) => pimCode)
+    .map(({ fields: { name, code, pimCode } }) => ({
+      name,
+      code,
+      pimCode: pimCode!
+    }));
+
+  logger.info({
+    message: `assetTypes result returned : ${JSON.stringify(assetTypesResult)}
+  `
+  });
+  return assetTypesResult;
 };
+
+const getProductDocumentNameMap = async (
+  locale: string,
+  tag?: string
+): Promise<ProductDocumentNameMap> => {
+  const client = getContentfulClient();
+  const resources = await client.getEntries<Resources>({
+    content_type: "resources",
+    limit: 1,
+    locale,
+    ...(tag && { "metadata.tags.sys.id[all]": tag })
+  });
+  if (resources.items.length === 0) {
+    throw new Error("Unable to find resources.");
+  }
+  return resources.items[0].fields.productDocumentNameMap || "Document name";
+};
+
 export { getAssetTypes, getProductDocumentNameMap };

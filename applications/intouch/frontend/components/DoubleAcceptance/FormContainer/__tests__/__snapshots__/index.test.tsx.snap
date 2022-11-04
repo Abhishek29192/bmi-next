@@ -39,10 +39,10 @@ exports[`FormContainer render correctly 1`] = `
           <h4
             class="MuiTypography-root subtitle Typography MuiTypography-h4"
           >
-            warantyPeriod
+            warrantyPeriod
           </h4>
           <div>
-            10
+            10 years
           </div>
         </div>
         <div
@@ -111,7 +111,7 @@ exports[`FormContainer render correctly 1`] = `
                     <input
                       class="PrivateSwitchBase-input-4"
                       data-indeterminate="false"
-                      name="acceptance"
+                      name="acknowledge"
                       type="checkbox"
                       value=""
                     />

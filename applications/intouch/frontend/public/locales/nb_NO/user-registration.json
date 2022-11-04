@@ -1,13 +1,13 @@
 {
   "dialog": {
+    "title": "Fullfør registrering",
     "form": {
-      "agree_label": "Jeg er enig i BMI's",
-      "and": "og",
       "firstName": "Fornavn",
       "lastName": "Etternavn",
-      "privacy_policy": "Personvernerklæring",
-      "terms_condition": "Betingelser og vilkår"
-    },
-    "title": "Fullfør registrering"
+      "agree_label": "Jeg er enig i BMI's",
+      "terms_condition": "Betingelser og vilkår",
+      "and": "og",
+      "privacy_policy": "Personvernerklæring"
+    }
   }
 }

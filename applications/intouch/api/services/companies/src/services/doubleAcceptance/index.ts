@@ -18,23 +18,19 @@ const sendMessage = async (
   const {
     rows: [guarantee]
   } = await pgClient.query(
-    `SELECT market_id, building_owner_mail FROM guarantee g JOIN project p ON p.id = g.project_id JOIN account a ON a.id = g.requestor_account_id WHERE g.id = $1`,
+    `SELECT m.domain, p.building_owner_mail FROM guarantee g JOIN project p ON p.id = g.project_id JOIN company c ON c.id = p.company_id JOIN market m ON c.market_id = m.id WHERE g.id = $1`,
     [guaranteeId]
-  );
-  const { rows: markets } = await pgClient.query(
-    `SELECT * FROM market WHERE id = $1`,
-    [guarantee.market_id]
   );
 
   if (context.user?.market) {
-    context.user.market.domain = markets[0].domain;
+    context.user.market.domain = guarantee.domain;
   }
 
   await sendMessageWithTemplate(context, template, {
     email: guarantee.building_owner_mail,
     doubleAcceptanceLink: emailBody.tempToken
       ? `${protocol}://${getTargetDomain(
-          markets[0].domain
+          guarantee.domain
         )}.${FRONTEND_URL}/double-acceptance/${emailBody.tempToken}`
       : ""
   });
@@ -139,18 +135,24 @@ export const getDoubleAcceptanceByValidTempToken = async (
           temp_token,
           expiry_date,
           acceptance_date,
-          maximum_validity_years,
           language_code,
           coverage,
+          technology,
           id,
           signature,
-          acceptance,
-          technology
+          acceptance
         }
       ]
     } = await pgRootPool.query(
-      `SELECT d.*, p.maximum_validity_years, p.technology, g.language_code, g.coverage FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN system_member s ON g.system_bmi_ref = s.system_bmi_ref JOIN product p ON s.product_bmi_ref = p.bmi_ref WHERE d.temp_token = $1`,
+      `SELECT d.*, g.language_code, g.coverage, p.technology FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN project p ON g.project_id = p.id WHERE d.temp_token = $1`,
       [tempToken]
+    );
+
+    const {
+      rows: [{ maximum_validity_years }]
+    } = await pgRootPool.query(
+      `SELECT pt.maximum_validity_years FROM guarantee g JOIN product pt ON pt.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.maximum_validity_years FROM guarantee g JOIN system s ON g.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
+      [guarantee_id]
     );
 
     return {
@@ -243,21 +245,21 @@ export const releaseGuaranteePdf = async (
 
   try {
     const {
-      rows: [
-        {
-          status,
-          building_owner_mail,
-          file_storage_id,
-          product_name,
-          system_name,
-          coverage,
-          domain
-        }
-      ]
+      rows: [{ status, building_owner_mail, file_storage_id, coverage, domain }]
     } = await pgRootPool.query(
-      `SELECT g.*, p.building_owner_mail, pt.name as product_name, s.name as system_name, m.domain FROM guarantee g JOIN project p ON g.project_id = p.id JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref JOIN product pt ON sm.product_bmi_ref = pt.bmi_ref JOIN company c ON p.company_id = c.id JOIN market m ON c.market_id = m.id WHERE g.id = $1`,
+      `SELECT g.*, p.building_owner_mail, m.domain FROM guarantee g JOIN project p ON g.project_id = p.id JOIN company c ON p.company_id = c.id JOIN market m ON c.market_id = m.id WHERE g.id = $1`,
       [id]
     );
+
+    const {
+      rows: [{ system_name, product_name }]
+    } = await pgRootPool.query(
+      `SELECT g.system_bmi_ref as system_name, p.name as product_name FROM guarantee g JOIN product p ON p.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.name as system_name, g.product_bmi_ref as product_name FROM guarantee g JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
+      [id]
+    );
+
+    await pgRootPool.query(`SELECT FROM guarantee g `, []);
+
     const signedFileStorageUrl =
       await context.storageClient.getPrivateAssetSignedUrl(file_storage_id);
     const data = {

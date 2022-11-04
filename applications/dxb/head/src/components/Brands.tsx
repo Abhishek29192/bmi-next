@@ -43,6 +43,7 @@ const Brands = ({
             <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
               {brand.path ? (
                 <BrandIntroCard
+                  name={brand.brandLogo}
                   buttonComponent={(props: ButtonProps) => (
                     <GTMButton
                       gtm={{
@@ -75,6 +76,7 @@ const Brands = ({
                 />
               ) : (
                 <BrandIntroCard
+                  name={brand.brandLogo}
                   logoIcon={logoIconMap[brand.brandLogo]}
                   description={brand.subtitle ? brand.subtitle : undefined}
                 />

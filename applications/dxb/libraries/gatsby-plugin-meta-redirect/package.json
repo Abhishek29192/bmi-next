@@ -13,9 +13,5 @@
   "scripts": {
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
-  },
-  "jest": {
-    "verbose": true,
-    "testURL": "http://localhost/"
   }
 }

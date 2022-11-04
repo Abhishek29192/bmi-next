@@ -2,16 +2,16 @@
   "hero": {
     "cta": {
       "MERCHANDISE": "Saber mais",
-      "PROJECT": "criar projeto",
-      "TRAINING": "Academia BMI"
+      "TRAINING": "Academia BMI",
+      "PROJECT": "criar projeto"
     }
   },
-  "linkedin": {
-    "ctaLabel": "Leia mais no LinkedIn"
-  },
   "partnerBrands": {
-    "ctaLabel": "ler mais",
+    "title": "Marcas Associadas BMI",
     "description": "A BMI tem o prazer de oferecer aos membros RoofPro descontos e promoções especiais de nossas marcas parceiras. Essas organizações fornecem aos membros da RooPro acesso a produtos e serviços complementares em condições preferenciais, incluindo drones, câmeras termográficas, soluções de gerenciamento de despesas, aluguer de veículos e soluções de mobilidade.",
-    "title": "Marcas Associadas BMI"
+    "ctaLabel": "ler mais"
+  },
+  "linkedin": {
+    "ctaLabel": "ler mais"
   }
 }

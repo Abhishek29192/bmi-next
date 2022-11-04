@@ -58,12 +58,12 @@ describe("DoubleAcceptance", () => {
   const resolveInfo = {};
   const OLD_ENV = process.env;
 
-  beforeAll(() => {
+  beforeEach(() => {
     jest.clearAllMocks();
     process.env = { ...OLD_ENV };
   });
 
-  afterAll(() => {
+  afterEach(() => {
     process.env = OLD_ENV;
   });
 
@@ -80,10 +80,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       const result = await createDoubleAcceptance(
@@ -125,10 +124,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       await createDoubleAcceptance(
@@ -140,7 +138,7 @@ describe("DoubleAcceptance", () => {
       );
 
       expect(sendMessageWithTemplateSpy).toHaveBeenCalledWith([
-        context,
+        { ...context, user: { market: { domain } } },
         "DOUBLE_ACCEPTANCE",
         {
           email: "building_owner_mail",
@@ -161,10 +159,9 @@ describe("DoubleAcceptance", () => {
       mockQuery
         .mockImplementationOnce(() => {})
         .mockImplementationOnce(() => ({
-          rows: [{ market_id: 1, building_owner_mail: "building_owner_mail" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ domain }]
+          rows: [
+            { market_id: 1, building_owner_mail: "building_owner_mail", domain }
+          ]
         }));
       resolve.mockResolvedValueOnce(resolvedData);
       const result = await createDoubleAcceptance(
@@ -300,29 +297,32 @@ describe("DoubleAcceptance", () => {
 
   describe("getDoubleAcceptanceByValidTempToken", () => {
     const input = {
-      id: 1,
-      patch: {
-        signature: "signature",
-        acceptance: "acceptance",
-        acceptanceDate: "acceptanceDate"
-      }
+      tempToken: "temp_token"
     };
 
     it("normal case", async () => {
       const guarantee = {
         guarantee_id: 1,
-        temp_token: "temp_token",
+        temp_token: input.tempToken,
         expiry_date: new Date(),
         acceptance_date: new Date(),
-        maximum_validity_years: 10,
         language_code: "en",
+        maximum_validity_years: 10,
         coverage: "",
-        id: 1,
+        id: 2,
         signature: "signature",
         acceptance: true,
         technology: "PITCH"
       };
-      mockRootQuery.mockReturnValue({ rows: [guarantee] });
+      mockRootQuery
+        .mockReturnValueOnce({ rows: [guarantee] })
+        .mockReturnValueOnce({
+          rows: [
+            {
+              maximum_validity_years: guarantee.maximum_validity_years
+            }
+          ]
+        });
       const result = await getDoubleAcceptanceByValidTempToken(
         resolve,
         source,
@@ -344,6 +344,16 @@ describe("DoubleAcceptance", () => {
         technology: guarantee.technology,
         coverage: guarantee.coverage
       });
+      expect(mockRootQuery).toHaveBeenNthCalledWith(
+        1,
+        `SELECT d.*, g.language_code, g.coverage, p.technology FROM double_acceptance d JOIN guarantee g ON g.id = d.guarantee_id JOIN project p ON g.project_id = p.id WHERE d.temp_token = $1`,
+        [guarantee.temp_token]
+      );
+      expect(mockRootQuery).toHaveBeenNthCalledWith(
+        2,
+        `SELECT pt.maximum_validity_years FROM guarantee g JOIN product pt ON pt.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.maximum_validity_years FROM guarantee g JOIN system s ON g.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
+        [guarantee.guarantee_id]
+      );
     });
 
     it("throw error when insert into db", async () => {
@@ -487,7 +497,16 @@ describe("DoubleAcceptance", () => {
         fileStorageId: guarantee.file_storage_id,
         signedFileStorageUrl: "signedFileStorageUrl"
       };
-      mockRootQuery.mockReturnValueOnce({ rows: [guarantee] });
+      mockRootQuery
+        .mockReturnValueOnce({ rows: [guarantee] })
+        .mockReturnValueOnce({
+          rows: [
+            {
+              product_name: data.productByProductBmiRef.name,
+              system_name: data.systemBySystemBmiRef.name
+            }
+          ]
+        });
       mockGetPrivateAssetSignedUrl.mockReturnValueOnce("signedFileStorageUrl");
       publishSpy.mockReturnValueOnce(1);
       const result = await releaseGuaranteePdf(

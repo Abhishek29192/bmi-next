@@ -28,36 +28,31 @@ import React, {
   useRef,
   useState
 } from "react";
+import { useConfig } from "../../contexts/ConfigProvider";
+import { devLog } from "../../utils/devLog";
+import { queryElasticSearch } from "../../utils/elasticSearch";
 import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
+import { getProductsQuery } from "./helpers/esQuery";
+import { prepareProducts } from "./helpers/products";
 import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewer from "./HouseViewer";
-import HouseViewerOld from "./HouseViewerOld";
 import styles from "./styles/Visualiser.module.scss";
 import TileViewer from "./TileViewer";
-import { Colour, HouseType, Material, Siding, Tile } from "./Types";
-
-const MATERIAL_NAME_MAP: {
-  [material in Material]: string;
-} = {
-  "1": microCopy.materials.material1,
-  "2": microCopy.materials.material2,
-  "3": microCopy.materials.material3
-};
+import { HouseType, Siding, Category, PIMTile } from "./Types";
 
 export type Parameters = {
-  tileId?: number;
+  tileId?: string | number;
   colourId?: number;
   sidingId?: number;
   viewMode?: "tile" | "roof";
-  tiles: Tile[];
   sidings: Siding[];
 };
 
 type Props = {
   contentSource: string;
   open: boolean;
-  onClose: () => any;
+  onClose: () => void;
   onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   shareWidget?: React.ReactNode;
   houseTypes: HouseType[] | null;
@@ -70,20 +65,13 @@ type Props = {
   ) => void;
 } & Parameters;
 
-type TileProps = Omit<Tile, "colours"> & { colour: Colour };
-
 type TileSectorDialogProps = {
-  activeTile: Tile;
-  activeColour: Colour;
+  activeTile: PIMTile;
   contentSource: string;
   open: boolean;
   onCloseClick: (isTileSelectorOpen: boolean) => void;
-  onButtonClick: (data: {
-    tileId: number;
-    colourId: number;
-    label: string;
-  }) => void;
-  tiles: Tile[];
+  onButtonClick: (data: { tileId: string; label: string }) => void;
+  tiles: PIMTile[];
 };
 
 const Actions = ({
@@ -184,9 +172,9 @@ const SelectionOptions = ({
 }: {
   contentSource: string;
   defaultValue: string;
-  products: TileProps[];
+  products: PIMTile[];
   title: string;
-  onClick: (data: { tileId: number; colourId: number; label: string }) => any;
+  onClick: (data: { tileId: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
 
@@ -196,33 +184,28 @@ const SelectionOptions = ({
         {title}
       </Typography>
       <Grid container spacing={2}>
-        {products.map(({ colour, id, name }) => (
-          <Grid key={`${id}-${colour.id}`} item xs={6} md={4} lg={2}>
+        {products.map((tile) => (
+          <Grid key={tile.code} item xs={6} md={4} lg={2}>
             <ToggleCard
               component="button"
-              title={name}
-              imageSource={getRef(colour.previewRef, {
-                size: "128",
-                contentSource
-              })}
-              onClick={() =>
+              title={tile.name}
+              imageSource={tile.mainImage}
+              onClick={() => {
                 onClick({
-                  tileId: id,
-                  colourId: colour.id,
-                  label: `${name} + ${colour.name}`
-                })
-              }
+                  tileId: tile.code,
+                  label: `${tile.name} + ${tile.colour}`
+                });
+              }}
               className={classnames(
-                defaultValue === `${id}-${colour.id}` &&
-                  styles["active-selection-option"]
+                defaultValue === tile.code && styles["active-selection-option"]
               )}
               aria-label={
-                defaultValue === `${id}-${colour.id}`
+                defaultValue === tile.code
                   ? getMicroCopy(microCopy.selectionOptions.default)
                   : undefined
               }
             >
-              <ToggleCard.Paragraph>{colour.name}</ToggleCard.Paragraph>
+              <ToggleCard.Paragraph>{tile.colour}</ToggleCard.Paragraph>
             </ToggleCard>
           </Grid>
         ))}
@@ -233,7 +216,6 @@ const SelectionOptions = ({
 
 const TileSectorDialog = ({
   activeTile,
-  activeColour,
   contentSource,
   open,
   onCloseClick,
@@ -241,25 +223,8 @@ const TileSectorDialog = ({
   tiles
 }: TileSectorDialogProps) => {
   const { getMicroCopy } = useMicroCopy();
-  const productProps = useMemo(
-    () =>
-      tiles.flatMap(({ colours, ...rest }) =>
-        colours.map((colour) => ({ ...rest, colour }))
-      ),
-    [tiles]
-  );
 
-  const productPropsGroupedByMaterial = productProps.reduce<{
-    [key: string]: any[];
-  }>((grouped, props) => {
-    // eslint-disable-next-line react/prop-types
-    (grouped[props["material"]] || (grouped[props["material"]] = [])).push(
-      props
-    );
-    return grouped;
-  }, {});
-
-  const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
+  const categories = Object.values(Category);
 
   return (
     <ContainerDialog
@@ -288,17 +253,24 @@ const TileSectorDialog = ({
         {getMicroCopy(microCopy.titleSelector.description)}
       </Typography>
 
-      {Object.keys(productPropsGroupedByMaterial).map((key) => (
-        <SelectionOptions
-          contentSource={contentSource}
-          defaultValue={defaultTileIdentifier}
-          key={`material-group-${key}`}
-          title={getMicroCopy(MATERIAL_NAME_MAP[key as Material])}
-          // eslint-disable-next-line security/detect-object-injection
-          products={productPropsGroupedByMaterial[key]}
-          onClick={onButtonClick}
-        />
-      ))}
+      {categories.map((category) => {
+        const products = tiles.filter((tile) => tile.category === category);
+
+        if (!products.length) {
+          return;
+        }
+
+        return (
+          <SelectionOptions
+            contentSource={contentSource}
+            defaultValue={activeTile.code}
+            key={`material-group-${category}`}
+            title={getMicroCopy(`microCopy.materials.${category}`)}
+            products={products}
+            onClick={onButtonClick}
+          />
+        );
+      })}
     </ContainerDialog>
   );
 };
@@ -435,20 +407,15 @@ const SharePopover = ({
 
 const viewerComponentMap = {
   tile: TileViewer,
-  roof:
-    process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
-      ? HouseViewer
-      : HouseViewerOld
+  roof: HouseViewer
 };
 
 const Visualiser = ({
   contentSource,
   open,
   tileId,
-  colourId,
   sidingId,
   viewMode,
-  tiles,
   sidings,
   shareWidget,
   onClose,
@@ -460,9 +427,13 @@ const Visualiser = ({
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const {
+    config: { esIndexNameProduct }
+  } = useConfig();
   const header = useRef<HTMLDivElement>(null);
   const shareAnchor = useRef<HTMLDivElement>(null);
-  const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
+  const [state, _setState] = useState({ tileId, sidingId, viewMode });
+  const [tiles, setTiles] = useState<PIMTile[]>([]);
   const { getMicroCopy } = useMicroCopy();
 
   const stateRef = React.useRef(state);
@@ -476,16 +447,34 @@ const Visualiser = ({
     [state]
   );
 
+  const fetchVisualiserData = async () => {
+    setIsLoading(true);
+    try {
+      const res = await queryElasticSearch(
+        getProductsQuery(),
+        esIndexNameProduct
+      );
+      const hits = res.hits.hits.map((hit) => hit._source);
+      setTiles(prepareProducts(hits));
+    } catch (err) {
+      devLog("Failed to fetch data", err);
+    }
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    setState({ tileId, colourId, sidingId, viewMode });
-  }, [tileId, colourId, sidingId, viewMode]);
+    fetchVisualiserData();
+  }, []);
+
+  useEffect(() => {
+    setState({ tileId, sidingId, viewMode });
+  }, [tileId, sidingId, viewMode]);
 
   useEffect(() => {
     if (onChange) {
-      const { tileId, colourId, sidingId, viewMode } = state;
+      const { tileId, sidingId, viewMode } = state;
 
       onChange({
-        colourId,
         sidingId,
         tileId,
         viewMode,
@@ -500,10 +489,9 @@ const Visualiser = ({
 
   const handleOnClick = useCallback(
     ({ type, label, data }) => {
-      const { tileId, colourId, sidingId, viewMode } = stateRef.current;
+      const { tileId, sidingId, viewMode } = stateRef.current;
 
       onClick({
-        colourId,
         sidingId,
         tileId,
         viewMode,
@@ -516,19 +504,13 @@ const Visualiser = ({
   );
 
   const activeTile = useMemo(() => {
+    if (!tiles.length) return;
     return (
-      tiles.find(({ id }) => id === state.tileId) ||
-      tiles.find(({ id }) => id === tileId) ||
+      tiles.find(({ code }) => code === state.tileId) ||
+      tiles.find(({ code }) => code === tileId) ||
       tiles[0]
     );
   }, [tiles, state.tileId, tileId]);
-
-  const activeColour = useMemo(() => {
-    return (
-      activeTile.colours.find(({ id }) => id === state.colourId) ||
-      activeTile.colours[0]
-    );
-  }, [activeTile, state.colourId]);
 
   const activeSiding = useMemo(
     () =>
@@ -540,7 +522,6 @@ const Visualiser = ({
 
   const viewerProps = {
     tile: activeTile,
-    colour: activeColour,
     options: { contentSource },
     siding: activeSiding,
     setIsLoading: (isLoading: boolean) => setIsLoading(isLoading),
@@ -590,12 +571,12 @@ const Visualiser = ({
               component="h3"
               className={styles["details-title"]}
             >
-              {activeTile.name}
+              {activeTile?.name || ""}
             </Typography>
-            <Typography>{activeColour.name}</Typography>
+            <Typography>{activeTile?.colour || ""}</Typography>
           </div>
           <div className={styles["details-actions"]} ref={shareAnchor}>
-            {activeColour.variantCode && (
+            {activeTile && (
               <Button
                 variant="outlined"
                 endIcon={<ArrowForwardIcon />}
@@ -603,7 +584,7 @@ const Visualiser = ({
                   handleOnClick({
                     type: "product-link",
                     label: getMicroCopy(microCopy.readMore),
-                    data: { variantCode: activeColour.variantCode }
+                    data: { variantCode: activeTile.code }
                   });
                   handleOnClose();
                 }}
@@ -618,17 +599,16 @@ const Visualiser = ({
             )}
           </div>
         </div>
-        {viewMode && <Viewer {...viewerProps} />}
+        {viewMode && activeTile && <Viewer {...viewerProps} />}
         <TileSectorDialog
           open={isTileSelectorOpen}
           onCloseClick={setIsTileSelectorOpen}
           activeTile={activeTile}
-          activeColour={activeColour}
           tiles={tiles}
           contentSource={contentSource}
-          onButtonClick={({ tileId, colourId, label }) => {
+          onButtonClick={({ tileId, label }) => {
             setIsTileSelectorOpen(false);
-            setState({ tileId, colourId });
+            setState({ tileId });
             handleOnClick({ type: "product-selector", label });
           }}
         />

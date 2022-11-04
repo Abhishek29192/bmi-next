@@ -9,6 +9,7 @@ import Typography from "../typography/Typography";
 import styles from "./BrandIntroCard.module.scss";
 
 type Props = {
+  name: string;
   logoIcon: SVGImport;
   buttonComponent?: React.ComponentType<any>; // TODO
   description?: React.ReactNode;
@@ -18,6 +19,7 @@ type Props = {
 };
 
 const BrandIntroCard = ({
+  name,
   logoIcon,
   buttonComponent: Button = DefaultButton,
   description,
@@ -36,6 +38,7 @@ const BrandIntroCard = ({
         )}
         action={action}
         variant="text"
+        aria-label={name}
         disableRipple
       >
         <BrandLogo

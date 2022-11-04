@@ -47,7 +47,8 @@ describe("createSchemaOrgDataForPdpPage", () => {
       oldPath: "/old-path",
       path: "/p/some-product-path",
       relatedProducts: [],
-      productDocuments: []
+      productDocuments: [],
+      isVisualiserAvailable: null
     };
 
     const result = createSchemaOrgDataForPdpPage(product, "no");

@@ -1,13 +1,13 @@
-import React, { useContext, useState, useCallback } from "react";
-import { graphql, Link } from "gatsby";
-import { Inline } from "@contentful/rich-text-types";
 import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import { Inline } from "@contentful/rich-text-types";
+import { graphql, Link } from "gatsby";
+import React, { useCallback, useContext, useState } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { getClickableActionFromUrl, getLinkURL, renderDialog } from "./Link";
+import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { useSiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
-import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
 const availableTypenames = [
   "ContentfulAsset",
@@ -75,6 +75,11 @@ const InlineHyperlink = ({ node, children, gtmLabel }: Props) => {
             label,
             action: url
           }}
+          {...(type === "Visualiser" ||
+          type === "Calculator" ||
+          type === "Dialog"
+            ? { component: "button" }
+            : {})}
         >
           {children}
         </GTMAnchorLink>

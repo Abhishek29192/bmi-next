@@ -34,7 +34,7 @@ export default class GatewayClient {
     return new GatewayClient(bearer, market);
   }
 
-  async updateGuaranteeFileStorage(id: number, fileStorageId: string) {
+  public async updateGuaranteeFileStorage(id: number, fileStorageId: string) {
     const payload = {
       query: `mutation updateGuaranteeFileStorage($id: Int!, $fileStorageId: String!) {
         updateGuarantee(
@@ -59,7 +59,7 @@ export default class GatewayClient {
     );
   }
 
-  async createDoubleAcceptance(guaranteeId: number) {
+  public async createDoubleAcceptance(guaranteeId: number) {
     const expiryDate = new Date(
       new Date().setDate(
         new Date().getDate() + parseInt(DOUBLE_ACCEPTANCE_EXPIRY_AFTER)
@@ -92,11 +92,11 @@ export default class GatewayClient {
     );
   }
 
-  async updateGuaranteeStatus(id) {
+  public async updateGuaranteeStatus(id) {
     const payload = {
-      query: `mutation updatePendingGuaranteeStatus($id: Int!, $fileStorageId: String!) {
+      query: `mutation updateGuaranteeStatus($id: Int!) {
         updateGuarantee(
-          input: { id: $id, patch: { status: "ISSUED" } }
+          input: { id: $id, patch: { status: ISSUED }, guaranteeEventType: BO_ACCEPTED_SOLUTION}
         ) {
           guarantee {
             id

@@ -40,7 +40,7 @@ const SelectProtrusion = ({
     <FieldContainer className={styles["fieldsContainer"]}>
       <Grid container justifyContent="center">
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} item xs={6} lg={2}>
+          <Grid key={type} item xs={6} lg={2} className={styles["card"]}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}

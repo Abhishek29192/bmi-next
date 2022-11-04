@@ -22,6 +22,11 @@ import {
 } from "../../types/v2";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results, { replaceImageURLWithImage, ResultProps } from "../_Results";
+import { useIsMobileDevice } from "../../../../utils/useIsMobileDevice";
+
+jest.mock("../../../../utils/useIsMobileDevice", () => ({
+  useIsMobileDevice: jest.fn().mockReturnValue(false)
+}));
 
 beforeAll(() => {
   mockConsole();
@@ -720,6 +725,19 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     waitFor(() => expect(screen.getByText(title)).toBeInTheDocument());
+  });
+
+  it("opens report correctly for mobile devices", async () => {
+    (useIsMobileDevice as jest.MockedFn<() => boolean>).mockReturnValue(true);
+
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} isHubSpotFormAvailable={false} />
+      </MicroCopy.Provider>
+    );
+
+    fireEvent.click(screen.getByText("MC: results.downloadPdfLabel"));
+    await waitFor(() => expect(openPdfMock).toBeCalledWith("", window));
   });
 
   it("renders correctly without ventilationHood and verge tile", () => {

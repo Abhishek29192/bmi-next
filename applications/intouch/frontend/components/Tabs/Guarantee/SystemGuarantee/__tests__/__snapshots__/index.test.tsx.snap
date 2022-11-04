@@ -19,31 +19,6 @@ exports[`SystemGuarantee Component renders correctly 1`] = `
         class="MuiTypography-root Typography MuiTypography-subtitle2"
       />
     </div>
-    <div
-      class="body__footer"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        rel="noopener noreferrer"
-        tabindex="-1"
-        target="_blank"
-        type="button"
-      >
-        <span
-          class="MuiButton-label buttonStyles-label-4"
-        >
-          <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
-          >
-            <svg
-              class="body__logo"
-            />
-          </span>
-          generatingPdf
-        </span>
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -72,17 +47,17 @@ exports[`SystemGuarantee Component renders correctly with download button 1`] = 
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
         href="signed-url"
         rel="noopener noreferrer"
         tabindex="0"
         target="_blank"
       >
         <span
-          class="MuiButton-label buttonStyles-label-24"
+          class="MuiButton-label buttonStyles-label-4"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
           >
             <svg
               class="body__logo"

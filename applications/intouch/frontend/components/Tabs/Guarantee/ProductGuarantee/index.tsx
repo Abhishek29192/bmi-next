@@ -15,6 +15,7 @@ export const ProductGuarantee = ({ guarantees }: ProductGuaranteesProps) => {
           key={guarantee.id}
           product={guarantee.productByProductBmiRef}
           guaranteeFileUrl={guarantee.signedFileStorageUrl}
+          guaranteeStatus={guarantee.status}
         />
       ))}
     </div>

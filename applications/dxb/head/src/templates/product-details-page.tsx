@@ -130,7 +130,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   ),
                   variantCode: pageContext.productCode,
                   isRecaptchaShown:
-                    Object.keys(product.keyAssetDocuments).length > 0
+                    Object.keys(product.keyAssetDocuments).length > 0,
+                  isVisualiserAvailable: product.isVisualiserAvailable
                 }}
               >
                 <SampleOrderSection
@@ -285,6 +286,7 @@ export const pageQuery = graphql`
         ...PIMImageFragment
       }
       isSampleOrderAllowed
+      isVisualiserAvailable
       materials
       measurements {
         ...MeasurementsFragment

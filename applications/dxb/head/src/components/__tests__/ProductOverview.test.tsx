@@ -47,7 +47,9 @@ describe("ProductOverview component", () => {
     ],
     attributes: null,
     isRecaptchaShown: true,
-    variantCode: "variant1"
+    variantCode: "variant1",
+    isVisualiserAvailable: false,
+    color: "dark grey"
   };
 
   it("renders with default image if there are no images, videos nor visualiser media", () => {
@@ -83,5 +85,22 @@ describe("ProductOverview component", () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders with visualiser media", async () => {
+    const { container } = render(
+      <ProductOverview
+        data={{
+          ...data,
+          isVisualiserAvailable: true,
+          variantCode: "133000634_Zanda_Arktis_main_tile_antique_red"
+        }}
+      >
+        <div>block</div>
+        <p>text</p>
+      </ProductOverview>
+    );
+
+    expect(container.querySelector("svg[name='Cube']")).toBeInTheDocument();
   });
 });

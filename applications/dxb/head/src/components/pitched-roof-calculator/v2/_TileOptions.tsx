@@ -15,6 +15,7 @@ import {
   CardRadioGroup
 } from "./subcomponents/card-group/CardGroup";
 import FieldContainer from "./subcomponents/_FieldContainer";
+import styles from "./_TileOptions.module.scss";
 
 type VergeOptionsProps = {
   selected?: string;
@@ -59,6 +60,7 @@ const VergeOptions = ({ selected, verge }: VergeOptionsProps) => {
         <CardRadioGroup.Item
           value="none"
           title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL)}
+          className={styles["noneOption"]}
           onClick={() => {
             pushEvent({
               event: "dxb.button_click",
@@ -165,6 +167,7 @@ const VentilationHoodOptions = ({
         noneLabel={getMicroCopy(
           microCopy.TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL
         )}
+        className={styles["ventilationHoodSelection"]}
       >
         {options.map(({ name, mainImage, externalProductCode }) => (
           <CardCheckboxGroup.Item
@@ -211,7 +214,7 @@ const TileOptions = ({ variant, selections }: TileOptionsProps) => {
       : selections?.ventilationHoods?.map((v) => v.externalProductCode);
 
   return (
-    <div>
+    <div className={styles["TileOptions"]}>
       <VergeOptions selected={selectedVerge} verge={variant.vergeOption} />
       <RidgeOptions
         selected={selections?.ridge?.externalProductCode}

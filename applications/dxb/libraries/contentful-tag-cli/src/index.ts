@@ -2,9 +2,9 @@
 import {
   createTag,
   publishAll,
-  sleep,
   tagAndUpdate
 } from "@bmi/cms-consolidation-utility";
+import { waitFor } from "@bmi/utils";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 
@@ -26,7 +26,7 @@ export async function main() {
   await createTag(environment, process.env.DXB_MARKET!);
 
   console.log("Sleeping for 5000 milliseconds");
-  await sleep(5000);
+  await waitFor(5000);
 
   await tagAndUpdate(environment);
   await publishAll(environment);

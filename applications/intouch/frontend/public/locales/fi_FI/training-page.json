@@ -1,29 +1,29 @@
 {
-  "Description": "Kuvaus",
-  "My courses": "Minun kurssini",
-  "See training": "Katso koulutukset",
   "Training": "Koulutus",
-  "completed": "Valmistunut",
+  "See training": "Katso koulutukset",
+  "My courses": "Minun kurssini",
+  "in_progress": "Käynnissä",
   "enrolled": "Ilmoittautunut",
+  "completed": "Valmistunut",
+  "waiting": "Odottaa",
+  "viewTraining": "Katso koulutukset",
+  "Description": "Kuvaus",
+  "search": {
+    "inputLabel": "Hae koulutus"
+  },
   "filter": {
     "labels": {
       "all": "Kaikki"
     }
-  },
-  "in_progress": "Käynnissä",
-  "search": {
-    "inputLabel": "Hae koulutus"
-  },
-  "technology": {
-    "FLAT": "Tasakatto",
-    "OTHER": "Muu",
-    "PITCHED": "Harjakatto"
   },
   "type": {
     "classroom": "Luokkahuone",
     "elearning": "E-Learning",
     "webinar": "Webseminaari"
   },
-  "viewTraining": "Katso koulutukset",
-  "waiting": "Odottaa"
+  "technology": {
+    "PITCHED": "Harjakatto",
+    "FLAT": "Tasakatto",
+    "OTHER": "Muu"
+  }
 }

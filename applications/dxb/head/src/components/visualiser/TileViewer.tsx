@@ -12,7 +12,6 @@ import {
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { maxDistanceTile, minDistanceTile } from "./constants/visualiser";
-import getRef from "./GetRef";
 import modelCache from "./ModelCache";
 import textureCache from "./TextureCache";
 import Viewer, { Props, State } from "./Viewer";
@@ -31,45 +30,17 @@ export default class TileViewer extends Viewer<Props, State> {
   }
 
   async loadModel(props: Props) {
-    if (
-      !this.props ||
-      !this.tile ||
-      props.tile !== this.props.tile ||
-      props.colour !== this.props.colour
-    ) {
-      const { contentSource } = props.options;
-
-      const modelUrl = getRef(props.tile.highDetailMeshRef, {
-        contentSource
-      }); // The url to the HD mesh:
-
-      const normalRef = props.colour.normalMapOverrideRef
-        ? props.colour.normalMapOverrideRef
-        : props.tile.normalMapRef;
-      const normalUrl = getRef(normalRef, {
-        size: "original",
-        contentSource
-      });
-      const metallicRef = props.colour.metallicRoughnessMapOverrideRef
-        ? props.colour.metallicRoughnessMapOverrideRef
-        : props.tile.metallicRoughnessMapRef;
-      const metalicUrl = getRef(metallicRef, {
-        size: "original",
-        contentSource
-      });
-      const diffuseUrl = getRef(props.colour.diffuseMapRef, {
-        size: "original",
-        contentSource
-      });
-
-      if (typeof diffuseUrl === "string") {
-        this.diffuseImage = await textureCache(diffuseUrl);
+    if (!this.props || !this.tile || props.tile !== this.props.tile) {
+      if (props.tile.diffuseMapRef) {
+        this.diffuseImage = await textureCache(props.tile.diffuseMapRef);
       }
-      if (typeof metalicUrl === "string") {
-        this.metalicImage = await textureCache(metalicUrl);
+      if (props.tile.metallicRoughnessMapRef) {
+        this.metalicImage = await textureCache(
+          props.tile.metallicRoughnessMapRef
+        );
       }
-      if (typeof normalUrl === "string") {
-        this.normalImage = await textureCache(normalUrl);
+      if (props.tile.normalMapRef) {
+        this.normalImage = await textureCache(props.tile.normalMapRef);
       }
 
       if (this.tileMaterial) {
@@ -82,8 +53,8 @@ export default class TileViewer extends Viewer<Props, State> {
 
       let gltf: GLTF | undefined;
       // Load it:
-      if (typeof modelUrl === "string") {
-        gltf = await modelCache(modelUrl);
+      if (typeof props.tile.highDetailMeshRef === "string") {
+        gltf = await modelCache(props.tile.highDetailMeshRef);
       }
       if (this.tile) {
         this.scene?.remove(this.tile.scene);
@@ -103,7 +74,7 @@ export default class TileViewer extends Viewer<Props, State> {
 
       // Create roof tile material
       this.tileMaterial = new MeshStandardMaterial();
-      this.tileMaterial.name = this.props.colour.name;
+      this.tileMaterial.name = this.props.tile.colour;
       if (this.diffuseImage) {
         this.tileMaterial.map = this.diffuseImage;
       }
