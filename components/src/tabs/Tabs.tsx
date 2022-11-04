@@ -75,12 +75,14 @@ const TabPanel = ({
 }: TabPanelProps) => {
   const formattedIndex =
     typeof index === "string" ? index.replace(/ /g, "-") : index;
+  const formattedvalue =
+    typeof value === "string" ? value.replace(/ /g, "-") : value;
   return (
     <Grid
       item
       className={classnames(styles["TabPanel"], className)}
       aria-labelledby={`tab-${formattedIndex}`}
-      hidden={value !== formattedIndex}
+      hidden={formattedvalue !== formattedIndex}
       id={`tabpanel-${formattedIndex}`}
       key={`tabpanel-${formattedIndex}`}
       role="tabpanel"
