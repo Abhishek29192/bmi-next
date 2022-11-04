@@ -11,11 +11,11 @@ const getGatsbyHost = (
     case "qa":
       return "https://dxbqa.gatsbyjs.io";
     case "preprod":
-      return `https://bmidxb${marketOptions.name}preprod.gatsbyjs.io`;
+      return `https://bmidxb${marketOptions.gatsbySiteName}preprod.gatsbyjs.io`;
     case "prod":
-      return `https://bmidxb${marketOptions.name}prod.gatsbyjs.io`;
+      return `https://bmidxb${marketOptions.gatsbySiteName}prod.gatsbyjs.io`;
     case "prodPreview":
-      return `https://preview-bmidxb${marketOptions.name}prod.gtsb.io`;
+      return `https://preview-bmidxb${marketOptions.gatsbySiteName}prod.gtsb.io`;
   }
 };
 

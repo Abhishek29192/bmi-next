@@ -12,7 +12,7 @@
     "dxb-update-mc:publish": "node ./dist/contentful-migrate/src/cma/update-mc.js --publish",
     "down": "node ./dist/contentful-migrate/src/down.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prod": "node ./dist/contentful-migrate/src/index.js",
+    "start": "node ./dist/contentful-migrate/src/index.js",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "up": "node ./dist/contentful-migrate/src/up.js"
   },
