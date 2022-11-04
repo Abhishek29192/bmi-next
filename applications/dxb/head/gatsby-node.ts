@@ -285,7 +285,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   const redirects = await getRedirects(
-    `${__dirname}/${redirectsFileName}`,
+    `./${redirectsFileName}`,
     contentfulRedirectsFileUrl
   );
 
