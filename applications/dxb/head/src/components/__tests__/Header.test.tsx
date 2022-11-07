@@ -238,7 +238,15 @@ const sampleBasketLinkInfo: PageInfoData = {
   featuredVideo: null,
   date: null,
   tags: null,
-  sections: [{ title: "Basket title" }]
+  sections: [
+    {
+      title: "Basket title",
+      __typename: null,
+      text: null,
+      link: null,
+      postItCard: null
+    }
+  ]
 };
 
 const sampleBasketProducts: any = {

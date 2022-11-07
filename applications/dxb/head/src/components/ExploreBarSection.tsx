@@ -1,5 +1,4 @@
-import { ExploreBar } from "@bmi/components";
-import { Section } from "@bmi/components";
+import { ExploreBar, Section } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";
@@ -10,6 +9,7 @@ export type Data = {
   __typename: "ContentfulNavigation";
   label: string | null;
   links: LinkData[];
+  title?: string;
 };
 
 const ExploreBarSection = ({ data }: { data: Data }) => {
