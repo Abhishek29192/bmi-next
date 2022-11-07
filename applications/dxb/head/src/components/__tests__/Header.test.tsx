@@ -240,11 +240,7 @@ const sampleBasketLinkInfo: PageInfoData = {
   tags: null,
   sections: [
     {
-      title: "Basket title",
-      __typename: null,
-      text: null,
-      link: null,
-      postItCard: null
+      title: "Basket title"
     }
   ]
 };

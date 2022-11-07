@@ -9,7 +9,6 @@ export type Data = {
   __typename: "ContentfulNavigation";
   label: string | null;
   links: LinkData[];
-  title?: string;
 };
 
 const ExploreBarSection = ({ data }: { data: Data }) => {

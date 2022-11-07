@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
 import { Data as ImageData } from "./Image";
-import { Data as SectionData } from "./Sections";
+import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
 
@@ -31,7 +31,17 @@ export type Data = {
   featuredVideo: ContentfulVideoData | null;
   heroType?: string | null;
   cta?: LinkData | null;
-  sections?: Partial<SectionData> | null;
+  sections?:
+    | Omit<
+        SampleBasketSectionData,
+        | "__typename"
+        | "description"
+        | "checkoutFormSection"
+        | "emptyBasketMessage"
+        | "browseProductsCTALabel"
+        | "browseProductsCTA"
+      >[]
+    | null; // get only title from SampleBasketSectionData
 };
 
 export const query = graphql`
