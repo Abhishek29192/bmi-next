@@ -11,10 +11,10 @@ import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import Image from "../components/Image";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -268,6 +268,7 @@ const Header = ({
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           SampleBasketDialog={(props: () => void) => (
             <SampleBasketDialog
+              title={sampleBasketLink?.sections?.[0]?.title}
               maximumSamples={maximumSamples}
               basketAction={basketCta?.action}
               {...props}

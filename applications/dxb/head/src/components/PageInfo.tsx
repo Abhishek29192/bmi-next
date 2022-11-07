@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
+import { Data as ImageData } from "./Image";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
-import { Data as ImageData } from "./Image";
 
 export type ImageWithThumbnail = ImageData & {
   thumbnail: {
@@ -30,6 +30,7 @@ export type Data = {
   featuredVideo: ContentfulVideoData | null;
   heroType?: string | null;
   cta?: LinkData | null;
+  sections?: { title: string }[] | null;
 };
 
 export const query = graphql`

@@ -6,7 +6,6 @@ import {
 } from "@material-ui/icons";
 import classnames from "classnames";
 import { ClickableAction } from "components/src/anchor-link";
-import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -14,17 +13,16 @@ import {
   Sample,
   useBasketContext
 } from "../contexts/SampleBasketContext";
-import { Data } from "./SampleBasketBase";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SampleBasketDialog.module.scss";
 
-const PureSampleBasketDialog = ({
-  data,
+const SampleBasketDialog = ({
+  title,
   basketAction,
   maximumSamples,
   toggleCart
 }: {
-  data?: Data;
+  title?: string;
   basketAction?: ClickableAction;
   maximumSamples?: number;
   toggleCart?: () => void;
@@ -44,7 +42,7 @@ const PureSampleBasketDialog = ({
     });
   };
 
-  return data && productsInBasket.length > 0 ? (
+  return title && productsInBasket.length > 0 ? (
     <div className={styles["cart-drawer"]}>
       <div
         className={classnames(styles["cart-drawer--pad"], styles["pad-b-24"])}
@@ -58,7 +56,7 @@ const PureSampleBasketDialog = ({
           <Icon source={Close} />
         </Button>
         <Typography variant="h3" hasUnderline>
-          {data.title}
+          {title}
         </Typography>
 
         <div className={styles["cart-info"]}>
@@ -130,23 +128,4 @@ const PureSampleBasketDialog = ({
   ) : null;
 };
 
-export default function SampleBasketDialog(props: {
-  maximumSamples?: number;
-  basketAction?: ClickableAction;
-  toggleCart?: () => void;
-}) {
-  const data = useStaticQuery(graphql`
-    query {
-      contentfulSampleBasketSection {
-        title
-        ...SampleBasketSectionFragment
-      }
-    }
-  `);
-  return (
-    <PureSampleBasketDialog
-      data={data.contentfulSampleBasketSection}
-      {...props}
-    />
-  );
-}
+export default SampleBasketDialog;
