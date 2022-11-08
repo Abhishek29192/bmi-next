@@ -30,7 +30,7 @@ const getNodeData = (parentId: string, fieldData: FieldData) => ({
   parent: parentId,
   children: [],
   internal: {
-    type: "ContentfulFormSectionInputsJsonNode",
+    type: "contentfulFormSectionInputsJsonNode",
     owner: "@bmi/resolvers",
     contentDigest: generateDigestFromData(fieldData)
   }
@@ -281,7 +281,7 @@ export default {
             source.inputs___NODE.map((id) => {
               return context.nodeModel.getNodeById({
                 id,
-                type: "ContentfulFormSectionInputsJsonNode"
+                type: "contentfulFormSectionInputsJsonNode"
               });
             })
           );

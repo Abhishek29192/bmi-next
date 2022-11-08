@@ -26,7 +26,10 @@ interface ContentfulFormInputs implements Node @dontInfer {
   maxSize: Int
 }
 
-type ContentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node @dontInfer {
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
+type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node @dontInfer {
   id: ID!
   name: String
   type: String
@@ -350,14 +353,18 @@ type ContentfulSyndicateSection implements ContentfulObject & Node @dontInfer {
   isReversed: Boolean
 }
 
-type ContentfulTabsOrAccordionSectionDescriptionTextNode implements Node @dontInfer {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulTabsOrAccordionSectionDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
 type ContentfulTabsOrAccordionSection implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
   title: String
-  description: ContentfulTabsOrAccordionSectionDescriptionTextNode @link(from: "description___NODE")
+  description: contentfulTabsOrAccordionSectionDescriptionTextNode @link(from: "description___NODE")
   items: [ContentfulTitleWithContent] @link(from: "items___NODE")
   type: String
 }
@@ -535,7 +542,11 @@ type ContentfulContactTopic implements ContentfulObject & Node @dontInfer {
   footerList: [ContentfulContactDetailsOrTitleWithContent] @link(from: "footerList___NODE")
 }
 
-type ContentfulSignupBlockDescriptionTextNode implements Node @dontInfer {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulSignupBlockDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
@@ -543,9 +554,9 @@ type ContentfulSignupBlock implements ContentfulObject & Node @dontInfer {
   id: ID!
   metadata: ContentfulMetadata!
   title: String
-  description: ContentfulSignupBlockDescriptionTextNode @link(from: "description___NODE")
-  signupLabel: String
-  signupDialogContent: ContentfulFormSection @link(from: "signupDialogContent___NODE")
+  description: contentfulSignupBlockDescriptionTextNode @link(from: "description___NODE")
+  signupLabel: String!
+  signupDialogContent: ContentfulFormSection! @link(from: "signupDialogContent___NODE")
 }
 
 type ContentfulSite implements ContentfulObject & Node @dontInfer {
@@ -559,13 +570,17 @@ type ContentfulSite implements ContentfulObject & Node @dontInfer {
   footerMainNavigation: ContentfulNavigation @link(from: "footerMainNavigation___NODE")
   footerSecondaryNavigation: ContentfulNavigation @link(from: "footerSecondaryNavigation___NODE")
   resources: ContentfulResources @link(from: "resources___NODE")
-  headScripts: ContentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
+  headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
   regions: [RegionJson]! @link(from: "regions___NODE")
   pitchedRoofCalculatorConfig: ContentfulWebToolCalculator @link(from: "pitchedRoofCalculatorConfig___NODE")
   visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
 }
 
-type ContentfulSiteHeadScriptsTextNode implements Node @dontInfer {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulSiteHeadScriptsTextNode implements Node @dontInfer {
+  id: ID!
   headScripts: String
 }
 
@@ -587,13 +602,16 @@ type ContentfulLink implements ContentfulObject & Node @dontInfer {
   linkedPage: LinkedPage @link(from: "linkedPage___NODE")
   asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
   type: String
-  parameters: ContentfulLinkParametersJsonNode @link(by: "id", from: "parameters___NODE")
+  parameters: contentfulLinkParametersJsonNode @link(by: "id", from: "parameters___NODE")
   queryParams: String
   dialogContent: ContentfulSection @link(from: "dialogContent___NODE")
   hubSpotCTAID: String
 }
 
-type ContentfulLinkParametersJsonNode implements Node @dontInfer {
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
+type contentfulLinkParametersJsonNode implements Node @dontInfer {
   id: ID!
   tileId: Int
   colourId: Int
@@ -972,7 +990,11 @@ type ContentfulContactDetails implements Node @dontInfer {
   otherInformation: ContentfulRichText
 }
 
-type ContentfulBrandLandingPageDescriptionTextNode implements Node @dontInfer {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulBrandLandingPageDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
@@ -987,7 +1009,7 @@ type ContentfulBrandLandingPage implements ContentfulObject & ContentfulPage & N
   breadcrumbs: [BreadcrumbItem]
   breadcrumbTitle: String
   subtitle: String
-  description: ContentfulBrandLandingPageDescriptionTextNode @link(from: "description___NODE")
+  description: contentfulBrandLandingPageDescriptionTextNode @link(from: "description___NODE")
   brandLogo: String
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
@@ -1008,14 +1030,17 @@ type ContentfulBrand implements ContentfulObject & Node @dontInfer {
   path: String
 }
 
-type ContentfulTableDataJsonNode implements Node @dontInfer {
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
+type contentfulTableDataJsonNode implements Node @dontInfer {
   tableData: [[String]]
 }
 
 type ContentfulTable implements ContentfulObject & Node @dontInfer {
   contentful_id: String!
   metadata: ContentfulMetadata!
-  data: ContentfulTableDataJsonNode @link(by: "id", from: "data___NODE")
+  data: contentfulTableDataJsonNode @link(by: "id", from: "data___NODE")
 }
 
 type ContentfulServiceType implements ContentfulObject & Node @dontInfer {
@@ -1070,7 +1095,11 @@ type ContentfulVideo implements ContentfulObject & Node @dontInfer {
   defaultYouTubePreviewImage: String!
 }
 
-type ContentfulImageCaptionTextNode implements Node @dontInfer {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulImageCaptionTextNode implements Node @dontInfer {
+  id: ID!
   caption: String
 }
 
@@ -1085,7 +1114,7 @@ type ContentfulImage implements ContentfulObject & Node @dontInfer {
   type: String
   altText: String
   image: ContentfulAsset! @link(by: "id", from: "image___NODE")
-  caption: ContentfulImageCaptionTextNode @link(by: "id", from: "caption___NODE")
+  caption: contentfulImageCaptionTextNode @link(by: "id", from: "caption___NODE")
   focalPoint: FocalPoint
   thumbnail: ContentfulAsset
 }

@@ -26,7 +26,7 @@ const source: Node = {
 describe("ContentfulLink resolver", () => {
   it("should contain specific type", () => {
     expect(ContentfulLink.parameters.type).toBe(
-      "ContentfulLinkParametersJsonNode"
+      "contentfulLinkParametersJsonNode"
     );
   });
   it("should return null for source without parameters___NODE", async () => {
@@ -63,7 +63,7 @@ describe("ContentfulLink resolver", () => {
       internal: {
         contentDigest: "eabfa4094139161906a36ee8ac607fc9",
         owner: "@bmi/resolvers",
-        type: "ContentfulLinkParametersJsonNode"
+        type: "contentfulLinkParametersJsonNode"
       },
       parent: "source",
       sidingId: null,
@@ -90,7 +90,7 @@ describe("ContentfulLink resolver", () => {
       internal: {
         contentDigest: "03a6cee09f5c226c52492343465177ff",
         owner: "@bmi/resolvers",
-        type: "ContentfulLinkParametersJsonNode"
+        type: "contentfulLinkParametersJsonNode"
       },
       parent: "source",
       sidingId: 0,
@@ -119,7 +119,7 @@ describe("ContentfulLink resolver", () => {
       internal: {
         contentDigest: "03a6cee09f5c226c52492343465177ff",
         owner: "@bmi/resolvers",
-        type: "ContentfulLinkParametersJsonNode"
+        type: "contentfulLinkParametersJsonNode"
       },
       parent: "source",
       sidingId: 0,
