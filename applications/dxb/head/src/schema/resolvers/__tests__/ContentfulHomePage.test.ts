@@ -14,9 +14,9 @@ const context: Context = {
 
 describe("ContentfulHomePage resolver", () => {
   it("should contain specific type", () => {
-    expect(ContentfulHomePage.brands.type).toEqual([
-      "ContentfulBrandLandingPage"
-    ]);
+    expect(ContentfulHomePage.brands.type).toEqual(
+      "[ContentfulBrandLandingPage]!"
+    );
   });
   it("should resolve slug", () => {
     expect(ContentfulHomePage.slug.resolve()).toBe("/");

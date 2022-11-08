@@ -119,7 +119,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "field",
@@ -135,7 +135,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "mobilephone",
@@ -151,7 +151,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "email",
@@ -167,7 +167,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "field",
@@ -208,7 +208,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "field",
@@ -224,7 +224,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "true",
           name: "hs-legal-isLegitimateInterest",
@@ -238,7 +238,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "communication-type-1",
           name: "hs-legal-communicationTypeId",
@@ -251,7 +251,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "true",
           name: "hs-legal-communicationConsentText",
@@ -265,7 +265,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "true",
           name: "hs-legal-processingConsentText",
@@ -279,7 +279,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "label",
           name: "hs-legal-processingConsentType",
@@ -294,7 +294,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "true",
           name: "hs-legal-privacyPolicyText",
@@ -333,7 +333,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "field",
@@ -350,7 +350,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "communication-type-1",
           name: "hs-legal-communicationTypeId",
@@ -363,7 +363,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "label",
           name: "hs-legal-communication",
@@ -394,7 +394,7 @@ describe("ContentfulFormSection resolver", () => {
           internal: {
             contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
-            type: "contentfulFormSectionInputsJsonNode"
+            type: "ContentfulFormSectionInputsJsonNode"
           },
           label: "field",
           name: "field",

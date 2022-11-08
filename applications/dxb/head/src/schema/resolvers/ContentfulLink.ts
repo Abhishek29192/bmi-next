@@ -34,7 +34,7 @@ const getNodeData = (parentId: string, fieldData: FieldData) => ({
   parent: parentId,
   children: [],
   internal: {
-    type: "contentfulLinkParametersJsonNode",
+    type: "ContentfulLinkParametersJsonNode",
     owner: "@bmi/resolvers",
     contentDigest: generateDigestFromData(fieldData)
   }
@@ -42,7 +42,7 @@ const getNodeData = (parentId: string, fieldData: FieldData) => ({
 
 export default {
   parameters: {
-    type: "contentfulLinkParametersJsonNode",
+    type: "ContentfulLinkParametersJsonNode",
     async resolve(source: Node, args: ResolveArgs, context: Context) {
       if (!source.parameters___NODE) {
         return null;
