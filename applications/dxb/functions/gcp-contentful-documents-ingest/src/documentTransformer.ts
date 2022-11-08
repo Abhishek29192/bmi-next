@@ -18,6 +18,7 @@ export const transformDocument = async (
   const featuredMedia =
     document.fields.featuredMedia &&
     (await getFeaturedMedia(client, document.fields.featuredMedia));
+  const focalPoint = featuredMedia?.fields?.focalPoint?.focalPoint;
   return {
     __typename: "ContentfulDocument",
     id: document.sys.id,
@@ -37,9 +38,9 @@ export const transformDocument = async (
       },
       title: featuredMedia.fields.title,
       type: featuredMedia.fields.type,
-      focalPoint: featuredMedia.fields.focalPoint?.focalPoint && {
-        x: featuredMedia.fields.focalPoint?.focalPoint.x,
-        y: featuredMedia.fields.focalPoint?.focalPoint.y
+      focalPoint: focalPoint && {
+        x: focalPoint.x,
+        y: focalPoint.y
       }
     },
     asset: {

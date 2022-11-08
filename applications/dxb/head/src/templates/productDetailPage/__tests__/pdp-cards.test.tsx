@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import {
@@ -78,7 +79,7 @@ const createCard = (includeVideo = false): PromoData | PageInfoData => {
     path: "zanda-arktis/",
     tags: null,
     featuredVideo: includeVideo && createMockVideo(),
-    featuredMedia: createMockImage() as ImageWithThumbnail,
+    featuredMedia: createMockImage() as unknown as ImageWithThumbnail,
     date: ""
   };
 };
@@ -102,13 +103,15 @@ describe("PdpCardsSection", () => {
   });
   it("should render corectly", () => {
     const { container } = render(
-      <PdpCardsSection
-        resources={{
-          pdpCards: [createCard()],
-          pdpCardsTitle: mockResources.pdpCardsTitle
-        }}
-        countryCode={countryCode}
-      />
+      <ThemeProvider>
+        <PdpCardsSection
+          resources={{
+            pdpCards: [createCard()],
+            pdpCardsTitle: mockResources.pdpCardsTitle
+          }}
+          countryCode={countryCode}
+        />
+      </ThemeProvider>
     );
     expect(container.querySelector(".PdpCardsSection")).toBeInTheDocument();
     expect(mockRenderVideo).not.toBeCalled();
@@ -116,13 +119,15 @@ describe("PdpCardsSection", () => {
   });
   it("should render CTACard with video", () => {
     const { container } = render(
-      <PdpCardsSection
-        resources={{
-          pdpCards: [createCard(true)],
-          pdpCardsTitle: mockResources.pdpCardsTitle
-        }}
-        countryCode={countryCode}
-      />
+      <ThemeProvider>
+        <PdpCardsSection
+          resources={{
+            pdpCards: [createCard(true)],
+            pdpCardsTitle: mockResources.pdpCardsTitle
+          }}
+          countryCode={countryCode}
+        />
+      </ThemeProvider>
     );
     expect(container.querySelector(".PdpCardsSection")).toBeInTheDocument();
     expect(mockRenderVideo).toBeCalled();

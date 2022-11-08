@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
@@ -35,24 +36,23 @@ const renderPdpPage = ({
   contentfulSite?: SiteData;
 }) => {
   return render(
-    <LocationProvider>
-      <ProductDetailsPage
-        data={{
-          product: {
-            ...product
-          },
-          contentfulSite
-        }}
-        pageContext={mockpageContext}
-      />
-    </LocationProvider>
+    <ThemeProvider>
+      <LocationProvider>
+        <ProductDetailsPage
+          data={{
+            product: {
+              ...product
+            },
+            contentfulSite
+          }}
+          pageContext={mockpageContext}
+        />
+      </LocationProvider>
+    </ThemeProvider>
   );
 };
 
 const pdpContent = [
-  "Header",
-  "Footer",
-  "Breadcrumbs",
   "ProductOverview",
   "ProductLeadBlock",
   "RelatedProducts",
@@ -72,6 +72,9 @@ describe("Product Details Page", () => {
     pdpContent.forEach((item) =>
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
@@ -91,6 +94,9 @@ describe("Product Details Page", () => {
     pdpContent.forEach((item) =>
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.queryByTestId(
@@ -113,6 +119,9 @@ describe("Product Details Page", () => {
     pdpContent.forEach((item) =>
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.queryByLabelText("MC: share.email")).not.toBeInTheDocument();
     expect(
       screen.getByTestId(
@@ -135,6 +144,9 @@ describe("Product Details Page", () => {
       }
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.queryByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
       screen.getByTestId(
@@ -159,6 +171,9 @@ describe("Product Details Page", () => {
       }
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
@@ -181,6 +196,9 @@ describe("Product Details Page", () => {
       }
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
@@ -204,6 +222,9 @@ describe("Product Details Page", () => {
       }
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
+    expect(container.querySelector("header")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(
         `${mockProduct.keyAssetDocuments[0].assetType}Download`
