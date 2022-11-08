@@ -88,3 +88,6 @@ process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
 process.env.LOCALE = "en-US";
 process.env.ES_DOCUMENTS_INGEST_SECRET = "some secret";
+
+process.env.SPACE_MARKET_CODE = "no";
+process.env.GATSBY_MARKET_LOCALE_CODE = "nb-NO";

@@ -209,7 +209,7 @@ const VisualiserProvider = ({
 };
 
 export const query = graphql`
-  fragment VisualiserFragment on ContentfulLinkParametersJsonNode {
+  fragment VisualiserFragment on contentfulLinkParametersJsonNode {
     tileId
     colourId
     sidingId
