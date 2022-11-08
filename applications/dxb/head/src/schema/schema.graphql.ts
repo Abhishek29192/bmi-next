@@ -1,4 +1,10 @@
 export default `#graphql
+type ContentfulTag implements Node @dontInfer {
+  name: String!
+  contentful_id: String!
+  id: ID!
+}
+
 type ContentfulMetadata @dontInfer {
   tags: [ContentfulTag]
 }
