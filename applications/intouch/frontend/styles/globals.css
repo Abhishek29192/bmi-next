@@ -13,3 +13,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.ot-sdk-container {
+  display: block !important;
+}

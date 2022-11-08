@@ -1,7 +1,6 @@
 import React from "react";
 import { Icon } from "@bmi/components";
 import { Logo, BMI, StandardPale } from "@bmi/components";
-import { Link } from "../Link";
 import styles from "./styles.module.scss";
 
 export type Props = {
@@ -13,9 +12,9 @@ export type Props = {
 
 export const Footer = ({ links }: Props) => {
   const navLinks = (links || []).map((link, index) => (
-    <Link key={index} href={link.href}>
+    <a key={index} href={link.href}>
       {link.label}
-    </Link>
+    </a>
   ));
 
   return (

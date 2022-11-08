@@ -46,7 +46,11 @@ function renderOptions(links) {
       [BLOCKS.HEADING_2]: (_node, children) => {
         // @todo. Make this more elegant in future.
         if (children == "[ot-sdk-cookie-policy]") {
-          return <div id={"ot-sdk-cookie-policy"}>&nbsp;</div>;
+          return (
+            <div className={styles.otSdkWrapper} id={"ot-sdk-cookie-policy"}>
+              &nbsp;
+            </div>
+          );
         }
 
         return (
