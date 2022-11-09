@@ -11,8 +11,8 @@ import { AssetType } from "../../types/pim";
 import groupBy from "../../utils/groupBy";
 import { Resource } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
-import { getUrlFromPath, Path, resolvePath } from "./utils/path";
 import { getDefaultYoutubePreviewImage } from "./utils/getDefaultYoutubePreviewImage";
+import { getUrlFromPath, Path, resolvePath } from "./utils/path";
 
 const getSlugAttributes = (source: Product) =>
   [source.colour, source.textureFamily].filter(isDefined);
@@ -115,7 +115,7 @@ export default {
         .map((assetType) => assetType.pimCode);
       const { documentDisplayFormat } = await context.nodeModel.findOne<Data>(
         {
-          query: {},
+          query: { filter: marketFilters },
           type: `ContentfulResources`
         },
         { connectionType: `ContentfulResources` }
@@ -198,9 +198,22 @@ export default {
       if (!source.documents || !source.documents.length) {
         return [];
       }
+      const marketFilters = process.env.MARKET_TAG_NAME
+        ? {
+            metadata: {
+              tags: {
+                elemMatch: {
+                  contentful_id: {
+                    eq: process.env.MARKET_TAG_NAME
+                  }
+                }
+              }
+            }
+          }
+        : {};
       const resource = await context.nodeModel.findOne<Resource>(
         {
-          query: {},
+          query: { filter: marketFilters },
           type: "ContentfulResources"
         },
         { connectionType: "ContentfulAssetType" }

@@ -6,7 +6,7 @@ type ContentfulTag implements Node @dontInfer {
 }
 
 type ContentfulMetadata @dontInfer {
-  tags: [ContentfulTag]
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 }
 
 interface ContentfulObject implements Node @dontInfer {

@@ -102,7 +102,7 @@ describe("resolve key asset documents", () => {
 
       expect(findOne).toHaveBeenCalledWith(
         {
-          query: {},
+          query: { filter: {} },
           type: "ContentfulResources"
         },
         { connectionType: "ContentfulAssetType" }
@@ -139,7 +139,7 @@ describe("resolve key asset documents", () => {
 
       expect(findOne).toHaveBeenCalledWith(
         {
-          query: {},
+          query: { filter: {} },
           type: "ContentfulResources"
         },
         { connectionType: "ContentfulAssetType" }
@@ -182,7 +182,7 @@ describe("resolve key asset documents", () => {
 
       expect(findOne).toHaveBeenCalledWith(
         {
-          query: {},
+          query: { filter: {} },
           type: "ContentfulResources"
         },
         { connectionType: "ContentfulAssetType" }
