@@ -15,7 +15,7 @@ export type Data = {
   title: string;
   description: {
     description: string;
-  };
+  } | null;
   signupLabel: string;
   signupDialogContent: FormData;
 };
@@ -77,7 +77,7 @@ const IntegratedSignupBlock = ({
     <div className={styles["SignupBlock"]}>
       <SignupBlock
         title={title}
-        description={description.description}
+        description={description?.description}
         inputCallToAction={signupLabel}
         theme={theme || "blue-800"}
         buttonComponent={(props: ButtonProps) => (

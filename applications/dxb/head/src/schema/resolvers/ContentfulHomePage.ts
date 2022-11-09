@@ -12,7 +12,7 @@ export default {
     }
   },
   brands: {
-    type: ["ContentfulBrandLandingPage"],
+    type: "[ContentfulBrandLandingPage]!",
     async resolve(
       source: Node,
       args: ResolveArgs,

@@ -8,7 +8,7 @@
     "build": "tsc",
     "debug": "node --inspect ./dist/index.js",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prod": "node ./dist/index.js"
+    "start": "node ./dist/index.js"
   },
   "dependencies": {
     "toml": "^3.0.0",

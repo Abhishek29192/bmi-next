@@ -1,5 +1,20 @@
 export default `#graphql
-interface ContentfulFormInputs implements Node {
+type ContentfulTag implements Node @dontInfer {
+  name: String!
+  contentful_id: String!
+  id: ID!
+}
+
+type ContentfulMetadata @dontInfer {
+  tags: [ContentfulTag]
+}
+
+interface ContentfulObject implements Node @dontInfer {
+  id: ID!
+  metadata: ContentfulMetadata!
+}
+
+interface ContentfulFormInputs implements Node @dontInfer {
   id: ID!
   name: String
   type: String
@@ -11,7 +26,10 @@ interface ContentfulFormInputs implements Node {
   maxSize: Int
 }
 
-type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node {
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
+type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node @dontInfer {
   id: ID!
   name: String
   type: String
@@ -23,9 +41,10 @@ type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node 
   maxSize: Int
 }
 
-interface ContentfulPage implements Node {
+interface ContentfulPage implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   path: String!
@@ -40,12 +59,12 @@ interface ContentfulPage implements Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-type FilterOption {
+type FilterOption @dontInfer {
   label: String!
   value: String!
 }
 
-type Filter {
+type Filter @dontInfer {
   filterCode: String!
   name: String
   value: String!
@@ -56,7 +75,7 @@ type Filter {
   isCategory: Boolean!
 }
 
-type PLPFilter {
+type PLPFilter @dontInfer {
   filterCode: String!
   label: String!
   name: String!
@@ -64,25 +83,26 @@ type PLPFilter {
   value: [String] # Should value be mandatory?
 }
 
-type PLPFilterResponse {
+type PLPFilterResponse @dontInfer {
   filters: [PLPFilter]
   allowFilterBy: [String]
 }
 
-type FourOFourResponse {
+type FourOFourResponse @dontInfer {
   errorPageData: ContentfulPromo
   siteData: ContentfulSite
 }
 
-type BreadcrumbItem{
+type BreadcrumbItem @dontInfer {
   id: String
   label: String
   slug: String
 }
 
-type ContentfulSimplePage implements ContentfulPage & Node {
+type ContentfulSimplePage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   path: String!
@@ -108,9 +128,10 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   cta: ContentfulLink @link(from: "cta___NODE")
 }
 
-type ContentfulContactUsPage implements ContentfulPage & Node {
+type ContentfulContactUsPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   path: String!
@@ -134,15 +155,16 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-type ContentfulHomePage implements Node {
+type ContentfulHomePage implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   path: String!
   breadcrumbs: [BreadcrumbItem]
-  spaBrands: [ContentfulBrand] @link(from:"spaBrands___NODE")
-  brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
+  spaBrands: [ContentfulBrand] @link(from: "spaBrands___NODE")
+  brands: [ContentfulBrandLandingPage]!
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
   overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
   sections: [ContentfulSection] @link(from: "sections___NODE")
@@ -151,9 +173,10 @@ type ContentfulHomePage implements Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-type ContentfulProductListerPage implements ContentfulPage & Node {
+type ContentfulProductListerPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   path: String!
@@ -176,8 +199,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   allowFilterBy: [String!]
 }
 
-type ContentfulPromo implements Node {
+type ContentfulPromo implements ContentfulObject & Node @dontInfer {
   name: String!
+  metadata: ContentfulMetadata!
   title: String
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   brandLogo: String
@@ -189,8 +213,9 @@ type ContentfulPromo implements Node {
   backgroundColor: String
 }
 
-type ContentfulCategory implements Node {
+type ContentfulCategory implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String!
   type: String!
 }
@@ -215,35 +240,39 @@ union ContentfulRichTextReference =
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
-type ContentfulRichText implements Node {
+type ContentfulRichText implements Node @dontInfer {
   id: ID!
   raw: String!
   references: [ContentfulRichTextReference] @link(from: "references___NODE")
 }
 
-type ContentfulCalculatorRoofShape implements Node {
+type ContentfulCalculatorRoofShape implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   roofShapeId: String!
   media: ContentfulAsset! @link(by: "id", from: "media___NODE")
 }
 
-type ContentfulWebToolCalculator implements Node {
+type ContentfulWebToolCalculator implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   roofShapes: [ContentfulCalculatorRoofShape!]! @link(from: "roofShapes___NODE")
   hubSpotFormId: String
   needHelpSection: ContentfulTitleWithContent! @link(from: "needHelpSection___NODE")
 }
 
-type ContentfulVisualiserHouseType implements Node {
+type ContentfulVisualiserHouseType implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   previewImage: ContentfulAsset! @link(by: "id", from: "previewImage___NODE")
   houseModel: ContentfulAsset! @link(by: "id", from: "houseModel___NODE")
 }
 
-type ContentfulCardCollectionSection implements Node {
+type ContentfulCardCollectionSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   description: ContentfulRichText
   cardType: String!
@@ -256,8 +285,9 @@ type ContentfulCardCollectionSection implements Node {
   sortOrder: String
 }
 
-type ContentfulCarouselSection implements Node {
+type ContentfulCarouselSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   description: ContentfulRichText
   variant: String!
@@ -265,8 +295,9 @@ type ContentfulCarouselSection implements Node {
   link: ContentfulLink @link(from: "link___NODE")
 }
 
-type ContentfulFormSection implements Node {
+type ContentfulFormSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   showTitle: Boolean
   description: ContentfulRichText
@@ -279,8 +310,9 @@ type ContentfulFormSection implements Node {
   emailSubjectFormat: String
 }
 
-type ContentfulSampleBasketSection implements Node {
+type ContentfulSampleBasketSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   description: ContentfulRichText
   checkoutFormSection: ContentfulFormSection @link(from: "checkoutFormSection___NODE")
@@ -289,8 +321,9 @@ type ContentfulSampleBasketSection implements Node {
   browseProductsCTA: LinkedPage @link(from: "browseProductsCTA___NODE")
 }
 
-type ContentfulShareWidgetSection implements Node {
+type ContentfulShareWidgetSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   message: String
   clipboardSuccessMessage: String
@@ -304,45 +337,55 @@ type ContentfulShareWidgetSection implements Node {
   twitter: Boolean
 }
 
-type ContentfulLeadBlockSection implements Node {
+type ContentfulLeadBlockSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String
   text: ContentfulRichText
   link: ContentfulLink @link(from: "link___NODE")
   postItCard: ContentfulRichText
 }
 
-type ContentfulSyndicateSection implements Node {
+type ContentfulSyndicateSection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
   isReversed: Boolean
 }
 
-type contentfulTabsOrAccordionSectionDescriptionTextNode implements Node {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulTabsOrAccordionSectionDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
-type ContentfulTabsOrAccordionSection implements Node {
+type ContentfulTabsOrAccordionSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String
   description: contentfulTabsOrAccordionSectionDescriptionTextNode @link(from: "description___NODE")
   items: [ContentfulTitleWithContent] @link(from: "items___NODE")
   type: String
 }
 
-type ContentfulMediaGallerySection implements Node {
+type ContentfulMediaGallerySection implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   longDescription: ContentfulRichText
   medias: [ContentfulMediasTypes!]! @link(from: "medias___NODE")
 }
 
-type ContentfulDocumentDownloadSection implements Node {
+type ContentfulDocumentDownloadSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String
   description: ContentfulRichText
   documents: [ContentfulDocument!]! @link(from: "documents___NODE")
 }
 
-type ContentfulServiceLocatorSection implements Node {
+type ContentfulServiceLocatorSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   type: String
   showDefaultResultList: Boolean
   title: String
@@ -353,7 +396,8 @@ type ContentfulServiceLocatorSection implements Node {
   zoom: Int
 }
 
-type ContentfulVideoSection implements Node {
+type ContentfulVideoSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   name: String!
   title: String
   description: ContentfulRichText
@@ -365,8 +409,9 @@ union ContentfulNavigationEntity =
   | ContentfulNavigationItem
   | ContentfulLink
 
-type ContentfulNavigation implements Node {
+type ContentfulNavigation implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   label: String
   links: [ContentfulNavigationEntity] @link(from: "links___NODE")
@@ -374,47 +419,43 @@ type ContentfulNavigation implements Node {
   promos: [ContentfulPromoOrPage] @link(from: "promos___NODE")
 }
 
-type ContentfulNavigationItem implements Node {
+type ContentfulNavigationItem implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   type: String
   value: String
 }
 
-# TODO: This is temp as it won't be necessary after Syndicate is in
-type ContentfulVillainSection implements Node {
+type ContentfulTitleWithContent implements ContentfulObject & Node @dontInfer {
   id: ID!
-  title: String
-  description: String
-  promo: ContentfulPromo @link(from: "promo___NODE")
-}
-#############
-
-type ContentfulTitleWithContent implements Node {
-  id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   title: String
   content: ContentfulRichText!
 }
 
-type ContentfulSpecificationNotesWithCta implements Node {
+type ContentfulSpecificationNotesWithCta implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   title: String
   description: ContentfulRichText!
   cta: ContentfulLink @link(from: "cta___NODE")
 }
 
-type ContentfulTeamMember implements Node {
+type ContentfulTeamMember implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   profileImage: ContentfulImage @link(from: "profileImage___NODE")
   jobTitle: String
   links: [ContentfulLink] @link(from: "links___NODE")
 }
 
-type ContentfulTeamCategory implements Node {
+type ContentfulTeamCategory implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   description: ContentfulRichText
   team_member: [ContentfulTeamMember] @link(from: "teamMembers___NODE")
@@ -440,12 +481,14 @@ union ContentfulSection =
   | ContentfulSignupBlock
   | ContentfulLeadBlockSection
 
-type ContentfulMicroCopy implements Node {
+type ContentfulMicroCopy implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   key: String!
   value: String!
 }
 
-type ContentfulResources implements Node {
+type ContentfulResources implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   microCopy: [ContentfulMicroCopy] @link(by: "id", from: "microCopy___NODE")
   pdpSidebarItems: [ContentfulTitleWithContent] @link(from: "pdpSidebarItems___NODE")
   maximumSamples: Int
@@ -488,8 +531,9 @@ union ContentfulContactDetailsOrTitleWithContent =
   ContentfulContactDetails
   | ContentfulTitleWithContent
 
-type ContentfulContactTopic implements Node {
+type ContentfulContactTopic implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   icon: String
   title: String
   bodyTitle: String
@@ -498,19 +542,25 @@ type ContentfulContactTopic implements Node {
   footerList: [ContentfulContactDetailsOrTitleWithContent] @link(from: "footerList___NODE")
 }
 
-type contentfulSignupBlockDescriptionTextNode implements Node {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulSignupBlockDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
-type ContentfulSignupBlock implements Node {
+type ContentfulSignupBlock implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String
   description: contentfulSignupBlockDescriptionTextNode @link(from: "description___NODE")
-  signupLabel: String
-  signupDialogContent: ContentfulFormSection @link(from: "signupDialogContent___NODE")
+  signupLabel: String!
+  signupDialogContent: ContentfulFormSection! @link(from: "signupDialogContent___NODE")
 }
 
-type ContentfulSite implements Node {
+type ContentfulSite implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   node_locale: String!
   countryCode: String!
   menuUtilities: ContentfulNavigation @link(from: "menuUtilities___NODE")
@@ -526,7 +576,11 @@ type ContentfulSite implements Node {
   visualiserHouseTypes: [ContentfulVisualiserHouseType!] @link(from: "visualiserHouseTypes___NODE")
 }
 
-type contentfulSiteHeadScriptsTextNode implements Node {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulSiteHeadScriptsTextNode implements Node @dontInfer {
+  id: ID!
   headScripts: String
 }
 
@@ -538,8 +592,9 @@ union LinkedPage =
   | ContentfulHomePage
   | ContentfulBrandLandingPage
 
-type ContentfulLink implements Node {
+type ContentfulLink implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   label: String
   icon: String
   isLabelHidden: Boolean
@@ -553,6 +608,9 @@ type ContentfulLink implements Node {
   hubSpotCTAID: String
 }
 
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
 type contentfulLinkParametersJsonNode implements Node @dontInfer {
   id: ID!
   tileId: Int
@@ -561,27 +619,31 @@ type contentfulLinkParametersJsonNode implements Node @dontInfer {
   viewMode: String
 }
 
-type ContentfulLinkColumnsSection implements Node {
+type ContentfulLinkColumnsSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String
   columns: [ContentfulNavigation] @link(from: "columns___NODE")
 }
 
-type ContentfulTeamSection implements Node {
+type ContentfulTeamSection implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
   backgroundColor: String
 }
 
-type ContentfulAssetType implements Node {
+type ContentfulAssetType implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   code: String!
   description: ContentfulRichText
   pimCode: String
 }
 
-type ContentfulDocument implements Node {
+type ContentfulDocument implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String!
   asset: ContentfulAsset! @link(by: "id", from: "asset___NODE")
   description: ContentfulRichText
@@ -593,16 +655,17 @@ type ContentfulDocument implements Node {
 
 union Document = ContentfulDocument | PIMDocument
 
-type AssetType {
+type AssetType @dontInfer {
   name: String!
   code: String!
   description: ContentfulRichText
   pimCode: String
 }
 
-type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
+type ContentfulDocumentLibraryPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   title: String
   slug: String!
   categoryCodes: [String!]
@@ -626,7 +689,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-type System implements Node {
+type System implements Node @dontInfer {
   awardsAndCertificateDocuments: [PIMAsset]!
   awardsAndCertificateImages: [PIMAsset]!
   bim: BIM
@@ -655,12 +718,12 @@ type System implements Node {
   relatedSystems: [System]!
 }
 
-type BIM {
+type BIM @dontInfer {
   name: String!
   url: String!
 }
 
-type PIMSystemDocument {
+type PIMSystemDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
@@ -671,12 +734,12 @@ type PIMSystemDocument {
   id: ID!
 }
 
-type KeyFeatures {
+type KeyFeatures @dontInfer {
   name: String!
   values: [String]!
 }
 
-type PIMAsset {
+type PIMAsset @dontInfer {
   allowedToDownload: Boolean
   assetType: ContentfulAssetType @link(by: "pimCode", from: "assetType")
   fileSize: Int
@@ -687,7 +750,7 @@ type PIMAsset {
   url: String
 }
 
-type SystemLayer {
+type SystemLayer @dontInfer {
   layerNumber: String!
   name: String!
   relatedProducts: [Product]! @link(from: "products___NODE")
@@ -696,22 +759,22 @@ type SystemLayer {
   type: String
 }
 
-type PimSystemReference {
+type PimSystemReference @dontInfer {
   referenceType: String
   target: PimSystemReferenceTarget
 }
 
-type PimSystemReferenceTarget {
+type PimSystemReferenceTarget @dontInfer {
   code: String!
 }
 
-type SystemProduct {
+type SystemProduct @dontInfer {
   code: String!
   name: String
   path: String!
 }
 
-type SystemImage {
+type SystemImage @dontInfer {
   allowedToDownload: Boolean
   assetType: String
   containerId: String
@@ -723,17 +786,17 @@ type SystemImage {
   url: String
 }
 
-type KeyAssetDocument {
+type KeyAssetDocument @dontInfer {
   assetType: String
   documents: [PIMDocument]
 }
 
-type CategoryGroup {
+type CategoryGroup @dontInfer {
   label: String!
   code: String!
 }
 
-type PIMDocumentWithPseudoZip {
+type PIMDocumentWithPseudoZip @dontInfer {
   assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
   documentList: [PIMDocument]!
   fileSize: Int
@@ -793,7 +856,7 @@ type Product implements Node @dontInfer {
   relatedProducts: [Product]!
 }
 
-type ProductDocument {
+type ProductDocument @dontInfer {
   assetType: String
   extension: String
   fileSize: Int
@@ -807,12 +870,12 @@ type ProductDocument {
   productName: String!
 }
 
-type ProductDocumentCategory {
+type ProductDocumentCategory @dontInfer {
   code: String!
   parentCategoryCode: String!
 }
 
-type Path {
+type Path @dontInfer {
   id: String
   path: String
   label: String
@@ -820,13 +883,13 @@ type Path {
   slug: String
 }
 
-type Brand {
+type Brand @dontInfer {
   code: String!
   name: String!
   logo: String
 }
 
-type Category {
+type Category @dontInfer {
   categoryType: String!
   code: String!
   image: PIMAsset
@@ -834,22 +897,22 @@ type Category {
   parentCategoryCode: String
 }
 
-type Classification {
+type Classification @dontInfer {
   name: String!
   features: [Feature]
 }
 
-type Feature {
+type Feature @dontInfer {
   name: String!
   value: String!
 }
 
-type DocumentsFiltersResponse {
+type DocumentsFiltersResponse @dontInfer {
   filters: [PLPFilter]!
 }
 
 
-type PIMDocument {
+type PIMDocument @dontInfer {
   title: String!
   url: String!
   isLinkDocument: Boolean!
@@ -865,18 +928,18 @@ type PIMDocument {
   productFilters: [Filter]!
 }
 
-type PIMDocumentProductCategories {
+type PIMDocumentProductCategories @dontInfer {
   code: String!
   parentCategoryCode: String
 }
 
-type PIMImage {
+type PIMImage @dontInfer {
   mainSource: String
   thumbnail: String
   altText: String
 }
 
-type Measurements {
+type Measurements @dontInfer {
   length: UnitValue
   width: UnitValue
   height: UnitValue
@@ -885,12 +948,12 @@ type Measurements {
   label: String
 }
 
-type UnitValue {
+type UnitValue @dontInfer {
   value: String!
   unit: String!
 }
 
-type RelatedVariant {
+type RelatedVariant @dontInfer {
   code: String!
   thumbnail: String
   colour: String
@@ -902,7 +965,7 @@ type RelatedVariant {
   path: String!
 }
 
-type PimVideo {
+type PimVideo @dontInfer {
   title: String!
   label: String!
   subtitle: String # Always null
@@ -911,7 +974,7 @@ type PimVideo {
   videoUrl: String
 }
 
-type Weight {
+type Weight @dontInfer {
   grossWeight: UnitValue
   netWeight: UnitValue
   weightPerPallet: UnitValue
@@ -919,7 +982,7 @@ type Weight {
   weightPerSqm: UnitValue
 }
 
-type ContentfulContactDetails implements Node {
+type ContentfulContactDetails implements Node @dontInfer {
   title: String
   address: String
   phoneNumber: String
@@ -927,12 +990,17 @@ type ContentfulContactDetails implements Node {
   otherInformation: ContentfulRichText
 }
 
-type contentfulBrandLandingPageDescriptionTextNode implements Node {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulBrandLandingPageDescriptionTextNode implements Node @dontInfer {
+  id: ID!
   description: String
 }
 
-type ContentfulBrandLandingPage implements ContentfulPage & Node {
+type ContentfulBrandLandingPage implements ContentfulObject & ContentfulPage & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   contentful_id: String!
   title: String
   cta: ContentfulLink @link(from: "cta___NODE")
@@ -954,28 +1022,35 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
-type ContentfulBrand implements Node {
+type ContentfulBrand implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   title: String!
   brandLogo: String!
   subtitle: String
   path: String
 }
 
-type contentfulTableDataJsonNode implements Node {
+# JSON node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# JSON node will always be linked by the [fieldName]___NODE.
+type contentfulTableDataJsonNode implements Node @dontInfer {
   tableData: [[String]]
 }
 
-type ContentfulTable implements Node {
+type ContentfulTable implements ContentfulObject & Node @dontInfer {
   contentful_id: String!
+  metadata: ContentfulMetadata!
   data: contentfulTableDataJsonNode @link(by: "id", from: "data___NODE")
 }
 
-type ContentfulServiceType implements Node {
+type ContentfulServiceType implements ContentfulObject & Node @dontInfer {
+  metadata: ContentfulMetadata!
   name: String!
 }
 
-type ContentfulService implements Node {
+type ContentfulService implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   entryType: String
   name: String!
   location: Location
@@ -995,20 +1070,22 @@ type Location implements Node {
   lon: Float!
 }
 
-type ContentfulSeoContent implements Node {
+type ContentfulSeoContent implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   metaTitle: String
   metaDescription: String
   noIndex: Boolean
 }
 
-type VideoRatio {
+type VideoRatio @dontInfer {
   width: Int!
   height: Int!
 }
 
-type ContentfulVideo implements Node {
+type ContentfulVideo implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   title: String!
   label: String!
   subtitle: String
@@ -1018,7 +1095,11 @@ type ContentfulVideo implements Node {
   defaultYouTubePreviewImage: String!
 }
 
-type contentfulImageCaptionTextNode implements Node {
+# Text node needs to be defined in this named pattern format as it is created by the source plugin and CANNOT be changed.
+# This type isn't actually needed, but it is here to make it obvious what it contains.
+# Text node will always only contain the field matching the same name that it is being attached to and it will always be linked by the [fieldName]___NODE.
+type contentfulImageCaptionTextNode implements Node @dontInfer {
+  id: ID!
   caption: String
 }
 
@@ -1027,8 +1108,9 @@ type FocalPoint {
   y: Int
 }
 
-type ContentfulImage implements Node {
+type ContentfulImage implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   type: String
   altText: String
   image: ContentfulAsset! @link(by: "id", from: "image___NODE")
@@ -1037,8 +1119,9 @@ type ContentfulImage implements Node {
   thumbnail: ContentfulAsset
 }
 
-type ContentfulIframe implements Node {
+type ContentfulIframe implements ContentfulObject & Node @dontInfer {
   id: ID!
+  metadata: ContentfulMetadata!
   name: String!
   title: String
   summary: ContentfulRichText
@@ -1046,7 +1129,7 @@ type ContentfulIframe implements Node {
   height: String!
 }
 
-type CountryJSON {
+type CountryJSON @dontInfer {
   code: String!
   label: String!
   icon: String
@@ -1059,9 +1142,10 @@ type RegionJson implements Node @dontInfer {
 
 union NextStep = ContentfulSystemConfiguratorResult | ContentfulTitleWithContent | ContentfulSystemConfiguratorQuestion
 
-type ContentfulSystemConfiguratorResult implements Node {
+type ContentfulSystemConfiguratorResult implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   node_locale: String!
   label: String!
   title: String!
@@ -1069,9 +1153,10 @@ type ContentfulSystemConfiguratorResult implements Node {
   recommendedSystems: [String!]!
 }
 
-type ContentfulSystemConfiguratorAnswer implements Node {
+type ContentfulSystemConfiguratorAnswer implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   node_locale: String!
   label: String!
   title: String!
@@ -1079,9 +1164,10 @@ type ContentfulSystemConfiguratorAnswer implements Node {
   nextStep: NextStep! @link(from: "nextStep___NODE")
 }
 
-type ContentfulSystemConfiguratorQuestion implements Node {
+type ContentfulSystemConfiguratorQuestion implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   node_locale: String!
   label: String!
   title: String!
@@ -1089,9 +1175,10 @@ type ContentfulSystemConfiguratorQuestion implements Node {
   answers: [ContentfulSystemConfiguratorAnswer!]! @link(from: "answers___NODE")
 }
 
-type ContentfulSystemConfiguratorSection implements Node {
+type ContentfulSystemConfiguratorSection implements ContentfulObject & Node @dontInfer {
   id: ID!
   contentful_id: String!
+  metadata: ContentfulMetadata!
   node_locale: String!
   label: String
   title: String

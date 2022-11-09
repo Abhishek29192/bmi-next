@@ -43,11 +43,22 @@ function renderOptions(links) {
 
         return <Typography gutterBottom>{children}</Typography>;
       },
-      [BLOCKS.HEADING_2]: (_node, children) => (
-        <Typography className={styles.title} variant="h2">
-          {children}
-        </Typography>
-      ),
+      [BLOCKS.HEADING_2]: (_node, children) => {
+        // @todo. Make this more elegant in future.
+        if (children == "[ot-sdk-cookie-policy]") {
+          return (
+            <div className={styles.otSdkWrapper} id={"ot-sdk-cookie-policy"}>
+              &nbsp;
+            </div>
+          );
+        }
+
+        return (
+          <Typography className={styles.title} variant="h2">
+            {children}
+          </Typography>
+        );
+      },
       [BLOCKS.HEADING_3]: (_node, children) => (
         <Typography className={styles.title} variant="h3">
           {children}

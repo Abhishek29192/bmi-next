@@ -22,6 +22,18 @@ const mockDocument: Document = {
       data: {}
     },
     {
+      nodeType: BLOCKS.HEADING_2,
+      content: [
+        {
+          nodeType: "text",
+          value: "[ot-sdk-cookie-policy]",
+          marks: [],
+          data: {}
+        }
+      ],
+      data: {}
+    },
+    {
       nodeType: BLOCKS.HEADING_3,
       content: [{ nodeType: "text", value: "Heading 3", marks: [], data: {} }],
       data: {}
