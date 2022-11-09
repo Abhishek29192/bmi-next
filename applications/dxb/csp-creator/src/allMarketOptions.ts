@@ -117,6 +117,54 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "youtube"
     ]
   },
+  ch: {
+    gcpRegion: "eu-central",
+    gatsbySiteName: "switzerlanddec",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "oneTrust",
+      "outBrain",
+      "pointerPro",
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  "fr-ch": {
+    gcpRegion: "eu-central",
+    gatsbySiteName: "switzerlanddec",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "oneTrust",
+      "outBrain",
+      "pointerPro",
+      "speedCurve",
+      "youtube"
+    ]
+  },
   de: {
     frameSrcExtras:
       "https://bmi-braas-tegalit.web.app https://de-rufus.bmigroup.com https://www.firesmart.de https://braas-dachbildservice.digitalgenossen.de https://www.braas-profinetz.de https://www.braas-software.de/VisualizerDE/ https://dachkalkulator.bmi.webmodulservice.de https://www.braas-software.de https://bmi-aussendienst.digitalgenossen.de https://angebote.icopal.de https://www.ausschreiben.de https://ausschreiben.de https://hosting.maileon.com https://*.meindach.de https://bmi-rufus.digitalgenossen.de",
