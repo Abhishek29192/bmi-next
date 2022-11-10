@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function getMetaRedirect(toPath) {
+module.exports = function getMetaRedirect(toPath, isPermanent) {
   let url = toPath.trim();
 
   const hasProtocol = url.includes("://");
@@ -21,5 +21,7 @@ module.exports = function getMetaRedirect(toPath) {
     }
   }
 
-  return `<meta http-equiv="refresh" content="0; URL='${url}'" />`;
+  return `<meta http-equiv="refresh" content="${
+    isPermanent ? 0 : 1
+  }; URL='${url}'" />`;
 };

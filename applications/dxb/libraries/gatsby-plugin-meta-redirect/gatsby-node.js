@@ -9,7 +9,7 @@ async function writeRedirectsFile(redirects, folder, pathPrefix) {
   if (!redirects.length) return;
 
   for (const redirect of redirects) {
-    const { fromPath, toPath } = redirect;
+    const { fromPath, toPath, isPermanent } = redirect;
 
     const FILE_PATH = path.join(
       folder,
@@ -25,7 +25,7 @@ async function writeRedirectsFile(redirects, folder, pathPrefix) {
         // ignore if the directory already exists;
       }
 
-      const data = getMetaRedirect(toPath);
+      const data = getMetaRedirect(toPath, isPermanent);
       writeFileSync(FILE_PATH, data);
     }
   }
