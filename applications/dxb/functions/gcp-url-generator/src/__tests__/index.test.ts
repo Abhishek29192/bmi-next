@@ -39,7 +39,7 @@ jest.mock("@google-cloud/pubsub", () => {
 
 beforeEach(() => {
   process.env.GCP_PROJECT_ID = "TEST_GCP_PROJECT_ID";
-  process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
+  process.env.NON_PROD_ENV_NAME = "qa";
   jest.resetAllMocks();
   jest.resetModules();
 });

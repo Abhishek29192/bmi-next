@@ -6,23 +6,18 @@ import { transformProduct } from "./productTransformer";
 import { transformSystem } from "./systemTransformer";
 import { PubSubMessage } from "./types";
 
-const {
-  ENABLE_SAMPLE_ORDERING,
-  GCP_PROJECT_ID,
-  ENV_PREFIX,
-  NON_PROD_ENV_NAME
-} = process.env;
-const TRANSITIONAL_TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim${
+const { GCP_PROJECT_ID, ENV_PREFIX, NON_PROD_ENV_NAME } = process.env;
+export const TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim${
   NON_PROD_ENV_NAME && `-${NON_PROD_ENV_NAME}-`
 }URLGeneration-topic`;
 
-const pubSubClient = new PubSub({
+export const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
 });
 let topicPublisher: Topic;
 const getTopicPublisher = () => {
   if (!topicPublisher) {
-    topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
+    topicPublisher = pubSubClient.topic(TOPIC_NAME!);
   }
   return topicPublisher;
 };
@@ -68,9 +63,6 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     throw new Error(`Unrecognised itemType [${itemType}]`);
   }
 
-  logger.info({
-    message: `process.env.ENABLE_SAMPLE_ORDERING: ${ENABLE_SAMPLE_ORDERING}`
-  });
   let transformedItems;
   if (itemType === "PRODUCTS") {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
