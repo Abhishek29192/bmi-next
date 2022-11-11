@@ -1,5 +1,4 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import * as Gatsby from "gatsby";
 import mockConsole from "jest-mock-console";
 import React from "react";
 import { microCopy } from "../../constants/microCopies";
@@ -238,7 +237,12 @@ const sampleBasketLinkInfo: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: null,
-  tags: null
+  tags: null,
+  sections: [
+    {
+      title: "Basket title"
+    }
+  ]
 };
 
 const sampleBasketProducts: any = {
@@ -315,11 +319,6 @@ describe("Header component", () => {
   });
 
   it("shows sample basket icon", () => {
-    jest.spyOn(Gatsby, "useStaticQuery").mockImplementation(() => ({
-      contentfulSampleBasketSection: {
-        title: "Basket title"
-      }
-    }));
     const { container, queryByLabelText } = render(
       <BasketContext.Provider value={sampleBasketProducts}>
         <Header
@@ -340,11 +339,6 @@ describe("Header component", () => {
   });
 
   it("shows sample basket dialog on clicking on basket and hide it clicking on close", async () => {
-    jest.spyOn(Gatsby, "useStaticQuery").mockImplementation(() => ({
-      contentfulSampleBasketSection: {
-        title: "Basket title"
-      }
-    }));
     const { container, getByLabelText } = render(
       <BasketContext.Provider value={sampleBasketProducts}>
         <Header

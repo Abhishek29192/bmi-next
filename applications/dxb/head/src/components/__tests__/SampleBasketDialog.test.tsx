@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import * as Gatsby from "gatsby";
 import React from "react";
 import {
   BasketContextProvider,
@@ -48,21 +47,16 @@ const samples: Sample[] = [
     image: "http://localhost:8000/image-real-file-name.jpg"
   }
 ];
-beforeEach(() => {});
+
 describe("SampleBasketDialog component", () => {
   beforeEach(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));
-    jest.spyOn(Gatsby, "useStaticQuery").mockImplementation(() => ({
-      contentfulSampleBasketSection: {
-        title: "Basket title"
-      }
-    }));
   });
 
   it("renders correctly", () => {
     const { container, queryByRole } = render(
       <BasketContextProvider>
-        <SampleBasketDialog />
+        <SampleBasketDialog title="Basket title" />
       </BasketContextProvider>
     );
     expect(
@@ -86,7 +80,7 @@ describe("SampleBasketDialog component", () => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify([]));
     const { container } = render(
       <BasketContextProvider>
-        <SampleBasketDialog />
+        <SampleBasketDialog title="Basket title" />
       </BasketContextProvider>
     );
     expect(container.querySelector(".cart-drawer")).not.toBeInTheDocument();
@@ -95,7 +89,7 @@ describe("SampleBasketDialog component", () => {
   it("should remove sample", () => {
     render(
       <BasketContextProvider>
-        <SampleBasketDialog />
+        <SampleBasketDialog title="Basket title" />
       </BasketContextProvider>
     );
 
@@ -117,7 +111,10 @@ describe("SampleBasketDialog component", () => {
     const { getByRole } = render(
       <SiteContextProvider value={getSiteContext()}>
         <BasketContextProvider>
-          <SampleBasketDialog basketAction={basketAction} />
+          <SampleBasketDialog
+            title="Basket title"
+            basketAction={basketAction}
+          />
         </BasketContextProvider>
       </SiteContextProvider>
     );
@@ -130,7 +127,7 @@ describe("SampleBasketDialog component", () => {
 
     render(
       <BasketContextProvider>
-        <SampleBasketDialog toggleCart={toggleCart} />
+        <SampleBasketDialog title="Basket title" toggleCart={toggleCart} />
       </BasketContextProvider>
     );
 
