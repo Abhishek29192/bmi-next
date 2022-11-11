@@ -38,7 +38,6 @@ describe("products", () => {
       "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
       "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
       "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-      "TILESATTRIBUTES.THICKNESSREDUCTION": [{ name: "10" }],
       "TILESATTRIBUTES.SNOWFENCEACTIVE": [{ name: "true" }],
       "TILESATTRIBUTES.LARGETILE": [{ name: "true" }],
       "TILESATTRIBUTES.INVERT": [{ name: "true" }],
@@ -55,7 +54,7 @@ describe("products", () => {
     expect(preparedProduct.verticalOverlap).toBe(10);
     expect(preparedProduct.horizontalOverlap).toBe(10);
     expect(preparedProduct.horizontalOffset).toBe(10);
-    expect(preparedProduct.thicknessReduction).toBe(10);
+    expect(preparedProduct.thicknessReduction).toBe(0);
     expect(preparedProduct.invertY).toBe(true);
     expect(preparedProduct.invert).toBe(true);
     expect(preparedProduct.isLargeTile).toBe(true);
@@ -69,8 +68,13 @@ describe("convertAttrToNumber", () => {
     expect(res).toBe(89.7);
   });
 
-  it("returns 0", () => {
+  it("returns 0 if number is not correct", () => {
     const res = convertAttrToNumber({ code: "", name: "89 .,. 7" });
+    expect(res).toBe(0);
+  });
+
+  it("returns 0 if undefined", () => {
+    const res = convertAttrToNumber(undefined);
     expect(res).toBe(0);
   });
 });

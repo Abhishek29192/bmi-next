@@ -36,7 +36,7 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
     horizontalOffset: convertAttrToNumber(horizontalOffset[0]),
     snowFenceActive: convertStrToBool(snowFenceActive?.[0].name),
     isLargeTile: convertStrToBool(isLargeTile?.[0].name),
-    thicknessReduction: convertAttrToNumber(thicknessReduction[0]),
+    thicknessReduction: convertAttrToNumber(thicknessReduction?.[0]),
     invert: convertStrToBool(invert?.[0].name),
     invertY: convertStrToBool(invertY?.[0].name),
     normalMapRef: getAssetUrl("NORMAL_MAP_REFERENCE"),
@@ -50,8 +50,8 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
   };
 };
 
-export const convertAttrToNumber = (attr: { code: string; name: string }) => {
-  return Number(attr.name) || 0;
+export const convertAttrToNumber = (attr?: { code: string; name: string }) => {
+  return Number(attr?.name) || 0;
 };
 
 export const getVisualiserAssetUrlByType = (product: ESProduct) => {

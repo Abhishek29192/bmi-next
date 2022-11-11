@@ -265,7 +265,8 @@ const TileSectorDialog = ({
             contentSource={contentSource}
             defaultValue={activeTile.code}
             key={`material-group-${category}`}
-            title={getMicroCopy(`microCopy.materials.${category}`)}
+            //eslint-disable-next-line security/detect-object-injection
+            title={getMicroCopy(microCopy.materials[category])}
             products={products}
             onClick={onButtonClick}
           />

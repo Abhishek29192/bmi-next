@@ -8,7 +8,6 @@ export const getProductsQuery = () => ({
         { exists: { field: "TILESATTRIBUTES.VERTICALOVERLAP" } },
         { exists: { field: "TILESATTRIBUTES.HORIZONTALOVERLAP" } },
         { exists: { field: "TILESATTRIBUTES.HORIZONTALOFFSET" } },
-        { exists: { field: "TILESATTRIBUTES.THICKNESSREDUCTION" } },
         { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } },
         { exists: { field: "APPEARANCEATTRIBUTES.COLOUR" } },
         {
@@ -30,11 +29,6 @@ export const getProductsQuery = () => ({
         {
           match: {
             "visualiserAssets.assetType.keyword": "RIDGE_REFERENCE"
-          }
-        },
-        {
-          match: {
-            "visualiserAssets.assetType.keyword": "RIDGE_END_REFERENCE"
           }
         },
         {
