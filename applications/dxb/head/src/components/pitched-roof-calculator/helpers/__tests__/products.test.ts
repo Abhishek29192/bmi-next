@@ -30,7 +30,7 @@ describe("prepareProducts", () => {
     it("returns correct attributes for tiles", () => {
       const product = createProduct({
         ...tileClassificationAttributes,
-        TILESATTRIBUTES$BROKENBOND: [{ value: "true" }],
+        TILESATTRIBUTES$BROKENBOND: [{ name: "true" }],
         baseProduct: {
           code: "base_product_code",
           name: "base product"

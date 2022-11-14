@@ -361,6 +361,95 @@ describe("CLONE tests", () => {
       expect(Object.keys(result)[0]).toEqual(expectedCode);
     });
 
+    it("returns value field only for needed classifications", () => {
+      const pimClassificationNameSpace = "bmiClassificationCatalog/1.0";
+      const classifications: Array<Classification> = [
+        createClassification({
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.maximumBattenSpacing",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.minimumBattenSpacing",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/underlayAttributes.overlap",
+              featureValues: [createFeatureValue({ value: "1" })]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [createFeatureValue({ value: "red" })]
+            })
+          ]
+        })
+      ];
+      const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
+        pimClassificationNameSpace,
+        classifications
+      );
+      expect(result["APPEARANCEATTRIBUTES$COLOUR"][0].value).toBeUndefined();
+      expect(result["MEASUREMENTS$LENGTH"][0].value).toBe("1");
+      expect(result["MEASUREMENTS$WIDTH"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$EAVEGAUGE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$EAVEGAUGESTARTANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$EAVEGAUGEENDANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$MAXGAUGESTARTANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$MAXGAUGEENDANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$MAXIMUMBATTENSPACING"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$MINIMUMBATTENSPACING"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$RIDGESPACE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$RIDGESPACESTARTANGLE"][0].value).toBe("1");
+      expect(result["TILESATTRIBUTES$RIDGESPACEENDANGLE"][0].value).toBe("1");
+      expect(result["UNDERLAYATTRIBUTES$MINSUPPORTEDPITCH"][0].value).toBe("1");
+      expect(result["UNDERLAYATTRIBUTES$OVERLAP"][0].value).toBe("1");
+    });
+
     describe("When single classification with NO features is passed", () => {
       it("should return empty object", () => {
         const classifications: Array<Classification> = [

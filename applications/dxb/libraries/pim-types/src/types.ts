@@ -481,7 +481,6 @@ export type ProductReferenceType =
   | "SCREW"
   | "STORM_BRACKET"
   | "FINISHING_KIT"
-  | "FINISHING_KIT"
   | "CROSSELLING"
   | "UPSELLING";
 

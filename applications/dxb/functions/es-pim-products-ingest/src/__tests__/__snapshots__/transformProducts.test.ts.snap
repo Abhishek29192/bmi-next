@@ -63,6 +63,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
     "MEASUREMENTS$THICKNESS": Array [
@@ -75,6 +76,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -348,6 +350,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -479,6 +482,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -610,6 +614,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -658,6 +663,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
     "MEASUREMENTS$THICKNESS": Array [
@@ -670,6 +676,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
@@ -888,6 +895,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1013,6 +1021,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -1081,6 +1090,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
     "MEASUREMENTS$THICKNESS": Array [
@@ -1093,6 +1103,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1335,6 +1346,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1405,6 +1417,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
     "MEASUREMENTS$THICKNESS": Array [
@@ -1417,6 +1430,7 @@ Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1682,6 +1696,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
