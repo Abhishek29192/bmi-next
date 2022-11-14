@@ -38,6 +38,7 @@ const mediaTool = (url: string): MediaItem => ({
     __typename: "Sys",
     id: "2"
   },
+  mediaItemClass: "test-001",
   media: {
     __typename: "Asset",
     title: "mediaAsset",
@@ -70,6 +71,23 @@ describe("MediaTileThumbnail", () => {
   it("should render vimeo MediaTool component", () => {
     const { container } = renderWithI18NProvider(
       <MediaTileThumbnail mediaItem={mediaTool("http://vimeo.com")} />
+    );
+
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("should render vimeo MediaTool component with default optanonClass", () => {
+    const mediaTool: MediaItem = {
+      __typename: "MediaTool",
+      name: "mediaTool",
+      url: "http://vimeo.com",
+      sys: {
+        __typename: "Sys",
+        id: "2"
+      }
+    };
+    const { container } = renderWithI18NProvider(
+      <MediaTileThumbnail mediaItem={mediaTool} optanonClass={"test"} />
     );
 
     expect(container.parentElement).toMatchSnapshot();

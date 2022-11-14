@@ -1,0 +1,29 @@
+{
+  "Training": "Träning",
+  "See training": "Se utbildning",
+  "My courses": "Mina kurser",
+  "in_progress": "Pågående",
+  "enrolled": "Inskriven",
+  "completed": "Avslutad",
+  "waiting": "Väntar",
+  "viewTraining": "Se utbildning",
+  "Description": "Beskrivning",
+  "search": {
+    "inputLabel": "Sök efter en utbildning"
+  },
+  "filter": {
+    "labels": {
+      "all": "Allt"
+    }
+  },
+  "type": {
+    "classroom": "Klassrum",
+    "elearning": "E-lärande",
+    "webinar": "Webbseminarium"
+  },
+  "technology": {
+    "PITCHED": "Branta",
+    "FLAT": "Låglutande",
+    "OTHER": "Övrig"
+  }
+}

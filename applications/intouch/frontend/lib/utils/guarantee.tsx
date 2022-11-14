@@ -64,9 +64,6 @@ export const SolutionGuaranteeValidationErrorMessage: Record<
     "guaranteeSubmitAlert.message.projectDetails"
 };
 
-// TODO:
-export const guaranteePrerequsitesMet = (guarantee) => true;
-
 type SolutionGuaranteeValidateResult = {
   isValid: boolean;
   validationError?: SolutionGuaranteeValidationError;

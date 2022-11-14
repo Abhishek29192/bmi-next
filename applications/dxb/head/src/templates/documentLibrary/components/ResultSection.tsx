@@ -4,10 +4,12 @@ import React from "react";
 import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";
+import { AssetType } from "../types";
 import DocumentResults, { DocumentResultData, Format } from "./DocumentResults";
 
 export type Props = {
   results: DocumentResultData[];
+  assetTypes: AssetType[];
   format: Format;
   page: number;
   pageCount: number;
@@ -16,6 +18,7 @@ export type Props = {
 
 const ResultSection = ({
   results,
+  assetTypes,
   format,
   page,
   pageCount,
@@ -29,7 +32,11 @@ const ResultSection = ({
     <>
       {results.length ? (
         <>
-          <DocumentResults data={results} format={format} page={1} />
+          <DocumentResults
+            data={results}
+            assetTypes={assetTypes}
+            format={format}
+          />
           <div className={filterStyles["results"]}>
             <DocumentResultsFooter
               page={page + 1}

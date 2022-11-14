@@ -9,9 +9,11 @@ import {
 import { PoolClient } from "pg";
 import trimStringsDeep from "../../utils/trimStringsDeep";
 import { PostGraphileContext } from "../../types";
-import { sendMessageWithTemplate } from "../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  sendMailToMarketAdmins
+} from "../../services/mailer";
 import { tierBenefit } from "../contentful";
-import { getDbPool } from "../../db";
 import { parseMarketCompanyTag } from "../../utils/contentful";
 
 const UNIQUE_VIOLATION_ERROR_CODE = "23505";
@@ -128,41 +130,25 @@ export const updateCompany = async (
         (line) => registeredAddress[line]
       )
     ) {
-      const dbPool = getDbPool();
-      const { rows: marketAdmins } = await dbPool.query(
-        `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
-        ["MARKET_ADMIN", user.marketId]
-      );
+      const event = "COMPANY_REGISTERED";
       await pgClient.query("SELECT * FROM activate_company($1)", [
         args.input.id
       ]);
 
       const dynamicContent = {
-        accountId: user.id,
-        firstname: user.firstName,
         company: $name,
         city: registeredAddress.town,
         companyCreator: user.email
       };
-      const sendEMailToUser = sendMessageWithTemplate(
-        context,
-        "COMPANY_REGISTERED",
-        {
-          email: user.email,
-          ...dynamicContent
-        }
-      );
-      // send mail to market admin after successful company creation
-      await Promise.all([
-        sendEMailToUser,
-        ...marketAdmins.map(({ email, id: accountId }) => {
-          sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
-            ...dynamicContent,
-            email,
-            accountId
-          });
-        })
-      ]);
+      const sendEmailToUser = sendMessageWithTemplate(context, event, {
+        email: user.email,
+        accountId: user.id,
+        firstname: user.firstName,
+        ...dynamicContent
+      });
+
+      await Promise.all([sendEmailToUser]);
+      await sendMailToMarketAdmins(context, event, dynamicContent);
     }
 
     if (tier && activeCompanyTier !== tier) {

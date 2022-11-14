@@ -6,9 +6,9 @@
   "visualizer.selectionOptions.default": "Valgt",
   "visualizer.tileSelector.title": "Velg produkt",
   "visualizer.tileSelector.description": "Denne tjenesten skal kun brukes som veiledning. Faktiske produktoverflater- og farger kan variere fra de som vises.",
-  "visualizer.materials.material1": "Betongtakstein",
-  "visualizer.materials.material2": "Telgtakstein",
-  "visualizer.materials.material3": "Takpanner",
+  "visualizer.materials.clay": "Betongtakstein",
+  "visualizer.materials.concrete": "Telgtakstein",
+  "visualizer.materials.metal": "Takpanner",
   "visualizer.sidingsSelector.title": "Velg farge på vegg",
   "visualizer.sharePopover.accessibilityLabel": "Lukk",
   "visualizer.readMore": "Les mer om produktet"

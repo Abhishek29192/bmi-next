@@ -3,6 +3,7 @@ import { Filter } from "@bmi/components/src";
 import { Data as SiteData } from "../../../components/Site";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { ContentfulDocumentLibraryPage } from "../types";
+import createContentfulAssetType from "../../../schema/resolvers/types/helpers/ContentfulAssetTypeHelper";
 
 export const createDocument = (customFields = {}) => {
   return {
@@ -64,7 +65,6 @@ export const createDocument = (customFields = {}) => {
       isLinkDocument: false,
       productCode: "base_10201B1E1GHED",
       titleAndSize: "AeroDek_5034939_3",
-      docName: "Bro BMI Norge AeroDek",
       noIndex: false,
       assetType: {
         name: "Broschüren",
@@ -87,7 +87,6 @@ export const createCollapseData = (documents: [] = []) => ({
         hits: [
           createDocument({
             fileSize: 111111,
-            docName: "Test 1",
             url: "https://url"
           }),
           ...documents
@@ -97,7 +96,7 @@ export const createCollapseData = (documents: [] = []) => ({
   }
 });
 
-export const creatESDocumentHitResponseMock = (
+export const createESDocumentHitResponseMock = (
   customDocumentFields = {},
   customEsResponseFields = {}
 ) => {
@@ -155,7 +154,11 @@ export const createData = (
     allowFilterBy: null,
     source: "PIM",
     resultsType: "Simple",
-    assetTypes: [],
+    contentfulAssetTypes: [
+      createContentfulAssetType({
+        code: createESDocumentHitResponseMock()._source.assetType.code
+      })
+    ],
     documentsFilters: { filters: [...documentFilters] },
     breadcrumbs: [
       {

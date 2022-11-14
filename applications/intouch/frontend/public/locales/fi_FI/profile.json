@@ -1,52 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Sertifikaatit",
     "buttons": {
-      "removeProfilePicture": "Poista",
-      "saveAndClose": "Tallenna ja sulje",
-      "uploadProfilePicture": "Lataa uusi kuva"
-    },
+      "editProfile": "Muokata",
+      "changePassword": "Vaihda salasana"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Yhteystiedot",
-    "fileSizeMessage": "Tiedoston enimmäiskoko 3Mb",
+    "title": "Omat tiedot",
     "fileTypesMessage": "Voit ladata jpg-, gif- tai png-tiedostoja.",
+    "fileSizeMessage": "Tiedoston enimmäiskoko 3Mb",
     "form": {
       "fields": {
-        "email": "Sähköposti",
         "firstName": "Etunimi",
         "lastName": "Sukunimi",
+        "email": "Sähköposti",
         "phone": "Puhelin",
         "photo": "Profiilikuva"
       }
     },
-    "title": "Omat tiedot"
+    "buttons": {
+      "uploadProfilePicture": "Lataa uusi kuva",
+      "removeProfilePicture": "Poista",
+      "saveAndClose": "Tallenna ja sulje"
+    }
   },
   "leaveCompany": {
     "cta": "Jätä yritys",
     "dialog": {
+      "title": "Oletko varma?",
       "content": "Kaikki omistamasi BMI-sertifikaatit säilyvät sinulle, mutta Yritys ei enää peri mitään sertifikaattejasi. Et ole enää heidän projektiensa jäsen etkä voi tarkastella projektin tietoja. Yritys ei voi nimetä sinua projektien vastaavaksi asentajaksi.",
       "cta": {
         "cancel": "Peruuttaa",
         "confirm": "Jatka"
-      },
-      "title": "Oletko varma?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Rekisteröi yritysesi",
+    "body": "Voit rekisteröidä yrityksesi tästä",
+    "cta": "Rekisteröidy"
   },
   "passwordReset": {
     "dialog": {
-      "error": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä BMI-järjestelmänvalvojaan.",
+      "title": "Vaihda salasana",
       "success": "Lähetimme sinulle sähköpostin, jossa on linkki salasanan vaihtoon. Noudata sähköpostissa olevia ohjeita.",
-      "title": "Vaihda salasana"
+      "error": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä BMI-järjestelmänvalvojaan."
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Vaihda salasana",
-      "editProfile": "Muokata"
-    },
-    "certificationsHeading": "Sertifikaatit"
-  },
-  "registerCompany": {
-    "body": "Voit rekisteröidä yrityksesi tästä",
-    "cta": "Rekisteröidy",
-    "heading": "Rekisteröi yritysesi"
   }
 }

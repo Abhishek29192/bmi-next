@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Arkitekt",
-  "About Us": "Om oss",
-  "Account": "Min konto",
-  "CONTRACTOR": "Håndverker",
-  "CORP_DEVELOPER": "Eiendomsutvikler",
+  "Home": "Hjem",
+  "Projects": "Prosjekter",
+  "Training": "Kurs",
+  "Team": "Team",
   "Companies": "Bedrifter",
   "Company": "Bedrift",
-  "Company Description": "Om oss",
-  "Download": "Last ned",
-  "Edit": "Rediger",
-  "Home": "Hjem",
+  "Tools": "Verktøy",
   "Inventory": "Inventar",
-  "Logout": "Logg ut",
-  "MERCHANT": "Forhandler",
-  "Main office address": "Adresse til hovedkontoret",
+  "Edit": "Rediger",
+  "Search": "Søk",
   "No Options": "Ingen valg",
-  "Notifications": "Varsler",
-  "Products": "Produkter",
+  "Show me": "Vis meg",
+  "Account": "Min konto",
   "Profile": "Profil",
-  "Projects": "Prosjekter",
-  "Registered Address": "Registrert adresse",
+  "Logout": "Logg ut",
+  "Notifications": "Varsler",
+  "deactivatedCompany": "Selskapet deaktivert",
+  "results available": "resultater tilgjengelig",
+  "Company Description": "Om oss",
+  "About Us": "Om oss",
   "Registered Details": "Registrerte detaljer",
   "Registered Name": "Registrert navn",
-  "SavePdf": "Lagre som PDF",
-  "Search": "Søk",
-  "Show me": "Vis meg",
-  "Sort by": "Sorter etter",
-  "Team": "Team",
-  "Tools": "Verktøy",
-  "Training": "Kurs",
+  "Registered Address": "Registrert adresse",
+  "Main office address": "Adresse til hovedkontoret",
+  "CONTRACTOR": "Håndverker",
+  "ARCHITECT": "Arkitekt",
+  "MERCHANT": "Forhandler",
+  "CORP_DEVELOPER": "Eiendomsutvikler",
   "aria": {
     "navigation": "Navigasjon",
     "notifications": "Varsler"
   },
-  "certificationLabels": {
-    "certification": "Sertifiseringer",
-    "expiry": "Utløpt",
-    "type": "Type"
-  },
-  "certifications": {
-    "flat": "Flatt tak",
-    "other": "Annet",
-    "pitched": "Skråtak"
-  },
-  "deactivatedCompany": "Selskapet deaktivert",
-  "error_messages": {
-    "email_format": "Ugyldig epostadresse",
-    "phone_number_format": "Ugyldig telefonnummer",
-    "required": "Obligatorisk",
-    "url_format": "Ugyldig URL"
-  },
-  "fallback": {
-    "noResults": "Ingen resultater funnet",
-    "notAdded": "Ikke lagt til"
-  },
-  "generatingPdf": "Forbereder PDF",
-  "notifications": {
-    "earlier": "Tidligere",
-    "older": "Eldre enn 2 måneder",
-    "today": "I dag"
-  },
-  "requiredInformation": "nødvendig informasjon",
-  "results available": "resultater tilgjengelig",
   "roles": {
-    "AUDITOR": "Prosjektrevisor",
-    "COMPANY_ADMIN": "Bedriftsadministrator",
     "INSTALLER": "Medlem",
+    "COMPANY_ADMIN": "Bedriftsadministrator",
     "MARKET_ADMIN": "Markedsadministrator",
-    "SUPER_ADMIN": "Super Admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Du har vært inaktiv en stund nå, og denne økten vil utløpe og du logges automatisk ut.",
-      "continue": "Ikke logg ut",
-      "logout": "Logg ut",
-      "title": "Økten din utløper etter {{counter}}"
-    }
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Prosjektrevisor"
   },
   "tier": {
     "T1": "Medlem",
@@ -86,7 +47,46 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Obligatorisk",
+    "url_format": "Ugyldig URL",
+    "email_format": "Ugyldig epostadresse",
+    "phone_number_format": "Ugyldig telefonnummer"
+  },
+  "Products": "Produkter",
+  "fallback": {
+    "notAdded": "Ikke lagt til",
+    "noResults": "Ingen resultater funnet"
+  },
+  "Download": "Last ned",
+  "SavePdf": "Lagre som PDF",
   "visitWebsite": "Besøk nettsiden",
+  "certifications": {
+    "pitched": "Skråtak",
+    "flat": "Flatt tak",
+    "other": "Annet"
+  },
+  "certificationLabels": {
+    "type": "Type",
+    "certification": "Sertifiseringer",
+    "expiry": "Utløpt"
+  },
+  "notifications": {
+    "today": "I dag",
+    "earlier": "Tidligere",
+    "older": "Eldre enn 2 måneder"
+  },
+  "session": {
+    "dialog": {
+      "title": "Økten din utløper etter {{counter}}",
+      "content": "Du har vært inaktiv en stund nå, og denne økten vil utløpe og du logges automatisk ut.",
+      "logout": "Logg ut",
+      "continue": "Ikke logg ut"
+    }
+  },
+  "generatingPdf": "Forbereder PDF",
+  "Sort by": "Sorter etter",
+  "requiredInformation": "nødvendig informasjon",
   "button": {
     "more": "Vis mer",
     "less": "Vis mindre"

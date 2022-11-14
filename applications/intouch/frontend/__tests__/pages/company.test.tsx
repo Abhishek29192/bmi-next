@@ -31,7 +31,16 @@ const mockGetServerPageGetCompany = jest.fn();
 jest.mock("../../graphql/generated/page", () => ({
   getServerPageGetCompaniesByMarket: () =>
     mockGetServerPageGetCompaniesByMarket(),
-  getServerPageGetCompany: () => mockGetServerPageGetCompany()
+  getServerPageGetCompany: () => mockGetServerPageGetCompany(),
+  getServerPageGetOperationTypeCollection: jest.fn().mockImplementation(() => ({
+    props: {
+      data: {
+        operationTypeCollection: {
+          items: [{ type: "FLAT", displayName: "Flat" }]
+        }
+      }
+    }
+  }))
 }));
 
 jest.mock("next-i18next/serverSideTranslations", () => ({
@@ -39,14 +48,17 @@ jest.mock("next-i18next/serverSideTranslations", () => ({
 }));
 
 let companyPageProps;
-jest.mock("../../components/Pages/Company", () => ({
-  __esModule: true,
-  ...jest.requireActual("../../components/Pages/Company"),
-  CompanyPage: jest.fn().mockImplementation((props) => {
-    companyPageProps = props;
-    return <div>companyDetails</div>;
-  })
-}));
+jest.mock("../../components/Pages/Company", () => {
+  const original = jest.requireActual("../../components/Pages/Company");
+  return {
+    __esModule: true,
+    ...original,
+    CompanyPage: jest.fn().mockImplementation((props) => {
+      companyPageProps = props;
+      return <div>companyDetails</div>;
+    })
+  };
+});
 
 const company = generateCompany();
 const useLazyQueryOnCompleteCallback = jest.fn().mockReturnValue({
@@ -54,19 +66,22 @@ const useLazyQueryOnCompleteCallback = jest.fn().mockReturnValue({
     nodes: [company]
   }
 });
-jest.mock("@apollo/client", () => ({
-  ...jest.requireActual("@apollo/client"),
-  useLazyQuery: (_, { onCompleted, onError }) => [
-    jest.fn(() => {
-      onCompleted(useLazyQueryOnCompleteCallback());
-      onError({
-        open: true,
-        severity: "error",
-        message: "invitation.dialog.errorCommonFailure"
-      });
-    })
-  ]
-}));
+jest.mock("@apollo/client", () => {
+  const original = jest.requireActual("@apollo/client");
+  return {
+    ...original,
+    useLazyQuery: (_, { onCompleted, onError }) => [
+      jest.fn(() => {
+        onCompleted(useLazyQueryOnCompleteCallback());
+        onError({
+          open: true,
+          severity: "error",
+          message: "invitation.dialog.errorCommonFailure"
+        });
+      })
+    ]
+  };
+});
 
 const logSpy = jest.fn();
 jest.mock("../../lib/logger", () => ({
@@ -85,6 +100,7 @@ describe("Company Page", () => {
   const globalPageData: GetGlobalDataQuery = generateGlobalPageData();
   const market = generateMarketContext();
   const contactDetailsCollection = mockContactDetailsCollection;
+  const operationTypes = [{ type: "FLAT", displayName: "Flat" }];
 
   it("should not view all companies if installer", async () => {
     const context = {
@@ -326,6 +342,7 @@ describe("Company Page", () => {
           globalPageData={globalPageData}
           mapsApiKey={null}
           market={market}
+          operationTypes={operationTypes}
         />
       </RouterContext.Provider>
     );
@@ -345,6 +362,7 @@ describe("Company Page", () => {
           globalPageData={globalPageData}
           mapsApiKey={null}
           market={market}
+          operationTypes={operationTypes}
         />
       </RouterContext.Provider>
     );
@@ -374,6 +392,7 @@ describe("Company Page", () => {
           globalPageData={globalPageData}
           mapsApiKey={null}
           market={market}
+          operationTypes={operationTypes}
         />
       </RouterContext.Provider>
     );

@@ -12,9 +12,11 @@ export const queryMarketsByDomain = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
+        merchandiseSso
         projectsEnabled
         gtag
         gtagMarketMedia
+        optanonClass
         sendName
         sendMailbox
         locationBiasRadiusKm

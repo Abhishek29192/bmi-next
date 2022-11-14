@@ -29,6 +29,7 @@ const defaultGuarantee: GetProjectQuery["project"]["guarantees"]["nodes"][0] = {
   coverage: "SOLUTION",
   status: "NEW",
   guaranteeType: {
+    tiersAvailable: [],
     sys: {
       id: "sys_id"
     },
@@ -73,7 +74,9 @@ const defaultProject: GetProjectQuery["project"] = {
 const project2 = generateProject({
   siteAddress: null,
   company: null,
-  guarantees: null,
+  guarantees: {
+    nodes: []
+  },
   buildingOwnerFirstname: null
 });
 const projects = [defaultProject, project2];

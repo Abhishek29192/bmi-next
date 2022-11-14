@@ -13,9 +13,8 @@ import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
 import { PostGraphileContext } from "../../types";
 import { filesTypeValidate } from "../../utils/file";
-import { sendMessageWithTemplate } from "../mailer";
+import { sendMessageWithTemplate, sendMailToMarketAdmins } from "../mailer";
 import { EventMessage, tierBenefit } from "../contentful";
-import { getDbPool } from "../../db";
 import { parseMarketCompanyTag } from "../../utils/contentful";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
@@ -59,12 +58,6 @@ export const createGuarantee = async (
           : await getSystemMaximumValidityYears(systemBmiRef, pgClient);
       guarantee.expiryDate.setFullYear(
         guarantee.expiryDate.getFullYear() + max
-      );
-      await sendMailToCompanyAdmin(
-        context,
-        projectId,
-        "REQUEST_APPROVED",
-        +user.id
       );
     }
 
@@ -123,6 +116,16 @@ export const updateGuarantee = async (
         );
         throw new Error("Validation Error");
       }
+      const projectCompanyDetail = await getProjectCompanyDetail(
+        projectId,
+        pgClient
+      );
+      const dynamicContent = {
+        project: `${projectCompanyDetail.name}`,
+        company: `${projectCompanyDetail.companyName}`,
+        author: user.email,
+        projectId
+      };
 
       patch.requestorAccountId = +user.id;
       patch.bmiReferenceId =
@@ -131,8 +134,11 @@ export const updateGuarantee = async (
           : bmiReferenceId;
       patch.status = "SUBMITTED";
 
-      // Send message to market admins.
-      sendMailToMarketAdmins(context, projectId, "REQUEST_SUBMITTED");
+      await sendMailToMarketAdmins(
+        context,
+        "REQUEST_SUBMITTED",
+        dynamicContent
+      );
     }
 
     if (guaranteeEventType === "ASSIGN_SOLUTION" && status === "SUBMITTED") {
@@ -176,12 +182,6 @@ export const updateGuarantee = async (
       patch.expiryDate.setFullYear(
         patch.expiryDate.getFullYear() + max - guaranteeValidityOffsetYears
       );
-      sendMailToCompanyAdmin(
-        context,
-        projectId,
-        "REQUEST_APPROVED",
-        requestorAccountId
-      );
     }
 
     if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
@@ -194,6 +194,19 @@ export const updateGuarantee = async (
         requestorAccountId
       );
     }
+
+    if (
+      guaranteeEventType === "BO_ACCEPTED_SOLUTION" &&
+      status === "APPROVED"
+    ) {
+      sendMailToCompanyAdmin(
+        context,
+        projectId,
+        "REQUEST_APPROVED",
+        requestorAccountId
+      );
+    }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
     logger.error("Error update guarantee:", e);
@@ -296,39 +309,6 @@ const sendMailToCompanyAdmin = async (
       firstname: account.first_name,
       role: account.role,
       project: `${projectCompanyDetail.name}`,
-      projectId
-    });
-  }
-};
-
-export const sendMailToMarketAdmins = async (
-  context: PostGraphileContext,
-  projectId: number,
-  event: EventMessage
-) => {
-  const { pgClient, user } = context;
-
-  // Get project details.
-  const projectCompanyDetail = await getProjectCompanyDetail(
-    projectId,
-    pgClient
-  );
-
-  // Get all market admins and send mail
-  const dbPool = getDbPool();
-  const { rows: marketAdmins } = await dbPool.query(
-    `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
-    ["MARKET_ADMIN", projectCompanyDetail.marketId]
-  );
-
-  for (let i = 0; i < marketAdmins.length; i++) {
-    const account = marketAdmins[+i];
-    await sendMessageWithTemplate(context, event, {
-      accountId: account.id,
-      email: account.email,
-      project: `${projectCompanyDetail.name}`,
-      company: `${projectCompanyDetail.companyName}`,
-      author: user.email,
       projectId
     });
   }

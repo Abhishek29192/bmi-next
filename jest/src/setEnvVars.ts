@@ -61,7 +61,6 @@ process.env.PIM_CATALOG_NAME = "pim-catalog-name";
 process.env.GCP_PROJECT_ID = "gcp-project-id";
 process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
 process.env.ES_INDEX_PREFIX = "es-index-prefix";
-process.env.ES_INDEX_NAME_DOCUMENTS = "es-index-name-documents";
 process.env.PIM_OAUTH_CLIENT_SECRET = "pim-client-secret";
 process.env.ES_INDEX_NAME_DOCUMENTS = "es-index-name-documents";
 process.env.MANAGEMENT_ACCESS_TOKEN = "token";
@@ -89,3 +88,6 @@ process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
 process.env.LOCALE = "en-US";
 process.env.ES_DOCUMENTS_INGEST_SECRET = "some secret";
+
+process.env.SPACE_MARKET_CODE = "no";
+process.env.GATSBY_MARKET_LOCALE_CODE = "nb-NO";

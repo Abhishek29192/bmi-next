@@ -52,6 +52,7 @@ exports[`Tabs component renders correctly 1`] = `
                   aria-controls="tabpanel-0"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                  data-testid="tab-0"
                   id="tab-0"
                   role="tab"
                   tabindex="0"
@@ -70,6 +71,7 @@ exports[`Tabs component renders correctly 1`] = `
                   aria-controls="tabpanel-1"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3"
+                  data-testid="tab-1"
                   id="tab-1"
                   role="tab"
                   tabindex="-1"
@@ -115,6 +117,7 @@ exports[`Tabs component renders correctly 1`] = `
     <div
       aria-labelledby="tab-0"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-0"
       heading="Tab 1"
       id="tabpanel-0"
       role="tabpanel"
@@ -128,6 +131,7 @@ exports[`Tabs component renders correctly 1`] = `
     <div
       aria-labelledby="tab-1"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-1"
       heading="Tab 2"
       hidden=""
       id="tabpanel-1"
@@ -155,10 +159,10 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
         class="Container"
       >
         <div
-          class="MuiContainer-root tabStyles-ContainerRoot-28 MuiContainer-maxWidthXl"
+          class="MuiContainer-root tabStyles-ContainerRoot-37 MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiTabs-root tabStyles-TabsRoot-29"
+            class="MuiTabs-root tabStyles-TabsRoot-38"
           >
             <div
               aria-disabled="false"
@@ -194,7 +198,8 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
                 <button
                   aria-controls="tabpanel-0"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-30 Mui-selected"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-39 Mui-selected"
+                  data-testid="tab-0"
                   id="tab-0"
                   role="tab"
                   tabindex="0"
@@ -211,7 +216,7 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-31 PrivateTabIndicator-colorPrimary-32 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-40 PrivateTabIndicator-colorPrimary-41 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -240,12 +245,13 @@ exports[`Tabs component renders correctly when one tab is false 1`] = `
     <div
       aria-labelledby="tab-0"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-0"
       heading="Tab 1"
       id="tabpanel-0"
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-35 TabPanelBox"
+        class="MuiBox-root MuiBox-root-44 TabPanelBox"
       >
         Content One
       </div>
@@ -258,149 +264,6 @@ exports[`Tabs component renders correctly when visibleUntil is set to md  1`] = 
 <div>
   <div
     class="Tabs Tabs--primary Tabs--visible-until-md"
-  >
-    <div
-      class="TabsBar"
-    >
-      <div
-        class="Container"
-      >
-        <div
-          class="MuiContainer-root tabStyles-ContainerRoot-36 MuiContainer-maxWidthXl"
-        >
-          <div
-            class="MuiTabs-root tabStyles-TabsRoot-37"
-          >
-            <div
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-            <div
-              class="MuiTabs-scrollable"
-              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-            />
-            <div
-              class="MuiTabs-scroller MuiTabs-scrollable"
-              style="margin-bottom: 0px;"
-            >
-              <div
-                aria-label="tabs"
-                class="MuiTabs-flexContainer"
-                role="tablist"
-              >
-                <button
-                  aria-controls="tabpanel-0"
-                  aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-38 Mui-selected"
-                  id="tab-0"
-                  role="tab"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiTab-wrapper"
-                  >
-                    Tab 1
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <button
-                  aria-controls="tabpanel-1"
-                  aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-38"
-                  id="tab-1"
-                  role="tab"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    class="MuiTab-wrapper"
-                  >
-                    Tab 2
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-              <span
-                class="PrivateTabIndicator-root-39 PrivateTabIndicator-colorPrimary-40 MuiTabs-indicator"
-                style="left: 0px; width: 0px;"
-              />
-            </div>
-            <div
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
-                />
-              </svg>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      aria-labelledby="tab-0"
-      class="MuiGrid-root TabPanel MuiGrid-item"
-      heading="Tab 1"
-      id="tabpanel-0"
-      role="tabpanel"
-    >
-      <div
-        class="MuiBox-root MuiBox-root-43 TabPanelBox"
-      >
-        Content One
-      </div>
-    </div>
-    <div
-      aria-labelledby="tab-1"
-      class="MuiGrid-root TabPanel MuiGrid-item"
-      heading="Tab 2"
-      hidden=""
-      id="tabpanel-1"
-      role="tabpanel"
-    >
-      <div
-        class="MuiBox-root MuiBox-root-44 TabPanelBox"
-      >
-        Content Two
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = `
-<div>
-  <div
-    class="Tabs Tabs--primary Tabs--visible-until-sm"
   >
     <div
       class="TabsBar"
@@ -449,6 +312,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
                   aria-controls="tabpanel-0"
                   aria-selected="true"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-47 Mui-selected"
+                  data-testid="tab-0"
                   id="tab-0"
                   role="tab"
                   tabindex="0"
@@ -467,6 +331,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
                   aria-controls="tabpanel-1"
                   aria-selected="false"
                   class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-47"
+                  data-testid="tab-1"
                   id="tab-1"
                   role="tab"
                   tabindex="-1"
@@ -512,6 +377,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
     <div
       aria-labelledby="tab-0"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-0"
       heading="Tab 1"
       id="tabpanel-0"
       role="tabpanel"
@@ -525,6 +391,7 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
     <div
       aria-labelledby="tab-1"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-1"
       heading="Tab 2"
       hidden=""
       id="tabpanel-1"
@@ -540,10 +407,10 @@ exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = 
 </div>
 `;
 
-exports[`Tabs component renders secondary theme correctly 1`] = `
+exports[`Tabs component renders correctly when visibleUntil is set to sm  1`] = `
 <div>
   <div
-    class="Tabs Tabs--secondary"
+    class="Tabs Tabs--primary Tabs--visible-until-sm"
   >
     <div
       class="TabsBar"
@@ -552,10 +419,10 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
         class="Container"
       >
         <div
-          class="MuiContainer-root tabStyles-ContainerRoot-10 MuiContainer-maxWidthXl"
+          class="MuiContainer-root tabStyles-ContainerRoot-54 MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiTabs-root tabStyles-TabsRoot-11"
+            class="MuiTabs-root tabStyles-TabsRoot-55"
           >
             <div
               aria-disabled="false"
@@ -591,7 +458,8 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
                 <button
                   aria-controls="tabpanel-0"
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-12 Mui-selected"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-56 Mui-selected"
+                  data-testid="tab-0"
                   id="tab-0"
                   role="tab"
                   tabindex="0"
@@ -609,7 +477,8 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
                 <button
                   aria-controls="tabpanel-1"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-12"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-56"
+                  data-testid="tab-1"
                   id="tab-1"
                   role="tab"
                   tabindex="-1"
@@ -626,7 +495,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorPrimary-14 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-57 PrivateTabIndicator-colorPrimary-58 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -655,12 +524,13 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     <div
       aria-labelledby="tab-0"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-0"
       heading="Tab 1"
       id="tabpanel-0"
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-17 TabPanelBox"
+        class="MuiBox-root MuiBox-root-61 TabPanelBox"
       >
         Content One
       </div>
@@ -668,13 +538,161 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     <div
       aria-labelledby="tab-1"
       class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-1"
       heading="Tab 2"
       hidden=""
       id="tabpanel-1"
       role="tabpanel"
     >
       <div
-        class="MuiBox-root MuiBox-root-18 TabPanelBox"
+        class="MuiBox-root MuiBox-root-62 TabPanelBox"
+      >
+        Content Two
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs component renders secondary theme correctly 1`] = `
+<div>
+  <div
+    class="Tabs Tabs--secondary"
+  >
+    <div
+      class="TabsBar"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root tabStyles-ContainerRoot-19 MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiTabs-root tabStyles-TabsRoot-20"
+          >
+            <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+            <div
+              class="MuiTabs-scrollable"
+              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+            />
+            <div
+              class="MuiTabs-scroller MuiTabs-scrollable"
+              style="margin-bottom: 0px;"
+            >
+              <div
+                aria-label="tabs"
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="tabpanel-0"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-21 Mui-selected"
+                  data-testid="tab-0"
+                  id="tab-0"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    Tab 1
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="tabpanel-1"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-21"
+                  data-testid="tab-1"
+                  id="tab-1"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    Tab 2
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-22 PrivateTabIndicator-colorPrimary-23 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+            <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-0"
+      class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-0"
+      heading="Tab 1"
+      id="tabpanel-0"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-26 TabPanelBox"
+      >
+        Content One
+      </div>
+    </div>
+    <div
+      aria-labelledby="tab-1"
+      class="MuiGrid-root TabPanel MuiGrid-item"
+      data-testid="tabpanel-1"
+      heading="Tab 2"
+      hidden=""
+      id="tabpanel-1"
+      role="tabpanel"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-27 TabPanelBox"
       >
         Content Two
       </div>

@@ -1,13 +1,12 @@
-import fs from "fs";
 import path from "path";
 import dotenv from "dotenv";
 import findUp from "find-up";
 import type { GatsbyNode } from "gatsby";
-import toml from "toml";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
+import { getRedirects } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
 
 dotenv.config({
@@ -86,6 +85,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createRedirect, createPage } = actions;
   const isOnePageMarket = process.env.GATSBY_IS_SPA_ENABLED === "true";
+  const redirectRegex = /\/?[a-zA-Z]{2}\//i;
+  const redirectsFileName = `redirects_${process.env.SPACE_MARKET_CODE.replace(
+    redirectRegex,
+    ""
+  )}.toml`; // be/
 
   const componentMap = isOnePageMarket
     ? {
@@ -112,6 +116,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const result = await graphql<any, any>(`
     {
+      allContentfulAsset(filter: { filename: { eq: "${redirectsFileName}" } }) {
+        nodes {
+          file {
+            url
+          }
+        }
+      }
       allContentfulSite {
         nodes {
           id
@@ -144,9 +155,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const {
     data: {
-      allContentfulSite: { nodes: sites }
+      allContentfulSite: { nodes: sites },
+      allContentfulAsset: { nodes: contentfulRedirects }
     }
   } = result;
+
+  const contentfulRedirectsFileUrl = contentfulRedirects[0]?.file?.url;
 
   const site = sites.find(
     (s) => s.countryCode === process.env.SPACE_MARKET_CODE
@@ -270,29 +284,20 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   }
 
-  const redirectRegex = /\/?[a-zA-Z]{2}\//i;
-  const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE.replace(
-    redirectRegex,
-    ""
-  )}.toml`; // be/
-  // eslint-disable-next-line security/detect-non-literal-fs-filename
-  if (fs.existsSync(redirectsTomlFile)) {
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    const redirectsToml = fs.readFileSync(redirectsTomlFile, "utf8");
+  const redirects = await getRedirects(
+    `./${redirectsFileName}`,
+    contentfulRedirectsFileUrl
+  );
 
-    const redirects = toml.parse(redirectsToml);
-    await Promise.all(
-      redirects.redirects.map((redirect) =>
-        createRedirect({
-          fromPath: redirect.from,
-          toPath: redirect.to,
-          isPermanent: !redirect.status || redirect.status === "301"
-        })
-      )
-    );
-  } else {
-    console.log(`Redirect file ${redirectsTomlFile} not found.`);
-  }
+  await Promise.all(
+    redirects.map((redirect) =>
+      createRedirect({
+        fromPath: redirect.from,
+        toPath: redirect.to,
+        isPermanent: !redirect.status || redirect.status === "301"
+      })
+    )
+  );
 };
 
 const areValuesEqual = (a, b) => {

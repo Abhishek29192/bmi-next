@@ -1,3 +1,13 @@
+const merchandiseTiers = [
+  { type: "number", key: "merchandiseT1", label: "Merchandise division id T1" },
+  { type: "number", key: "merchandiseT2", label: "Merchandise division id T2" },
+  { type: "number", key: "merchandiseT3", label: "Merchandise division id T3" },
+  { type: "number", key: "merchandiseT4", label: "Merchandise division id T4" },
+  { type: "number", key: "merchandiseT5", label: "Merchandise division id T5" },
+  { type: "number", key: "merchandiseT6", label: "Merchandise division id T6" },
+  { type: "number", key: "merchandiseT7", label: "Merchandise division id T7" }
+];
+
 export const marketKeys = [
   { type: "text", key: "id", label: "Id" },
   { type: "text", key: "language", label: "Language" },
@@ -24,6 +34,8 @@ export const marketKeys = [
   { type: "number", key: "T6", label: "Docebo catalogue id T6" },
   { type: "number", key: "T7", label: "Docebo catalogue id T7" },
   { type: "text", key: "merchandisingUrl", label: "Merchandising url" },
+  { type: "checkbox", key: "merchandiseSso", label: "Merchandise SSO" },
+  ...merchandiseTiers,
   { type: "checkbox", key: "projectsEnabled", label: "Projects enabled" },
   {
     type: "number",
@@ -31,5 +43,6 @@ export const marketKeys = [
     label: "Location biasRadius Km"
   },
   { type: "text", key: "gtag", label: "Gtag" },
-  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" }
+  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" },
+  { type: "text", key: "optanonClass", label: "Optanon Category class" }
 ];

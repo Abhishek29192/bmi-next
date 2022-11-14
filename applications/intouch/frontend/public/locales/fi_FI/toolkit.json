@@ -1,11 +1,11 @@
 {
   "contentTypes": {
-    "EXTERNAL_LINK": "Ulkoinen linkki",
-    "FALLBACK": "Media",
     "FOLDER": "Kansio",
     "IMAGE": "Kuva",
+    "VIDEO": "Video",
+    "EXTERNAL_LINK": "Ulkoinen linkki",
     "PDF": "PDF",
-    "VIDEO": "Video"
+    "FALLBACK": "Media"
   },
   "countIndicator": "Näytetään {{amount}}/{{total}} kohdetta",
   "noItems": "Ei mitään täällä"

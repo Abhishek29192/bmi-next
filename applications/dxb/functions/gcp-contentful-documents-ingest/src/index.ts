@@ -1,75 +1,65 @@
 import logger from "@bmi-digital/functions-logger";
 import { getEsClient } from "@bmi/functions-es-client";
-import { ApiError } from "@elastic/elasticsearch";
 import { HttpFunction } from "@google-cloud/functions-framework";
+import { Entry } from "contentful";
+import { transformDocument } from "./documentTransformer";
 import {
   checkAuthorization,
-  checkEnvVariables,
-  checkHttpMethod,
-  handleEsClientError,
-  transformDocument
+  checkEnvVariablesMissing,
+  checkHttpMethod
 } from "./helpers";
-
-const EntryType = {
-  ENTRY: "Entry",
-  DELETED_ENTRY: "DeletedEntry"
-};
+import { ContentfulDocument } from "./types";
 
 export const updateESDocumentsIndex: HttpFunction = async (
   request,
   response
 ) => {
-  const isEnvVariablesMissed = checkEnvVariables(response);
-  const isAuthorizationFaild = checkAuthorization(request, response);
-  const isHttpWrongMethod = checkHttpMethod(request, response);
-
-  if (isEnvVariablesMissed || isAuthorizationFaild || isHttpWrongMethod) {
+  if (
+    checkEnvVariablesMissing(response) ||
+    checkAuthorization(request, response) ||
+    checkHttpMethod(request, response)
+  ) {
     return;
   }
 
-  if (request.body?.sys?.contentType?.sys?.id !== "document") {
+  const body: Entry<ContentfulDocument> | undefined = request.body;
+
+  if (body?.sys.contentType.sys.id !== "document") {
     logger.warning({
       message:
         "Function doesn't support webhooks with contentType ID other then 'document.'"
     });
     return response.sendStatus(400);
   }
-  const index = `${process.env.ES_INDEX_NAME_DOCUMENTS}`;
   const client = await getEsClient();
 
-  switch (request.body?.sys?.type) {
-    case EntryType.ENTRY: {
-      const eSDocument = await transformDocument(request.body);
-      if (!eSDocument) {
-        logger.error({ message: "Nothing to index" });
-        return;
-      }
-      try {
-        const esResponse = await client.index({
-          index,
-          id: eSDocument.id,
-          body: eSDocument
-        });
-        handleEsClientError({ response: esResponse });
-      } catch (error) {
-        handleEsClientError({ error: error as ApiError });
-      }
-      break;
+  if (body.sys.type === "Entry") {
+    let esDocument;
+    try {
+      esDocument = await transformDocument(body);
+    } catch (error) {
+      return response.sendStatus(400);
     }
-    case EntryType.DELETED_ENTRY: {
-      try {
-        const esResponse = await client.delete({
-          index,
-          id: request.body?.sys?.id
-        });
-        handleEsClientError({ response: esResponse });
-      } catch (error) {
-        handleEsClientError({ error: error as ApiError });
-      }
-      break;
-    }
-    default:
-      logger.warning({ message: `Webhook provides wrong type.` });
+
+    const esResponse = await client.index({
+      index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+      id: esDocument.id,
+      body: esDocument
+    });
+    logger.info({
+      message: `Document with ID = "${esResponse.body._id}" was ${esResponse.body.result}.`
+    });
+
+    return response.sendStatus(200);
   }
+
+  const esResponse = await client.delete({
+    index: process.env.ES_INDEX_NAME_DOCUMENTS!,
+    id: request.body?.sys?.id
+  });
+  logger.info({
+    message: `Document with ID = "${esResponse.body._id}" was ${esResponse.body.result}.`
+  });
+
   response.sendStatus(200);
 };

@@ -1,23 +1,23 @@
 {
-  "account": {
-    "doceboUserId": "Docebo user id",
-    "doceboUsername": "Docebo username",
-    "email": "Email",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "phone": "Phone",
-    "role": "Role",
-    "status": "Status"
-  },
-  "accountImported": "These accounts are been imported in the local db",
-  "auth0Job": "An import job it's been created in Auth0 with id:",
-  "auth0JobText": "Import completed",
-  "companiesImported": "Import job in Auth0 created",
-  "dryRun": "Dry run",
-  "dryRunCompleted": "Dry run completed",
-  "dryRunTitle": "These companies are been imported in the local db",
-  "importCompleted": "Import completed",
   "submit": "Submit",
   "uploadFile": "Upload files",
-  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv"
+  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv",
+  "accountImported": "These accounts are been imported in the local db",
+  "dryRunTitle": "These companies are been imported in the local db",
+  "companiesImported": "Import job in Auth0 created",
+  "auth0Job": "An import job it's been created in Auth0 with id:",
+  "auth0JobText": "Import completed",
+  "importCompleted": "Import completed",
+  "dryRunCompleted": "Dry run completed",
+  "dryRun": "Dry run",
+  "account": {
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "phone": "Phone",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "doceboUserId": "Docebo user id",
+    "doceboUsername": "Docebo username"
+  }
 }

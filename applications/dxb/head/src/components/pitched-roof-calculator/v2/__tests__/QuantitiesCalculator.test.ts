@@ -1207,7 +1207,7 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(calculator.results.get(ridgeEnd.code)).toBeTruthy();
   });
 
-  it("returns data without half tiles", () => {
+  it("returns data without left verge half tile and right verge half tile", () => {
     const calculations = new QuantitiesCalculator({
       ...input,
       mainTileVariant: { ...input.mainTileVariant, brokenBond: false },
@@ -1221,9 +1221,6 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
 
     expect(calculations.results.get(vergeHalfLeftTile.code)).toBeUndefined();
     expect(calculations.results.get(vergeHalfRightTile.code)).toBeUndefined();
-    expect(
-      calculations.results.get(input.mainTileVariant.halfTile.code)
-    ).toBeUndefined();
   });
 
   it("returns correct data for VERGE faces", () => {

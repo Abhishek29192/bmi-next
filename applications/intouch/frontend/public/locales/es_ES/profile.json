@@ -1,52 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Certificaciones",
     "buttons": {
-      "removeProfilePicture": "Eliminar",
-      "saveAndClose": "Guardar y cerrar",
-      "uploadProfilePicture": "Subir nueva foto"
-    },
+      "editProfile": "Editar",
+      "changePassword": "cambiar contraseña"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Datos de contacto",
-    "fileSizeMessage": "Tamaño máximo de archivo de 3 MB",
+    "title": "Sobre mí",
     "fileTypesMessage": "Puede subir archivos jpg, gif o png.",
+    "fileSizeMessage": "Tamaño máximo de archivo de 3 MB",
     "form": {
       "fields": {
-        "email": "Correo electrónico",
         "firstName": "Nombre",
         "lastName": "Apellido",
+        "email": "Correo electrónico",
         "phone": "Teléfono",
         "photo": "Foto de perfil"
       }
     },
-    "title": "Sobre mí"
+    "buttons": {
+      "uploadProfilePicture": "Subir nueva foto",
+      "removeProfilePicture": "Eliminar",
+      "saveAndClose": "Guardar y cerrar"
+    }
   },
   "leaveCompany": {
     "cta": "dejar la empresa",
     "dialog": {
+      "title": "¿Estás seguro?",
       "content": "Cualquier certificación que posea permanecerá con usted, pero la Compañía ya no heredará ninguna de sus certificaciones. Ya no será miembro de los proyectos de esta empresa ni podrá ver los datos del proyecto. La Compañía no podrá designarlo como instalador responsable de Proyectos.",
       "cta": {
         "cancel": "Cancelar",
         "confirm": "Continuar"
-      },
-      "title": "¿Estás seguro?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Registre su empresa",
+    "body": "Puede registrar su empresa aquí",
+    "cta": "Registrarse"
   },
   "passwordReset": {
     "dialog": {
-      "error": "Ocurrió un error. Póngase en contacto con un administrador de BMI",
+      "title": "Cambia la contraseña",
       "success": "Le enviamos un correo electrónico con un enlace para restablecer su contraseña, siga las instrucciones en el correo electrónico",
-      "title": "Cambia la contraseña"
+      "error": "Ocurrió un error. Póngase en contacto con un administrador de BMI"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "cambiar contraseña",
-      "editProfile": "Editar"
-    },
-    "certificationsHeading": "Certificaciones"
-  },
-  "registerCompany": {
-    "body": "Puede registrar su empresa aquí",
-    "cta": "Registrarse",
-    "heading": "Registre su empresa"
   }
 }

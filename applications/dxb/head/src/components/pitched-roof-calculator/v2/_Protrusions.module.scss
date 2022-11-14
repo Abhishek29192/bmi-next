@@ -49,4 +49,14 @@
       color: rgba($color-cyan-500, 0.38);
     }
   }
+
+  .card{
+    @media (max-width: 400px) {
+      width: 200px;
+      max-width: unset;
+      flex-basis: unset;
+      padding: 0;
+      margin: 8px;
+    }
+  }
 }

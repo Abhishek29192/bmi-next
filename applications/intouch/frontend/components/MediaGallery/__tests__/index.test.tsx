@@ -36,7 +36,8 @@ const initialProps = {
   isOpen: true,
   onClose: jest.fn(),
   activeItem,
-  items: [activeItem]
+  items: [activeItem],
+  optanonClass: "test"
 };
 
 afterEach(() => {
@@ -62,7 +63,8 @@ describe("MediaGallery", () => {
       isOpen: true,
       onClose: jest.fn(),
       activeItem: null,
-      items: [activeItem]
+      items: [activeItem],
+      optanonClass: "test"
     };
     const { container } = renderWithI18NProvider(<MediaGallery {...initial} />);
     expect(container.parentElement).toMatchSnapshot();
@@ -113,6 +115,25 @@ describe("MediaGallery", () => {
       expect(parentElement.getElementsByClassName("slide").length).toBe(1);
       expect(getAllByTestId("carousel")).toBeTruthy();
       expect(parentElement.getElementsByTagName("iframe").length).toBe(1);
+    });
+
+    it("vimeo if type vimeo with mediaItem class", () => {
+      const galleryItemTypeVimeo: GalleryItem = {
+        type: "vimeo",
+        id: "1",
+        url: "test-videolink",
+        title: "test-title-3",
+        description: "test-description-3",
+        fileUrl: "",
+        mediaItemClass: "test-0001"
+      };
+      const items = [galleryItemTypeVimeo];
+      const {
+        container: { parentElement }
+      } = renderWithI18NProvider(
+        <MediaGallery {...initialProps} items={items} />
+      );
+      expect(parentElement).toMatchSnapshot();
     });
 
     it("check prev and next buttons for many items", () => {

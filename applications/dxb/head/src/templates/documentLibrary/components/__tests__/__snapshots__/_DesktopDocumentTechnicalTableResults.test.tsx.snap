@@ -81,29 +81,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product-name
+                product name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
-                <button
-                  aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      class="format-icon"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
+                <svg
+                  class="no-document-icon"
+                />
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -296,15 +281,15 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product-name
+                product name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
                 <a
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
-                  download="Pim Document"
-                  href="http://pimDocument"
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                  download="pim document title"
+                  href="http://localhost:9000/document.pdf"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -316,9 +301,17 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
-                <svg
-                  class="no-document-icon"
-                />
+                <a
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                  download="pim document title"
+                  href="http://localhost:9000/document.pdf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <svg
+                    class="format-icon"
+                  />
+                </a>
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -485,22 +478,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product-name
+                product name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
-                <a
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
-                  download="Pim Document"
-                  href="http://pimDocument"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <svg
-                    class="format-icon"
-                  />
-                </a>
+                <svg
+                  class="no-document-icon"
+                />
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"

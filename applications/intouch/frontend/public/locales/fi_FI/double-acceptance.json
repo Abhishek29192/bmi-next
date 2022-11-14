@@ -1,29 +1,28 @@
 {
+  "title": "BMI-takuusi odottaa lunastamista!",
+  "reject": "Hylkää",
   "accept": "Hyväksyä",
-  "acceptanceDescription": [
-    "Jos päätät hyväksyä, BMI-takuuasiakirjat lähetetään erillisessä sähköpostissa sekä täydellinen kopio ehdoista.",
-    "Jos päätät hylätä, BMI-takuu peruuntuu ja urakoitsijalle ilmoitetaan."
-  ],
-  "acceptanceTitle": "Vahvista alla, jos haluat joko hyväksyä tai hylätä BMI-takuun.",
-  "confirmation": {
-    "description": [
-      "BMI tekee tiivistä yhteistyötä urakoitsijoiden kanssa varmistaakseen, että saat korkeimmat ammattitaitostandardit, parannetut takuut sekä jatkuvan tuen ja palvelut, joita tarvitset kattosi pitämiseksi parhaassa mahdollisessa kunnossa.",
-      "Lisätietoja BMI:stä ja jos haluat ottaa yhteyttä, vieraile osoitteessa {{website}}."
-    ],
-    "title": "Kiitos, että valitsit BMI:n kattosi peittämiseen!"
+  "dialog": {
+    "title": "Oletko varma, että haluat {{acceptance}} BMI-takuun?",
+    "description": "Jos päätät hyväksyä BMI-takuun, saat takuuasiakirjat erillisessä sähköpostissa. Jos päätät hylätä BMI-takuun, se peruutetaan ja urakoitsijalle ilmoitetaan asiasta.",
+    "cta": {
+      "back": "Takaisin",
+      "confirm": "Vahvistaa"
+    }
   },
   "description": [
     "Meillä on ilo vahvistaa, että voit lunastaa uuden BMI-takuun, joka tarjoaa mielenrauhaa ja suojaa omaisuudellesi ja sen asukkaille.",
     "Tämä takuutarjous on saatavilla rajoitetun ajan, joten tarkista alla olevat tiedot ja hyväksy tai hylkää tämä tarjous napsauttamalla."
   ],
-  "dialog": {
-    "cta": {
-      "back": "Takaisin",
-      "confirm": "Vahvistaa"
-    },
-    "description": "Jos hylkäät BMI-takuun, päätät olla vastaanottamatta tarjottua takuuta ja se peruutetaan.",
-    "title": "Oletko varma, että haluat {{acceptance}} BMI-takuun?"
-  },
+  "warrantyPeriod": "Takuuaika:",
+  "guaranteeScope": "Takuun laajuus:",
+  "guaranteeConditions": "Takuuehdot:",
+  "guaranteeConditionsDescription": "Napsauttamalla \"Hyväksy\" hyväksyt tämän takuun ja vakuutat lukeneesi huolellisesti ja hyväksyväsi seuraavat ehdot:",
+  "acceptanceTitle": "Vahvista alla, jos haluat joko hyväksyä tai hylätä BMI-takuun.",
+  "acceptanceDescription": [
+    "Jos päätät hyväksyä, BMI-takuuasiakirjat lähetetään erillisessä sähköpostissa sekä täydellinen kopio ehdoista.",
+    "Jos päätät hylätä, BMI-takuu peruuntuu ja urakoitsijalle ilmoitetaan."
+  ],
   "form": {
     "fields": {
       "acceptance": {
@@ -37,10 +36,12 @@
       }
     }
   },
-  "guaranteeConditions": "Takuuehdot:",
-  "guaranteeConditionsDescription": "Napsauttamalla \"Hyväksy\" hyväksyt tämän takuun ja vakuutat lukeneesi huolellisesti ja hyväksyväsi seuraavat ehdot:",
-  "guaranteeScope": "Takuun laajuus:",
-  "reject": "Hylkää",
-  "title": "BMI-takuusi odottaa lunastamista!",
-  "warrantyPeriod": "Takuuaika:"
+  "confirmation": {
+    "title": "Kiitos, että valitsit BMI:n kattosi peittämiseen!",
+    "description": [
+      "BMI tekee tiivistä yhteistyötä urakoitsijoiden kanssa varmistaakseen, että saat korkeimmat ammattitaitostandardit, parannetut takuut sekä jatkuvan tuen ja palvelut, joita tarvitset kattosi pitämiseksi parhaassa mahdollisessa kunnossa.",
+      "Lisätietoja BMI:stä ja jos haluat ottaa yhteyttä, vieraile osoitteessa {{website}}."
+    ]
+  },
+  "years": "vuotta"
 }

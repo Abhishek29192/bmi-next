@@ -1,68 +1,68 @@
 {
-  "genericError": "Um erro ocorreu. Por favor, tente novamente ou entre em contato com um administrador da BMI.",
-  "invitation": {
-    "dialog": {
-      "cancel": "Cancelar",
-      "emails": {
-        "helperText": "Adicione vários membros da equipa separando cada endereço de correio eletronico com uma vírgula",
-        "label": "Endereço de e-mail do destinatário"
-      },
-      "errorAlreadyMember": "O usuário já é membro de outra empresa",
-      "errorInvitationNotFound": "Convite não encontrado",
-      "personalNote": {
-        "label": "Mensagem (opcional)"
-      },
-      "send": "Enviar correio electrónico",
-      "success": "O convite foi enviado.",
-      "title": "Convidar membros da equipa"
-    }
-  },
-  "lastCompanyAdminError": "Você não pode remover o último administrador de uma empresa a menos que a BMI o tenha desativado.",
-  "memberRemoved": "Membro removido com sucesso da empresa",
-  "projectTable": {
-    "endDate": "Data final",
-    "project": "Projeto",
-    "startDate": "Data de início",
-    "title": "Projetos",
-    "type": "Tipo"
-  },
-  "report": "Descarregar lista de equipamentos",
   "sidePanel": {
-    "inviteLabel": "Convidar membros da equipa",
     "search": {
       "label": "Encontrar um usuário",
       "noResult": "Usuário não encontrado"
-    }
+    },
+    "inviteLabel": "Convidar membros da equipa"
   },
   "table": {
-    "certification": "Certificação BMI",
-    "noResults": "O usuário não possui certificações BMI",
     "title": "Certificações BMI",
     "type": "Tipo",
-    "validity": "Validade"
+    "certification": "Certificação BMI",
+    "validity": "Validade",
+    "noResults": "O usuário não possui certificações BMI"
   },
-  "userActions": {
-    "action": {
-      "activate": "Ativar usuário",
-      "deactivate": "Desativar usuário"
-    },
-    "title": "Ações do usuário"
+  "invitation": {
+    "dialog": {
+      "title": "Convidar membros da equipa",
+      "emails": {
+        "label": "Endereço de e-mail do destinatário",
+        "helperText": "Adicione vários membros da equipa separando cada endereço de correio eletronico com uma vírgula"
+      },
+      "personalNote": {
+        "label": "Mensagem (opcional)"
+      },
+      "cancel": "Cancelar",
+      "send": "Enviar correio electrónico",
+      "success": "O convite foi enviado.",
+      "errorAlreadyMember": "O usuário já é membro de outra empresa",
+      "errorInvitationNotFound": "Convite não encontrado"
+    }
   },
   "user_card": {
     "add_admin": "Atribuir como administrador da empresa",
-    "add_auditor": "Atribuir como auditor",
-    "cancel": "Cancelar",
-    "confirm": "Confirmar",
     "remove": "Remover da empresa",
     "remove_admin": "Remover como administrador da empresa",
-    "remove_auditor": "Remover como auditor",
-    "remove_user_dialog": {
-      "text": "Deseja remover este membro da empresa?",
-      "title": "Excluir membro da empresa"
-    },
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
     "role_dialog": {
-      "text": "Deseja alterar a função do usuário?",
-      "title": "Alterar função do usuário"
+      "title": "Alterar função do usuário",
+      "text": "Deseja alterar a função do usuário?"
+    },
+    "remove_user_dialog": {
+      "title": "Excluir membro da empresa",
+      "text": "Deseja remover este membro da empresa?"
+    },
+    "remove_auditor": "Remover como auditor",
+    "add_auditor": "Atribuir como auditor"
+  },
+  "memberRemoved": "Membro removido com sucesso da empresa",
+  "genericError": "Um erro ocorreu. Por favor, tente novamente ou entre em contato com um administrador da BMI.",
+  "lastCompanyAdminError": "Você não pode remover o último administrador de uma empresa a menos que a BMI o tenha desativado.",
+  "report": "Descarregar lista de equipamentos",
+  "userActions": {
+    "title": "Ações do usuário",
+    "action": {
+      "activate": "Ativar usuário",
+      "deactivate": "Desativar usuário"
     }
+  },
+  "projectTable": {
+    "title": "Projetos",
+    "type": "Tipo",
+    "project": "Projeto",
+    "startDate": "Data de início",
+    "endDate": "Data final"
   }
 }

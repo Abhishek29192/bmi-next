@@ -92,6 +92,7 @@ describe("transformProduct", () => {
         groups: [],
         hashedCode: "3464354221",
         isSampleOrderAllowed: false,
+        isVisualiserAvailable: false,
         masterImage: undefined,
         materials: undefined,
         measurements: {
@@ -899,6 +900,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -1886,6 +1888,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -2767,6 +2770,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3903870044",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -3670,6 +3674,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "2671178359",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -7288,6 +7293,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -8280,6 +8286,7 @@ describe("transformProduct", () => {
           "guaranteesAndWarrantiesLinks": Array [],
           "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
+          "isVisualiserAvailable": false,
           "masterImage": Object {
             "altText": "name",
             "mainSource": "http://localhost:8000",
@@ -8415,5 +8422,281 @@ describe("transformProduct", () => {
         name: "name"
       }
     ]);
+  });
+
+  it("ignore webtools-related classifications", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "tilesAttributes",
+              name: "tilesAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.brokenBond",
+                  name: "Broken Bond"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGauge",
+                  name: "Eave gauge"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeStartAngle",
+                  name: "Eave Gauge Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.eaveGaugeEndAngle",
+                  name: "Eave Gage End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeStartAngle",
+                  name: "Max Gauge Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.maxGaugeEndAngle",
+                  name: "Max Gauge End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpace",
+                  name: "Ridge Space"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceStartAngle",
+                  name: "Ridge Space Start Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.ridgeSpaceEndAngle",
+                  name: "Ridge Space End Angle"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.verticalOverlap",
+                  name: "Vertical Overlap"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOverlap",
+                  name: "Horizontal Overlap"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOffset",
+                  name: "Horizontal Offset"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.snowFenceActive",
+                  name: "Show Fence Active"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.largeTile",
+                  name: "Large Tile"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction",
+                  name: "Thickness Reduction"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.invert",
+                  name: "Invert"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/tilesAttributes.invertY",
+                  name: "invertY"
+                })
+              ]
+            }),
+            createClassification({
+              code: "underlayAttributes",
+              name: "underlayAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/underlayAttributes.minSupportedPitch",
+                  name: "Minimum supported pitch"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/underlayAttributes.overlap",
+                  name: "Overlap"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].classifications).toEqual([]);
+  });
+
+  it("returns false for isVisualiserAvailable if needed category doesn't exist", async () => {
+    const product = createProduct({
+      categories: []
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns false for isVisualiserAvailable if product doesn't have visualiserAssets", async () => {
+    const product = createProduct({
+      classifications: [],
+      visualiserAssets: undefined,
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns false for isVisualiserAvailable if product doesn't have requied visualiserAssets", async () => {
+    const product = createProduct({
+      classifications: [],
+      visualiserAssets: [createAsset({ assetType: "CERTIFICATES" })],
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns false for isVisualiserAvailable if generalInformation.classification doesn't exist", async () => {
+    const product = createProduct({
+      classifications: [],
+      visualiserAssets: [
+        createAsset({ assetType: "HIGH_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
+        createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_REFERENCE" })
+      ],
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns false for isVisualiserAvailable if generalInformation doesn't have classification feature", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "generalInformation",
+          name: "generalInformation",
+          features: undefined
+        })
+      ],
+      visualiserAssets: [
+        createAsset({ assetType: "HIGH_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
+        createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_REFERENCE" })
+      ],
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns false for isVisualiserAvailable if generalInformation.classification !==  clay/metal/concrete", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "generalInformation",
+          name: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.classification",
+              name: "generalInformation",
+              featureValues: [{ code: "code", value: "mock" }]
+            })
+          ]
+        })
+      ],
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ],
+      visualiserAssets: [
+        createAsset({ assetType: "HIGH_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
+        createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_REFERENCE" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(false);
+  });
+
+  it("returns true for isVisualiserAvailable", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "generalInformation",
+          name: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.classification",
+              name: "generalInformation",
+              featureValues: [{ code: "code", value: "clay" }]
+            })
+          ]
+        }),
+        createClassification({
+          code: "tilesAttributes",
+          name: "Tiles Attributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.verticalOverlap",
+              name: "tilesAttributes",
+              featureValues: [{ value: "10" }]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOverlap",
+              name: "tilesAttributes",
+              featureValues: [{ value: "10" }]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.horizontalOffset",
+              name: "tilesAttributes",
+              featureValues: [{ value: "10" }]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.snowFenceActive",
+              name: "tilesAttributes",
+              featureValues: [{ value: "10" }]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.largeTile",
+              name: "tilesAttributes",
+              featureValues: [{ value: "true" }]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction",
+              name: "tilesAttributes",
+              featureValues: [{ value: "10" }]
+            })
+          ]
+        })
+      ],
+      categories: [
+        createCategory({ categoryType: "Channel", code: "VISUALISER" })
+      ],
+      visualiserAssets: [
+        createAsset({ assetType: "HIGH_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
+        createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
+        createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
+        createAsset({ assetType: "RIDGE_REFERENCE" })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].isVisualiserAvailable).toBe(true);
   });
 });

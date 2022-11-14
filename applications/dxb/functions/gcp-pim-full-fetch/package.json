@@ -15,12 +15,17 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "^1.3.3",
+    "@bmi/functions-contentful-client": "0.0.0",
+    "@bmi/functions-es-client": "0.0.0",
     "@bmi/pim-api": "0.0.0",
     "@google-cloud/pubsub": "^2.5.0",
+    "contentful": "^9.2.5",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@bmi/contentful-types": "0.0.0",
+    "@bmi/elasticsearch-types": "0.0.0",
     "@bmi/pim-types": "0.0.0",
     "@bmi/pub-sub-types": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",

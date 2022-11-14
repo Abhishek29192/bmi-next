@@ -1,28 +1,33 @@
-import React, { memo, useMemo, useState } from "react";
-import { graphql } from "gatsby";
-import { AnchorLink, transformHyphens } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { OverviewCard } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Chip, ChipProps } from "@bmi/components";
-import { Carousel } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { withClickable } from "@bmi/components";
+import {
+  AnchorLink,
+  Button,
+  ButtonProps,
+  Carousel,
+  Chip,
+  ChipProps,
+  Grid,
+  OverviewCard,
+  Section,
+  transformHyphens,
+  Typography,
+  withClickable
+} from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import withGTM from "../utils/google-tag-manager";
+import { graphql } from "gatsby";
+import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";
-import { renderVideo } from "./Video";
+import withGTM from "../utils/google-tag-manager";
+import { iconMap } from "./Icon";
 import { renderImage } from "./Image";
-import { useSiteContext } from "./Site";
 import Link, { Data as LinkData } from "./Link";
+import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
+import { useSiteContext } from "./Site";
 import styles from "./styles/CardCollectionSection.module.scss";
-import { Data as PageInfoData } from "./PageInfo";
-import { iconMap } from "./Icon";
 import { TagData } from "./Tag";
+import { renderVideo } from "./Video";
 
 type Card = PageInfoData | PromoData;
 
@@ -348,6 +353,7 @@ const CardCollectionSection = ({
                 })}
               </div>
               <AnchorLink
+                component="button"
                 className={styles["clear-all"]}
                 onClick={() => {
                   setActiveGroups({});

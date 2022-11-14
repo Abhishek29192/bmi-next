@@ -21,6 +21,13 @@ beforeEach(() => {
 });
 
 describe("transformSystem", () => {
+  it("should return undefined if system doesn't have a name", () => {
+    const system = createSystem({ name: undefined });
+
+    expect(transformSystem(system)).toBeUndefined();
+    expect(generateHashFromString).not.toHaveBeenCalled();
+    expect(generateUrl).not.toHaveBeenCalled();
+  });
   it("should transform system to object", () => {
     const system = createSystem();
     const { approvalStatus, type, code, name, shortDescription } = system;

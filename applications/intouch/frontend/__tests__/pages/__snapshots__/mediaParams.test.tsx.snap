@@ -336,6 +336,7 @@ exports[`Team page server side props render correctly 1`] = `
                           aria-controls="tabpanel-undefined"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-5 Mui-selected"
+                          data-testid="tab-undefined"
                           id="tab-undefined"
                           role="tab"
                           tabindex="0"
@@ -379,6 +380,7 @@ exports[`Team page server side props render correctly 1`] = `
             <div
               aria-labelledby="tab-undefined"
               class="MuiGrid-root TabPanel MuiGrid-item"
+              data-testid="tabpanel-undefined"
               hidden=""
               id="tabpanel-undefined"
               role="tabpanel"
@@ -408,6 +410,7 @@ exports[`Team page server side props render correctly 1`] = `
                         >
                           <button
                             class="MuiButtonBase-root MuiCardActionArea-root"
+                            data-testid="media-tile-element-2"
                             tabindex="0"
                             type="button"
                           >

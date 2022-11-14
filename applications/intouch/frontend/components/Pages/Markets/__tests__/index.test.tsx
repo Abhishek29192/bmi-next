@@ -8,6 +8,7 @@ import {
   generateDoceboTier,
   genereateDoceboTierResult
 } from "../../../../lib/tests/factories/doceboTier";
+import { generateMerchandiseTier } from "../../../../lib/tests/factories/merchandiseTier";
 
 jest.mock("../config", () => {
   const original = jest.requireActual("../config");
@@ -26,10 +27,19 @@ const mockUseUpdateMarketMutationOnError = jest.fn();
 const mockUseUpdateMarketMutationLoading = jest
   .fn()
   .mockImplementation(() => false);
+
 const mockUpdateDoceboTiers = jest.fn();
 const mockUpdateDoceboTiersOnCompleted = jest.fn();
 const mockUpdateDoceboTiersOnError = jest.fn();
 const mockUpdateDoceboTiersLoading = jest.fn().mockImplementation(() => false);
+
+const mockUpdateMerchandiseTiers = jest.fn();
+const mockUpdateMerchandiseTiersOnCompleted = jest.fn();
+const mockUpdateMerchandiseTiersOnError = jest.fn();
+const mockUpdateMerchandiseTiersLoading = jest
+  .fn()
+  .mockImplementation(() => false);
+
 jest.mock("../../../../graphql/generated/hooks", () => ({
   __esModule: true,
   useUpdateMarketMutation: ({ onCompleted, onError }) => {
@@ -50,6 +60,18 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
     );
     mockUpdateDoceboTiersOnError.mockImplementation((data) => onError(data));
     return [mockUpdateDoceboTiers, { loading: mockUpdateDoceboTiersLoading() }];
+  },
+  useUpdateMerchandiseTiersByMarketMutation: ({ onCompleted, onError }) => {
+    mockUpdateMerchandiseTiersOnCompleted.mockImplementation((data) =>
+      onCompleted(data)
+    );
+    mockUpdateMerchandiseTiersOnError.mockImplementation((data) =>
+      onError(data)
+    );
+    return [
+      mockUpdateMerchandiseTiers,
+      { loading: mockUpdateMerchandiseTiersLoading() }
+    ];
   }
 }));
 
@@ -65,6 +87,7 @@ const markets = [
 ];
 
 const doceboTiers = { nodes: [generateDoceboTier()] };
+const merchandiseTiers = { nodes: [generateMerchandiseTier()] };
 
 describe("Market page", () => {
   afterEach(() => {
@@ -75,7 +98,11 @@ describe("Market page", () => {
   it("should the project in the list", () => {
     const wrapper = renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -87,7 +114,11 @@ describe("Market page", () => {
   it("search marekt", () => {
     const { container } = renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -101,7 +132,11 @@ describe("Market page", () => {
   it("should open the details", async () => {
     renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -114,7 +149,11 @@ describe("Market page", () => {
   it("should open the editor", async () => {
     renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -144,7 +183,11 @@ describe("Market page", () => {
     );
     const { container } = renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -192,7 +235,11 @@ describe("Market page", () => {
     );
     const { container } = renderWithUserProvider(
       <AccountContextWrapper>
-        <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
       </AccountContextWrapper>
     );
 
@@ -267,7 +314,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -308,7 +359,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -338,7 +393,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -372,7 +431,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -401,7 +464,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -429,7 +496,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -459,7 +530,11 @@ describe("Market page", () => {
       );
       renderWithUserProvider(
         <AccountContextWrapper>
-          <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+          <Markets
+            markets={{ nodes: markets }}
+            doceboTiers={doceboTiers}
+            merchandiseTiers={merchandiseTiers}
+          />
         </AccountContextWrapper>
       );
       fireEvent.click(screen.getByText("Mapleland-1"));
@@ -499,7 +574,11 @@ describe("Market page", () => {
         mockUpdateDoceboTiersLoading.mockImplementation(() => true);
         renderWithUserProvider(
           <AccountContextWrapper>
-            <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+            <Markets
+              markets={{ nodes: markets }}
+              doceboTiers={doceboTiers}
+              merchandiseTiers={merchandiseTiers}
+            />
           </AccountContextWrapper>
         );
 
@@ -544,7 +623,11 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationLoading.mockImplementation(() => true);
         renderWithUserProvider(
           <AccountContextWrapper>
-            <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+            <Markets
+              markets={{ nodes: markets }}
+              doceboTiers={doceboTiers}
+              merchandiseTiers={merchandiseTiers}
+            />
           </AccountContextWrapper>
         );
 
@@ -589,7 +672,11 @@ describe("Market page", () => {
         mockUpdateDoceboTiersLoading.mockImplementation(() => true);
         renderWithUserProvider(
           <AccountContextWrapper>
-            <Markets markets={{ nodes: markets }} doceboTiers={doceboTiers} />
+            <Markets
+              markets={{ nodes: markets }}
+              doceboTiers={doceboTiers}
+              merchandiseTiers={merchandiseTiers}
+            />
           </AccountContextWrapper>
         );
 

@@ -17,5 +17,5 @@ yarn workspace @bmi/csp-creator build
 Then the script needs to be executed, passing in the `country code` (of the market the CSP is for).
 
 ```bash
-yarn workspace @bmi/csp-creator fr
+yarn workspace @bmi/csp-creator prod fr prod
 ```

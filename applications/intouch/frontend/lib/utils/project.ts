@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 import { DeepPartial } from "./types";
-import { GuaranteeStatus, guaranteePrerequsitesMet } from "./guarantee";
+import { GuaranteeStatus, solutionGuaranteeValidate } from "./guarantee";
 
 dayjs.extend(isBetween);
 
@@ -49,7 +49,7 @@ export const findProjectGuarantee = (
 };
 
 export const getProjectGuaranteeStatus = (
-  project: DeepPartial<Project>
+  project: Project
 ): GuaranteeStatus => {
   const guarantee = findProjectGuarantee(project);
 
@@ -59,13 +59,19 @@ export const getProjectGuaranteeStatus = (
   }
 
   if (guarantee.status === "NEW") {
-    return guaranteePrerequsitesMet(guarantee) ? "READY" : "STARTED";
+    return solutionGuaranteeValidate(project).isValid ? "READY" : "STARTED";
   }
 
   // Other known statuses are handled in microcopy, with a fallback:
-  return ["SUBMITTED", "REVIEW", "REJECTED", "APPROVED"].includes(
-    guarantee.status
-  )
+  return [
+    "SUBMITTED",
+    "REVIEW",
+    "REJECTED",
+    "APPROVED",
+    "DECLINED",
+    "EXPIRED",
+    "ISSUED"
+  ].includes(guarantee.status)
     ? guarantee.status
     : "NOT_APPLICABLE";
 };
@@ -112,7 +118,14 @@ export const isProjectEditable = (project) => {
   }
 
   // If there is a guarantee, some fields can be edited, if it's in certain statuses
-  return !["APPROVED", "SUBMITTED", "REVIEW"].includes(guarantee.status);
+  return ![
+    "APPROVED",
+    "SUBMITTED",
+    "REVIEW",
+    "ISSUED",
+    "DECLINED",
+    "EXPIRED"
+  ].includes(guarantee.status);
 };
 
 export const isSolutionOrSystemGuaranteeExist = (

@@ -1,29 +1,29 @@
 {
-  "Description": "Beschreibung",
-  "My courses": "Meine Trainings und Seminare",
-  "See training": "Siehe Schulungen",
   "Training": "Schulungen",
-  "completed": "Abgeschlossen",
+  "See training": "Siehe Schulungen",
+  "My courses": "Meine Trainings und Seminare",
+  "in_progress": "In Bearbeitung",
   "enrolled": "Angemeldet",
+  "completed": "Abgeschlossen",
+  "waiting": "Warten",
+  "viewTraining": "Siehe Schulungen",
+  "Description": "Beschreibung",
+  "search": {
+    "inputLabel": "Suchen nach Schulungen"
+  },
   "filter": {
     "labels": {
       "all": "Alle"
     }
-  },
-  "in_progress": "In Bearbeitung",
-  "search": {
-    "inputLabel": "Suchen nach Schulungen"
-  },
-  "technology": {
-    "FLAT": "Flachdach",
-    "OTHER": "Andere",
-    "PITCHED": "Steildach"
   },
   "type": {
     "classroom": "Training",
     "elearning": "E-learning",
     "webinar": "Online-Seminar"
   },
-  "viewTraining": "Siehe Schulungen",
-  "waiting": "Warten"
+  "technology": {
+    "PITCHED": "Steildach",
+    "FLAT": "Flachdach",
+    "OTHER": "Andere"
+  }
 }

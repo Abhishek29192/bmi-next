@@ -1,9 +1,7 @@
-import { Button, ButtonProps, Hero, HeroItem, Search } from "@bmi/components";
+import { Button, ButtonProps, Hero, Search } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Brands, { Data as BrandData } from "../components/Brands";
-import { renderImage } from "../components/Image";
-import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -12,14 +10,14 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
-import { renderVideo } from "../components/Video";
 import WelcomeDialog from "../components/WelcomeDialog";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
+import { getHeroItemsWithContext } from "./helpers/getHeroItemsWithContext";
 
-type HomepageData = {
+export type HomepageData = {
   __typename: "ContentfulHomePage";
   title: string;
   slides: (SlideData | PageInfoData)[];
@@ -29,7 +27,7 @@ type HomepageData = {
   sections: SectionsData | null;
 } & PageData;
 
-type Props = {
+export type Props = {
   data: {
     contentfulHomePage: HomepageData;
     contentfulSite: SiteData;
@@ -37,38 +35,6 @@ type Props = {
   pageContext: {
     variantCodeToPathMap?: Record<string, string>;
   };
-};
-
-const getHeroItemsWithContext = (
-  { getMicroCopy },
-  slides: HomepageData["slides"]
-): HeroItem[] => {
-  return slides.map(
-    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
-      const callToAction =
-        rest.__typename === "ContentfulPromo" && rest.cta ? (
-          <Link component={Button} data={rest.cta}>
-            {rest.cta?.label}
-          </Link>
-        ) : (
-          <Link
-            component={Button}
-            data={{ linkedPage: { path: rest["path"] } }}
-          >
-            {getMicroCopy(microCopy.PAGE_LINK_LABEL)}
-          </Link>
-        );
-
-      return {
-        title,
-        children: subtitle,
-        media: featuredVideo
-          ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
-        cta: rest["cta"] || rest["path"] ? callToAction : null
-      };
-    }
-  );
 };
 
 const HomePage = ({ data, pageContext }: Props) => {
@@ -104,7 +70,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
       ogImageUrl={
-        !isSpaEnabled ? slides?.[0]?.featuredMedia.image?.file.url : ""
+        !isSpaEnabled ? slides?.[0]?.featuredMedia?.image?.file.url : ""
       }
     >
       {({ siteContext }) => {

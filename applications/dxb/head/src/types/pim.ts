@@ -127,6 +127,7 @@ export type Product = Omit<
   oldPath: string;
   path: string;
   relatedProducts: RelatedProduct[];
+  isVisualiserAvailable: boolean | null;
 };
 
 export type KeyAssetDocument = {
@@ -183,14 +184,7 @@ export type ProductDocument = Omit<
   format: Mime | null;
   extension: string | null;
   __typename: "PIMDocument";
-  // TODO: remove when document filtering is done with Elastic search
-  productFilters: ProductDocumentFilter[];
 };
-
-export type ProductDocumentFilter = Pick<
-  Filter,
-  "code" | "filterCode" | "value"
->;
 
 export type PseudoZipPIMDocument = {
   __typename: "PIMDocumentWithPseudoZip";

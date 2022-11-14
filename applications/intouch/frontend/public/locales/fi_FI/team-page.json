@@ -1,68 +1,68 @@
 {
-  "genericError": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä paikalliseen BMI-järjestelmänvalvojaan.",
-  "invitation": {
-    "dialog": {
-      "cancel": "Peruuta",
-      "emails": {
-        "helperText": "Lisää useita jäseniä erottamalla jokainen sähköpostiosoite pilkulla",
-        "label": "Vastaanottajan sähköpostiosoite"
-      },
-      "errorAlreadyMember": "Käyttäjä on jo toisen yrityksen jäsen",
-      "errorInvitationNotFound": "Kutsua ei löydy",
-      "personalNote": {
-        "label": "Viestisi (valinnainen)"
-      },
-      "send": "Lähettää sähköpostia",
-      "success": "Kutsu on lähetetty",
-      "title": "Kutsu tiimin jäseniä"
-    }
-  },
-  "lastCompanyAdminError": "Et voi poistaa Yrityksen ylläpitäjää yrityksestä, jos hän on yrityksen viimeinen järjestelmänvalvoja, ellei BMI ole poistanut hänen tiliään käytöstä.",
-  "memberRemoved": "Jäsen poistettiin onnistuneesti",
-  "projectTable": {
-    "endDate": "Päättymispäivä",
-    "project": "Projekti",
-    "startDate": "Aloituspäivämäärä",
-    "title": "Projektit",
-    "type": "Tyyppi"
-  },
-  "report": "Lataa joukkueluettelo",
   "sidePanel": {
-    "inviteLabel": " + Kutsu tiimin jäseniä",
     "search": {
       "label": "Etsi käyttäjä",
       "noResult": "Käyttäjää ei löydy"
-    }
+    },
+    "inviteLabel": " + Kutsu tiimin jäseniä"
   },
   "table": {
-    "certification": "BMI-sertifikaatti",
-    "noResults": "Käyttäjällä ei ole BMI-sertifikaatteja",
     "title": "BMI-sertifikaatit",
     "type": "Tyyppi",
-    "validity": "Voimassaolo"
+    "certification": "BMI-sertifikaatti",
+    "validity": "Voimassaolo",
+    "noResults": "Käyttäjällä ei ole BMI-sertifikaatteja"
   },
-  "userActions": {
-    "action": {
-      "activate": "Aktivoi käyttäjä",
-      "deactivate": "Poista käyttäjä käytöstä"
-    },
-    "title": "Käyttäjän toimet"
+  "invitation": {
+    "dialog": {
+      "title": "Kutsu tiimin jäseniä",
+      "emails": {
+        "label": "Vastaanottajan sähköpostiosoite",
+        "helperText": "Lisää useita jäseniä erottamalla jokainen sähköpostiosoite pilkulla"
+      },
+      "personalNote": {
+        "label": "Viestisi (valinnainen)"
+      },
+      "cancel": "Peruuta",
+      "send": "Lähettää sähköpostia",
+      "success": "Kutsu on lähetetty",
+      "errorAlreadyMember": "Käyttäjä on jo toisen yrityksen jäsen",
+      "errorInvitationNotFound": "Kutsua ei löydy"
+    }
   },
   "user_card": {
     "add_admin": "Määritä yrityksen ylläpitäjäksi",
-    "add_auditor": "Määritä tilintarkastajaksi",
-    "cancel": "Peruuta",
-    "confirm": "Vahvista",
     "remove": "Poista yrityksestä",
     "remove_admin": "Poista yrityksen järjestelmänvalvojan määritys",
-    "remove_auditor": "Poista tilintarkastaja",
-    "remove_user_dialog": {
-      "text": "Haluatko poistaa tämän yrityksen jäsenen?",
-      "title": "Poista yrityksen jäsen"
-    },
+    "confirm": "Vahvista",
+    "cancel": "Peruuta",
     "role_dialog": {
-      "text": "Haluatko muuttaa käyttäjän roolia?",
-      "title": "Vaihda roolia"
+      "title": "Vaihda roolia",
+      "text": "Haluatko muuttaa käyttäjän roolia?"
+    },
+    "remove_user_dialog": {
+      "title": "Poista yrityksen jäsen",
+      "text": "Haluatko poistaa tämän yrityksen jäsenen?"
+    },
+    "remove_auditor": "Poista tilintarkastaja",
+    "add_auditor": "Määritä tilintarkastajaksi"
+  },
+  "memberRemoved": "Jäsen poistettiin onnistuneesti",
+  "genericError": "Tapahtui virhe. Yritä uudelleen tai ota yhteyttä paikalliseen BMI-järjestelmänvalvojaan.",
+  "lastCompanyAdminError": "Et voi poistaa Yrityksen ylläpitäjää yrityksestä, jos hän on yrityksen viimeinen järjestelmänvalvoja, ellei BMI ole poistanut hänen tiliään käytöstä.",
+  "report": "Lataa tiimiraportti",
+  "userActions": {
+    "title": "Käyttäjän toimet",
+    "action": {
+      "activate": "Aktivoi käyttäjä",
+      "deactivate": "Poista käyttäjä käytöstä"
     }
+  },
+  "projectTable": {
+    "title": "Projektit",
+    "type": "Tyyppi",
+    "project": "Projekti",
+    "startDate": "Aloituspäivämäärä",
+    "endDate": "Päättymispäivä"
   }
 }

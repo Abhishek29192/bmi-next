@@ -1,53 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Zertifizierungen",
     "buttons": {
-      "removeProfilePicture": "Entfernen",
-      "saveAndClose": "Speichern und schließen",
-      "uploadProfilePicture": "Neues Foto hochladen"
-    },
+      "editProfile": "Bearbeiten",
+      "changePassword": "Passwort zurücksetzen"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Kontaktinformation",
-    "fileSizeMessage": "Maximale Dateigröße von 3 MB.",
-    "fileSizeValidationMessage": "You cannot upload files larger than",
+    "title": "Über mich",
     "fileTypesMessage": "Sie können jpg-, gif- oder png-Dateien hochladen.",
+    "fileSizeMessage": "Maximale Dateigröße von 3 MB.",
     "form": {
       "fields": {
-        "email": "E-Mail",
         "firstName": "Vorname",
         "lastName": "Nachname",
+        "email": "E-Mail",
         "phone": "Telefon",
         "photo": "Profilfoto"
       }
     },
-    "title": "Über mich"
+    "buttons": {
+      "uploadProfilePicture": "Neues Foto hochladen",
+      "removeProfilePicture": "Entfernen",
+      "saveAndClose": "Speichern und schließen"
+    }
   },
   "leaveCompany": {
     "cta": "Verlassen Sie die Firma",
     "dialog": {
+      "title": "Bist du sicher?",
       "content": "Alle Zertifizierungen, die Sie besitzen, bleiben bei Ihnen, aber das Unternehmen sieht Ihre Zertifizierungen nicht mehr. Einige Schulungen sind möglicherweise nicht mehr verfügbar, wenn Sie ein Unternehmen verlassen.",
       "cta": {
         "cancel": "Abbrechen",
         "confirm": "Fortsetzen"
-      },
-      "title": "Bist du sicher?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Registrieren Sie Ihre Firma",
+    "body": "Hier können Sie Ihr Unternehmen anmelden",
+    "cta": "Registrieren"
   },
   "passwordReset": {
     "dialog": {
-      "error": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an ein Mitglied des BMI Akademie Teams",
+      "title": "Passwort zurücksetzen",
       "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts gesendet, bitte folgen Sie den Anweisungen in der E-Mail",
-      "title": "Passwort zurücksetzen"
+      "error": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an ein Mitglied des BMI Akademie Teams"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Passwort zurücksetzen",
-      "editProfile": "Bearbeiten"
-    },
-    "certificationsHeading": "Zertifizierungen"
-  },
-  "registerCompany": {
-    "body": "Hier können Sie Ihr Unternehmen anmelden",
-    "cta": "Registrieren",
-    "heading": "Registrieren Sie Ihre Firma"
   }
 }

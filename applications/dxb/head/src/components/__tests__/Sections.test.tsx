@@ -201,10 +201,8 @@ describe("Sections component", () => {
             subtitle: "page subtitle",
             date: null,
             featuredMedia: {
-              __typename: "ContentfulImage",
               type: null,
               altText: "Lorem ipsum",
-              caption: null,
               focalPoint: null,
               image: {
                 gatsbyImageData: {
@@ -292,7 +290,6 @@ describe("Sections component", () => {
         brandLogo: null,
         tags: null,
         featuredMedia: {
-          __typename: "ContentfulImage",
           altText: null,
           type: null,
           image: {
@@ -323,7 +320,6 @@ describe("Sections component", () => {
               url: "image.png"
             }
           },
-          caption: null,
           focalPoint: null,
           thumbnail: {
             src: "//images.asset.jpg",

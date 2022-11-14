@@ -67,6 +67,9 @@ const ProductLeadBlock = ({
   } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
+  const [documents, setDocuments] = useState(
+    product.productDocuments.slice(0, 24)
+  );
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const count = Math.ceil(product.productDocuments.length / DOCUMENTS_PER_PAGE);
@@ -76,6 +79,7 @@ const ProductLeadBlock = ({
       : 0;
     window.scrollTo(0, scrollY);
     setPage(page);
+    setDocuments(product.productDocuments.slice(page, (page + 1) * 24));
   };
   const displayBy = documentDisplayFormat === "Asset name" ? "title" : "type";
   return (
@@ -268,27 +272,27 @@ const ProductLeadBlock = ({
             )}
           </LeadBlock>
         </Tabs.TabPanel>
-        <Tabs.TabPanel
-          heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
-          index="three"
-          data-testid="documentsTab"
-        >
-          <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
-              <DocumentSimpleTableResults
-                documents={product.productDocuments}
-                page={page}
-                documentsPerPage={DOCUMENTS_PER_PAGE}
-                headers={[displayBy, "download", "add"]}
-              />
-              <DocumentResultsFooter
-                page={page}
-                count={count}
-                onPageChange={handlePageChange}
-              />
-            </DownloadList>
-          </div>
-        </Tabs.TabPanel>
+        {product.productDocuments?.length && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_DOCUMENTS)}
+            index="three"
+            data-testid="documentsTab"
+          >
+            <div className={styles["document-library"]} ref={resultsElement}>
+              <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
+                <DocumentSimpleTableResults
+                  documents={documents}
+                  headers={[displayBy, "download", "add"]}
+                />
+                <DocumentResultsFooter
+                  page={page}
+                  count={count}
+                  onPageChange={handlePageChange}
+                />
+              </DownloadList>
+            </div>
+          </Tabs.TabPanel>
+        )}
         {Boolean(product.bimIframeUrl) && (
           <Tabs.TabPanel
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}

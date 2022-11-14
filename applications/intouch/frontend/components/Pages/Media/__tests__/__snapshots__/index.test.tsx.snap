@@ -1,0 +1,1147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media page should render active media 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body
+    style="padding-right: 0px; overflow: hidden;"
+  >
+    <div
+      aria-hidden="true"
+    >
+      <div
+        class="Tabs Tabs--primary"
+      >
+        <div
+          class="TabsBar"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root tabStyles-ContainerRoot-118"
+            >
+              <div
+                class="MuiTabs-root tabStyles-TabsRoot-119"
+              >
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiTabs-scrollable"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                />
+                <div
+                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer"
+                    role="tablist"
+                  />
+                  <span
+                    class="PrivateTabIndicator-root-141 PrivateTabIndicator-colorPrimary-142 MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      role="presentation"
+      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+    >
+      <div
+        aria-hidden="true"
+        class="backdrop"
+        style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      />
+      <div
+        data-test="sentinelStart"
+        tabindex="0"
+      />
+      <div
+        class="ColorPair ColorPair--white"
+        style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+        tabindex="-1"
+      >
+        <div
+          class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-117"
+        >
+          <div
+            class="header"
+          >
+            <button
+              aria-label="Close"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 iconButton"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="wrapper"
+          >
+            <div
+              class="Carousel Carousel--swipable"
+              data-testid="carousel"
+            >
+              <div
+                style="overflow-x: hidden;"
+              >
+                <div
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                >
+                  <div
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  >
+                    <div
+                      class="page"
+                    >
+                      <div
+                        class="slide slide"
+                        style="width: 100%;"
+                      >
+                        <div>
+                          <div
+                            class="mediaHeader"
+                          >
+                            <h6
+                              class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            >
+                              Megatest / mediaTool
+                            </h6>
+                          </div>
+                          <div>
+                            <div
+                              class="iframeBackground"
+                            >
+                              <svg
+                                color="primary"
+                                style="height: 360px;"
+                              />
+                            </div>
+                            <iframe
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowfullscreen=""
+                              class="iframe test"
+                              data-testid="iframe-element"
+                              frameborder="0"
+                              height="360"
+                              sandbox="allow-scripts allow-same-origin"
+                              src="https://player.vimeo.com/video/www.vimeo.com"
+                              width="640"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 carouselControl carouselControl--previous"
+            data-testid="carousel-prev-button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root arrow"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 carouselControl carouselControl--next"
+            data-testid="carousel-next-button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root arrow"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        data-test="sentinelEnd"
+        tabindex="0"
+      />
+    </div>
+  </body>,
+  "container": <div
+    aria-hidden="true"
+  >
+    <div
+      class="Tabs Tabs--primary"
+    >
+      <div
+        class="TabsBar"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root tabStyles-ContainerRoot-118"
+          >
+            <div
+              class="MuiTabs-root tabStyles-TabsRoot-119"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                />
+                <span
+                  class="PrivateTabIndicator-root-141 PrivateTabIndicator-colorPrimary-142 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Media page should render media page 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="Tabs Tabs--primary"
+      >
+        <div
+          class="TabsBar"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root tabStyles-ContainerRoot-1"
+            >
+              <div
+                class="MuiTabs-root tabStyles-TabsRoot-2"
+              >
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiTabs-scrollable"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                />
+                <div
+                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                      data-testid="tab-2RdhIZRj7BuTDbC2eO2vQp"
+                      id="tab-2RdhIZRj7BuTDbC2eO2vQp"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiTab-wrapper"
+                      />
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-labelledby="tab-2RdhIZRj7BuTDbC2eO2vQp"
+          class="MuiGrid-root TabPanel MuiGrid-item"
+          data-testid="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+          id="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+          role="tabpanel"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-8 TabPanelBox"
+          >
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+            >
+              <ol
+                class="MuiBreadcrumbs-ol"
+              >
+                <li
+                  class="MuiBreadcrumbs-li"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-text buttonStyles-text-10 button link MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label buttonStyles-label-12"
+                    >
+                      <span
+                        class="MuiButton-startIcon buttonStyles-startIcon-13 MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="label"
+                      >
+                        <div
+                          aria-role="button"
+                          data-testid="media-path-navigate"
+                          role="button"
+                        >
+                          Megatest
+                        </div>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+              </ol>
+            </nav>
+            <div
+              class="mediaGrid"
+            >
+              <div
+                class="meta"
+              >
+                <h6
+                  class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                >
+                  countIndicator
+                </h6>
+              </div>
+              <div>
+                <div
+                  class="tiles"
+                >
+                  <div>
+                    <div
+                      class="content"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiCardActionArea-root"
+                        data-testid="media-tile-element-2"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <div
+                          class="outlined"
+                        >
+                          <div
+                            class="MuiCardContent-root content"
+                          >
+                            <div>
+                              <iframe
+                                class="iframe test"
+                                frameborder="0"
+                                height="100%"
+                                sandbox="allow-scripts allow-same-origin"
+                                scrolling="yes"
+                                src="https://player.vimeo.com/video/www.vimeo.com?title=0&portrait=0&controls=0&sidedock=0"
+                                width="100%"
+                              />
+                              <div
+                                class="playButton"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                  focusable="false"
+                                  style="font-size: 2rem; display: block;"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M8 5v14l11-7z"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="footer"
+                        >
+                          <span
+                            class="MuiTypography-root title Typography MuiTypography-button"
+                          >
+                            mediaTool
+                          </span>
+                          <span
+                            class="MuiTypography-root meta Typography MuiTypography-button"
+                          >
+                            contentTypes.VIDEO
+                          </span>
+                        </div>
+                        <span
+                          class="MuiCardActionArea-focusHighlight"
+                        />
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Tabs Tabs--primary"
+    >
+      <div
+        class="TabsBar"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root tabStyles-ContainerRoot-1"
+          >
+            <div
+              class="MuiTabs-root tabStyles-TabsRoot-2"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                >
+                  <button
+                    aria-controls="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                    data-testid="tab-2RdhIZRj7BuTDbC2eO2vQp"
+                    id="tab-2RdhIZRj7BuTDbC2eO2vQp"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    />
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="tab-2RdhIZRj7BuTDbC2eO2vQp"
+        class="MuiGrid-root TabPanel MuiGrid-item"
+        data-testid="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+        id="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
+        role="tabpanel"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-8 TabPanelBox"
+        >
+          <nav
+            aria-label="breadcrumbs"
+            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+          >
+            <ol
+              class="MuiBreadcrumbs-ol"
+            >
+              <li
+                class="MuiBreadcrumbs-li"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-text buttonStyles-text-10 button link MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-12"
+                  >
+                    <span
+                      class="MuiButton-startIcon buttonStyles-startIcon-13 MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="label"
+                    >
+                      <div
+                        aria-role="button"
+                        data-testid="media-path-navigate"
+                        role="button"
+                      >
+                        Megatest
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </li>
+            </ol>
+          </nav>
+          <div
+            class="mediaGrid"
+          >
+            <div
+              class="meta"
+            >
+              <h6
+                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+              >
+                countIndicator
+              </h6>
+            </div>
+            <div>
+              <div
+                class="tiles"
+              >
+                <div>
+                  <div
+                    class="content"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      data-testid="media-tile-element-2"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        class="outlined"
+                      >
+                        <div
+                          class="MuiCardContent-root content"
+                        >
+                          <div>
+                            <iframe
+                              class="iframe test"
+                              frameborder="0"
+                              height="100%"
+                              sandbox="allow-scripts allow-same-origin"
+                              scrolling="yes"
+                              src="https://player.vimeo.com/video/www.vimeo.com?title=0&portrait=0&controls=0&sidedock=0"
+                              width="100%"
+                            />
+                            <div
+                              class="playButton"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                                focusable="false"
+                                style="font-size: 2rem; display: block;"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M8 5v14l11-7z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <span
+                          class="MuiTypography-root title Typography MuiTypography-button"
+                        >
+                          mediaTool
+                        </span>
+                        <span
+                          class="MuiTypography-root meta Typography MuiTypography-button"
+                        >
+                          contentTypes.VIDEO
+                        </span>
+                      </div>
+                      <span
+                        class="MuiCardActionArea-focusHighlight"
+                      />
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Media page should render no root folders 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body
+    style=""
+  >
+    <div>
+      <div
+        class="Tabs Tabs--primary"
+      >
+        <div
+          class="TabsBar"
+        >
+          <div
+            class="Container"
+          >
+            <div
+              class="MuiContainer-root tabStyles-ContainerRoot-145"
+            >
+              <div
+                class="MuiTabs-root tabStyles-TabsRoot-146"
+              >
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiTabs-scrollable"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                />
+                <div
+                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer"
+                    role="tablist"
+                  />
+                  <span
+                    class="PrivateTabIndicator-root-148 PrivateTabIndicator-colorPrimary-149 MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="Tabs Tabs--primary"
+    >
+      <div
+        class="TabsBar"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root tabStyles-ContainerRoot-145"
+          >
+            <div
+              class="MuiTabs-root tabStyles-TabsRoot-146"
+            >
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  aria-label="tabs"
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                />
+                <span
+                  class="PrivateTabIndicator-root-148 PrivateTabIndicator-colorPrimary-149 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -77,6 +77,60 @@ describe("cleanupOldEnvironments", () => {
     expect(nonVersionedEnv.delete).not.toHaveBeenCalled();
   });
 
+  it("should delete different formatted semantic versioned environments", async () => {
+    const v10Env = { sys: { id: "v1.0.0" }, delete: jest.fn() };
+    const v1Alpha1Env = { sys: { id: "v1.0.0-alpha.1" }, delete: jest.fn() };
+    const v1SomethingExtra = {
+      sys: { id: "v1.0.0-something-extra" },
+      delete: jest.fn()
+    };
+    const v1SomethingElse = {
+      sys: { id: "v1.0-something-else" },
+      delete: jest.fn()
+    };
+    const v11Env = { sys: { id: "v1.1.0" }, delete: jest.fn() };
+    mockGetEnvironments.mockResolvedValueOnce({
+      items: [v10Env, v1Alpha1Env, v1SomethingExtra, v1SomethingElse, v11Env]
+    });
+    mockGetEnvironmentAliases.mockResolvedValueOnce({
+      items: []
+    });
+
+    await cleanupOldEnvironments(v11Env.sys.id, space);
+
+    expect(mockGetEnvironments).toHaveBeenCalled();
+    expect(mockGetEnvironmentAliases).toHaveBeenCalled();
+    expect(v10Env.delete).not.toHaveBeenCalled();
+    expect(v1Alpha1Env.delete).toHaveBeenCalled();
+    expect(v1SomethingExtra.delete).toHaveBeenCalled();
+    expect(v11Env.delete).not.toHaveBeenCalled();
+  });
+
+  it("should not delete non-semantic versioned environments", async () => {
+    const v10Env = { sys: { id: "v1.0.0" }, delete: jest.fn() };
+    const v1Alpha1Env = { sys: { id: "v1.0.0-alpha.1" }, delete: jest.fn() };
+    const v10NonSemantic = {
+      sys: { id: "v1.0" },
+      delete: jest.fn()
+    };
+    const v11Env = { sys: { id: "v1.1.0" }, delete: jest.fn() };
+    mockGetEnvironments.mockResolvedValueOnce({
+      items: [v10Env, v1Alpha1Env, v10NonSemantic, v11Env]
+    });
+    mockGetEnvironmentAliases.mockResolvedValueOnce({
+      items: []
+    });
+
+    await cleanupOldEnvironments(v11Env.sys.id, space);
+
+    expect(mockGetEnvironments).toHaveBeenCalled();
+    expect(mockGetEnvironmentAliases).toHaveBeenCalled();
+    expect(v10Env.delete).not.toHaveBeenCalled();
+    expect(v1Alpha1Env.delete).toHaveBeenCalled();
+    expect(v10NonSemantic.delete).not.toHaveBeenCalled();
+    expect(v11Env.delete).not.toHaveBeenCalled();
+  });
+
   it("should not delete aliased environments", async () => {
     const v10Env = { sys: { id: "v1.0.0" }, delete: jest.fn() };
     const v1Alpha1Env = { sys: { id: "v1.0.0-alpha.1" }, delete: jest.fn() };

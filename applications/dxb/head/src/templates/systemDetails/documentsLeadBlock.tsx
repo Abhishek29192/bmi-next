@@ -13,16 +13,17 @@ const DOCUMENTS_PER_PAGE = 24;
 const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
-const DocumentsLeadBlock = ({ documents }: Props) => {
+const DocumentsLeadBlock = ({ documents: initialDocuments }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(1);
-  const filteredDocuments = documents.filter(
+  const filteredDocuments = initialDocuments.filter(
     (doc) =>
       (doc.assetType.pimCode !== "VIDEO" &&
         doc.assetType.pimCode !== "FIXING_TOOL" &&
         doc.assetType.pimCode !== "SPECIFICATION") ||
       doc.fileSize
   );
+  const [documents, setDocuments] = useState(filteredDocuments.slice(0, 24));
   const count = Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_, page) => {
     const scrollY = resultsElement.current
@@ -30,6 +31,7 @@ const DocumentsLeadBlock = ({ documents }: Props) => {
       : 0;
     window.scrollTo(0, scrollY);
     setPage(page);
+    setDocuments(filteredDocuments.slice(page, (page + 1) * 24));
   };
 
   return (
@@ -39,9 +41,7 @@ const DocumentsLeadBlock = ({ documents }: Props) => {
           <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
             <div className={styles["tableContainer"]}>
               <DocumentSimpleTableResults
-                documents={filteredDocuments}
-                page={page}
-                documentsPerPage={DOCUMENTS_PER_PAGE}
+                documents={documents}
                 headers={["type", "title", "download", "add"]}
               />
             </div>

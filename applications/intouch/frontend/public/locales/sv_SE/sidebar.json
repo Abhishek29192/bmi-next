@@ -1,0 +1,7 @@
+{
+  "daysRemaining": "Antal dagar kvar",
+  "projectInsight": "Projektinsikt",
+  "certifiedInstallers": "Certifierade installatörer",
+  "noCertifiedInstallers": "Det finns inga BMI-certifierade installatörer",
+  "projectsInsightCertifiedInstallers": "Det finns {{count}} BMI-certifierade installatörer på det här projektet"
+}

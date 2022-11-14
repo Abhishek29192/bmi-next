@@ -33,6 +33,7 @@ import { getDocumentType } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
 import * as reminderMutation from "../../services/reminder";
 import * as certificateMutation from "../../services/certification";
+import * as merchandiseMutation from "../../services/merchandise";
 import { parseMarketCompanyTag } from "../../utils/contentful";
 import typeDefs from "./typeDefs";
 
@@ -268,7 +269,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return restartGuarantee(args, context);
         },
         ...reminderMutation,
-        ...certificateMutation
+        ...certificateMutation,
+        ...merchandiseMutation
       },
       ImportAccountsCompaniesFromCSVResult: {
         accounts: async (parent, args, context, resolveInfo) => {

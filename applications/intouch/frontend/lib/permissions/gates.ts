@@ -72,6 +72,13 @@ export const archivedProjectRestriction = (permission) => {
   return permission ? canActForArhivedProject : permission;
 };
 
+export const canSeeMerchandiseSso = (account) => {
+  const role = [ROLES.COMPANY_ADMIN].includes(account?.role);
+  return (
+    (findAccountTier(account) !== "T1" && role) || isSuperOrMarketAdmin(account)
+  );
+};
+
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 export const gates = {
   company: {
@@ -337,7 +344,7 @@ export const gates = {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: true,
+      INSTALLER: false,
       AUDITOR: false
     },
     CTA_TRAINING: {
@@ -354,7 +361,11 @@ export const gates = {
       INSTALLER: true,
       AUDITOR: false
     },
-    partnerBrandsCarousel: canSeePartnerBrandsCarousel
+    partnerBrandsCarousel: canSeePartnerBrandsCarousel,
+    MerchandiseSso: canSeeMerchandiseSso
+  },
+  productsAdmin: {
+    updateConfidentialFields: isSuperAdmin
   }
 };
 

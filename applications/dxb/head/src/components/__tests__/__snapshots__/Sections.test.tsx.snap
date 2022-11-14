@@ -329,6 +329,7 @@ HTMLCollection [
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
                             tabindex="0"
@@ -374,6 +375,7 @@ HTMLCollection [
               <div
                 aria-labelledby="tab-hello"
                 class="MuiGrid-root TabPanel MuiGrid-item"
+                data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"
@@ -1251,6 +1253,7 @@ HTMLCollection [
                           aria-controls="tabpanel-list"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected MuiTab-fullWidth"
+                          data-testid="tab-list"
                           id="tab-list"
                           role="tab"
                           tabindex="0"
@@ -1269,6 +1272,7 @@ HTMLCollection [
                           aria-controls="tabpanel-map"
                           aria-selected="false"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 MuiTab-fullWidth"
+                          data-testid="tab-map"
                           id="tab-map"
                           role="tab"
                           tabindex="-1"
@@ -1296,6 +1300,7 @@ HTMLCollection [
             <div
               aria-labelledby="tab-list"
               class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+              data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
@@ -1322,6 +1327,7 @@ HTMLCollection [
             <div
               aria-labelledby="tab-map"
               class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+              data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
               id="tabpanel-map"
@@ -1598,6 +1604,7 @@ HTMLCollection [
                           aria-controls="tabpanel-list"
                           aria-selected="true"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected MuiTab-fullWidth"
+                          data-testid="tab-list"
                           id="tab-list"
                           role="tab"
                           tabindex="0"
@@ -1616,6 +1623,7 @@ HTMLCollection [
                           aria-controls="tabpanel-map"
                           aria-selected="false"
                           class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 MuiTab-fullWidth"
+                          data-testid="tab-map"
                           id="tab-map"
                           role="tab"
                           tabindex="-1"
@@ -1643,6 +1651,7 @@ HTMLCollection [
             <div
               aria-labelledby="tab-list"
               class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+              data-testid="tabpanel-list"
               heading="findARoofer.listLabel"
               id="tabpanel-list"
               role="tabpanel"
@@ -2051,6 +2060,7 @@ HTMLCollection [
             <div
               aria-labelledby="tab-map"
               class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+              data-testid="tabpanel-map"
               heading="findARoofer.mapLabel"
               hidden=""
               id="tabpanel-map"
@@ -2143,6 +2153,7 @@ HTMLCollection [
                   class="overlay"
                 >
                   <button
+                    aria-label="Video label"
                     class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
                     tabindex="0"
                     type="button"
@@ -2263,6 +2274,7 @@ HTMLCollection [
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
                                 tabindex="0"
@@ -2309,6 +2321,7 @@ HTMLCollection [
                 <div
                   aria-labelledby="tab-0"
                   class="MuiGrid-root TabPanel tab-panel MuiGrid-item"
+                  data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
                   role="tabpanel"
@@ -2482,6 +2495,7 @@ HTMLCollection [
                                 aria-selected="true"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 1\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-testid="tab-0"
                                 id="tab-0"
                                 role="tab"
                                 tabindex="0"
@@ -2501,6 +2515,7 @@ HTMLCollection [
                                 aria-selected="false"
                                 class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14"
                                 data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"Team Category 2\\",\\"action\\":\\"Selector – Tabs\\"}"
+                                data-testid="tab-1"
                                 id="tab-1"
                                 role="tab"
                                 tabindex="-1"
@@ -2547,6 +2562,7 @@ HTMLCollection [
                 <div
                   aria-labelledby="tab-0"
                   class="MuiGrid-root TabPanel tab-panel MuiGrid-item"
+                  data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
                   role="tabpanel"
@@ -2638,6 +2654,7 @@ HTMLCollection [
                 <div
                   aria-labelledby="tab-1"
                   class="MuiGrid-root TabPanel tab-panel MuiGrid-item"
+                  data-testid="tabpanel-1"
                   heading="Team Category 2"
                   hidden=""
                   id="tabpanel-1"
@@ -3648,6 +3665,7 @@ HTMLCollection [
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-68 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
                             tabindex="0"
@@ -3693,6 +3711,7 @@ HTMLCollection [
               <div
                 aria-labelledby="tab-hello"
                 class="MuiGrid-root TabPanel MuiGrid-item"
+                data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"
@@ -3920,6 +3939,7 @@ HTMLCollection [
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-87 Mui-selected"
                             data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            data-testid="tab-hello"
                             id="tab-hello"
                             role="tab"
                             tabindex="0"
@@ -3965,6 +3985,7 @@ HTMLCollection [
               <div
                 aria-labelledby="tab-hello"
                 class="MuiGrid-root TabPanel MuiGrid-item"
+                data-testid="tabpanel-hello"
                 heading="hello"
                 id="tabpanel-hello"
                 role="tabpanel"

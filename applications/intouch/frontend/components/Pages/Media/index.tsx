@@ -17,9 +17,9 @@ import {
   isExternalLink,
   isVimeo
 } from "../../../lib/media/utils";
-import log from "../../../lib/logger";
 import { MediaGrid } from "../../MediaGrid";
 import { MediaGallery } from "../../MediaGallery";
+import { useMarketContext } from "../../../context/MarketContext";
 
 type Props = {
   rootFolders: RootFolders;
@@ -34,7 +34,8 @@ const getMediaToolGalleryProps = (
   const baseProps = {
     id: mediaTool.sys.id,
     url: mediaTool.url || "",
-    description: getMediaAltText(mediaTool)
+    description: getMediaAltText(mediaTool),
+    mediaItemClass: mediaTool.mediaItemClass
   };
   if (isVimeo(mediaTool)) {
     return { ...baseProps, type: "vimeo" };
@@ -57,11 +58,10 @@ export const MediaPage = ({
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
 
+  const { market } = useMarketContext();
+
   const mediaToolToGalleryItem = useCallback(
     (m: MediaTool): GalleryItem => {
-      if (!m) {
-        return null;
-      }
       return {
         ...getMediaToolGalleryProps(m),
         title: `${mediaFolder.name} / ${m.name}`
@@ -113,14 +113,13 @@ export const MediaPage = ({
   );
 
   const navigateToFolder = useCallback(
-    (mediaFolder: MediaFolder) => {
+    async (mediaFolder: MediaFolder) => {
       if (!mediaFolder?.sys?.id) {
         return;
       }
       setIsNavigating(true);
-      router.push(`/toolkit/${mediaFolder.sys.id}`).then(() => {
-        setIsNavigating(false);
-      });
+      await router.push(`/toolkit/${mediaFolder.sys.id}`);
+      setIsNavigating(false);
     },
     [router, setIsNavigating]
   );
@@ -140,25 +139,17 @@ export const MediaPage = ({
       if (mediaItem.__typename === "MediaFolder") {
         return navigateToFolder(mediaItem);
       }
-      log({
-        severity: "ERROR",
-        message: `Unknown mediaItem __typename: ${JSON.stringify(
-          mediaItem,
-          null,
-          2
-        )}`
-      });
     },
     [handleMediaToolClick, navigateToFolder]
   );
 
   const activeRootFolderId = useMemo(
-    () => rootFolders.find((r) => r.sys.id === mediaPath[0].sys.id)?.sys?.id,
+    () => rootFolders?.find((r) => r.sys.id === mediaPath[0].sys.id)?.sys?.id,
     [mediaPath, rootFolders]
   );
 
   const items = useMemo(
-    () => mediaFolder?.childrenCollection?.items || [],
+    () => mediaFolder?.childrenCollection?.items,
     [mediaFolder]
   );
 
@@ -175,6 +166,7 @@ export const MediaPage = ({
           activeItem={modalInfo.activeItem}
           items={mediaFolderGalleryItems}
           onClose={closeModal}
+          optanonClass={market?.optanonClass}
         />
       )}
       <Tabs
@@ -182,7 +174,7 @@ export const MediaPage = ({
         initialValue={activeRootFolderId}
         onChange={onTabChange}
       >
-        {rootFolders.map((rootFolder) => {
+        {rootFolders?.map((rootFolder) => {
           const rootFolderId = rootFolder.sys.id;
           return (
             <Tabs.TabPanel
@@ -213,6 +205,7 @@ export const MediaPage = ({
                             onClick={() => {
                               navigateToFolder(folder);
                             }}
+                            data-testid="media-path-navigate"
                           >
                             {folder.name}
                           </div>

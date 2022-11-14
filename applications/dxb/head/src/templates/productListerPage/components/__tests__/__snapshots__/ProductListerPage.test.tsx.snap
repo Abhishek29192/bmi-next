@@ -825,7 +825,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -1930,7 +1930,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -3157,7 +3157,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -4366,7 +4366,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -5642,7 +5642,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -8798,7 +8798,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -10098,7 +10098,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -11398,7 +11398,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -12703,7 +12703,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -14018,7 +14018,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15323,7 +15323,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15377,7 +15377,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15431,7 +15431,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15485,7 +15485,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15539,7 +15539,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15593,7 +15593,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15647,7 +15647,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15701,7 +15701,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15755,7 +15755,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15809,7 +15809,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15863,7 +15863,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15917,7 +15917,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -15971,7 +15971,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16025,7 +16025,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16079,7 +16079,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16133,7 +16133,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16187,7 +16187,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16241,7 +16241,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16295,7 +16295,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16349,7 +16349,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16403,7 +16403,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16457,7 +16457,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16511,7 +16511,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16565,7 +16565,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16619,7 +16619,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16673,7 +16673,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16727,7 +16727,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16781,7 +16781,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16835,7 +16835,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -16889,7 +16889,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18209,7 +18209,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18263,7 +18263,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18317,7 +18317,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18371,7 +18371,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18425,7 +18425,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18479,7 +18479,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18533,7 +18533,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18587,7 +18587,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18641,7 +18641,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18695,7 +18695,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18749,7 +18749,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18803,7 +18803,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18857,7 +18857,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18911,7 +18911,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -18965,7 +18965,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19019,7 +19019,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19073,7 +19073,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19127,7 +19127,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19181,7 +19181,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19235,7 +19235,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19289,7 +19289,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19343,7 +19343,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19397,7 +19397,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19451,7 +19451,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19505,7 +19505,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19559,7 +19559,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19613,7 +19613,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19667,7 +19667,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19721,7 +19721,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails
@@ -19775,7 +19775,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         >
                           <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            type="button"
+                            href="/uk/name-code/?pathname=%2F"
                           >
                             <span>
                               MC: plp.product.viewDetails

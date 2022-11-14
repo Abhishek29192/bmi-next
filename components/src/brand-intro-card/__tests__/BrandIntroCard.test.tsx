@@ -7,6 +7,7 @@ describe("BrandIntroCard component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <BrandIntroCard
+        name={"AeroDek"}
         logoIcon={brandLogo}
         description="desc"
         buttonLabel="label"
@@ -17,6 +18,7 @@ describe("BrandIntroCard component", () => {
   it("should render brand logo without whiteBox", () => {
     const { container } = render(
       <BrandIntroCard
+        name={"AeroDek"}
         logoIcon={brandLogo}
         description="desc"
         buttonLabel="label"
@@ -29,6 +31,7 @@ describe("BrandIntroCard component", () => {
   it("should render brand logo with whiteBox", () => {
     const { container } = render(
       <BrandIntroCard
+        name={"AeroDek"}
         logoIcon={brandLogo}
         description="desc"
         buttonLabel="label"
@@ -40,7 +43,9 @@ describe("BrandIntroCard component", () => {
     expect(svgLogo?.classList).toContain("brandLogo-whiteBox");
   });
   it("should render brand without button label & description if not present", () => {
-    const { container } = render(<BrandIntroCard logoIcon={brandLogo} />);
+    const { container } = render(
+      <BrandIntroCard name={"AeroDek"} logoIcon={brandLogo} />
+    );
 
     expect(container.querySelectorAll("button").length).toBe(1);
     expect(container.querySelector(".description")).not.toBeInTheDocument();
@@ -49,6 +54,7 @@ describe("BrandIntroCard component", () => {
   it("should render with pointer to default if no action", () => {
     const { container } = render(
       <BrandIntroCard
+        name={"AeroDek"}
         logoIcon={brandLogo}
         description="desc"
         buttonLabel="label"

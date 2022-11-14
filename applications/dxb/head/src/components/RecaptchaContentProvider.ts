@@ -118,7 +118,7 @@ const recaptchaContent_PT: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=pt"
 };
 
-const recaptchaContent_BE_NL: RecaptchaPolicyContentType = {
+const recaptchaContent_NL_BE: RecaptchaPolicyContentType = {
   startText: "Deze site wordt beschermd door reCAPTCHA en Google ",
   privacyPloicyText: "Privacybeleid",
   andText: " en ",
@@ -126,6 +126,16 @@ const recaptchaContent_BE_NL: RecaptchaPolicyContentType = {
   endText: " zijn van toepassing.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=nl",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=nl"
+};
+
+const recaptchaContent_FR_BE: RecaptchaPolicyContentType = {
+  startText: "Ce site est protégé par reCAPTCHA et la ",
+  privacyPloicyText: "politique de confidentialité",
+  andText: " et les ",
+  termsOfServiceText: "conditions d'utilisation",
+  endText: "de Google s'appliquent.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=fr-be",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=fr-be"
 };
 
 const recaptchaContent_RO: RecaptchaPolicyContentType = {
@@ -166,6 +176,16 @@ const recaptchaContent_CH_DE: RecaptchaPolicyContentType = {
   endText: " von Google.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=de-ch ",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=de-ch"
+};
+
+const recaptchaContent_FR_CH: RecaptchaPolicyContentType = {
+  startText: "Ce site est protégé par reCAPTCHA et la ",
+  privacyPloicyText: "politique de confidentialité",
+  andText: " et les ",
+  termsOfServiceText: "conditions d'utilisation",
+  endText: "de Google s'appliquent.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=fr-ch",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=fr-ch"
 };
 
 const recaptchaContent_CN_ZH: RecaptchaPolicyContentType = {
@@ -220,11 +240,13 @@ RecaptchaPrivacyContentMap["nl"] = recaptchaContent_NL;
 RecaptchaPrivacyContentMap["tr"] = recaptchaContent_TR;
 RecaptchaPrivacyContentMap["es"] = recaptchaContent_ES;
 RecaptchaPrivacyContentMap["pt"] = recaptchaContent_PT;
-RecaptchaPrivacyContentMap["be"] = recaptchaContent_BE_NL;
+RecaptchaPrivacyContentMap["be"] = recaptchaContent_NL_BE;
+RecaptchaPrivacyContentMap["fr-be"] = recaptchaContent_FR_BE;
 RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
 RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
 RecaptchaPrivacyContentMap["ch"] = recaptchaContent_CH_DE;
+RecaptchaPrivacyContentMap["fr-ch"] = recaptchaContent_FR_CH;
 RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
 RecaptchaPrivacyContentMap["hu"] = recaptchaContent_HU;
 RecaptchaPrivacyContentMap["cz"] = recaptchaContent_CZ;

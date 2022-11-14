@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MerchandiseCTA should render component for INSTALLER 1`] = `
+<body>
+  <div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-outlinedDarkBg-27 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      disabled=""
+      style="margin-top: 2em;"
+      tabindex="-1"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-24"
+      >
+        buttonText
+      </span>
+    </button>
+  </div>
+</body>
+`;
+
+exports[`MerchandiseCTA should render component for INSTALLER without button text 1`] = `
+<body>
+  <div>
+    <button
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined buttonStyles-outlinedDarkBg-67 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      disabled=""
+      style="margin-top: 2em;"
+      tabindex="-1"
+      type="button"
+    >
+      <span
+        class="MuiButton-label buttonStyles-label-64"
+      >
+        hero.cta.ctaName
+      </span>
+    </button>
+  </div>
+</body>
+`;
+
+exports[`MerchandiseCTA should render component for SUPER_ADMIN 1`] = `
+<body>
+  <div>
+    <a
+      href="url"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 MuiButton-outlinedPrimary"
+        style="margin-top: 2em;"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-4"
+        >
+          buttonText
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </a>
+  </div>
+</body>
+`;
+
+exports[`MerchandiseCTA should render component for SUPER_ADMIN without button text 1`] = `
+<body>
+  <div>
+    <a
+      href="url"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-outlinedDarkBg-47 MuiButton-outlinedPrimary"
+        style="margin-top: 2em;"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-44"
+        >
+          hero.cta.ctaName
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </a>
+  </div>
+</body>
+`;

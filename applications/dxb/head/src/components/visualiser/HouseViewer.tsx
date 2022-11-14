@@ -25,12 +25,12 @@ import modelCache from "./ModelCache";
 import roofSegmentGenerator from "./RoofSegmentGenerator";
 import textureCache from "./TextureCache";
 import tileSlice from "./TileSlice";
-import { Colour, Siding, Tile } from "./Types";
+import { Colour, PIMTile, Siding } from "./Types";
 import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
 
 interface Props extends ViewerProps {
   siding: Siding;
-  houseModelUrl: string;
+  houseModelUrl?: string;
 }
 
 interface State extends ViewerState {
@@ -57,11 +57,11 @@ export default class HouseViewer extends Viewer<Props, State> {
   }
 
   async loadModel(props: Props) {
-    if (props.colour !== this.state.colour) {
+    if (props.tile.code !== this.state.tileCode) {
       this.setState({
-        colour: props.colour
+        tileCode: props.tile.code
       });
-      await this.loadHouse(props.colour, props.tile);
+      await this.loadHouse(props.tile);
     }
 
     if (props.siding !== this.state.siding) {
@@ -74,61 +74,41 @@ export default class HouseViewer extends Viewer<Props, State> {
     this.renderFrame();
   }
 
-  async loadHouse(colour: Colour, tileInfo: Tile) {
+  async loadHouse(tile: PIMTile) {
     // Create roof tile material:
     this.diffuseImage = undefined;
     const mat = new MeshStandardMaterial();
-    mat.name = colour.name;
+    mat.name = tile.colour;
 
-    const { options } = this.props;
-    const { contentSource } = options;
-
-    const normalRef = colour.normalMapOverrideRef
-      ? colour.normalMapOverrideRef
-      : tileInfo.normalMapRef;
-    const normalUrl = getRef(normalRef, {
-      size: "original",
-      contentSource
-    });
-    const metallicRef = colour.metallicRoughnessMapOverrideRef
-      ? colour.metallicRoughnessMapOverrideRef
-      : tileInfo.metallicRoughnessMapRef;
-    const metalicUrl = getRef(metallicRef, {
-      size: "original",
-      contentSource
-    });
-    const diffuseUrl = getRef(colour.diffuseMapRef, {
-      size: "original",
-      contentSource
-    });
-
-    if (metalicUrl) {
-      const metalicTexture = await textureCache(metalicUrl);
-      this.metalicImage = metalicTexture;
+    if (tile.metallicRoughnessMapRef) {
+      this.metalicImage = await textureCache(tile.metallicRoughnessMapRef);
       mat.metalnessMap = this.metalicImage;
       mat.roughnessMap = this.metalicImage;
       mat.needsUpdate = true;
     }
 
-    if (normalUrl) {
-      const normalTexture = await textureCache(normalUrl);
+    if (tile.normalMapRef) {
+      const normalTexture = await textureCache(tile.normalMapRef);
       this.normalImage = normalTexture;
       mat.normalMap = normalTexture;
       mat.needsUpdate = true;
     }
 
-    if (diffuseUrl) {
-      const diffuseTexture = await textureCache(diffuseUrl);
+    if (tile.diffuseMapRef) {
+      const diffuseTexture = await textureCache(tile.diffuseMapRef);
       this.diffuseImage = diffuseTexture;
       mat.map = diffuseTexture;
       mat.needsUpdate = true;
 
-      const tileRef = getRef(tileInfo.lowDetailMeshRef, { contentSource });
-      const tilePromise = tileRef ? modelCache(tileRef) : undefined;
-      const ridgeRef = getRef(tileInfo.ridgeRef, { contentSource });
-      const ridgePromise = ridgeRef ? modelCache(ridgeRef) : undefined;
-      const ridgeEndRef = getRef(tileInfo.ridgeEndRef, { contentSource });
-      const ridgeEndPromise = ridgeEndRef ? modelCache(ridgeEndRef) : undefined;
+      const tilePromise = tile.lowDetailMeshRef
+        ? modelCache(tile.lowDetailMeshRef)
+        : undefined;
+      const ridgePromise = tile.ridgeRef
+        ? modelCache(tile.ridgeRef)
+        : undefined;
+      const ridgeEndPromise = tile.ridgeEndRef
+        ? modelCache(tile.ridgeEndRef)
+        : undefined;
 
       // put inside this request to prevent 'white flashes'
       const promiseResults = await Promise.all([
@@ -155,12 +135,12 @@ export default class HouseViewer extends Viewer<Props, State> {
           : undefined;
 
       // Generate the roof now:
-      this.generateRoof(tileInfo, mat, tileMesh, ridgeMesh, ridgeEndMesh);
+      this.generateRoof(tile, mat, tileMesh, ridgeMesh, ridgeEndMesh);
     }
 
     if (this.snowFences) {
       this.snowFences.forEach((fence) => {
-        fence.visible = tileInfo.snowFenceActive;
+        fence.visible = tile.snowFenceActive;
       });
     }
   }
@@ -181,7 +161,7 @@ export default class HouseViewer extends Viewer<Props, State> {
   }
 
   generateRoof(
-    tileInfo: Tile,
+    tileInfo: PIMTile,
     material: MeshStandardMaterial,
     tileMesh: Mesh,
     ridgeMesh: Mesh,

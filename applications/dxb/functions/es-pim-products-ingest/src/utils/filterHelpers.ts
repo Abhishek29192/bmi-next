@@ -7,7 +7,9 @@ import {
 } from "@bmi/pim-types";
 import { ESIndexObject, groupBy, IndexedItemGroup } from "../CLONE";
 
-export const getCategoryFilters = (categories: readonly Category[]) => {
+export const getCategoryFilters = (
+  categories: readonly Category[]
+): IndexedItemGroup<ESIndexObject> => {
   const categoryGroups: IndexedItemGroup<Category> = groupBy(
     categories,
     "categoryType"
@@ -64,8 +66,8 @@ export const getClassificationsFilters = (product: PIMProduct) => {
   const appearanceAttributes = classifications.filter(
     (classification) => classification.code === "appearanceAttributes"
   );
-  const listOfFilters = appearanceAttributes.reduce(
-    (filters: FeatureValue[], appearanceAttribute) => {
+  const listOfFilters = appearanceAttributes.reduce<FeatureValue[]>(
+    (filters, appearanceAttribute) => {
       const textureFamily = appearanceAttribute?.features?.find((feature) =>
         feature.code.includes("appearanceAttributes.textureFamily")
       );

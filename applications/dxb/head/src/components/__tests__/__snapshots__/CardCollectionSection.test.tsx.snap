@@ -300,14 +300,15 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="wrapper wrapper--with-gutter"
@@ -471,14 +472,15 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -644,14 +646,15 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -789,14 +792,15 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -934,14 +938,15 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1079,14 +1084,15 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1224,14 +1230,15 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1369,14 +1376,15 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1514,14 +1522,15 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1680,14 +1689,15 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1976,14 +1986,15 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -2272,14 +2283,15 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -2568,14 +2580,15 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -2864,14 +2877,15 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -3160,14 +3174,15 @@ exports[`CardCollectionSection component single & multiple row display renders c
                   />
                 </div>
               </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+              <button
+                aria-disabled="true"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiLink-button MuiTypography-colorPrimary"
                 type="button"
               >
                 <span>
                   MC: global.clearAll
                 </span>
-              </a>
+              </button>
             </div>
             <div
               class="wrapper wrapper--show-off-screen wrapper--with-gutter"

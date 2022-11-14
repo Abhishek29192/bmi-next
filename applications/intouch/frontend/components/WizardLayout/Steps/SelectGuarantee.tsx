@@ -103,7 +103,12 @@ const getProductGuarantees = (
   const { company, guarantees } = project;
 
   const isProductGuaranteeExist: boolean = guarantees.nodes.some(
-    (k) => k.status == "APPROVED" && k.guaranteeType.coverage === "PRODUCT"
+    (k) =>
+      (k.status == "APPROVED" ||
+        k.status == "ISSUED" ||
+        k.status == "DECLINED" ||
+        k.status == "EXPIRED") &&
+      k.guaranteeType.coverage === "PRODUCT"
   );
 
   return guaranteeTypes.map((guaranteeType) => {

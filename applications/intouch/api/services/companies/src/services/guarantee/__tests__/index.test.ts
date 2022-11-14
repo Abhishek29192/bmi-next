@@ -3,7 +3,10 @@ import {
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
 import { createGuarantee, updateGuarantee, restartGuarantee } from "..";
-import { sendMessageWithTemplate } from "../../../services/mailer";
+import {
+  sendMessageWithTemplate,
+  sendMailToMarketAdmins
+} from "../../../services/mailer";
 import * as validate from "../validate";
 
 process.env.GCP_PRIVATE_BUCKET_NAME = "GCP_PRIVATE_BUCKET_NAME";
@@ -18,7 +21,8 @@ jest.mock("../../storage-client", () => {
   return jest.fn().mockImplementation(() => storage);
 });
 jest.mock("../../../services/mailer", () => ({
-  sendMessageWithTemplate: jest.fn()
+  sendMessageWithTemplate: jest.fn(),
+  sendMailToMarketAdmins: jest.fn()
 }));
 jest.mock("crypto", () => {
   return {
@@ -144,21 +148,11 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [
-            {
-              email: "email",
-              first_name: "first_name",
-              role: "COMPANY_ADMIN"
-            }
-          ]
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendMessageWithTemplate).toBeCalledTimes(1);
     });
     it("should create a guarantee with evidences", async () => {
       const resolve = jest.fn();
@@ -181,9 +175,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -207,18 +198,6 @@ describe("Guarantee", () => {
           }
         }
       };
-
-      mockQuery
-        .mockImplementationOnce(() => {})
-        .mockImplementationOnce(() => ({
-          rows: [{ maximum_validity_years: 1 }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
-        }));
       await expect(
         createGuarantee(resolve, source, args, context, resolveInfo)
       ).rejects.toEqual("I am error");
@@ -246,21 +225,11 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: [
-            {
-              email: "email",
-              first_name: "first_name",
-              role: "COMPANY_ADMIN"
-            }
-          ]
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
 
       expect(resolve).toBeCalledTimes(1);
-      expect(sendMessageWithTemplate).toBeCalledTimes(1);
     });
 
     it("coverage is SOLUTION", async () => {
@@ -288,7 +257,9 @@ describe("Guarantee", () => {
     const mockGuarante = {
       id: 1,
       status: "",
-      systemBmiRef: ""
+      systemBmiRef: "",
+      requestorAccountId: 1,
+      projectId: guaranteeUpdateInput.patch.projectId
     };
     const guaranteMockImplementation = () => ({
       rows: [mockGuarante]
@@ -305,6 +276,17 @@ describe("Guarantee", () => {
         }
       }
     };
+    const projectCompanyDetail = {
+      name: "projectCompanyDetail name",
+      companyName: "projectCompanyDetail company name"
+    };
+    const dynamicContent = {
+      project: `${projectCompanyDetail.name}`,
+      company: `${projectCompanyDetail.companyName}`,
+      author: context.user.email,
+      projectId: guaranteeUpdateInput.patch.projectId
+    };
+
     it("shouldn't be able to update guarantee when user unauthorised", async () => {
       userCanMock.mockReturnValue(false);
 
@@ -316,9 +298,10 @@ describe("Guarantee", () => {
       userCanMock.mockReturnValue(true);
       mockGuarante.status = "NEW";
 
-      mockGetDbPoolQuery.mockReturnValueOnce({
-        rows: [{ email: "test@mail.me", id: 1 }]
-      });
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(guaranteMockImplementation)
+        .mockReturnValueOnce({ rows: [projectCompanyDetail] });
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -327,6 +310,11 @@ describe("Guarantee", () => {
       expect(patch.bmiReferenceId).toEqual(randomPassword);
       expect(patch.status).toEqual("SUBMITTED");
 
+      expect(sendMailToMarketAdmins).toHaveBeenCalledWith(
+        context,
+        "REQUEST_SUBMITTED",
+        dynamicContent
+      );
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to submit rejected guarantee", async () => {
@@ -336,9 +324,10 @@ describe("Guarantee", () => {
       };
       mockGuarante.status = "REJECTED";
 
-      mockGetDbPoolQuery.mockReturnValueOnce({
-        rows: [{ email: "test2@mail.me", id: 2 }]
-      });
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(guaranteMockImplementation)
+        .mockReturnValueOnce({ rows: [projectCompanyDetail] });
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -347,6 +336,7 @@ describe("Guarantee", () => {
       expect(patch.status).toEqual("SUBMITTED");
       expect(patch.productBmiRef).toBeUndefined();
 
+      expect(sendMailToMarketAdmins).toHaveBeenCalledTimes(1);
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to assing guarantee", async () => {
@@ -507,6 +497,22 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
 
+    it("should be able to send email when BO accept double acceptance guarantee", async () => {
+      userCanMock.mockReturnValue(true);
+      const args: { input: UpdateGuaranteeInput } = {
+        input: {
+          ...guaranteeUpdateInput,
+          guaranteeEventType: "BO_ACCEPTED_SOLUTION"
+        }
+      };
+      mockGuarante.status = "APPROVED";
+
+      await updateGuarantee(resolve, source, args, context, resolveInfo);
+
+      expect(resolve).toBeCalledTimes(1);
+      expect(sendMessageWithTemplate).toHaveBeenCalledTimes(1);
+    });
+
     it("call logger when isValid is false", async () => {
       jest
         .spyOn(validate, "solutionGuaranteeSubmitValidate")
@@ -584,9 +590,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -614,9 +617,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);
@@ -644,9 +644,6 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => ({
           rows: [{ name: "project", companyId: 1, tier: "T1" }]
-        }))
-        .mockImplementationOnce(() => ({
-          rows: []
         }));
 
       await createGuarantee(resolve, source, args, context, resolveInfo);

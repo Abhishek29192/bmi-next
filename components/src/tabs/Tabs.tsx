@@ -1,16 +1,14 @@
-import { AppBarProps } from "@material-ui/core";
-import { Box } from "@material-ui/core";
+import type { GridProps } from "@material-ui/core";
 import {
+  AppBarProps,
+  Box,
+  makeStyles,
   Tab as MaterialTab,
   TabProps as MaterialTabProps,
+  Tabs as MaterialTabs,
+  TabsProps as MaterialTabsProps,
   Theme
 } from "@material-ui/core";
-import {
-  Tabs as MaterialTabs,
-  TabsProps as MaterialTabsProps
-} from "@material-ui/core";
-import type { GridProps } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
 import classnames from "classnames";
 import React from "react";
 import Container, { Props as ContainerProps } from "../container/Container";
@@ -74,21 +72,29 @@ const TabPanel = ({
   value,
   index,
   ...other
-}: TabPanelProps) => (
-  <Grid
-    item
-    className={classnames(styles["TabPanel"], className)}
-    aria-labelledby={`tab-${index}`}
-    hidden={value !== index}
-    id={`tabpanel-${index}`}
-    role="tabpanel"
-    {...other}
-  >
-    <Box className={styles["TabPanelBox"]} p={3}>
-      {children}
-    </Box>
-  </Grid>
-);
+}: TabPanelProps) => {
+  const formattedIndex =
+    typeof index === "string" ? index.replace(/ /g, "-") : index;
+  const formattedvalue =
+    typeof value === "string" ? value.replace(/ /g, "-") : value;
+  return (
+    <Grid
+      item
+      className={classnames(styles["TabPanel"], className)}
+      aria-labelledby={`tab-${formattedIndex}`}
+      hidden={formattedvalue !== formattedIndex}
+      id={`tabpanel-${formattedIndex}`}
+      key={`tabpanel-${formattedIndex}`}
+      role="tabpanel"
+      data-testid={`tabpanel-${formattedIndex}`}
+      {...other}
+    >
+      <Box className={styles["TabPanelBox"]} p={3}>
+        {children}
+      </Box>
+    </Grid>
+  );
+};
 
 type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
@@ -172,16 +178,21 @@ const Tabs = ({
             className={globalClasses.TabsRoot}
             {...other}
           >
-            {tabs.map(({ props: { heading, index } }) => (
-              <Tab
-                aria-controls={`tabpanel-${index}`}
-                id={`tab-${index}`}
-                key={index}
-                label={transformHyphens(heading)}
-                value={index}
-                className={globalClasses.TabRoot}
-              />
-            ))}
+            {tabs.map(({ props: { heading, index } }) => {
+              const formattedIndex =
+                typeof index === "string" ? index.replace(/ /g, "-") : index;
+              return (
+                <Tab
+                  aria-controls={`tabpanel-${formattedIndex}`}
+                  id={`tab-${formattedIndex}`}
+                  key={formattedIndex}
+                  label={transformHyphens(heading)}
+                  value={index}
+                  className={globalClasses.TabRoot}
+                  data-testid={`tab-${formattedIndex}`}
+                />
+              );
+            })}
           </MaterialTabs>
         </Container>
       </div>

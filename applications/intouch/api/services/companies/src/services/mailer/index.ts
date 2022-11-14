@@ -3,6 +3,7 @@ import { publish, TOPICS } from "../events";
 import { messageTemplate, EventMessage } from "../contentful";
 import { PostGraphileContext } from "../../types";
 import { parseMarketCompanyTag } from "../../utils/contentful";
+import { getDbPool } from "../../db";
 
 export const replaceData = (template, data) => {
   if (!template) return template;
@@ -59,6 +60,84 @@ export const sendMessageWithTemplate = async (
       error
     );
   }
+};
+
+export const getTemplateReceipient = async (
+  context: PostGraphileContext,
+  event: EventMessage
+) => {
+  const logger = context.logger("mailer");
+  const { user } = context;
+  const marketDomain = user.market?.domain;
+  const contentfulTag = parseMarketCompanyTag(marketDomain);
+
+  try {
+    const { data } = await messageTemplate(
+      context.clientGateway,
+      event,
+      contentfulTag
+    );
+    const {
+      messageTemplateCollection
+    }: {
+      messageTemplateCollection: {
+        items: [MessageTemplate];
+      };
+    } = data;
+
+    if (messageTemplateCollection.items?.length) {
+      const [template] = messageTemplateCollection.items;
+      return template.emailRecipient;
+    } else {
+      logger.error(`Template not found for event ${event}`);
+    }
+    return null;
+  } catch (error) {
+    logger.error(`Error getting an email Recipient for event ${event}`, error);
+  }
+};
+
+export const getMarketAdminsEmail = async (
+  context: PostGraphileContext,
+  event: EventMessage
+) => {
+  const { user } = context;
+  const dbPool = getDbPool();
+  const emailRecipient = await (await getTemplateReceipient(context, event))
+    ?.split(",")
+    .map((email) => email.trim());
+  const { rows: marketAdmins } = emailRecipient
+    ? await dbPool.query(
+        `SELECT * FROM account WHERE email in (${emailRecipient.map(
+          (_, id) => `$${id + 2}`
+        )}) and role = $1`,
+        ["MARKET_ADMIN", ...emailRecipient]
+      )
+    : await dbPool.query(
+        `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+        ["MARKET_ADMIN", user.marketId]
+      );
+
+  return marketAdmins;
+};
+
+export const sendMailToMarketAdmins = async (
+  context: PostGraphileContext,
+  event: EventMessage,
+  dynamicContent: Record<string, any>
+) => {
+  const marketAdmins = await getMarketAdminsEmail(context, event);
+
+  return Promise.all([
+    ...marketAdmins.map(({ email, id: accountId, first_name: firstname }) => {
+      sendMessageWithTemplate(context, event, {
+        email,
+        accountId,
+        firstname,
+        ...dynamicContent
+      });
+    })
+  ]);
 };
 
 const addNotification = async (

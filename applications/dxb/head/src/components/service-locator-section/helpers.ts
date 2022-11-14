@@ -114,10 +114,12 @@ export const filterServices = (
   return (carry, current) => {
     const { name, location, serviceTypes } = current;
     const isServiceNameIncludingSearchStr = name.includes(activeSearchString);
-    const distance = computeDistanceBetween(centre, {
-      lat: location.lat,
-      lng: location.lon
-    });
+    const distance = centre
+      ? computeDistanceBetween(centre, {
+          lat: location.lat,
+          lng: location.lon
+        })
+      : undefined;
     const isServiceInRadius = distance ? distance < FILTER_RADIUS : true;
     const isServiceTypeChosen = typeFilter(serviceTypes, activeFilters);
     if (
@@ -174,7 +176,7 @@ export const getFilterOptions = () => {
   };
 };
 
-export const calculateCenter = (
+export const calculateCentre = (
   centre: LatLngLiteral | null,
   initialMapCentre: { lat: number; lon: number } | null
 ): google.maps.LatLngLiteral => {

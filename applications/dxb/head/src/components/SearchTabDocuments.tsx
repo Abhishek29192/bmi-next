@@ -206,6 +206,7 @@ const SearchTabPanelDocuments = (props: Props) => {
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
+    // TODO: DXB-4319 Don't query ES if we already have the documents for that page
     queryES(filters, null, page - 1, PAGE_SIZE, queryString);
   };
 
@@ -235,11 +236,7 @@ const SearchTabPanelDocuments = (props: Props) => {
           </DownloadListContext.Consumer>
         </Grid>
         <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
-          <DocumentSimpleTableResults
-            documents={results}
-            page={1}
-            documentsPerPage={PAGE_SIZE}
-          />
+          <DocumentSimpleTableResults documents={results} />
           <div>
             <DocumentResultsFooter
               page={page + 1}

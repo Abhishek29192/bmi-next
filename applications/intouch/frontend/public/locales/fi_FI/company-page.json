@@ -1,172 +1,174 @@
 {
-  "businessType": {
-    "ARCHITECT": "Arkkitehti",
-    "CONTRACTOR": "Urakoitsija",
-    "CORP_DEVELOPER": "Kiinteistökehittäjä",
-    "MERCHANT": "Kauppias"
-  },
-  "certificationsTitle": "BMI-sertifikaatit",
-  "companyActions": {
-    "activate": "Aktivoi yritys",
-    "deactivate": "Poista yritys käytöstä"
-  },
-  "companyActionsTitle": "Yrityksen toimet",
-  "companyOperations": "Toiminnan tyyppi",
-  "companyOperationsSuffix": "Katon tyyppi",
+  "titleMember": "Yritys",
+  "titleAdmin": "Yritykset",
   "details": {
-    "aboutUs": "Yrityksen kuvaus",
-    "contactDetails": "Yhteystiedot",
+    "title": "Yrityksen tiedot",
     "name": "Yrityksen nimi",
+    "aboutUs": "Yrityksen kuvaus",
+    "tradingAddress": "Kaupankäyntiosoite",
     "owner": "Yrityksen omistaja",
-    "phone": "Puhelinnumero",
+    "contactDetails": "Yhteystiedot",
+    "registeredDetails": "Rekisteröity tiedot",
     "referenceNumber": "Yrityksen viitenumero",
     "registeredAddress": "Rekisteröity osoite",
-    "registeredDetails": "Rekisteröity tiedot",
     "taxNumber": "Yrityksen ALV-numero",
-    "title": "Yrityksen tiedot",
-    "tradingAddress": "Kaupankäyntiosoite"
-  },
-  "document": {
-    "addDocument": "Lisää asiakirja",
-    "confirmDialog": {
-      "body": "Poistetaanko asiakirja?",
-      "cancelLabel": "Peruuttaa",
-      "confirmLabel": "Vahvistaa",
-      "title": "Yrityksen asiakirja"
-    },
-    "headers": {
-      "date": "Päivämäärä",
-      "document": "Asiakirja",
-      "download": "Lataa"
-    },
-    "noContent": "Asiakirjoja ei ole vielä ladattu",
-    "title": "Yrityksen asiakirjat",
-    "uploadDialog": {
-      "buttonLabel": "Lisää tiedostoja",
-      "cancelLabel": "Peruuttaa",
-      "confirmLabel": "Lisää tiedostoja",
-      "evidence_category": "Todisteen tyyppi",
-      "fileAlreadyExisting": "Tiedostonimi on jo olemassa",
-      "fileValidationMessage": "Et voi lisätä tiedostoja, jotka ovat suurempia kuin {{fileSize}}",
-      "genericError": "Yleinen virhe",
-      "instruction": "Voit lisätä tiedostoja",
-      "microcopy": {
-        "browse": "Selaa",
-        "drop": "Pudota"
-      },
-      "title": "Asiakirjan lataus",
-      "total_files_size": "Tiedostojen kokonaiskoko ylitetty - {{totalSize}}"
-    }
-  },
-  "edit_dialog": {
-    "form": {
-      "actions": {
-        "cancel": "Peruuttaa",
-        "submit": "Tallenna ja sulje"
-      },
-      "fields": {
-        "aboutUs": "Yrityksen kuvaus",
-        "businessType": "Yritystyyppi",
-        "facebook": "Facebook profiili",
-        "linkedIn": "LinkedIn profiili",
-        "logo": {
-          "alt_text": "Yrityksen logo",
-          "buttons": {
-            "remove": "Poista",
-            "upload": "Lataa uusi kuva"
-          },
-          "fileSizeMessage": "Tiedoston enimmäiskoko 3Mb",
-          "fileTypesMessage": "Voit ladata jpg-, gif- tai png-tiedostoja.",
-          "label": "Logo"
-        },
-        "name": "Rekisteröity nimi",
-        "operationTypes": "Toimintatyypit",
-        "ownerEmail": "Sähköpostiosoite",
-        "ownerName": "Nimi",
-        "ownerPhone": "Puhelin",
-        "phone": "Puhelin",
-        "publicEmail": "Sähköpostiosoite",
-        "registeredAddress": {
-          "coordinates": {
-            "x": "Leveysaste",
-            "y": "Pituusaste"
-          },
-          "country": "Maa",
-          "firstLine": "Osoiterivi 1",
-          "postcode": "Postinumero",
-          "region": "Alue",
-          "secondLine": "Osoiterivi 2",
-          "town": "Postitoimipaikka"
-        },
-        "taxNumber": "Yrityksen ALV-numero",
-        "tier": "Tason",
-        "tradingAddress": {
-          "autocomplete": "Katu, kaupunki tai postinumero",
-          "coordinates": {
-            "x": "Leveysaste",
-            "y": "Pituusaste"
-          },
-          "country": "Maa",
-          "firstLine": "Osoiterivi 1",
-          "postcode": "Postinumero",
-          "region": "Alue",
-          "secondLine": "Osoiterivi 2",
-          "town": "Postitoimipaikka"
-        },
-        "website": "Yrityksen verkkosivu"
-      },
-      "maxCharacters": "Enintään 255 merkkiä"
-    },
-    "sections": {
-      "contact_details": "Yhteystiedot",
-      "owner_details": "Yrityksen omistajan tiedot",
-      "registered_details": "Rekisteröity tiedot",
-      "trading_address": "Kaupankäyntiosoite",
-      "trading_address_description": "Vahvista kaupankäyntiosoitteesi näkyäksesi kartalla BMI-verkkosivustolla",
-      "trading_address_fields_heading": "Yhteystiedot"
-    },
-    "title": "Yrityksen tiedot"
-  },
-  "errorCompanyNameUniqueViolation": "Nimi on jo käytössä",
-  "errorCompanyReferenceUniqueViolation": "Numero on jo käytössä",
-  "errorUniqueViolation": "Ei ainutlaatuinen",
-  "incompleteProfile": {
-    "closeAlertAccessibilityLabel": "Sulje hälytys",
-    "fields": {
-      "aboutUs": "Kuvaus",
-      "logo": "Logo",
-      "phone": "Puhelin",
-      "publicEmail": "Sähköposti",
-      "tradingAddress": "Kaupankäyntiosoite"
-    },
-    "warning": "Anna alla luetellut tiedot saadaksesi paremman näkyvyyden BMI-verkkosivustolla."
+    "phone": "Puhelinnumero"
   },
   "noCompanies": "Näillä markkinoilla ei ole vielä yrityksiä",
-  "operationTypes": {
-    "BITUMEN": "Bitumi",
-    "COATER": "Katon pinnoitteet",
-    "FLAT": "Tasakatto",
-    "GREEN": "Vihreä katto",
-    "PITCHED": "Harjakatto",
-    "SOLAR": "Aurinkoenergia",
-    "TILE": "Kattotiilet"
-  },
-  "order": {
-    "labels": {
-      "ALPHABETICAL": "Aakkosellinen",
-      "UPDATED": "Viimeksi päivitetty"
-    }
-  },
-  "register_dialog": {
-    "title": "Rekisteröi yritys"
-  },
-  "report": "Yritykset raportoivat",
   "search": {
     "inputLabel": "Etsi yritys",
     "profileComplete": "Profiili valmis",
     "profileIncomplete": "Profiili epätäydellinen"
   },
   "supportTitle": "Ota yhteyttä BMI",
-  "titleAdmin": "Yritykset",
-  "titleMember": "Yritys"
+  "certificationsTitle": "BMI-sertifikaatit",
+  "incompleteProfile": {
+    "fields": {
+      "phone": "Puhelin",
+      "publicEmail": "Sähköposti",
+      "aboutUs": "Kuvaus",
+      "tradingAddress": "Kaupankäyntiosoite",
+      "logo": "Logo"
+    },
+    "warning": "Anna alla luetellut tiedot saadaksesi paremman näkyvyyden BMI-verkkosivustolla.",
+    "closeAlertAccessibilityLabel": "Sulje hälytys"
+  },
+  "businessType": {
+    "CONTRACTOR": "Urakoitsija",
+    "ARCHITECT": "Arkkitehti",
+    "MERCHANT": "Kauppias",
+    "CORP_DEVELOPER": "Kiinteistökehittäjä"
+  },
+  "companyOperations": "Toiminnan tyyppi",
+  "companyOperationsSuffix": "Katon tyyppi",
+  "operationTypes": {
+    "FLAT": "Tasakatto",
+    "PITCHED": "Harjakatto",
+    "SOLAR": "Aurinkoenergia",
+    "BITUMEN": "Bitumi",
+    "TILE": "Kattotiilet",
+    "COATER": "Katon pinnoitteet",
+    "GREEN": "Vihreä katto"
+  },
+  "companyActionsTitle": "Yrityksen toimet",
+  "companyActions": {
+    "activate": "Aktivoi yritys",
+    "deactivate": "Poista yritys käytöstä"
+  },
+  "register_dialog": {
+    "title": "Rekisteröi yritys"
+  },
+  "edit_dialog": {
+    "title": "Yrityksen tiedot",
+    "sections": {
+      "registered_details": "Rekisteröity tiedot",
+      "trading_address": "Kaupankäyntiosoite",
+      "trading_address_fields_heading": "Yhteystiedot",
+      "trading_address_description": "Vahvista kaupankäyntiosoitteesi näkyäksesi kartalla BMI-verkkosivustolla",
+      "contact_details": "Yhteystiedot",
+      "owner_details": "Yrityksen omistajan tiedot"
+    },
+    "form": {
+      "fields": {
+        "name": "Rekisteröity nimi",
+        "registeredAddress": {
+          "firstLine": "Osoiterivi 1",
+          "secondLine": "Osoiterivi 2",
+          "town": "Postitoimipaikka",
+          "postcode": "Postinumero",
+          "region": "Alue",
+          "country": "Maa",
+          "coordinates": {
+            "x": "Leveysaste",
+            "y": "Pituusaste"
+          }
+        },
+        "tradingAddress": {
+          "autocomplete": "Katu, kaupunki tai postinumero",
+          "firstLine": "Osoiterivi 1",
+          "secondLine": "Osoiterivi 2",
+          "town": "Postitoimipaikka",
+          "postcode": "Postinumero",
+          "region": "Alue",
+          "country": "Maa",
+          "coordinates": {
+            "x": "Leveysaste",
+            "y": "Pituusaste"
+          }
+        },
+        "logo": {
+          "label": "Logo",
+          "alt_text": "Yrityksen logo",
+          "buttons": {
+            "upload": "Lataa uusi kuva",
+            "remove": "Poista"
+          },
+          "fileTypesMessage": "Voit ladata jpg-, gif- tai png-tiedostoja.",
+          "fileSizeMessage": "Tiedoston enimmäiskoko 3Mb"
+        },
+        "taxNumber": "Yrityksen ALV-numero",
+        "businessType": "Yritystyyppi",
+        "operationTypes": "Toimintatyypit",
+        "tier": "Tason",
+        "aboutUs": "Yrityksen kuvaus",
+        "phone": "Puhelin",
+        "website": "Yrityksen verkkosivu",
+        "facebook": "Facebook profiili",
+        "publicEmail": "Sähköpostiosoite",
+        "linkedIn": "LinkedIn profiili",
+        "ownerFullname": "Nimi",
+        "ownerPhone": "Puhelin",
+        "ownerEmail": "Sähköpostiosoite"
+      },
+      "actions": {
+        "submit": "Tallenna ja sulje",
+        "cancel": "Peruuttaa"
+      },
+      "maxCharacters": "Enintään 255 merkkiä"
+    }
+  },
+  "report": "Yritykset raportoivat",
+  "document": {
+    "title": "Yrityksen asiakirjat",
+    "noContent": "Asiakirjoja ei ole vielä ladattu",
+    "addDocument": "Lisää asiakirja",
+    "headers": {
+      "document": "Asiakirja",
+      "date": "Päivämäärä",
+      "download": "Lataa"
+    },
+    "uploadDialog": {
+      "title": "Asiakirjan lataus",
+      "buttonLabel": "Lisää tiedostoja",
+      "microcopy": {
+        "drop": "Pudota",
+        "browse": "Selaa"
+      },
+      "instruction": "Voit lisätä tiedostoja",
+      "confirmLabel": "Lisää tiedostoja",
+      "cancelLabel": "Peruuttaa",
+      "fileValidationMessage": "Et voi lisätä tiedostoja, jotka ovat suurempia kuin {{fileSize}}",
+      "evidence_category": "Todisteen tyyppi",
+      "total_files_size": "Tiedostojen kokonaiskoko ylitetty - {{totalSize}}",
+      "fileAlreadyExisting": "Tiedostonimi on jo olemassa",
+      "genericError": "Yleinen virhe"
+    },
+    "confirmDialog": {
+      "title": "Yrityksen asiakirja",
+      "body": "Poistetaanko asiakirja?",
+      "confirmLabel": "Vahvistaa",
+      "cancelLabel": "Peruuttaa"
+    }
+  },
+  "errorCompanyNameUniqueViolation": "Nimi on jo käytössä",
+  "errorCompanyReferenceUniqueViolation": "Numero on jo käytössä",
+  "errorUniqueViolation": "Ei ainutlaatuinen",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Aakkosellinen",
+      "UPDATED": "Viimeksi päivitetty"
+    }
+  },
+  "companyAdministrators": "Järjestelmänvalvojat",
+  "companyMembers": "Asentajat/Jäsenet"
 }

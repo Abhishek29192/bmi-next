@@ -1,227 +1,298 @@
 import {
-  Collection,
-  Entry,
-  EntryProps,
-  KeyValueMap,
-  QueryOptions
-} from "contentful-management";
+  createEntry,
+  createFullyPopulatedAssetType,
+  createFullyPopulatedResources,
+  createResponse
+} from "@bmi/contentful-types";
 import { getAssetTypes, getProductDocumentNameMap } from "../contentfulApi";
 
-const { MARKET_LOCALE } = process.env;
-
+const getContentfulClient = jest.fn();
 const getEntries = jest.fn();
-jest.mock("contentful-management", () => ({
-  createClient: () => ({
-    getSpace: () => ({
-      getEnvironment: () => ({
-        getEntries: (
-          options: QueryOptions
-        ): Promise<Collection<Entry, EntryProps<KeyValueMap>>> =>
-          getEntries(options)
-      })
-    })
-  })
+jest.mock("@bmi/functions-contentful-client", () => ({
+  getContentfulClient: () => getContentfulClient()
 }));
 
-describe("contentfulApi", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-    jest.resetModules();
+getContentfulClient.mockReturnValue({
+  getEntries: (...params: any[]) => getEntries(...params)
+});
+
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
+
+describe("getAssetTypes", () => {
+  it("should throw error if getContentfulClient throws error", async () => {
+    const locale = "en-US";
+    getContentfulClient.mockImplementationOnce(() => {
+      throw Error("Expected error");
+    });
+
+    try {
+      await getAssetTypes(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).not.toBeCalled();
   });
 
-  describe("getAssetTypes", () => {
-    it("sholud return correct data", async () => {
-      getEntries.mockReturnValue({
-        items: [
-          {
-            sys: {
-              id: "Test_id1"
-            },
-            fields: {
-              description: { [`${MARKET_LOCALE}`]: "Test_description1" },
-              name: { [`${MARKET_LOCALE}`]: "Test_name1" },
-              code: { [`${MARKET_LOCALE}`]: "Test_code1" },
-              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode1" }
-            }
-          },
-          {
-            sys: {
-              id: "Test_id2"
-            },
-            fields: {
-              description: { [`${MARKET_LOCALE}`]: "Test_description2" },
-              name: { [`${MARKET_LOCALE}`]: "Test_name2" },
-              code: { [`${MARKET_LOCALE}`]: "Test_code2" },
-              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode2" }
-            }
-          },
-          {
-            sys: {
-              id: "Test_id3"
-            },
-            fields: {
-              description: { [`${MARKET_LOCALE}`]: "Test_description3" },
-              name: { [`${MARKET_LOCALE}`]: "Test_name3" },
-              code: { [`${MARKET_LOCALE}`]: "Test_code3" }
-            }
-          }
-        ]
-      });
+  it("should throw error if getEntries throws error", async () => {
+    const locale = "en-US";
+    getEntries.mockRejectedValueOnce(Error("Expected error"));
 
-      const result = await getAssetTypes();
+    try {
+      await getAssetTypes(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
 
-      const expectedResult = [
-        {
-          __typename: "ContentfulAssetType",
-          id: "Test_id1",
-          description: "Test_description1",
-          name: "Test_name1",
-          code: "Test_code1",
-          pimCode: "Test_pimCode1"
-        },
-        {
-          __typename: "ContentfulAssetType",
-          id: "Test_id2",
-          description: "Test_description2",
-          name: "Test_name2",
-          code: "Test_code2",
-          pimCode: "Test_pimCode2"
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
-    });
-
-    it("sholud return correct data if description is not provided", async () => {
-      getEntries.mockReturnValue({
-        items: [
-          {
-            sys: {
-              id: "Test_id1"
-            },
-            fields: {
-              description: { [`${MARKET_LOCALE}`]: "Test_description1" },
-              name: { [`${MARKET_LOCALE}`]: "Test_name1" },
-              code: { [`${MARKET_LOCALE}`]: "Test_code1" },
-              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode1" }
-            }
-          },
-          {
-            sys: {
-              id: "Test_id2"
-            },
-            fields: {
-              name: { [`${MARKET_LOCALE}`]: "Test_name2" },
-              code: { [`${MARKET_LOCALE}`]: "Test_code2" },
-              pimCode: { [`${MARKET_LOCALE}`]: "Test_pimCode2" }
-            }
-          }
-        ]
-      });
-
-      const result = await getAssetTypes();
-
-      const expectedResult = [
-        {
-          __typename: "ContentfulAssetType",
-          id: "Test_id1",
-          description: "Test_description1",
-          name: "Test_name1",
-          code: "Test_code1",
-          pimCode: "Test_pimCode1"
-        },
-        {
-          __typename: "ContentfulAssetType",
-          id: "Test_id2",
-          description: null,
-          name: "Test_name2",
-          code: "Test_code2",
-          pimCode: "Test_pimCode2"
-        }
-      ];
-
-      expect(result).toEqual(expectedResult);
-    });
-
-    it("sholud return undefined if MANAGEMENT_ACCESS_TOKEN is NOT provided", async () => {
-      const token = process.env.MANAGEMENT_ACCESS_TOKEN;
-      delete process.env.MANAGEMENT_ACCESS_TOKEN;
-
-      console.log(process.env.MANAGEMENT_ACCESS_TOKEN);
-
-      const result = await getAssetTypes();
-
-      expect(result).toEqual(undefined);
-      process.env.MANAGEMENT_ACCESS_TOKEN = token;
-    });
-    it("sholud return undefined if SPACE_ID is NOT provided", async () => {
-      const token = process.env.SPACE_ID;
-      delete process.env.SPACE_ID;
-
-      console.log(process.env.SPACE_ID);
-
-      const result = await getAssetTypes();
-
-      expect(result).toEqual(undefined);
-      process.env.SPACE_ID = token;
-    });
-    it("sholud return undefined if CONTENTFUL_ENVIRONMENT is NOT provided", async () => {
-      const token = process.env.CONTENTFUL_ENVIRONMENT;
-      delete process.env.CONTENTFUL_ENVIRONMENT;
-
-      console.log(process.env.CONTENTFUL_ENVIRONMENT);
-
-      const result = await getAssetTypes();
-
-      expect(result).toEqual(undefined);
-      process.env.CONTENTFUL_ENVIRONMENT = token;
-    });
-    it("sholud return undefined if MARKET_LOCALE is NOT provided", async () => {
-      const token = process.env.MARKET_LOCALE;
-      delete process.env.MARKET_LOCALE;
-
-      console.log(process.env.MARKET_LOCALE);
-
-      const result = await getAssetTypes();
-
-      expect(result).toEqual(undefined);
-      process.env.MARKET_LOCALE = token;
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "assetType",
+      locale,
+      limit: 1000,
+      skip: 0
     });
   });
 
-  describe("getProductDocumentNameMap", () => {
-    it("sholud return correct data", async () => {
-      getEntries.mockReturnValue({
+  it("should return transformed asset types", async () => {
+    const locale = "en-US";
+    const assetType = createFullyPopulatedAssetType();
+    getEntries.mockResolvedValueOnce(
+      createResponse({ items: [createEntry({ fields: assetType })], total: 1 })
+    );
+
+    const assetTypes = await getAssetTypes(locale);
+
+    expect(assetTypes).toEqual([
+      { code: assetType.code, name: assetType.name, pimCode: assetType.pimCode }
+    ]);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "assetType",
+      locale,
+      limit: 1000,
+      skip: 0
+    });
+  });
+
+  it("should paginate and return transformed asset types", async () => {
+    const locale = "en-US";
+    const assetType = createFullyPopulatedAssetType();
+    getEntries.mockResolvedValue(
+      createResponse({
+        items: [createEntry({ fields: assetType })],
+        total: 10,
+        limit: 1
+      })
+    );
+
+    const assetTypes = await getAssetTypes(locale);
+
+    expect(assetTypes).toEqual([
+      {
+        code: assetType.code,
+        name: assetType.name,
+        pimCode: assetType.pimCode
+      }
+    ]);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledTimes(10);
+    expect(getEntries).toBeCalledWith({
+      content_type: "assetType",
+      locale,
+      limit: 1000,
+      skip: 0
+    });
+    expect(getEntries).lastCalledWith({
+      content_type: "assetType",
+      locale,
+      limit: 1000,
+      skip: 9
+    });
+  });
+
+  it("should ignore asset types without a PIM code", async () => {
+    const locale = "en-US";
+    const excludeAssetType = createFullyPopulatedAssetType({
+      pimCode: undefined
+    });
+    const includeAssetType = createFullyPopulatedAssetType({
+      pimCode: "pimCode"
+    });
+    getEntries.mockResolvedValueOnce(
+      createResponse({
         items: [
-          {
-            fields: {
-              productDocumentNameMap: {
-                [`${MARKET_LOCALE}`]: "Product name + asset type"
-              }
-            }
-          }
-        ]
-      });
+          createEntry({ fields: excludeAssetType }),
+          createEntry({ fields: includeAssetType })
+        ],
+        total: 2
+      })
+    );
 
-      const result = await getProductDocumentNameMap();
-      const expectedResult = "Product name + asset type";
+    const assetTypes = await getAssetTypes(locale);
 
-      expect(result).toEqual(expectedResult);
+    expect(assetTypes).toEqual([
+      {
+        code: includeAssetType.code,
+        name: includeAssetType.name,
+        pimCode: includeAssetType.pimCode
+      }
+    ]);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).lastCalledWith({
+      content_type: "assetType",
+      locale,
+      skip: 0,
+      limit: 1000
+    });
+  });
+
+  it("should filter by tag if provided", async () => {
+    const locale = "en-US";
+    const tag = "contentful-tag";
+    const assetType = createFullyPopulatedAssetType();
+    getEntries.mockResolvedValueOnce(
+      createResponse({ items: [createEntry({ fields: assetType })], total: 1 })
+    );
+
+    const assetTypes = await getAssetTypes(locale, tag);
+
+    expect(assetTypes).toEqual([
+      {
+        code: assetType.code,
+        name: assetType.name,
+        pimCode: assetType.pimCode
+      }
+    ]);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "assetType",
+      locale,
+      "metadata.tags.sys.id[all]": tag,
+      skip: 0,
+      limit: 1000
+    });
+  });
+});
+
+describe("getProductDocumentNameMap", () => {
+  it("should throw error if getContentfulClient throws error", async () => {
+    const locale = "en-US";
+    getContentfulClient.mockImplementationOnce(() => {
+      throw Error("Expected error");
     });
 
-    it("sholud return default value 'Document name'", async () => {
-      getEntries.mockReturnValue({
-        items: [
-          {
-            fields: {}
-          }
-        ]
-      });
+    try {
+      await getProductDocumentNameMap(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
 
-      const result = await getProductDocumentNameMap();
-      const expectedResult = "Document name";
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).not.toBeCalled();
+  });
 
-      expect(result).toEqual(expectedResult);
+  it("should throw error if getEntries throws error", async () => {
+    const locale = "en-US";
+    getEntries.mockRejectedValueOnce(Error("Expected error"));
+
+    try {
+      await getProductDocumentNameMap(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Expected error");
+    }
+
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "resources",
+      limit: 1,
+      locale
+    });
+  });
+
+  it("should throw error if getEntries returns empty response", async () => {
+    const locale = "en-US";
+    getEntries.mockResolvedValueOnce(createResponse({ items: [] }));
+
+    try {
+      await getProductDocumentNameMap(locale);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual("Unable to find resources.");
+    }
+
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "resources",
+      limit: 1,
+      locale
+    });
+  });
+
+  it("should return productDocumentNameMap value from resource", async () => {
+    const locale = "en-US";
+    const resource = createFullyPopulatedResources({
+      productDocumentNameMap: "Product name + asset type"
+    });
+    getEntries.mockResolvedValueOnce(
+      createResponse({ items: [createEntry({ fields: resource })] })
+    );
+
+    const productDocumentMap = await getProductDocumentNameMap(locale);
+
+    expect(productDocumentMap).toEqual(resource.productDocumentNameMap);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "resources",
+      limit: 1,
+      locale
+    });
+  });
+
+  it("should return 'Document name' if resource is missing productDocumentNameMap", async () => {
+    const locale = "en-US";
+    const resource = createFullyPopulatedResources({
+      productDocumentNameMap: undefined
+    });
+    getEntries.mockResolvedValueOnce(
+      createResponse({ items: [createEntry({ fields: resource })] })
+    );
+
+    const productDocumentMap = await getProductDocumentNameMap(locale);
+
+    expect(productDocumentMap).toEqual("Document name");
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "resources",
+      limit: 1,
+      locale
+    });
+  });
+
+  it("should filter by tag if provided", async () => {
+    const locale = "en-US";
+    const tag = "contentful-tag";
+    const resource = createFullyPopulatedResources();
+    getEntries.mockResolvedValueOnce(
+      createResponse({ items: [createEntry({ fields: resource })] })
+    );
+
+    const productDocumentMap = await getProductDocumentNameMap(locale, tag);
+
+    expect(productDocumentMap).toEqual(resource.productDocumentNameMap);
+    expect(getContentfulClient).toBeCalled();
+    expect(getEntries).toBeCalledWith({
+      content_type: "resources",
+      limit: 1,
+      locale,
+      "metadata.tags.sys.id[all]": tag
     });
   });
 });

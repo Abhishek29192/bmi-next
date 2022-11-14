@@ -2,7 +2,13 @@ type MarketServices =
   | "bimObject"
   | "cloudFlare"
   | "facebook"
-  | "googleAdServices"
+  | "googleAdConversions"
+  | "googleAdRemarketing"
+  | "googleFloodlight"
+  | "googleMaps"
+  | "googleOptimize"
+  | "googleRecaptcha"
+  | "googleTagManager"
   | "hotJar"
   | "hubspot"
   | "leadoo"
@@ -16,13 +22,14 @@ type MarketServices =
   | "sketchFab"
   | "theTradeDesk"
   | "twitter"
-  | "walls";
+  | "walls"
+  | "youtube";
 
 export type MarketOptions = {
   frameSrcExtras?: string;
   scriptSrcExtras?: string;
   gcpRegion: string;
-  name: string;
+  gatsbySiteName: string;
   services: MarketServices[];
 };
 
@@ -31,12 +38,18 @@ const allMarketOptions: Record<string, MarketOptions> = {
     frameSrcExtras:
       "https://windsogrechner.topdach.at https://www.dichtdach-generator.at https://windsogrechner.bramac.at https://bmi-dachgalerie.at https://*.bmi-dachgalerie.at",
     gcpRegion: "eu-central",
-    name: "austria",
+    gatsbySiteName: "austria",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -44,19 +57,26 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "sketchFab",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   be: {
     frameSrcExtras:
       "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm",
     gcpRegion: "eu-west",
-    name: "belgium",
+    gatsbySiteName: "belgiumnlc",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -65,19 +85,54 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  "fr-be": {
+    frameSrcExtras:
+      "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm",
+    gcpRegion: "eu-west",
+    gatsbySiteName: "belgiumfrc",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "outBrain",
+      "pointerPro",
+      "speedCurve",
+      "youtube"
     ]
   },
   de: {
     frameSrcExtras:
       "https://bmi-braas-tegalit.web.app https://de-rufus.bmigroup.com https://www.firesmart.de https://braas-dachbildservice.digitalgenossen.de https://www.braas-profinetz.de https://www.braas-software.de/VisualizerDE/ https://dachkalkulator.bmi.webmodulservice.de https://www.braas-software.de https://bmi-aussendienst.digitalgenossen.de https://angebote.icopal.de https://www.ausschreiben.de https://ausschreiben.de https://hosting.maileon.com https://*.meindach.de https://bmi-rufus.digitalgenossen.de",
     gcpRegion: "eu-central",
-    name: "germany",
+    gatsbySiteName: "germany",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -87,18 +142,25 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "speedCurve",
       "theTradeDesk",
-      "walls"
+      "walls",
+      "youtube"
     ]
   },
   es: {
     frameSrcExtras: "https://planreforma.com",
     gcpRegion: "eu-southwest",
-    name: "spain",
+    gatsbySiteName: "spain",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -107,19 +169,26 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "speedCurve",
-      "twitter"
+      "twitter",
+      "youtube"
     ]
   },
   fi: {
     frameSrcExtras: "https://*.logentia.com https://*.interactiveads.ai",
     scriptSrcExtras: "https://info.bmigroup.fi https://hyttjo.com",
     gcpRegion: "eu-north",
-    name: "finland",
+    gatsbySiteName: "finland",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -127,34 +196,24 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   fr: {
     gcpRegion: "eu-west",
-    name: "france",
+    gatsbySiteName: "france",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
-      "hotJar",
-      "hubspot",
-      "linkedin",
-      "mopinion",
-      "mouseFlow",
-      "oneTrust",
-      "speedCurve"
-    ]
-  },
-  group: {
-    gcpRegion: "eu-central",
-    name: "group",
-    services: [
-      "bimObject",
-      "cloudFlare",
-      "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -162,17 +221,48 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "speedCurve",
-      "walls"
+      "youtube"
     ]
   },
-  id: {
-    gcpRegion: "asia-africa",
-    name: "indonesia",
+  group: {
+    gcpRegion: "eu-west",
+    gatsbySiteName: "group",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "speedCurve",
+      "walls",
+      "youtube"
+    ]
+  },
+  id: {
+    gcpRegion: "asia-africa",
+    gatsbySiteName: "indonesia",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -181,36 +271,77 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   it: {
     gcpRegion: "eu-south",
-    name: "italy",
+    gatsbySiteName: "italy",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  my: {
+    gcpRegion: "asia-africa",
+    gatsbySiteName: "malaysia",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "leadoo",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "outBrain",
+      "speedCurve",
+      "walls",
+      "youtube"
     ]
   },
   nl: {
     frameSrcExtras:
       "https://monier.service.bouwconnect.nl https://webapp.utopis-platform.net https://utopis-platform.net https://icopalnl.survey.fm https://webapp.utopis-platform.net",
     gcpRegion: "eu-west",
-    name: "netherlands",
+    gatsbySiteName: "netherlands",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -218,36 +349,23 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "pointerPro",
-      "speedCurve"
-    ]
-  },
-  my: {
-    gcpRegion: "asia-africa",
-    name: "malaysia",
-    services: [
-      "bimObject",
-      "cloudFlare",
-      "facebook",
-      "googleAdServices",
-      "hotJar",
-      "hubspot",
-      "leadoo",
-      "linkedin",
-      "mopinion",
-      "mouseFlow",
-      "oneTrust",
-      "outBrain",
       "speedCurve",
-      "walls"
+      "youtube"
     ]
   },
   no: {
     gcpRegion: "eu-north",
-    name: "norway",
+    gatsbySiteName: "norway",
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -256,34 +374,24 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "mouseFlow",
       "oneTrust",
       "pointerPro",
-      "speedCurve"
-    ]
-  },
-  pt: {
-    gcpRegion: "eu-southwests",
-    name: "portugal",
-    services: [
-      "bimObject",
-      "cloudFlare",
-      "facebook",
-      "googleAdServices",
-      "hotJar",
-      "hubspot",
-      "linkedin",
-      "mopinion",
-      "mouseFlow",
-      "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   pl: {
     gcpRegion: "eu-east",
-    name: "poland",
+    gatsbySiteName: "poland",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -292,17 +400,48 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
-  qa: {
-    gcpRegion: "qa",
-    name: "qa",
+  pt: {
+    gcpRegion: "eu-southwests",
+    gatsbySiteName: "portugal",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
+      "hotJar",
+      "hubspot",
+      "linkedin",
+      "mopinion",
+      "mouseFlow",
+      "oneTrust",
+      "speedCurve",
+      "youtube"
+    ]
+  },
+  qa: {
+    gcpRegion: "qa",
+    gatsbySiteName: "qa",
+    services: [
+      "bimObject",
+      "cloudFlare",
+      "facebook",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "leadoo",
@@ -315,17 +454,24 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "sketchFab",
       "speedCurve",
       "theTradeDesk",
-      "walls"
+      "walls",
+      "youtube"
     ]
   },
   ro: {
     gcpRegion: "eu-southeast",
-    name: "romania",
+    gatsbySiteName: "romania",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
@@ -334,53 +480,75 @@ const allMarketOptions: Record<string, MarketOptions> = {
       "oneTrust",
       "outBrain",
       "pointerPro",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   tr: {
     gcpRegion: "asia-africa",
-    name: "turkey",
+    gatsbySiteName: "turkey",
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hubspot",
       "linkedin",
       "mopinion",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   uk: {
     gcpRegion: "eu-west",
-    name: "uk",
+    gatsbySiteName: "uk",
     services: [
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "mouseFlow",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   },
   za: {
     gcpRegion: "asia-africa",
-    name: "southafrica",
+    gatsbySiteName: "southafrica",
     services: [
       "bimObject",
       "cloudFlare",
       "facebook",
-      "googleAdServices",
+      "googleAdConversions",
+      "googleAdRemarketing",
+      "googleFloodlight",
+      "googleMaps",
+      "googleOptimize",
+      "googleRecaptcha",
+      "googleTagManager",
       "hotJar",
       "hubspot",
       "linkedin",
       "mopinion",
       "oneTrust",
-      "speedCurve"
+      "speedCurve",
+      "youtube"
     ]
   }
 };

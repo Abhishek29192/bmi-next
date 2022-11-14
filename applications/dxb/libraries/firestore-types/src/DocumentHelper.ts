@@ -19,12 +19,6 @@ export const createProductDocument = (
   ...createDocument(productDocument),
   productBaseCode: "product-base-code",
   productName: "Product Name",
-  productCategories: [
-    {
-      code: "product-category-code",
-      parentCategoryCode: "product-category-parent-category-code"
-    }
-  ],
   ...productDocument
 });
 

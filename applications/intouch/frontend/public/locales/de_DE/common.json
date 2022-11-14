@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Architekten/-innen, Planer/-innen",
-  "About Us": "Über uns",
-  "Account": "Mein Konto",
-  "CONTRACTOR": "Dachhandwerker/-innen",
-  "CORP_DEVELOPER": "Ingenieure/-innen",
+  "Home": "Startseite",
+  "Projects": "Projekte",
+  "Training": "Schulungen",
+  "Team": "Mannschaft",
   "Companies": "Firmen",
   "Company": "Firma",
-  "Company Description": "Beschreibung",
-  "Download": "Herunterladen",
-  "Edit": "Bearbeiten",
-  "Home": "Startseite",
+  "Tools": "Werkzeuge",
   "Inventory": "Inventar",
-  "Logout": "Abmelden",
-  "MERCHANT": "Mitarbeiter/-innen des Handels",
-  "Main office address": "Adresse",
+  "Edit": "Bearbeiten",
+  "Search": "Suche",
   "No Options": "Keine Optionen",
-  "Notifications": "Benachrichtigungen",
-  "Products": "Produkte",
+  "Show me": "Anzeigen",
+  "Account": "Mein Konto",
   "Profile": "Profil",
-  "Projects": "Projekte",
-  "Registered Address": "Registrierte Adresse",
+  "Logout": "Abmelden",
+  "Notifications": "Benachrichtigungen",
+  "deactivatedCompany": "Firma deaktiviert",
+  "results available": "Ergebnisse verfügbar",
+  "Company Description": "Beschreibung",
+  "About Us": "Über uns",
   "Registered Details": "Registrierte Details",
   "Registered Name": "Eingetragener Firmenname",
-  "SavePdf": "PDF Herunterladen",
-  "Search": "Suche",
-  "Show me": "Anzeigen",
-  "Sort by": "Sortiere nach",
-  "Team": "Mannschaft",
-  "Tools": "Werkzeuge",
-  "Training": "Schulungen",
+  "Registered Address": "Registrierte Adresse",
+  "Main office address": "Adresse",
+  "CONTRACTOR": "Dachhandwerker/-innen",
+  "ARCHITECT": "Architekten/-innen, Planer/-innen",
+  "MERCHANT": "Mitarbeiter/-innen des Handels",
+  "CORP_DEVELOPER": "Ingenieure/-innen",
   "aria": {
     "navigation": "Navigation",
     "notifications": "Benachrichtigungen"
   },
-  "certificationLabels": {
-    "certification": "Zertifizierung",
-    "expiry": "Ablauf",
-    "type": "Typ"
-  },
-  "certifications": {
-    "flat": "Flachdach",
-    "other": "Andere",
-    "pitched": "Steildach"
-  },
-  "deactivatedCompany": "Firma deaktiviert",
-  "error_messages": {
-    "email_format": "Ungültige E-Mail-Adresse",
-    "phone_number_format": "Ungültige Telefonnummer",
-    "required": "Erforderlich",
-    "url_format": "Ungültige URL"
-  },
-  "fallback": {
-    "noResults": "Keine Ergebnisse",
-    "notAdded": "Nicht hinzugefügt"
-  },
-  "generatingPdf": "PDF generieren",
-  "notifications": {
-    "earlier": "Vorhin",
-    "older": "Älter als 2 Monate",
-    "today": "Heute"
-  },
-  "requiredInformation": "benötigte Information",
-  "results available": "Ergebnisse verfügbar",
   "roles": {
-    "AUDITOR": "Auditor",
-    "COMPANY_ADMIN": "Firmenadministrator",
     "INSTALLER": "Mitglied",
+    "COMPANY_ADMIN": "Firmenadministrator",
     "MARKET_ADMIN": "BMI Administrator",
-    "SUPER_ADMIN": "Super Admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Sie waren jetzt eine Weile inaktiv und diese Sitzung läuft ab und Sie werden automatisch abgemeldet.",
-      "continue": "Sitzung verlängern",
-      "logout": "Abmelden",
-      "title": "Ihre Sitzung läuft ab in {{counter}}"
-    }
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Auditor"
   },
   "tier": {
     "T1": "Mitglied",
@@ -86,7 +47,46 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Erforderlich",
+    "url_format": "Ungültige URL",
+    "email_format": "Ungültige E-Mail-Adresse",
+    "phone_number_format": "Ungültige Telefonnummer"
+  },
+  "Products": "Produkte",
+  "fallback": {
+    "notAdded": "Nicht hinzugefügt",
+    "noResults": "Keine Ergebnisse"
+  },
+  "Download": "Herunterladen",
+  "SavePdf": "PDF Herunterladen",
   "visitWebsite": "Besuche die Website",
+  "certifications": {
+    "pitched": "Steildach",
+    "flat": "Flachdach",
+    "other": "Andere"
+  },
+  "certificationLabels": {
+    "type": "Typ",
+    "certification": "Zertifizierung",
+    "expiry": "Ablauf"
+  },
+  "notifications": {
+    "today": "Heute",
+    "earlier": "Vorhin",
+    "older": "Älter als 2 Monate"
+  },
+  "session": {
+    "dialog": {
+      "title": "Ihre Sitzung läuft ab in {{counter}}",
+      "content": "Sie waren jetzt eine Weile inaktiv und diese Sitzung läuft ab und Sie werden automatisch abgemeldet.",
+      "logout": "Abmelden",
+      "continue": "Sitzung verlängern"
+    }
+  },
+  "generatingPdf": "PDF generieren",
+  "Sort by": "Sortiere nach",
+  "requiredInformation": "benötigte Information",
   "button": {
     "more": "Zeig mehr",
     "less": "Zeige weniger"

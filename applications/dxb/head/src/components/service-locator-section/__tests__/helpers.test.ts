@@ -9,7 +9,7 @@ import {
   EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN
 } from "../constants";
 import {
-  calculateCenter,
+  calculateCentre,
   createMarker,
   filterServices,
   getFilterOptions,
@@ -225,35 +225,63 @@ describe("helpers functions", () => {
   describe("filterServices", () => {
     it("should return array of services with distance field if service is in radius", () => {
       const distanceMock = 30000;
-      jest
-        .spyOn(GoogleMockApi, "computeDistanceBetween")
-        .mockReturnValue(distanceMock);
+      const computeDistanceBetweenMock = jest.spyOn(
+        GoogleMockApi,
+        "computeDistanceBetween"
+      );
+      computeDistanceBetweenMock.mockReturnValue(distanceMock);
       const servicesMock = [createService({ distance: undefined })];
-      const centerMock = { lat: 59, lng: 10 };
+      const centreMock = { lat: 59, lng: 10 };
       const activeFiltersMock = createActiveFilterMocks([
         { __typename: "ContentfulServiceType", name: "roofer" }
       ]);
       const result = servicesMock.reduce(
-        filterServices(centerMock, activeFiltersMock, ""),
+        filterServices(centreMock, activeFiltersMock, ""),
         []
       );
       expect(result[0].distance).toStrictEqual(distanceMock);
+      expect(computeDistanceBetweenMock).toHaveBeenCalledWith(centreMock, {
+        lat: servicesMock[0].location.lat,
+        lng: servicesMock[0].location.lon
+      });
     });
     it("should return array of services without distance field if service isn't in radius", () => {
       const distanceMock = 1000000;
-      jest
-        .spyOn(GoogleMockApi, "computeDistanceBetween")
-        .mockReturnValue(distanceMock);
+      const computeDistanceBetweenMock = jest.spyOn(
+        GoogleMockApi,
+        "computeDistanceBetween"
+      );
+      computeDistanceBetweenMock.mockReturnValue(distanceMock);
       const servicesMock = [createService({ distance: undefined })];
-      const centerMock = { lat: 59, lng: 10 };
+      const centreMock = { lat: 59, lng: 10 };
       const activeFiltersMock = createActiveFilterMocks([
         { __typename: "ContentfulServiceType", name: "roofer" }
       ]);
       const result = servicesMock.reduce(
-        filterServices(centerMock, activeFiltersMock, ""),
+        filterServices(centreMock, activeFiltersMock, ""),
         []
       );
       expect(result.length).toBe(0);
+      expect(computeDistanceBetweenMock).toHaveBeenCalledWith(centreMock, {
+        lat: servicesMock[0].location.lat,
+        lng: servicesMock[0].location.lon
+      });
+    });
+    it("should return array of services with distance field if centre is null", () => {
+      const computeDistanceBetweenMock = jest.spyOn(
+        GoogleMockApi,
+        "computeDistanceBetween"
+      );
+      const servicesMock = [createService({ distance: undefined })];
+      const activeFiltersMock = createActiveFilterMocks([
+        { __typename: "ContentfulServiceType", name: "roofer" }
+      ]);
+      const result = servicesMock.reduce(
+        filterServices(null, activeFiltersMock, ""),
+        []
+      );
+      expect(result[0].distance).toStrictEqual(undefined);
+      expect(computeDistanceBetweenMock).not.toHaveBeenCalled();
     });
   });
   describe("getResultDataGtm", () => {
@@ -314,11 +342,11 @@ describe("helpers functions", () => {
       expect(res).toStrictEqual(["1 test"]);
     });
   });
-  describe("calculateCenter", () => {
+  describe("calculateCentre", () => {
     const centreMock = { lat: 10, lng: 20 };
     const initialMapCentreMock = { lat: 1, lon: 30 };
     it("should return centre = centreMock", () => {
-      const centre = calculateCenter(centreMock, initialMapCentreMock);
+      const centre = calculateCentre(centreMock, initialMapCentreMock);
       expect(centre).toEqual(centreMock);
     });
     it("should return centre = initialMapCentreMock", () => {
@@ -326,11 +354,11 @@ describe("helpers functions", () => {
         lat: initialMapCentreMock.lat,
         lng: initialMapCentreMock.lon
       };
-      const centre = calculateCenter(null, initialMapCentreMock);
+      const centre = calculateCentre(null, initialMapCentreMock);
       expect(centre).toEqual(modifiedInitialMapCentre);
     });
     it("should return centre = DEFAULT_MAP_CENTRE", () => {
-      const centre = calculateCenter(null, null);
+      const centre = calculateCentre(null, null);
       expect(centre).toEqual(DEFAULT_MAP_CENTRE);
     });
   });

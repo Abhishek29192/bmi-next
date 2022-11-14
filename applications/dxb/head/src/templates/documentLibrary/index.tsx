@@ -64,7 +64,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     description,
     source,
     resultsType,
-    assetTypes,
+    contentfulAssetTypes,
     breadcrumbs,
     breadcrumbTitle,
     seo,
@@ -88,7 +88,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     path: data.contentfulDocumentLibraryPage.path
   };
 
-  const fetchDocuments = async (filters, page, pageSize) => {
+  const fetchDocuments = async (filters: Filter[], page: number) => {
     if (isLoading && !initialLoading) {
       devLog("Already loading...");
       return;
@@ -104,10 +104,9 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     const query = compileESQuery(
       filters,
       page,
-      pageSize,
       source,
       resultsType,
-      assetTypes
+      contentfulAssetTypes
     );
     const result = await queryElasticSearch(
       query,
@@ -146,7 +145,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   };
 
   const onFiltersChange = async (newFilters: Filter[]) => {
-    const result = await fetchDocuments(newFilters, 0, PAGE_SIZE);
+    const result = await fetchDocuments(newFilters, 0);
 
     if (result && result.aggregations) {
       setFilters(
@@ -165,7 +164,8 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const handlePageChange = async (_, page) => {
     const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
     window.scrollTo(0, scrollY);
-    await fetchDocuments(filters, page - 1, PAGE_SIZE);
+    // TODO: DXB-4320 Don't query ES if we already have the documents for that page
+    await fetchDocuments(filters, page - 1);
   };
 
   const handleFiltersChange = (filterName, filterValue, checked) => {
@@ -211,10 +211,10 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       if (queryParams?.filters?.length) {
         const updatedFilters = getURLFilters(initialFilters, queryParams);
         setFilters(updatedFilters);
-        fetchDocuments(updatedFilters, 0, PAGE_SIZE);
+        fetchDocuments(updatedFilters, 0);
       } else {
         setFilters(initialFilters);
-        fetchDocuments(initialFilters, 0, PAGE_SIZE);
+        fetchDocuments(initialFilters, 0);
       }
     }
   }, [documentsFilters]);
@@ -277,6 +277,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
                   {!initialLoading ? (
                     <ResultSection
                       results={documents}
+                      assetTypes={contentfulAssetTypes}
                       format={format}
                       page={page}
                       pageCount={pageCount}
@@ -311,7 +312,12 @@ export const pageQuery = graphql`
       categoryCodes
       allowFilterBy
       resultsType
-      assetTypes {
+      contentfulAssetTypes {
+        name
+        code
+        description {
+          ...RichTextFragment
+        }
         pimCode
       }
       documentsFilters {

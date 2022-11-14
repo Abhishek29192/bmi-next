@@ -1,21 +1,22 @@
-import React from "react";
 import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CompanyDetailProps,
+  CompanyDetails,
+  GoogleMap,
   LatLngLiteral as GoogleLatLngLiteral,
-  MarkerOptionsWithData
+  MarkerOptionsWithData,
+  Typography
 } from "@bmi/components";
-import { CompanyDetailProps } from "@bmi/components";
-import { GoogleMap } from "@bmi/components";
-import { Card } from "@bmi/components";
-import { CardContent, CardHeader } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { CompanyDetails } from "@bmi/components";
-import { Typography } from "@bmi/components";
 import CloseIcon from "@material-ui/icons/Close";
+import React from "react";
 import { microCopy } from "../../../constants/microCopies";
-import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
+import { calculateCentre } from "../helpers";
 import { Service } from "../index";
-import { calculateCenter } from "../helpers";
+import styles from "../styles/ServiceLocatorSection.module.scss";
 
 export interface MapProps {
   initialMapCentre: { lat: number; lon: number };
@@ -46,7 +47,7 @@ export const ServiceLocatorMap = ({
   return (
     <div className={styles["map"]}>
       <GoogleMap
-        center={calculateCenter(centre, initialMapCentre)}
+        center={calculateCentre(centre, initialMapCentre)}
         markers={markers}
         onMarkerClick={handleMarkerClick}
         zoom={zoom}

@@ -1,7 +1,7 @@
 import { Account, CreateNoteInput } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
 import { PostGraphileContext } from "../../types";
-import { sendMessageWithTemplate } from "../mailer";
+import { sendMessageWithTemplate, sendMailToMarketAdmins } from "../mailer";
 
 export const createNote = async (
   resolve,
@@ -20,7 +20,7 @@ export const createNote = async (
     const { note } = args.input;
     const newNote = await resolve(source, args, context, resolveInfo);
 
-    await sendMessage(note.projectId, context);
+    await sendMessage(note, context);
 
     return newNote;
   } catch (e) {
@@ -49,12 +49,13 @@ const getProjectDetails = async (
   return projectDetail;
 };
 
-const sendMessage = async (projectId: number, context: PostGraphileContext) => {
+const sendMessage = async (
+  { projectId, authorId, body }: CreateNoteInput["note"],
+  context: PostGraphileContext
+) => {
   const { pgRootPool } = context;
-
+  const event = "NOTE_ADDED";
   const projectDetails = await getProjectDetails(projectId, pgRootPool);
-
-  //Get all company admins and send mail
   const { rows: companyAdmins } = await pgRootPool.query(
     `select account.* from account 
 join company_member on company_member.account_id =account.id 
@@ -62,25 +63,31 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
     [projectDetails.companyId]
   );
 
-  //Get all market admins and send mail
-  const { rows: marketAdmins } = await pgRootPool.query(
-    `select account.* from account 
-        join market on market.id =account.market_id 
-        where market.id=$1 and account.role='MARKET_ADMIN'`,
-    [projectDetails.marketId]
+  const {
+    rows: [author]
+  } = await pgRootPool.query(
+    `SELECT email, first_name, last_name FROM account WHERE id = $1 `,
+    [authorId]
   );
-
-  const users: Account[] = [...companyAdmins, ...marketAdmins];
+  const users: Account[] = [...companyAdmins];
+  const dynamicContent = {
+    project: `${projectDetails.name}`,
+    projectId,
+    noteAuthor: author
+      ? `${author.first_name} ${author.last_name} (${author.email})`
+      : "",
+    noteSnippet: body
+  };
 
   for (let i = 0; i < users.length; i++) {
     const account = users[+i];
-    await sendMessageWithTemplate(context, "NOTE_ADDED", {
+    await sendMessageWithTemplate(context, event, {
       accountId: account.id,
       email: account.email,
-      project: `${projectDetails.name}`,
-      projectId
+      ...dynamicContent
     });
   }
+  await sendMailToMarketAdmins(context, event, dynamicContent);
 };
 
 type ProjectDetail = {

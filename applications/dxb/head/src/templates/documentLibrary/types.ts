@@ -1,12 +1,14 @@
+import {
+  ContentfulDocument,
+  PimProductDocument,
+  PimSystemDocument
+} from "@bmi/elasticsearch-types";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { RichTextData } from "../../components/RichText";
 import { Data as SiteData } from "../../components/Site";
 import { DocumentsFilters } from "../../schema/resolvers/types/DocumentsFilters";
-import { ContentfulAssetType as AssetTypeData } from "../../types/AssetType";
-import { ContentfulDocument } from "../../types/Document";
-import { ProductDocument } from "../../types/pim";
 import { ResultType, Source, URLFilter } from "../../utils/filters";
 
 export type QueryParams = {
@@ -29,7 +31,7 @@ export interface ContentfulDocumentLibraryPage extends PageInfoData, PageData {
   categoryCodes: string[];
   breadcrumbTitle: string;
   documentsFilters: DocumentsFilters | null;
-  assetTypes: AssetTypeData[] | null;
+  contentfulAssetTypes: AssetType[];
 }
 
 export interface DocumentLibraryProps {
@@ -42,5 +44,12 @@ export interface DocumentLibraryProps {
 
 export type DocumentType =
   | ContentfulDocument["__typename"]
-  | ProductDocument["__typename"]
-  | "";
+  | PimProductDocument["__typename"]
+  | PimSystemDocument["__typename"];
+
+export type AssetType = {
+  name: string;
+  code: string;
+  description: RichTextData;
+  pimCode: string;
+};

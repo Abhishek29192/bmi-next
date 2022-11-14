@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import path from "path";
-import mockConsole from "jest-mock-console";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
 import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();
 
@@ -45,6 +45,22 @@ jest.mock("readline", () => {
   };
 });
 
+const getTags = jest.fn().mockResolvedValue({
+  total: 2,
+  items: [
+    {
+      sys: {
+        id: "market__belgium"
+      }
+    },
+    {
+      sys: {
+        id: "market__finland"
+      }
+    }
+  ]
+});
+
 const getEntries = jest.fn().mockResolvedValue({
   total: 1,
   items: [
@@ -66,7 +82,6 @@ const getEntries = jest.fn().mockResolvedValue({
     }
   ]
 });
-
 const originalLocale = "en-US";
 const getLocales = jest.fn().mockReturnValue({
   total: 1,
@@ -95,7 +110,7 @@ const createEntry = jest.fn().mockImplementation((contentTypeId, data) => {
 
 const getEnvironment = jest
   .fn()
-  .mockReturnValue({ createEntry, getLocales, getEntries });
+  .mockReturnValue({ createEntry, getLocales, getEntries, getTags });
 const getSpace = jest.fn().mockReturnValue({ getEnvironment });
 const createClient = jest.fn().mockImplementation(() => ({ getSpace }));
 jest.mock("contentful-management", () => {
@@ -556,7 +571,8 @@ describe("Merchants contentful upload", () => {
         website: {
           "en-US": undefined
         }
-      }
+      },
+      metadata: {}
     });
     expect(publishRoofer).not.toHaveBeenCalled();
     expect(publishMerchantType).not.toHaveBeenCalled();
@@ -634,7 +650,8 @@ describe("Merchants contentful upload", () => {
           website: {
             "en-US": "https://www.aberson.nl"
           }
-        }
+        },
+        metadata: {}
       }
     ]);
     expect(console.log as jest.Mock).lastCalledWith("All done");
@@ -750,7 +767,8 @@ describe("Merchants contentful upload", () => {
             website: {
               "en-US": undefined
             }
-          }
+          },
+          metadata: {}
         }
       ]);
       expect(getLocales).toHaveBeenCalledTimes(1);
@@ -783,7 +801,8 @@ describe("Merchants contentful upload", () => {
             name: {
               "en-US": "Hellend dak"
             }
-          }
+          },
+          metadata: {}
         }
       ]);
       expect(getLocales).toHaveBeenCalledTimes(1);
@@ -864,7 +883,8 @@ describe("Merchants contentful upload", () => {
           website: {
             "en-US": undefined
           }
-        }
+        },
+        metadata: {}
       });
 
       expect(console.log as jest.Mock).lastCalledWith("All done");
@@ -947,7 +967,8 @@ describe("Merchants contentful upload", () => {
           website: {
             "en-US": undefined
           }
-        }
+        },
+        metadata: {}
       });
       expect(console.log as jest.Mock).lastCalledWith("All done");
     });
@@ -999,6 +1020,7 @@ describe("Merchants contentful upload", () => {
       expect(getSpace).toHaveBeenCalledTimes(1);
       expect(getEnvironment).toHaveBeenCalledTimes(1);
       expect(getLocales).toHaveBeenCalledTimes(1);
+      expect(getTags).toHaveBeenCalledTimes(1);
 
       expect(createEntry).toHaveBeenCalledTimes(3);
 
@@ -1044,7 +1066,8 @@ describe("Merchants contentful upload", () => {
             website: {
               "en-US": undefined
             }
-          }
+          },
+          metadata: {}
         }
       ]);
 
@@ -1088,6 +1111,7 @@ describe("Merchants contentful upload", () => {
         expect(getSpace).toHaveBeenCalledTimes(1);
         expect(getEnvironment).toHaveBeenCalledTimes(1);
         expect(getLocales).toHaveBeenCalledTimes(1);
+        expect(getTags).toHaveBeenCalledTimes(1);
 
         expect(createEntry).toHaveBeenCalledTimes(1);
 
@@ -1133,7 +1157,8 @@ describe("Merchants contentful upload", () => {
               website: {
                 "en-US": undefined
               }
-            }
+            },
+            metadata: {}
           }
         ]);
 
@@ -1175,6 +1200,7 @@ describe("Merchants contentful upload", () => {
     expect(getEnvironment).toHaveBeenCalledTimes(1);
     expect(getLocales).toHaveBeenCalledTimes(1);
     expect(getEntries).toHaveBeenCalledTimes(1);
+    expect(getTags).toHaveBeenCalledTimes(1);
 
     expect(createEntry).toHaveBeenCalledTimes(1);
     expect(createEntry.mock.calls[0]).toEqual([
@@ -1219,7 +1245,8 @@ describe("Merchants contentful upload", () => {
           website: {
             [originalLocale]: undefined
           }
-        }
+        },
+        metadata: {}
       }
     ]);
     expect(console.log as jest.Mock).nthCalledWith(
@@ -1231,7 +1258,7 @@ describe("Merchants contentful upload", () => {
 
   it(`should creates merchants and service types entries`, async () => {
     process.argv = ["", "", getMinimalPath("new-serviceType.tsv")];
-    createEntry.mockImplementationOnce((contentTypeId, data) => {
+    createEntry.mockImplementation((contentTypeId, data) => {
       if (contentTypeId === "roofer") {
         return {
           publish: jest.fn().mockImplementation(() => {
@@ -1261,6 +1288,7 @@ describe("Merchants contentful upload", () => {
     expect(getEnvironment).toHaveBeenCalledTimes(1);
     expect(getLocales).toHaveBeenCalledTimes(1);
     expect(getEntries).toHaveBeenCalledTimes(1);
+    expect(getTags).toHaveBeenCalledTimes(1);
 
     expect(createEntry).toHaveBeenCalledTimes(2);
     expect(createEntry.mock.calls[0]).toEqual([
@@ -1270,7 +1298,8 @@ describe("Merchants contentful upload", () => {
           name: {
             [originalLocale]: "HellendTEST dak"
           }
-        }
+        },
+        metadata: {}
       }
     ]);
     expect(createEntry.mock.calls[1]).toEqual([
@@ -1315,22 +1344,38 @@ describe("Merchants contentful upload", () => {
           website: {
             [originalLocale]: undefined
           }
-        }
+        },
+        metadata: {}
       }
     ]);
-    expect(console.log as jest.Mock).nthCalledWith(
-      6,
-      "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
-    );
-    expect(console.log as jest.Mock).nthCalledWith(
-      7,
-      "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
-    );
+
+    const consoleLogcalls = (console.log as jest.Mock).mock.calls.flat();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
+      )
+    ).toBeTruthy();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "Created and Published new Service Type - 'HellendTEST dak' with id 'merchant-type-id'"
+      )
+    ).toBeTruthy();
+    expect(
+      consoleLogcalls.some(
+        (item) =>
+          item ===
+          "'Aarlese Bouwmaterialen' : was created and published with id: roofer-id"
+      )
+    ).toBeTruthy();
     expect(console.log as jest.Mock).lastCalledWith("All done");
   });
 
   it(`should should throw an error when getLocales returns null`, async () => {
-    getLocales.mockReturnValue(null);
+    getLocales.mockReturnValueOnce(null);
     require("../scripts/merchants");
 
     await done;
@@ -1350,7 +1395,128 @@ describe("Merchants contentful upload", () => {
     expect(getEnvironment).toHaveBeenCalledTimes(1);
     expect(getLocales).toHaveBeenCalledTimes(1);
     expect(getEntries).not.toBeCalled();
+    expect(getTags).toHaveBeenCalledTimes(1);
 
     expect(createEntry).toHaveBeenCalledTimes(0);
+  });
+
+  it(`When MARKET_TAG_ID is set And matching tag is present in space then it creates new entries`, async () => {
+    process.env.MARKET_TAG_ID = "market__belgium";
+    process.argv = ["", "", getMinimalPath("merchants.tsv")];
+
+    mockResponses(fetchMock, {
+      method: "GET",
+      url: `begin:https://maps.googleapis.com`,
+      body: {
+        results: [{ geometry: { location: { lat: 1, lng: 2 } } }]
+      }
+    });
+
+    createEntry.mockImplementation((contentTypeId, data) => {
+      if (contentTypeId === "roofer") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return {
+              sys: { version: 1, id: "roofer-id" }
+            };
+          })
+        };
+      }
+      if (contentTypeId === "serviceType") {
+        return {
+          publish: jest.fn().mockImplementation(() => {
+            return {
+              sys: { version: 1, id: "merchant-type-id" }
+            };
+          })
+        };
+      }
+    });
+    require("../scripts/merchants");
+    await expectQuestion("Continue (y/N)?");
+    answer("y");
+    await done;
+
+    expect((console.error as jest.Mock).mock.calls).toEqual([]);
+
+    expect(createClient).toHaveBeenCalledTimes(1);
+    expect(getSpace).toHaveBeenCalledTimes(1);
+    expect(getEnvironment).toHaveBeenCalledTimes(1);
+    expect(getLocales).toHaveBeenCalledTimes(1);
+
+    expect(createEntry).toHaveBeenCalledTimes(3);
+
+    expect(createEntry.mock.calls[0]).toEqual([
+      "roofer",
+      {
+        fields: {
+          address: {
+            "en-US": "Havenweg 17, AARLE RIXTEL, 5735 SH"
+          },
+          email: {
+            "en-US": "info@aarlesebouwmaterialen.nl"
+          },
+          entryType: {
+            "en-US": "Merchant"
+          },
+          location: {
+            "en-US": {
+              lat: 23,
+              lon: 63
+            }
+          },
+          name: {
+            "en-US": "Aarlese Bouwmaterialen"
+          },
+          phone: {
+            "en-US": "0492-383300"
+          },
+          serviceTypes: {
+            "en-US": [
+              {
+                sys: {
+                  id: "id-2",
+                  linkType: "Entry",
+                  type: "Link"
+                }
+              }
+            ]
+          },
+          summary: {
+            "en-US": "Test summary"
+          },
+          website: {
+            "en-US": undefined
+          }
+        },
+        metadata: {
+          tags: [
+            {
+              sys: {
+                id: "market__belgium",
+                linkType: "Tag",
+                type: "Link"
+              }
+            }
+          ]
+        }
+      }
+    ]);
+
+    expect(console.log as jest.Mock).lastCalledWith("All done");
+  });
+
+  it(`When MARKET_TAG_ID is set And matching tag is NOT present in space then it creates new entries`, async () => {
+    process.env.MARKET_TAG_ID = "market__belgium_DOES_NOT_EXIST";
+    process.argv = ["", "", getMinimalPath("merchants.tsv")];
+
+    require("../scripts/merchants");
+    await done;
+
+    expect(console.error as jest.Mock).toHaveBeenCalledTimes(1);
+    expect(console.error as jest.Mock).toHaveBeenNthCalledWith(
+      1,
+      "Tag: 'market__belgium_DOES_NOT_EXIST' does not exist on space: 'SPACE_ID:value' environment: 'CONTENTFUL_ENVIRONMENT:value'"
+    );
   });
 });

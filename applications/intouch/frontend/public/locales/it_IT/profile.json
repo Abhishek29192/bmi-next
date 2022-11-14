@@ -1,53 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Certificazioni",
     "buttons": {
-      "removeProfilePicture": "Elimina",
-      "saveAndClose": "Salva e chiudi",
-      "uploadProfilePicture": "Carica una foto"
-    },
+      "editProfile": "Modifica",
+      "changePassword": "Ripristina password"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Dettagli contatto",
-    "fileSizeMessage": "Dimensione massima del file di 3 mb.",
-    "fileSizeValidationMessage": "Non puoi caricare file maggiori di",
+    "title": "A proposito di me",
     "fileTypesMessage": "Puoi caricare file jpg, gif o png",
+    "fileSizeMessage": "Dimensione massima del file di 3 mb.",
     "form": {
       "fields": {
-        "email": "Email",
         "firstName": "Nome",
         "lastName": "Cognome",
-        "phone": "Telefono",
+        "email": "Email",
+        "phone": "Cellulare",
         "photo": "Foto profilo"
       }
     },
-    "title": "A proposito di me"
+    "buttons": {
+      "uploadProfilePicture": "Carica una foto",
+      "removeProfilePicture": "Elimina",
+      "saveAndClose": "Salva e chiudi"
+    }
   },
   "leaveCompany": {
     "cta": "Lascia azienda",
     "dialog": {
+      "title": "Sei sicuro?",
       "content": "Tutte le certificazioni in tuo possesso rimarranno con te, ma l'azienda non erediterà più nessuna delle tue certificazioni. Non sarai più membro di nessuno dei loro progetti né potrai visualizzare i dettagli del progetto. L'Azienda non sarà in grado di nominarti come installatore responsabile per i Progetti.",
       "cta": {
         "cancel": "Annulla",
         "confirm": "Continua"
-      },
-      "title": "Sei sicuro?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Registra azienda",
+    "body": "Registra qui la tua azienda",
+    "cta": "Registrati"
   },
   "passwordReset": {
     "dialog": {
-      "error": "Si è verificato un errore, riprova o contatta l'assistenza BMI",
+      "title": "Modifica password",
       "success": "Ti abbiamo inviato un'e-mail con un link per reimpostare la password, segui le istruzioni nell'e-mail",
-      "title": "Modifica password"
+      "error": "Si è verificato un errore, riprova o contatta l'assistenza BMI"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Ripristina password",
-      "editProfile": "Modifica"
-    },
-    "certificationsHeading": "Certificazioni"
-  },
-  "registerCompany": {
-    "body": "Registra qui la tua azienda",
-    "cta": "Registrati",
-    "heading": "Registra azienda"
   }
 }

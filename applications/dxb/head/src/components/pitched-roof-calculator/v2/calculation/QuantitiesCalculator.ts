@@ -50,6 +50,7 @@ export type ProductRow = {
   category: ProductCategory;
   packSize?: number;
   baseQuantity: number; // Base quantity is quantity before being divided by packSize
+  withContingency: boolean;
 };
 
 export const calculateBattensForFaces = (
@@ -61,20 +62,26 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, mainTileVariant)
   }));
 
-export const convertProductRowToResultsRow = ({
-  name,
-  packSize = 1, // No packs by default
-  baseQuantity,
-  category,
-  externalProductCode,
-  image
-}: ProductRow): ResultsRow => ({
+export const convertProductRowToResultsRow = (
+  {
+    name,
+    packSize = 1, // No packs by default
+    baseQuantity,
+    category,
+    externalProductCode,
+    image,
+    withContingency
+  }: ProductRow,
+  contingency = 0
+): ResultsRow => ({
   category,
   image,
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
-  quantity: Math.ceil(baseQuantity / packSize)
+  quantity: Math.ceil(
+    Math.ceil(baseQuantity / packSize) * (withContingency ? 1 + contingency : 1)
+  )
 });
 
 const LONG_SCREW_PER_METER = 3.2;
@@ -165,11 +172,7 @@ class QuantitiesCalculator {
         faceTiles.quantity
       );
 
-      if (
-        mainTileVariant.halfTile &&
-        mainTileVariant.brokenBond &&
-        faceTiles.half.quantity > 0
-      ) {
+      if (mainTileVariant.halfTile && faceTiles.half.quantity) {
         this.addProduct(
           ProductCategory.Tiles,
           mainTileVariant.halfTile,
@@ -355,7 +358,7 @@ class QuantitiesCalculator {
 
   addVentilationHoods(ventilationHoods: VentilationHood[]) {
     ventilationHoods.forEach((item) =>
-      this.addProduct(ProductCategory.Ventilation, item, 1)
+      this.addProduct(ProductCategory.Ventilation, item, 1, false)
     );
   }
 
@@ -480,7 +483,12 @@ class QuantitiesCalculator {
     }
 
     if (mainTileVariant.finishingKit) {
-      this.addProduct(ProductCategory.Fixings, mainTileVariant.finishingKit, 1);
+      this.addProduct(
+        ProductCategory.Fixings,
+        mainTileVariant.finishingKit,
+        1,
+        false
+      );
     }
 
     if (underlay) {
@@ -527,7 +535,8 @@ class QuantitiesCalculator {
   addProduct(
     category: ProductCategory,
     product: Products,
-    baseQuantity: number
+    baseQuantity: number,
+    withContingency = true
   ) {
     const productFromMap = this.results.get(product.code);
 
@@ -548,10 +557,8 @@ class QuantitiesCalculator {
       name: product.name,
       packSize: product.packSize,
       category,
-      baseQuantity: Math.ceil(
-        (oldBaseQuantity + baseQuantity) *
-          (category === ProductCategory.Tiles ? 1 + CONTINGENCY : 1)
-      )
+      baseQuantity: oldBaseQuantity + baseQuantity,
+      withContingency
     };
 
     this.results.set(product.code, newMapProduct);
@@ -568,7 +575,9 @@ class QuantitiesCalculator {
     };
 
     this.results.forEach((product) =>
-      result[product.category].push(convertProductRowToResultsRow(product))
+      result[product.category].push(
+        convertProductRowToResultsRow(product, CONTINGENCY)
+      )
     );
 
     return result;

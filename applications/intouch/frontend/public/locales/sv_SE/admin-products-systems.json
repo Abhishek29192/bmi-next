@@ -1,0 +1,55 @@
+{
+  "technology": "Teknologi",
+  "bmiRef": "BmiRef",
+  "brand": "Varumärke",
+  "description": "Beskrivning",
+  "family": "Familj",
+  "published": "Publicerad",
+  "unpublished": "Opublicerad",
+  "maximumValidityYears": "Maximal giltighetstid",
+  "updatedAt": "Uppdaterad kl",
+  "show": "Show",
+  "edit": "Redigera",
+  "submit": "Skicka in",
+  "bulkImport": "Massimport",
+  "products": "Produkter",
+  "system": "Systemet",
+  "sidePanel": {
+    "search": {
+      "label": "Sök",
+      "noResult": "Inga föremål hittades"
+    }
+  },
+  "dryRun": "Torrkörning",
+  "confirm": "Bekräfta importen",
+  "dryRunError": "Det finns några fel i de importerade filerna",
+  "importCompleted": "Importen slutförd",
+  "productToInsert": "Dessa produkter kommer att infogas",
+  "systemToInsert": "Dessa system kommer att infogas",
+  "systemToUpdate": "Dessa system kommer att uppdateras",
+  "productToUpdate": "Dessa produkter kommer att uppdateras",
+  "errorSystemsToUpdate": "System att uppdatera",
+  "errorSystemsToInsert": "System att sätta in",
+  "errorProductsToUpdate": "Produkt att uppdatera",
+  "errorProductsToInsert": "Produkt att sätta in",
+  "errorSystemMembersInsert": "Systemmedlem att infoga",
+  "importError": "Ett fel uppstod under importen",
+  "form": {
+    "productTitle": "Redigera produkt",
+    "systemTitle": "Redigera system"
+  },
+  "errors": {
+    "filename_wrong_format": "Filen har fel format",
+    "unauthorized": "Inte behörig",
+    "wrong_env": "Fel miljö"
+  },
+  "dryRunCompleted": "Torrkörning avslutad",
+  "report": {
+    "product": "Ladda ner produktrapport",
+    "system": "Ladda ner systemrapport"
+  },
+  "productData": {
+    "name": "Produktnamn",
+    "uuid": "Serienummer"
+  }
+}

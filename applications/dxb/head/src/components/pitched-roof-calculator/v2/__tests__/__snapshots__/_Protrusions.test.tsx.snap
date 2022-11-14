@@ -20,7 +20,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
           class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
           >
             <div
               class="CardInput"
@@ -53,7 +53,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
           >
             <div
               class="CardInput"
@@ -86,7 +86,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
           >
             <div
               class="CardInput"

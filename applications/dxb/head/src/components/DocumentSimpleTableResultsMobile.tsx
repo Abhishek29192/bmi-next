@@ -24,11 +24,8 @@ import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import stylesMobile from "./styles/DocumentSimpleTableResultsMobile.module.scss";
 
 type ListProps = {
-  documents: Document[];
+  documents: readonly Document[];
 };
-
-// const isLinkDocument = (document: Document): boolean =>
-//   "isLinkDocument" in document && document.isLinkDocument;
 
 const GTMButton = withGTM<
   ButtonProps & {

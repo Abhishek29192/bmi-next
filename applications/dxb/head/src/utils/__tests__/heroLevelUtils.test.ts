@@ -1,11 +1,11 @@
 import React from "react";
-import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
+import { Data as ImageData } from "../../components/Image";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import {
   ContentfulVideoData,
   renderVideo as mockRenderVideo
 } from "../../components/Video";
-import { Data as ImageData } from "../../components/Image";
+import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 
 jest.mock("../../components/Video", () => ({
   ...(jest.requireActual("../../components/Video") as any),
@@ -31,10 +31,8 @@ const cta: LinkData = {
 };
 
 const featuredMedia: ImageData = {
-  __typename: "ContentfulImage",
   type: null,
   altText: "Lorem ipsum",
-  caption: null,
   focalPoint: null,
   image: {
     file: {

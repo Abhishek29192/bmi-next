@@ -22,6 +22,7 @@ const protrusion01: Protrusion = {
     const roofPitch = getMeasurement(values, "roofPitch");
 
     const height = A / Math.cos((P * Math.PI) / 180);
+    const subtractionAreaHeight = A / Math.cos((roofPitch * Math.PI) / 180);
 
     return {
       faces: [
@@ -42,11 +43,11 @@ const protrusion01: Protrusion = {
           vertices: [
             { x: 0, y: 0 },
             {
-              x: 0,
-              y: A
+              x: B,
+              y: 0
             },
-            { x: B, y: A },
-            { x: B, y: 0 }
+            { x: B, y: subtractionAreaHeight },
+            { x: 0, y: subtractionAreaHeight }
           ],
           pitch: roofPitch,
           sides: ["VALLEY", "VALLEY"],
@@ -90,6 +91,9 @@ const protrusion02: Protrusion = {
     const protrusionValley = Math.sqrt(
       protrusionDepth ** 2 + protrusionRafter ** 2
     );
+    const subtractionAreaHeight = Math.sqrt(
+      protrusionDepth ** 2 + protrusionHeight ** 2
+    );
 
     return {
       faces: [
@@ -122,11 +126,11 @@ const protrusion02: Protrusion = {
         {
           vertices: [
             { x: 0, y: 0 },
+            { x: A, y: 0 },
             {
               x: A / 2,
-              y: protrusionHeight
-            },
-            { x: A, y: 0 }
+              y: subtractionAreaHeight
+            }
           ],
           pitch: roofPitch,
           sides: ["VALLEY", "VALLEY"], // Just a fill-in option, TBC whether we need to add these tiles
@@ -171,6 +175,9 @@ const protrusion03: Protrusion = {
     const protrusionValley = Math.sqrt(
       protrusionDepth ** 2 + protrusionRafter ** 2
     );
+    const subtractionAreaHeight = Math.sqrt(
+      protrusionDepth ** 2 + protrusionHeight ** 2
+    );
 
     return {
       faces: [
@@ -201,11 +208,11 @@ const protrusion03: Protrusion = {
         {
           vertices: [
             { x: 0, y: 0 },
+            { x: A, y: 0 },
             {
               x: A / 2,
-              y: protrusionHeight
-            },
-            { x: A, y: 0 }
+              y: subtractionAreaHeight
+            }
           ],
           pitch: roofPitch,
           sides: ["VALLEY", "VALLEY"], // Just a fill-in option, TBC whether we need to add these tiles

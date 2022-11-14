@@ -1,81 +1,42 @@
 {
-  "ARCHITECT": "Arquitecto",
-  "About Us": "Sobre nosotros",
-  "Account": "Mi cuenta",
-  "CONTRACTOR": "Contratista",
-  "CORP_DEVELOPER": "Promotor Inmobiliario",
+  "Home": "Inicio",
+  "Projects": "Proyectos",
+  "Training": "Formación",
+  "Team": "Equipo",
   "Companies": "Empresas",
   "Company": "Empresa",
-  "Company Description": "Descripción de la empresa",
-  "Download": "Descargar",
-  "Edit": "Editar",
-  "Home": "Inicio",
+  "Tools": "Herramientas",
   "Inventory": "Inventario",
-  "Logout": "Cerrar sesión",
-  "MERCHANT": "Distribuidor",
-  "Main office address": "Dirección de la oficina principal",
+  "Edit": "Editar",
+  "Search": "Buscar",
   "No Options": "Sin opciones",
-  "Notifications": "Notificaciones",
-  "Products": "Productos",
+  "Show me": "Muéstrame",
+  "Account": "Mi cuenta",
   "Profile": "Perfil",
-  "Projects": "Proyectos",
-  "Registered Address": "Dirección registrada",
+  "Logout": "Cerrar sesión",
+  "Notifications": "Notificaciones",
+  "deactivatedCompany": "Empresa desactivada",
+  "results available": "Resultados disponibles",
+  "Company Description": "Descripción de la empresa",
+  "About Us": "Sobre nosotros",
   "Registered Details": "Datos de registro",
   "Registered Name": "Nombre registrado",
-  "SavePdf": "Descargar PDF",
-  "Search": "Buscar",
-  "Show me": "Muéstrame",
-  "Sort by": "Ordenar por",
-  "Team": "Equipo",
-  "Tools": "Herramientas",
-  "Training": "Formación",
+  "Registered Address": "Dirección registrada",
+  "Main office address": "Dirección de la oficina principal",
+  "CONTRACTOR": "Contratista",
+  "ARCHITECT": "Arquitecto",
+  "MERCHANT": "Distribuidor",
+  "CORP_DEVELOPER": "Promotor Inmobiliario",
   "aria": {
     "navigation": "Navegación",
     "notifications": "Notificaciones"
   },
-  "certificationLabels": {
-    "certification": "Certificación",
-    "expiry": "Caducidad",
-    "type": "Tipo"
-  },
-  "certifications": {
-    "flat": "Plano",
-    "other": "Otro",
-    "pitched": "Inclinado"
-  },
-  "deactivatedCompany": "Empresa desactivada",
-  "error_messages": {
-    "email_format": "Dirección de correo electrónico no válida",
-    "phone_number_format": "Teléfono no válido",
-    "required": "Obligatorio",
-    "url_format": "URL invalida"
-  },
-  "fallback": {
-    "noResults": "No hay resultados",
-    "notAdded": "No añadido"
-  },
-  "generatingPdf": "Generando PDF",
-  "notifications": {
-    "earlier": "Antes",
-    "older": "Más de 2 meses",
-    "today": "Hoy"
-  },
-  "requiredInformation": "información requerida",
-  "results available": "Resultados disponibles",
   "roles": {
-    "AUDITOR": "Auditor",
-    "COMPANY_ADMIN": "Administrador de la empresa",
     "INSTALLER": "Miembro",
+    "COMPANY_ADMIN": "Administrador de la empresa",
     "MARKET_ADMIN": "Administrador de BMI",
-    "SUPER_ADMIN": "Super Admin"
-  },
-  "session": {
-    "dialog": {
-      "content": "Ha estado inactivo durante un tiempo y esta sesión caducará y su sesión se cerrará automáticamente.",
-      "continue": "Extender sesión",
-      "logout": "Cerrar sesión",
-      "title": "Su sesión caducará en {{counter}}"
-    }
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Auditor"
   },
   "tier": {
     "T1": "Miembro",
@@ -86,7 +47,46 @@
     "T6": "Expert Plus",
     "T7": "Elite Plus"
   },
+  "error_messages": {
+    "required": "Obligatorio",
+    "url_format": "URL invalida",
+    "email_format": "Dirección de correo electrónico no válida",
+    "phone_number_format": "Teléfono no válido"
+  },
+  "Products": "Productos",
+  "fallback": {
+    "notAdded": "No añadido",
+    "noResults": "No hay resultados"
+  },
+  "Download": "Descargar",
+  "SavePdf": "Descargar PDF",
   "visitWebsite": "Visita el sitio web",
+  "certifications": {
+    "pitched": "Inclinado",
+    "flat": "Plano",
+    "other": "Otro"
+  },
+  "certificationLabels": {
+    "type": "Tipo",
+    "certification": "Certificación",
+    "expiry": "Caducidad"
+  },
+  "notifications": {
+    "today": "Hoy",
+    "earlier": "Antes",
+    "older": "Más de 2 meses"
+  },
+  "session": {
+    "dialog": {
+      "title": "Su sesión caducará en {{counter}}",
+      "content": "Ha estado inactivo durante un tiempo y esta sesión caducará y su sesión se cerrará automáticamente.",
+      "logout": "Cerrar sesión",
+      "continue": "Extender sesión"
+    }
+  },
+  "generatingPdf": "Generando PDF",
+  "Sort by": "Ordenar por",
+  "requiredInformation": "información requerida",
   "button": {
     "more": "Mostrar más",
     "less": "Muestra menos"

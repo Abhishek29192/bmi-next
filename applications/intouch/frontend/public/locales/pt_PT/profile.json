@@ -1,52 +1,52 @@
 {
-  "editDialog": {
+  "profileCard": {
+    "certificationsHeading": "Certificações",
     "buttons": {
-      "removeProfilePicture": "Eliminar",
-      "saveAndClose": "Guardar e fechar",
-      "uploadProfilePicture": "carregar nova foto"
-    },
+      "editProfile": "Editar",
+      "changePassword": "Redefinir sua senha"
+    }
+  },
+  "editDialog": {
     "contactDetailsHeading": "Dados de contato",
-    "fileSizeMessage": "Tamanho máximo do arquivo de 3 MB",
+    "title": "Sobre mim",
     "fileTypesMessage": "Você pode fazer envio de arquivos jpg, gif ou png.",
+    "fileSizeMessage": "Tamanho máximo do arquivo de 3 MB",
     "form": {
       "fields": {
-        "email": "Correio eletrônico",
         "firstName": "Nome",
         "lastName": "Sobrenome",
+        "email": "Correio eletrônico",
         "phone": "Telefone",
         "photo": "Imagem de perfil"
       }
     },
-    "title": "Sobre mim"
+    "buttons": {
+      "uploadProfilePicture": "carregar nova foto",
+      "removeProfilePicture": "Eliminar",
+      "saveAndClose": "Guardar e fechar"
+    }
   },
   "leaveCompany": {
     "cta": "sair da empresa",
     "dialog": {
+      "title": "Tem certeza?",
       "content": "Quaisquer certificações que você possui permanecerão com você, mas a Empresa não herdará mais nenhuma de suas certificações. Você não será mais um membro dos projetos desta empresa nem poderá visualizar os dados do projeto. A Empresa não poderá designá-lo como instalador responsável pelos Projetos.",
       "cta": {
         "cancel": "Cancelar",
         "confirm": "Continuar"
-      },
-      "title": "Tem certeza?"
+      }
     }
+  },
+  "registerCompany": {
+    "heading": "Registre sua empresa",
+    "body": "Você pode registrar sua empresa aqui",
+    "cta": "Registro"
   },
   "passwordReset": {
     "dialog": {
-      "error": "Um erro ocorreu. Entre em contato com um administrador da BMI",
+      "title": "Alterar a senha",
       "success": "Enviamos um correio eletronico com um link para redefinir sua senha, siga as instruções no correio eletronico",
-      "title": "Alterar a senha"
+      "error": "Um erro ocorreu. Entre em contato com um administrador da BMI"
     }
-  },
-  "profileCard": {
-    "buttons": {
-      "changePassword": "Redefinir sua senha",
-      "editProfile": "Editar"
-    },
-    "certificationsHeading": "Certificações"
-  },
-  "registerCompany": {
-    "body": "Você pode registrar sua empresa aqui",
-    "cta": "Registro",
-    "heading": "Registre sua empresa"
   }
 }

@@ -1,5 +1,5 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import Tabs from "../Tabs";
 
 describe("Tabs component", () => {
@@ -15,6 +15,34 @@ describe("Tabs component", () => {
       </Tabs>
     );
     expect(container).toMatchSnapshot();
+  });
+  it("replaces spaces in tab and tab panel id attributes with hyphen", () => {
+    const { getByTestId } = render(
+      <Tabs>
+        <Tabs.TabPanel
+          heading="Tab 1"
+          index={"some index 1"}
+          key={"some key 1"}
+        >
+          Content One
+        </Tabs.TabPanel>
+        <Tabs.TabPanel
+          heading="Tab 2"
+          index={"some index 2"}
+          key={"some key 1"}
+        >
+          Content Two
+        </Tabs.TabPanel>
+      </Tabs>
+    );
+    const tabPanel1 = getByTestId("tabpanel-some-index-1");
+    expect(tabPanel1.id).toEqual("tabpanel-some-index-1");
+    const tab1 = getByTestId("tab-some-index-1");
+    expect(tab1.id).toEqual("tab-some-index-1");
+    const tabPanel2 = getByTestId("tabpanel-some-index-2");
+    expect(tabPanel2.id).toEqual("tabpanel-some-index-2");
+    const tab2 = getByTestId("tab-some-index-2");
+    expect(tab2.id).toEqual("tab-some-index-2");
   });
   it("renders secondary theme correctly", () => {
     const { container } = render(
@@ -82,5 +110,40 @@ describe("Tabs component", () => {
       </Tabs>
     );
     expect(container).toMatchSnapshot();
+  });
+  it("should add hidden attribute for all tabs exepct active one and toggle hidden attribute on tabs active state change", () => {
+    const { getByTestId } = render(
+      <Tabs>
+        <Tabs.TabPanel
+          heading="Tab 1"
+          index={"some index 1"}
+          key={"some key 1"}
+        >
+          Content One
+        </Tabs.TabPanel>
+        <Tabs.TabPanel
+          heading="Tab 2"
+          index={"some index 2"}
+          key={"some key 1"}
+        >
+          Content Two
+        </Tabs.TabPanel>
+      </Tabs>
+    );
+
+    const tab1 = getByTestId("tab-some-index-1");
+    const tab2 = getByTestId("tab-some-index-2");
+    const tabPanel1 = getByTestId("tabpanel-some-index-1");
+    const tabPanel2 = getByTestId("tabpanel-some-index-2");
+
+    fireEvent.click(tab1);
+
+    expect(tabPanel1).toHaveProperty("hidden", false);
+    expect(tabPanel2).toHaveProperty("hidden", true);
+
+    fireEvent.click(tab2);
+
+    expect(tabPanel1).toHaveProperty("hidden", true);
+    expect(tabPanel2).toHaveProperty("hidden", false);
   });
 });

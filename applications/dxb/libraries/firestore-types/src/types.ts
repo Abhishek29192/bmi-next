@@ -66,6 +66,7 @@ export enum GuaranteesAndWarrantiesAssetType {
   Links,
   Images
 }
+
 export enum AwardAndCertificateAssetType {
   Documents,
   Images
@@ -96,6 +97,7 @@ export type Product = {
   masterImage?: Image;
   hashedCode: string;
   isSampleOrderAllowed: boolean;
+  isVisualiserAvailable: boolean;
   materials?: string;
   measurements: Measurements;
   name: string;
@@ -181,12 +183,6 @@ export type SystemDocument = Document;
 export type ProductDocument = Document & {
   productBaseCode: string;
   productName: string;
-  docName?: string;
-  // TODO: remove when document filtering is done with Elastic search
-  productCategories: {
-    code: Category["code"];
-    parentCategoryCode: Category["parentCategoryCode"];
-  }[];
 };
 
 export type Mime = PimMime;

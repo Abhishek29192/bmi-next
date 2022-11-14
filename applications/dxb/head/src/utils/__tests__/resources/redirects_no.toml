@@ -1,0 +1,11 @@
+[[redirects]]
+from = "/no/sxa/file/*"
+to = "/no/product-catalogues-brochures-folders/"
+force = true
+
+# Redirect root to /no.
+[[redirects]]
+from = "/"
+to = "/no/"
+status = 301
+force = true

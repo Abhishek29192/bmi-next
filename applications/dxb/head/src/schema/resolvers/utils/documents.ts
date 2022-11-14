@@ -3,7 +3,11 @@ import { Product } from "applications/dxb/libraries/firestore-types/src";
 import { isDefined } from "../../../../../libraries/utils/src";
 import { microCopy } from "../../../constants/microCopies";
 import { ProductFilter } from "../../../types/pim";
-import { ContentfulAssetType, ContentfulDocument } from "../types/Contentful";
+import {
+  ContentfulAssetType,
+  ContentfulDocument,
+  ContentfulSite
+} from "../types/Contentful";
 import { Context, Node } from "../types/Gatsby";
 import { getPlpFilters } from "./filters";
 
@@ -44,23 +48,50 @@ export const resolveDocumentsFiltersFromProducts = async (
     return [];
   }
 
-  const resources = await context.nodeModel.findOne<Node>({
-    query: {
-      filter: {
-        site: {
-          elemMatch: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE }
-          }
+  const marketCode = process.env.SPACE_MARKET_CODE;
+  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+  if (!marketCode || !localeCode) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+    );
+    return [];
+  }
+  const currSite = await context.nodeModel.findOne<ContentfulSite>(
+    {
+      query: {
+        filter: {
+          countryCode: { eq: marketCode },
+          node_locale: { eq: localeCode }
         }
-      }
+      },
+      type: "ContentfulSite"
     },
+    { connectionType: "ContentfulSite" }
+  );
+  if (!currSite) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
+    );
+    return [];
+  }
+  const resource = await context.nodeModel.getNodeById({
+    id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
+  if (!resource) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
+    );
+    return [];
+  }
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
   const microCopies = await context.nodeModel.getNodesByIds({
-    ids: resources.microCopy___NODE,
+    ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
 
@@ -124,13 +155,29 @@ export const resolveDocumentsFiltersFromContentful = async (
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters: string[]
 ): Promise<ProductFilter[]> => {
-  const filter = assetTypes.length
+  const marketFilters = process.env.MARKET_TAG_NAME
+    ? {
+        metadata: {
+          tags: {
+            elemMatch: {
+              contentful_id: {
+                eq: process.env.MARKET_TAG_NAME
+              }
+            }
+          }
+        }
+      }
+    : {};
+  const assetTypeFilters = assetTypes.length
     ? { assetType: { id: { in: assetTypes.map(({ id }) => id) } } }
     : {};
 
   const { entries } = await context.nodeModel.findAll<ContentfulDocument>({
     query: {
-      filter
+      filter: {
+        ...assetTypeFilters,
+        ...marketFilters
+      }
     },
     type: "ContentfulDocument"
   });
@@ -162,23 +209,50 @@ const generateBrandFilterFromDocuments = async (
 ): Promise<ProductFilter> => {
   const microCopyKey = "filterLabels.Brand";
 
-  const resources = await context.nodeModel.findOne<Node>({
-    query: {
-      filter: {
-        site: {
-          elemMatch: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE }
-          }
+  const marketCode = process.env.SPACE_MARKET_CODE;
+  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+  if (!marketCode || !localeCode) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+    );
+    return;
+  }
+  const currSite = await context.nodeModel.findOne<ContentfulSite>(
+    {
+      query: {
+        filter: {
+          countryCode: { eq: marketCode },
+          node_locale: { eq: localeCode }
         }
-      }
+      },
+      type: "ContentfulSite"
     },
+    { connectionType: "ContentfulSite" }
+  );
+  if (!currSite) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
+    );
+    return;
+  }
+  const resource = await context.nodeModel.getNodeById({
+    id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
+  if (!resource) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
+    );
+    return;
+  }
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
   const microCopies = await context.nodeModel.getNodesByIds({
-    ids: resources.microCopy___NODE,
+    ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
 
@@ -216,23 +290,50 @@ const generateAssetTypeFilterFromDocuments = async (
   context: Context
 ): Promise<ProductFilter> => {
   const microCopyKey = microCopy.FILTER_LABELS_ASSET_TYPE;
-  const resources = await context.nodeModel.findOne<Node>({
-    query: {
-      filter: {
-        site: {
-          elemMatch: {
-            countryCode: { eq: process.env.SPACE_MARKET_CODE }
-          }
+  const marketCode = process.env.SPACE_MARKET_CODE;
+  const localeCode = process.env.GATSBY_MARKET_LOCALE_CODE;
+  if (!marketCode || !localeCode) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Please check enviroment variables 'SPACE_MARKET_CODE' or 'GATSBY_MARKET_LOCALE_CODE' not set!`
+    );
+    return;
+  }
+  const currSite = await context.nodeModel.findOne<ContentfulSite>(
+    {
+      query: {
+        filter: {
+          countryCode: { eq: marketCode },
+          node_locale: { eq: localeCode }
         }
-      }
+      },
+      type: "ContentfulSite"
     },
+    { connectionType: "ContentfulSite" }
+  );
+  if (!currSite) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Site not found in contentful: for country code: '${marketCode}' and locale: '${localeCode}'.`
+    );
+    return;
+  }
+  const resource = await context.nodeModel.getNodeById({
+    id: currSite.resources___NODE as string,
     type: "ContentfulResources"
   });
+  if (!resource) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Resource not found: for site in contentful with id: '${currSite.contentful_id}'.`
+    );
+    return;
+  }
 
   // MC access in consistently happens only via resource content type
   // that means a market is only aware of MCs which are associated with the resource
   const microCopies = await context.nodeModel.getNodesByIds({
-    ids: resources.microCopy___NODE,
+    ids: resource.microCopy___NODE,
     type: "ContentfulMicroCopy"
   });
 

@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
 import { Link, LinkProps } from "@material-ui/core";
 import classnames from "classnames";
-import Icon from "../icon/Icon";
+import React, { useContext } from "react";
 import { withClickable } from "../clickable/Clickable";
 import { ColorPairContext } from "../color-pair/ColorPair";
+import Icon from "../icon/Icon";
 import { transformHyphens } from "../utils/commonUtils";
+import styles from "./AnchorLink.module.scss";
 import arrowForwardIcon from "./icons/arrow-right.svg";
 import launchIcon from "./icons/launch.svg";
-import styles from "./AnchorLink.module.scss";
 
 export type Props = Omit<LinkProps, "color"> & {
   children: React.ReactNode;
@@ -59,6 +59,7 @@ const AnchorLink = ({
         [styles[`Anchorlink--${colorFromTheme}`]!]:
           theme !== "white" && colorFromTheme !== "default"
       })}
+      aria-disabled={isDisabled}
       {...rest}
     >
       {iconStart ? icon : null}

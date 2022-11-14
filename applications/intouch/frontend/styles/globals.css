@@ -13,3 +13,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.ot-sdk-container {
+  display: block !important;
+}
+.ot-sdk-container * {
+  color: #3b3b3b !important;
+  font-size: 1rem !important;
+  font-family: Effra Regular !important;
+  line-height: 1.4 !important;
+}
+.ot-sdk-container a {
+  color: #0072b0 !important;
+  background-color: initial !important;
+  text-decoration: underline !important;
+}
