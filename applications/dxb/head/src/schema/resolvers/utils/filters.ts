@@ -49,3 +49,6 @@ export const getPlpFilters = ({
   }
   return [];
 };
+
+export const transformFilterKeys = (filters: string[]): string[] =>
+  filters.map((filter) => filter.replace(".", "$"));

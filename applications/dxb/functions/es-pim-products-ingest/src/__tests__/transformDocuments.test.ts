@@ -942,7 +942,7 @@ describe("transformDocuments", () => {
       BRAND: { code: "BMI", name: "BMI" }
     });
     getClassificationsFilters.mockReturnValueOnce({
-      "APPEARANCEATTRIBUTES.COLOUR": { code: "red", name: "red" }
+      APPEARANCEATTRIBUTES$COLOUR: { code: "red", name: "red" }
     });
 
     const transformedDocuments = await transformDocuments(product, locale);
@@ -972,7 +972,7 @@ describe("transformDocuments", () => {
       BRAND: { code: "BMI", name: "BMI" }
     });
     getClassificationsFilters.mockReturnValueOnce({
-      "APPEARANCEATTRIBUTES.COLOUR": { code: "red", name: "red" }
+      APPEARANCEATTRIBUTES$COLOUR: { code: "red", name: "red" }
     });
 
     const transformedDocuments = await transformDocuments(product, locale);

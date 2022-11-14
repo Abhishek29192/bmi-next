@@ -1,8 +1,8 @@
 import { createProduct } from "@bmi/elasticsearch-types";
 import {
-  prepareProducts,
   convertAttrToNumber,
-  getVisualiserAssetUrlByType
+  getVisualiserAssetUrlByType,
+  prepareProducts
 } from "../products";
 
 describe("products", () => {
@@ -13,12 +13,12 @@ describe("products", () => {
 
   it("sets snowFenceActive/isLargeTile/invert/invertY = false by default ", () => {
     const product = createProduct({
-      "APPEARANCEATTRIBUTES.COLOUR": [{ name: "black" }],
-      "GENERALINFORMATION.CLASSIFICATION": [{ name: "clay" }],
-      "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
-      "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
-      "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-      "TILESATTRIBUTES.THICKNESSREDUCTION": [{ name: "10" }],
+      APPEARANCEATTRIBUTES$COLOUR: [{ name: "black" }],
+      GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+      TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+      TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+      TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+      TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
       name: "Black tile",
       code: "black_tile",
       visualiserAssets: []
@@ -33,15 +33,15 @@ describe("products", () => {
 
   it("returns correctly mapped product", () => {
     const initialProduct = createProduct({
-      "APPEARANCEATTRIBUTES.COLOUR": [{ name: "black" }],
-      "GENERALINFORMATION.CLASSIFICATION": [{ name: "Clay" }],
-      "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
-      "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
-      "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-      "TILESATTRIBUTES.SNOWFENCEACTIVE": [{ name: "true" }],
-      "TILESATTRIBUTES.LARGETILE": [{ name: "true" }],
-      "TILESATTRIBUTES.INVERT": [{ name: "true" }],
-      "TILESATTRIBUTES.INVERTY": [{ name: "true" }],
+      APPEARANCEATTRIBUTES$COLOUR: [{ name: "black" }],
+      GENERALINFORMATION$CLASSIFICATION: [{ name: "Clay" }],
+      TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+      TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+      TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+      TILESATTRIBUTES$SNOWFENCEACTIVE: [{ name: "true" }],
+      TILESATTRIBUTES$LARGETILE: [{ name: "true" }],
+      TILESATTRIBUTES$INVERT: [{ name: "true" }],
+      TILESATTRIBUTES$INVERTY: [{ name: "true" }],
       name: "Black tile",
       code: "black_tile",
       visualiserAssets: []
@@ -81,12 +81,12 @@ describe("convertAttrToNumber", () => {
 
 describe("getVisualiserAssetUrlByType", () => {
   const product = createProduct({
-    "APPEARANCEATTRIBUTES.COLOUR": [{ name: "black" }],
-    "GENERALINFORMATION.CLASSIFICATION": [{ name: "clay" }],
-    "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
-    "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
-    "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-    "TILESATTRIBUTES.THICKNESSREDUCTION": [{ name: "10" }],
+    APPEARANCEATTRIBUTES$COLOUR: [{ name: "black" }],
+    GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+    TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+    TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+    TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+    TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
     name: "Black tile",
     code: "black_tile",
     visualiserAssets: [

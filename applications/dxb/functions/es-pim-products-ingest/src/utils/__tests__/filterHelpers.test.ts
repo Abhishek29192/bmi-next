@@ -129,7 +129,7 @@ describe("getClassificationFilters", () => {
     const classificationFilters = getClassificationsFilters(product);
 
     expect(classificationFilters).toEqual({
-      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [{ code: "gloss", name: "Gloss" }]
+      APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
     });
   });
 
@@ -157,7 +157,7 @@ describe("getClassificationFilters", () => {
     const classificationFilters = getClassificationsFilters(product);
 
     expect(classificationFilters).toEqual({
-      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [{ code: "gloss", name: "Gloss" }]
+      APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
     });
   });
 
@@ -196,7 +196,7 @@ describe("getClassificationFilters", () => {
     const classificationFilters = getClassificationsFilters(product);
 
     expect(classificationFilters).toEqual({
-      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [{ code: "gloss", name: "Gloss" }]
+      APPEARANCEATTRIBUTES$TEXTUREFAMILY: [{ code: "gloss", name: "Gloss" }]
     });
   });
 
@@ -249,7 +249,7 @@ describe("getClassificationFilters", () => {
     const classificationFilters = getClassificationsFilters(product);
 
     expect(classificationFilters).toEqual({
-      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [
+      APPEARANCEATTRIBUTES$TEXTUREFAMILY: [
         { code: "matte", name: "Matte" },
         { code: "gloss", name: "Gloss" },
         { code: "satin", name: "Satin" }

@@ -10,6 +10,7 @@ import {
   resolveDocumentsFiltersFromContentful,
   resolveDocumentsFiltersFromProducts
 } from "./utils/documents";
+import { transformFilterKeys } from "./utils/filters";
 
 const getProductDocumentsFilters = async (
   source: ContentfulDocumentLibraryPage,
@@ -17,14 +18,14 @@ const getProductDocumentsFilters = async (
   assetTypes: ContentfulAssetType[]
 ): Promise<ProductFilter[]> => {
   if (source.source === "PIM" || source.source === "ALL") {
-    let allowFilterBy = (source.allowFilterBy || []) as string[];
+    let allowFilterBy = transformFilterKeys(source.allowFilterBy || []);
     switch (source.resultsType) {
       case "Simple":
         allowFilterBy = [
           "AssetType",
           "Brand",
           "ProductFamily",
-          "appearanceAttributes.texturefamily",
+          "appearanceAttributes$texturefamily",
           ...allowFilterBy
         ];
         break;

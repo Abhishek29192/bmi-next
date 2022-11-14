@@ -12,16 +12,16 @@ export const prepareProducts = (products: ESProduct[]): PIMTile[] => {
 
 export const convertEsValues = (product: ESProduct): PIMTile => {
   const {
-    "APPEARANCEATTRIBUTES.COLOUR": colour,
-    "GENERALINFORMATION.CLASSIFICATION": category,
-    "TILESATTRIBUTES.VERTICALOVERLAP": verticalOverlap,
-    "TILESATTRIBUTES.HORIZONTALOVERLAP": horizontalOverlap,
-    "TILESATTRIBUTES.HORIZONTALOFFSET": horizontalOffset,
-    "TILESATTRIBUTES.SNOWFENCEACTIVE": snowFenceActive,
-    "TILESATTRIBUTES.LARGETILE": isLargeTile,
-    "TILESATTRIBUTES.THICKNESSREDUCTION": thicknessReduction,
-    "TILESATTRIBUTES.INVERT": invert,
-    "TILESATTRIBUTES.INVERTY": invertY
+    APPEARANCEATTRIBUTES$COLOUR: colour,
+    GENERALINFORMATION$CLASSIFICATION: category,
+    TILESATTRIBUTES$VERTICALOVERLAP: verticalOverlap,
+    TILESATTRIBUTES$HORIZONTALOVERLAP: horizontalOverlap,
+    TILESATTRIBUTES$HORIZONTALOFFSET: horizontalOffset,
+    TILESATTRIBUTES$SNOWFENCEACTIVE: snowFenceActive,
+    TILESATTRIBUTES$LARGETILE: isLargeTile,
+    TILESATTRIBUTES$THICKNESSREDUCTION: thicknessReduction,
+    TILESATTRIBUTES$INVERT: invert,
+    TILESATTRIBUTES$INVERTY: invertY
   } = product;
 
   const getAssetUrl = getVisualiserAssetUrlByType(product);

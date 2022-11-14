@@ -212,7 +212,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "MEASUREMENTS.WIDTH"
+          "MEASUREMENTS$WIDTH"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -243,7 +243,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "MEASUREMENTS.HEIGHT"
+          "MEASUREMENTS$HEIGHT"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -280,7 +280,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "APPEARANCEATTRIBUTES.COLORFAMILY"
+          "APPEARANCEATTRIBUTES$COLORFAMILY"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -315,7 +315,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "APPEARANCEATTRIBUTES.COLORFAMILY"
+          "APPEARANCEATTRIBUTES$COLORFAMILY"
         );
 
         expect(featureNameAsProp).toEqual([
