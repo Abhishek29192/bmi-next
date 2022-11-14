@@ -29,6 +29,7 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
   return {
     name: product.name,
     code: product.code,
+    path: product.path,
     colour: colour[0].name,
     category: category[0].name.toLowerCase(),
     verticalOverlap: convertAttrToNumber(verticalOverlap[0]),
