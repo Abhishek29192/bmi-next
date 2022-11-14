@@ -668,8 +668,7 @@ const getIsVisualiserAvailable = (
     "tilesAttributes.horizontalOverlap",
     "tilesAttributes.horizontalOffset",
     "tilesAttributes.snowFenceActive",
-    "tilesAttributes.largeTile",
-    "tilesAttributes.thicknessReduction"
+    "tilesAttributes.largeTile"
   ];
 
   const hasChannel = categories.find(
@@ -719,8 +718,7 @@ const getIsVisualiserAvailable = (
       if (
         featureCode === "tilesAttributes.verticalOverlap" ||
         featureCode === "tilesAttributes.horizontalOverlap" ||
-        featureCode === "tilesAttributes.horizontalOffset" ||
-        featureCode === "tilesAttributes.thicknessReduction"
+        featureCode === "tilesAttributes.horizontalOffset"
       ) {
         return (
           Number(featureValues[0].value) === 0 ||
@@ -741,7 +739,7 @@ const hasRequiredVisualiserAssets = (
     "LOW_DETAIL_MESH_REFERENCE",
     "METALLIC_ROUGHNESS_MAP_REFERENCE",
     "NORMAL_MAP_REFERENCE",
-    "RIDGE_END_REFERENCE",
+    "DIFFUSE_MAP_REFERENCE",
     "RIDGE_REFERENCE"
   ];
 

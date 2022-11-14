@@ -9456,7 +9456,6 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
         createAsset({ assetType: "RIDGE_REFERENCE" })
       ],
       categories: [
@@ -9481,8 +9480,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ],
       categories: [
         createCategory({ categoryType: "Channel", code: "VISUALISER" })
@@ -9515,8 +9514,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ]
     });
     const transformedProduct = await transformProduct(product);
@@ -9565,11 +9564,6 @@ describe("transformProduct", () => {
               code: "bmiClassificationCatalog/1.0/tilesAttributes.largeTile",
               name: "tilesAttributes",
               featureValues: [{ value: "true" }]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction",
-              name: "tilesAttributes",
-              featureValues: [{ value: "10" }]
             })
           ]
         })
@@ -9582,8 +9576,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ]
     });
     const transformedProduct = await transformProduct(product);
