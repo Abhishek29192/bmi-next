@@ -45,7 +45,7 @@ export const getCount = async (searchQuery: string): Promise<number> => {
       "Category"
     ],
     filters: [],
-    groupByVariant: true,
+    groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
     page: 0,
     pageSize: 0,
     searchQuery
@@ -133,7 +133,7 @@ const SearchTabPanelProducts = (props: Props) => {
         "Category"
       ],
       filters,
-      groupByVariant: true,
+      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
       page,
       pageSize,
       searchQuery
