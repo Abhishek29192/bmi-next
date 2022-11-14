@@ -77,12 +77,15 @@ const DocumentDownloadSection = ({
                       )}
                       variant="text"
                       startIcon={
-                        <Icon
-                          // eslint-disable-next-line security/detect-object-injection
-                          source={fileIconsMap[contentType]}
-                          // TODO: consider responsibility of icon styles
-                          style={iconStyle}
-                        />
+                        // eslint-disable-next-line security/detect-object-injection
+                        fileIconsMap[contentType] && (
+                          <Icon
+                            // eslint-disable-next-line security/detect-object-injection
+                            source={fileIconsMap[contentType]}
+                            // TODO: consider responsibility of icon styles
+                            style={iconStyle}
+                          />
+                        )
                       }
                     >
                       {filesize(details.size)}
