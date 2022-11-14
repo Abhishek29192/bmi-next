@@ -52,7 +52,7 @@ export const battenCalc = (vertices: Vertex[], mainTileVariant: Tile) => {
   for (let i = 0; i < battenCount + 1; i += 1) {
     const battenHeight = firstBatten + i * spacing;
     const topOfTile = battenHeight;
-    const bottomOfTile = Math.max(0, battenHeight - mainTileVariant.height);
+    const bottomOfTile = Math.max(0, battenHeight - mainTileVariant.length);
     // Keep track of intersections with y = batten, and the edges of the shapes
     let intersections = [];
     // First consider edge between final point in list and first point

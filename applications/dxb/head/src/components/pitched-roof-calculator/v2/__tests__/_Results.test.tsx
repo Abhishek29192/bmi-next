@@ -482,7 +482,7 @@ const resultsProps: ResultProps = {
     eaveGauge: 38,
     ridgeSpacing: 5,
     width: 33.2,
-    height: 42,
+    length: 42,
     brokenBond: true
   },
   tileOptions: {

@@ -94,7 +94,7 @@ const tile = createESProduct({
       value: "330"
     }
   ],
-  "MEASUREMENTS.HEIGHT": [
+  "MEASUREMENTS.LENGTH": [
     {
       code: "44cm",
       name: "440 cm",

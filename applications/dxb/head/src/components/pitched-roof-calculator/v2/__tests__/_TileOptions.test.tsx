@@ -22,7 +22,7 @@ const tileVariant = createProduct<Tile>({
   eaveGauge: 23,
   ridgeSpacing: 5,
   minBattenSpacing: 18,
-  height: 30,
+  length: 30,
   packSize: 20
 });
 
