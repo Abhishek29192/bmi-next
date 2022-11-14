@@ -28,7 +28,7 @@ import tileSlice from "./TileSlice";
 import { Colour, PIMTile, Siding } from "./Types";
 import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
 
-interface Props extends ViewerProps {
+export interface Props extends ViewerProps {
   siding: Siding;
   houseModelUrl?: string;
 }
@@ -109,29 +109,30 @@ export default class HouseViewer extends Viewer<Props, State> {
       const ridgeEndPromise = tile.ridgeEndRef
         ? modelCache(tile.ridgeEndRef)
         : undefined;
-
       // put inside this request to prevent 'white flashes'
-      const promiseResults = await Promise.all([
+      const promiseResults = await Promise.allSettled([
         tilePromise,
         ridgePromise,
         ridgeEndPromise
       ]);
-      const results = promiseResults.filter(Boolean) as GLTF[];
       // Find the meshes:
-      const tileMesh = this.findMesh(results[0]);
+      const tileMesh =
+        promiseResults[0].status === "fulfilled" && promiseResults[0].value
+          ? this.findMesh(promiseResults[0].value)
+          : undefined;
       if (!tileMesh) {
         return;
       }
       const ridgeMesh =
-        results.length >= 2 && results[1]
-          ? this.findMesh(results[1])
+        promiseResults[1].status === "fulfilled" && promiseResults[1].value
+          ? this.findMesh(promiseResults[1].value)
           : undefined;
       if (!ridgeMesh) {
         return;
       }
       const ridgeEndMesh =
-        results.length >= 3 && results[2]
-          ? this.findMesh(results[2])
+        promiseResults[2].status === "fulfilled" && promiseResults[2].value
+          ? this.findMesh(promiseResults[2].value)
           : undefined;
 
       // Generate the roof now:
@@ -202,7 +203,7 @@ export default class HouseViewer extends Viewer<Props, State> {
         const ridge = ridges[i];
         const ridgeBoundingBox = ridge.geometry.boundingBox;
         if (!ridgeBoundingBox) {
-          return;
+          continue;
         }
         let ridgeEndLength = 0;
         const ridgeLength = Math.abs(
@@ -299,7 +300,6 @@ export default class HouseViewer extends Viewer<Props, State> {
         ridgeInstance.position.copy(ridge.position);
 
         ridgeInstance.rotation.copy(ridge.rotation);
-
         roof.add(ridgeInstance);
       }
     }

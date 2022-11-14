@@ -39,7 +39,7 @@ import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewer from "./HouseViewer";
 import styles from "./styles/Visualiser.module.scss";
 import TileViewer from "./TileViewer";
-import { HouseType, Siding, Category, PIMTile } from "./Types";
+import { Category, HouseType, PIMTile, Siding } from "./Types";
 
 export type Parameters = {
   tileId?: string | number;
@@ -164,7 +164,6 @@ const Actions = ({
 };
 
 const SelectionOptions = ({
-  contentSource,
   defaultValue,
   products,
   title,
@@ -230,7 +229,6 @@ const TileSectorDialog = ({
     <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
-      onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
       className={classnames(
@@ -297,7 +295,6 @@ const SidingsSelectorDialog = ({
     <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
-      onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
       className={classnames(

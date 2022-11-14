@@ -1,8 +1,8 @@
 import { createProduct } from "@bmi/elasticsearch-types";
 import {
-  prepareProducts,
   convertAttrToNumber,
-  getVisualiserAssetUrlByType
+  getVisualiserAssetUrlByType,
+  prepareProducts
 } from "../products";
 
 describe("products", () => {

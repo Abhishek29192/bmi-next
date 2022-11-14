@@ -43,14 +43,6 @@ export default class TileViewer extends Viewer<Props, State> {
         this.normalImage = await textureCache(props.tile.normalMapRef);
       }
 
-      if (this.tileMaterial) {
-        this.tileMaterial.map = this.diffuseImage || null;
-        this.tileMaterial.metalnessMap = this.metalicImage || null;
-        this.tileMaterial.roughnessMap = this.metalicImage || null;
-        this.tileMaterial.normalMap = this.normalImage || null;
-        this.tileMaterial.needsUpdate = true;
-      }
-
       let gltf: GLTF | undefined;
       // Load it:
       if (typeof props.tile.highDetailMeshRef === "string") {
