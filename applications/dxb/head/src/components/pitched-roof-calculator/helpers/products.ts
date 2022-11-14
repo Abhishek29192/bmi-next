@@ -51,17 +51,17 @@ export function transformClassificationAttributes(
   return products
     .map((product) => {
       const {
-        "APPEARANCEATTRIBUTES.COLOUR": color,
-        "GENERALINFORMATION.CLASSIFICATION": category,
-        "TILESATTRIBUTES.BROKENBOND": brokenBond,
-        "MEASUREMENTS.WIDTH": width,
-        "TILESATTRIBUTES.MINIMUMBATTENSPACING": minBattenSpacing,
-        "TILESATTRIBUTES.MAXIMUMBATTENSPACING": maxBattenSpacing,
-        "TILESATTRIBUTES.RIDGESPACE": ridgeSpacing,
-        "TILESATTRIBUTES.EAVEGAUGE": eaveGauge,
-        "MEASUREMENTS.LENGTH": length,
-        "UNDERLAYATTRIBUTES.OVERLAP": overlap,
-        "PACKAGINGINFORMATION.QUANTITYPERUNIT": packSize,
+        APPEARANCEATTRIBUTES$COLOUR: color,
+        GENERALINFORMATION$CLASSIFICATION: category,
+        TILESATTRIBUTES$BROKENBOND: brokenBond,
+        MEASUREMENTS$WIDTH: width,
+        TILESATTRIBUTES$MINIMUMBATTENSPACING: minBattenSpacing,
+        TILESATTRIBUTES$MAXIMUMBATTENSPACING: maxBattenSpacing,
+        TILESATTRIBUTES$RIDGESPACE: ridgeSpacing,
+        TILESATTRIBUTES$EAVEGAUGE: eaveGauge,
+        MEASUREMENTS$LENGTH: length,
+        UNDERLAYATTRIBUTES$OVERLAP: overlap,
+        PACKAGINGINFORMATION$QUANTITYPERUNIT: packSize,
         ...rest
       } = product;
 
@@ -129,7 +129,7 @@ export const groupByProductType = (
 } => {
   const groupedProducts = groupBy(
     products,
-    (product) => product["GENERALINFORMATION.PRODUCTTYPE"][0].code
+    (product) => product["GENERALINFORMATION$PRODUCTTYPE"][0].code
   );
 
   return {

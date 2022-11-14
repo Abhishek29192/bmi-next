@@ -169,9 +169,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -185,16 +185,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -213,9 +213,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -260,9 +260,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -318,9 +318,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters,
@@ -333,16 +333,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -361,9 +361,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -408,9 +408,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -459,9 +459,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -474,16 +474,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -502,9 +502,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -586,9 +586,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -602,16 +602,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -630,9 +630,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -677,9 +677,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -735,9 +735,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -751,16 +751,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -779,9 +779,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -826,9 +826,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -884,9 +884,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -900,16 +900,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -928,9 +928,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -975,9 +975,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1033,9 +1033,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -1049,16 +1049,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1077,9 +1077,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1124,9 +1124,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1182,9 +1182,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -1198,16 +1198,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1226,9 +1226,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1273,9 +1273,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1331,9 +1331,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -1347,16 +1347,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1375,9 +1375,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1422,9 +1422,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1480,9 +1480,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       categoryCodes: ["foo"],
@@ -1496,16 +1496,16 @@ describe("compileElasticSearchQuery function", () => {
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+          "APPEARANCEATTRIBUTES$COLOURFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$COLOURFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
           },
-          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+          "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Object {
             "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "field": "APPEARANCEATTRIBUTES$TEXTUREFAMILY.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1524,9 +1524,9 @@ describe("compileElasticSearchQuery function", () => {
               "size": "300",
             },
           },
-          "GENERALINFORMATION.MATERIALS": Object {
+          "GENERALINFORMATION$MATERIALS": Object {
             "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "field": "GENERALINFORMATION$MATERIALS.code.keyword",
               "include": undefined,
               "size": "300",
             },
@@ -1571,9 +1571,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1629,9 +1629,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters,
@@ -1657,9 +1657,9 @@ describe("compileElasticSearchQuery function", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters,

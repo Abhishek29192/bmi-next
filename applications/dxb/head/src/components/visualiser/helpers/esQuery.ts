@@ -5,11 +5,11 @@ export const getProductsQuery = () => ({
       must: [
         { match: { "CHANNEL.code.keyword": "VISUALISER" } },
         { exists: { field: "name" } },
-        { exists: { field: "TILESATTRIBUTES.VERTICALOVERLAP" } },
-        { exists: { field: "TILESATTRIBUTES.HORIZONTALOVERLAP" } },
-        { exists: { field: "TILESATTRIBUTES.HORIZONTALOFFSET" } },
-        { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } },
-        { exists: { field: "APPEARANCEATTRIBUTES.COLOUR" } },
+        { exists: { field: "TILESATTRIBUTES$VERTICALOVERLAP" } },
+        { exists: { field: "TILESATTRIBUTES$HORIZONTALOVERLAP" } },
+        { exists: { field: "TILESATTRIBUTES$HORIZONTALOFFSET" } },
+        { exists: { field: "GENERALINFORMATION$CLASSIFICATION" } },
+        { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } },
         {
           match: {
             "visualiserAssets.assetType.keyword": "HIGH_DETAIL_MESH_REFERENCE"

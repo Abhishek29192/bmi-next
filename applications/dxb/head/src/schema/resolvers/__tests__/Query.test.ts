@@ -20,9 +20,13 @@ jest.mock("@bmi/utils", () => {
 });
 
 let getPlpFilters = jest.fn();
-jest.mock("../utils/filters", () => ({
-  getPlpFilters: (...args) => getPlpFilters(...args)
-}));
+jest.mock("../utils/filters", () => {
+  const actual = jest.requireActual("../utils/filters");
+  return {
+    ...actual,
+    getPlpFilters: (...args) => getPlpFilters(...args)
+  };
+});
 
 const resolveDocumentsFromProducts = jest.fn();
 jest.mock("../utils/documents", () => ({
@@ -498,9 +502,9 @@ describe("plpFilters", () => {
       const filters = {
         allowFilterBy: [
           "Brand",
-          "appearanceAttributes.colourFamily",
-          "generalInformation.materials",
-          "appearanceAttributes.textureFamily"
+          "appearanceAttributes$colourFamily",
+          "generalInformation$materials",
+          "appearanceAttributes$textureFamily"
         ],
         filters: []
       };
@@ -557,9 +561,9 @@ describe("plpFilters", () => {
       expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [
           "Brand",
-          "appearanceAttributes.colourFamily",
-          "generalInformation.materials",
-          "appearanceAttributes.textureFamily"
+          "appearanceAttributes$colourFamily",
+          "generalInformation$materials",
+          "appearanceAttributes$textureFamily"
         ],
         products: [
           {
@@ -592,9 +596,9 @@ describe("plpFilters", () => {
           "Brand",
           "ProductFamily",
           "ProductLine",
-          "appearanceAttributes.colourFamily",
-          "generalInformation.materials",
-          "appearanceAttributes.textureFamily",
+          "appearanceAttributes$colourFamily",
+          "generalInformation$materials",
+          "appearanceAttributes$textureFamily",
           "PRODUCT_NO"
         ],
         filters: []
@@ -654,9 +658,9 @@ describe("plpFilters", () => {
           "Brand",
           "ProductFamily",
           "ProductLine",
-          "appearanceAttributes.colourFamily",
-          "generalInformation.materials",
-          "appearanceAttributes.textureFamily",
+          "appearanceAttributes$colourFamily",
+          "generalInformation$materials",
+          "appearanceAttributes$textureFamily",
           "PRODUCT_NO"
         ],
         products: [
@@ -793,9 +797,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []
@@ -856,9 +860,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       products: [
@@ -891,9 +895,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []
@@ -929,9 +933,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []
@@ -977,9 +981,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []
@@ -1019,9 +1023,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []
@@ -1071,9 +1075,9 @@ describe("searchFilters", () => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters: []

@@ -15,22 +15,22 @@ import {
 
 describe("prepareProducts", () => {
   const tileClassificationAttributes = {
-    "APPEARANCEATTRIBUTES.COLOUR": [{ code: "black", name: "black" }],
-    "GENERALINFORMATION.CLASSIFICATION": [{ code: "clay", name: "clay" }],
-    "MEASUREMENTS.WIDTH": [{ value: "300", code: "300mm" }],
-    "MEASUREMENTS.LENGTH": [{ value: "30", code: "30cm" }],
-    "TILESATTRIBUTES.MINIMUMBATTENSPACING": [{ value: "10", code: "30cm" }],
-    "TILESATTRIBUTES.MAXIMUMBATTENSPACING": [{ value: "20", code: "30cm" }],
-    "TILESATTRIBUTES.RIDGESPACE": [{ value: "30", code: "30cm" }],
-    "TILESATTRIBUTES.EAVEGAUGE": [{ value: "40", code: "30cm" }],
-    "GENERALINFORMATION.PRODUCTTYPE": [{ code: ProductType.tile }]
+    APPEARANCEATTRIBUTES$COLOUR: [{ code: "black", name: "black" }],
+    GENERALINFORMATION$CLASSIFICATION: [{ code: "clay", name: "clay" }],
+    MEASUREMENTS$WIDTH: [{ value: "300", code: "300mm" }],
+    MEASUREMENTS$LENGTH: [{ value: "30", code: "30cm" }],
+    TILESATTRIBUTES$MINIMUMBATTENSPACING: [{ value: "10", code: "30cm" }],
+    TILESATTRIBUTES$MAXIMUMBATTENSPACING: [{ value: "20", code: "30cm" }],
+    TILESATTRIBUTES$RIDGESPACE: [{ value: "30", code: "30cm" }],
+    TILESATTRIBUTES$EAVEGAUGE: [{ value: "40", code: "30cm" }],
+    GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.tile }]
   };
 
   describe("Tile attributes", () => {
     it("returns correct attributes for tiles", () => {
       const product = createProduct({
         ...tileClassificationAttributes,
-        "TILESATTRIBUTES.BROKENBOND": [{ value: "true" }],
+        TILESATTRIBUTES$BROKENBOND: [{ value: "true" }],
         baseProduct: {
           code: "base_product_code",
           name: "base product"
@@ -65,7 +65,7 @@ describe("prepareProducts", () => {
     it("ignores product if measurements are wrong", () => {
       const product = createProduct({
         ...tileClassificationAttributes,
-        "MEASUREMENTS.WIDTH": [{ value: "mock", code: "mock" }],
+        MEASUREMENTS$WIDTH: [{ value: "mock", code: "mock" }],
         baseProduct: {
           code: "base_product_code",
           name: "base product"
@@ -79,7 +79,7 @@ describe("prepareProducts", () => {
     it("returns 'packSize' field", () => {
       const product = createProduct({
         ...tileClassificationAttributes,
-        "PACKAGINGINFORMATION.QUANTITYPERUNIT": [
+        PACKAGINGINFORMATION$QUANTITYPERUNIT: [
           { value: "20", code: "20", name: 20 }
         ],
         baseProduct: {
@@ -97,10 +97,10 @@ describe("prepareProducts", () => {
   describe("Underlay attributes", () => {
     it("returns correct attributes for underlay", () => {
       const product = createProduct({
-        "MEASUREMENTS.LENGTH": [{ value: "1500", code: "1500cm" }],
-        "MEASUREMENTS.WIDTH": [{ value: "300", code: "300cm" }],
-        "UNDERLAYATTRIBUTES.OVERLAP": [{ value: "10", code: "10cm" }],
-        "GENERALINFORMATION.PRODUCTTYPE": [{ code: ProductType.underlay }]
+        MEASUREMENTS$LENGTH: [{ value: "1500", code: "1500cm" }],
+        MEASUREMENTS$WIDTH: [{ value: "300", code: "300cm" }],
+        UNDERLAYATTRIBUTES$OVERLAP: [{ value: "10", code: "10cm" }],
+        GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.underlay }]
       });
 
       const underlay = prepareProducts([product]).underlays[0];
@@ -113,8 +113,8 @@ describe("prepareProducts", () => {
   describe("Gutter and GutterHook related attributes", () => {
     it("returns correct attributes for gutter", () => {
       const product = createProduct({
-        "MEASUREMENTS.LENGTH": [{ value: "1500", code: "1500cm" }],
-        "GENERALINFORMATION.PRODUCTTYPE": [{ code: ProductType.gutter }],
+        MEASUREMENTS$LENGTH: [{ value: "1500", code: "1500cm" }],
+        GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.gutter }],
         baseProduct: {
           code: "base_product_code",
           name: "base product"
@@ -127,8 +127,8 @@ describe("prepareProducts", () => {
 
     it("returns correct attributes for gutterHooks", () => {
       const product = createProduct({
-        "MEASUREMENTS.LENGTH": [{ value: "1500", code: "1500cm" }],
-        "GENERALINFORMATION.PRODUCTTYPE": [{ code: ProductType.gutterHook }]
+        MEASUREMENTS$LENGTH: [{ value: "1500", code: "1500cm" }],
+        GENERALINFORMATION$PRODUCTTYPE: [{ code: ProductType.gutterHook }]
       });
 
       const gutterHook = prepareProducts([product]).gutterHooks[0];
@@ -189,18 +189,18 @@ describe("transformProductReferences", () => {
 
   const hip = createProduct({
     code: "hip_product",
-    "MEASUREMENTS.LENGTH": [{ value: "35", code: "35cm" }]
+    MEASUREMENTS$LENGTH: [{ value: "35", code: "35cm" }]
   });
   const firstAccessory = createProduct({
     code: "accessory",
-    "GENERALINFORMATION.CLASSIFICATION": [
+    GENERALINFORMATION$CLASSIFICATION: [
       { code: ProductCategory.Accessories, name: ProductCategory.Accessories }
     ]
   });
 
   const halfTile = createProduct({
     code: "half_tile",
-    "MEASUREMENTS.WIDTH": [{ value: "30", code: "30cm" }]
+    MEASUREMENTS$WIDTH: [{ value: "30", code: "30cm" }]
   });
 
   it("groups products product references correctly", () => {
@@ -218,7 +218,7 @@ describe("transformProductReferences", () => {
   it("returns null if length based product doesn't have 'length' field", () => {
     const product = {
       ...hip,
-      "MEASUREMENTS.LENGTH": undefined
+      MEASUREMENTS$LENGTH: undefined
     };
     const res = transformProductReferences<ReferencedTileProducts>(
       productReferences,
@@ -232,7 +232,7 @@ describe("transformProductReferences", () => {
   it("returns null if width based product doesn't have 'width' field", () => {
     const product = {
       ...halfTile,
-      "MEASUREMENTS.WIDTH": undefined
+      MEASUREMENTS$WIDTH: undefined
     };
     const res = transformProductReferences<ReferencedTileProducts>(
       productReferences,

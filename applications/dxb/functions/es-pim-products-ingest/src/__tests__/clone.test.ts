@@ -342,7 +342,7 @@ describe("CLONE tests", () => {
 
     it("should return correct code value if pimClassificationNameSpace populated as undefined", () => {
       const code = "pim-namespace/1.0/feature-code-1";
-      const expectedCode = "PIM-NAMESPACE1.0/FEATURE-CODE-1";
+      const expectedCode = "PIM-NAMESPACE1$0/FEATURE-CODE-1";
       const pimClassificationNameSpace = undefined;
       const classifications: Array<Classification> = [
         createClassification({

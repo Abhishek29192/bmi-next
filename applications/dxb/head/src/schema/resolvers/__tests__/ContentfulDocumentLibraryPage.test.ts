@@ -96,7 +96,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "AssetType",
         "Brand",
         "ProductFamily",
-        "appearanceAttributes.texturefamily"
+        "appearanceAttributes$texturefamily"
       ]
     );
     expect(mockFindAll).not.toHaveBeenCalled();
@@ -159,8 +159,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "AssetType",
         "Brand",
         "ProductFamily",
-        "appearanceAttributes.texturefamily",
-        "appearanceAttributes.colour"
+        "appearanceAttributes$texturefamily",
+        "appearanceAttributes$colour"
       ]
     );
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -276,7 +276,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
+      ["Brand", "ProductFamily", "appearanceAttributes$colour"]
     );
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockResolveDocumentsFiltersFromContentful).not.toHaveBeenCalled();
@@ -815,7 +815,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "AssetType",
         "Brand",
         "ProductFamily",
-        "appearanceAttributes.texturefamily"
+        "appearanceAttributes$texturefamily"
       ]
     );
 
@@ -897,8 +897,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "AssetType",
         "Brand",
         "ProductFamily",
-        "appearanceAttributes.texturefamily",
-        "appearanceAttributes.colour"
+        "appearanceAttributes$texturefamily",
+        "appearanceAttributes$colour"
       ]
     );
 
@@ -999,8 +999,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         "AssetType",
         "Brand",
         "ProductFamily",
-        "appearanceAttributes.texturefamily",
-        "appearanceAttributes.colour"
+        "appearanceAttributes$texturefamily",
+        "appearanceAttributes$colour"
       ]
     );
 
@@ -1155,7 +1155,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
+      ["Brand", "ProductFamily", "appearanceAttributes$colour"]
     );
 
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -1251,7 +1251,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
+      ["Brand", "ProductFamily", "appearanceAttributes$colour"]
     );
 
     expect(mockGetNodeById).not.toHaveBeenCalled();

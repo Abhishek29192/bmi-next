@@ -18,22 +18,22 @@ export const getProductsQuery = (pitches: number[]) => ({
               ...sharedESRules,
               {
                 match: {
-                  "GENERALINFORMATION.PRODUCTTYPE.code": ProductType.tile
+                  "GENERALINFORMATION$PRODUCTTYPE.code": ProductType.tile
                 }
               },
-              { exists: { field: "MEASUREMENTS.WIDTH" } },
-              { exists: { field: "MEASUREMENTS.LENGTH" } },
-              { exists: { field: "TILESATTRIBUTES.MINIMUMBATTENSPACING" } },
-              { exists: { field: "TILESATTRIBUTES.MAXIMUMBATTENSPACING" } },
-              { exists: { field: "TILESATTRIBUTES.RIDGESPACE" } },
-              { exists: { field: "TILESATTRIBUTES.EAVEGAUGE" } },
-              { exists: { field: "GENERALINFORMATION.CLASSIFICATION" } },
-              { exists: { field: "APPEARANCEATTRIBUTES.COLOUR" } }
+              { exists: { field: "MEASUREMENTS$WIDTH" } },
+              { exists: { field: "MEASUREMENTS$LENGTH" } },
+              { exists: { field: "TILESATTRIBUTES$MINIMUMBATTENSPACING" } },
+              { exists: { field: "TILESATTRIBUTES$MAXIMUMBATTENSPACING" } },
+              { exists: { field: "TILESATTRIBUTES$RIDGESPACE" } },
+              { exists: { field: "TILESATTRIBUTES$EAVEGAUGE" } },
+              { exists: { field: "GENERALINFORMATION$CLASSIFICATION" } },
+              { exists: { field: "APPEARANCEATTRIBUTES$COLOUR" } }
             ],
             filter: pitches.flatMap((pitchValue) => [
               {
                 range: {
-                  "TILESATTRIBUTES.EAVEGAUGEENDANGLE.value": {
+                  "TILESATTRIBUTES$EAVEGAUGEENDANGLE.value": {
                     gte: pitchValue,
                     lt: 90
                   }
@@ -41,14 +41,14 @@ export const getProductsQuery = (pitches: number[]) => ({
               },
               {
                 range: {
-                  "TILESATTRIBUTES.EAVEGAUGESTARTANGLE.value": {
+                  "TILESATTRIBUTES$EAVEGAUGESTARTANGLE.value": {
                     lte: pitchValue
                   }
                 }
               },
               {
                 range: {
-                  "TILESATTRIBUTES.MAXGAUGEENDANGLE.value": {
+                  "TILESATTRIBUTES$MAXGAUGEENDANGLE.value": {
                     gte: pitchValue,
                     lt: 90
                   }
@@ -56,14 +56,14 @@ export const getProductsQuery = (pitches: number[]) => ({
               },
               {
                 range: {
-                  "TILESATTRIBUTES.MAXGAUGESTARTANGLE.value": {
+                  "TILESATTRIBUTES$MAXGAUGESTARTANGLE.value": {
                     lte: pitchValue
                   }
                 }
               },
               {
                 range: {
-                  "TILESATTRIBUTES.RIDGESPACEENDANGLE.value": {
+                  "TILESATTRIBUTES$RIDGESPACEENDANGLE.value": {
                     gte: pitchValue,
                     lt: 90
                   }
@@ -71,7 +71,7 @@ export const getProductsQuery = (pitches: number[]) => ({
               },
               {
                 range: {
-                  "TILESATTRIBUTES.RIDGESPACESTARTANGLE.value": {
+                  "TILESATTRIBUTES$RIDGESPACESTARTANGLE.value": {
                     lte: pitchValue
                   }
                 }
@@ -85,16 +85,16 @@ export const getProductsQuery = (pitches: number[]) => ({
               ...sharedESRules,
               {
                 match: {
-                  "GENERALINFORMATION.PRODUCTTYPE.code": ProductType.underlay
+                  "GENERALINFORMATION$PRODUCTTYPE.code": ProductType.underlay
                 }
               },
-              { exists: { field: "MEASUREMENTS.WIDTH" } },
-              { exists: { field: "MEASUREMENTS.LENGTH" } },
-              { exists: { field: "UNDERLAYATTRIBUTES.OVERLAP" } }
+              { exists: { field: "MEASUREMENTS$WIDTH" } },
+              { exists: { field: "MEASUREMENTS$LENGTH" } },
+              { exists: { field: "UNDERLAYATTRIBUTES$OVERLAP" } }
             ],
             filter: pitches.map((pitch) => ({
               range: {
-                "UNDERLAYATTRIBUTES.MINSUPPORTEDPITCH.value": {
+                "UNDERLAYATTRIBUTES$MINSUPPORTEDPITCH.value": {
                   lte: pitch
                 }
               }
@@ -107,13 +107,13 @@ export const getProductsQuery = (pitches: number[]) => ({
               ...sharedESRules,
               {
                 terms: {
-                  "GENERALINFORMATION.PRODUCTTYPE.code.keyword": [
+                  "GENERALINFORMATION$PRODUCTTYPE.code.keyword": [
                     ProductType.gutter,
                     ProductType.gutterHook
                   ]
                 }
               },
-              { exists: { field: "MEASUREMENTS.LENGTH" } }
+              { exists: { field: "MEASUREMENTS$LENGTH" } }
             ]
           }
         }

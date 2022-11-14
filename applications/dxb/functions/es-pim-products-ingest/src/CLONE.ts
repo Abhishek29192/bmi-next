@@ -310,7 +310,7 @@ export const indexFeatures = (
         return {
           ...featureAsProp,
           // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          [featureCode.toUpperCase()]: nameAndCodeValues
+          [featureCode.toUpperCase().replace(".", "$")]: nameAndCodeValues
         };
       },
       {}

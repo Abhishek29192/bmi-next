@@ -97,7 +97,9 @@ export const generateFilters = (
   const eligibleFirestoreClassFilters =
     allowedFeatureFilters && allowedFeatureFilters.size > 0
       ? firestoreFilters.filter((firestoreFilter) =>
-          allowedFeatureFilters.has(firestoreFilter.filterCode.toLowerCase())
+          allowedFeatureFilters.has(
+            firestoreFilter.filterCode.replace(".", "$").toLowerCase()
+          )
         )
       : [];
 
@@ -204,8 +206,8 @@ export const generateFilters = (
       return {
         ...prevValue,
         [filterNameKey]: {
-          name: filterNameKey,
-          filterCode: filterNameKey,
+          name: filterNameKey.replace(".", "$"),
+          filterCode: filterNameKey.replace(".", "$"),
           label: groupLabel,
           value: [],
           options: allOptions.sort((a, b) => {
@@ -233,7 +235,7 @@ export const extractAllowedFeatures = (
   }
   const featuresFilters = new Set(
     allowedFilters
-      .filter((allowedFilter) => allowedFilter.indexOf(".") > -1)
+      .filter((allowedFilter) => allowedFilter.indexOf("$") > -1)
       .map((allowedFilter) => allowedFilter.toLowerCase())
   );
   const eligibleFeatureFilters = new Map<string, string[]>();
@@ -253,7 +255,7 @@ export const extractAllowedCategories = (
     allowedFilters
       .filter(
         (allowedFilter) =>
-          allowedFilter.indexOf("|") === -1 && allowedFilter.indexOf(".") === -1
+          allowedFilter.indexOf("|") === -1 && allowedFilter.indexOf("$") === -1
       )
       .map((filter) => filter)
   );
