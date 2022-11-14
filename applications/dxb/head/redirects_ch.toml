@@ -1,26 +1,31 @@
 [[redirects]]
  from="/ch/steildacheindeckung"
  to="/ch/steildachprodukte/"
+ status=301
  force=true
 
 [[redirects]]
  from="/ch/kontakt-neu"
  to="/ch/kontakt/"
+ status=301
  force=true
 
 [[redirects]]
  from="/ch/flachdachabdichtung-kunststoffbahnen"
  to="/ch/flachdachprodukte/alle-flachdachprodukte/"
+ status=301
  force=true
 
 [[redirects]]
  from="/ch/flachdachabdichtung-bitumenbahnen"
  to="/ch/flachdachprodukte/alle-flachdachprodukte/"
+ status=301
  force=true
 
 [[redirects]]
  from="/ch/downloads"
  to="/ch/downloads-and-services/alle-downloads/"
+ status=301
  force=true
 
 # Redirect root to /ch

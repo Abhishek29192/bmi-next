@@ -1,2166 +1,2599 @@
 [[redirects]]
  from="/be/verkooppunten"
  to="/be/contact/verkooppunten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/search-page"
  to="/be/search/?q="
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/verwerking"
  to="/be/kenniscentrum/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/renovatie-en-restauratie"
  to="/be/kenniscentrum/renovatie-van-het-dak/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/quiz"
  to="/be/diensten/bmi-academy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/nieuwbouw"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/garanties"
  to="/be/diensten/garanties-bmi-monier/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/duurzaamheid"
  to="/be/over-bmi/duurzaamheid/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/dakservice"
  to="/be/diensten/dakservice/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/bmi-academy/inschrijvingsformulier"
  to="/be/diensten/bmi-academy/inschrijvingsformulier/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/bmi-academy"
  to="/be/diensten/bmi-academy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals/bestekservice"
  to="/be/diensten/online-tools/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/professionals"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/zonnestroom"
  to="/be/zonnestroom-systemen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/zelfklevende-schuimstrook"
  to="/be/hellend-dak/daksysteemcomponenten/alle-andere-toepassingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/zadelvorst-noordboom-type-ho"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/wakaflex-schaar"
  to="/be/hellend-dak/daksysteemcomponenten/aansluitingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/wakaflex-roller"
  to="/be/hellend-dak/daksysteemcomponenten/aansluitingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/wakaflex"
  to="/be/p/wakaflex-140-mm-antraciet-5-m-687587428/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Faansluitingen%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vorsthaak-type-p"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vorsthaak-type-ho"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelvide-v2"
  to="/be/p/vogelvide-v2-antraciet-3431621598/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelvide-v1"
  to="/be/p/vogelvide-v1-antraciet-3568323835/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelvide-g2"
  to="/be/p/vogelvide-g2-antraciet-3257366471/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelvide-g1"
  to="/be/p/vogelvide-g1-antraciet-1842403663/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelvide"
  to="/be/hellend-dak/daksysteemcomponenten/dakvoet/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelschroot-panlatprofiel"
  to="/be/hellend-dak/daksysteemcomponenten/dakvoet/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelschroot-met-muiswering"
  to="/be/p/vogelschroot-met-muiswering-antraciet-718336434/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vogelmuisschroot-met-dubbele-kam"
  to="/be/p/vogelmuisschroot-met-dubbele-kam-antraciet-3376206052/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vlakke-mulden-halve-pan"
  to="/be/hellend-dak/keramische-dakpannen/vlakke-mulden/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vlakke-mulden-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/vlakke-mulden/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vlakke-mulden-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/vlakke-mulden/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vlakke-mulden"
  to="/be/hellend-dak/keramische-dakpannen/vlakke-mulden/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vh-variabel-ruysdael"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-ruysdael/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vh-variabel-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-ruysdael/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vh-variabel-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-ruysdael/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vh-variabel-breitner"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-breitner/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ventilerende-panlat"
  to="/be/p/ventilerende-panlat-antraciet-3224826387/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/vaporoll-vapotech-25"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-wakaflex-doorvoerpan"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-st-doorvoerset"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-scharnierkap-140-wakaflex-doorvoerpan"
  to="/be/hellend-dak/daksysteemcomponenten/aansluitingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-ruiterdrager-deelbaar"
  to="/be/p/universele-ruiterdrager-deelbaar-3966953668/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-kabeldoorvoerset-8"
  to="/be/p/universele-kabeldoorvoerset-8-antraciet-618223715/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-dampdichte-manchet-wakaflex-doorvoerpan"
  to="/be/hellend-dak/daksysteemcomponenten/aansluitingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-combivent"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-combipan"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/universele-afdichtingsband"
  to="/be/p/universele-afdichtingsband-15-m-x-30-cm-groen-3562004051/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tuile-plat-halve-pan"
  to="/be/hellend-dak/keramische-dakpannen/tuile-plat/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tuile-plat-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/tuile-plat/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tuile-plat-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/tuile-plat/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tuile-plat"
  to="/be/hellend-dak/keramische-dakpannen/tuile-plat/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-hv-vorst"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-hv-beginnoordboom"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-hv-begin-en-eindvorst"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-halve-pan"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-gevelpan-rechts-93-mm"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-gevelpan-rechts-110-mm"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-gevelpan-links-93-mm"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit-gevelpan-links-110-mm"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/tegalit"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/teewenpan-glazuron-halve-pan"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/teewenpan-glazuron-gevelpan-rechts"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/teewenpan-glazuron-gevelpan-links"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/teewenpan-glazuron"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/stonewold"
  to="/be/p/tegalit-diepzwart-dakpan-diepzwart-natura-3596999898/?pathname=%2Fbe%2Fhellend-dak%2Fbetondakpannen%2Ftegalit%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/spitsanker"
  to="/be/p/spitsanker-2879464669/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/sneldek"
  to="/be/p/sneldek-granietgrijs-dakpan-granietgrijs-natura-516979608/?pathname=%2Fbe%2Fsearch%2F&q=sneldek"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy-halve-pan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy-gevelstuk-rechts"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy-gevelstuk-links"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/signy"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rvs-torxschroef-neopreen-volgring"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-9v-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-9v-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-9v"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-13v-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-13v-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-13v"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-11v-p-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-11v-p-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/rubin-11v-p"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/reparatietape-voor-folie"
  to="/be/p/reparatietape-voor-folie-antraciet-3985083681/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/renovatie-koppelelement"
  to="/be/p/renovatie-koppelelement-antraciet-3138946019/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Faansluitingen%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/pp-vogelschroot-lf"
  to="/be/p/pp-vogelschroot-lf-zwart-3127071843/?pathname=%2Fbe%2Fsearch%2F&q=vogelschroot"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/postel-20-gevelstuk-rechts"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/postel-20-gevelstuk-links"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/postel-20-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/postel-20-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/postel-20"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/peq-ondervorst-teewenpan"
  to="/be/p/peq-ondervorst-teewenpan-matrood-2278411948/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fnok-en-noordboom%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/panhaak-onderste-pannenrij"
  to="/be/p/panhaak-onderste-pannenrij-1095337267/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/panhaak-eenvoudig-kruispan-65x2"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-206-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/ovh-206-bruegel/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-206-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/ovh-206-bruegel/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-206-bruegel"
  to="/be/hellend-dak/keramische-dakpannen/ovh-206-bruegel/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-200-rubens"
  to="/be/hellend-dak/keramische-dakpannen/ovh-200-rubens/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-200-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/ovh-200-rubens/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/ovh-200-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/ovh-200-rubens/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/oude-holle-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/oude-holle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/oude-holle-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/oude-holle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/oude-holle"
  to="/be/hellend-dak/keramische-dakpannen/oude-holle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/monier-pv-premium-systeem"
  to="/be/p/monier-pv-premium-systeem-1853715522/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/monier-pv-indax-systeem"
  to="/be/p/monier-pv-indax-systeem-4139245635/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/monier-clima-comfort-plus"
  to="/be/p/monier-clima-comfort-plus-100-mm-602860515/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/m-glue-290-ml"
  to="/be/p/m-glue-zwart-290-ml-2785016743/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fnok-en-noordboom%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/metalen-kielgoot-profilo-s"
  to="/be/hellend-dak/daksysteemcomponenten/kielkeper/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kunststof-verlengstuk"
  to="/be/p/kunststof-verlengstuk-grijs-1193668878/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kruispan-halve-pan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kruispan-halve-pan-links"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kruispan-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kruispan-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kruispan"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/koppelstrip"
  to="/be/hellend-dak/daksysteemcomponenten/kielkeper/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/kombi-dakvoetprofiel-135"
  to="/be/p/kombi-dakvoetprofiel-135-rood-1197501114/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/keramische-sarkingflap-rechts"
  to="/be/p/zwart-glazura-keramisch-sarkingflap-rechts-zwart-glazura-edelengobe-381871927/?pathname=%2Fbe%2Fsearch%2F&q=sarkingflap%20rechts"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/keramische-sarkingflap-links"
  to="/be/p/zwart-glazura-keramisch-sarkingflap-links-zwart-glazura-edelengobe-3712781616/?pathname=%2Fbe%2Fsearch%2F&q=sarkingflap"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/hv-vorst-type-k"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/hv-eindvorst-lange-flap-type-k"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/hv-beginvorst-lange-flap-type-k"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/horizon"
  to="/be/p/horizon-granietgrijs-dakpan-granietgrijs-natura-485632290/?pathname=%2Fbe%2Fsearch%2F&q=horizon"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-vorst-wo"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-vorst-tg"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-vorst-33-cm-type-s"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-vorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-eindvorst-wo"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-eindvorst-type-s"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-eindvorst-tg"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-eindvorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginvorst-wo"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginvorst-type-s"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginvorst-tg"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginvorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginnoordboom-wo"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginnoordboom-tg"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginnoordboom-40-cm-type-s"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/halfronde-beginnoordboom"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/glazuron-uni-vorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/glazuron-uni-eindvorst"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/glazuron-uni-beginvorst"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/glazuron-uni-beginnoordboom"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle-halve-pan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle-gevelstuk-rechts"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle-gevelstuk-links"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/fontenelle"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/flexiroll-alu-universele-afdichtingsband"
  to="/be/p/flexiroll-alu-universele-afdichtingsband-zinkgrijs-3857282317/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Faansluitingen%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/flexibele-slang-voor-keramische-doorvoeren"
  to="/be/p/flexibele-slang-voor-keramische-doorvoeren-rood-2423490093/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/flexibele-slang-rond-125-mm"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/flexibele-slang-rond-100-mm"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/figaroll-plus-extreme"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/figaroll-plus"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-vorsthaak-halfronde-en-platte-vorst"
  to="/be/p/euro-vorsthaak-halfronde-en-platte-vorst-antraciet-19581326/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fnok-en-noordboom%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-vorsthaak"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-vlakke-mulden"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-vh-variabel"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-tuile-plat"
  to="/be/p/euro-panhaak-tuile-plat-3888594156/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-tegalit"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-teewenpan"
  to="/be/p/euro-panhaak-teewenpan-25-st-per-doos-656757949/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-stonewold"
  to="/be/p/euro-panhaak-tuile-plat-3888594156/?pathname=%2Fbe%2Fsearch%2F&q=panhaak"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-signy"
  to="/be/p/euro-panhaak-signy-2104766893/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-postel-20"
  to="/be/p/euro-panhaak-postel-20-2458966585/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-ovh-206"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-ovh-200"
  to="/be/p/euro-panhaak-ovh-200-25-st-per-doos-3164173457/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-oude-holle"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-horizon"
  to="/be/p/euro-panhaak-horizon-3549332154/?filters=%5B%7B%22name%22%3A%22PITCHED_ROOF_COMPONENTS%22%2C%22value%22%3A%5B%22FIXINGS%22%5D%7D%5D&pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Falle-daksysteemcomponenten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-fontenelle"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-dnh-v"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-brugse-pan"
  to="/be/p/euro-panhaak-brugse-pan-1540523660/?filters=%5B%7B%22name%22%3A%22PITCHED_ROOF_COMPONENTS%22%2C%22value%22%3A%5B%22FIXINGS%22%5D%7D%5D&pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Falle-daksysteemcomponenten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-panhaak-belmont"
  to="/be/p/euro-panhaak-belmont-1390207299/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/euro-hoekkeperklem-met-schroef"
  to="/be/p/euro-hoekkeperklem-met-schroef-3100780469/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fnok-en-noordboom%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-zijdelingse-panhaak-vh-variabel"
  to="/be/p/eenvoudige-zijdelingse-panhaak-vh-variabel-3256945550/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-zijdelingse-panhaak-tuile-plat"
  to="/be/p/eenvoudige-zijdelingse-panhaak-tuile-plat-3037862159/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-panhaak-rubin-9v"
  to="/be/p/eenvoudige-panhaak-rubin-9v-1355175505/?pathname=%2Fbe%2Fsearch%2F&q=Panhaak%20rubin"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-panhaak-rubin-11v-13v"
  to="/be/p/eenvoudige-panhaak-rubin-11v-13v-1549976724/?pathname=%2Fbe%2Fsearch%2F&q=Panhaak%20rubin"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-panhaak-postel-20"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-panhaak-ovh-206"
  to="/be/p/eenvoudige-panhaak-ovh-206-3126143073/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fverankering%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/eenvoudige-panhaak-oude-holle"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dubbelzijdigtape-voor-onderdakfolie"
  to="/be/p/dubbelzijdigtape-voor-onderdakfolie-3927487489/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dubbele-wel-zadelvorst-type-ho"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dryroll"
  to="/be/p/dryroll-295-mm-rood-5-m-216944215/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fnok-en-noordboom%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/doorvoerset-clima-comfort-nbs"
  to="/be/p/doorvoerset-clima-comfort-nbs-antraciet-164750553/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/doorvoerset-clima-comfort-bbs"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/doorvoer-manchette-zelfklevend"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dnh-v-ovh"
  to="/be/hellend-dak/keramische-dakpannen/dnh-v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dnh-v-gevelpan-rechts"
  to="/be/hellend-dak/keramische-dakpannen/dnh-v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dnh-v-gevelpan-links"
  to="/be/hellend-dak/keramische-dakpannen/dnh-v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-universal-2s"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-top-ru"
  to="/be/p/divoroll-top-ru-antraciet-132300372/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-nagelafdichtingsband-50-mm-x-30-m"
  to="/be/p/divoroll-nagelafdichtingsband-50-mm-x-30-m-692924768/?pathname=%2Fbe%2Fsearch%2F&q=divoroll"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-maximum-2s"
  to="/be/p/divoroll-maximum-2s-donkergroen-2506645970/?pathname=%2Fbe%2Fsearch%2F&q=divoroll"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-kompakt-50-en-75-cm"
  to="/be/p/divoroll-kompakt-50-cm-1439313608/?pathname=%2Fbe%2Fsearch%2F&q=divoroll"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-elite-2s"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/divoroll-clima-tape"
  to="/be/p/divoroll-spirtech-clima-tape-transparant-2909682844/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dakvoetsysteemprofiel-v1"
  to="/be/p/dakvoetsysteemprofiel-v1-antraciet-3855986217/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dakvoetsysteemprofiel-g1"
  to="/be/p/dakvoetsysteemprofiel-g1-antraciet-3574397653/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fdakvoet%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/dakvoetsysteemprofiel"
  to="/be/hellend-dak/daksysteemcomponenten/dakvoet/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/compriband"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-vh-variabel"
  to="/be/p/combivent-vh-variabel-antraciet-2542082325/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-tuile-plat"
  to="/be/p/combivent-tuile-plat-rood-774089189/?pathname=%2Fbe%2Fsearch%2F&q=combivent"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-tegalit"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-signy-finnez"
  to="/be/p/combivent-signy-rood-3665237218/?pathname=%2Fbe%2Fsearch%2F&q=combivent"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-ovh-206"
  to="/be/p/combivent-ovh-206-antraciet-1758467639/?pathname=%2Fbe%2Fsearch%2F&q=combivent"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-ovh-200"
  to="/be/p/combivent-ovh-200-antraciet-3639458468/?pathname=%2Fbe%2Fsearch%2F&q=combivent"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combivent-dnh-v"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-vh-variabel"
  to="/be/p/combipan-vh-variabel-antraciet-2542547607/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-tuile-plat"
  to="/be/p/combipan-tuile-plat-antraciet-964564056/?pathname=%2Fbe%2Fsearch%2F&q=combipan"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-tegalit"
  to="/be/p/combipan-tegalit-antraciet-2134046893/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fventilatie%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-signy"
  to="/be/p/combipan-signy-antraciet-863011437/?pathname=%2Fbe%2Fsearch%2F&q=combipan"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-ovh-206"
  to="/be/p/combipan-ovh-206-antraciet-1984517551/?pathname=%2Fbe%2Fsearch%2F&q=OHV%20206"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-ovh-200"
  to="/be/p/combipan-ovh-206-antraciet-1984517551/?pathname=%2Fbe%2Fsearch%2F&q=combipan"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/combipan-dnh-v"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/brugse-pan"
  to="/be/p/brugse-pan-blauwgrijs-dakpan-blauwgrijs-natura-955001224/?pathname=%2Fbe%2Fsearch%2F&q=brugse%20pan"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/belmont-halve-pan"
  to="/be/hellend-dak/keramische-dakpannen/belmont/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/belmont-gevelstuk-rechts"
  to="/be/hellend-dak/keramische-dakpannen/belmont/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/belmont-gevelstuk-links"
  to="/be/hellend-dak/keramische-dakpannen/belmont/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/belmont"
  to="/be/hellend-dak/keramische-dakpannen/belmont/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/begin-eind-zadelvorst-schelpmotief-type-ho"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/afdichtingsring-onderdakfolie-combipan-combivent"
  to="/be/p/afdichtingsring-onderdakfolie-combipan-combivent-antraciet-315384465/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/afdichtingsmassa"
  to="/be/p/afdichtingsmassa-beige-4259198353/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/afdichtingslijm"
  to="/be/p/afdichtingslijm-3708919478/?pathname=%2Fbe%2Fhellend-dak%2Fdaksysteemcomponenten%2Fonderdakfolies%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/aerodek-unique"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-unique/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/aerodek-tradition"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-tradition/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/aerodek-robust"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-robust/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/aerodek-quadro"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-quadro/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/aerodek-firenze"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-firenze/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/monier/adaptor"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-m-zwart"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-dakrollen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-lasnaad-verzegeling"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-ib-zwart"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-dakrollen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-gwsk-zwart"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-dakrollen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-foliestaalplaat"
  to="/be/search/?q=wolfin"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-buitenhoek-90"
  to="/be/p/wolfin-buitenhoek-90-22415394/?pathname=%2Fbe%2Fplat-dak%2Fkunststof-dakbedekking%2Fpolymeric-pvc-accessoires%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfin-binnenhoek-90"
  to="/be/p/wolfin-binnenhoek-90-3705096885/?pathname=%2Fbe%2Fplat-dak%2Fkunststof-dakbedekking%2Fpolymeric-pvc-accessoires%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/wolfinator"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/witec-vloeibaar-lasmiddel"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/witec-naaldfles"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/ventitherm"
  to="/be/p/ventitherm-vlies-1304956578/?pathname=%2Fbe%2Fplat-dak%2Falle-plat-dak-producten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedatop-tm"
  to="/be/p/vedatop-s5-blaugrun-3336748582/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedatop-su-safety"
  to="/be/search/?q=vedatop"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedatop-su"
  to="/be/p/vedatop-s5-blaugrun-3336748582/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedatop-s5"
  to="/be/p/vedatop-s5-blaugrun-3336748582/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedasprint-pye-ktp-s4"
  to="/be/p/vedasprint-pye-ktp-s4-2957253988/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedag-turbo-to-blauwgroen"
  to="/be/plat-dak/bitumen-dakbedekking/dampschermen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedagard-safety-plus-1-08"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedagard-multi-sk-1-08"
  to="/be/plat-dak/bitumen-dakbedekking/dampschermen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/vedaflor-ws-x"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/thermosolo-gs-30"
  to="/be/plat-dak/bitumen-dakbedekking/sbs-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/teroson-ef-tk-395"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/teroson-ad-adhesive-spray"
  to="/be/search/?q=teroson"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/tectofin-sk"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/tectofin-r-homogene-baan"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/tectofin-fl%C3%BCssigfolie-grijs"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/tectofin-buitenhoek-90"
  to="/be/p/tectofin-buitenhoek-90-1319985791/?pathname=%2Fbe%2Fsearch%2F&q=tectofin"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/tectofin-binnenhoek-90"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-accessoires/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/supracoating"
  to="/be/p/supracoating-rlv-4226061916/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/siplast-primer"
  to="/be/p/siplast-primer-1639677111/?pathname=%2Fbe%2Fsearch%2F&q=siplast"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/scr-alliance"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/ruberflex"
  to="/be/p/ruberflex-app-3-mm-g-s-f-3342791241/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/preflex"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/polar-top"
  to="/be/p/polar-top-ws-3236708669/?pathname=%2Fbe%2Fsearch%2F&q=Polar%20Top"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/polartherm-syntan"
  to="/be/p/polartherm-sk-plus-301313815/?pathname=%2Fbe%2Fsearch%2F&q=polartherm"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/polartherm-sk-plus"
  to="/be/plat-dak/bitumen-dakbedekking/sbs-tussenlagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/polartherm-groen"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/polar"
  to="/be/plat-dak/bitumen-dakbedekking/sbs-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/parathane-solvent"
  to="/be/p/parathane-solvent-4143224051/?pathname=%2Fbe%2Fsearch%2F&q=parathane"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/parathane-mat"
  to="/be/p/parathane-mat-2159282730/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/parafor-solo-gs"
  to="/be/p/parafor-solo-gs-30-2196174995/?pathname=%2Fbe%2Fsearch%2F&q=parafor%20solo"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/parafor-solo-fe-gs"
  to="/be/p/parafor-solo-fegs-30-t1-733032417/?pathname=%2Fbe%2Fsearch%2F&q=parafor%20solo"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-universal-ws"
  to="/be/plat-dak/universal-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-universal-sa"
  to="/be/plat-dak/universal-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-universal-fm"
  to="/be/plat-dak/universal-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-sa-primer"
  to="/be/p/icopal-sa-primer-782540363/?pathname=%2Fbe%2Fsearch%2F&q=primer"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-primer-25l"
  to="/be/p/icopal-sa-primer-782540363/?pathname=%2Fbe%2Fsearch%2F&q=primer"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-elasto-primer-24l"
  to="/be/p/icopal-elasto-primer-4071877741/?pathname=%2Fbe%2Fsearch%2F&q=primer"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icopal-bond"
  to="/be/p/icopal-bond-2550400794/?pathname=%2Fbe%2Fsearch%2F&q=icopal%20bond"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-vlies"
  to="/be/p/icoflor-vlies-3598589461/?pathname=%2Fbe%2Fsearch%2F&q=icoflor"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-vegetatieplaat-25-10"
  to="/be/p/icoflor-vegetatieplaat-3913764122/?pathname=%2Fbe%2Fsearch%2F&q=icoflor"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-traliemat"
  to="/be/search/?q=icoflor"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-substraat-zak"
  to="/be/search/?q=icoflor"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-sedum"
  to="/be/plat-dak/speciale-toepassingen/groendak-uitrusting/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/icoflor-bodemversterker"
  to="/be/search/?q=icoflor"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/graviflex"
  to="/be/p/graviflex-1435971976/?pathname=%2Fbe%2Fsearch%2F&q=graviflex"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/gr%C3%BCnplast-top"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/fondaply-2"
  to="/be/p/fondaply-2-4159996387/?pathname=%2Fbe%2Fsearch%2F&q=fondaply"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/fel-x-multi-en-1-25m-blue"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/expandrit-plus-groen"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/everguard"
  to="/be/p/everguard-2-0-13456465/?pathname=%2Fbe%2Fsearch%2F&q=everguard"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshagum-a-4"
  to="/be/p/eshagum-a-4-a-f-zwart-1243325725/?pathname=%2Fbe%2Fplat-dak%2Falle-plat-dak-producten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshaflex-tk-60-zwart"
  to="/be/plat-dak/bitumen-dakbedekking/sbs-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshaflex-370"
  to="/be/plat-dak/bitumen-dakbedekking/sbs-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshabase-v"
  to="/be/p/eshabase-v3-t-f-2854336803/?pathname=%2Fbe%2Fplat-dak%2Falle-plat-dak-producten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshabase-tk-40"
  to="/be/plat-dak/bitumen-dakbedekking/app-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshabase-pv"
  to="/be/p/eshabase-pv3-t-f-2390430053/?pathname=%2Fbe%2Fplat-dak%2Falle-plat-dak-producten%2F"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eshabase-460-z-f"
  to="/be/p/eshabase-460-3-mm-plain-2071356115/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/elastoflex-gs-30"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/eco-activ-firesmart"
  to="/be/p/eco-activ-firesmart-1243962408/?pathname=%2Fbe%2Fsearch%2F&q=firesmart"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/cosmofin-gg-plus-grijs"
  to="/be/plat-dak/kunststof-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/cosmofin-f-homogene-baan-grijs"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/cosmofin-buitenhoek-90"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/cosmofin-binnenhoek-90"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/colle-par"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/canopia-filter"
  to="/be/p/canopia-filter-4856621/?pathname=%2Fbe%2Fsearch%2F&q=canopia"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/canopia-drain"
  to="/be/p/canopia-drain-1061144489/?pathname=%2Fbe%2Fsearch%2F&q=canopia"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/alu-villatherm"
  to="/be/p/alu-villatherm-2364531980/?pathname=%2Fbe%2Fsearch%2F&q=alu-villatherm"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/adesolo-g"
  to="/be/p/adesolo-g-30-1708980492/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/products/icopal/adepar-js"
  to="/be/p/adepar-js-3490310407/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/bmi-icopal"
  to="/be/bmi-icopal/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/tpo"
  to="/be/plat-dak/kunststof-dakbedekking/tpo-dakrollen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/toplagen"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/sbs"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/pvc"
  to="/be/plat-dak/kunststof-dakbedekking/polymeric-pvc-dakrollen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/pocb"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/plat-dak-componenten"
  to="/be/plat-dak/speciale-toepassingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/onderlagen"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/kunststof-dakbedekking"
  to="/be/plat-dak/kunststof-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/eénlaags"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/dampschermen"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/bitumen-dakbedekking"
  to="/be/plat-dak/bitumen-dakbedekking/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten/app"
  to="/be/plat-dak/bitumen-dakbedekking/app-toplagen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak/alle-producten"
  to="/be/plat-dak/alle-plat-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/plat-dak"
  to="/be/plat-dak/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/bmi-monier"
  to="/be/bmi-monier/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/zwart"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/vorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/vlakke-pannen"
  to="/be/hellend-dak/alle-hellend-dak-producten/?filters=%5B%7B%22name%22%3A%22ProductLine%22%2C%22value%22%3A%5B%22FLAT%22%5D%7D%5D"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/vlakke-mulden"
  to="/be/hellend-dak/keramische-dakpannen/vlakke-mulden/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/vh-variabel-ruysdael"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-ruysdael/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/vh-variabel-breitner"
  to="/be/hellend-dak/keramische-dakpannen/vh-variabel-breitner/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/verankering"
  to="/be/hellend-dak/daksysteemcomponenten/verankering/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/ventilatie"
  to="/be/hellend-dak/daksysteemcomponenten/ventilatie/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/tuile-plat"
  to="/be/hellend-dak/keramische-dakpannen/tuile-plat/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/tegalit"
  to="/be/hellend-dak/betondakpannen/tegalit/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/teewenpan-glazuron"
  to="/be/hellend-dak/betondakpannen/teewenpan-glazuron/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/stormpannen"
  to="/be/hellend-dak/alle-hellend-dak-producten/?filters=%5B%7B%22name%22%3A%22ProductLine%22%2C%22value%22%3A%5B%22STORMPANNEN%22%5D%7D%5D"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/stonewold"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/stalen-dakpanelementen"
  to="/be/hellend-dak/stalen-dakpanelementen/alle-stalen-dakpanelementen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/staal"
  to="/be/hellend-dak/stalen-dakpanelementen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/sneldek"
  to="/be/hellend-dak/betondakpannen/sneldek/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/signy"
  to="/be/hellend-dak/keramische-dakpannen/signy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/rubin-9v"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/rubin-13v"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/rubin-11v-p"
  to="/be/hellend-dak/keramische-dakpannen/rubin-9v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/rood"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/rode-scherf"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/protegon-mat"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/postel-20"
  to="/be/hellend-dak/keramische-dakpannen/postel-20/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/ovh-206-bruegel"
  to="/be/hellend-dak/keramische-dakpannen/ovh-206-bruegel/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/ovh-200-rubens"
  to="/be/hellend-dak/keramische-dakpannen/ovh-200-rubens/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/oude-holle"
  to="/be/hellend-dak/keramische-dakpannen/oude-holle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/onderdakfolies"
  to="/be/hellend-dak/daksysteemcomponenten/onderdakfolies/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/nok-en-noordboom"
  to="/be/hellend-dak/daksysteemcomponenten/nok-en-noordboom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/naturel"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/mat-verglaasd"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/kruispan"
  to="/be/hellend-dak/keramische-dakpannen/kruispan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/kielkeper"
  to="/be/hellend-dak/daksysteemcomponenten/kielkeper/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/keramisch"
  to="/be/hellend-dak/keramische-dakpannen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/isolatie-hellend-dak"
  to="/be/alle-isolatieproducten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/in-de-massa-gekleurd"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/horizon"
  to="/be/hellend-dak/betondakpannen/horizon/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/hoogwaardig-beton"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/herfstkleur"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/halve-pan"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/grote-panmodellen"
  to="/be/hellend-dak/alle-hellend-dak-producten/?filters=%5B%7B%22name%22%3A%22ProductLine%22%2C%22value%22%3A%5B%22LARGE_FORMAT%22%5D%7D%5D"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/groen"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/grijs"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/glazuron-nuance"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/glazuron"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/glanzend-verglaasd"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/gevelpan"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/gegolfde-pannen"
  to="/be/hellend-dak/alle-hellend-dak-producten/?filters=%5B%7B%22name%22%3A%22ProductLine%22%2C%22value%22%3A%5B%22PROFILED%22%5D%7D%5D"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/fontenelle"
  to="/be/hellend-dak/keramische-dakpannen/fontenelle/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/engobe"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/eindvorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/edelengobe"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/donkere-scherf"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/dnh-v"
  to="/be/hellend-dak/keramische-dakpannen/dnh-v/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/diversen"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/dakvoet"
  to="/be/hellend-dak/daksysteemcomponenten/dakvoet/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/daksysteemcomponenten-hellend-dak"
  to="/be/hellend-dak/daksysteemcomponenten/alle-daksysteemcomponenten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/bruin"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/brugse-pan"
  to="/be/hellend-dak/betondakpannen/brugse-pan/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/blauwe-scherf"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/blauw"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/beton"
  to="/be/hellend-dak/betondakpannen/alle-betondakpannen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/belmont"
  to="/be/hellend-dak/keramische-dakpannen/belmont/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/beginvorst"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/beginnoordboom"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aerodek-unique-plus-p"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-unique/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aerodek-tradition-plus"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-tradition/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aerodek-robust-plus"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-robust/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aerodek-quadro-plus-p"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-quadro/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aerodek-firenze-plus"
  to="/be/hellend-dak/stalen-dakpanelementen/aerodek-firenze/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten/aansluitingen"
  to="/be/hellend-dak/daksysteemcomponenten/aansluitingen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak/alle-producten"
  to="/be/hellend-dak/alle-hellend-dak-producten/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten/hellend-dak"
  to="/be/hellend-dak/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/producten"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/privacybeleid-en-gebruiksvoorwaarden"
  to="/be/privacy-policy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/particulieren/referentieprojecten"
  to="/be/inspiratie-laatste-nieuws/realisaties/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/particulieren"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/zomersluiting-2022"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/zomersluiting-2021"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/voordelen-betondakpan"
  to="/be/nieuws/bmi-belgium-produceert-enige-betondakpan-van-belgische-makelij/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/toename-zonnestroom"
  to="/be/zonnestroom-systemen/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/stormschade-2022"
  to="/be/nieuws/stormbestendigheid-met-bmi/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/project-steenplein"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/plaatsing-groendaken-in-de-lift-in-de-steden"
  to="/be/inspiratie-laatste-nieuws/realisaties/hoe-meer-groendaken-hoe-beter/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/overname-rbb-nv"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/nieuwsbericht-corona"
  to="/be/nieuws/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/nieuwe-marketing-director-benelux"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/news-summer-schedule-2020"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/kerstmis-noel-2021"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/end-of-year-closure-2020"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/corona-update"
  to="/be/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-monier-en-icopal-op-de-belgian-roof-day"
  to="/be/nieuws/belgian-roof-day-2022/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-belgium"
  to="/be/nieuws/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-academy-zonnestroom"
  to="/be/diensten/bmi-academy/opleidingen-hellend-dak/opleiding-zonnestroom/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-academy-groendaken"
  to="/be/diensten/bmi-academy/opleidingen-plat-dak/icopal-groendak/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-academy-formations"
  to="/be/diensten/bmi-academy/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/bmi-academy-daksysteemcomponenten"
  to="/be/diensten/bmi-academy/opleidingen-hellend-dak/opleiding-hellend-dak/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/nieuws/betondakpan-van-belgische-makelij"
  to="/be/nieuws/bmi-belgium-produceert-enige-betondakpan-van-belgische-makelij/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/lv-lv/homeowners/galerija-iedvesmai"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/luchtzuiverend"
  to="/be/kenniscentrum/noxite/"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/solutions/pitched-roofs"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/solutions/flat-roofs"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/professionals/dakservice"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/news"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/homeowners/inspiration-gallery"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/en/homeowners"
  to="/be"
+ status=301
  force=true
 
 [[redirects]]
  from="/be/bmi-belgium"
  to="/be/over-bmi/"
+ status=301
  force=true
 
 # Redirect root to /be
