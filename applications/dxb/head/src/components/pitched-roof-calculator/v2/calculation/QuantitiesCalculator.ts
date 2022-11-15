@@ -163,8 +163,24 @@ class QuantitiesCalculator {
       );
     }
 
+    const hasHalfLeftVerges =
+      mainTileVariant.brokenBond &&
+      vergeOption?.halfLeft &&
+      this.facesBattens.some(({ sides }) => sides[0] === "VERGE");
+
+    const hasHalfRightVerges =
+      mainTileVariant.brokenBond &&
+      vergeOption?.halfRight &&
+      this.facesBattens.some(({ sides }) => sides[1] === "VERGE");
+
     this.facesBattens.forEach((faceWithBattens) => {
-      const faceTiles = surface(faceWithBattens, mainTileVariant, vergeOption);
+      const faceTiles = surface(
+        faceWithBattens,
+        mainTileVariant,
+        hasHalfLeftVerges,
+        hasHalfRightVerges,
+        vergeOption
+      );
 
       this.addProduct(
         ProductCategory.Tiles,

@@ -1274,4 +1274,71 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       calculations.results.get(input.mainTileVariant.halfTile.code)
     ).toBeTruthy();
   });
+
+  it("returns data without half tiles if there are half verges and even number of tiles in the row", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 42
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns data without half tiles if there are half verges and odd number of tiles in the row", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 40
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns data with half tiles if the roof doesn't require half verge tiles", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 42
+      },
+      measurements: {
+        ...input.measurements,
+        faces: [{ ...input.measurements.faces[0], sides: ["VALLEY", "VALLEY"] }]
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeTruthy();
+  });
 });
