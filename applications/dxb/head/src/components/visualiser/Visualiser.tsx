@@ -428,7 +428,6 @@ const Visualiser = ({
   const {
     config: { esIndexNameProduct }
   } = useConfig();
-  const header = useRef<HTMLDivElement>(null);
   const shareAnchor = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, sidingId, viewMode });
   const [tiles, setTiles] = useState<PIMTile[]>([]);
@@ -539,15 +538,6 @@ const Visualiser = ({
       className={styles["Visualiser"]}
       containerClassName={styles["content"]}
     >
-      <ContainerDialog.Header ref={header}>
-        <Typography
-          component="h2"
-          variant="h3"
-          className={styles["content-title"]}
-        >
-          RoofTile Visualiser
-        </Typography>
-      </ContainerDialog.Header>
       <div
         className={classnames(styles["container"], styles["container--viewer"])}
       >

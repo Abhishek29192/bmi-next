@@ -32,24 +32,24 @@ jest.mock("../TileViewer", () => ({
 }));
 
 const blackTile = createProduct({
-  "APPEARANCEATTRIBUTES.COLOUR": [{ name: "Dark Black" }],
-  "GENERALINFORMATION.CLASSIFICATION": [{ name: "clay" }],
-  "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-  "TILESATTRIBUTES.THICKNESSREDUCTION": [{ name: "10" }],
+  APPEARANCEATTRIBUTES$COLOUR: [{ name: "Dark Black" }],
+  GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+  TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+  TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
   name: "Black tile",
   code: "black_tile",
   visualiserAssets: []
 });
 
 const redTile = createProduct({
-  "APPEARANCEATTRIBUTES.COLOUR": [{ name: "Red" }],
-  "GENERALINFORMATION.CLASSIFICATION": [{ name: "clay" }],
-  "TILESATTRIBUTES.VERTICALOVERLAP": [{ name: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ name: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOFFSET": [{ name: "10" }],
-  "TILESATTRIBUTES.THICKNESSREDUCTION": [{ name: "10" }],
+  APPEARANCEATTRIBUTES$COLOUR: [{ name: "Red" }],
+  GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+  TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+  TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
   name: "Red tile",
   code: "red_tile",
   visualiserAssets: []
@@ -68,45 +68,45 @@ describe("Visualiser component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource="" //TODO: Need to mock this?
-        open={false}
+        open
         sidings={sidingsSetData}
         onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when test asset url provided", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource=""
-        open={false}
+        open
         sidings={sidingsSetData}
         onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when non-test asset url provided", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource=""
-        open={false}
+        open
         sidings={sidingsSetData}
         onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("passes house types to HouseViewer", () => {
@@ -320,8 +320,8 @@ describe("Visualiser component", () => {
     );
   });
 
-  it("closes visualiser if user clicks on 'Read more'", async () => {
-    const onClose = jest.fn();
+  it("calls onClick function if user clicks on 'Read more'", async () => {
+    const onClick = jest.fn();
     mockResponses(fetchMock, {
       url: "*",
       method: "POST",
@@ -336,9 +336,9 @@ describe("Visualiser component", () => {
         viewMode="roof"
         contentSource=""
         open={true}
-        onClose={onClose}
+        onClose={jest.fn()}
         houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
+        onClick={onClick}
         onChange={jest.fn()}
         sidings={[sidingMock]}
         tileId={blackTile.code}
@@ -347,6 +347,28 @@ describe("Visualiser component", () => {
 
     const readMoreBtn = await screen.findByText("visualizer.readMore");
     fireEvent.click(readMoreBtn);
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it("calls onClose function if user closes modal", async () => {
+    const onClose = jest.fn();
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={onClose}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={onClose}
+        onChange={jest.fn()}
+        sidings={[sidingMock]}
+        tileId={blackTile.code}
+      />
+    );
+
+    const closeBtn = screen.getByLabelText("Close");
+    fireEvent.click(closeBtn);
     expect(onClose).toHaveBeenCalled();
   });
 
