@@ -69,13 +69,13 @@ export function transformClassificationAttributes(
       try {
         const initialData = {
           ...rest,
-          packSize: Number(packSize?.[0].value) || 1
+          packSize: Number(packSize?.[0].name) || 1
         };
 
         if (productType === ProductType.tile) {
           return {
             ...initialData,
-            brokenBond: convertStrToBool(brokenBond?.[0].value),
+            brokenBond: convertStrToBool(brokenBond?.[0].name),
             category: category[0].name,
             color: color[0].name,
             width: convertToCentimeters(width[0]),

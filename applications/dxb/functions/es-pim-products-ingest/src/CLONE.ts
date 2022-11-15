@@ -1,4 +1,11 @@
-import { Category, Classification, Image, Product } from "@bmi/pim-types";
+import {
+  Category,
+  Classification,
+  FeatureValue,
+  FeatureUnit,
+  Image,
+  Product
+} from "@bmi/pim-types";
 import { TwoOneIgnoreDictionary } from "./transformProducts";
 
 export type ProductCategoryTree = {
@@ -240,6 +247,7 @@ export const getSizeLabel = (
 export type ESIndexObject = {
   code: string;
   name: string;
+  value?: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -300,12 +308,7 @@ export const indexFeatures = (
         }
 
         const nameAndCodeValues = feature.featureValues.map((featVal) => {
-          return {
-            code: `${featVal.code || featVal.value}${
-              feature.featureUnit?.symbol || ""
-            }`.trim(),
-            name: `${featVal.value} ${feature.featureUnit?.symbol || ""}`.trim()
-          };
+          return getFeatureValue(featureCode, featVal, feature.featureUnit);
         });
         return {
           ...featureAsProp,
@@ -321,4 +324,45 @@ export const indexFeatures = (
     };
   }, {});
   return allfeaturesAsProps;
+};
+
+const getFeatureValue = (
+  featureCode: string,
+  featValue: FeatureValue,
+  featureUnit?: FeatureUnit
+): { code: string; name: string; value?: string } => {
+  // These 14 classifications will look like {code: string; name: string; value: string;} https://bmigroup.atlassian.net/browse/WEBT-607
+  // All the other classifications will be without value field - {code: string; name: string}
+  const fieldsToUseWithValue = [
+    "measurements.length",
+    "measurements.width",
+    "tilesAttributes.eaveGauge",
+    "tilesAttributes.eaveGaugeStartAngle",
+    "tilesAttributes.eaveGaugeEndAngle",
+    "tilesAttributes.maxGaugeStartAngle",
+    "tilesAttributes.maxGaugeEndAngle",
+    "tilesAttributes.maximumBattenSpacing",
+    "tilesAttributes.minimumBattenSpacing",
+    "tilesAttributes.ridgeSpace",
+    "tilesAttributes.ridgeSpaceStartAngle",
+    "tilesAttributes.ridgeSpaceEndAngle",
+    "underlayAttributes.minSupportedPitch",
+    "underlayAttributes.overlap"
+  ];
+
+  const initialFeatureFields = {
+    code: `${featValue.code || featValue.value}${
+      featureUnit?.symbol || ""
+    }`.trim(),
+    name: `${featValue.value} ${featureUnit?.symbol || ""}`.trim()
+  };
+
+  if (fieldsToUseWithValue.includes(featureCode)) {
+    return {
+      ...initialFeatureFields,
+      value: featValue.value
+    };
+  }
+
+  return initialFeatureFields;
 };

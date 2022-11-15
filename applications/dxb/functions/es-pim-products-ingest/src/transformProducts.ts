@@ -1,12 +1,16 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import type {
+  Product as ESProduct,
+  ProductReference as ESProductReference
+} from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
   Classification,
   Feature,
   Product as PIMProduct,
-  VariantOption as PIMVariant
+  VariantOption as PIMVariant,
+  ProductReference as PIMProductReference
 } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
@@ -51,18 +55,18 @@ const combineVariantClassifications = (
     message: `product classification: ${productClassificationMap}`
   });
   // process variant classifications except "scoringWeightAttributes"
-  const vairantClassificationsMap = new Map(
+  const variantClassificationsMap = new Map(
     (variant.classifications || [])
       .filter(({ code }) => code !== "scoringWeightAttributes")
       .map((classification) => [classification.code, classification])
   );
   logger.info({
-    message: `variant classifications except "scoringWeightAttributes": ${vairantClassificationsMap}`
+    message: `variant classifications except "scoringWeightAttributes": ${variantClassificationsMap}`
   });
   // take all COMMON classifications and Variant ONLY classifications
   // merge their features in such that base features
   // are overwritten by variant features of same classifications
-  vairantClassificationsMap.forEach((variantClassification, key) => {
+  variantClassificationsMap.forEach((variantClassification, key) => {
     const mergedFeaturesMap: Map<string, Feature> = new Map(
       (variantClassification.features || []).map((feature) => [
         feature.code,
@@ -96,7 +100,7 @@ const combineVariantClassifications = (
   // process remaining classifications that exists ONLY in base/product
   // add them to collection at the end
   productClassificationMap.forEach((classification, key) => {
-    if (vairantClassificationsMap.get(key) === undefined) {
+    if (variantClassificationsMap.get(key) === undefined) {
       logger.info({
         message: `classifications that exists ONLY in base/product: ${classification}`
       });
@@ -236,6 +240,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...(variant.images || []),
         ...(product.images || [])
       ]),
+      productReferences: combineProductReferences(product, variant),
       path: `/p/${generateProductUrl(
         name,
         generateHashFromString(variant.code, false),
@@ -585,4 +590,53 @@ const filterTwoOneAttributes = (
     }
     return true;
   });
+};
+
+const combineProductReferences = (
+  product: PIMProduct,
+  variant: PIMVariant
+): ESProductReference[] | undefined => {
+  const mappedBaseProductReferences = transformProductReferences(
+    product.productReferences
+  );
+
+  const mappedVariantReferences = transformProductReferences(
+    variant.productReferences
+  );
+
+  if (!mappedBaseProductReferences?.length) {
+    return mappedVariantReferences;
+  }
+
+  if (!mappedVariantReferences?.length) {
+    return mappedBaseProductReferences;
+  }
+
+  //combines productReferences of the base product and variant.
+  // If the variant and base product has productReferences of the same type, the productReference of the base product will be ignored
+  return mappedBaseProductReferences.reduce((prev, current) => {
+    const existsForVariant = prev.find(
+      (productReference) => productReference.type === current.type
+    );
+
+    if (existsForVariant) {
+      return prev;
+    }
+
+    return [...prev, current];
+  }, mappedVariantReferences);
+};
+
+const transformProductReferences = (
+  productReferences?: PIMProductReference[]
+): ESProductReference[] | undefined => {
+  if (!productReferences?.length) {
+    return undefined;
+  }
+
+  return productReferences.map((productReference) => ({
+    type: productReference.referenceType,
+    code: productReference.target.code,
+    name: productReference.target.name
+  }));
 };
