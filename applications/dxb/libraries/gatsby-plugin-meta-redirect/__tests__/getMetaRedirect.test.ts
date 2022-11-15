@@ -43,6 +43,12 @@ describe("getMetaRedirect", () => {
     );
   });
 
+  it("should return meta tag with correct content attribute if isPermanent is false", () => {
+    expect(getMetaRedirect("toPath", false)).toStrictEqual(
+      '<meta http-equiv="refresh" content="1; URL=\'/toPath/\'" />'
+    );
+  });
+
   it("leaves full urls untouched", () => {
     expect(getMetaRedirect("http://example.com")).toStrictEqual(
       '<meta http-equiv="refresh" content="1; URL=\'http://example.com\'" />'

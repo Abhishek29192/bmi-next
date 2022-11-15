@@ -1,3087 +1,2561 @@
-
 [[redirects]]
- from="https://beta.bmigroup.com/no/*"
- to="https://www.bmigroup.com/no/:splat"
- status=301
- force=true
+from = "https://beta.bmigroup.com/no/*"
+to = "https://www.bmigroup.com/no/:splat"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/nar-to-blir-til-ett"
- to="/no/merkevarer"
- status=301
- force=true
+from = "/no/nyheter/nar-to-blir-til-ett"
+to = "/no/merkevarer"
+status = 301
 
 [[redirects]]
- from="/no/om-bmi-group"
- to="/no/merkevarer"
- status=301
- force=true
+from = "/no/om-bmi-group"
+to = "/no/merkevarer"
+status = 301
 
 [[redirects]]
- from="/no/karriere/en-plass-for-alle"
- to="/no/karriereutvikling"
- status=301
- force=true
+from = "/no/karriere/en-plass-for-alle"
+to = "/no/karriereutvikling"
+status = 301
 
 [[redirects]]
- from="/no/karriere/karriereutvikling"
- to="/no/karriereutvikling"
- status=301
- force=true
+from = "/no/karriere/karriereutvikling"
+to = "/no/karriereutvikling"
+status = 301
 
 [[redirects]]
- from="/no/karriere"
- to="/no/karriereutvikling"
- status=301
- force=true
+from = "/no/karriere"
+to = "/no/karriereutvikling"
+status = 301
 
 [[redirects]]
- from="/no/juridisk/cookies"
- to="/no/bruk-av-informasjonskapsler"
- status=301
- force=true
+from = "/no/juridisk/cookies"
+to = "/no/bruk-av-informasjonskapsler"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-kvalitetssikres-aerodek"
- to="/no/inspirasjon-tips-og-rad/slik-sikrer-de-tette-tak-i-generasjoner"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-kvalitetssikres-aerodek"
+to = "/no/inspirasjon-tips-og-rad/slik-sikrer-de-tette-tak-i-generasjoner"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/rema-1000-viser-vei-med-miljotak"
- to="/no/referansehistorier/rema-1000-viser-vei-med-miljotak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/rema-1000-viser-vei-med-miljotak"
+to = "/no/referansehistorier/rema-1000-viser-vei-med-miljotak"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-membran-4mm"
- to="/no/membraner"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-membran-4mm"
+to = "/no/membraner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-membran-5mm"
- to="/no/membraner"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-membran-5mm"
+to = "/no/membraner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-membran-5mm-bro"
- to="/no/membraner/bromembraner"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-membran-5mm-bro"
+to = "/no/membraner/bromembraner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-membran-bro"
- to="/no/membraner/bromembraner"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-membran-bro"
+to = "/no/membraner/bromembraner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-membran"
- to="/no/membraner"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-membran"
+to = "/no/membraner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarplan*"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/monarplan*"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/pvc"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/pvc"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/monarplan"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/monarplan"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/monarplan/pvc"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/monarplan/pvc"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/pvc"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/pvc"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/monarplan"
- to="/no/pvc-takfolie"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/monarplan"
+to = "/no/pvc-takfolie"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-ende-venstre"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-ende-venstre"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-midt"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-midt"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-endestolpe"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-endestolpe"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-midtstolpe"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-midtstolpe"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/h%C3%A5ndl%C3%B8per-i-syrefast-st%C3%A5l"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/h%C3%A5ndl%C3%B8per-i-syrefast-st%C3%A5l"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/justerbart-hj%C3%B8rne-30%C2%B0-60%C2%B0"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/justerbart-hj%C3%B8rne-30%C2%B0-60%C2%B0"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/veggfeste-for-h%C3%A5ndl%C3%B8per"
- to="/no/glassrekkverk-med-stolper"
- status=301
- force=true
+from = "/no/produkter/veggfeste-for-h%C3%A5ndl%C3%B8per"
+to = "/no/glassrekkverk-med-stolper"
+status = 301
 
 [[redirects]]
- from="/no/produkter/plot-zoom-h%C3%B8ydejusteringsn%C3%B8kkel"
- to="/no/terrassesystem"
- status=301
- force=true
+from = "/no/produkter/plot-zoom-h%C3%B8ydejusteringsn%C3%B8kkel"
+to = "/no/terrassesystem"
+status = 301
 
 [[redirects]]
- from="/no/produkter/plot-zoom-h%C3%B8ydering"
- to="/no/terrassesystem"
- status=301
- force=true
+from = "/no/produkter/plot-zoom-h%C3%B8ydering"
+to = "/no/terrassesystem"
+status = 301
 
 [[redirects]]
- from="/no/produkter/plot-zoom-justerbar-sokkel"
- to="/no/terrassesystem"
- status=301
- force=true
+from = "/no/produkter/plot-zoom-justerbar-sokkel"
+to = "/no/terrassesystem"
+status = 301
 
 [[redirects]]
- from="/no/produkter/plot-zoom-tilfarer-holder"
- to="/no/terrassesystem"
- status=301
- force=true
+from = "/no/produkter/plot-zoom-tilfarer-holder"
+to = "/no/terrassesystem"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-airflow-fr"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-airflow-fr"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-light-flamesafe"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-light-flamesafe"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-monarsound-fence-flamesafe"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-monarsound-fence-flamesafe"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-monarsound-flamesafe"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-monarsound-flamesafe"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-scaffband-fr"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-scaffband-fr"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-super-light-flamesafe"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-super-light-flamesafe"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-super-t-plus-flamesafe"
- to="/no/monarflex-stillasinndekning"
- status=301
- force=true
+from = "/no/produkter/monarflex-super-t-plus-flamesafe"
+to = "/no/monarflex-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/radon/radon-f"
- to="/no/produkter-til-gulvet/radonsperrer"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/radon/radon-f"
+to = "/no/produkter-til-gulvet/radonsperrer"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/radon/"
- to="/no/produkter-til-gulvet/radonsperrer"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/radon/"
+to = "/no/produkter-til-gulvet/radonsperrer"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/radon"
- to="/no/produkter-til-gulvet/radonsperrer"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/radon"
+to = "/no/produkter-til-gulvet/radonsperrer"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/aerodek"
- to="/no/aerodek"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/aerodek"
+to = "/no/aerodek"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/decra"
- to="/no/aerodek"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/decra"
+to = "/no/aerodek"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/aerodek"
- to="/no/aerodek"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/aerodek"
+to = "/no/aerodek"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek/quadro-plus-*"
- to="/no/staltakpanner/aerodek-quadro-plus"
- status=301
- force=true
+from = "/no/produkter/aerodek/quadro-plus-*"
+to = "/no/staltakpanner/aerodek-quadro-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/quadro-skruer"
- to="/no/staltakpanner/aerodek-quadro-plus"
- status=301
- force=true
+from = "/no/produkter/quadro-skruer"
+to = "/no/staltakpanner/aerodek-quadro-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek-quadro-plus"
- to="/no/staltakpanner/aerodek-quadro-plus"
- status=301
- force=true
+from = "/no/produkter/aerodek-quadro-plus"
+to = "/no/staltakpanner/aerodek-quadro-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-quadro-plus"
- to="/no/staltakpanner/aerodek-quadro-plus"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-quadro-plus"
+to = "/no/staltakpanner/aerodek-quadro-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/robust-plus-reparasjossett"
- to="/no/staltakpanner/aerodek-robust-plus"
- status=301
- force=true
+from = "/no/produkter/robust-plus-reparasjossett"
+to = "/no/staltakpanner/aerodek-robust-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek/robust-plus-*"
- to="/no/staltakpanner/aerodek-robust-plus"
- status=301
- force=true
+from = "/no/produkter/aerodek/robust-plus-*"
+to = "/no/staltakpanner/aerodek-robust-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-robust-plus"
- to="/no/staltakpanner/aerodek-robust-plus"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-robust-plus"
+to = "/no/staltakpanner/aerodek-robust-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/tradition-plus-pipeinndekning"
- to="/no/staltakpanner/aerodek-tradition-plus"
- status=301
- force=true
+from = "/no/produkter/tradition-plus-pipeinndekning"
+to = "/no/staltakpanner/aerodek-tradition-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek/tradition-plus-*"
- to="/no/staltakpanner/aerodek-tradition-plus"
- status=301
- force=true
+from = "/no/produkter/aerodek/tradition-plus-*"
+to = "/no/staltakpanner/aerodek-tradition-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-tradition-plus"
- to="/no/staltakpanner/aerodek-tradition-plus"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-tradition-plus"
+to = "/no/staltakpanner/aerodek-tradition-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek/tradition-takpanne"
- to="/no/staltakpanner/aerodek-tradition"
- status=301
- force=true
+from = "/no/produkter/aerodek/tradition-takpanne"
+to = "/no/staltakpanner/aerodek-tradition"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek/unique-plus-*"
- to="/no/staltakpanner/aerodek-unique-plus"
- status=301
- force=true
+from = "/no/produkter/aerodek/unique-plus-*"
+to = "/no/staltakpanner/aerodek-unique-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-unique-plus"
- to="/no/staltakpanner/aerodek-unique-plus"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/aerodek/aerodek-unique-plus"
+to = "/no/staltakpanner/aerodek-unique-plus"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/shingel"
- to="/no/takshingel"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/shingel"
+to = "/no/takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennejern-kombi-63"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennejern-kombi-63"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennejern-kombi"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennejern-kombi"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennekrok-t47"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennekrok-t47"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennekrok-t50-med-lufting"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennekrok-t50-med-lufting"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennekrok-torvtak"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennekrok-torvtak"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-02"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-02"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-03"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-03"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-innvendig-90"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-innvendig-90"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-l43-innv-limes"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-l43-innv-limes"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-l44-utv-limes"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-l44-utv-limes"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-t43-innv-m-pakning"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-t43-innv-m-pakning"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-t44-utv-m-pakning"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-t44-utv-m-pakning"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rennevinkel-utvendig-90"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rennevinkel-utvendig-90"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rensetrakt-32-plast"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/rensetrakt-32-plast"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rklamme-murvegg-21"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rklamme-murvegg-21"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rklamme-murvegg-med-stift"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rklamme-murvegg-med-stift"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rklamme-n47-plast"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rklamme-n47-plast"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rklamme-trevegg"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rklamme-trevegg"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rklamme-trevegg-48-67"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rklamme-trevegg-48-67"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rmansjett"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rmansjett"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rmuffe-n41-plast"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rmuffe-n41-plast"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8temuffe"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8temuffe"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8temuffe-22"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8temuffe-22"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8testykke"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8testykke"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8testykke-06"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8testykke-06"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8testykke-for-h%C3%A5ndl%C3%B8per-til-stolpefritt-glassrekkverk"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8testykke-for-h%C3%A5ndl%C3%B8per-til-stolpefritt-glassrekkverk"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8testykke-l46-limes"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8testykke-l46-limes"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skj%C3%B8testykke-t46-m-pakning"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skj%C3%B8testykke-t46-m-pakning"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skru-skj%C3%B8testykke-40"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/skru-skj%C3%B8testykke-40"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sokkelkne-195"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/sokkelkne-195"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sokkelkne-n50-plast"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/sokkelkne-n50-plast"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/takrenne-01-st%C3%A5l-125mm"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/takrenne-01-st%C3%A5l-125mm"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/takrenne-st%C3%A5l-150mm"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/takrenne-st%C3%A5l-150mm"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/takrenne-t4-plast-105mm"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/takrenne-t4-plast-105mm"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/takrenner/takrenner-f"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/takrenner/takrenner-f"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/anleggsprodukter/produkter/takrenner"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/anleggsprodukter/produkter/takrenner"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/takrenner/"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/takrenner/"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/takrenner"
- to="/no/takrenner"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/takrenner"
+to = "/no/takrenner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vindskibeslag-vks-3"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vindskibeslag-vks-3"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vindskibeslag-vks-8"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vindskibeslag-vks-8"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vindsperre-bmi-firesmart-uv"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vindsperre-bmi-firesmart-uv"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vindusbeslag-over"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vindusbeslag-over"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vindusbeslag-under"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vindusbeslag-under"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vannbordbeslag-vbs-11"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vannbordbeslag-vbs-11"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vannbordbeslag-vbs-13"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vannbordbeslag-vbs-13"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/vannbordbeslag"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/vannbordbeslag"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/beslag/beslag-f"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/beslag/beslag-f"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/beslag"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/beslag"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/beslag/"
- to="/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/beslag/"
+to = "/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/tettesystem/tettesystem-f"
- to="/no/tettesystemer-fra-bmi"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/tettesystem/tettesystem-f"
+to = "/no/tettesystemer-fra-bmi"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/tettesystem/"
- to="/no/tettesystemer-fra-bmi"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/tettesystem/"
+to = "/no/tettesystemer-fra-bmi"
+status = 301
 
 [[redirects]]
- from="/no/produkter/andre-byggevarer/tettesystem"
- to="/no/tettesystemer-fra-bmi"
- status=301
- force=true
+from = "/no/produkter/andre-byggevarer/tettesystem"
+to = "/no/tettesystemer-fra-bmi"
+status = 301
 
 [[redirects]]
- from="/no/produkter/diffex"
- to="/no/undertak/diffex"
- status=301
- force=true
+from = "/no/produkter/diffex"
+to = "/no/undertak/diffex"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal-super-d"
- to="/no/underlagsbelegg/icopal-super-d"
- status=301
- force=true
+from = "/no/produkter/icopal-super-d"
+to = "/no/underlagsbelegg/icopal-super-d"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal-ultra-d-sk"
- to="/no/underlagsbelegg/icopal-ultra-d"
- status=301
- force=true
+from = "/no/produkter/icopal-ultra-d-sk"
+to = "/no/underlagsbelegg/icopal-ultra-d"
+status = 301
 
 [[redirects]]
- from="/no/produkter/ventex-supra"
- to="/no/undertak/ventex-supra"
- status=301
- force=true
+from = "/no/produkter/ventex-supra"
+to = "/no/undertak/ventex-supra"
+status = 301
 
 [[redirects]]
- from="/no/produkter/primex"
- to="/no/undertak/primex"
- status=301
- force=true
+from = "/no/produkter/primex"
+to = "/no/undertak/primex"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein"
- to="/no/takstein"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein"
+to = "/no/takstein"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/zanda"
- to="/no/takstein/betongtakstein"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/zanda"
+to = "/no/takstein/betongtakstein"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/zanda/"
- to="/no/takstein/betongtakstein"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/zanda/"
+to = "/no/takstein/betongtakstein"
+status = 301
 
 [[redirects]]
- from="/no/bli-en-takpartner"
- to="/no/takpartner"
- status=301
- force=true
+from = "/no/bli-en-takpartner"
+to = "/no/takpartner"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/milj%C3%B8deklarasjon"
- to="/no/dokumentasjon/miljødeklarasjoner"
- status=301
- force=true
+from = "/no/dokumentasjon/milj%C3%B8deklarasjon"
+to = "/no/dokumentasjon/miljødeklarasjoner"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/sikkerhetserkl%C3%A6ring"
- to="/no/dokumentasjon/sikkerhetsdatablad"
- status=301
- force=true
+from = "/no/dokumentasjon/sikkerhetserkl%C3%A6ring"
+to = "/no/dokumentasjon/sikkerhetsdatablad"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/teknisk-godkjenning"
- to="/no/dokumentasjon/sertifikater-og-tekniske-godkjenninger"
- status=301
- force=true
+from = "/no/dokumentasjon/teknisk-godkjenning"
+to = "/no/dokumentasjon/sertifikater-og-tekniske-godkjenninger"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/ytelseserkl%C3%A6ring"
- to="/no/dokumentasjon/ytelseserklæringer"
- status=301
- force=true
+from = "/no/dokumentasjon/ytelseserkl%C3%A6ring"
+to = "/no/dokumentasjon/ytelseserklæringer"
+status = 301
 
 [[redirects]]
- from="/no/juridisk/disclaimer"
- to="/no/ansvarsfraskivelse"
- status=301
- force=true
+from = "/no/juridisk/disclaimer"
+to = "/no/ansvarsfraskivelse"
+status = 301
 
 [[redirects]]
- from="/no/juridisk/imprint"
- to="/no/imprint"
- status=301
- force=true
+from = "/no/juridisk/imprint"
+to = "/no/imprint"
+status = 301
 
 [[redirects]]
- from="/no/juridisk/personvernerkl%C3%A6ring"
- to="/no/personvern-og-sikkerhet"
- status=301
- force=true
+from = "/no/juridisk/personvernerkl%C3%A6ring"
+to = "/no/personvern-og-sikkerhet"
+status = 301
 
 [[redirects]]
- from="/no/legal/third-party-privacy-notice"
- to="/no/personvern-og-sikkerhet"
- status=301
- force=true
+from = "/no/legal/third-party-privacy-notice"
+to = "/no/personvern-og-sikkerhet"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/prisinformasjon"
- to="/no/dokumentasjon/Prislister"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/prisinformasjon"
+to = "/no/dokumentasjon/Prislister"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/protect-s-takshingel"
- to="/no/takshingel/protect-takshingel"
- status=301
- force=true
+from = "/no/produkter/icopal/protect-s-takshingel"
+to = "/no/takshingel/protect-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/type-s-takshingel"
- to="/no/takshingel/type-s-takshingel"
- status=301
- force=true
+from = "/no/produkter/type-s-takshingel"
+to = "/no/takshingel/type-s-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/type-s-takshingel"
- to="/no/takshingel/type-s-takshingel"
- status=301
- force=true
+from = "/no/produkter/icopal/type-s-takshingel"
+to = "/no/takshingel/type-s-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/underlag-flexi-d-1x25m"
- to="/no/underlagsbelegg/icopal-flexi-d"
- status=301
- force=true
+from = "/no/produkter/underlag-flexi-d-1x25m"
+to = "/no/underlagsbelegg/icopal-flexi-d"
+status = 301
 
 [[redirects]]
- from="/no/produkter/valdres-takshingel"
- to="/no/takshingel/valdres-takshingel"
- status=301
- force=true
+from = "/no/produkter/valdres-takshingel"
+to = "/no/takshingel/valdres-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/valdres-takshingel"
- to="/no/takshingel/valdres-takshingel"
- status=301
- force=true
+from = "/no/produkter/icopal/valdres-takshingel"
+to = "/no/takshingel/valdres-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-evo-*"
- to="/no/takstein/betongtakstein/zanda-evo"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-evo-*"
+to = "/no/takstein/betongtakstein/zanda-evo"
+status = 301
 
-
 [[redirects]]
- from="/no/search-page"
- to="/no/search"
- status=301
- force=true
+from = "/no/search-page"
+to = "/no/search"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/vare-forhandlere"
- to="/no/vare-forhandlere"
- status=301
- force=true
+from = "/no/kontakt-oss/vare-forhandlere"
+to = "/no/vare-forhandlere"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/husk-taksikring-i-vinter"
- to="/no/hvordan-gjore-taket-klart-for-vinteren"
- status=301
- force=true
+from = "/no/nyheter/husk-taksikring-i-vinter"
+to = "/no/hvordan-gjore-taket-klart-for-vinteren"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-sjekker-du-at-taket-er-klart-for-vinteren"
- to="/no/hvordan-gjore-taket-klart-for-vinteren"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-sjekker-du-at-taket-er-klart-for-vinteren"
+to = "/no/hvordan-gjore-taket-klart-for-vinteren"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-arktis-*"
- to="/no/takstein/betongtakstein/zanda-arktis"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-arktis-*"
+to = "/no/takstein/betongtakstein/zanda-arktis"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/betongtakstein/zanda-arktis"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-avl%C3%B8psventilasjonspakke"
+to = "/no/takstein/betongtakstein/zanda-arktis"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda-arktis-normalstein"
- to="/no/takstein/betongtakstein/zanda-arktis"
- status=301
- force=true
+from = "/no/produkter/zanda-arktis-normalstein"
+to = "/no/takstein/betongtakstein/zanda-arktis"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/zanda-arktis-antikk"
- to="/no/takstein/betongtakstein/zanda-arktis"
- status=301
- force=true
+from = "/no/nyheter/zanda-arktis-antikk"
+to = "/no/takstein/betongtakstein/zanda-arktis"
+status = 301
 
 [[redirects]]
- from="/no/huseier/finn-en-taklegger"
- to="/no/finn-en-takpartner"
- status=301
- force=true
+from = "/no/huseier/finn-en-taklegger"
+to = "/no/finn-en-takpartner"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/kataloger-og-brosjyrer"
- to="/no/dokumentasjon/Brosjyrer-og-kataloger"
- status=301
- force=true
+from = "/no/dokumentasjon/kataloger-og-brosjyrer"
+to = "/no/dokumentasjon/Brosjyrer-og-kataloger"
+status = 301
 
 [[redirects]]
- from="/no/huseier/takbefaring"
- to="/no/gratis-takbefaring"
- status=301
- force=true
+from = "/no/huseier/takbefaring"
+to = "/no/gratis-takbefaring"
+status = 301
 
 [[redirects]]
- from="/no/huseier/takbefaring"
- to="/no/gratis-takbefaring"
- status=301
- force=true
+from = "/no/huseier/takbefaring"
+to = "/no/gratis-takbefaring"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon"
- to="/no/inspirasjon-tips-og-rad"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon"
+to = "/no/inspirasjon-tips-og-rad"
+status = 301
 
 [[redirects]]
- from="/no/huseier"
- to="/no/inspirasjon-tips-og-rad"
- status=301
- force=true
+from = "/no/huseier"
+to = "/no/inspirasjon-tips-og-rad"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/aerodek"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/aerodek"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/andre-byggevarer"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/andre-byggevarer"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/garantier"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/garantier"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/generelle-sporsmal"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/generelle-sporsmal"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/reklamasjoner"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/reklamasjoner"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/skra-tak"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/skra-tak"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar/transportinformasjon"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar/transportinformasjon"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/kontakt-oss/sporsmaal-og-svar"
- to="/no/ofte-stilte-sporsmal"
- status=301
- force=true
+from = "/no/kontakt-oss/sporsmaal-og-svar"
+to = "/no/ofte-stilte-sporsmal"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda-classic-normalstein"
- to="/no/takstein/betongtakstein/zanda-classic"
- status=301
- force=true
+from = "/no/produkter/zanda-classic-normalstein"
+to = "/no/takstein/betongtakstein/zanda-classic"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-classic-*"
- to="/no/takstein/betongtakstein/zanda-classic"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-classic-*"
+to = "/no/takstein/betongtakstein/zanda-classic"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda-minster-normalstein"
- to="/no/takstein/betongtakstein/zanda-minster"
- status=301
- force=true
+from = "/no/produkter/zanda-minster-normalstein"
+to = "/no/takstein/betongtakstein/zanda-minster"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-minster-*"
- to="/no/takstein/betongtakstein/zanda-minster"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-minster-*"
+to = "/no/takstein/betongtakstein/zanda-minster"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda-minster-stormklips-55"
- to="/no/takstein/betongtakstein/zanda-minster"
- status=301
- force=true
+from = "/no/produkter/zanda-minster-stormklips-55"
+to = "/no/takstein/betongtakstein/zanda-minster"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda-protector-normalstein"
- to="/no/takstein/betongtakstein/zanda-protector"
- status=301
- force=true
+from = "/no/produkter/zanda-protector-normalstein"
+to = "/no/takstein/betongtakstein/zanda-protector"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-protector-*"
- to="/no/takstein/betongtakstein/zanda-protector"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-protector-*"
+to = "/no/takstein/betongtakstein/zanda-protector"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-ventilasjonspakke"
- to="/no/takstein/betongtakstein/zanda-protector"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-ventilasjonspakke"
+to = "/no/takstein/betongtakstein/zanda-protector"
+status = 301
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-vestland-*"
- to="/no/takstein/betongtakstein/zanda-vestland"
- status=301
- force=true
+from = "/no/produkter/zanda/zanda-vestland-*"
+to = "/no/takstein/betongtakstein/zanda-vestland"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/dantegl-*"
- to="/no/takstein/tegltakstein/dantegl"
- status=301
- force=true
+from = "/no/produkter/monier/dantegl-*"
+to = "/no/takstein/tegltakstein/dantegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/hollander-stigetrinn-230"
- to="/no/takstein/tegltakstein/hollander-v"
- status=301
- force=true
+from = "/no/produkter/hollander-stigetrinn-230"
+to = "/no/takstein/tegltakstein/hollander-v"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/hollander-*"
- to="/no/takstein/tegltakstein/hollander-v"
- status=301
- force=true
+from = "/no/produkter/monier/hollander-*"
+to = "/no/takstein/tegltakstein/hollander-v"
+status = 301
 
 [[redirects]]
- from="/no/produkter/hollander-v-normalstein"
- to="/no/takstein/tegltakstein/hollander-v"
- status=301
- force=true
+from = "/no/produkter/hollander-v-normalstein"
+to = "/no/takstein/tegltakstein/hollander-v"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-avl%C3%B8psventilasjonspakke"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-gavlstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-gavlstein-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-gavlstein-venstre"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-gavlstein-venstre"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/kdn-is-og-sn%C3%B8stopper-200"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/kdn-is-og-sn%C3%B8stopper-200"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-luftestein-komplett"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-luftestein-komplett"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-m%C3%B8neavslutning"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-m%C3%B8neavslutning"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-m%C3%B8nebegynnelse"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-m%C3%B8nebegynnelse"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/kdn-m%C3%B8neklips-m-skrue"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/kdn-m%C3%B8neklips-m-skrue"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-m%C3%B8nestein"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-normalstein"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-normalstein"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/kdn-sn%C3%B8fanger-konsoll-sn-k-605"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/kdn-sn%C3%B8fanger-konsoll-sn-k-605"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-t-m%C3%B8ne"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-t-m%C3%B8ne"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-valmbegynnelse"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-valmbegynnelse"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-valmtetning"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-valmtetning"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-ventilasjonspakke"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-ventilasjonspakke"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/kdn-dantegl-stigetrinn-430"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/kdn-dantegl-stigetrinn-430"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/kdn-normalstein"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/monier/kdn-normalstein"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/kdn-normalstein"
- to="/no/takstein/tegltakstein/kdn"
- status=301
- force=true
+from = "/no/produkter/kdn-normalstein"
+to = "/no/takstein/tegltakstein/kdn"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-normalstein"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-normalstein"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-sn%C3%B8fanger-konsoll-sn-n-605"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/nortegl-sn%C3%B8fanger-konsoll-sn-n-605"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-stigetrinn-260"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/nortegl-stigetrinn-260"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-t-m%C3%B8ne"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-t-m%C3%B8ne"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-toppstein"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-toppstein"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-toppstein-gavl-h%C3%B8yre"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-toppstein-gavl-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-toppstein-gavl-venstre"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-toppstein-gavl-venstre"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-valmbegynnelse"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-valmbegynnelse"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-valmm%C3%B8ne"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-valmm%C3%B8ne"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-valmtetning"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-valmtetning"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-ventilasjonspakke"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-ventilasjonspakke"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-m%C3%B8nestein"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-m%C3%B8nestein-uten-fals"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-m%C3%B8nestein-uten-fals"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-t-m%C3%B8ne"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-t-m%C3%B8ne"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-valmbegynnelse"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-valmbegynnelse"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-valmm%C3%B8ne"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-valmm%C3%B8ne"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-nova-valmtetning"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-nova-valmtetning"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-avl%C3%B8psventilasjonspakke"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-endelokk"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-endelokk"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-gavlstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-gavlstein-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-gavlstein-venstre"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-gavlstein-venstre"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-is-og-sn%C3%B8stopper-200"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/nortegl-is-og-sn%C3%B8stopper-200"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-m%C3%B8ne-begynnelse-slutt"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-m%C3%B8ne-begynnelse-slutt"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-m%C3%B8nestein"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nortegl-m%C3%B8nestein-uten-fals"
- to="/no/takstein/tegltakstein/nortegl"
- status=301
- force=true
+from = "/no/produkter/monier/nortegl-m%C3%B8nestein-uten-fals"
+to = "/no/takstein/tegltakstein/nortegl"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-avl%C3%B8psventilasjonspakke"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-gavlstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-gavlstein-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-gavlstein-venstre"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-gavlstein-venstre"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-m%C3%B8ne-begynnelse-slutt"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-m%C3%B8ne-begynnelse-slutt"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-m%C3%B8nestein"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-m%C3%B8nestein-uten-fals"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-m%C3%B8nestein-uten-fals"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-normalstein"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-normalstein"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-t-m%C3%B8ne"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-t-m%C3%B8ne"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-valmbegynnelse"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-valmbegynnelse"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-valmm%C3%B8ne"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-valmm%C3%B8ne"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-valmtetning"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-valmtetning"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-ventilasjonspakke"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-ventilasjonspakke"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-ventilasjonstein"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-ventilasjonstein"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-nova-m%C3%B8neklips"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/nortegl-nova-m%C3%B8neklips"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nova-normalstein"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/nova-normalstein"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/nova-normalstein"
- to="/no/takstein/tegltakstein/nova"
- status=301
- force=true
+from = "/no/produkter/monier/nova-normalstein"
+to = "/no/takstein/tegltakstein/nova"
+status = 301
 
 [[redirects]]
- from="/no/produkter/turmalin-normalstein"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/turmalin-normalstein"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-avl%C3%B8psventilasjonspakke"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-gavlhalvstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-gavlhalvstein-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-gavlhalvstein-venstre"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-gavlhalvstein-venstre"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-gavlstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-gavlstein-h%C3%B8yre"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-gavlstein-venstre"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-gavlstein-venstre"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-halvstein"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-halvstein"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-m%C3%B8neavslutning"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-m%C3%B8neavslutning"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-m%C3%B8nebegynnelse"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-m%C3%B8nebegynnelse"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-m%C3%B8nestein"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-normalstein"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-normalstein"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/turmalin-sn%C3%B8fanger-konsoll-sn-tu-605"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/turmalin-sn%C3%B8fanger-konsoll-sn-tu-605"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-valmtetning"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-valmtetning"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-ventilasjonspakke"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-ventilasjonspakke"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monier/turmalin-normalstein"
- to="/no/takstein/tegltakstein/turmalin"
- status=301
- force=true
+from = "/no/produkter/monier/turmalin-normalstein"
+to = "/no/takstein/tegltakstein/turmalin"
+status = 301
 
 [[redirects]]
- from="/no/produkter/divoroll-top-ru"
- to="/no/undertak/divoroll-top-ru"
- status=301
- force=true
+from = "/no/produkter/divoroll-top-ru"
+to = "/no/undertak/divoroll-top-ru"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/monteringsanvisning"
- to="/no/dokumentasjon/monteringsanvisninger"
- status=301
- force=true
+from = "/no/dokumentasjon/monteringsanvisning"
+to = "/no/dokumentasjon/monteringsanvisninger"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/icopal"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/icopal"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/icopal/bitumen"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/icopal/bitumen"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/membraner/icopal/noxite"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/membraner/icopal/noxite"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc-detalj"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc-detalj"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc-f"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc-f"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc-noxite"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc-noxite"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc-parapet-2"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc-parapet-2"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc-sk"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc-sk"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pc"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pc"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-mono-pm"
- to="/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-mono-pm"
+to = "/no/asfalt-takbelegg/ett-lags-takbelegg/icopal-mono-pc"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-base-rims"
- to="/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-base-rims"
+to = "/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-base-k"
- to="/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base-k"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-base-k"
+to = "/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base-k"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-base-sk"
- to="/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base-sk"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-base-sk"
+to = "/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base-sk"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-base"
- to="/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-base"
+to = "/no/asfalt-takbelegg/to-lags-takbelegg/icopal-base"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter"
- to="/no/bmis-system-for-flate-tak"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter"
+to = "/no/bmis-system-for-flate-tak"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flate-takprodukter/produkter/"
- to="/no/bmis-system-for-flate-tak"
- status=301
- force=true
+from = "/no/produkter/flate-takprodukter/produkter/"
+to = "/no/bmis-system-for-flate-tak"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/icopal-pluss-garanti"
- to="/no/garantier"
- status=301
- force=true
+from = "/no/nyheter/icopal-pluss-garanti"
+to = "/no/garantier"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/garanti-for-at-taket-er-tett-i-minst-20-ar"
- to="/no/inspirasjon-tips-og-rad/20-ars-garanti-sorger-for-trygge-flate-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/garanti-for-at-taket-er-tett-i-minst-20-ar"
+to = "/no/inspirasjon-tips-og-rad/20-ars-garanti-sorger-for-trygge-flate-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/30-ars-systemgaranti-pa-undertak-og-vindsperrer"
- to="/no/inspirasjon-tips-og-rad/30-ars-systemgaranti-pa-undertak-og-vindsperrer"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/30-ars-systemgaranti-pa-undertak-og-vindsperrer"
+to = "/no/inspirasjon-tips-og-rad/30-ars-systemgaranti-pa-undertak-og-vindsperrer"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/600000-usikre-tak"
- to="/no/inspirasjon-tips-og-rad/600-000-usikre-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/600000-usikre-tak"
+to = "/no/inspirasjon-tips-og-rad/600-000-usikre-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/9-grunner-til-a-ha-det-gront-pa-taket"
- to="/no/inspirasjon-tips-og-rad/9-grunner-til-a-ha-det-gront-pa-taket"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/9-grunner-til-a-ha-det-gront-pa-taket"
+to = "/no/inspirasjon-tips-og-rad/9-grunner-til-a-ha-det-gront-pa-taket"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/aldri-foer-har-det-vaert-viktigere-med-tette-tak"
- to="/no/inspirasjon-tips-og-rad/aldri-for-har-det-vaert-viktigere-med-tette-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/aldri-foer-har-det-vaert-viktigere-med-tette-tak"
+to = "/no/inspirasjon-tips-og-rad/aldri-for-har-det-vaert-viktigere-med-tette-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/arkitekten-om-taket-den-viktigste-delen-av-bygget"
- to="/no/inspirasjon-tips-og-rad/arkitekten-om-taket-den-viktigste-delen-av-bygget"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/arkitekten-om-taket-den-viktigste-delen-av-bygget"
+to = "/no/inspirasjon-tips-og-rad/arkitekten-om-taket-den-viktigste-delen-av-bygget"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/den-viktigste-delen-av-bygget"
- to="/no/inspirasjon-tips-og-rad/arkitekten-om-taket-den-viktigste-delen-av-bygget"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/den-viktigste-delen-av-bygget"
+to = "/no/inspirasjon-tips-og-rad/arkitekten-om-taket-den-viktigste-delen-av-bygget"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/bli-takpartner-du-ogsa"
- to="/no/inspirasjon-tips-og-rad/bli-takpartner-du-ogsa"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/bli-takpartner-du-ogsa"
+to = "/no/inspirasjon-tips-og-rad/bli-takpartner-du-ogsa"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/derfor-b%C3%B8r-du-ha-system-p%C3%A5-takvedlikeholdet"
- to="/no/inspirasjon-tips-og-rad/derfor-bor-du-ha-system-pa-takvedlikeholdet"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/derfor-b%C3%B8r-du-ha-system-p%C3%A5-takvedlikeholdet"
+to = "/no/inspirasjon-tips-og-rad/derfor-bor-du-ha-system-pa-takvedlikeholdet"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/derfor-velger-de-beste-haandverkerne-aerodek"
- to="/no/inspirasjon-tips-og-rad/derfor-velger-de-beste-handverkerne-bmi-aerodek"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/derfor-velger-de-beste-haandverkerne-aerodek"
+to = "/no/inspirasjon-tips-og-rad/derfor-velger-de-beste-handverkerne-bmi-aerodek"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/er-hustaket-klart-for-varen"
- to="/no/inspirasjon-tips-og-rad/er-taket-ditt-klart-for-varen"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/er-hustaket-klart-for-varen"
+to = "/no/inspirasjon-tips-og-rad/er-taket-ditt-klart-for-varen"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/et-tak-man-kan-stole-pa"
- to="/no/inspirasjon-tips-og-rad/et-tak-du-kan-stole-pa"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/et-tak-man-kan-stole-pa"
+to = "/no/inspirasjon-tips-og-rad/et-tak-du-kan-stole-pa"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/f%C3%A5-viktig-kunnskap-om-flate-tak-p%C3%A5-30-minutter"
- to="/no/inspirasjon-tips-og-rad/fa-viktig-kunnskap-om-flate-tak-pa-30-minutter"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/f%C3%A5-viktig-kunnskap-om-flate-tak-p%C3%A5-30-minutter"
+to = "/no/inspirasjon-tips-og-rad/fa-viktig-kunnskap-om-flate-tak-pa-30-minutter"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/faerre-skader-paa-flate-tak"
- to="/no/inspirasjon-tips-og-rad/faerre-skader-pa-flate-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/faerre-skader-paa-flate-tak"
+to = "/no/inspirasjon-tips-og-rad/faerre-skader-pa-flate-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/fire-grunner-til-a-velge-miljotak"
- to="/no/inspirasjon-tips-og-rad/fire-grunner-til-a-velge-miljotak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/fire-grunner-til-a-velge-miljotak"
+to = "/no/inspirasjon-tips-og-rad/fire-grunner-til-a-velge-miljotak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/gjor-det-enklere-a-bygge-uteplassen"
- to="/no/inspirasjon-tips-og-rad/gjor-det-enklere-a-bygge-uteplassen"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/gjor-det-enklere-a-bygge-uteplassen"
+to = "/no/inspirasjon-tips-og-rad/gjor-det-enklere-a-bygge-uteplassen"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/glassrekkverk-enklere-penere-raskere"
- to="/no/inspirasjon-tips-og-rad/glassrekkverk-enklere-penere-og-raskere"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/glassrekkverk-enklere-penere-raskere"
+to = "/no/inspirasjon-tips-og-rad/glassrekkverk-enklere-penere-og-raskere"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/gode-tak-raad-er-gratis"
- to="/no/inspirasjon-tips-og-rad/gode-tak-rad-er-gratis"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/gode-tak-raad-er-gratis"
+to = "/no/inspirasjon-tips-og-rad/gode-tak-rad-er-gratis"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/storst-utvalg"
- to="/no/inspirasjon-tips-og-rad/her-er-alle-aerodek-produktene"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/storst-utvalg"
+to = "/no/inspirasjon-tips-og-rad/her-er-alle-aerodek-produktene"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/nar-bor-taket-byttes"
- to="/no/inspirasjon-tips-og-rad/hva-bor-du-tenke-pa-nar-du-skal-bytte-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/nar-bor-taket-byttes"
+to = "/no/inspirasjon-tips-og-rad/hva-bor-du-tenke-pa-nar-du-skal-bytte-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/dette-bor-du-tenke-pa-bytte-tak"
- to="/no/inspirasjon-tips-og-rad/hva-skal-jeg-tenke-pa-nar-jeg-skal-bytte-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/dette-bor-du-tenke-pa-bytte-tak"
+to = "/no/inspirasjon-tips-og-rad/hva-skal-jeg-tenke-pa-nar-jeg-skal-bytte-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/slik-vet-du-hvilket-tak-du-skal-velge"
- to="/no/inspirasjon-tips-og-rad/hvilket-tak-skal-jeg-velge"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/slik-vet-du-hvilket-tak-du-skal-velge"
+to = "/no/inspirasjon-tips-og-rad/hvilket-tak-skal-jeg-velge"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvilket-tak-skal-jeg-velge"
- to="/no/inspirasjon-tips-og-rad/hvilket-tak-skal-jeg-velge"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvilket-tak-skal-jeg-velge"
+to = "/no/inspirasjon-tips-og-rad/hvilket-tak-skal-jeg-velge"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvordan-far-jeg-et-frodig-torvtak"
- to="/no/inspirasjon-tips-og-rad/hvordan-far-du-et-frodig-og-velhold-torvtak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvordan-far-jeg-et-frodig-torvtak"
+to = "/no/inspirasjon-tips-og-rad/hvordan-far-du-et-frodig-og-velhold-torvtak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/det-er-dyrt-aa-spare"
- to="/no/inspirasjon-tips-og-rad/hvordan-spare-penger-pa-taket"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/det-er-dyrt-aa-spare"
+to = "/no/inspirasjon-tips-og-rad/hvordan-spare-penger-pa-taket"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/10-gode-raad-ved-valg-av-byggmester"
- to="/no/inspirasjon-tips-og-rad/hvordan-velge-riktig-byggmester"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/10-gode-raad-ved-valg-av-byggmester"
+to = "/no/inspirasjon-tips-og-rad/hvordan-velge-riktig-byggmester"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/kjenner-du-til-takvettreglene"
- to="/no/inspirasjon-tips-og-rad/kjenner-du-til-takvettreglene"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/kjenner-du-til-takvettreglene"
+to = "/no/inspirasjon-tips-og-rad/kjenner-du-til-takvettreglene"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/maa-du-bytte-tak"
- to="/no/inspirasjon-tips-og-rad/ma-du-bytte-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/maa-du-bytte-tak"
+to = "/no/inspirasjon-tips-og-rad/ma-du-bytte-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/nye-muligheter-for-skraa-tak"
- to="/no/inspirasjon-tips-og-rad/nye-muligheter-for-skra-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/nye-muligheter-for-skraa-tak"
+to = "/no/inspirasjon-tips-og-rad/nye-muligheter-for-skra-tak"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/fornying-eller-forverring"
- to="/no/inspirasjon-tips-og-rad/skal-jeg-velge-takfornying"
- status=301
- force=true
+from = "/no/nyheter/fornying-eller-forverring"
+to = "/no/inspirasjon-tips-og-rad/skal-jeg-velge-takfornying"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/takfornying-forlenger-ikke-takets-levetid"
- to="/no/inspirasjon-tips-og-rad/skal-jeg-velge-takfornying"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/takfornying-forlenger-ikke-takets-levetid"
+to = "/no/inspirasjon-tips-og-rad/skal-jeg-velge-takfornying"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/villere-v%C3%A6r-og-skjerpet-forskrift-krever-mer-av-stillasinndekningen"
- to="/no/inspirasjon-tips-og-rad/skjerpet-forskrift-krever-bedre-stillasinndekning"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/villere-v%C3%A6r-og-skjerpet-forskrift-krever-mer-av-stillasinndekningen"
+to = "/no/inspirasjon-tips-og-rad/skjerpet-forskrift-krever-bedre-stillasinndekning"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/fem-gode-rad-til-nye-takeiere"
- to="/no/inspirasjon-tips-og-rad/slik-sikrer-du-at-ditt-nye-tak-holder-mal"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/fem-gode-rad-til-nye-takeiere"
+to = "/no/inspirasjon-tips-og-rad/slik-sikrer-du-at-ditt-nye-tak-holder-mal"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-vedlikeholder-du-takpannene"
- to="/no/inspirasjon-tips-og-rad/slik-vedlikeholder-du-takpannene"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/slik-vedlikeholder-du-takpannene"
+to = "/no/inspirasjon-tips-og-rad/slik-vedlikeholder-du-takpannene"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/velg-trygghet-pa-taket"
- to="/no/inspirasjon-tips-og-rad/slik-vet-du-hvilket-tak-du-skal-velge"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/velg-trygghet-pa-taket"
+to = "/no/inspirasjon-tips-og-rad/slik-vet-du-hvilket-tak-du-skal-velge"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvilket-tak-skal-jeg-velge"
- to="/no/inspirasjon-tips-og-rad/slik-vet-du-hvilket-tak-du-skal-velge"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/hvilket-tak-skal-jeg-velge"
+to = "/no/inspirasjon-tips-og-rad/slik-vet-du-hvilket-tak-du-skal-velge"
+status = 301
 
 [[redirects]]
- from="/no/huseier/smarte-valg-for-skraa-tak"
- to="/no/inspirasjon-tips-og-rad/smarte-losninger-som-hjelper-byggmester"
- status=301
- force=true
+from = "/no/huseier/smarte-valg-for-skraa-tak"
+to = "/no/inspirasjon-tips-og-rad/smarte-losninger-som-hjelper-byggmester"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/sorg-for-at-taket-er-tett"
- to="/no/inspirasjon-tips-og-rad/sorg-for-at-taket-er-tett"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/sorg-for-at-taket-er-tett"
+to = "/no/inspirasjon-tips-og-rad/sorg-for-at-taket-er-tett"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/staltakpanner-med-en-av-de-beste-garantiordningene"
- to="/no/inspirasjon-tips-og-rad/staltakpanner-med-en-av-de-beste-garantiordningene"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/staltakpanner-med-en-av-de-beste-garantiordningene"
+to = "/no/inspirasjon-tips-og-rad/staltakpanner-med-en-av-de-beste-garantiordningene"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/takshingel-raskt-og-legge-lang-holdbarhet"
- to="/no/inspirasjon-tips-og-rad/takshingel-raskt-a-legge-lang-holdbarhet"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/takshingel-raskt-og-legge-lang-holdbarhet"
+to = "/no/inspirasjon-tips-og-rad/takshingel-raskt-a-legge-lang-holdbarhet"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/tette-tak-i-ekstremaer"
- to="/no/inspirasjon-tips-og-rad/tette-tak-i-ekstremvaer"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/tette-tak-i-ekstremaer"
+to = "/no/inspirasjon-tips-og-rad/tette-tak-i-ekstremvaer"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/tre-av-landets-dyktigste-pa-tak"
- to="/no/inspirasjon-tips-og-rad/tre-av-landets-dyktigste-pa-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/tre-av-landets-dyktigste-pa-tak"
+to = "/no/inspirasjon-tips-og-rad/tre-av-landets-dyktigste-pa-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/trygghet-for-naringsbygget"
- to="/no/inspirasjon-tips-og-rad/trygghet-for-naeringsbygget"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/trygghet-for-naringsbygget"
+to = "/no/inspirasjon-tips-og-rad/trygghet-for-naeringsbygget"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/trygt-med-aerodek-i-barnehagen"
- to="/no/inspirasjon-tips-og-rad/trygt-med-aerodek-i-barnehagen"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/trygt-med-aerodek-i-barnehagen"
+to = "/no/inspirasjon-tips-og-rad/trygt-med-aerodek-i-barnehagen"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/utnytt-uterommet-maksimalt"
- to="/no/inspirasjon-tips-og-rad/utnytt-uterommet-maksimalt"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/arkitekt-og-ingenior/utnytt-uterommet-maksimalt"
+to = "/no/inspirasjon-tips-og-rad/utnytt-uterommet-maksimalt"
+status = 301
 
 [[redirects]]
- from="/no/huseier/faktabok-om-flate-tak-pa-bolig-hytte"
- to="/no/inspirasjon-tips-og-rad/vedlikehold-av-flate-tak-pa-boliger"
- status=301
- force=true
+from = "/no/huseier/faktabok-om-flate-tak-pa-bolig-hytte"
+to = "/no/inspirasjon-tips-og-rad/vedlikehold-av-flate-tak-pa-boliger"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/viktig-med-vedlikeholdsavtale-for-flate-tak"
- to="/no/inspirasjon-tips-og-rad/viktig-med-vedlikeholdsavtaler-for-flate-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/viktig-med-vedlikeholdsavtale-for-flate-tak"
+to = "/no/inspirasjon-tips-og-rad/viktig-med-vedlikeholdsavtaler-for-flate-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/viktige-valg-for-valget"
- to="/no/inspirasjon-tips-og-rad/viktige-valg-for-valget"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/viktige-valg-for-valget"
+to = "/no/inspirasjon-tips-og-rad/viktige-valg-for-valget"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/nye-muligheter-for-skraa-tak"
- to="/no/nye-muligheter-i-staltakmarkedet-med-nytt-navn"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/nye-muligheter-for-skraa-tak"
+to = "/no/nye-muligheter-i-staltakmarkedet-med-nytt-navn"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/garantiordningen"
- to="/no/nyheter/utvider-garantien-pa-norges-mest-populaere-staltakpanner"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/garantiordningen"
+to = "/no/nyheter/utvider-garantien-pa-norges-mest-populaere-staltakpanner"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt"
- to="/no/referansehistorier"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt"
+to = "/no/referansehistorier"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/beskytter-norges-storste-meieri"
- to="/no/referansehistorier/beskytter-norges-storste-meieri"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/beskytter-norges-storste-meieri"
+to = "/no/referansehistorier/beskytter-norges-storste-meieri"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/beskytter-store-verdier-for-moller-bil"
- to="/no/referansehistorier/beskytter-store-verdier-for-moller-bil"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/beskytter-store-verdier-for-moller-bil"
+to = "/no/referansehistorier/beskytter-store-verdier-for-moller-bil"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/holdbart-og-elegant-i-mange-tiar"
- to="/no/referansehistorier/et-tak-som-er-holdbart-og-elegant-i-mange-tiar"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/holdbart-og-elegant-i-mange-tiar"
+to = "/no/referansehistorier/et-tak-som-er-holdbart-og-elegant-i-mange-tiar"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/milj%C3%B8tak-over-kampflyene"
- to="/no/referansehistorier/forsvaret-velger-miljovennlige-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/milj%C3%B8tak-over-kampflyene"
+to = "/no/referansehistorier/forsvaret-velger-miljovennlige-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/legg-et-tak-du-kan-v%C3%A6re-stolt-over"
- to="/no/referansehistorier/legg-et-tak-du-kan-vaere-stolt-over"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/legg-et-tak-du-kan-v%C3%A6re-stolt-over"
+to = "/no/referansehistorier/legg-et-tak-du-kan-vaere-stolt-over"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/miljovennlig-tak-pa-oslos-nye-hovedbibliotek"
- to="/no/referansehistorier/miljovennlig-tak-pa-deichman-bjorvika"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/miljovennlig-tak-pa-oslos-nye-hovedbibliotek"
+to = "/no/referansehistorier/miljovennlig-tak-pa-deichman-bjorvika"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/nytt-tak-pa-to-uker"
- to="/no/referansehistorier/nytt-tak-pa-to-uker"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/nytt-tak-pa-to-uker"
+to = "/no/referansehistorier/nytt-tak-pa-to-uker"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/med-respekt-for-bygget-og-historien"
- to="/no/referansehistorier/praktfulle-og-klassiske-tak-i-ulleval-hageby"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/med-respekt-for-bygget-og-historien"
+to = "/no/referansehistorier/praktfulle-og-klassiske-tak-i-ulleval-hageby"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/byggmester-bob-er-best-pa-tak"
- to="/no/referansehistorier/takproff-byggmester-bob-best-pa-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/byggmester-bob-er-best-pa-tak"
+to = "/no/referansehistorier/takproff-byggmester-bob-best-pa-tak"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/far-vondt-i-magen-av-darlig-handverk"
- to="/no/referansehistorier/takproff-far-vondt-i-magen-av-darlig-handverk"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/far-vondt-i-magen-av-darlig-handverk"
+to = "/no/referansehistorier/takproff-far-vondt-i-magen-av-darlig-handverk"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/norske-handverkere-er-verdens-beste"
- to="/no/referansehistorier/takproff-norske-handverkere-er-verdens-beste"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/norske-handverkere-er-verdens-beste"
+to = "/no/referansehistorier/takproff-norske-handverkere-er-verdens-beste"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/trygge-samvirketak"
- to="/no/referansehistorier/trygge-samvirketak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/trygge-samvirketak"
+to = "/no/referansehistorier/trygge-samvirketak"
+status = 301
 
 [[redirects]]
- from="/no/huseier/vedlikehold-av-taket"
- to="/no/service-og-vedlikeholdsavtaler"
- status=301
- force=true
+from = "/no/huseier/vedlikehold-av-taket"
+to = "/no/service-og-vedlikeholdsavtaler"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/naeringsbygg/smarte-vedlikeholdsvalg-i-nittedal"
- to="/no/smarte-vedlikeholdsvalg-i-nittedal"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/naeringsbygg/smarte-vedlikeholdsvalg-i-nittedal"
+to = "/no/smarte-vedlikeholdsvalg-i-nittedal"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/proff/svartelister-snarveier"
- to="/no/takproff-svartelister-snarveier"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/proff/svartelister-snarveier"
+to = "/no/takproff-svartelister-snarveier"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/ny-tidsriktig-shingel-fra-icopal"
- to="/no/takshingel/beito-takshingel"
- status=301
- force=true
+from = "/no/nyheter/ny-tidsriktig-shingel-fra-icopal"
+to = "/no/takshingel/beito-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/beito-takshingel"
- to="/no/takshingel/beito-takshingel"
- status=301
- force=true
+from = "/no/produkter/beito-takshingel"
+to = "/no/takshingel/beito-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/beito-takshingel"
- to="/no/takshingel/beito-takshingel"
- status=301
- force=true
-
+from = "/no/produkter/icopal/beito-takshingel"
+to = "/no/takshingel/beito-takshingel"
+status = 301
 
-
-
-
 [[redirects]]
- from="/no/produkter/fonda-special"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-special/grå/599100701"
- status=301
- force=true
+from = "/no/produkter/fonda-special"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-special/grå/599100701"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-multicover-clear"
- to="/no/p/presenning/monarflex-multicover-delbar/947952776"
- status=301
- force=true
+from = "/no/produkter/monarflex-multicover-clear"
+to = "/no/p/presenning/monarflex-multicover-delbar/947952776"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-multicover-delbar"
- to="/no/p/presenning/monarflex-multicover-delbar/947952776"
- status=301
- force=true
+from = "/no/produkter/monarflex-multicover-delbar"
+to = "/no/p/presenning/monarflex-multicover-delbar/947952776"
+status = 301
 
 [[redirects]]
- from="/no/produkter/seal-a-leak"
- to="/no/p/reparasjonsasfalt/seal-a-leak/281476295"
- status=301
- force=true
+from = "/no/produkter/seal-a-leak"
+to = "/no/p/reparasjonsasfalt/seal-a-leak/281476295"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampbrems-monarvap-sd5"
- to="/no/p/dampsperrer/dampbrems-monarvap-sd5/2991707418"
- status=301
- force=true
+from = "/no/produkter/dampbrems-monarvap-sd5"
+to = "/no/p/dampsperrer/dampbrems-monarvap-sd5/2991707418"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampsperre-icovario-"
- to="/no/p/dampsperrer/dampsperre-icovario-/1231202850"
- status=301
- force=true
+from = "/no/produkter/dampsperre-icovario-"
+to = "/no/p/dampsperrer/dampsperre-icovario-/1231202850"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampsperre-monarvap-reflex-110"
- to="/no/p/dampsperrer/dampsperre-monarvap-reflex-110/2896346728"
- status=301
- force=true
+from = "/no/produkter/dampsperre-monarvap-reflex-110"
+to = "/no/p/dampsperrer/dampsperre-monarvap-reflex-110/2896346728"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampsperre-x20-4"
- to="/no/p/dampsperrer/dampsperre-x20-4/1382967018"
- status=301
- force=true
+from = "/no/produkter/dampsperre-x20-4"
+to = "/no/p/dampsperrer/dampsperre-x20-4/1382967018"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampsperre-x20"
- to="/no/p/dampsperrer/dampsperre-x20-4/1382967018"
- status=301
- force=true
+from = "/no/produkter/dampsperre-x20"
+to = "/no/p/dampsperrer/dampsperre-x20-4/1382967018"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dampsperre-x5"
- to="/no/p/dampsperrer/dampsperre-x5/417074760"
- status=301
- force=true
+from = "/no/produkter/dampsperre-x5"
+to = "/no/p/dampsperrer/dampsperre-x5/417074760"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fjellgr%C3%A5"
- to="/no/p/dekorlist-35mm/fjellgrå/1614003974"
- status=301
- force=true
+from = "/no/produkter/fjellgr%C3%A5"
+to = "/no/p/dekorlist-35mm/fjellgrå/1614003974"
+status = 301
 
 [[redirects]]
- from="/no/produkter/pansergr%C3%A5"
- to="/no/p/dekorlist-35mm/pansergrå/2576755173"
- status=301
- force=true
+from = "/no/produkter/pansergr%C3%A5"
+to = "/no/p/dekorlist-35mm/pansergrå/2576755173"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sort"
- to="/no/p/dekorlist-35mm/sort/3582457547"
- status=301
- force=true
+from = "/no/produkter/sort"
+to = "/no/p/dekorlist-35mm/sort/3582457547"
+status = 301
 
 [[redirects]]
- from="/no/produkter/teglr%C3%B8d"
- to="/no/p/dekorlist-35mm/teglrød/1608019474"
- status=301
- force=true
+from = "/no/produkter/teglr%C3%B8d"
+to = "/no/p/dekorlist-35mm/teglrød/1608019474"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fjellgr%C3%A5"
- to="/no/p/dekorlist-endelokk-35mm/fjellgrå/2591379748"
- status=301
- force=true
+from = "/no/produkter/fjellgr%C3%A5"
+to = "/no/p/dekorlist-endelokk-35mm/fjellgrå/2591379748"
+status = 301
 
 [[redirects]]
- from="/no/produkter/pansergr%C3%A5"
- to="/no/p/dekorlist-endelokk-35mm/pansergrå/3770341376"
- status=301
- force=true
+from = "/no/produkter/pansergr%C3%A5"
+to = "/no/p/dekorlist-endelokk-35mm/pansergrå/3770341376"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sort"
- to="/no/p/dekorlist-endelokk-35mm/sort/942710"
- status=301
- force=true
+from = "/no/produkter/sort"
+to = "/no/p/dekorlist-endelokk-35mm/sort/942710"
+status = 301
 
 [[redirects]]
- from="/no/produkter/teglr%C3%B8d"
- to="/no/p/dekorlist-endelokk-35mm/teglrød/2117086597"
- status=301
- force=true
+from = "/no/produkter/teglr%C3%B8d"
+to = "/no/p/dekorlist-endelokk-35mm/teglrød/2117086597"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-beskyttelse-endefeste-pro"
- to="/no/p/fallsikring/cwl-beskyttelse-endefeste-pro/1220822022"
- status=301
- force=true
+from = "/no/produkter/cwl-beskyttelse-endefeste-pro"
+to = "/no/p/fallsikring/cwl-beskyttelse-endefeste-pro/1220822022"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-beskyttelse-vaierleder-pro"
- to="/no/p/fallsikring/cwl-beskyttelse-vaierleder-pro/1583993038"
- status=301
- force=true
+from = "/no/produkter/cwl-beskyttelse-vaierleder-pro"
+to = "/no/p/fallsikring/cwl-beskyttelse-vaierleder-pro/1583993038"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-endefestesett-pro-f"
- to="/no/p/fallsikring/cwl-endefestesett-pro-f/vaier/2051655830"
- status=301
- force=true
+from = "/no/produkter/cwl-endefestesett-pro-f"
+to = "/no/p/fallsikring/cwl-endefestesett-pro-f/vaier/2051655830"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-forankringsøye"
- to="/no/p/fallsikring/cwl-forankringsøye/2300792270"
- status=301
- force=true
+from = "/no/produkter/cwl-forankringsøye"
+to = "/no/p/fallsikring/cwl-forankringsøye/2300792270"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-innfestningsplate-for-atb"
- to="/no/p/fallsikring/cwl-innfestningsplate-for-atb/pvc/1132132542"
- status=301
- force=true
+from = "/no/produkter/cwl-innfestningsplate-for-atb"
+to = "/no/p/fallsikring/cwl-innfestningsplate-for-atb/pvc/1132132542"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-konsoll-for-hj%C3%B8rne"
- to="/no/p/fallsikring/cwl-konsoll-for-hjørne/3025568269"
- status=301
- force=true
+from = "/no/produkter/cwl-konsoll-for-hj%C3%B8rne"
+to = "/no/p/fallsikring/cwl-konsoll-for-hjørne/3025568269"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-vaier-pro-han"
- to="/no/p/fallsikring/cwl-vaier-pro-han/hun/1764506747"
- status=301
- force=true
+from = "/no/produkter/cwl-vaier-pro-han"
+to = "/no/p/fallsikring/cwl-vaier-pro-han/hun/1764506747"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-vaierhj%C3%B8rne-m-f-1+1"
- to="/no/p/fallsikring/cwl-vaierhjørne-m-f-1+1/4156132349"
- status=301
- force=true
+from = "/no/produkter/cwl-vaierhj%C3%B8rne-m-f-1+1"
+to = "/no/p/fallsikring/cwl-vaierhjørne-m-f-1+1/4156132349"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-vaierleder-pro"
- to="/no/p/fallsikring/cwl-vaierleder-pro/4156132349"
- status=301
- force=true
+from = "/no/produkter/cwl-vaierleder-pro"
+to = "/no/p/fallsikring/cwl-vaierleder-pro/4156132349"
+status = 301
 
 [[redirects]]
- from="/no/produkter/cwl-vaierl%C3%B8per-pro"
- to="/no/p/fallsikring/cwl-vaierløper-pro/763459759"
- status=301
- force=true
+from = "/no/produkter/cwl-vaierl%C3%B8per-pro"
+to = "/no/p/fallsikring/cwl-vaierløper-pro/763459759"
+status = 301
 
 [[redirects]]
- from="/no/produkter/flagg-sn%C3%B8dybdemarkering"
- to="/no/p/fallsikring/flagg-snødybdemarkering/2232099064"
- status=301
- force=true
+from = "/no/produkter/flagg-sn%C3%B8dybdemarkering"
+to = "/no/p/fallsikring/flagg-snødybdemarkering/2232099064"
+status = 301
 
 [[redirects]]
- from="/no/produkter/klar"
- to="/no/p/fastlock-uni-klar/klar/3604606108"
- status=301
- force=true
+from = "/no/produkter/klar"
+to = "/no/p/fastlock-uni-klar/klar/3604606108"
+status = 301
 
 [[redirects]]
- from="/no/produkter/hvit"
- to="/no/p/fugebånd/hvit/1212861306"
- status=301
- force=true
+from = "/no/produkter/hvit"
+to = "/no/p/fugebånd/hvit/1212861306"
+status = 301
 
 [[redirects]]
- from="/no/produkter/h%C3%A5ndl%C3%B8per-i-syrefast-st%C3%A5l"
- to="/no/p/glassrekkverk-med-stolper/håndløper-i-syrefast-stål/1390483720"
- status=301
- force=true
+from = "/no/produkter/h%C3%A5ndl%C3%B8per-i-syrefast-st%C3%A5l"
+to = "/no/p/glassrekkverk-med-stolper/håndløper-i-syrefast-stål/1390483720"
+status = 301
 
 [[redirects]]
- from="/no/produkter/herdet-laminert-sikkerhetsglass"
- to="/no/p/glassrekkverk-med-stolper/herdet-laminert-sikkerhetsglass/3583604799"
- status=301
- force=true
+from = "/no/produkter/herdet-laminert-sikkerhetsglass"
+to = "/no/p/glassrekkverk-med-stolper/herdet-laminert-sikkerhetsglass/3583604799"
+status = 301
 
 [[redirects]]
- from="/no/produkter/innosoft-b570-rensemiddel"
- to="/no/p/glassrekkverk-med-stolper/innosoft-b570-rensemiddel/2168786891"
- status=301
- force=true
+from = "/no/produkter/innosoft-b570-rensemiddel"
+to = "/no/p/glassrekkverk-med-stolper/innosoft-b570-rensemiddel/2168786891"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-ende-høyre/127205600"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-ende-h%C3%B8yre"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-ende-høyre/127205600"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-ende-venstre"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-ende-venstre/1166125063"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-ende-venstre"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-ende-venstre/1166125063"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-hjørne-innvendig/3789987407"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-innvendig"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-hjørne-innvendig/3789987407"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-hjørne-utvendig/1426340616"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-hj%C3%B8rne-utvendig"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-hjørne-utvendig/1426340616"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-frontmontert-midt"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-midt/955040431"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-frontmontert-midt"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-frontmontert-midt/955040431"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-endestolpe"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-endestolpe/768473832"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-endestolpe"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-endestolpe/768473832"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-hjørnestolpe/909578482"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-hj%C3%B8rnestolpe"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-hjørnestolpe/909578482"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rekkverksstolpe-toppmontert-midtstolpe"
- to="/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-midtstolpe/2474585970"
- status=301
- force=true
+from = "/no/produkter/rekkverksstolpe-toppmontert-midtstolpe"
+to = "/no/p/glassrekkverk-med-stolper/rekkverksstolpe-toppmontert-midtstolpe/2474585970"
+status = 301
 
 [[redirects]]
- from="/no/produkter/shims"
- to="/no/p/glassrekkverk-med-stolper/shims/782823604"
- status=301
- force=true
+from = "/no/produkter/shims"
+to = "/no/p/glassrekkverk-med-stolper/shims/782823604"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skruer-betong-a4"
- to="/no/p/glassrekkverk-med-stolper/skruer-betong-a4/46460360"
- status=301
- force=true
+from = "/no/produkter/skruer-betong-a4"
+to = "/no/p/glassrekkverk-med-stolper/skruer-betong-a4/46460360"
+status = 301
 
 [[redirects]]
- from="/no/produkter/treskruer-a2-rustfritt"
- to="/no/p/glassrekkverk-med-stolper/treskruer-a2-rustfritt/1556666751"
- status=301
- force=true
+from = "/no/produkter/treskruer-a2-rustfritt"
+to = "/no/p/glassrekkverk-med-stolper/treskruer-a2-rustfritt/1556666751"
+status = 301
 
 [[redirects]]
- from="/no/produkter/veggfeste-for-glass"
- to="/no/p/glassrekkverk-med-stolper/veggfeste-for-glass/2910563755"
- status=301
- force=true
+from = "/no/produkter/veggfeste-for-glass"
+to = "/no/p/glassrekkverk-med-stolper/veggfeste-for-glass/2910563755"
+status = 301
 
 [[redirects]]
- from="/no/produkter/veggfeste-for-h%C3%A5ndl%C3%B8per"
- to="/no/p/glassrekkverk-med-stolper/veggfeste-for-håndløper/636347849"
- status=301
- force=true
+from = "/no/produkter/veggfeste-for-h%C3%A5ndl%C3%B8per"
+to = "/no/p/glassrekkverk-med-stolper/veggfeste-for-håndløper/636347849"
+status = 301
 
 [[redirects]]
- from="/no/produkter/gummikappe-klemme"
- to="/no/p/gummikappe/gummikappe-klemme/2470452721"
- status=301
- force=true
+from = "/no/produkter/gummikappe-klemme"
+to = "/no/p/gummikappe/gummikappe-klemme/2470452721"
+status = 301
 
 [[redirects]]
- from="/no/produkter/gummikappe-klemme"
- to="/no/p/gummikappe/gummikappe-klemme/1161976563"
- status=301
- force=true
+from = "/no/produkter/gummikappe-klemme"
+to = "/no/p/gummikappe/gummikappe-klemme/1161976563"
+status = 301
 
 [[redirects]]
- from="/no/produkter/gummikappe"
- to="/no/p/gummikappe/gummikappe/2387067732"
- status=301
- force=true
+from = "/no/produkter/gummikappe"
+to = "/no/p/gummikappe/gummikappe/2387067732"
+status = 301
 
 [[redirects]]
- from="/no/produkter/trekantlist"
- to="/no/p/hulkil/trekantlist/3359192019"
- status=301
- force=true
+from = "/no/produkter/trekantlist"
+to = "/no/p/hulkil/trekantlist/3359192019"
+status = 301
 
 [[redirects]]
- from="/no/produkter/bestr%C3%B8d-overflate"
- to="/no/p/icopal-membran-4mm/bestrød-overflate/2701638525"
- status=301
- force=true
+from = "/no/produkter/bestr%C3%B8d-overflate"
+to = "/no/p/icopal-membran-4mm/bestrød-overflate/2701638525"
+status = 301
 
 [[redirects]]
- from="/no/produkter/hvit"
- to="/no/p/lektebånd/hvit/2508584789"
- status=301
- force=true
+from = "/no/produkter/hvit"
+to = "/no/p/lektebånd/hvit/2508584789"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal-taklim"
- to="/no/p/lim-og-kitt/icopal-taklim/3181190613"
- status=301
- force=true
+from = "/no/produkter/icopal-taklim"
+to = "/no/p/lim-og-kitt/icopal-taklim/3181190613"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sort"
- to="/no/p/lufterør/sort/1420230737"
- status=301
- force=true
+from = "/no/produkter/sort"
+to = "/no/p/lufterør/sort/1420230737"
+status = 301
 
 [[redirects]]
- from="/no/produkter/r%C3%B8rmansjett"
- to="/no/p/mansjetter/rørmansjett/3599708843"
- status=301
- force=true
+from = "/no/produkter/r%C3%B8rmansjett"
+to = "/no/p/mansjetter/rørmansjett/3599708843"
+status = 301
 
 [[redirects]]
- from="/no/produkter/universal-r%C3%B8rmansjett"
- to="/no/p/mansjetter/universal-rørmansjett/2316512216"
- status=301
- force=true
+from = "/no/produkter/universal-r%C3%B8rmansjett"
+to = "/no/p/mansjetter/universal-rørmansjett/2316512216"
+status = 301
 
 [[redirects]]
- from="/no/produkter/bromembraner"
- to="/no/p/membraner/bromembraner/icopal-membran-5mm-bro/bestrød-overflate/3385573107"
- status=301
- force=true
+from = "/no/produkter/bromembraner"
+to = "/no/p/membraner/bromembraner/icopal-membran-5mm-bro/bestrød-overflate/3385573107"
+status = 301
 
 [[redirects]]
- from="/no/produkter/svart"
- to="/no/p/nova-valmbegynnelse/svart/glasert/3601900468"
- status=301
- force=true
+from = "/no/produkter/svart"
+to = "/no/p/nova-valmbegynnelse/svart/glasert/3601900468"
+status = 301
 
 [[redirects]]
- from="/no/produkter/feieplat%C3%A5-fp-8-f-460-t"
- to="/no/p/pipeplattform/feieplatå-fp-8-f-460-t/grå/2456465677"
- status=301
- force=true
+from = "/no/produkter/feieplat%C3%A5-fp-8-f-460-t"
+to = "/no/p/pipeplattform/feieplatå-fp-8-f-460-t/grå/2456465677"
+status = 301
 
 [[redirects]]
- from="/no/produkter/feieplat%C3%A5-fp-8-t-qa-625"
- to="/no/p/pipeplattform/feieplatå-fp-8-t-qa-625/matt-grafitt/2610651662"
- status=301
- force=true
+from = "/no/produkter/feieplat%C3%A5-fp-8-t-qa-625"
+to = "/no/p/pipeplattform/feieplatå-fp-8-t-qa-625/matt-grafitt/2610651662"
+status = 301
 
 [[redirects]]
- from="/no/produkter/feieplat%C3%A5-fp-8-t-qa-625"
- to="/no/p/pipeplattform/feieplatå-fp-8-t-qa-625/matt-sort/2643480701"
- status=301
- force=true
+from = "/no/produkter/feieplat%C3%A5-fp-8-t-qa-625"
+to = "/no/p/pipeplattform/feieplatå-fp-8-t-qa-625/matt-sort/2643480701"
+status = 301
 
 [[redirects]]
- from="/no/produkter/pipeplattform-beslagspakke-pp-sn-403"
- to="/no/p/pipeplattform/pipeplattform-beslagspakke-pp-sn-403/galvanisert/1165494343"
- status=301
- force=true
+from = "/no/produkter/pipeplattform-beslagspakke-pp-sn-403"
+to = "/no/p/pipeplattform/pipeplattform-beslagspakke-pp-sn-403/galvanisert/1165494343"
+status = 301
 
 [[redirects]]
- from="/no/produkter/topp-plat%C3%A5-tp-f-230-t"
- to="/no/p/pipeplattform/topp-platå-tp-f-230-t/sort/688267672"
- status=301
- force=true
+from = "/no/produkter/topp-plat%C3%A5-tp-f-230-t"
+to = "/no/p/pipeplattform/topp-platå-tp-f-230-t/sort/688267672"
+status = 301
 
 [[redirects]]
- from="/no/produkter/unique-plus-pipeinndekning"
- to="/no/p/pipetetting/unique-plus-pipeinndekning/matt-grafitt/3050911742"
- status=301
- force=true
+from = "/no/produkter/unique-plus-pipeinndekning"
+to = "/no/p/pipetetting/unique-plus-pipeinndekning/matt-grafitt/3050911742"
+status = 301
 
 [[redirects]]
- from="/no/produkter/akryl-primer"
- to="/no/p/primer/akryl-primer/3766223504"
- status=301
- force=true
+from = "/no/produkter/akryl-primer"
+to = "/no/p/primer/akryl-primer/3766223504"
+status = 301
 
 [[redirects]]
- from="/no/produkter/enduroflex"
- to="/no/p/primer/enduroflex/1247843872"
- status=301
- force=true
+from = "/no/produkter/enduroflex"
+to = "/no/p/primer/enduroflex/1247843872"
+status = 301
 
 [[redirects]]
- from="/no/produkter/ep1-primer"
- to="/no/p/primer/ep1-primer/618300261"
- status=301
- force=true
+from = "/no/produkter/ep1-primer"
+to = "/no/p/primer/ep1-primer/618300261"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal-icoflux-primer"
- to="/no/p/primer/icopal-icoflux-primer/1313657433"
- status=301
- force=true
+from = "/no/produkter/icopal-icoflux-primer"
+to = "/no/p/primer/icopal-icoflux-primer/1313657433"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal-primer-a-(asfaltprimer)*"
- to="/no/p/primer/icopal-primer-a-(asfaltprimer)*/3253996457"
- status=301
- force=true
+from = "/no/produkter/icopal-primer-a-(asfaltprimer)*"
+to = "/no/p/primer/icopal-primer-a-(asfaltprimer)*/3253996457"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fuktsperre-og-gulvunderlag"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/dekningspapp/grå/3519640892"
- status=301
- force=true
+from = "/no/produkter/fuktsperre-og-gulvunderlag"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/dekningspapp/grå/3519640892"
+status = 301
 
 [[redirects]]
- from="/no/produkter/base-radonsperre"
- to="/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
- status=301
- force=true
+from = "/no/produkter/base-radonsperre"
+to = "/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
+status = 301
 
 [[redirects]]
- from="/no/produkter/butyl-fugemasse-310ml"
- to="/no/p/produkter-til-under-bakken/butyl-fugemasse-310ml/3104636414"
- status=301
- force=true
+from = "/no/produkter/butyl-fugemasse-310ml"
+to = "/no/p/produkter-til-under-bakken/butyl-fugemasse-310ml/3104636414"
+status = 301
 
 [[redirects]]
- from="/no/produkter/easi-pour-forskaling"
- to="/no/p/produkter-til-under-bakken/easi-pour-forskaling/sort/463433289"
- status=301
- force=true
+from = "/no/produkter/easi-pour-forskaling"
+to = "/no/p/produkter-til-under-bakken/easi-pour-forskaling/sort/463433289"
+status = 301
 
 [[redirects]]
- from="/no/produkter/easi-pour-radon-3kg"
- to="/no/p/produkter-til-under-bakken/easi-pour-radon-3kg/237980663"
- status=301
- force=true
+from = "/no/produkter/easi-pour-radon-3kg"
+to = "/no/p/produkter-til-under-bakken/easi-pour-radon-3kg/237980663"
+status = 301
 
 [[redirects]]
- from="/no/produkter/easi-pour-radon-6kg"
- to="/no/p/produkter-til-under-bakken/easi-pour-radon-6kg/666528438"
- status=301
- force=true
+from = "/no/produkter/easi-pour-radon-6kg"
+to = "/no/p/produkter-til-under-bakken/easi-pour-radon-6kg/666528438"
+status = 301
 
 [[redirects]]
- from="/no/produkter/easi-radon-br%C3%B8nn-lokk"
- to="/no/p/produkter-til-under-bakken/easi-radon-brønn-lokk/sort/557225455"
- status=301
- force=true
+from = "/no/produkter/easi-radon-br%C3%B8nn-lokk"
+to = "/no/p/produkter-til-under-bakken/easi-radon-brønn-lokk/sort/557225455"
+status = 301
 
 [[redirects]]
- from="/no/produkter/easi-sump-br%C3%B8nn"
- to="/no/p/produkter-til-under-bakken/easi-sump-brønn/sort/2887801449"
- status=301
- force=true
+from = "/no/produkter/easi-sump-br%C3%B8nn"
+to = "/no/p/produkter-til-under-bakken/easi-sump-brønn/sort/2887801449"
+status = 301
 
 [[redirects]]
- from="/no/produkter/geobutyl-tape"
- to="/no/p/produkter-til-under-bakken/geobutyl-tape/2471569965"
- status=301
- force=true
+from = "/no/produkter/geobutyl-tape"
+to = "/no/p/produkter-til-under-bakken/geobutyl-tape/2471569965"
+status = 301
 
 [[redirects]]
- from="/no/produkter/grunnmurpapp-tykk"
- to="/no/p/produkter-til-under-bakken/grunnmurpapp-tykk/sort/379681613"
- status=301
- force=true
+from = "/no/produkter/grunnmurpapp-tykk"
+to = "/no/p/produkter-til-under-bakken/grunnmurpapp-tykk/sort/379681613"
+status = 301
 
 [[redirects]]
- from="/no/produkter/grunnmurpapp-tynn"
- to="/no/p/produkter-til-under-bakken/grunnmurpapp-tynn/sort/1867644802"
- status=301
- force=true
+from = "/no/produkter/grunnmurpapp-tynn"
+to = "/no/p/produkter-til-under-bakken/grunnmurpapp-tynn/sort/1867644802"
+status = 301
 
 [[redirects]]
- from="/no/produkter/klemlist-st%C3%A5l-pvc-radon"
- to="/no/p/produkter-til-under-bakken/klemlist-stål-pvc-radon/galvanisert/4004489054"
- status=301
- force=true
+from = "/no/produkter/klemlist-st%C3%A5l-pvc-radon"
+to = "/no/p/produkter-til-under-bakken/klemlist-stål-pvc-radon/galvanisert/4004489054"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-r.m.b-400"
- to="/no/p/produkter-til-under-bakken/monarflex-r.m.b-400/rød/2839889289"
- status=301
- force=true
+from = "/no/produkter/monarflex-r.m.b-400"
+to = "/no/p/produkter-til-under-bakken/monarflex-r.m.b-400/rød/2839889289"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarflex-rus-300"
- to="/no/p/produkter-til-under-bakken/monarflex-rus-300/1964480259"
- status=301
- force=true
+from = "/no/produkter/monarflex-rus-300"
+to = "/no/p/produkter-til-under-bakken/monarflex-rus-300/1964480259"
+status = 301
 
 [[redirects]]
- from="/no/produkter/radon-multitape-butyl"
- to="/no/p/produkter-til-under-bakken/radon-multitape-butyl/grå/3159712914"
- status=301
- force=true
+from = "/no/produkter/radon-multitape-butyl"
+to = "/no/p/produkter-til-under-bakken/radon-multitape-butyl/grå/3159712914"
+status = 301
 
 [[redirects]]
- from="/no/produkter/radonbr%C3%B8nn-i"
- to="/no/p/produkter-til-under-bakken/radonbrønn-i/3407517957"
- status=301
- force=true
+from = "/no/produkter/radonbr%C3%B8nn-i"
+to = "/no/p/produkter-til-under-bakken/radonbrønn-i/3407517957"
+status = 301
 
 [[redirects]]
- from="/no/produkter/radonbr%C3%B8nn-v"
- to="/no/p/produkter-til-under-bakken/radonbrønn-v/496212798"
- status=301
- force=true
+from = "/no/produkter/radonbr%C3%B8nn-v"
+to = "/no/p/produkter-til-under-bakken/radonbrønn-v/496212798"
+status = 301
 
 [[redirects]]
- from="/no/produkter/radonmansjett"
- to="/no/p/produkter-til-under-bakken/radonmansjett/3592416335"
- status=301
- force=true
+from = "/no/produkter/radonmansjett"
+to = "/no/p/produkter-til-under-bakken/radonmansjett/3592416335"
+status = 301
 
 [[redirects]]
- from="/no/produkter/rma-1200"
- to="/no/p/produkter-til-under-bakken/rma-1200/3251680224"
- status=301
- force=true
+from = "/no/produkter/rma-1200"
+to = "/no/p/produkter-til-under-bakken/rma-1200/3251680224"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fabric-(fiberduk)"
- to="/no/p/pvc-takfolie/fabric-(fiberduk)/1986720660"
- status=301
- force=true
+from = "/no/produkter/fabric-(fiberduk)"
+to = "/no/p/pvc-takfolie/fabric-(fiberduk)/1986720660"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fiberduk-f22-145g"
- to="/no/p/pvc-takfolie/fiberduk-f22-145g/2503311710"
- status=301
- force=true
+from = "/no/produkter/fiberduk-f22-145g"
+to = "/no/p/pvc-takfolie/fiberduk-f22-145g/2503311710"
+status = 301
 
 [[redirects]]
- from="/no/produkter/fiberduk-f22-pp"
- to="/no/p/pvc-takfolie/fiberduk-f22-pp/900437153"
- status=301
- force=true
+from = "/no/produkter/fiberduk-f22-pp"
+to = "/no/p/pvc-takfolie/fiberduk-f22-pp/900437153"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarplan-d"
- to="/no/p/pvc-takfolie/monarplan-d/1016967358"
- status=301
- force=true
+from = "/no/produkter/monarplan-d"
+to = "/no/p/pvc-takfolie/monarplan-d/1016967358"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarplan-fm"
- to="/no/p/pvc-takfolie/monarplan-fm/645602301"
- status=301
- force=true
+from = "/no/produkter/monarplan-fm"
+to = "/no/p/pvc-takfolie/monarplan-fm/645602301"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarplan-g"
- to="/no/p/pvc-takfolie/monarplan-g/35681403"
- status=301
- force=true
+from = "/no/produkter/monarplan-g"
+to = "/no/p/pvc-takfolie/monarplan-g/35681403"
+status = 301
 
 [[redirects]]
- from="/no/produkter/monarplan-gf"
- to="/no/p/pvc-takfolie/monarplan-gf/4037734821"
- status=301
- force=true
+from = "/no/produkter/monarplan-gf"
+to = "/no/p/pvc-takfolie/monarplan-gf/4037734821"
+status = 301
 
 [[redirects]]
- from="/no/produkter/pvc"
- to="/no/p/skruesett-festeøye-atb/pvc/2692419481"
- status=301
- force=true
+from = "/no/produkter/pvc"
+to = "/no/p/skruesett-festeøye-atb/pvc/2692419481"
+status = 301
 
 [[redirects]]
- from="/no/produkter/isstopper-gg-i-23"
- to="/no/p/snosikring/isstopper-gg-i-23/sort/1395815997"
- status=301
- force=true
+from = "/no/produkter/isstopper-gg-i-23"
+to = "/no/p/snosikring/isstopper-gg-i-23/sort/1395815997"
+status = 301
 
 [[redirects]]
- from="/no/produkter/konsoll-sn-qa-625"
- to="/no/p/snosikring/konsoll-sn-qa-625/matt-grafitt/2214730368"
- status=301
- force=true
+from = "/no/produkter/konsoll-sn-qa-625"
+to = "/no/p/snosikring/konsoll-sn-qa-625/matt-grafitt/2214730368"
+status = 301
 
 [[redirects]]
- from="/no/produkter/minster-sn%C3%B8fanger-konsoll-sn-mc-605"
- to="/no/p/snosikring/minster-snøfanger-konsoll-sn-mc-605/galvanisert/2775682922"
- status=301
- force=true
+from = "/no/produkter/minster-sn%C3%B8fanger-konsoll-sn-mc-605"
+to = "/no/p/snosikring/minster-snøfanger-konsoll-sn-mc-605/galvanisert/2775682922"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-is-og-sn%C3%B8stopper-200"
- to="/no/p/snosikring/nortegl-is-og-snøstopper-200/sort/3503463910"
- status=301
- force=true
+from = "/no/produkter/nortegl-is-og-sn%C3%B8stopper-200"
+to = "/no/p/snosikring/nortegl-is-og-snøstopper-200/sort/3503463910"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nortegl-sn%C3%B8fanger-konsoll-sn-n-605"
- to="/no/p/snosikring/nortegl-snøfanger-konsoll-sn-n-605/galvanisert/253541202"
- status=301
- force=true
+from = "/no/produkter/nortegl-sn%C3%B8fanger-konsoll-sn-n-605"
+to = "/no/p/snosikring/nortegl-snøfanger-konsoll-sn-n-605/galvanisert/253541202"
+status = 301
 
 [[redirects]]
- from="/no/produkter/turmalin-sn%C3%B8fanger-konsoll-sn-tu-605"
- to="/no/p/snosikring/turmalin-snøfanger-konsoll-sn-tu-605/galvanisert/289015683"
- status=301
- force=true
-
+from = "/no/produkter/turmalin-sn%C3%B8fanger-konsoll-sn-tu-605"
+to = "/no/p/snosikring/turmalin-snøfanger-konsoll-sn-tu-605/galvanisert/289015683"
+status = 301
 
-
-
 [[redirects]]
- from="/no/p/takstein/tegltakstein/turmalin/m%C3%B8neskrue-m/pakning-5x110mm/r%C3%B8d/4290304464"
- to="/no/p/takstein/tegltakstein/kdn/m%C3%B8neskrue-m/pakning-5x110mm/r%C3%B8d/4290304464"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/turmalin/m%C3%B8neskrue-m/pakning-5x110mm/r%C3%B8d/4290304464"
+to = "/no/p/takstein/tegltakstein/kdn/m%C3%B8neskrue-m/pakning-5x110mm/r%C3%B8d/4290304464"
+status = 301
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5"
- to="/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
- status=301
- force=true
+from = "/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5"
+to = "/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/tegltakstein/dantegl/dantegl-avl%C3%B8psventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
- to="/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/dantegl/dantegl-avl%C3%B8psventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
+to = "/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
+status = 301
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/base-radonsperre"
- to="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5/2719853286"
- status=301
- force=true
+from = "/no/p/produkter-til-under-bakken/base-radonsperre"
+to = "/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5/2719853286"
+status = 301
 
 [[redirects]]
- from="/no/tips-and-inspiration/takskole/hus-og-hytte/nar-bor-taket-byttes"
- to="/no/inspirasjon-tips-og-rad/ma-du-bytte-tak"
- status=301
- force=true
+from = "/no/tips-and-inspiration/takskole/hus-og-hytte/nar-bor-taket-byttes"
+to = "/no/inspirasjon-tips-og-rad/ma-du-bytte-tak"
+status = 301
 
 [[redirects]]
- from="/no/takproff-byggmester-bob-best-pa-tak"
- to="/no/referansehistorier/takproff-byggmester-bob-best-pa-tak"
- status=301
- force=true
+from = "/no/takproff-byggmester-bob-best-pa-tak"
+to = "/no/referansehistorier/takproff-byggmester-bob-best-pa-tak"
+status = 301
 
 [[redirects]]
- from="/no/products/200326-beito-roof-shingle-skifer"
- to="/no/takshingel/trend-takshingel"
- status=301
- force=true
+from = "/no/products/200326-beito-roof-shingle-skifer"
+to = "/no/takshingel/trend-takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/valdres-fotplate"
- to="/no/p/takshingel/trend-takshingel/valdres-fotplate/skifer/1952170894"
- status=301
- force=true
+from = "/no/produkter/icopal/valdres-fotplate"
+to = "/no/p/takshingel/trend-takshingel/valdres-fotplate/skifer/1952170894"
+status = 301
 
 [[redirects]]
- from="/no/proff/den-norske-h%C3%A5ndverkeren"
- to="/no/referansehistorier/takproff-norske-handverkere-er-verdens-beste"
- status=301
- force=true
+from = "/no/proff/den-norske-h%C3%A5ndverkeren"
+to = "/no/referansehistorier/takproff-norske-handverkere-er-verdens-beste"
+status = 301
 
 [[redirects]]
- from="/no/produkter/stigesikring-sst"
- to="/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
- status=301
- force=true
+from = "/no/produkter/stigesikring-sst"
+to = "/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/kilrennebelegg-protect-s"
- to="/no/p/takshingel/premium-takshingel/kilrennebelegg-premium/karbonsort/4022971717"
- status=301
- force=true
+from = "/no/produkter/icopal/kilrennebelegg-protect-s"
+to = "/no/p/takshingel/premium-takshingel/kilrennebelegg-premium/karbonsort/4022971717"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/tegltakstein/turmalin/ventilasjonshette-universal-29-37%C2%B0/svart/1008536247"
- to="/no/p/takstein/tegltakstein/kdn/ventilasjonshette-universal-29-37%C2%B0/svart/1008536247"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/turmalin/ventilasjonshette-universal-29-37%C2%B0/svart/1008536247"
+to = "/no/p/takstein/tegltakstein/kdn/ventilasjonshette-universal-29-37%C2%B0/svart/1008536247"
+status = 301
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/1716156000"
- to="/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/4269112749"
- status=301
- force=true
+from = "/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/1716156000"
+to = "/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/4269112749"
+status = 301
 
 [[redirects]]
- from="/no/produkter/m-clip-turmalin-30x48"
- to="/no/p/takstein/tegltakstein/turmalin/m-clip-turmalin-30x48/505284656"
- status=301
- force=true
+from = "/no/produkter/m-clip-turmalin-30x48"
+to = "/no/p/takstein/tegltakstein/turmalin/m-clip-turmalin-30x48/505284656"
+status = 301
 
 [[redirects]]
- from="/no/p/snosikring/kdn-sn%C3%B8fanger-konsoll-sn-k-605/sort/3159388300"
- to="/no/p/takstein/tegltakstein/kdn/kdn-snøfanger-konsoll-sn-k-605/sort/3159388300"
- status=301
- force=true
+from = "/no/p/snosikring/kdn-sn%C3%B8fanger-konsoll-sn-k-605/sort/3159388300"
+to = "/no/p/takstein/tegltakstein/kdn/kdn-snøfanger-konsoll-sn-k-605/sort/3159388300"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
- to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
+to = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/shingel/sort"
- to="/no/takshingel"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/shingel/sort"
+to = "/no/takshingel"
+status = 301
 
 [[redirects]]
- from="/no/produkter/bordtakbeslag-bt3-15"
- to="/no/p/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag/bordtakbeslag-bt3-15/sort/plast/3660047862"
- status=301
- force=true
+from = "/no/produkter/bordtakbeslag-bt3-15"
+to = "/no/p/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag/bordtakbeslag-bt3-15/sort/plast/3660047862"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-universal"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-universal"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+status = 301
 
 [[redirects]]
- from="/no/zanda-arktis"
- to="/no/takstein/betongtakstein/zanda-arktis"
- status=301
- force=true
+from = "/no/zanda-arktis"
+to = "/no/takstein/betongtakstein/zanda-arktis"
+status = 301
 
 [[redirects]]
- from="/no/produkter/tg-sluk-klemring"
- to="/no/p/taksluk/tg-sluk-klemring/2452231733"
- status=301
- force=true
+from = "/no/produkter/tg-sluk-klemring"
+to = "/no/p/taksluk/tg-sluk-klemring/2452231733"
+status = 301
 
 [[redirects]]
- from="/no/produkter/sn%C3%B8fanger-konsoll-sn-s-606"
- to="/no/p/takstein/betongtakstein/zanda-evo/sn%C3%B8fanger-konsoll-sn-s-606/teglr%C3%B8d/1059890807"
- status=301
- force=true
+from = "/no/produkter/sn%C3%B8fanger-konsoll-sn-s-606"
+to = "/no/p/takstein/betongtakstein/zanda-evo/sn%C3%B8fanger-konsoll-sn-s-606/teglr%C3%B8d/1059890807"
+status = 301
 
 [[redirects]]
- from="/no/produkter/aerodek-kilrenne-konisk"
- to="/no/p/staltakpanner/aerodek-unique-plus/aerodek-kilrenne-konisk/1820276044"
- status=301
- force=true
+from = "/no/produkter/aerodek-kilrenne-konisk"
+to = "/no/p/staltakpanner/aerodek-unique-plus/aerodek-kilrenne-konisk/1820276044"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/milj%C3%B8deklarasjoner"
- to="/no/dokumentasjon/miljødeklarasjoner-epd"
- status=301
- force=true
+from = "/no/dokumentasjon/milj%C3%B8deklarasjoner"
+to = "/no/dokumentasjon/miljødeklarasjoner-epd"
+status = 301
 
 [[redirects]]
- from="/no/produkter/nedl%C3%B8psr%C3%B8r-15"
- to="/no/p/takrenner/staltakrenne-125-mm/nedl%C3%B8psr%C3%B8r-15/sort/3816466751"
- status=301
- force=true
+from = "/no/produkter/nedl%C3%B8psr%C3%B8r-15"
+to = "/no/p/takrenner/staltakrenne-125-mm/nedl%C3%B8psr%C3%B8r-15/sort/3816466751"
+status = 301
 
 [[redirects]]
- from="/no/produkter/stigesikring-sst"
- to="/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
- status=301
- force=true
+from = "/no/produkter/stigesikring-sst"
+to = "/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
+status = 301
 
 [[redirects]]
- from="/no/produkter/produktside/zanda-minster-normalstein"
- to="/no/p/takstein/betongtakstein/zanda-minster/zanda-minster-normalstein/m%C3%B8rk-gr%C3%A5/4104038613"
- status=301
- force=true
+from = "/no/produkter/produktside/zanda-minster-normalstein"
+to = "/no/p/takstein/betongtakstein/zanda-minster/zanda-minster-normalstein/m%C3%B8rk-gr%C3%A5/4104038613"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
- to="/no/p/takstein/tegltakstein/dantegl/dantegl-avl%C3%B8psventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
+to = "/no/p/takstein/tegltakstein/dantegl/dantegl-avl%C3%B8psventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
+status = 301
 
 [[redirects]]
- from="/no/produkter/dekningspapp"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/dekningspapp/gr%C3%A5/3519640892"
- status=301
- force=true
+from = "/no/produkter/dekningspapp"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/dekningspapp/gr%C3%A5/3519640892"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/hva-skal-jeg-tenke-paa-naar-jeg-skal-bytte-tak"
- to="/no/inspirasjon-tips-og-rad/hva-skal-jeg-tenke-pa-nar-jeg-skal-bytte-tak"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole/hus-og-hytte/hva-skal-jeg-tenke-paa-naar-jeg-skal-bytte-tak"
+to = "/no/inspirasjon-tips-og-rad/hva-skal-jeg-tenke-pa-nar-jeg-skal-bytte-tak"
+status = 301
 
 [[redirects]]
- from="/no/undertak/ventex"
- to="/no/undertak/ventex-supra"
- status=301
- force=true
+from = "/no/undertak/ventex"
+to = "/no/undertak/ventex-supra"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icocorner-hj%C3%B8rne"
- to="/no/p/icocorner-hj%C3%B8rne/1934244562"
- status=301
- force=true
+from = "/no/produkter/icocorner-hj%C3%B8rne"
+to = "/no/p/icocorner-hj%C3%B8rne/1934244562"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/1082417596"
- to="/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/teglr%C3%B8d/1082417596"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/1082417596"
+to = "/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/teglr%C3%B8d/1082417596"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/4254277302"
- to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/r%C3%B8d/4254277302"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/4254277302"
+to = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/r%C3%B8d/4254277302"
+status = 301
 
 [[redirects]]
- from="/no/takstein/betongtakstein/zanda"
- to="/no/zanda"
- status=301
- force=true
+from = "/no/takstein/betongtakstein/zanda"
+to = "/no/zanda"
+status = 301
 
 [[redirects]]
- from="/no/p/staltakpanner/aerodek-tradition/takbro-konsoll-tbk-f-460-t/svart/407058901"
- to="/no/p/takstein/tegltakstein/kdn/takbro-konsoll-tbk-f-460-t/svart/407058901"
- status=301
- force=true
+from = "/no/p/staltakpanner/aerodek-tradition/takbro-konsoll-tbk-f-460-t/svart/407058901"
+to = "/no/p/takstein/tegltakstein/kdn/takbro-konsoll-tbk-f-460-t/svart/407058901"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-universal"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-universal"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+status = 301
 
 [[redirects]]
- from="/no/produkter/produktside/zanda-minster-normalstein"
- to="/no/takstein/betongtakstein/zanda-minster"
- status=301
- force=true
+from = "/no/produkter/produktside/zanda-minster-normalstein"
+to = "/no/takstein/betongtakstein/zanda-minster"
+status = 301
 
 [[redirects]]
- from="/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/2497865575"
- to="/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/144513019"
- status=301
- force=true
+from = "/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/2497865575"
+to = "/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/144513019"
+status = 301
 
 [[redirects]]
- from="/no/produkter/butyl-fugeb%C3%A5nd"
- to="/no/p/butyl-fugeb%C3%A5nd/4278491499"
- status=301
- force=true
+from = "/no/produkter/butyl-fugeb%C3%A5nd"
+to = "/no/p/butyl-fugeb%C3%A5nd/4278491499"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
- to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
+to = "/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
+status = 301
 
 [[redirects]]
- from="/no/proff/designe-et-tak"
- to="/no/beregning-og-visualisering"
- status=301
- force=true
+from = "/no/proff/designe-et-tak"
+to = "/no/beregning-og-visualisering"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/produkter/takstein/zanda"
- to="/no/takstein/betongtakstein"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/produkter/takstein/zanda"
+to = "/no/takstein/betongtakstein"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/utvider-garantien-p%C3%A5-norges-mest-popul%C3%A6re-st%C3%A5ltakpanner"
- to="/no/nyheter/utvider-garantien-pa-norges-mest-populaere-staltakpanner"
- status=301
- force=true
+from = "/no/nyheter/utvider-garantien-p%C3%A5-norges-mest-popul%C3%A6re-st%C3%A5ltakpanner"
+to = "/no/nyheter/utvider-garantien-pa-norges-mest-populaere-staltakpanner"
+status = 301
 
 [[redirects]]
- from="/no/produkter/icopal/icopal-universal"
- to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
- status=301
- force=true
+from = "/no/produkter/icopal/icopal-universal"
+to = "/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/takskole"
- to="/no/inspirasjon-tips-og-rad"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/takskole"
+to = "/no/inspirasjon-tips-og-rad"
+status = 301
 
 [[redirects]]
- from="/no/monarflex-brand"
- to="/no/monarflex"
- status=301
- force=true
+from = "/no/monarflex-brand"
+to = "/no/monarflex"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/6-av-10-blir-lurt"
- to="/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
- status=301
- force=true
+from = "/no/nyheter/6-av-10-blir-lurt"
+to = "/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
+status = 301
 
 [[redirects]]
- from="/no/tips-og-inspirasjon/referanseprosjekt/gammel-sveitservilla-i-ny-drakt"
- to="/no/referansehistorier/gammel-sveitservilla-i-ny-drakt"
- status=301
- force=true
+from = "/no/tips-og-inspirasjon/referanseprosjekt/gammel-sveitservilla-i-ny-drakt"
+to = "/no/referansehistorier/gammel-sveitservilla-i-ny-drakt"
+status = 301
 
 [[redirects]]
- from="/no/nyheter/6-av-10-blir-lurt"
- to="/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
- status=301
- force=true
+from = "/no/nyheter/6-av-10-blir-lurt"
+to = "/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
+status = 301
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken"
- to="/no/produkter-til-under-bakken"
- status=301
- force=true
+from = "/no/p/produkter-til-under-bakken"
+to = "/no/produkter-til-under-bakken"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/monier"
- to="/no/takstein/tegltakstein"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/monier"
+to = "/no/takstein/tegltakstein"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter/icopal"
- to="/no/icopal"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter/icopal"
+to = "/no/icopal"
+status = 301
 
 [[redirects]]
- from="/no/produkter/skratak-produkter"
- to="/no/bmis-system-for-skra-tak"
- status=301
- force=true
+from = "/no/produkter/skratak-produkter"
+to = "/no/bmis-system-for-skra-tak"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/m%C3%B8nespiker-m/pakning/svart/1100092704/"
- to="/no/p/takstein/tegltakstein/turmalin/m%C3%B8nespiker-m/pakning/svart/1100092704/"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-arktis/m%C3%B8nespiker-m/pakning/svart/1100092704/"
+to = "/no/p/takstein/tegltakstein/turmalin/m%C3%B8nespiker-m/pakning/svart/1100092704/"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-vestland/metalroll-m%C3%B8neb%C3%A5nd/teglr%C3%B8d/3154151625/"
- to="/no/p/monetetting/metalroll-m%C3%B8neb%C3%A5nd/teglr%C3%B8d/3154151625/"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-vestland/metalroll-m%C3%B8neb%C3%A5nd/teglr%C3%B8d/3154151625/"
+to = "/no/p/monetetting/metalroll-m%C3%B8neb%C3%A5nd/teglr%C3%B8d/3154151625/"
+status = 301
 
 [[redirects]]
- from="/no/takshingel/type-s-takshingel"
- to="/no/takshingel/pro-takshingel/"
- status=301
- force=true
+from = "/no/takshingel/type-s-takshingel"
+to = "/no/takshingel/pro-takshingel/"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/tegltakstein/nortegl/nortegl-is-og-sn%C3%B8stopper-200/sort/3503463910/"
- to="/no/p/snosikring/nortegl-is-og-sn%C3%B8stopper-200/sort/3503463910/"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/nortegl/nortegl-is-og-sn%C3%B8stopper-200/sort/3503463910/"
+to = "/no/p/snosikring/nortegl-is-og-sn%C3%B8stopper-200/sort/3503463910/"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/wakaflex-tetteb%C3%A5nd/svart/2301880799/"
- to="/no/p/takstein/tegltakstein/turmalin/wakaflex-tetteb%C3%A5nd/svart/2301880799/"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-arktis/wakaflex-tetteb%C3%A5nd/svart/2301880799/"
+to = "/no/p/takstein/tegltakstein/turmalin/wakaflex-tetteb%C3%A5nd/svart/2301880799/"
+status = 301
 
 [[redirects]]
- from="/no/beregning"
- to="/no/beregning-og-visualisering/"
- status=301
- force=true
+from = "/no/beregning"
+to = "/no/beregning-og-visualisering/"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/tegltakstein/nortegl/nortegl-stigetrinn-260/sort/3571162345/"
- to="/no/p/stigetrinn/nortegl-stigetrinn-260/sort/3571162345/"
- status=301
- force=true
+from = "/no/p/takstein/tegltakstein/nortegl/nortegl-stigetrinn-260/sort/3571162345/"
+to = "/no/p/stigetrinn/nortegl-stigetrinn-260/sort/3571162345/"
+status = 301
 
 [[redirects]]
- from="/no/dokumentasjon/monteringsanvisninger"
- to="/no/dokumentasjon/leggeveiledninger/"
- status=301
- force=true
+from = "/no/dokumentasjon/monteringsanvisninger"
+to = "/no/dokumentasjon/leggeveiledninger/"
+status = 301
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-minster/t-m%C3%B8ne-komplett/sink/3198835683/"
- to="/no/p/beslag-for-vinduer-vindskier-bordtak-og-vannbord/vannbordbeslag/t-m%C3%B8ne-komplett/sink/3198835683/"
- status=301
- force=true
+from = "/no/p/takstein/betongtakstein/zanda-minster/t-m%C3%B8ne-komplett/sink/3198835683/"
+to = "/no/p/beslag-for-vinduer-vindskier-bordtak-og-vannbord/vannbordbeslag/t-m%C3%B8ne-komplett/sink/3198835683/"
+status = 301
 
 [[redirects]]
- from="/no/data_protection"
- to="/no/bruk-av-informasjonskapsler/"
- status=301
- force=true
+from = "/no/data_protection"
+to = "/no/bruk-av-informasjonskapsler/"
+status = 301
 
 [[redirects]]
- from="/no/bereging-og-visualisering"
- to="/no/beregning-og-visualisering/"
- status=301
- force=true
+from = "/no/bereging-og-visualisering"
+to = "/no/beregning-og-visualisering/"
+status = 301
 
 [[redirects]]
- from="/no/produkter/m-glue-taklim-290ml"
- to="/no/p/takstein/tegltakstein/turmalin/m-glue-taklim-290ml/svart/3115545944/"
- status=301
- force=true
-
+from = "/no/produkter/m-glue-taklim-290ml"
+to = "/no/p/takstein/tegltakstein/turmalin/m-glue-taklim-290ml/svart/3115545944/"
+status = 301
 
-
-
-
 [[redirects]]
- from="/no/sxa/file/*"
- to="/no/dokumentasjon"
- status=301
- force=true
+from = "/no/sxa/file/*"
+to = "/no/dokumentasjon"
+status = 301
 
 [[redirects]]
- from="/no/produkter"
- to="/no/"
- status=301
- force=true
-
+from = "/no/produkter"
+to = "/no/"
+status = 301
 
-# Redirect root to /no. This is temporary. This solution will not work with 
+# Redirect root to /no. This is temporary. This solution will not work with
 # multiple market websites.
 [[redirects]]
-  from = "/"
-  to = "/no"
-  status = 302
-  force = true
+from = "/"
+to = "/no"
+status = 301

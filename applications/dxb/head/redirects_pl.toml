@@ -1,942 +1,785 @@
 [[redirects]]
- from="/pl/o-nas/twoja-kariera/rozwoj-kariery"
- to="/pl/twoja-kariera/rozwoj-kariery/"
- status=301
- force=true
+from = "/pl/o-nas/twoja-kariera/rozwoj-kariery"
+to = "/pl/twoja-kariera/rozwoj-kariery/"
+status = 301
 
 [[redirects]]
- from="/pl/o-nas/twoja-kariera/roznorodnosc"
- to="/pl/twoja-kariera/roznorodnosc/"
- status=301
- force=true
+from = "/pl/o-nas/twoja-kariera/roznorodnosc"
+to = "/pl/twoja-kariera/roznorodnosc/"
+status = 301
 
 [[redirects]]
- from="/pl/o-nas/twoja-kariera"
- to="/pl/twoja-kariera/"
- status=301
- force=true
+from = "/pl/o-nas/twoja-kariera"
+to = "/pl/twoja-kariera/"
+status = 301
 
 [[redirects]]
- from="/pl/o-nas/informacje"
- to="/pl/wiadomosci"
- status=301
- force=true
+from = "/pl/o-nas/informacje"
+to = "/pl/wiadomosci"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/zdunbit-wf-szybki-profil-sbs"
- to="/pl/p/zdunbit-wf-szybki-profil-sbs-812427986/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/zdunbit-wf-szybki-profil-sbs"
+to = "/pl/p/zdunbit-wf-szybki-profil-sbs-812427986/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/zdunbit-pf-szybki-profil-sbs"
- to="/pl/p/zdunbit-pf-szybki-profil-sbs-1870677211/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/zdunbit-pf-szybki-profil-sbs"
+to = "/pl/p/zdunbit-pf-szybki-profil-sbs-1870677211/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/w-pet-sbs-icopal"
- to="/pl/p/w-pet-sbs-icopal-1597225205/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/w-pet-sbs-icopal"
+to = "/pl/p/w-pet-sbs-icopal-1597225205/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/wentylacja-baza-3-0-szybki-szyntan-sbs"
- to="/pl/p/wentylacja-baza-3-0-szybki-szyntan-sbs-1596825517/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/wentylacja-baza-3-0-szybki-szyntan-sbs"
+to = "/pl/p/wentylacja-baza-3-0-szybki-szyntan-sbs-1596825517/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedatop-su-20"
- to="/pl/p/vedatop-su-20-3526999990/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedatop-su-20"
+to = "/pl/p/vedatop-su-20-3526999990/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedatop-su-20"
- to="/pl/p/vedatop-su-20-3526999990/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedatop-su-20"
+to = "/pl/p/vedatop-su-20-3526999990/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedatop-su"
- to="/pl/p/vedatop-su-572095060/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedatop-su"
+to = "/pl/p/vedatop-su-572095060/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedahit-pye-pv250-s5"
- to="/pl/p/vedahit-pye-pv250-s5-3219071330/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedahit-pye-pv250-s5"
+to = "/pl/p/vedahit-pye-pv250-s5-3219071330/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedagard-al-e"
- to="/pl/p/vedagard-al-e-2729124632/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedagard-al-e"
+to = "/pl/p/vedagard-al-e-2729124632/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/vedaflex-sp"
- to="/pl/p/vedaflex-sp-1242228894/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/vedaflex-sp"
+to = "/pl/p/vedaflex-sp-1242228894/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/v60-s35h-szybki-profil-sbs"
- to="/pl/p/v60-s35h-szybki-profil-sbs-2849076111/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/v60-s35h-szybki-profil-sbs"
+to = "/pl/p/v60-s35h-szybki-profil-sbs-2849076111/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/v60-s24-szybki-profil-sbs"
- to="/pl/p/v60-s24-szybki-profil-sbs-3890547553/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/v60-s24-szybki-profil-sbs"
+to = "/pl/p/v60-s24-szybki-profil-sbs-3890547553/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/termik-top-5-2-szybki-syntan-sbs"
- to="/pl/p/termik-top-5-2-szybki-syntan-sbs-1040741861/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/termik-top-5-2-szybki-syntan-sbs"
+to = "/pl/p/termik-top-5-2-szybki-syntan-sbs-1040741861/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/termik-top-5-0-szybki-syntan-sbs"
- to="/pl/p/termik-top-5-0-szybki-syntan-sbs-1103241137/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/termik-top-5-0-szybki-syntan-sbs"
+to = "/pl/p/termik-top-5-0-szybki-syntan-sbs-1103241137/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/termik-baza-2-5-szybki-syntan-sbs"
- to="/pl/p/termik-baza-2-5-szybki-syntan-sbs-1533624558/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/termik-baza-2-5-szybki-syntan-sbs"
+to = "/pl/p/termik-baza-2-5-szybki-syntan-sbs-1533624558/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/supermost"
- to="/pl/p/supermost-2585726650/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/supermost"
+to = "/pl/p/supermost-2585726650/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/styrobit-k"
- to="/pl/p/styrobit-k-3578345544/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/styrobit-k"
+to = "/pl/p/styrobit-k-3578345544/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-szpachla-szybka-izolacja-sbs"
- to="/pl/p/siplast-szpachla-szybka-izolacja-sbs-1897485299/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-szpachla-szybka-izolacja-sbs"
+to = "/pl/p/siplast-szpachla-szybka-izolacja-sbs-1897485299/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-primer-szybki-grunt-sbs"
- to="/pl/p/siplast-primer-szybki-grunt-sbs-2504111743/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-primer-szybki-grunt-sbs"
+to = "/pl/p/siplast-primer-szybki-grunt-sbs-2504111743/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-klej-szybki-styk-sbs"
- to="/pl/p/siplast-klej-szybki-styk-sbs-3909698922/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-klej-szybki-styk-sbs"
+to = "/pl/p/siplast-klej-szybki-styk-sbs-3909698922/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-fundament-szybka-izolacja-sbs"
- to="/pl/p/siplast-fundament-szybka-izolacja-sbs-1716455817/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-fundament-szybka-izolacja-sbs"
+to = "/pl/p/siplast-fundament-szybka-izolacja-sbs-1716455817/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-elastic-szybki-uszczelniacz-pur"
- to="/pl/p/siplast-elastic-szybki-uszczelniacz-pur-2641318786/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-elastic-szybki-uszczelniacz-pur"
+to = "/pl/p/siplast-elastic-szybki-uszczelniacz-pur-2641318786/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/siplast-dach-szybka-izolacja-sbs"
- to="/pl/p/siplast-dach-szybka-izolacja-sbs-2684558953/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/siplast-dach-szybka-izolacja-sbs"
+to = "/pl/p/siplast-dach-szybka-izolacja-sbs-2684558953/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/silver-primer-szybki-lakier-sbs"
- to="/pl/p/silver-primer-szybki-lakier-sbs-17-5l-995165871/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/silver-primer-szybki-lakier-sbs"
+to = "/pl/p/silver-primer-szybki-lakier-sbs-17-5l-995165871/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/polbit-top-5-2-szybki-profil-sbs"
- to="/pl/p/polbit-top-5-2-szybki-profil-sbs-2998581729/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/polbit-top-5-2-szybki-profil-sbs"
+to = "/pl/p/polbit-top-5-2-szybki-profil-sbs-2998581729/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/polbit-extra-top-5-6-szybki-profil-sbs"
- to="/pl/p/polbit-extra-top-5-6-szybki-profil-sbs-2348518658/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/polbit-extra-top-5-6-szybki-profil-sbs"
+to = "/pl/p/polbit-extra-top-5-6-szybki-profil-sbs-2348518658/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/polbit-baza-5-0-szybki-profil-sbs"
- to="/pl/p/polbit-baza-5-0-szybki-profil-sbs-4179598170/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/polbit-baza-5-0-szybki-profil-sbs"
+to = "/pl/p/polbit-baza-5-0-szybki-profil-sbs-4179598170/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/plaster-p-180-2000"
- to="/pl/p/plaster-p-180-2000-2550918008/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/plaster-p-180-2000"
+to = "/pl/p/plaster-p-180-2000-2550918008/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/plaster-al"
- to="/pl/p/plaster-al-1122232416/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/plaster-al"
+to = "/pl/p/plaster-al-1122232416/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/omega-szybki-profil-baza-3"
- to="/pl/p/omega-szybki-profil-baza-3-2199082587/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/omega-szybki-profil-baza-3"
+to = "/pl/p/omega-szybki-profil-baza-3-2199082587/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/monolight-5-2-szybki-profil-sbs"
- to="/pl/p/monolight-5-2-szybki-profil-sbs-418625918/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/monolight-5-2-szybki-profil-sbs"
+to = "/pl/p/monolight-5-2-szybki-profil-sbs-418625918/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/monodach-wm"
- to="/pl/p/monodach-wm-2369848153/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/monodach-wm"
+to = "/pl/p/monodach-wm-2369848153/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/membrana-pm-plus"
- to="/pl/p/membrana-pm-plus-1232374762/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/membrana-pm-plus"
+to = "/pl/p/membrana-pm-plus-1232374762/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/junior-baza-3-0-szybki-profil-sbs"
- to="/pl/p/junior-baza-3-0-szybki-profil-sbs-2573275379/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/junior-baza-3-0-szybki-profil-sbs"
+to = "/pl/p/junior-baza-3-0-szybki-profil-sbs-2573275379/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-water-renovator"
- to="/pl/p/icopal-water-renovator-688458780/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-water-renovator"
+to = "/pl/p/icopal-water-renovator-688458780/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-www-szybki-profil-sbs"
- to="/pl/p/icopal-top-pye-pv250-s5-2-www-szybki-profil-sbs-2525816636/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-www-szybki-profil-sbs"
+to = "/pl/p/icopal-top-pye-pv250-s5-2-www-szybki-profil-sbs-2525816636/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-ww-szybki-profil-sbs"
- to="/pl/p/icopal-top-pye-pv250-s5-2-ww-szybki-profil-sbs-4023393213/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-ww-szybki-profil-sbs"
+to = "/pl/p/icopal-top-pye-pv250-s5-2-ww-szybki-profil-sbs-4023393213/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-s-szybki-profil-sbs"
- to="/pl/p/icopal-top-pye-pv250-s5-2-s-szybki-profil-sbs-4284218456/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-s-szybki-profil-sbs"
+to = "/pl/p/icopal-top-pye-pv250-s5-2-s-szybki-profil-sbs-4284218456/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-sst-szybki-profil-sbs"
- to="/pl/p/icopal-top-pye-pv250-s5-2-sst-szybki-profil-sbs-3013910451/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-top-pye-pv250-s5-2-sst-szybki-profil-sbs"
+to = "/pl/p/icopal-top-pye-pv250-s5-2-sst-szybki-profil-sbs-3013910451/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-p-base-35-ww-speed-profile-sbs"
- to="/pl/p/icopal-p-base-35-ww-speed-profile-sbs-1434871198/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-p-base-35-ww-speed-profile-sbs"
+to = "/pl/p/icopal-p-base-35-ww-speed-profile-sbs-1434871198/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-p-base-30-speed-profile-sbs"
- to="/pl/p/icopal-p-base-30-speed-profile-sbs-2971492553/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-p-base-30-speed-profile-sbs"
+to = "/pl/p/icopal-p-base-30-speed-profile-sbs-2971492553/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-pa-top-45-ww-speed-profile-sbs"
- to="/pl/p/icopal-pa-top-45-ww-speed-profile-sbs-2716533455/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-pa-top-45-ww-speed-profile-sbs"
+to = "/pl/p/icopal-pa-top-45-ww-speed-profile-sbs-2716533455/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-pa-top-40-speed-profile-sbs"
- to="/pl/p/icopal-pa-top-40-speed-profile-sbs-3521672360/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-pa-top-40-speed-profile-sbs"
+to = "/pl/p/icopal-pa-top-40-speed-profile-sbs-3521672360/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-baza-pye-pv250-s4-0s-szybki-profil-sbs"
- to="/pl/p/icopal-baza-pye-pv250-s4-0s-szybki-profil-sbs-2281747819/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-baza-pye-pv250-s4-0s-szybki-profil-sbs"
+to = "/pl/p/icopal-baza-pye-pv250-s4-0s-szybki-profil-sbs-2281747819/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/icopal-baza-pye-pv250-s3-0s-szybki-profil-sbs"
- to="/pl/p/icopal-baza-pye-pv250-s3-0s-szybki-profil-sbs-3630125851/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/icopal-baza-pye-pv250-s3-0s-szybki-profil-sbs"
+to = "/pl/p/icopal-baza-pye-pv250-s3-0s-szybki-profil-sbs-3630125851/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/hydrobit-v60-s30-szybki-profil-sbs"
- to="/pl/p/hydrobit-v60-s30-szybki-profil-sbs-2499332131/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/hydrobit-v60-s30-szybki-profil-sbs"
+to = "/pl/p/hydrobit-v60-s30-szybki-profil-sbs-2499332131/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/graviflex-4-2-sbs-green-roof"
- to="/pl/p/graviflex-4-2-sbs-green-roof-492340066/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/graviflex-4-2-sbs-green-roof"
+to = "/pl/p/graviflex-4-2-sbs-green-roof-492340066/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/glasbit-g200-s40-szybki-profil-sbs"
- to="/pl/p/hydrobit-v60-s42h-szybki-profil-sbs-2729749187/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/glasbit-g200-s40-szybki-profil-sbs"
+to = "/pl/p/hydrobit-v60-s42h-szybki-profil-sbs-2729749187/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/fundament-antyradon-4-0-szybki-profil-sbs"
- to="/pl/p/fundament-antyradon-4-0-szybki-profil-sbs-359150350/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/fundament-antyradon-4-0-szybki-profil-sbs"
+to = "/pl/p/fundament-antyradon-4-0-szybki-profil-sbs-359150350/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/fundament-4-0-szybki-profil-sbs"
- to="/pl/p/fundament-4-0-szybki-profil-sbs-3013971031/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/fundament-4-0-szybki-profil-sbs"
+to = "/pl/p/fundament-4-0-szybki-profil-sbs-3013971031/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/firesmart-solo"
- to="/pl/p/firesmart-solo-1880927525/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/firesmart-solo"
+to = "/pl/p/firesmart-solo-1880927525/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/firesmart-duo-top-5-0-szybki-profil-sbs"
- to="/pl/p/firesmart-duo-top-5-0-szybki-profil-sbs-2743515814/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/firesmart-duo-top-5-0-szybki-profil-sbs"
+to = "/pl/p/firesmart-duo-top-5-0-szybki-profil-sbs-2743515814/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/firesmart-duo-baza-4-0-szybki-profil-sbs"
- to="/pl/p/firesmart-duo-baza-4-0-szybki-profil-sbs-3883736167/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/firesmart-duo-baza-4-0-szybki-profil-sbs"
+to = "/pl/p/firesmart-duo-baza-4-0-szybki-profil-sbs-3883736167/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/extra-wentylacja-top-5-2-szybki-syntan-sbs"
- to="/pl/p/extra-wentylacja-top-5-2-szybki-syntan-sbs-2019299660/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/extra-wentylacja-top-5-2-szybki-syntan-sbs"
+to = "/pl/p/extra-wentylacja-top-5-2-szybki-syntan-sbs-2019299660/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/extradach-top-5-2-szybki-profil-sbs"
- to="/pl/p/extradach-top-5-2-szybki-profil-sbs-2585287094/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/extradach-top-5-2-szybki-profil-sbs"
+to = "/pl/p/extradach-top-5-2-szybki-profil-sbs-2585287094/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/extradach-baza-4-0-szybki-profil-sbs"
- to="/pl/p/extradach-baza-4-0-szybki-profil-sbs-307483688/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/extradach-baza-4-0-szybki-profil-sbs"
+to = "/pl/p/extradach-baza-4-0-szybki-profil-sbs-307483688/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-villas/villas-v60-s30"
- to="/pl/p/villas-v60-s30-1753341478/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-villas/villas-v60-s30"
+to = "/pl/p/villas-v60-s30-1753341478/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-villas/villas-super-wn-pye-pv250-s52h"
- to="/pl/p/villas-super-wn-pye-pv250-s52h-2115667786/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-villas/villas-super-wn-pye-pv250-s52h"
+to = "/pl/p/villas-super-wn-pye-pv250-s52h-2115667786/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-villas/villas-standard-w-pye-pv250-s52h"
- to="/pl/p/villas-standard-w-pye-pv250-s52h-1809346790/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-villas/villas-standard-w-pye-pv250-s52h"
+to = "/pl/p/villas-standard-w-pye-pv250-s52h-1809346790/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-villas/villas-standard-p-pye-pv250-s40"
- to="/pl/p/villas-standard-p-pye-pv250-s40-3768476745/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-villas/villas-standard-p-pye-pv250-s40"
+to = "/pl/p/villas-standard-p-pye-pv250-s40-3768476745/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-villas/villas-economic-w-pye-pv250-s52h"
- to="/pl/p/villas-economic-w-pye-pv250-s52h-1483967627/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-villas/villas-economic-w-pye-pv250-s52h"
+to = "/pl/p/villas-economic-w-pye-pv250-s52h-1483967627/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/zadaszenia-modu%C5%82owe-fastlock"
- to="/pl/p/zadaszenia-modu%C5%82owe-fastlock-akryl-3567166914/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/zadaszenia-modu%C5%82owe-fastlock"
+to = "/pl/p/zadaszenia-modu%C5%82owe-fastlock-akryl-3567166914/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/w-pet-plus-sbs-icopal"
- to="/pl/p/w-pet-plus-sbs-icopal-1351716821/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/w-pet-plus-sbs-icopal"
+to = "/pl/p/w-pet-plus-sbs-icopal-1351716821/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/villas-v60s42h"
- to="/pl/p/villas-v60s42h-4264920260/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/villas-v60s42h"
+to = "/pl/p/villas-v60s42h-4264920260/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/villas-super-w-pye-pv250-s52h"
- to="/pl/p/villas-super-w-pye-pv250-s52h-2243645609/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/villas-super-w-pye-pv250-s52h"
+to = "/pl/p/villas-super-w-pye-pv250-s52h-2243645609/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/villas-most"
- to="/pl/p/villas-most-3181701627/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/villas-most"
+to = "/pl/p/villas-most-3181701627/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/vedaflor-wf5"
- to="/pl/p/vedaflor-wf5-2786786220/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/vedaflor-wf5"
+to = "/pl/p/vedaflor-wf5-2786786220/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/vedaflor-wf4"
- to="/pl/p/vedaflor-wf4-1591292274/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/vedaflor-wf4"
+to = "/pl/p/vedaflor-wf4-1591292274/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/termik-top-5s-szybki-syntan-sbs"
- to="/pl/p/termik-top-5s-szybki-syntan-sbs-4043385996/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/termik-top-5s-szybki-syntan-sbs"
+to = "/pl/p/termik-top-5s-szybki-syntan-sbs-4043385996/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-mur-043"
- to="/pl/p/styropian-termo-mur-043-eps-822886809/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-mur-043"
+to = "/pl/p/styropian-termo-mur-043-eps-822886809/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-mur-043"
- to="/pl/p/styropian-termo-mur-043-eps-822886809/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-mur-043"
+to = "/pl/p/styropian-termo-mur-043-eps-822886809/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-dach-pod%C5%82oga-eps-100-038"
- to="/pl/p/styropian-termo-dach-pod%C5%82oga-eps-100-038-eps-969856437/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/styropian-termo-dach-pod%C5%82oga-eps-100-038"
+to = "/pl/p/styropian-termo-dach-pod%C5%82oga-eps-100-038-eps-969856437/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/rolowana-dach%C3%B3wka-icopal-3d"
- to="/pl/bmi-icopal/rolowana-dachowka-icopal-3d/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/rolowana-dach%C3%B3wka-icopal-3d"
+to = "/pl/bmi-icopal/rolowana-dachowka-icopal-3d/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/p%C5%82yty-spadkowe-eps"
- to="/pl/p/p%C5%82yty-spadkowe-eps-eps-4009774743/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/p%C5%82yty-spadkowe-eps"
+to = "/pl/p/p%C5%82yty-spadkowe-eps-eps-4009774743/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-gf-1-5"
- to="/pl/p/monarplan-gf-1-5-3578335106/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-gf-1-5"
+to = "/pl/p/monarplan-gf-1-5-3578335106/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-g-1-8"
- to="/pl/p/monarplan-g-1-8-4135142651/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-g-1-8"
+to = "/pl/p/monarplan-g-1-8-4135142651/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-g-1-5"
- to="/pl/p/monarplan-g-1-5-1587607514/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-g-1-5"
+to = "/pl/p/monarplan-g-1-5-1587607514/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-2-0"
- to="/pl/p/monarplan-fm-2-0-1317078943/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-2-0"
+to = "/pl/p/monarplan-fm-2-0-1317078943/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-8"
- to="/pl/p/monarplan-fm-1-8-567073714/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-8"
+to = "/pl/p/monarplan-fm-1-8-567073714/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-5"
- to="/pl/p/monarplan-fm-1-5-1319026096/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-5"
+to = "/pl/p/monarplan-fm-1-5-1319026096/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-2"
- to="/pl/p/monarplan-fm-1-2-385543090/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/monarplan-fm-1-2"
+to = "/pl/p/monarplan-fm-1-2-385543090/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/izokliny"
- to="/pl/p/izokliny-eps-4266331807/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/izokliny"
+to = "/pl/p/izokliny-eps-4266331807/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-prostok%C4%85t"
- to="/pl/p/gont-icopal-sbs-prostok%C4%85t-br%C4%85zowy-b3-2362765605/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-prostok%C4%85t"
+to = "/pl/p/gont-icopal-sbs-prostok%C4%85t-br%C4%85zowy-b3-2362765605/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-ogon-bobra"
- to="/pl/p/gont-icopal-sbs-ogon-bobra-br%C4%85zowy-a3-2390567944/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-ogon-bobra"
+to = "/pl/p/gont-icopal-sbs-ogon-bobra-br%C4%85zowy-a3-2390567944/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-heksagonalny"
- to="/pl/p/gont-icopal-sbs-heksagonalny-br%C4%85zowy-z-czarnym-cieniem-cm3-3252067470/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/gont-icopal-sbs-heksagonalny"
+to = "/pl/p/gont-icopal-sbs-heksagonalny-br%C4%85zowy-z-czarnym-cieniem-cm3-3252067470/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/flagowy-styropian-icopal-termo-mur-eps-s-040"
- to="/pl/p/flagowy-styropian-icopal-termo-mur-eps-s-040-eps-259060057/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/flagowy-styropian-icopal-termo-mur-eps-s-040"
+to = "/pl/p/flagowy-styropian-icopal-termo-mur-eps-s-040-eps-259060057/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/flagowy-styropian-icopal-termo-dach-pod%C5%82oga-eps-100-037"
- to="/pl/p/flagowy-styropian-icopal-termo-dach-pod%C5%82oga-eps-100-037-eps-405361157/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/flagowy-styropian-icopal-termo-dach-pod%C5%82oga-eps-100-037"
+to = "/pl/p/flagowy-styropian-icopal-termo-dach-pod%C5%82oga-eps-100-037-eps-405361157/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/fastlock-60-loggia"
- to="/pl/p/fastlock-60-loggia-3077434968/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/fastlock-60-loggia"
+to = "/pl/p/fastlock-60-loggia-3077434968/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/fastlock-120"
- to="/pl/p/fastlock-120-692667708/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/fastlock-120"
+to = "/pl/p/fastlock-120-692667708/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-2-0"
- to="/pl/p/everguard-tpo-2-0-1533419769/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-2-0"
+to = "/pl/p/everguard-tpo-2-0-1533419769/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-1-8"
- to="/pl/p/everguard-tpo-1-8-1673306136/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-1-8"
+to = "/pl/p/everguard-tpo-1-8-1673306136/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-1-5"
- to="/pl/p/everguard-tpo-1-5-719411/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/everguard-tpo-1-5"
+to = "/pl/p/everguard-tpo-1-5-719411/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszki-i-markizy-fastlock"
- to="/pl/p/daszki-i-markizy-fastlock-akryl-2927447340/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszki-i-markizy-fastlock"
+to = "/pl/p/daszki-i-markizy-fastlock-akryl-2927447340/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0-drewniany"
- to="/pl/p/daszek-fastlock-3-0-drewniany-1647291806/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0-drewniany"
+to = "/pl/p/daszek-fastlock-3-0-drewniany-1647291806/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0-balkon"
- to="/pl/p/daszek-fastlock-3-0-balkon-375420688/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0-balkon"
+to = "/pl/p/daszek-fastlock-3-0-balkon-375420688/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0"
- to="/pl/p/daszek-fastlock-3-0-3472624873/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-3-0"
+to = "/pl/p/daszek-fastlock-3-0-3472624873/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0-drewniany"
- to="/pl/p/daszek-fastlock-2-0-drewniany-1595396656/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0-drewniany"
+to = "/pl/p/daszek-fastlock-2-0-drewniany-1595396656/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0-balkon"
- to="/pl/p/daszek-fastlock-2-0-balkon-3171582995/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0-balkon"
+to = "/pl/p/daszek-fastlock-2-0-balkon-3171582995/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0"
- to="/pl/p/daszek-fastlock-2-0-1574052958/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-icopal/daszek-fastlock-2-0"
+to = "/pl/p/daszek-fastlock-2-0-1574052958/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/wakaflex"
- to="/pl/p/wakaflex-br%C4%85zowy-1887245972/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/wakaflex"
+to = "/pl/p/wakaflex-br%C4%85zowy-1887245972/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/turmalin"
- to="/pl/p/turmalin-jasnoszary-angoba-ceramika-1784580724/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/turmalin"
+to = "/pl/p/turmalin-jasnoszary-angoba-ceramika-1784580724/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/topas-13v"
- to="/pl/p/topas-13v-antracytowy-angoba-ceramika-2263995187/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/topas-13v"
+to = "/pl/p/topas-13v-antracytowy-angoba-ceramika-2263995187/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/topas-11v"
- to="/pl/p/topas-11v-bukowy-glazura-top-line-ceramika-1236799309/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/topas-11v"
+to = "/pl/p/topas-11v-bukowy-glazura-top-line-ceramika-1236799309/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/teviva-cisar"
- to="/pl/p/teviva-cisar-czarny-b%C5%82yszcz%C4%85ca-beton-3657717602/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/teviva-cisar"
+to = "/pl/p/teviva-cisar-czarny-b%C5%82yszcz%C4%85ca-beton-3657717602/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/tegalit-protegon"
- to="/pl/p/tegalit-protegon-br%C4%85z-kolonialny-b%C5%82yszcz%C4%85ca-beton-2889896374/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/tegalit-protegon"
+to = "/pl/p/tegalit-protegon-br%C4%85z-kolonialny-b%C5%82yszcz%C4%85ca-beton-2889896374/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/sun-x-szybka-bariera-sbs"
- to="/pl/p/sunx-szybka-bariera-sbs-2505678469/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/sun-x-szybka-bariera-sbs"
+to = "/pl/p/sunx-szybka-bariera-sbs-2505678469/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/smaragd"
- to="/pl/p/smaragd-antracytowy-angoba-ceramika-3441012340/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/smaragd"
+to = "/pl/p/smaragd-antracytowy-angoba-ceramika-3441012340/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/rubin-9v"
- to="/pl/p/rubin-9v-antracytowy-angoba-ceramika-2899154796/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/rubin-9v"
+to = "/pl/p/rubin-9v-antracytowy-angoba-ceramika-2899154796/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/rubin-13v"
- to="/pl/p/rubin-13v-antracytowy-angoba-ceramika-1642062278/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/rubin-13v"
+to = "/pl/p/rubin-13v-antracytowy-angoba-ceramika-1642062278/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-lumino"
- to="/pl/p/roma%C5%84ska-aerlox-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-1327779297/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-lumino"
+to = "/pl/p/roma%C5%84ska-aerlox-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-1327779297/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-cisar"
- to="/pl/p/roma%C5%84ska-aerlox-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-3586405204/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-cisar"
+to = "/pl/p/roma%C5%84ska-aerlox-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-3586405204/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-aerlox-lumino"
- to="/pl/p/roma%C5%84ska-aerlox-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-1327779297/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-aerlox-lumino"
+to = "/pl/p/roma%C5%84ska-aerlox-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-1327779297/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-aerlox-cisar"
- to="/pl/p/roma%C5%84ska-aerlox-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-3586405204/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/roma%C5%84ska-aerlox-cisar"
+to = "/pl/p/roma%C5%84ska-aerlox-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-3586405204/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/reviva-protector"
- to="/pl/nasze-rozwiazania/dachy-skosne/dachowki-betonowe/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/reviva-protector"
+to = "/pl/nasze-rozwiazania/dachy-skosne/dachowki-betonowe/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/papa-braas-bit-premium-sbs"
- to="/pl/p/papa-braas-bit-premium-sbs-709018759/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/papa-braas-bit-premium-sbs"
+to = "/pl/p/papa-braas-bit-premium-sbs-709018759/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/opal-%C5%BC%C5%82obkowany"
- to="/pl/p/opal-%C5%BC%C5%82obkowany-antracytowy-angoba-ceramika-3181476473/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/opal-%C5%BC%C5%82obkowany"
+to = "/pl/p/opal-%C5%BC%C5%82obkowany-antracytowy-angoba-ceramika-3181476473/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/opal"
- to="/pl/p/opal-antracytowy-angoba-ceramika-2315491853/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/opal"
+to = "/pl/p/opal-antracytowy-angoba-ceramika-2315491853/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/granat-13v"
- to="/pl/p/granat-13v-miedziany-miedziany-angoba-ceramika-2920765349/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/granat-13v"
+to = "/pl/p/granat-13v-miedziany-miedziany-angoba-ceramika-2920765349/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/figaroll-plus"
- to="/pl/p/figaroll-plus-antracytowy-antracytowy-3498333710"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/figaroll-plus"
+to = "/pl/p/figaroll-plus-antracytowy-antracytowy-3498333710"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/fel-x-szybka-bariera-sbs"
- to="/pl/p/felx-szybka-bariera-sbs-637328847/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/fel-x-szybka-bariera-sbs"
+to = "/pl/p/felx-szybka-bariera-sbs-637328847/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-universal-2s"
- to="/pl/p/divoroll-universal-2s-950015185/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-universal-2s"
+to = "/pl/p/divoroll-universal-2s-950015185/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-universal"
- to="/pl/p/divoroll-universal-723626755/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-universal"
+to = "/pl/p/divoroll-universal-723626755/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-top-ru"
- to="/pl/p/divoroll-top-ru-942627094/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-top-ru"
+to = "/pl/p/divoroll-top-ru-942627094/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-pro"
- to="/pl/p/divoroll-pro-1038525223/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-pro"
+to = "/pl/p/divoroll-pro-1038525223/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-maximum-2s"
- to="/pl/p/divoroll-maximum-2s-1945042287/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-maximum-2s"
+to = "/pl/p/divoroll-maximum-2s-1945042287/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-kompakt-2s"
- to="/pl/p/divoroll-kompakt-2s-2932508709/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-kompakt-2s"
+to = "/pl/p/divoroll-kompakt-2s-2932508709/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-kompakt"
- to="/pl/p/divoroll-kompakt-716068930/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-kompakt"
+to = "/pl/p/divoroll-kompakt-716068930/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/divoroll-clima-2s"
- to="/pl/p/divoroll-clima-2s-529705779/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/divoroll-clima-2s"
+to = "/pl/p/divoroll-clima-2s-529705779/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/celtycka-lumino"
- to="/pl/p/celtycka-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-2971519165/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/celtycka-lumino"
+to = "/pl/p/celtycka-lumino-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-2971519165/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/celtycka-cisar"
- to="/pl/p/celtycka-cisar-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-2108794179/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/celtycka-cisar"
+to = "/pl/p/celtycka-cisar-br%C4%85zowy-b%C5%82yszcz%C4%85ca-beton-2108794179/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bmi-braas/ba%C5%82tycka-cisar"
- to="/pl/p/ba%C5%82tycka-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-1468028170/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bmi-braas/ba%C5%82tycka-cisar"
+to = "/pl/p/ba%C5%82tycka-cisar-ceglany-b%C5%82yszcz%C4%85ca-beton-1468028170/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bitumex-r"
- to="/pl/p/bitumex-r-2678739743/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bitumex-r"
+to = "/pl/p/bitumex-r-2678739743/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bitumex-protector"
- to="/pl/p/bitumex-protector-2628039560/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bitumex-protector"
+to = "/pl/p/bitumex-protector-2628039560/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bitumex-k"
- to="/pl/p/bitumex-k-575749187/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bitumex-k"
+to = "/pl/p/bitumex-k-575749187/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/bitumex-d"
- to="/pl/p/bitumex-d-4073061551/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/bitumex-d"
+to = "/pl/p/bitumex-d-4073061551/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/beta-szybki-profil-top-4"
- to="/pl/p/beta-szybki-profil-top-4-1234076006/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/beta-szybki-profil-top-4"
+to = "/pl/p/beta-szybki-profil-top-4-1234076006/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/baltbit-wf-160"
- to="/pl/p/baltbit-wf-160-4166996875/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/baltbit-wf-160"
+to = "/pl/p/baltbit-wf-160-4166996875/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/baltbit-pf-160"
- to="/pl/p/baltbit-pf-160-1182367506/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/baltbit-pf-160"
+to = "/pl/p/baltbit-pf-160-1182367506/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/products/alfa-top-5-0-szybki-profil-sbs"
- to="/pl/p/alfa-top-5-0-szybki-profil-sbs-2554257028/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/products/alfa-top-5-0-szybki-profil-sbs"
+to = "/pl/p/alfa-top-5-0-szybki-profil-sbs-2554257028/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/products/gonty-bitumiczne"
- to="/pl/nasze-rozwiazania/dachy-skosne/gonty-bitumiczne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/products/gonty-bitumiczne"
+to = "/pl/nasze-rozwiazania/dachy-skosne/gonty-bitumiczne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/products/dach%C3%B3wki-ceramiczne"
- to="/pl/nasze-rozwiazania/dachy-skosne/dachowki-ceramiczne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/products/dach%C3%B3wki-ceramiczne"
+to = "/pl/nasze-rozwiazania/dachy-skosne/dachowki-ceramiczne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/products/dach%C3%B3wki-betonowe"
- to="/pl/nasze-rozwiazania/dachy-skosne/dachowki-betonowe/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/products/dach%C3%B3wki-betonowe"
+to = "/pl/nasze-rozwiazania/dachy-skosne/dachowki-betonowe/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/products/akcesoria-dachy-spadziste"
- to="/pl/nasze-rozwiazania/dachy-skosne/akcesoria-dachy-skosne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/products/akcesoria-dachy-spadziste"
+to = "/pl/nasze-rozwiazania/dachy-skosne/akcesoria-dachy-skosne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/products"
- to="/pl/nasze-rozwiazania/dachy-skosne/wszystkie-produkty-dachy-skosne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/products"
+to = "/pl/nasze-rozwiazania/dachy-skosne/wszystkie-produkty-dachy-skosne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-skosne/bmi-braas"
- to="/pl/bmi-braas/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-skosne/bmi-braas"
+to = "/pl/bmi-braas/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-plaskie/products/membrany-syntetyczne"
- to="/pl/nasze-rozwiazania/dachy-plaskie/membrany-syntetyczne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-plaskie/products/membrany-syntetyczne"
+to = "/pl/nasze-rozwiazania/dachy-plaskie/membrany-syntetyczne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-plaskie/products/membrany-bitumiczne"
- to="/pl/nasze-rozwiazania/dachy-plaskie/membrany-bitumiczne/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-plaskie/products/membrany-bitumiczne"
+to = "/pl/nasze-rozwiazania/dachy-plaskie/membrany-bitumiczne/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-plaskie/products/masy"
- to="/pl/nasze-rozwiazania/dachy-plaskie/masy/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-plaskie/products/masy"
+to = "/pl/nasze-rozwiazania/dachy-plaskie/masy/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-plaskie/products"
- to="/pl/nasze-rozwiazania/dachy-plaskie/wszystkie-produkty-dachy-plaskie/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-plaskie/products"
+to = "/pl/nasze-rozwiazania/dachy-plaskie/wszystkie-produkty-dachy-plaskie/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/dachy-plaskie/bmi-icopal"
- to="/pl/bmi-icopal/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/dachy-plaskie/bmi-icopal"
+to = "/pl/bmi-icopal/"
+status = 301
 
 [[redirects]]
- from="/pl/nasze-rozwiazania/bmi-everguard-tpo"
- to="/pl/bmi-everguard/"
- status=301
- force=true
+from = "/pl/nasze-rozwiazania/bmi-everguard-tpo"
+to = "/pl/bmi-everguard/"
+status = 301
 
 [[redirects]]
- from="/pl/dla-profesjonalistow/tools"
- to="/pl/dla-profesjonalistow/narzedzia/"
- status=301
- force=true
+from = "/pl/dla-profesjonalistow/tools"
+to = "/pl/dla-profesjonalistow/narzedzia/"
+status = 301
 
 # Redirect root to /pl.
 [[redirects]]
-  from = "/"
-  to = "/pl"
-  status = 301
-  force = true
+from = "/"
+to = "/pl"
+status = 301

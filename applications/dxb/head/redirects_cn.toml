@@ -1,6 +1,5 @@
 # Redirect root to /cn
 [[redirects]]
-  from = "/"
-  to = "/cn"
-  status = 301
-  force = true
+from = "/"
+to = "/cn"
+status = 301
