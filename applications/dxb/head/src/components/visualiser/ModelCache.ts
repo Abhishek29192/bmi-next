@@ -26,8 +26,7 @@ export default (url: string) => {
       function onLoad(tileGltf: GLTF) {
         resolve(tileGltf);
       },
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      function onProgress() {},
+      undefined,
       function onError(err) {
         reject(err);
       }
