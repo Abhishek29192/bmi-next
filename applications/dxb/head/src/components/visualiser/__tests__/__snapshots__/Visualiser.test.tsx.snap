@@ -1,7 +1,493 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Visualiser component renders correctly 1`] = `<div />`;
+exports[`Visualiser component renders correctly 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  />
+  <div
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl Visualiser"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="content content"
+      >
+        <div
+          class="container container--viewer"
+        >
+          <div
+            class="progress-container"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="details"
+          >
+            <svg
+              class="details-logo"
+              height="60"
+              width="60"
+            />
+            <div
+              class="deatils-labels"
+            >
+              <h3
+                class="MuiTypography-root details-title Typography MuiTypography-h5"
+              />
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              />
+            </div>
+            <div
+              class="details-actions"
+            />
+          </div>
+        </div>
+        <nav
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 MuiButton-textPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.selectProduct
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.wallColor
+            </span>
+          </button>
+        </nav>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
 
-exports[`Visualiser component renders correctly when non-test asset url provided 1`] = `<div />`;
+exports[`Visualiser component renders correctly when non-test asset url provided 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  />
+  <div
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl Visualiser"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="content content"
+      >
+        <div
+          class="container container--viewer"
+        >
+          <div
+            class="progress-container"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="details"
+          >
+            <svg
+              class="details-logo"
+              height="60"
+              width="60"
+            />
+            <div
+              class="deatils-labels"
+            >
+              <h3
+                class="MuiTypography-root details-title Typography MuiTypography-h5"
+              />
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              />
+            </div>
+            <div
+              class="details-actions"
+            />
+          </div>
+        </div>
+        <nav
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 buttonStyles-textDarkBg-46 MuiButton-textPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-44"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.selectProduct
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 buttonStyles-textDarkBg-46 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-44"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.wallColor
+            </span>
+          </button>
+        </nav>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
 
-exports[`Visualiser component renders correctly when test asset url provided 1`] = `<div />`;
+exports[`Visualiser component renders correctly when test asset url provided 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  />
+  <div
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl Visualiser"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="header"
+      >
+        <button
+          aria-label="Close"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="content content"
+      >
+        <div
+          class="container container--viewer"
+        >
+          <div
+            class="progress-container"
+          >
+            <div
+              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style="width: 40px; height: 40px;"
+            >
+              <svg
+                class="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
+              >
+                <circle
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx="44"
+                  cy="44"
+                  fill="none"
+                  r="20.2"
+                  stroke-width="3.6"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="details"
+          >
+            <svg
+              class="details-logo"
+              height="60"
+              width="60"
+            />
+            <div
+              class="deatils-labels"
+            >
+              <h3
+                class="MuiTypography-root details-title Typography MuiTypography-h5"
+              />
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              />
+            </div>
+            <div
+              class="details-actions"
+            />
+          </div>
+        </div>
+        <nav
+          class="actions"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 MuiButton-textPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-24"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.selectProduct
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-24"
+            >
+              <span
+                class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                />
+              </span>
+              visualizer.actions.wallColor
+            </span>
+          </button>
+        </nav>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;

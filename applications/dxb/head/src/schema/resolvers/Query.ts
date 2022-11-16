@@ -21,7 +21,7 @@ export default {
       context: Context
     ): Promise<PLPFilterResponse> {
       const { categoryCodes, allowFilterBy } = args;
-      const transformedAllowFilterBy = transformFilterKeys(allowFilterBy);
+      const transformedAllowFilterBy = transformFilterKeys(allowFilterBy || []);
 
       const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
@@ -46,7 +46,7 @@ export default {
         ({ code }) => (categoryCodes || []).includes(code)
       );
 
-      let allowFilterByLocal = transformedAllowFilterBy || [];
+      let allowFilterByLocal = transformedAllowFilterBy;
       //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
       if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {

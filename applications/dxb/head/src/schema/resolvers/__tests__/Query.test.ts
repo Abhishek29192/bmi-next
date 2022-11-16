@@ -264,7 +264,7 @@ describe("plpFilters", () => {
     expect(
       await Query.plpFilters.resolve(
         null,
-        { ...args, categoryCodes: null },
+        { ...args, categoryCodes: null, allowFilterBy: null },
         context
       )
     ).toEqual(filters);
