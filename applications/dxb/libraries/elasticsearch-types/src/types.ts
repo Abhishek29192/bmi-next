@@ -44,6 +44,7 @@ export type Product = {
   subTitle: string;
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
+  keywords?: string[];
 } & {
   [extractedFilter: string]: any;
 };

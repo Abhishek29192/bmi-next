@@ -504,6 +504,7 @@ export type VariantOption = {
   productReferences?: ProductReference[];
   name?: string;
   visualiserAssets?: readonly Asset[];
+  keywords?: string[];
 };
 
 export type BaseProduct = Pick<Product, "code" | "name">;
@@ -526,6 +527,7 @@ export type Product = {
   variantOptions?: readonly VariantOption[];
   productReferences?: ProductReference[];
   visualiserAssets?: readonly Asset[];
+  keywords?: string[];
 };
 
 export enum PimTypes {

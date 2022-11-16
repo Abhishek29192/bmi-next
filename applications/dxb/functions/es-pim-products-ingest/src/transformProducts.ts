@@ -201,6 +201,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
 
     const name = product.name!;
 
+    const keywords = Array.from(
+      new Set([...(product?.keywords ?? []), ...(variant?.keywords ?? [])])
+    );
+
     const esProduct: ESProduct = {
       ...indexedFeatures,
       ...allCategoriesAsProps,
@@ -280,7 +284,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
               "appearanceAttributes.variantattribute".toUpperCase()
           )?.featureValues[0].value
       )}`,
-      subTitle
+      subTitle,
+      ...(keywords.length && { keywords })
     };
     logger.info({
       message: `esProduct: ${esProduct}`
