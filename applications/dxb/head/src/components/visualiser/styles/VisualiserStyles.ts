@@ -6,6 +6,11 @@ export const useStyles = makeStyles(
     root: {
       height: "100vh",
       width: "100vw",
+      "&>div:first-child": {
+        "& button": {
+          margin: "10px 6px 10px 16px"
+        }
+      },
       [theme.breakpoints!.up!("md")]: {
         "& $detailsLogo": {
           marginBottom: "1rem"
