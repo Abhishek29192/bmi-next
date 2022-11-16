@@ -13,11 +13,11 @@ import {
   GuaranteesAndWarrantiesAssetType
 } from "@bmi/firestore-types";
 import type {
+  Asset,
   Category as PimCategory,
   Classification as PimClassification,
   Feature,
-  Product as PimProduct,
-  Asset
+  Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
@@ -227,7 +227,13 @@ export const transformProduct = (product: PimProduct): Product[] => {
         documents: mapProductDocuments(product),
         externalProductCode:
           variant.externalProductCode ?? product.externalProductCode,
-        filters: getFilters(mergedClassifications, product.categories || []),
+        filters: getFilters(
+          filterClassifications(
+            mergedClassifications,
+            productIgnorableAttributes
+          ),
+          product.categories || []
+        ),
         fixingToolIframeUrl: product.assets?.find(
           (asset) => asset.assetType === "FIXING_TOOL"
         )?.url,
