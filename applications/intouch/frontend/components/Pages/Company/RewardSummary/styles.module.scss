@@ -1,0 +1,41 @@
+@import "~@bmi-digital/styles";
+
+$rail-track-color: rgba(0, 159, 227, 0.3);
+
+.main {
+  background-color: $color-white;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
+}
+
+.body {
+  padding: 1.5rem 0;
+  width: 650px;
+  max-width: 100%;
+}
+
+.linearProgressTitle {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+}
+
+.rewardDialog {
+  background-image: url("/images/reward-background.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+}
+
+.rewardDialogTitle {
+  align-self: center;
+  padding-bottom: 0.75rem;
+  margin: 30px 30px 24px 30px;
+
+  &:after {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}

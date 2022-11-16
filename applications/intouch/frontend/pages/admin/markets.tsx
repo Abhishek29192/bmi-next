@@ -1,5 +1,4 @@
 import React from "react";
-import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -76,46 +75,5 @@ export const getServerSideProps = withPage(
     };
   }
 );
-
-export const markets = gql`
-  query markets {
-    markets {
-      nodes {
-        id
-        language
-        domain
-        cmsSpaceId
-        name
-        sendName
-        sendMailbox
-        doceboInstallersBranchId
-        doceboCompanyAdminBranchId
-        merchandisingUrl
-        merchandiseSso
-        projectsEnabled
-        gtag
-        gtagMarketMedia
-        optanonClass
-        locationBiasRadiusKm
-      }
-    }
-    doceboTiers {
-      nodes {
-        id
-        marketId
-        tierCode
-        doceboCatalogueId
-      }
-    }
-    merchandiseTiers {
-      nodes {
-        id
-        marketId
-        tierCode
-        merchandiseDivisionId
-      }
-    }
-  }
-`;
 
 export default withPageAuthRequired(withPageError(MarketsPage));

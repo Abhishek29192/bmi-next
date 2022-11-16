@@ -9,8 +9,12 @@ import {
 import { Dialog } from "@bmi/components";
 import ProjectForm from "../Form";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
-import { useCreateProjectMutation } from "../../../../graphql/generated/hooks";
+import {
+  useCreateProjectMutation,
+  useAddRewardRecordMutation
+} from "../../../../graphql/generated/hooks";
 import log from "../../../../lib/logger";
+import { useAccountContext } from "../../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
 export type NewProjectDialogProps = {
@@ -28,7 +32,16 @@ export const NewProjectDialog = ({
 }: NewProjectDialogProps) => {
   const { t } = useTranslation();
   const router = useRouter();
+  const { account } = useAccountContext();
 
+  const [addRewardRecord] = useAddRewardRecordMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error adding reward record for action create a project: ${error.toString()}`
+      });
+    }
+  });
   const [createProject, { loading: isSubmitting }] = useCreateProjectMutation({
     onError: (error) => {
       log({
@@ -36,12 +49,19 @@ export const NewProjectDialog = ({
         message: `There was an error creating a project: ${error.toString()}`
       });
     },
-    onCompleted: ({ createProject: { project } }) => {
+    onCompleted: async ({ createProject: { project } }) => {
       log({
         severity: "INFO",
         message: `Created project - id: ${project.id}`
       });
-
+      await addRewardRecord({
+        variables: {
+          input: {
+            accountId: account.id,
+            rewardCategory: "rc3"
+          }
+        }
+      });
       // Once we can update the cache perhaps we can `shalow: true`
       // at which point closing it makes sense
       onCompleted && onCompleted();

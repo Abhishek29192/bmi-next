@@ -24,6 +24,8 @@ import {
 import layoutStyles from "../../Layout/styles.module.scss";
 import styles from "./styles.module.scss";
 import { marketKeys } from "./config";
+import { RewardSystemForm } from "./RewardSystemForm";
+import { RewardCategory } from "./RewardCategory";
 
 type Props = {
   markets: MarketsQuery["markets"];
@@ -51,7 +53,7 @@ type MerchandiseTiers = {
   merchandiseT7?: number;
 };
 
-type MarketList =
+export type MarketList =
   | MarketsQuery["markets"]
   | UpdateMarketMutation["updateMarket"]["query"]["markets"];
 type _Market = MarketList["nodes"][0] & DoceboTiers & MerchandiseTiers;
@@ -321,145 +323,166 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
       </SidePanel>
       {selectedItem && (
         <div className={styles.detailPanel}>
-          {isEditing ? (
-            <Fragment>
-              <Form
-                onSubmit={onMarketSubmit}
-                style={{ width: "100%" }}
-                {...{ testId: "market-form" }}
-              >
-                <Grid container>
-                  <Grid xs={12} item>
-                    <Grid
-                      item
-                      xs={12}
-                      container
-                      spacing={0}
-                      direction="row"
-                      alignItems="flex-start"
-                      justifyContent="space-between"
-                      style={{ display: "flex" }}
-                    >
-                      <Grid item xs={10}>
-                        <Typography
-                          variant="h3"
-                          hasUnderline
-                          style={{ marginBottom: "15px" }}
+          <React.Fragment>
+            <section>
+              {isEditing ? (
+                <Fragment>
+                  <Form
+                    onSubmit={onMarketSubmit}
+                    style={{ width: "100%" }}
+                    {...{ testId: "market-form" }}
+                  >
+                    <Grid container>
+                      <Grid xs={12} item>
+                        <Grid
+                          item
+                          xs={12}
+                          container
+                          spacing={0}
+                          direction="row"
+                          alignItems="flex-start"
+                          justifyContent="space-between"
+                          style={{ display: "flex" }}
                         >
-                          {selectedItem.name}
-                        </Typography>
+                          <Grid item xs={10}>
+                            <Typography
+                              variant="h3"
+                              hasUnderline
+                              style={{ marginBottom: "15px" }}
+                            >
+                              {selectedItem.name}
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={2}>
+                            <Button
+                              className={styles.editBtn}
+                              onClick={() => setIsEditing(!isEditing)}
+                              data-testid={"btn-show"}
+                            >
+                              {t("show")}
+                            </Button>
+                          </Grid>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={2}>
-                        <Button
-                          className={styles.editBtn}
-                          onClick={() => setIsEditing(!isEditing)}
-                          data-testid={"btn-show"}
-                        >
-                          {t("show")}
-                        </Button>
-                      </Grid>
+                      {marketKeys.map(({ key, type, label }) =>
+                        type === "checkbox" ? (
+                          <Grid item xs={12}>
+                            <Checkbox
+                              name={key}
+                              label={label}
+                              checked={selectedItem[`${key}`] || ""}
+                              onChange={(value) =>
+                                onItemChange(key, value, type)
+                              }
+                            />
+                          </Grid>
+                        ) : (
+                          <Grid key={key} xs={12} item>
+                            <TextField
+                              fullWidth
+                              name={key}
+                              label={label}
+                              type={type}
+                              disabled={["id"].includes(key)}
+                              value={selectedItem[`${key}`] || ""}
+                              onChange={(value) =>
+                                onItemChange(key, value, type)
+                              }
+                              {...{ "data-testid": `input-${key}` }}
+                            />
+                          </Grid>
+                        )
+                      )}
+                    </Grid>
+                    <Form.ButtonWrapper>
+                      <Form.SubmitButton {...{ "data-testid": "btn-save " }}>
+                        Save
+                      </Form.SubmitButton>
+                    </Form.ButtonWrapper>
+                  </Form>
+                  {result.severity &&
+                    !updateMarketLoading &&
+                    !updateDoceboTiersLoading &&
+                    !updateMerchandiseTiersLoading && (
+                      <div style={{ marginTop: 15 }}>
+                        <AlertBanner severity={result.severity}>
+                          <AlertBanner.Title>{result.title}</AlertBanner.Title>
+                          {result.messages.length ? (
+                            <div>
+                              {result.messages.map((message, index) => (
+                                <div key={`error-${index}`}>{message}</div>
+                              ))}
+                            </div>
+                          ) : null}
+                        </AlertBanner>
+                      </div>
+                    )}
+                </Fragment>
+              ) : (
+                <Grid {...{ testId: "market-details" }} container>
+                  <Grid
+                    item
+                    xs={12}
+                    spacing={0}
+                    direction="row"
+                    alignItems="flex-start"
+                    justifyContent="space-between"
+                    style={{ display: "flex" }}
+                  >
+                    <Grid item xs={10}>
+                      <Typography
+                        variant="h3"
+                        hasUnderline
+                        style={{ marginBottom: "15px" }}
+                      >
+                        {selectedItem.name}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={2}>
+                      <Button
+                        className={styles.editBtn}
+                        onClick={() => setIsEditing(!isEditing)}
+                        {...{ "data-testid": "btn-edit" }}
+                      >
+                        {t("edit")}
+                      </Button>
                     </Grid>
                   </Grid>
-                  {marketKeys.map(({ key, type, label }) =>
-                    type === "checkbox" ? (
-                      <Grid item xs={12}>
-                        <Checkbox
-                          name={key}
-                          label={label}
-                          checked={selectedItem[`${key}`] || ""}
-                          onChange={(value) => onItemChange(key, value, type)}
-                        />
-                      </Grid>
-                    ) : (
-                      <Grid key={key} xs={12} item>
-                        <TextField
-                          fullWidth
-                          name={key}
-                          label={label}
-                          type={type}
-                          disabled={["id"].includes(key)}
-                          value={selectedItem[`${key}`] || ""}
-                          onChange={(value) => onItemChange(key, value, type)}
-                          {...{ "data-testid": `input-${key}` }}
-                        />
-                      </Grid>
-                    )
-                  )}
+                  {marketKeys.map(({ key, type, label }) => (
+                    <Grid key={key} item xs={12}>
+                      <Typography
+                        component="h6"
+                        variant="h6"
+                        {...{ "data-testid": `detail-${key}` }}
+                      >
+                        {label}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        {...{ "data-testid": `value-${key}` }}
+                      >
+                        {getValue(t, type, selectedItem[`${key}`])}
+                      </Typography>
+                    </Grid>
+                  ))}
                 </Grid>
-                <Form.ButtonWrapper>
-                  <Form.SubmitButton {...{ "data-testid": "btn-save " }}>
-                    Save
-                  </Form.SubmitButton>
-                </Form.ButtonWrapper>
-              </Form>
-              {result.severity &&
-                !updateMarketLoading &&
-                !updateDoceboTiersLoading &&
-                !updateMerchandiseTiersLoading && (
-                  <div style={{ marginTop: 15 }}>
-                    <AlertBanner severity={result.severity}>
-                      <AlertBanner.Title>{result.title}</AlertBanner.Title>
-                      {result.messages.length ? (
-                        <div>
-                          {result.messages.map((message, index) => (
-                            <div key={`error-${index}`}>{message}</div>
-                          ))}
-                        </div>
-                      ) : null}
-                    </AlertBanner>
-                  </div>
-                )}
-            </Fragment>
-          ) : (
-            <Grid {...{ testId: "market-details" }} container>
-              <Grid
-                item
-                xs={12}
-                container
-                spacing={0}
-                direction="row"
-                alignItems="flex-start"
-                justifyContent="space-between"
-                style={{ display: "flex" }}
-              >
-                <Grid item xs={10}>
-                  <Typography
-                    variant="h3"
-                    hasUnderline
-                    style={{ marginBottom: "15px" }}
-                  >
-                    {selectedItem.name}
-                  </Typography>
-                </Grid>
-                <Grid item xs={2}>
-                  <Button
-                    className={styles.editBtn}
-                    onClick={() => setIsEditing(!isEditing)}
-                    {...{ "data-testid": "btn-edit" }}
-                  >
-                    {t("edit")}
-                  </Button>
+              )}
+            </section>
+            <section>
+              <Grid {...{ testId: "market-reward-tiers" }} container>
+                <Grid item xs={12}>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <RewardSystemForm market={selectedItem} />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <RewardCategory market={selectedItem} />
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
-              {marketKeys.map(({ key, type, label }) => (
-                <Grid key={key} item xs={12}>
-                  <Typography
-                    component="h6"
-                    variant="h6"
-                    {...{ "data-testid": `detail-${key}` }}
-                  >
-                    {label}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    {...{ "data-testid": `value-${key}` }}
-                  >
-                    {getValue(t, type, selectedItem[`${key}`])}
-                  </Typography>
-                </Grid>
-              ))}
-            </Grid>
-          )}
+            </section>
+          </React.Fragment>
         </div>
       )}
     </div>
@@ -467,35 +490,6 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
 };
 
 export default MarketPage;
-
-export const updateMarket = gql`
-  mutation updateMarket($input: UpdateMarketInput!) {
-    updateMarket(input: $input) {
-      query {
-        markets {
-          nodes {
-            id
-            language
-            domain
-            cmsSpaceId
-            name
-            sendName
-            sendMailbox
-            doceboInstallersBranchId
-            doceboCompanyAdminBranchId
-            merchandisingUrl
-            merchandiseSso
-            projectsEnabled
-            locationBiasRadiusKm
-            gtag
-            gtagMarketMedia
-            optanonClass
-          }
-        }
-      }
-    }
-  }
-`;
 
 export const updateDoceboTiersByMarket = gql`
   mutation updateDoceboTiersByMarket($input: UpdateDoceboTiersByMarketInput!) {

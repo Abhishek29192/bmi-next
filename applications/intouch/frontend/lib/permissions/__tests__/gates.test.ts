@@ -5,7 +5,9 @@ import gates, {
   canSeeMediaLibrary,
   canSeePartnerBrandsCarousel,
   canActForArhivedProject,
-  archivedProjectRestriction
+  archivedProjectRestriction,
+  canClaimReward,
+  canSeeReward
 } from "../gates";
 import { generateAccount } from "../../../lib/tests/factories/account";
 import { ROLES } from "../../../lib/constants";
@@ -267,6 +269,70 @@ describe("permissions/gates", () => {
 
     it("pass in extra data false and return true", () => {
       expect(canActForArhivedProject(null, { isArchived: false })).toBe(true);
+    });
+  });
+
+  describe("canViewReward", () => {
+    it("role is SUPER_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+
+      expect(canSeeReward(account)).toBe(true);
+    });
+
+    it("role is MARKET_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.MARKET_ADMIN });
+
+      expect(canSeeReward(account)).toBe(true);
+    });
+
+    it("role is COMPANY_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.COMPANY_ADMIN });
+
+      expect(canSeeReward(account)).toBe(true);
+    });
+
+    it("role is INSTALLER", () => {
+      const account = generateAccount({ role: ROLES.INSTALLER });
+
+      expect(canSeeReward(account)).toBe(false);
+    });
+
+    it("role is AUDITOR", () => {
+      const account = generateAccount({ role: ROLES.AUDITOR });
+
+      expect(canSeeReward(account)).toBe(false);
+    });
+  });
+
+  describe("canClaimReward", () => {
+    it("role is SUPER_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+
+      expect(canClaimReward(account)).toBe(true);
+    });
+
+    it("role is MARKET_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.MARKET_ADMIN });
+
+      expect(canClaimReward(account)).toBe(true);
+    });
+
+    it("role is COMPANY_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.COMPANY_ADMIN });
+
+      expect(canClaimReward(account)).toBe(true);
+    });
+
+    it("role is INSTALLER", () => {
+      const account = generateAccount({ role: ROLES.INSTALLER });
+
+      expect(canClaimReward(account)).toBe(false);
+    });
+
+    it("role is AUDITOR", () => {
+      const account = generateAccount({ role: ROLES.AUDITOR });
+
+      expect(canClaimReward(account)).toBe(false);
     });
   });
 
@@ -545,6 +611,14 @@ describe("permissions/gates", () => {
       it("role is AUDITOR ", () => {
         expect(gates.company.changeStatus[ROLES.AUDITOR]).toBe(false);
       });
+    });
+
+    it("viewReward", () => {
+      expect(gates.company.viewReward).toEqual(canSeeReward);
+    });
+
+    it("claimReward", () => {
+      expect(gates.company.claimReward).toEqual(canClaimReward);
     });
   });
 

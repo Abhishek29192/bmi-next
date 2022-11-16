@@ -74,6 +74,20 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
     ];
   }
 }));
+const mockRewardCategory = jest
+  .fn()
+  .mockReturnValue(
+    <div data-testid="reward-category-mock">Reward Category</div>
+  );
+const mockRewardSystemForm = jest
+  .fn()
+  .mockReturnValue(<div data-testid="reward-system-mock">Reward System</div>);
+jest.mock("../RewardCategory", () => ({
+  RewardCategory: ({ ...props }) => mockRewardCategory(props)
+}));
+jest.mock("../RewardSystemForm", () => ({
+  RewardSystemForm: ({ ...props }) => mockRewardSystemForm(props)
+}));
 
 const markets = [
   generateMarketContext({ projectsEnabled: true }),
@@ -91,7 +105,6 @@ const merchandiseTiers = { nodes: [generateMerchandiseTier()] };
 
 describe("Market page", () => {
   afterEach(() => {
-    jest.resetAllMocks();
     jest.clearAllMocks();
   });
 
@@ -282,6 +295,39 @@ describe("Market page", () => {
     fireEvent.click(screen.getByTestId("btn-show"));
 
     expect(screen.queryByText("123")).toBeTruthy();
+  });
+
+  it("should render reward system and reward category", () => {
+    const { tierCode, doceboCatalogueId } = doceboTiers.nodes[0];
+    const props = {
+      ...markets[0],
+      [tierCode]: doceboCatalogueId,
+      [`merchandise${tierCode}`]:
+        merchandiseTiers.nodes[0].merchandiseDivisionId
+    };
+    renderWithUserProvider(
+      <AccountContextWrapper>
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
+      </AccountContextWrapper>
+    );
+    fireEvent.click(screen.getByText("Mapleland-1"));
+
+    expect(screen.queryByTestId("reward-category-mock")).toBeTruthy();
+    expect(screen.queryByTestId("reward-system-mock")).toBeTruthy();
+    expect(mockRewardCategory).toHaveBeenCalledWith(
+      expect.objectContaining({
+        market: props
+      })
+    );
+    expect(mockRewardSystemForm).toHaveBeenCalledWith(
+      expect.objectContaining({
+        market: props
+      })
+    );
   });
 
   describe("error message", () => {

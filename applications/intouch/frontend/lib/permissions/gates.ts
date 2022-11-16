@@ -79,6 +79,22 @@ export const canSeeMerchandiseSso = (account) => {
   );
 };
 
+export const canSeeReward = (account) => {
+  return [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
+    account?.role
+  )
+    ? true
+    : false;
+};
+
+export const canClaimReward = (account) => {
+  return [ROLES.SUPER_ADMIN, ROLES.MARKET_ADMIN, ROLES.COMPANY_ADMIN].includes(
+    account?.role
+  )
+    ? true
+    : false;
+};
+
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
 export const gates = {
   company: {
@@ -166,7 +182,9 @@ export const gates = {
       INSTALLER: false,
       COMPANY_ADMIN: false,
       AUDITOR: false
-    }
+    },
+    viewReward: canSeeReward,
+    claimReward: canClaimReward
   },
   project: {
     submitSolutionGuarantee: {
