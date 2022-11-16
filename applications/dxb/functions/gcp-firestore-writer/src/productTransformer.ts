@@ -16,6 +16,7 @@ import type {
   Asset,
   Category as PimCategory,
   Classification as PimClassification,
+  ClassificationCode,
   Feature,
   Product as PimProduct
 } from "@bmi/pim-types";
@@ -382,7 +383,11 @@ const groupClassifications = (
 };
 
 const getFilters = (
-  classifications: readonly PimClassification[],
+  classifications: readonly {
+    code: ClassificationCode;
+    features: Feature[];
+    name: string;
+  }[],
   categories: readonly PimCategory[]
 ): Filter[] => {
   const classificationFilters: Filter[] = classifications
@@ -393,7 +398,7 @@ const getFilters = (
         "scoringWeightAttributes".toUpperCase()
     )
     .flatMap((classification) =>
-      (classification.features || []).map((feature) => ({
+      classification.features.map((feature) => ({
         filterCode: feature.code.split("/").pop()!,
         name: feature.name,
         value: feature.featureValues[0].value,
