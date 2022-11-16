@@ -1,42 +1,41 @@
 [[redirects]]
- from="/ch/fr-ch/telechargements"
- to="/ch/fr-ch/telechargements-et-services/telechargements"
- force=true
+from = "/ch/fr-ch/telechargements"
+to = "/ch/fr-ch/telechargements-et-services/telechargements"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/kontakt-neu"
- to="/ch/fr-ch/contact/"
- force=true
+from = "/ch/fr-ch/kontakt-neu"
+to = "/ch/fr-ch/contact/"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/impressum"
- to="/ch/fr-ch/impressum/"
- force=true
+from = "/ch/fr-ch/impressum"
+to = "/ch/fr-ch/impressum/"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/etancheite-toitures-terrasses-synthetiques"
- to="/ch/fr-ch/etancheite-toitures-terrasses/les-synthetiques/"
- force=true
+from = "/ch/fr-ch/etancheite-toitures-terrasses-synthetiques"
+to = "/ch/fr-ch/etancheite-toitures-terrasses/les-synthetiques/"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/etancheite-toitures-terrasses-bitumineux"
- to="/ch/fr-ch/etancheite-toitures-terrasses/les-bitumineux/"
- force=true
+from = "/ch/fr-ch/etancheite-toitures-terrasses-bitumineux"
+to = "/ch/fr-ch/etancheite-toitures-terrasses/les-bitumineux/"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/declaration-de-protection"
- to="/ch/fr-ch/declaration-de-protection/"
- force=true
+from = "/ch/fr-ch/declaration-de-protection"
+to = "/ch/fr-ch/declaration-de-protection/"
+status = 301
 
 [[redirects]]
- from="/ch/fr-ch/couverture-de-toitures-en-pente"
- to="/ch/fr-ch/couverture-de-toitures-en-pente/"
- force=true
+from = "/ch/fr-ch/couverture-de-toitures-en-pente"
+to = "/ch/fr-ch/couverture-de-toitures-en-pente/"
+status = 301
 
-
- # Redirect root to /fr-ch
+# Redirect root to /fr-ch
 [[redirects]]
-  from="/"
-  to="/ch/fr-ch"
-  status=301
-  force=true
+from = "/"
+to = "/ch/fr-ch"
+status = 301
+status = 301

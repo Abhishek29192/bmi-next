@@ -1,563 +1,555 @@
-
-
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/icopal/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1"
- to="/tr/p/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1-likit-uygulama-2346815889/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/icopal/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1"
+to = "/tr/p/supracoating-rlv-likit-su-yal%C4%B1t%C4%B1m%C4%B1-likit-uygulama-2346815889/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/icopal/icopal-shingle"
- to="/tr/bmi-icopal/shingle/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/icopal/icopal-shingle"
+to = "/tr/bmi-icopal/shingle/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/yar%C4%B1m-kiremit"
- to="/tr/p/yar%C4%B1m-kiremit-toprak-naturel-plus-beton-1153506019/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/yar%C4%B1m-kiremit"
+to = "/tr/p/yar%C4%B1m-kiremit-toprak-naturel-plus-beton-1153506019/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/yan-sa%C3%A7ak-kiremiti"
- to="/tr/p/yan-sa%C3%A7ak-kiremiti-g%C3%BCl-kurusu-evolution-innotech-beton-1720539861/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/yan-sa%C3%A7ak-kiremiti"
+to = "/tr/p/yan-sa%C3%A7ak-kiremiti-g%C3%BCl-kurusu-evolution-innotech-beton-1720539861/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/yakaflex-maxi-56-cm"
- to="/tr/p/yakaflex-maxi-56-cm-g%C3%BCl-kurusu-3324058775/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/yakaflex-maxi-56-cm"
+to = "/tr/p/yakaflex-maxi-56-cm-g%C3%BCl-kurusu-3324058775/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/yakaflex-bask%C4%B1-%C3%A7%C4%B1tas%C4%B1"
- to="/tr/p/yakaflex-bask%C4%B1-%C3%A7%C4%B1tas%C4%B1-antrasit-g%C3%BCl-kurusu-3456952828/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/yakaflex-bask%C4%B1-%C3%A7%C4%B1tas%C4%B1"
+to = "/tr/p/yakaflex-bask%C4%B1-%C3%A7%C4%B1tas%C4%B1-antrasit-g%C3%BCl-kurusu-3456952828/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/yakaflex-28-cm"
- to="/tr/p/yakaflex-28-cm-antrasit-3683391133/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/yakaflex-28-cm"
+to = "/tr/p/yakaflex-28-cm-antrasit-3683391133/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/vario-s"
- to="/tr/p/kanatl%C4%B1-oluk-vario-s-g%C3%BCl-kurusu-antrasit-746923759/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/vario-s"
+to = "/tr/p/kanatl%C4%B1-oluk-vario-s-g%C3%BCl-kurusu-antrasit-746923759/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/spanflex"
- to="/tr/p/spanflex-686105129/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/spanflex"
+to = "/tr/p/spanflex-686105129/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/silikonsuz-kau%C3%A7uk-mastik"
- to="/tr/p/silikonsuz-kau%C3%A7uk-mastik-3921688793/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/silikonsuz-kau%C3%A7uk-mastik"
+to = "/tr/p/silikonsuz-kau%C3%A7uk-mastik-3921688793/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/sa%C3%A7ak-havaland%C4%B1rma-eleman%C4%B1-d%C3%BCz"
- to="/tr/p/sa%C3%A7ak-havaland%C4%B1rma-eleman%C4%B1-131130622/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/sa%C3%A7ak-havaland%C4%B1rma-eleman%C4%B1-d%C3%BCz"
+to = "/tr/p/sa%C3%A7ak-havaland%C4%B1rma-eleman%C4%B1-131130622/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/sa%C3%A7ak-ete%C4%9Fi"
- to="/tr/p/sa%C3%A7ak-ete%C4%9Fi-k%C4%B1rm%C4%B1z%C4%B1-antrasit-al%C3%BCminyum-2914358952/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/sa%C3%A7ak-ete%C4%9Fi"
+to = "/tr/p/sa%C3%A7ak-ete%C4%9Fi-k%C4%B1rm%C4%B1z%C4%B1-antrasit-al%C3%BCminyum-2914358952/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/r%C3%BCzgar-klipsi"
- to="/tr/p/r%C3%BCzgar-klipsi-880007769/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/r%C3%BCzgar-klipsi"
+to = "/tr/p/r%C3%BCzgar-klipsi-880007769/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/pvc-havaland%C4%B1rma-eleman%C4%B1"
- to="/tr/p/pvc-havaland%C4%B1rma-eleman%C4%B1-3935424970/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/pvc-havaland%C4%B1rma-eleman%C4%B1"
+to = "/tr/p/pvc-havaland%C4%B1rma-eleman%C4%B1-3935424970/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/pvc-anten-%C3%A7%C4%B1k%C4%B1%C5%9F-eleman%C4%B1"
- to="/tr/p/pvc-anten-%C3%A7%C4%B1k%C4%B1%C5%9F-eleman%C4%B1-854946454/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/pvc-anten-%C3%A7%C4%B1k%C4%B1%C5%9F-eleman%C4%B1"
+to = "/tr/p/pvc-anten-%C3%A7%C4%B1k%C4%B1%C5%9F-eleman%C4%B1-854946454/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/pv-panel-indax-300-mono-black-mc"
- to="/tr/braas-cati-sistemleri/gunes-enerji-sistemleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/pv-panel-indax-300-mono-black-mc"
+to = "/tr/braas-cati-sistemleri/gunes-enerji-sistemleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/metalvent"
- to="/tr/p/metalvent-1012714506/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/metalvent"
+to = "/tr/p/metalvent-1012714506/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/mahya-sonlama-kiremiti"
- to="/tr/p/mahya-sonlama-kiremiti-g%C3%BCl-kurusu-3735016672/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/mahya-sonlama-kiremiti"
+to = "/tr/p/mahya-sonlama-kiremiti-g%C3%BCl-kurusu-3735016672/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/mahya-kiremiti-tespit-eleman%C4%B1"
- to="/tr/p/mahya-kiremiti-tespit-eleman%C4%B1-g%C3%BCl-kurusu-3536211096/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/mahya-kiremiti-tespit-eleman%C4%B1"
+to = "/tr/p/mahya-kiremiti-tespit-eleman%C4%B1-g%C3%BCl-kurusu-3536211096/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/mahya-kiremiti"
- to="/tr/p/mahya-kiremiti-g%C3%BCl-kurusu-evolution-innotech-2036531969/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/mahya-kiremiti"
+to = "/tr/p/mahya-kiremiti-g%C3%BCl-kurusu-evolution-innotech-2036531969/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/mahya-d%C3%B6rtyol-kiremiti"
- to="/tr/p/mahya-d%C3%B6rtyol-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-2196472285/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/mahya-d%C3%B6rtyol-kiremiti"
+to = "/tr/p/mahya-d%C3%B6rtyol-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-2196472285/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/mahya-%C3%BC%C3%A7yol-kiremiti"
- to="/tr/p/mahya-%C3%BC%C3%A7yol-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-3763966434/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/mahya-%C3%BC%C3%A7yol-kiremiti"
+to = "/tr/p/mahya-%C3%BC%C3%A7yol-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-3763966434/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/kesik-kiremit-tespit-eleman%C4%B1"
- to="/tr/p/kesik-kiremit-tespit-eleman%C4%B1-1005976726/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/kesik-kiremit-tespit-eleman%C4%B1"
+to = "/tr/p/kesik-kiremit-tespit-eleman%C4%B1-1005976726/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/kar-tutucu-kiremit"
- to="/tr/p/kar-tutucu-kiremit-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-2232122600/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/kar-tutucu-kiremit"
+to = "/tr/p/kar-tutucu-kiremit-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-2232122600/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/is%C4%B1tma-bacas%C4%B1-%C5%9Fapkas%C4%B1"
- to="/tr/p/is%C4%B1tma-bacas%C4%B1-%C5%9Fapkas%C4%B1-g%C3%BCl-kurusu-4267270966/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/is%C4%B1tma-bacas%C4%B1-%C5%9Fapkas%C4%B1"
+to = "/tr/p/is%C4%B1tma-bacas%C4%B1-%C5%9Fapkas%C4%B1-g%C3%BCl-kurusu-4267270966/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/is%C4%B1tma-bacas%C4%B1"
- to="/tr/p/is%C4%B1tma-bacas%C4%B1-beton-1632703546/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/is%C4%B1tma-bacas%C4%B1"
+to = "/tr/p/is%C4%B1tma-bacas%C4%B1-beton-1632703546/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/i%C5%9F%C4%B1kl%C4%B1k-%C3%BCniversal"
- to="/tr/p/i%C5%9F%C4%B1kl%C4%B1k-%C3%BCniversal-g%C3%BCl-kurusu-3402122129/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/i%C5%9F%C4%B1kl%C4%B1k-%C3%BCniversal"
+to = "/tr/p/i%C5%9F%C4%B1kl%C4%B1k-%C3%BCniversal-g%C3%BCl-kurusu-3402122129/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/i%C5%9F%C4%B1kl%C4%B1k"
- to="/tr/p/i%C5%9F%C4%B1kl%C4%B1k-g%C3%BCl-kurusu-1008335144/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/i%C5%9F%C4%B1kl%C4%B1k"
+to = "/tr/p/i%C5%9F%C4%B1kl%C4%B1k-g%C3%BCl-kurusu-1008335144/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/havaland%C4%B1rma-kiremiti"
- to="/tr/p/havaland%C4%B1rma-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-3397947855/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/havaland%C4%B1rma-kiremiti"
+to = "/tr/p/havaland%C4%B1rma-kiremiti-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-3397947855/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/havaland%C4%B1rma-bacas%C4%B1"
- to="/tr/p/havaland%C4%B1rma-bacas%C4%B1-granit-gri-2007379398/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/havaland%C4%B1rma-bacas%C4%B1"
+to = "/tr/p/havaland%C4%B1rma-bacas%C4%B1-granit-gri-2007379398/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/ge%C3%A7i%C5%9F-kiremiti"
- to="/tr/p/ge%C3%A7i%C5%9F-kiremiti-magma-gri-evolution-innotech-4007820606/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/ge%C3%A7i%C5%9F-kiremiti"
+to = "/tr/p/ge%C3%A7i%C5%9F-kiremiti-magma-gri-evolution-innotech-4007820606/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/g%C3%BCvenlik-basamak-kiremiti"
- to="/tr/p/g%C3%BCvenlik-basamak-kiremiti-magma-gri-evolution-innotech-beton-2388615827/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/g%C3%BCvenlik-basamak-kiremiti"
+to = "/tr/p/g%C3%BCvenlik-basamak-kiremiti-magma-gri-evolution-innotech-beton-2388615827/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/firafix-mahya-kapatma-eleman%C4%B1"
- to="/tr/p/firafix-mahya-kapatma-eleman%C4%B1-antrasit-2639893885/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/firafix-mahya-kapatma-eleman%C4%B1"
+to = "/tr/p/firafix-mahya-kapatma-eleman%C4%B1-antrasit-2639893885/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/figaroll-plus-mahya-airband"
- to="/tr/p/figaroll-plus-mahya-airband-g%C3%BCl-kurusu-4142698838/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/figaroll-plus-mahya-airband"
+to = "/tr/p/figaroll-plus-mahya-airband-g%C3%BCl-kurusu-4142698838/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/divoroll-universal-s-hyper"
- to="/tr/p/divoroll-universal-s-hyper-1382431300/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/divoroll-universal-s-hyper"
+to = "/tr/p/divoroll-universal-s-hyper-1382431300/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/divoroll-maximum-2s"
- to="/tr/p/divoroll-maximum-2s-1471984862/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/divoroll-maximum-2s"
+to = "/tr/p/divoroll-maximum-2s-1471984862/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/divoroll-kompakt"
- to="/tr/p/divoroll-kompakt-3603618759/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/divoroll-kompakt"
+to = "/tr/p/divoroll-kompakt-3603618759/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/divoroll-clima-plus-2s"
- to="/tr/p/divoroll-clima-plus-2s-4098244200/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/divoroll-clima-plus-2s"
+to = "/tr/p/divoroll-clima-plus-2s-4098244200/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-kiremit-villa"
- to="/tr/p/braas-kiremit-villa-g%C3%BCl-kurusu-evolution-innotech-beton-3838895622/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-kiremit-villa"
+to = "/tr/p/braas-kiremit-villa-g%C3%BCl-kurusu-evolution-innotech-beton-3838895622/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-kiremit-tegalmodern"
- to="/tr/p/braas-kiremit-tegalmodern-magma-gri-evolution-innotech-beton-1895960346/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-kiremit-tegalmodern"
+to = "/tr/p/braas-kiremit-tegalmodern-magma-gri-evolution-innotech-beton-1895960346/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-kiremit-diva"
- to="/tr/p/braas-kiremit-diva-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-1734625987/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-kiremit-diva"
+to = "/tr/p/braas-kiremit-diva-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-1734625987/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-kiremit-coppo-domus"
- to="/tr/p/braas-kiremit-coppo-domus-fiammingo-4010429449/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-kiremit-coppo-domus"
+to = "/tr/p/braas-kiremit-coppo-domus-fiammingo-4010429449/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-kiremit-akdeniz"
- to="/tr/p/braas-kiremit-akdeniz-magma-gri-evolution-innotech-beton-1940474971/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-kiremit-akdeniz"
+to = "/tr/p/braas-kiremit-akdeniz-magma-gri-evolution-innotech-beton-1940474971/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/braas-%C3%A7at%C4%B1-kaplama-alt%C4%B1-levhas%C4%B1"
- to="/tr/p/braas-%C3%A7at%C4%B1-kaplama-alt%C4%B1-levhas%C4%B1-1997990630/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/braas-%C3%A7at%C4%B1-kaplama-alt%C4%B1-levhas%C4%B1"
+to = "/tr/p/braas-%C3%A7at%C4%B1-kaplama-alt%C4%B1-levhas%C4%B1-1997990630/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/bak%C4%B1r-ya%C4%9Fmur-indirme-sistemi"
- to="/tr/p/bak%C4%B1r-ya%C4%9Fmur-i%CC%87ndirme-sistemi-bak%C4%B1r-2078459100/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/bak%C4%B1r-ya%C4%9Fmur-indirme-sistemi"
+to = "/tr/p/bak%C4%B1r-ya%C4%9Fmur-i%CC%87ndirme-sistemi-bak%C4%B1r-2078459100/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/a%C5%9F%C4%B1k-ta%C5%9F%C4%B1ma-profili"
- to="/tr/p/a%C5%9F%C4%B1k-ta%C5%9F%C4%B1ma-profili-2491965247/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/a%C5%9F%C4%B1k-ta%C5%9F%C4%B1ma-profili"
+to = "/tr/p/a%C5%9F%C4%B1k-ta%C5%9F%C4%B1ma-profili-2491965247/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/%C5%9Fet-kiremiti"
- to="/tr/p/%C5%9Fet-kiremiti-toprak-beton-603861117/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/%C5%9Fet-kiremiti"
+to = "/tr/p/%C5%9Fet-kiremiti-toprak-beton-603861117/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/%C3%A7elik-ya%C4%9Fmur-indirme-sistemi"
- to="/tr/p/%C3%A7elik-ya%C4%9Fmur-i%CC%87ndirme-sistemi-%C3%A7elik-1048635973/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/%C3%A7elik-ya%C4%9Fmur-indirme-sistemi"
+to = "/tr/p/%C3%A7elik-ya%C4%9Fmur-i%CC%87ndirme-sistemi-%C3%A7elik-1048635973/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/%C3%A7at%C4%B1-penceresi-thermolux-pvc"
- to="/tr/p/%C3%A7at%C4%B1-penceresi-thermolux-pvc-2140646027/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/%C3%A7at%C4%B1-penceresi-thermolux-pvc"
+to = "/tr/p/%C3%A7at%C4%B1-penceresi-thermolux-pvc-2140646027/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/%C3%A7at%C4%B1-penceresi-luminex-living-comfort"
- to="/tr/p/%C3%A7at%C4%B1-penceresi-luminex-living-comfort-2023108909/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/%C3%A7at%C4%B1-penceresi-luminex-living-comfort"
+to = "/tr/p/%C3%A7at%C4%B1-penceresi-luminex-living-comfort-2023108909/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/yakafleks"
- to="/tr/braas-cati-sistemleri/baca-ve-duvar-dibi-cozumleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/yakafleks"
+to = "/tr/braas-cati-sistemleri/baca-ve-duvar-dibi-cozumleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/ya%C4%9Fmur-indirme-sistemleri"
- to="/tr/braas-cati-sistemleri/yagmur-indirme-sistemleri//"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/ya%C4%9Fmur-indirme-sistemleri"
+to = "/tr/braas-cati-sistemleri/yagmur-indirme-sistemleri//"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/villa"
- to="/tr/p/braas-kiremit-villa-g%C3%BCl-kurusu-evolution-innotech-beton-3838895622/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/villa"
+to = "/tr/p/braas-kiremit-villa-g%C3%BCl-kurusu-evolution-innotech-beton-3838895622/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/thermomanto-sistem"
- to="/tr/p/thermomanto-sistem-40-mm-xps-3845492083/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/thermomanto-sistem"
+to = "/tr/p/thermomanto-sistem-40-mm-xps-3845492083/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/thermomanto-roof-300"
- to="/tr/p/thermomanto-roof-300-40-mm-xps-3659263375/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/thermomanto-roof-300"
+to = "/tr/p/thermomanto-roof-300-40-mm-xps-3659263375/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/tegalmodern"
- to="/tr/p/braas-kiremit-tegalmodern-magma-gri-evolution-innotech-beton-1895960346/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/tegalmodern"
+to = "/tr/p/braas-kiremit-tegalmodern-magma-gri-evolution-innotech-beton-1895960346/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/su-yal%C4%B1t%C4%B1mlar%C4%B1"
- to="/tr/braas-cati-sistemleri/isi-ve-su-yalitimi/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/su-yal%C4%B1t%C4%B1mlar%C4%B1"
+to = "/tr/braas-cati-sistemleri/isi-ve-su-yalitimi/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/sistemik-kiremitler"
- to="/tr/search/?q=kiremit"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/sistemik-kiremitler"
+to = "/tr/search/?q=kiremit"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/shingle-detay-%C3%A7%C3%B6z%C3%BCmleri"
- to="/tr/bmi-icopal/shingle/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/shingle-detay-%C3%A7%C3%B6z%C3%BCmleri"
+to = "/tr/bmi-icopal/shingle/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/shingle"
- to="/tr/bmi-icopal/shingle/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/shingle"
+to = "/tr/bmi-icopal/shingle/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/pvc-kanatl%C4%B1-oluk"
- to="/tr/braas-cati-sistemleri/egimli-vadi-dere-cozumleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/pvc-kanatl%C4%B1-oluk"
+to = "/tr/braas-cati-sistemleri/egimli-vadi-dere-cozumleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/kiremitler"
- to="/tr/braas-cati-sistemleri/kiremit/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/kiremitler"
+to = "/tr/braas-cati-sistemleri/kiremit/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/figaroll-plus"
- to="/tr/p/figaroll-plus-mahya-airband-g%C3%BCl-kurusu-4142698838/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/figaroll-plus"
+to = "/tr/p/figaroll-plus-mahya-airband-g%C3%BCl-kurusu-4142698838/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-vadi-dereler"
- to="/tr/braas-cati-sistemleri/egimli-vadi-dere-cozumleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-vadi-dereler"
+to = "/tr/braas-cati-sistemleri/egimli-vadi-dere-cozumleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-is%C4%B1-yal%C4%B1t%C4%B1m%C4%B1"
- to="/tr/braas-cati-sistemleri/isi-ve-su-yalitimi/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-is%C4%B1-yal%C4%B1t%C4%B1m%C4%B1"
+to = "/tr/braas-cati-sistemleri/isi-ve-su-yalitimi/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-i%C5%9F%C4%B1kl%C4%B1k-ve-pencereleri"
- to="/tr/braas-cati-sistemleri/isiklik-ve-cati-pencereleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-i%C5%9F%C4%B1kl%C4%B1k-ve-pencereleri"
+to = "/tr/braas-cati-sistemleri/isiklik-ve-cati-pencereleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-detay-%C3%A7%C3%B6z%C3%BCmleri"
- to="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/tum-egimli-cati-cozumleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/e%C4%9Fimli-%C3%A7at%C4%B1-detay-%C3%A7%C3%B6z%C3%BCmleri"
+to = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/tum-egimli-cati-cozumleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/diva"
- to="/tr/p/braas-kiremit-diva-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-1734625987/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/diva"
+to = "/tr/p/braas-kiremit-diva-anadolu-g%C3%BCne%C5%9Fi-portakal-kabu%C4%9Fu-beton-1734625987/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/antik-k%C4%B1rm%C4%B1z%C4%B1"
- to="/tr/p/yarım-kiremit-anadolu-güneşi-portakal-kabuğu-beton-3608985737/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/antik-k%C4%B1rm%C4%B1z%C4%B1"
+to = "/tr/p/yarım-kiremit-anadolu-güneşi-portakal-kabuğu-beton-3608985737/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/akdeniz"
- to="/tr/p/braas-kiremit-akdeniz-magma-gri-evolution-innotech-beton-1940474971/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/akdeniz"
+to = "/tr/p/braas-kiremit-akdeniz-magma-gri-evolution-innotech-beton-1940474971/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/"
- to="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/urunler/"
+to = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/bmi-icopal"
- to="/tr/bmi-icopal/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/bmi-icopal"
+to = "/tr/bmi-icopal/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/egimli-cati-cozumleri/bmi-braas"
- to="/tr/braas-cati-sistemleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/egimli-cati-cozumleri/bmi-braas"
+to = "/tr/braas-cati-sistemleri/"
+status = 301
 
 [[redirects]]
- from="/tr/son-kullanicilar/sik-sorulan-sorular"
- to="/tr/ilham-veren-fikirler/blog/"
- force=true
+from = "/tr/son-kullanicilar/sik-sorulan-sorular"
+to = "/tr/ilham-veren-fikirler/blog/"
+status = 301
 
 [[redirects]]
- from="/tr/son-kullanicilar/referans-projelerimizden-ilham-alin"
- to="/tr/ilham-veren-fikirler/galeri/"
- force=true
+from = "/tr/son-kullanicilar/referans-projelerimizden-ilham-alin"
+to = "/tr/ilham-veren-fikirler/galeri/"
+status = 301
 
 [[redirects]]
- from="/tr/son-kullanicilar"
- to="/tr/sundugumuz-hizmetler/son-kullanicilar/"
- force=true
+from = "/tr/son-kullanicilar"
+to = "/tr/sundugumuz-hizmetler/son-kullanicilar/"
+status = 301
 
 [[redirects]]
- from="/tr/site-haritasi"
- to="/tr/sitemap"
- force=true
+from = "/tr/site-haritasi"
+to = "/tr/sitemap"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/yener-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/yener-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/yener-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/yener-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/plano-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/plano-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/plano-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/plano-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/ozal-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/ozal-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/ozal-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/ozal-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/kreatif-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/kreatif-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/kreatif-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/kreatif-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/ic-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/ic-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/ic-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/ic-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/evrenol-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/evrenol-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/evrenol-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/evrenol-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/erciyes-universitesi"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/erciyes-universitesi/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/erciyes-universitesi"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/erciyes-universitesi/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/day-tasarim-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/day-tasarim/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/day-tasarim-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/day-tasarim/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/atolyem-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/atolyem-mimarlik/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/atolyem-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/atolyem-mimarlik/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/mimar"
- to="/tr/sundugumuz-hizmetler/profesyoneller/mimar/"
- force=true
+from = "/tr/profesyoneller/mimar"
+to = "/tr/sundugumuz-hizmetler/profesyoneller/mimar/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller/cati-ustasi"
- to="/tr/sundugumuz-hizmetler/profesyoneller/cati-ustasi/"
- force=true
+from = "/tr/profesyoneller/cati-ustasi"
+to = "/tr/sundugumuz-hizmetler/profesyoneller/cati-ustasi/"
+status = 301
 
 [[redirects]]
- from="/tr/profesyoneller"
- to="/tr/sundugumuz-hizmetler/profesyoneller/"
- force=true
+from = "/tr/profesyoneller"
+to = "/tr/sundugumuz-hizmetler/profesyoneller/"
+status = 301
 
 [[redirects]]
- from="/tr/hakkimizda/kariyer"
- to="/tr/kariyer/"
- force=true
+from = "/tr/hakkimizda/kariyer"
+to = "/tr/kariyer/"
+status = 301
 
 [[redirects]]
- from="/tr/hakkimizda/bmi-haberler/yapifuari"
- to="/tr/bmi-dan-haberler/yapi-fuari/"
- force=true
+from = "/tr/hakkimizda/bmi-haberler/yapifuari"
+to = "/tr/bmi-dan-haberler/yapi-fuari/"
+status = 301
 
 [[redirects]]
- from="/tr/hakkimizda/bmi-haberler/mimari-tasarim-zirvesi"
- to="/tr/bmi-dan-haberler/tasarim-zirvesi/"
- force=true
+from = "/tr/hakkimizda/bmi-haberler/mimari-tasarim-zirvesi"
+to = "/tr/bmi-dan-haberler/tasarim-zirvesi/"
+status = 301
 
 [[redirects]]
- from="/tr/hakkimizda/bmi-haberler"
- to="/tr/bmi-dan-haberler/"
- force=true
+from = "/tr/hakkimizda/bmi-haberler"
+to = "/tr/bmi-dan-haberler/"
+status = 301
 
 [[redirects]]
- from="/tr/hakkimizda"
- to="/tr/hakkimizda/"
- force=true
+from = "/tr/hakkimizda"
+to = "/tr/hakkimizda/"
+status = 301
 
 [[redirects]]
- from="/tr/bize-ulasin"
- to="/tr/bize-ulasin/"
- force=true
-
+from = "/tr/bize-ulasin"
+to = "/tr/bize-ulasin/"
+status = 301
 
- [[redirects]]
- from="/tr/urunler-ve-cozumler/products/icopal/adesolo-g"
- to="/tr/p/adesolo-g-bit%C3%BCm-3084010199/"
- force=true
-
 [[redirects]]
- from="/tr/profesyoneller/mimar/roportajlar/nazer-country-balaban-mimarlik"
- to="/tr/ilham-veren-fikirler/mimarlara-sorduk/nazer-insaat/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/icopal/adesolo-g"
+to = "/tr/p/adesolo-g-bit%C3%BCm-3084010199/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-c"
- to="/tr/p/r%C3%BCzgar-klipsi-c-455561885/"
- force=true
+from = "/tr/profesyoneller/mimar/roportajlar/nazer-country-balaban-mimarlik"
+to = "/tr/ilham-veren-fikirler/mimarlara-sorduk/nazer-insaat/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-everguard"
- to="/tr/bmi-everguard/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-c"
+to = "/tr/p/r%C3%BCzgar-klipsi-c-455561885/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-v"
- to="/tr/p/r%C3%BCzgar-klipsi-v-2403186646/"
- force=true
+from = "/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-everguard"
+to = "/tr/bmi-everguard/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/kanatlı-oluk-vario-s"
- to="/tr/p/kanatl%C4%B1-oluk-vario-s-g%C3%BCl-kurusu-antrasit-746923759/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi-v"
+to = "/tr/p/r%C3%BCzgar-klipsi-v-2403186646/"
+status = 301
 
 [[redirects]]
- from="/tr/p/braas-cati-sistemleri/isi-ve-su-yalitimi/thermomanto-roof-300-40-mm/3659263375/"
- to="/tr/p/thermomanto-roof-300-40-mm-xps-3659263375/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/kanatlı-oluk-vario-s"
+to = "/tr/p/kanatl%C4%B1-oluk-vario-s-g%C3%BCl-kurusu-antrasit-746923759/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-icopal"
- to="/tr/bmi-icopal/"
- force=true
+from = "/tr/p/braas-cati-sistemleri/isi-ve-su-yalitimi/thermomanto-roof-300-40-mm/3659263375/"
+to = "/tr/p/thermomanto-roof-300-40-mm-xps-3659263375/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-kaplı-metal-levha"
- to="/tr/p/everguard-tpo-kapl%C4%B1-metal-levha-tpo-20150165/"
- force=true
+from = "/tr/urunler-ve-cozumler/teras-cati-cozumleri/bmi-icopal"
+to = "/tr/bmi-icopal/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi"
- to="/tr/p/r%C3%BCzgar-klipsi-880007769/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-kaplı-metal-levha"
+to = "/tr/p/everguard-tpo-kapl%C4%B1-metal-levha-tpo-20150165/"
+status = 301
 
 [[redirects]]
- from="/tr/p/thermomanto-roof-300-60-mm-1814329784/"
- to="/tr/p/thermomanto-roof-300-60-mm-xps-1814329784/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/braas/euro-rüzgar-klipsi"
+to = "/tr/p/r%C3%BCzgar-klipsi-880007769/"
+status = 301
 
 [[redirects]]
- from="/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-yürüme-yolu"
- to="/tr/p/everguard-tpo-y%C3%BCr%C3%BCme-yolu-tpo-3401349293/"
- force=true
+from = "/tr/p/thermomanto-roof-300-60-mm-1814329784/"
+to = "/tr/p/thermomanto-roof-300-60-mm-xps-1814329784/"
+status = 301
 
 [[redirects]]
- from="/tr/braas-catı-sistemleri/"
- to="/tr/braas-cati-sistemleri/"
- force=true
+from = "/tr/urunler-ve-cozumler/products/everguard/everguard-tpo-yürüme-yolu"
+to = "/tr/p/everguard-tpo-y%C3%BCr%C3%BCme-yolu-tpo-3401349293/"
+status = 301
 
-
 [[redirects]]
-  from = "/tr/sxa/file/*"
-  to = "/tr/downloads/"
-  status = 301
-  force = true
+from = "/tr/braas-catı-sistemleri/"
+to = "/tr/braas-cati-sistemleri/"
+status = 301
 
+[[redirects]]
+from = "/tr/sxa/file/*"
+to = "/tr/downloads/"
+status = 301
 
 # Redirect root to /tr.
 [[redirects]]
-  from = "/"
-  to = "/tr"
-  status = 301
-  force = true
-  
+from = "/"
+to = "/tr"
+status = 301

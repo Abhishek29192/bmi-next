@@ -1,169 +1,141 @@
-
 # Redirects for Group (SITE_MARKET_CODE=en)
+[[redirects]]
+from = "/your-career/career-development"
+to = "/our-company/your-career/career-development/"
+status = 301
 
 [[redirects]]
-  from = "/your-career/career-development"
-  to = "/our-company/your-career/career-development/"
-  status = 301
-  force = true
+from = "/your-career/diversity"
+to = "/our-company/your-career/diversity/"
+status = 301
 
 [[redirects]]
-  from = "/your-career/diversity"
-  to = "/our-company/your-career/diversity/"
-  status = 301
-  force = true
+from = "/your-career"
+to = "/our-company/your-career/"
+status = 301
 
 [[redirects]]
-  from = "/your-career"
-  to = "/our-company/your-career/"
-  status = 301
-  force = true
+from = "/our-company/contact-us"
+to = "/contact-us/"
+status = 301
 
 [[redirects]]
-  from = "/our-company/contact-us"
-  to = "/contact-us/"
-  status = 301
-  force = true
+from = "/our-company/news"
+to = "/news/"
+status = 301
 
 [[redirects]]
-  from = "/our-company/news"
-  to = "/news/"
-  status = 301
-  force = true
+from = "/legal/imprint"
+to = "/imprint/"
+status = 301
 
 [[redirects]]
-  from = "/legal/imprint"
-  to = "/imprint/"
-  status = 301
-  force = true
+from = "/legal/cookie-policy"
+to = "/cookie-policy/"
+status = 301
 
 [[redirects]]
-  from = "/legal/cookie-policy"
-  to = "/cookie-policy/"
-  status = 301
-  force = true
+from = "/legal/third-party-privacy-notice"
+to = "/third-party-site-privacy-notice/"
+status = 301
 
 [[redirects]]
-  from = "/legal/third-party-privacy-notice"
-  to = "/third-party-site-privacy-notice/"
-  status = 301
-  force = true
+from = "/legal/group-s172-statements"
+to = "/legal/s172-statements/"
+status = 301
 
 [[redirects]]
-  from = "/legal/group-s172-statements"
-  to = "/legal/s172-statements/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/legal/legal/"
-  to = "/legal/"
-  status = 301
-  force = true
+from = "/legal/legal/"
+to = "/legal/"
+status = 301
 
 # Needed as Group was released with France products/systems in its sitemap
 [[redirects]]
- from = "/p/:slug"
- to = "/fr/p/:slug"
- force = true
+from = "/p/:slug"
+to = "/fr/p/:slug"
+status = 301
 
 [[redirects]]
- from = "/s/:slug"
- to = "/fr/s/:slug"
- force = true
+from = "/s/:slug"
+to = "/fr/s/:slug"
+status = 301
 
 [[redirects]]
-  from = "/fr-fr*"
-  to = "https://www.bmigroup.com/fr/"
-  status = 301
-  force = true
+from = "/fr-fr*"
+to = "https://www.bmigroup.com/fr/"
+status = 301
 
 [[redirects]]
-  from = "/de-de*"
-  to = "https://www.bmigroup.com/de/"
-  status = 301
-  force = true
+from = "/de-de*"
+to = "https://www.bmigroup.com/de/"
+status = 301
 
 [[redirects]]
-  from = "/se-old*"
-  to = "https://www.bmigroup.com/se/"
-  status = 301
-  force = true
+from = "/se-old*"
+to = "https://www.bmigroup.com/se/"
+status = 301
 
 [[redirects]]
-  from = "/pt-pt*"
-  to = "https://www.bmigroup.com/pt/"
-  status = 301
-  force = true
+from = "/pt-pt*"
+to = "https://www.bmigroup.com/pt/"
+status = 301
 
 [[redirects]]
-  from = "/pl-pl*"
-  to = "https://www.bmigroup.com/pl/"
-  status = 301
-  force = true
+from = "/pl-pl*"
+to = "https://www.bmigroup.com/pl/"
+status = 301
 
 [[redirects]]
-  from = "/ro-ro*"
-  to = "https://www.bmigroup.com/ro/"
-  status = 301
-  force = true
+from = "/ro-ro*"
+to = "https://www.bmigroup.com/ro/"
+status = 301
 
 [[redirects]]
-  from = "/en-za*"
-  to = "https://www.bmigroup.com/za/"
-  status = 301
-  force = true
+from = "/en-za*"
+to = "https://www.bmigroup.com/za/"
+status = 301
 
 [[redirects]]
-  from = "/en-my*"
-  to = "https://www.bmigroup.com/my/"
-  status = 301
-  force = true
+from = "/en-my*"
+to = "https://www.bmigroup.com/my/"
+status = 301
 
 [[redirects]]
-  from = "/es-es*"
-  to = "https://www.bmigroup.com/es/"
-  status = 301
-  force = true
+from = "/es-es*"
+to = "https://www.bmigroup.com/es/"
+status = 301
 
 [[redirects]]
-  from = "/fi-fi*"
-  to = "https://www.bmigroup.com/fi/"
-  status = 301
-  force = true
+from = "/fi-fi*"
+to = "https://www.bmigroup.com/fi/"
+status = 301
 
 [[redirects]]
-  from = "/fr-be*"
-  to = "https://www.bmigroup.com/be/"
-  status = 301
-  force = true
+from = "/fr-be*"
+to = "https://www.bmigroup.com/be/"
+status = 301
 
 [[redirects]]
-  from = "/lt-lt*"
-  to = "https://www.bmigroup.com/lt/"
-  status = 301
-  force = true
+from = "/lt-lt*"
+to = "https://www.bmigroup.com/lt/"
+status = 301
 
 [[redirects]]
-  from = "/lv-lv*"
-  to = "https://www.bmigroup.com/lv/"
-  status = 301
-  force = true
+from = "/lv-lv*"
+to = "https://www.bmigroup.com/lv/"
+status = 301
 
 [[redirects]]
-  from = "/nb-no*"
-  to = "https://www.bmigroup.com/no/"
-  status = 301
-  force = true
+from = "/nb-no*"
+to = "https://www.bmigroup.com/no/"
+status = 301
 
 [[redirects]]
-  from = "/nl-be*"
-  to = "https://www.bmigroup.com/be/"
-  status = 301
-  force = true
+from = "/nl-be*"
+to = "https://www.bmigroup.com/be/"
+status = 301
 
 [[redirects]]
-  from = "/tr-tr*"
-  to = "https://www.bmigroup.com/tr/"
-  status = 301
-  force = true
+from = "/tr-tr*"
+to = "https://www.bmigroup.com/tr/"
+status = 301

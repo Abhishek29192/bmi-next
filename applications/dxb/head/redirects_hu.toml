@@ -1,6 +1,5 @@
 # Redirect root to /hu
 [[redirects]]
-  from = "/"
-  to = "/hu"
-  status = 301
-  force = true
+from = "/"
+to = "/hu"
+status = 301
