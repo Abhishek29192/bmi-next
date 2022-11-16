@@ -150,8 +150,12 @@ const SearchTabPanelProducts = (props: Props) => {
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setProducts(results.hits.hits.map((hit) => hit._source));
-
+      setProducts(
+        results.hits.hits.map((hit) => ({
+          ...hit._source,
+          all_variants: hit.inner_hits.all_variants.hits.hits || []
+        }))
+      );
       onCountChange &&
         onCountChange(results.aggregations.unique_base_products_count.value);
     }
