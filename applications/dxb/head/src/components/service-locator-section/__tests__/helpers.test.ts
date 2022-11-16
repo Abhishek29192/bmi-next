@@ -139,12 +139,33 @@ describe("helpers functions", () => {
         const sortResult = sortServices(null)(mockServiceA, mockServiceB);
         expect(sortResult).toStrictEqual(-1);
       });
+      it("should return -1 if serviceNameA < serviceNameB for name with umlauts", () => {
+        const sortResult = sortServices(null)(
+          {
+            ...mockServiceA,
+            ...{
+              name: "Çanakkale"
+            }
+          },
+          mockServiceB
+        );
+        expect(sortResult).toStrictEqual(-1);
+      });
       it("should return 1 if serviceNameA > serviceNameB", () => {
         const sortResult = sortServices(null)(mockServiceA, {
           ...mockServiceB,
           ...{ name: "AServiceB_name" }
         });
         expect(sortResult).toStrictEqual(1);
+      });
+      it("should return 1 if serviceNameA > serviceNameB for name with umlauts", () => {
+        const sortResult = sortServices(null)(mockServiceA, {
+          ...mockServiceB,
+          ...{
+            name: "Şırnak"
+          }
+        });
+        expect(sortResult).toStrictEqual(-1);
       });
     });
   });

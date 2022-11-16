@@ -65,7 +65,8 @@ export const sortServices = (centre: LatLngLiteral | null) => {
       if (serviceNameA === serviceNameB) {
         return 0;
       } else {
-        return serviceNameA < serviceNameB ? -1 : 1;
+        // according to the issue (https://bmigroup.atlassian.net/browse/DXB-3542) with special characters Ç Ş changed rule for sorting to localeCompare
+        return serviceNameA.localeCompare(serviceNameB);
       }
     }
 
