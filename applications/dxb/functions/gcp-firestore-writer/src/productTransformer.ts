@@ -13,11 +13,12 @@ import {
   GuaranteesAndWarrantiesAssetType
 } from "@bmi/firestore-types";
 import type {
+  Asset,
   Category as PimCategory,
   Classification as PimClassification,
+  ClassificationWithFeatures,
   Feature,
-  Product as PimProduct,
-  Asset
+  Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
@@ -227,7 +228,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         documents: mapProductDocuments(product),
         externalProductCode:
           variant.externalProductCode ?? product.externalProductCode,
-        filters: getFilters(mergedClassifications, product.categories || []),
+        filters: getFilters(filteredClassifications, product.categories || []),
         fixingToolIframeUrl: product.assets?.find(
           (asset) => asset.assetType === "FIXING_TOOL"
         )?.url,
@@ -376,7 +377,7 @@ const groupClassifications = (
 };
 
 const getFilters = (
-  classifications: readonly PimClassification[],
+  classifications: ClassificationWithFeatures[],
   categories: readonly PimCategory[]
 ): Filter[] => {
   const classificationFilters: Filter[] = classifications
@@ -387,7 +388,7 @@ const getFilters = (
         "scoringWeightAttributes".toUpperCase()
     )
     .flatMap((classification) =>
-      (classification.features || []).map((feature) => ({
+      classification.features.map((feature) => ({
         filterCode: feature.code.split("/").pop()!,
         name: feature.name,
         value: feature.featureValues[0].value,
