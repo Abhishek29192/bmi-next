@@ -16,7 +16,7 @@ import type {
   Asset,
   Category as PimCategory,
   Classification as PimClassification,
-  ClassificationCode,
+  ClassificationWithFeatures,
   Feature,
   Product as PimProduct
 } from "@bmi/pim-types";
@@ -377,11 +377,7 @@ const groupClassifications = (
 };
 
 const getFilters = (
-  classifications: readonly {
-    code: ClassificationCode;
-    features: Feature[];
-    name: string;
-  }[],
+  classifications: ClassificationWithFeatures[],
   categories: readonly PimCategory[]
 ): Filter[] => {
   const classificationFilters: Filter[] = classifications

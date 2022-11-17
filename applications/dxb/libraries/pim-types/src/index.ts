@@ -32,12 +32,12 @@ import {
   CategoryType,
   Classification,
   ClassificationCode,
+  ClassificationWithFeatures,
   ErrorResponse,
   Feature,
   FeatureCode,
   FeatureUnit,
   FeatureValue,
-  FilteredClassification,
   Image,
   ImageAssetType,
   ImageMime,
@@ -115,5 +115,5 @@ export {
   BaseProduct,
   ProductReference,
   ProductReferenceType,
-  FilteredClassification
+  ClassificationWithFeatures
 };

@@ -15,7 +15,7 @@ import {
   Asset as PimAsset,
   Category as PimCategory,
   Classification as PimClassification,
-  FilteredClassification,
+  ClassificationWithFeatures,
   Image as PimImage,
   ImageAssetType,
   Mime
@@ -25,7 +25,7 @@ import { generateHashFromString, isDefined } from "@bmi/utils";
 export const filterClassifications = (
   mergedClassifications: readonly PimClassification[],
   ignorableClassifications: readonly FeatureCode[]
-): FilteredClassification[] =>
+): ClassificationWithFeatures[] =>
   mergedClassifications
     .map((classification) => ({
       ...classification,
@@ -41,7 +41,7 @@ export const filterClassifications = (
     }))
     .filter(
       (classification) => (classification.features?.length || -1) > 0
-    ) as FilteredClassification[];
+    ) as ClassificationWithFeatures[];
 
 export const getBim = (assets?: readonly PimAsset[]): BIM | undefined => {
   const bim = assets?.find((asset) => asset.assetType === "BIM");
