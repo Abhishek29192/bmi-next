@@ -37,6 +37,7 @@ import {
   FeatureCode,
   FeatureUnit,
   FeatureValue,
+  FilteredClassification,
   Image,
   ImageAssetType,
   ImageMime,
@@ -113,5 +114,6 @@ export {
   VariantOption,
   BaseProduct,
   ProductReference,
-  ProductReferenceType
+  ProductReferenceType,
+  FilteredClassification
 };

@@ -166,6 +166,12 @@ export type Classification = {
   name: string;
 };
 
+export type FilteredClassification = {
+  code: ClassificationCode;
+  features: Feature[];
+  name: string;
+};
+
 export type ClassificationCode =
   | "appearanceAttributes"
   | "bagUomAttributes"
