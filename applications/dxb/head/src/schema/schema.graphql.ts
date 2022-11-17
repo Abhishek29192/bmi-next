@@ -1127,6 +1127,7 @@ type ContentfulIframe implements ContentfulObject & Node @dontInfer {
   summary: ContentfulRichText
   url: String!
   height: String!
+  allowCookieClasses: [String]
 }
 
 type CountryJSON @dontInfer {
