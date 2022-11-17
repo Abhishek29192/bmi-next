@@ -228,13 +228,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         documents: mapProductDocuments(product),
         externalProductCode:
           variant.externalProductCode ?? product.externalProductCode,
-        filters: getFilters(
-          filterClassifications(
-            mergedClassifications,
-            productIgnorableAttributes
-          ),
-          product.categories || []
-        ),
+        filters: getFilters(filteredClassifications, product.categories || []),
         fixingToolIframeUrl: product.assets?.find(
           (asset) => asset.assetType === "FIXING_TOOL"
         )?.url,
