@@ -377,6 +377,30 @@ describe("transformDocuments", () => {
     expect(getClassificationsFilters).toHaveBeenCalledWith(product);
   });
 
+  it("should not return PIM link document if asset file size is undefined", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const product = createProduct({
+      assets: [createAsset({ assetType: pimCode, fileSize: undefined })]
+    });
+    getAssetTypes.mockResolvedValueOnce([createAssetType({ pimCode })]);
+    getProductDocumentNameMap.mockResolvedValueOnce("Document name");
+    getCategoryFilters.mockReturnValueOnce({
+      BRAND: { code: "BMI", name: "BMI" }
+    });
+    getClassificationsFilters.mockReturnValueOnce({
+      "APPEARANCEATTRIBUTES.COLOUR": { code: "red", name: "red" }
+    });
+
+    const transformedDocuments = await transformDocuments(product, locale);
+
+    expect(transformedDocuments).toEqual([]);
+    expect(getAssetTypes).toHaveBeenCalledWith(locale, undefined);
+    expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, undefined);
+    expect(getCategoryFilters).not.toHaveBeenCalled();
+    expect(getClassificationsFilters).not.toHaveBeenCalled();
+  });
+
   it("should return PIM link document if asset doesn't have a real file name", async () => {
     const locale = "en-US";
     const pimCode = "ASSEMBLY_INSTRUCTIONS";
