@@ -83,7 +83,8 @@ export function transformClassificationAttributes(
             minBattenSpacing: convertToCentimeters(minBattenSpacing[0]),
             maxBattenSpacing: convertToCentimeters(maxBattenSpacing[0]),
             ridgeSpacing: convertToCentimeters(ridgeSpacing[0]),
-            eaveGauge: convertToCentimeters(eaveGauge[0])
+            eaveGauge: convertToCentimeters(eaveGauge[0]),
+            productReferences: initialData.productReferences || []
           };
         }
 

@@ -92,6 +92,21 @@ describe("prepareProducts", () => {
       const tile = products.tiles.base_product_code[0];
       expect(tile.packSize).toBe(20);
     });
+
+    it("returns correct data if there are no product references", () => {
+      const product = createProduct({
+        ...tileClassificationAttributes,
+        baseProduct: {
+          code: "zanda_classic",
+          name: "base product"
+        },
+        productReferences: undefined
+      });
+
+      const products = prepareProducts([product]);
+      const tile = products.tiles.zanda_classic[0];
+      expect(tile.productReferences).toStrictEqual([]);
+    });
   });
 
   describe("Underlay attributes", () => {
