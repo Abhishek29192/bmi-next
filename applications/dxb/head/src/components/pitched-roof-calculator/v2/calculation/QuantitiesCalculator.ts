@@ -90,7 +90,7 @@ const STORM_BRACKET_PER_RIDGE_TILE = 2;
 
 export type QuantitiesCalculatorProps = {
   measurements: Measurements;
-  mainTileVariant: Tile;
+  mainTileVariant?: Tile;
   vergeOption?: VergeOption; // Not being provided means using mainTile to fill in verge tiles place
   ridge: RidgeOption;
   ventilationHoods: VentilationHood[];
@@ -122,21 +122,32 @@ class QuantitiesCalculator {
     const { faces, lines } = measurements;
     const isMetalFlushVerge = this.isMetalFlushVerge(vergeOption);
 
-    this.facesBattens = calculateBattensForFaces(faces, mainTileVariant);
-    this.addSurfaceCoveringProducts(
-      mainTileVariant,
-      vergeOption && !isMetalFlushVerge ? vergeOption : undefined
-    );
+    if (mainTileVariant) {
+      this.facesBattens = calculateBattensForFaces(faces, mainTileVariant);
+      this.addSurfaceCoveringProducts(
+        mainTileVariant,
+        vergeOption && !isMetalFlushVerge ? vergeOption : undefined
+      );
 
-    this.lines = lines;
-    this.addLineProducts(
-      mainTileVariant,
-      ridge,
-      mainTileVariant.hip,
-      vergeOption && isMetalFlushVerge ? vergeOption : undefined
-    );
+      this.lines = lines;
+      this.addLineProducts(
+        mainTileVariant,
+        ridge,
+        mainTileVariant.hip,
+        vergeOption && isMetalFlushVerge ? vergeOption : undefined
+      );
 
-    this.addVentilationHoods(ventilationHoods);
+      this.addVentilationHoods(ventilationHoods);
+
+      this.addCalculatedAccessories(
+        measurements,
+        mainTileVariant,
+        underlay,
+        ridge
+      );
+
+      this.addOtherAccessories(mainTileVariant.accessories);
+    }
 
     this.addGuttering(
       lines.eave,
@@ -146,14 +157,18 @@ class QuantitiesCalculator {
       downPipeConnectors
     );
 
-    this.addCalculatedAccessories(
-      measurements,
-      mainTileVariant,
-      underlay,
-      ridge
-    );
-
-    this.addOtherAccessories(mainTileVariant.accessories);
+    if (underlay) {
+      this.addProduct(
+        ProductCategory.Accessories,
+        underlay,
+        measurements.area
+          ? Math.ceil(
+              measurements.area /
+                (underlay.length * (underlay.width - underlay.overlap))
+            )
+          : 0
+      );
+    }
   }
 
   addSurfaceCoveringProducts(mainTileVariant: Tile, vergeOption?: VergeOption) {
@@ -504,18 +519,6 @@ class QuantitiesCalculator {
         mainTileVariant.finishingKit,
         1,
         false
-      );
-    }
-
-    if (underlay) {
-      this.addProduct(
-        ProductCategory.Accessories,
-        underlay,
-        area
-          ? Math.ceil(
-              area / (underlay.length * (underlay.width - underlay.overlap))
-            )
-          : 0
       );
     }
 

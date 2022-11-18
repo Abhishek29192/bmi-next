@@ -430,6 +430,56 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
         <div>
           <div>
+            Fuglelist ventilert
+          </div>
+          <div
+            aria-label="Quantity for Fuglelist ventilert"
+          >
+            7
+          </div>
+          <button
+            aria-label="Remove Fuglelist ventilert"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Fuglelist ventilert"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Fuglelist ventilert"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Other accesories example
+          </div>
+          <div
+            aria-label="Quantity for Other accesories example"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove Other accesories example"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Other accesories example"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
             Test Guttering Grey
           </div>
           <div
@@ -549,56 +599,6 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           </button>
           <button
             aria-label="Decrease quantity of Underlay Divoroll TOP RU"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Fuglelist ventilert
-          </div>
-          <div
-            aria-label="Quantity for Fuglelist ventilert"
-          >
-            7
-          </div>
-          <button
-            aria-label="Remove Fuglelist ventilert"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Fuglelist ventilert"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Fuglelist ventilert"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
-            Other accesories example
-          </div>
-          <div
-            aria-label="Quantity for Other accesories example"
-          >
-            0
-          </div>
-          <button
-            aria-label="Remove Other accesories example"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Other accesories example"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Other accesories example"
           >
             -
           </button>
@@ -1185,31 +1185,6 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
         <div>
           <div>
-            Underlay Divoroll TOP RU
-          </div>
-          <div
-            aria-label="Quantity for Underlay Divoroll TOP RU"
-          >
-            4
-          </div>
-          <button
-            aria-label="Remove Underlay Divoroll TOP RU"
-          >
-            Delete
-          </button>
-          <button
-            aria-label="Increase quantity of Underlay Divoroll TOP RU"
-          >
-            +
-          </button>
-          <button
-            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
-          >
-            -
-          </button>
-        </div>
-        <div>
-          <div>
             Fuglelist ventilert
           </div>
           <div
@@ -1254,6 +1229,31 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           </button>
           <button
             aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Underlay Divoroll TOP RU
+          </div>
+          <div
+            aria-label="Quantity for Underlay Divoroll TOP RU"
+          >
+            4
+          </div>
+          <button
+            aria-label="Remove Underlay Divoroll TOP RU"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Underlay Divoroll TOP RU"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
           >
             -
           </button>
