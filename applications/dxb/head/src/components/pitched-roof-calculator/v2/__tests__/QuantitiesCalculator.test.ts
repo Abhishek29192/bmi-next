@@ -1341,4 +1341,16 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
       calculations.results.get(input.mainTileVariant.halfTile.code)
     ).toBeTruthy();
   });
+
+  it("returns correct data if there is no mainTileVariant", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: undefined
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.code)
+    ).toBeUndefined();
+    expect(calculations.results.get(input.underlay.code)).toBeTruthy();
+  });
 });

@@ -562,6 +562,54 @@ describe("PitchedRoofCalculatorSteps component", () => {
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
   });
 
+  it("allows to skip tile and tile options selection steps if there is no tile", () => {
+    jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValueOnce({ hits: { hits: [] } });
+
+    const getComponent = (selected: CalculatorSteps) => (
+      <MicroCopy.Provider values={en}>
+        <PitchedRoofCalculatorSteps
+          selected={selected}
+          setSelected={setSelected}
+          calculatorConfig={null}
+        />
+      </MicroCopy.Provider>
+    );
+    const { rerender } = render(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
+      roof: roofs[0].id
+    });
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+      createFormEvent(),
+      dimensions
+    );
+    rerender(getComponent(selected));
+
+    expect(selected).toBe(CalculatorSteps.SelectTile);
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
+      tile: undefined
+    });
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: undefined }
+    );
+    rerender(getComponent(selected));
+    expect(selected).toBe(CalculatorSteps.TileOptions);
+
+    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick(
+      createFormEvent(),
+      { verge: undefined, ridge: undefined, ventilation: [] }
+    );
+    rerender(getComponent(selected));
+    expect(selected).toBe(CalculatorSteps.SelectUnderlay);
+  });
+
   it("shouldn't send second request if user selects the same tile twice", async () => {
     mockedES = jest
       .spyOn(elasticSearch, "queryElasticSearch")

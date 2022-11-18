@@ -280,6 +280,16 @@ const PitchedRoofCalculatorSteps = ({
   ) => {
     e.preventDefault();
     setSelected(CalculatorSteps.SelectUnderlay);
+
+    if (!variant) {
+      setTileOptions({
+        ridge: undefined,
+        ventilationHoods: [],
+        verge: undefined
+      });
+      return;
+    }
+
     const ridge = variant.ridgeOptions.find(
       (ridge) => ridge.externalProductCode === selection.ridge
     );
@@ -610,20 +620,18 @@ const PitchedRoofCalculatorSteps = ({
             resetSelectedData();
           }}
         >
-          {measurements && variant && tileOptions && underlay && (
-            <Results
-              isDebugging={isDebugging}
-              measurements={measurements}
-              variant={variant}
-              tileOptions={tileOptions}
-              underlay={underlay}
-              guttering={guttering}
-              hubSpotFormId={calculatorConfig?.hubSpotFormId}
-              setIsHubSpotFormAvailable={setIsHubSpotFormAvailable}
-              isHubSpotFormAvailable={isHubSpotFormAvailable}
-              needHelpSection={calculatorConfig?.needHelpSection}
-            />
-          )}
+          <Results
+            isDebugging={isDebugging}
+            measurements={measurements}
+            variant={variant}
+            tileOptions={tileOptions}
+            underlay={underlay}
+            guttering={guttering}
+            hubSpotFormId={calculatorConfig?.hubSpotFormId}
+            setIsHubSpotFormAvailable={setIsHubSpotFormAvailable}
+            isHubSpotFormAvailable={isHubSpotFormAvailable}
+            needHelpSection={calculatorConfig?.needHelpSection}
+          />
         </CalculatorStepper.Step>
       </CalculatorStepper>
     </div>
