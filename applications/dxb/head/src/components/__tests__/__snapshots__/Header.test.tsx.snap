@@ -511,7 +511,7 @@ exports[`Header component renders correctly 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -568,7 +568,7 @@ exports[`Header component renders correctly 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -1286,7 +1286,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -1343,7 +1343,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -2088,7 +2088,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -2145,7 +2145,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -3027,7 +3027,7 @@ exports[`Header component toggles search 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -3084,7 +3084,7 @@ exports[`Header component toggles search 1`] = `
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"

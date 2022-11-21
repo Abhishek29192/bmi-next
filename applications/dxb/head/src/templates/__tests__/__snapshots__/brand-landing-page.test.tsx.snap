@@ -10688,7 +10688,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image-775 Media-root-814"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -18500,7 +18500,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image-1665 Media-root-1704"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -30245,7 +30245,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image-997 Media-root-1036"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -34180,7 +34180,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image-1887 Media-root-1926"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"

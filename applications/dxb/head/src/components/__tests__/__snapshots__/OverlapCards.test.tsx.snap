@@ -51,7 +51,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-image-74 Media-root-83"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block; vertical-align: top;"
+                  style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -138,7 +138,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-image-74 Media-root-83"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block; vertical-align: top;"
+                  style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -243,7 +243,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage-86"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"
@@ -382,7 +382,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-image-10 Media-root-19"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block; vertical-align: top;"
+                  style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -469,7 +469,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained CTACard-image-10 Media-root-19"
                   data-gatsby-image-wrapper=""
-                  style="overflow: hidden; display: inline-block; vertical-align: top;"
+                  style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                 >
                   <div
                     style="max-width: 948px; display: block;"
@@ -574,7 +574,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                       <div
                         class="gatsby-image-wrapper gatsby-image-wrapper-constrained YoutubeVideo-previewImage-22"
                         data-gatsby-image-wrapper=""
-                        style="overflow: hidden; display: inline-block; vertical-align: top;"
+                        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                       >
                         <div
                           style="max-width: 948px; display: block;"

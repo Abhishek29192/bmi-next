@@ -683,7 +683,7 @@ HTMLCollection [
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained OverviewCard-headerPicture-93 Media-root-102"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -934,7 +934,7 @@ HTMLCollection [
               <div
                 class="gatsby-image-wrapper gatsby-image-wrapper-constrained PromoSection-image-128 Media-root-102"
                 data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block; vertical-align: top;"
+                style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
               >
                 <div
                   style="max-width: 948px; display: block;"
@@ -1021,7 +1021,7 @@ HTMLCollection [
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapper-159 MediaGallery-mainImageWrapperCover-160 MediaGallery-mainImageWrapperdefault-161 Media-root-102"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block; vertical-align: top;"
+                    style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"

@@ -672,7 +672,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -1934,7 +1934,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -3134,7 +3134,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -4513,7 +4513,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -5938,7 +5938,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -7406,7 +7406,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -8599,7 +8599,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -9776,7 +9776,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -11036,7 +11036,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -12500,7 +12500,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
           <div
             class="gatsby-image-wrapper gatsby-image-wrapper-constrained SpotlightHero-image Media-root"
             data-gatsby-image-wrapper=""
-            style="overflow: hidden; display: inline-block; vertical-align: top;"
+            style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
           >
             <div
               style="max-width: 948px; display: block;"
@@ -13971,7 +13971,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -15440,7 +15440,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -16920,7 +16920,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"
@@ -20173,7 +20173,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
         <div
           class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image Media-root"
           data-gatsby-image-wrapper=""
-          style="overflow: hidden; display: inline-block; vertical-align: top;"
+          style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
         >
           <div
             style="max-width: 948px; display: block;"

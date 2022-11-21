@@ -12471,7 +12471,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
       <div
         class="gatsby-image-wrapper gatsby-image-wrapper-constrained Hero-image-2724 Media-root-2737"
         data-gatsby-image-wrapper=""
-        style="overflow: hidden; display: inline-block; vertical-align: top;"
+        style="position: relative; overflow: hidden; display: inline-block; vertical-align: top;"
       >
         <div
           style="max-width: 948px; display: block;"

@@ -82,7 +82,7 @@ export const renderImage = (data?: Data, options: Options = {}) => {
       image={data.image.gatsbyImageData}
       alt={data.altText}
       draggable={false}
-      style={{ position: undefined }}
+      style={{ position: "relative" }}
       objectFit={size || typeToObjectFitMap[data.type || "Decorative"]}
       objectPosition={getPosition({
         size,
