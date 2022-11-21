@@ -1,4 +1,10 @@
-import { Typography } from "@bmi/components";
+import {
+  FormContext,
+  Typography,
+  withFormControl,
+  WithFormControlProps
+} from "@bmi/components";
+import { Grid } from "@material-ui/core";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
@@ -16,19 +22,19 @@ const byName = (
 type TileSelectionRowProps = {
   title: string;
   allTiles: GroupedTiles;
-  // TODO: Type when importing from Contentful
-  selected?: string;
+  onChange: (value: string) => void;
   options: Tile[];
 };
 
 const TileSelectionRow = ({
   title,
   options,
-  selected,
+  onChange,
   allTiles
 }: TileSelectionRowProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
+  const { values } = useContext(FormContext);
 
   if (!options.length) {
     return null;
@@ -36,14 +42,7 @@ const TileSelectionRow = ({
 
   return (
     <FieldContainer title={title}>
-      <CardRadioGroup
-        name="tile"
-        defaultValue={selected}
-        isRequired
-        fieldIsRequiredError={getMicroCopy(
-          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
-        )}
-      >
+      <Grid container spacing={3} justifyContent="center">
         {options.map((tile) => {
           const totalVariants = allTiles[tile.baseProduct.code].length;
           const colorsText = `${totalVariants} ${
@@ -53,38 +52,41 @@ const TileSelectionRow = ({
           }`;
 
           return (
-            <CardRadioGroup.Item
-              key={tile.code}
-              value={tile.baseProduct.code}
-              title={tile.baseProduct.name || tile.name}
-              imageSource={tile.mainImage}
-              onClick={() => {
-                pushEvent({
-                  event: "dxb.button_click",
-                  id: "rc-select-tile",
-                  label: `${tile.name} - ${colorsText}`,
-                  action: "selected"
-                });
-              }}
-            >
-              <CardRadioGroup.Item.Paragraph>
-                {colorsText}
-              </CardRadioGroup.Item.Paragraph>
-            </CardRadioGroup.Item>
+            <Grid item xs={6} md={4} lg={2} key={tile.code}>
+              <CardRadioGroup.Item
+                value={tile.baseProduct.code}
+                title={tile.baseProduct.name || tile.name}
+                imageSource={tile.mainImage}
+                checked={values.tile === tile.baseProduct.code}
+                onClick={() => {
+                  pushEvent({
+                    event: "dxb.button_click",
+                    id: "rc-select-tile",
+                    label: `${tile.name} - ${colorsText}`,
+                    action: "selected"
+                  });
+                  onChange(tile.baseProduct.code);
+                }}
+              >
+                <CardRadioGroup.Item.Paragraph>
+                  {colorsText}
+                </CardRadioGroup.Item.Paragraph>
+              </CardRadioGroup.Item>
+            </Grid>
           );
         })}
-      </CardRadioGroup>
+      </Grid>
     </FieldContainer>
   );
 };
 
 const categories: MainTileCategory[] = ["concrete", "clay", "metal"];
 
-export type TileSelecionProps = Pick<TileSelectionRowProps, "selected"> & {
+export type TileSelectionProps = WithFormControlProps<string> & {
   tiles: GroupedTiles;
 };
 
-const TileSelection = ({ selected, tiles }: TileSelecionProps) => {
+const TileSelection = ({ tiles, onChange }: TileSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const productCodes = Object.keys(tiles);
 
@@ -104,7 +106,7 @@ const TileSelection = ({ selected, tiles }: TileSelecionProps) => {
             options={sortedOptions.filter(
               (tile) => tile.category.toLowerCase() === category
             )}
-            selected={selected}
+            onChange={onChange}
           />
         ))
       ) : (
@@ -116,4 +118,4 @@ const TileSelection = ({ selected, tiles }: TileSelecionProps) => {
   );
 };
 
-export default TileSelection;
+export default withFormControl<TileSelectionProps, string>(TileSelection);

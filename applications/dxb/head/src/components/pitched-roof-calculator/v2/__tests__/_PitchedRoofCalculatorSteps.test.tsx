@@ -18,7 +18,7 @@ import { ResultProps } from "../_Results";
 import { RoofDimensionsProps } from "../_RoofDimensions";
 import { RoofSelectionProps } from "../_RoofSelection";
 import { TileOptionsProps } from "../_TileOptions";
-import { TileSelecionProps } from "../_TileSelection";
+import { TileSelectionProps } from "../_TileSelection";
 import { UnderlaySelectionProps } from "../_UnderlaySelection";
 import { VariantSelectionProps } from "../_VariantSelection";
 
@@ -250,7 +250,7 @@ const setSelected = jest
 let componentProps: {
   _RoofSelection?: RoofSelectionProps;
   _RoofDimensions?: RoofDimensionsProps;
-  _TileSelection?: TileSelecionProps;
+  _TileSelection?: TileSelectionProps;
   _TileOptions?: TileOptionsProps;
   _VariantSelection?: VariantSelectionProps;
   _UnderlaySelection?: UnderlaySelectionProps;
@@ -278,7 +278,7 @@ jest.mock("../_RoofDimensions", () => {
   };
 });
 jest.mock("../_TileSelection", () => {
-  const TileSelection = (props: TileSelecionProps) => {
+  const TileSelection = (props: TileSelectionProps) => {
     componentProps["_TileSelection"] = props;
     return <p>Rendering _TileSelection</p>;
   };

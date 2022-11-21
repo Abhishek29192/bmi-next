@@ -402,7 +402,12 @@ const PitchedRoofCalculatorSteps = ({
         >
           <RoofSelection
             requiredRoofShapes={calculatorConfig?.roofShapes}
-            selected={roof}
+            isRequired
+            defaultValue={roof?.id}
+            name="roof"
+            fieldIsRequiredError={getMicroCopy(
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+            )}
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
@@ -441,7 +446,15 @@ const PitchedRoofCalculatorSteps = ({
           }}
           nextButtonOnClick={selectTile}
         >
-          <TileSelection tiles={data.tiles} selected={mainTileCode} />
+          <TileSelection
+            name="tile"
+            isRequired={Boolean(data.tiles.length)}
+            fieldIsRequiredError={getMicroCopy(
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+            )}
+            tiles={data.tiles}
+            defaultValue={mainTileCode}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key={CalculatorSteps.SelectVariant}
