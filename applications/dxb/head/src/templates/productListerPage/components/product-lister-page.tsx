@@ -44,6 +44,7 @@ import { xferFilterValue } from "../../../utils/elasticSearchPLP";
 import {
   clearFilterValues,
   convertToURLFilters,
+  replaceDotFiltersParameter,
   updateFilterValue,
   URLProductFilter
 } from "../../../utils/filters";
@@ -158,7 +159,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     return {
       ...parsedQueryParams,
       ...(parsedQueryParams.filters
-        ? { filters: JSON.parse(parsedQueryParams.filters as string) }
+        ? {
+            filters: JSON.parse(
+              replaceDotFiltersParameter(parsedQueryParams.filters as string)
+            )
+          }
         : { filters: [] })
     };
   }, [location]);

@@ -1,6 +1,7 @@
 import { Product } from "../../../../../libraries/firestore-types/src";
 import { isDefined } from "../../../../../libraries/utils/src";
 import { ProductFilter } from "../../../types/pim";
+import { replaceDotFiltersParameter } from "../../../utils/filters";
 import {
   extractAllowedCategories,
   extractAllowedFeatures,
@@ -51,4 +52,4 @@ export const getPlpFilters = ({
 };
 
 export const transformFilterKeys = (filters: string[]): string[] =>
-  filters.map((filter) => filter.replace(".", "$"));
+  filters.map((filter) => replaceDotFiltersParameter(filter));
