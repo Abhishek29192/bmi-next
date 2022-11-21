@@ -5,7 +5,7 @@ import { MicroCopy } from "../../helpers/microCopy";
 import { createProduct } from "../../helpers/products";
 import en from "../../samples/copy/en.json";
 import { GroupedTiles, Tile } from "../../types/v2";
-import TileSelection from "../_TileSelection";
+import TileSelection, { TileSelectionProps } from "../_TileSelection";
 
 const firstTile = createProduct<Tile>({
   baseProduct: {
@@ -34,6 +34,13 @@ const tiles: GroupedTiles = {
   Nova_main_tile_engobed_black: [{ ...secondTile }]
 };
 
+const defaultProps: TileSelectionProps = {
+  tiles,
+  isRequired: true,
+  name: "tile",
+  fieldIsRequiredError: "field is required"
+};
+
 const pushEvent = jest.fn();
 jest.mock("../../helpers/analytics", () => {
   const actual = jest.requireActual("../../helpers/analytics");
@@ -59,7 +66,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection selected={undefined} tiles={tiles} />
+          <TileSelection {...defaultProps} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -81,7 +88,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection selected={undefined} tiles={{}} />
+          <TileSelection {...defaultProps} tiles={{}} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -113,7 +120,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection selected={undefined} tiles={tiles} />
+          <TileSelection {...defaultProps} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -136,7 +143,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection selected={undefined} tiles={tiles} />
+          <TileSelection {...defaultProps} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
@@ -164,7 +171,7 @@ describe("PitchedRoofCalculator TileSelection component", () => {
             values: {}
           }}
         >
-          <TileSelection selected={undefined} tiles={tiles} />
+          <TileSelection {...defaultProps} tiles={tiles} />
         </FormContext.Provider>
       </MicroCopy.Provider>
     );
