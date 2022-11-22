@@ -1,6 +1,7 @@
 /* eslint-disable security/detect-object-injection */
 import { Filter as FirestoreFilter } from "@bmi/firestore-types";
 import { ProductFilter } from "../types/pim";
+import { QUERY_FILTER_DELIMITER, replaceDotFiltersParameter } from "./filters";
 
 export interface IndexedItem<T = any> {
   [key: string]: T;
@@ -98,7 +99,7 @@ export const generateFilters = (
     allowedFeatureFilters && allowedFeatureFilters.size > 0
       ? firestoreFilters.filter((firestoreFilter) =>
           allowedFeatureFilters.has(
-            firestoreFilter.filterCode.replace(".", "$").toLowerCase()
+            replaceDotFiltersParameter(firestoreFilter.filterCode).toLowerCase()
           )
         )
       : [];
@@ -206,8 +207,8 @@ export const generateFilters = (
       return {
         ...prevValue,
         [filterNameKey]: {
-          name: filterNameKey.replace(".", "$"),
-          filterCode: filterNameKey.replace(".", "$"),
+          name: replaceDotFiltersParameter(filterNameKey),
+          filterCode: replaceDotFiltersParameter(filterNameKey),
           label: groupLabel,
           value: [],
           options: allOptions.sort((a, b) => {
@@ -235,7 +236,9 @@ export const extractAllowedFeatures = (
   }
   const featuresFilters = new Set(
     allowedFilters
-      .filter((allowedFilter) => allowedFilter.indexOf("$") > -1)
+      .filter(
+        (allowedFilter) => allowedFilter.indexOf(QUERY_FILTER_DELIMITER) > -1
+      )
       .map((allowedFilter) => allowedFilter.toLowerCase())
   );
   const eligibleFeatureFilters = new Map<string, string[]>();
@@ -255,7 +258,8 @@ export const extractAllowedCategories = (
     allowedFilters
       .filter(
         (allowedFilter) =>
-          allowedFilter.indexOf("|") === -1 && allowedFilter.indexOf("$") === -1
+          allowedFilter.indexOf("|") === -1 &&
+          allowedFilter.indexOf(QUERY_FILTER_DELIMITER) === -1
       )
       .map((filter) => filter)
   );
