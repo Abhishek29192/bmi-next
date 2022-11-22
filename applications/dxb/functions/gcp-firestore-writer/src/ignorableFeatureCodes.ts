@@ -1,7 +1,6 @@
 import { FeatureCode } from "@bmi/pim-types";
 
 export const productIgnorableAttributes: FeatureCode[] = [
-  "appearanceAttributes.colourfamily",
   "scoringWeightAttributes.scoringweight",
   "bagUomAttributes.categoryOfEan11",
   "bagUomAttributes.denominatorForConversion",
