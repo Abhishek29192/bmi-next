@@ -62,7 +62,6 @@ export const transformProduct = (product: PimProduct): Product[] => {
         product.variantOptions!.length === 1
           ? productIgnorableAttributes.concat(
               "appearanceAttributes.colour",
-              "appearanceAttributes.colourfamily",
               "appearanceAttributes.texturefamily",
               "appearanceAttributes.colourfamily",
               "appearanceAttributes.variantattribute"
