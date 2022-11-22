@@ -280,6 +280,16 @@ const PitchedRoofCalculatorSteps = ({
   ) => {
     e.preventDefault();
     setSelected(CalculatorSteps.SelectUnderlay);
+
+    if (!variant) {
+      setTileOptions({
+        ridge: undefined,
+        ventilationHoods: [],
+        verge: undefined
+      });
+      return;
+    }
+
     const ridge = variant.ridgeOptions.find(
       (ridge) => ridge.externalProductCode === selection.ridge
     );
@@ -392,7 +402,12 @@ const PitchedRoofCalculatorSteps = ({
         >
           <RoofSelection
             requiredRoofShapes={calculatorConfig?.roofShapes}
-            selected={roof}
+            isRequired
+            defaultValue={roof?.id}
+            name="roof"
+            fieldIsRequiredError={getMicroCopy(
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+            )}
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
@@ -431,7 +446,15 @@ const PitchedRoofCalculatorSteps = ({
           }}
           nextButtonOnClick={selectTile}
         >
-          <TileSelection tiles={data.tiles} selected={mainTileCode} />
+          <TileSelection
+            name="tile"
+            isRequired={Boolean(data.tiles.length)}
+            fieldIsRequiredError={getMicroCopy(
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
+            )}
+            tiles={data.tiles}
+            defaultValue={mainTileCode}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key={CalculatorSteps.SelectVariant}
@@ -610,20 +633,18 @@ const PitchedRoofCalculatorSteps = ({
             resetSelectedData();
           }}
         >
-          {measurements && variant && tileOptions && underlay && (
-            <Results
-              isDebugging={isDebugging}
-              measurements={measurements}
-              variant={variant}
-              tileOptions={tileOptions}
-              underlay={underlay}
-              guttering={guttering}
-              hubSpotFormId={calculatorConfig?.hubSpotFormId}
-              setIsHubSpotFormAvailable={setIsHubSpotFormAvailable}
-              isHubSpotFormAvailable={isHubSpotFormAvailable}
-              needHelpSection={calculatorConfig?.needHelpSection}
-            />
-          )}
+          <Results
+            isDebugging={isDebugging}
+            measurements={measurements}
+            variant={variant}
+            tileOptions={tileOptions}
+            underlay={underlay}
+            guttering={guttering}
+            hubSpotFormId={calculatorConfig?.hubSpotFormId}
+            setIsHubSpotFormAvailable={setIsHubSpotFormAvailable}
+            isHubSpotFormAvailable={isHubSpotFormAvailable}
+            needHelpSection={calculatorConfig?.needHelpSection}
+          />
         </CalculatorStepper.Step>
       </CalculatorStepper>
     </div>

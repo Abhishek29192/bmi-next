@@ -353,7 +353,7 @@ const input: QuantitiesCalculatorProps = {
     eaveGauge: 38,
     ridgeSpacing: 5,
     width: 33.2,
-    height: 42,
+    length: 42,
     brokenBond: true
   },
   vergeOption: {
@@ -1273,5 +1273,84 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     expect(
       calculations.results.get(input.mainTileVariant.halfTile.code)
     ).toBeTruthy();
+  });
+
+  it("returns data without half tiles if there are half verges and even number of tiles in the row", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 42
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns data without half tiles if there are half verges and odd number of tiles in the row", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 40
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns data with half tiles if the roof doesn't require half verge tiles", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: {
+        ...input.mainTileVariant,
+        brokenBond: true,
+        width: 42
+      },
+      measurements: {
+        ...input.measurements,
+        faces: [{ ...input.measurements.faces[0], sides: ["VALLEY", "VALLEY"] }]
+      },
+      vergeOption: {
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
+      }
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeTruthy();
+  });
+
+  it("returns correct data if there is no mainTileVariant", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: undefined
+    });
+
+    expect(
+      calculations.results.get(input.mainTileVariant.code)
+    ).toBeUndefined();
+    expect(calculations.results.get(input.underlay.code)).toBeTruthy();
   });
 });

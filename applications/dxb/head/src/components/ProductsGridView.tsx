@@ -50,7 +50,7 @@ const ProductsGridView = ({
 
   return (
     <>
-      {products.map((variant) => {
+      {products.flatMap((variant) => {
         const brandLogoCode = variant.brandCode;
         // eslint-disable-next-line security/detect-object-injection
         const brandLogo = iconMap[brandLogoCode];
@@ -62,7 +62,9 @@ const ProductsGridView = ({
         )}${searchParams}`;
 
         const uniqueClassifications = variant.subTitle || "";
-
+        const moreOptionsAvailable =
+          variant.all_variants?.length > 1 &&
+          getMicroCopy("plp.product.moreOptionsAvailable");
         return (
           <Grid
             item
@@ -103,6 +105,7 @@ const ProductsGridView = ({
                   {getMicroCopy(microCopy.PLP_PRODUCT_VIEW_DETAILS)}
                 </AnchorLink>
               }
+              moreOptionsAvailable={moreOptionsAvailable}
             >
               {variant.shortDescription}
             </GTMOverviewCard>

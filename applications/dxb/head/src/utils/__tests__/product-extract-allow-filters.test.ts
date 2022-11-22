@@ -76,20 +76,20 @@ describe("extract allowed filters tests", () => {
     });
     describe("When various cases of allow filters are provided", () => {
       const expectedResult = new Map();
-      expectedResult.set("roofattributes.color", []);
+      expectedResult.set("roofattributes$color", []);
       test.each([
-        [["roofattributes.color"]],
-        [["roofAttributes.color"]],
-        [["roofAttributes.Color"]],
-        [["roofAttributes.COLOR"]],
-        [["RoofAttributes.color"]],
-        [["ROOFATTRIBUTES.Color"]],
+        [["roofattributes$color"]],
+        [["roofAttributes$color"]],
+        [["roofAttributes$Color"]],
+        [["roofAttributes$COLOR"]],
+        [["RoofAttributes$color"]],
+        [["ROOFATTRIBUTES$Color"]],
         [
           [
-            "ROOFATTRIBUTES.Color",
-            "RoofAttributes.color",
-            "roofAttributes.COLOR",
-            "roofAttributes.color"
+            "ROOFATTRIBUTES$Color",
+            "RoofAttributes$color",
+            "roofAttributes$COLOR",
+            "roofAttributes$color"
           ]
         ]
       ])(

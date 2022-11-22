@@ -586,7 +586,10 @@ const Visualiser = ({
                         handleOnClick({
                           type: "product-link",
                           label: getMicroCopy(microCopy.readMore),
-                          data: { variantCode: activeColour.variantCode }
+                          data: {
+                            variantCode: activeColour.variantCode,
+                            productPath: activeColour.path
+                          }
                         });
                         handleOnClose();
                       }}

@@ -1,4 +1,10 @@
-import React, { useMemo } from "react";
+import {
+  FormContext,
+  Grid,
+  withFormControl,
+  WithFormControlProps
+} from "@bmi/components";
+import React, { useContext, useMemo } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { useAnalyticsContext } from "../helpers/analytics";
@@ -9,17 +15,18 @@ import FieldContainer from "./subcomponents/_FieldContainer";
 
 type RoofSelectionRowProps = {
   title: string;
-  selected?: Roof;
   options: ReadonlyArray<Roof>;
+  onChange: (value: string) => void;
 };
 
 const RoofSelectionRow = ({
   title,
   options,
-  selected
+  onChange
 }: RoofSelectionRowProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useAnalyticsContext();
+  const { values } = useContext(FormContext);
 
   if (!options.length) {
     return null;
@@ -27,50 +34,46 @@ const RoofSelectionRow = ({
 
   return (
     <FieldContainer title={title}>
-      <CardRadioGroup
-        name="roof"
-        defaultValue={(selected || {}).name}
-        isRequired
-        fieldIsRequiredError={getMicroCopy(
-          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
-        )}
-      >
+      <Grid container spacing={3} justifyContent="center">
         {options.map((roof) => {
           const label = getMicroCopy(microCopy.ROOF_SELECTION_ROOF, {
             name: roof.name
           });
 
           return (
-            <CardRadioGroup.Item
-              key={roof.name}
-              value={roof.name}
-              title={label}
-              illustratedImage={roof.illustration}
-              onClick={() => {
-                pushEvent({
-                  event: "dxb.button_click",
-                  id: "rc-roof-type",
-                  label,
-                  action: "selected"
-                });
-              }}
-            />
+            <Grid item xs={6} md={4} lg={2} key={roof.id}>
+              <CardRadioGroup.Item
+                value={roof.id}
+                checked={values.roof === roof.id}
+                title={label}
+                illustratedImage={roof.illustration}
+                onClick={() => {
+                  pushEvent({
+                    event: "dxb.button_click",
+                    id: "rc-roof-type",
+                    label,
+                    action: "selected"
+                  });
+                  onChange(roof.id);
+                }}
+              />
+            </Grid>
           );
         })}
-      </CardRadioGroup>
+      </Grid>
     </FieldContainer>
   );
 };
 
 const categories: RoofType[] = ["gable", "hipped", "sloped"];
 
-export type RoofSelectionProps = Pick<RoofSelectionRowProps, "selected"> & {
+export type RoofSelectionProps = WithFormControlProps<string> & {
   requiredRoofShapes?: { roofShapeId: string }[];
 };
 
 const RoofSelection = ({
-  selected,
-  requiredRoofShapes
+  requiredRoofShapes,
+  onChange
 }: RoofSelectionProps) => {
   const { getMicroCopy } = useSiteContext();
   const filteredRoofs = useMemo(() => {
@@ -89,11 +92,11 @@ const RoofSelection = ({
           key={type}
           title={getMicroCopy(`roofSelection.${type}`)}
           options={filteredRoofs.filter((roof) => roof.type === type)}
-          selected={selected}
+          onChange={onChange}
         />
       ))}
     </div>
   );
 };
 
-export default RoofSelection;
+export default withFormControl<RoofSelectionProps, string>(RoofSelection);

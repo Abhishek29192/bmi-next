@@ -38,9 +38,6 @@ export interface State {
   tileCode?: string;
 }
 
-const isVisualiserEnabled =
-  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true";
-
 export default abstract class Viewer<
   P extends Props,
   S extends State
@@ -319,98 +316,108 @@ export default abstract class Viewer<
             this.container = r;
           }}
         />
-        {isVisualiserEnabled && (
-          <div className={styles["controls"]}>
-            <div className={styles["controls-group"]}>
-              <Icon
-                source={Add}
-                viewBox="4 4 16 16"
-                onClick={this.handleZoomIn}
-                className={
-                  this.isMinDistance() ? styles["disabled"] : undefined
-                }
-              />
-              <Icon
-                source={Remove}
-                viewBox="4 4 16 16"
-                onClick={this.handleZoomOut}
-                className={
-                  this.isMaxDistance() ? styles["disabled"] : undefined
-                }
-              />
-            </div>
-            <div className={styles["controls-group"]}>
-              <ClickAwayListener onClickAway={this.handleTooltipClose}>
-                <Tooltip
-                  PopperProps={{
-                    disablePortal: true
-                  }}
-                  classes={{
-                    popper: styles["popper"],
-                    tooltip: styles["tooltip"]
-                  }}
-                  title={
-                    <div
-                      className={styles["rotate-container"]}
-                      ref={this.tooltipContentRef}
-                    >
-                      <Icon
-                        source={ArrowBack}
-                        className={`${styles["rotate-left"]} ${
-                          this.isMinAzimutAngle() ? styles["disabled"] : ""
-                        }`}
-                        onClick={this.handleLeftRotation}
-                      />
-                      <Icon
-                        source={ArrowForward}
-                        className={`${styles["rotate-right"]} ${
-                          this.isMaxAzimutAngle() ? styles["disabled"] : ""
-                        }`}
-                        onClick={this.handleRightRotation}
-                      />
-                      <Icon
-                        source={ArrowUpward}
-                        className={`${styles["rotate-top"]} ${
-                          this.isMinPolarAngle() ? styles["disabled"] : ""
-                        }`}
-                        onClick={this.handleTopRotation}
-                      />
-                      <Icon
-                        source={ArrowDownward}
-                        className={`${styles["rotate-bottom"]} ${
-                          this.isMaxPolarAngle() ? styles["disabled"] : ""
-                        }`}
-                        onClick={this.handleBottomRotation}
-                      />
-                      <Icon
-                        source={Home}
-                        className={`${styles["rotate-reset"]} ${
-                          this.isCameraPositionPristine()
-                            ? styles["disabled"]
-                            : ""
-                        }`}
-                        onClick={this.handleResetRotation}
-                      />
-                    </div>
-                  }
-                  open={this.state.showRotationTooltip}
-                  placement="left-end"
-                >
-                  <Icon
-                    source={ThreeDRotation}
-                    viewBox="-4 -4 32 32"
-                    onClick={this.handleTooltipClick}
-                    className={`${styles["large-icon"]} ${
-                      this.state.showRotationTooltip
-                        ? styles["large-icon-selected"]
-                        : ""
-                    }`}
-                  />
-                </Tooltip>
-              </ClickAwayListener>
-            </div>
+        <div className={styles["controls"]}>
+          <div className={styles["controls-group"]}>
+            <Icon
+              source={Add}
+              viewBox="4 4 16 16"
+              onClick={this.handleZoomIn}
+              className={this.isMinDistance() ? styles["disabled"] : undefined}
+              role="button"
+              aria-label="Zoom in"
+            />
+            <Icon
+              source={Remove}
+              viewBox="4 4 16 16"
+              onClick={this.handleZoomOut}
+              className={this.isMaxDistance() ? styles["disabled"] : undefined}
+              role="button"
+              aria-label="Zoom out"
+            />
           </div>
-        )}
+          <div className={styles["controls-group"]}>
+            <ClickAwayListener onClickAway={this.handleTooltipClose}>
+              <Tooltip
+                PopperProps={{
+                  disablePortal: true
+                }}
+                classes={{
+                  popper: styles["popper"],
+                  tooltip: styles["tooltip"]
+                }}
+                title={
+                  <div
+                    className={styles["rotate-container"]}
+                    ref={this.tooltipContentRef}
+                  >
+                    <Icon
+                      role="button"
+                      aria-label="Rotate left"
+                      source={ArrowBack}
+                      className={`${styles["rotate-left"]} ${
+                        this.isMinAzimutAngle() ? styles["disabled"] : ""
+                      }`}
+                      onClick={this.handleLeftRotation}
+                    />
+                    <Icon
+                      role="button"
+                      aria-label="Rotate right"
+                      source={ArrowForward}
+                      className={`${styles["rotate-right"]} ${
+                        this.isMaxAzimutAngle() ? styles["disabled"] : ""
+                      }`}
+                      onClick={this.handleRightRotation}
+                    />
+                    <Icon
+                      role="button"
+                      aria-label="Rotate top"
+                      source={ArrowUpward}
+                      className={`${styles["rotate-top"]} ${
+                        this.isMinPolarAngle() ? styles["disabled"] : ""
+                      }`}
+                      onClick={this.handleTopRotation}
+                    />
+                    <Icon
+                      role="button"
+                      aria-label="Rotate bottom"
+                      source={ArrowDownward}
+                      className={`${styles["rotate-bottom"]} ${
+                        this.isMaxPolarAngle() ? styles["disabled"] : ""
+                      }`}
+                      onClick={this.handleBottomRotation}
+                    />
+                    <Icon
+                      role="button"
+                      aria-label="Reset"
+                      source={Home}
+                      className={`${styles["rotate-reset"]} ${
+                        this.isCameraPositionPristine()
+                          ? styles["disabled"]
+                          : ""
+                      }`}
+                      onClick={this.handleResetRotation}
+                    />
+                  </div>
+                }
+                open={this.state.showRotationTooltip}
+                placement="left-end"
+              >
+                <Icon
+                  role="button"
+                  aria-label="Open rotation menu"
+                  source={ThreeDRotation}
+                  viewBox="-4 -4 32 32"
+                  onClick={this.handleTooltipClick}
+                  className={`${styles["large-icon"]} ${
+                    this.state.showRotationTooltip
+                      ? styles["large-icon-selected"]
+                      : ""
+                  }`}
+                />
+              </Tooltip>
+            </ClickAwayListener>
+          </div>
+        </div>
       </div>
     );
   }

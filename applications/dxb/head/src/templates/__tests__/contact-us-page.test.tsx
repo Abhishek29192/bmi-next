@@ -273,7 +273,8 @@ describe("Contact us page", () => {
         title: "iFrame section",
         summary: null,
         url: "https://bot.leadoo.com/bot/inpage.html?code=eoUfGmeD",
-        height: "450px"
+        height: "450px",
+        allowCookieClasses: null
       }
     },
     contentfulSite: createMockSiteData()

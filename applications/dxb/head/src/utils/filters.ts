@@ -245,3 +245,8 @@ export const getWindowLocationFilters = (): FiltersLocation =>
   typeof window !== "undefined"
     ? window.location
     : { search: "", pathname: "" };
+
+export const QUERY_FILTER_DELIMITER = "$";
+
+export const replaceDotFiltersParameter = (filtersFromQuery: string) =>
+  filtersFromQuery.replace(/\./g, QUERY_FILTER_DELIMITER);

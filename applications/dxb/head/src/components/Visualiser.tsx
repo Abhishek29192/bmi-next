@@ -49,7 +49,7 @@ export const VisualiserContext = createContext<Context>({
   }
 });
 
-type Props = {
+export type Props = {
   children: React.ReactNode;
   contentSource?: string;
   variantCodeToPathMap: Record<string, string>;
@@ -128,11 +128,11 @@ const VisualiserProvider = ({
   };
 
   const handleOnClick = ({ type, label, data, ...params }) => {
-    const productPath =
-      data && data.variantCode
+    const pathWithCountryCode =
+      data?.productPath || data?.variantCode
         ? getPathWithCountryCode(
             countryCode,
-            variantCodeToPathMap[data.variantCode]
+            variantCodeToPathMap[data.variantCode] || data.productPath
           )
         : undefined;
 
@@ -141,11 +141,11 @@ const VisualiserProvider = ({
       // eslint-disable-next-line security/detect-object-injection
       id: GtmEventsMap[type],
       label,
-      action: productPath ? productPath : calculatePathFromData(params)
+      action: pathWithCountryCode || calculatePathFromData(params)
     });
 
-    if (productPath) {
-      navigate(productPath);
+    if (pathWithCountryCode) {
+      navigate(pathWithCountryCode);
     }
   };
 

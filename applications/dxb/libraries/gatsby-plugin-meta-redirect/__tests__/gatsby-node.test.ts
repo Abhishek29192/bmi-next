@@ -5,7 +5,7 @@ describe("onPostBuild", () => {
   const tempFolderPath = "./public";
 
   const assertRedirectFile = async (
-    redirects: { fromPath: string; toPath: string }[],
+    redirects: { fromPath: string; toPath: string; isPermanent: boolean }[],
     expectedPath: string,
     expectedContent: string
   ) => {
@@ -55,7 +55,8 @@ describe("onPostBuild", () => {
       [
         {
           fromPath: "/",
-          toPath: "/hello"
+          toPath: "/hello",
+          isPermanent: true
         }
       ],
       `${tempFolderPath}/index.html`,
@@ -68,7 +69,8 @@ describe("onPostBuild", () => {
       [
         {
           fromPath: "/hello",
-          toPath: "/"
+          toPath: "/",
+          isPermanent: true
         }
       ],
       `${tempFolderPath}/hello/index.html`,
@@ -81,7 +83,8 @@ describe("onPostBuild", () => {
       [
         {
           fromPath: "/a/b/c/d",
-          toPath: "/x/y/z"
+          toPath: "/x/y/z",
+          isPermanent: true
         }
       ],
       `${tempFolderPath}/a/b/c/d/index.html`,
@@ -94,7 +97,8 @@ describe("onPostBuild", () => {
       [
         {
           fromPath: "/a/b",
-          toPath: "http://example.com/"
+          toPath: "http://example.com/",
+          isPermanent: true
         }
       ],
       `${tempFolderPath}/a/b/index.html`,
@@ -107,11 +111,13 @@ describe("onPostBuild", () => {
       [
         {
           fromPath: "/",
-          toPath: "/hello"
+          toPath: "/hello",
+          isPermanent: true
         },
         {
           fromPath: "/",
-          toPath: "/world"
+          toPath: "/world",
+          isPermanent: true
         }
       ],
       `${tempFolderPath}/index.html`,
@@ -129,7 +135,8 @@ describe("onPostBuild", () => {
           redirects: [
             {
               fromPath: "/prefix/",
-              toPath: "/hello"
+              toPath: "/hello",
+              isPermanent: true
             }
           ],
           program: {

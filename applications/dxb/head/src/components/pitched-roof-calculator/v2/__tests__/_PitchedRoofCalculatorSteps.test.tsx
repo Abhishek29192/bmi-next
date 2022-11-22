@@ -18,7 +18,7 @@ import { ResultProps } from "../_Results";
 import { RoofDimensionsProps } from "../_RoofDimensions";
 import { RoofSelectionProps } from "../_RoofSelection";
 import { TileOptionsProps } from "../_TileOptions";
-import { TileSelecionProps } from "../_TileSelection";
+import { TileSelectionProps } from "../_TileSelection";
 import { UnderlaySelectionProps } from "../_UnderlaySelection";
 import { VariantSelectionProps } from "../_VariantSelection";
 
@@ -33,7 +33,7 @@ const tRidge = createESProduct({
   code: "t-ridge",
   name: "T-ridge",
   externalProductCode: "43232132",
-  "MEASUREMENTS.LENGTH": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -46,7 +46,7 @@ const ridgeTile = createESProduct({
   code: "Ridge_tile",
   name: "Ridge tile",
   externalProductCode: "46035761",
-  "MEASUREMENTS.LENGTH": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "30cm",
       name: "30 cm",
@@ -84,52 +84,52 @@ const tile = createESProduct({
     { type: "LEFT_VERGE_TILE", code: leftVergeTile.code },
     { type: "RIGHT_VERGE_TILE", code: rightVergeTile.code }
   ],
-  "APPEARANCEATTRIBUTES.COLOUR": [{ name: "Red", code: "Red" }],
-  "GENERALINFORMATION.CLASSIFICATION": [{ name: "metal", code: "metal" }],
-  "TILESATTRIBUTES.BROKENBOND": [{ name: false, code: false }],
-  "MEASUREMENTS.WIDTH": [
+  APPEARANCEATTRIBUTES$COLOUR: [{ name: "Red", code: "Red" }],
+  GENERALINFORMATION$CLASSIFICATION: [{ name: "metal", code: "metal" }],
+  TILESATTRIBUTES$BROKENBOND: [{ name: false, code: false }],
+  MEASUREMENTS$WIDTH: [
     {
       code: "330mm",
       name: "330 mm",
       value: "330"
     }
   ],
-  "MEASUREMENTS.HEIGHT": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "44cm",
       name: "440 cm",
       value: "440"
     }
   ],
-  "TILESATTRIBUTES.MINIMUMBATTENSPACING": [
+  TILESATTRIBUTES$MINIMUMBATTENSPACING: [
     {
       code: "100",
       name: "100",
       value: "100"
     }
   ],
-  "TILESATTRIBUTES.MAXIMUMBATTENSPACING": [
+  TILESATTRIBUTES$MAXIMUMBATTENSPACING: [
     {
       code: "200",
       name: "200",
       value: 200
     }
   ],
-  "TILESATTRIBUTES.RIDGESPACE": [
+  TILESATTRIBUTES$RIDGESPACE: [
     {
       code: "10cm",
       name: "10 cm",
       value: "10"
     }
   ],
-  "TILESATTRIBUTES.EAVEGAUGE": [
+  TILESATTRIBUTES$EAVEGAUGE: [
     {
       code: "24cm",
       name: "24 cm",
       value: "24"
     }
   ],
-  "GENERALINFORMATION.PRODUCTTYPE": [
+  GENERALINFORMATION$PRODUCTTYPE: [
     {
       code: ProductType.tile,
       name: "Main Tile"
@@ -144,27 +144,27 @@ const tile = createESProduct({
 const underlay = createESProduct({
   name: "Underlay",
   externalProductCode: "underlay_product_code",
-  "MEASUREMENTS.LENGTH": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "600cm",
       name: "600 cm",
       value: "600"
     }
   ],
-  "MEASUREMENTS.WIDTH": [
+  MEASUREMENTS$WIDTH: [
     {
       code: "50cm",
       name: "50 cm",
       value: "50"
     }
   ],
-  "GENERALINFORMATION.PRODUCTTYPE": [
+  GENERALINFORMATION$PRODUCTTYPE: [
     {
       code: ProductType.underlay,
       name: "Underlay"
     }
   ],
-  "UNDERLAYATTRIBUTES.OVERLAP": [
+  UNDERLAYATTRIBUTES$OVERLAP: [
     {
       code: "5cm",
       name: "5 cm",
@@ -176,14 +176,14 @@ const underlay = createESProduct({
 const gutter = createESProduct({
   name: "Gutter",
   externalProductCode: "gutter_product_code",
-  "MEASUREMENTS.LENGTH": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "600",
       name: "600",
       value: "600"
     }
   ],
-  "GENERALINFORMATION.PRODUCTTYPE": [
+  GENERALINFORMATION$PRODUCTTYPE: [
     {
       code: ProductType.gutter,
       name: "Gutter"
@@ -198,14 +198,14 @@ const gutter = createESProduct({
 const gutterHook = createESProduct({
   name: "Gutter Hook",
   externalProductCode: "gutter_hook_product_code",
-  "MEASUREMENTS.LENGTH": [
+  MEASUREMENTS$LENGTH: [
     {
       code: "30",
       name: "30",
       value: "30"
     }
   ],
-  "GENERALINFORMATION.PRODUCTTYPE": [
+  GENERALINFORMATION$PRODUCTTYPE: [
     {
       code: ProductType.gutterHook,
       name: "Gutter Hook"
@@ -250,7 +250,7 @@ const setSelected = jest
 let componentProps: {
   _RoofSelection?: RoofSelectionProps;
   _RoofDimensions?: RoofDimensionsProps;
-  _TileSelection?: TileSelecionProps;
+  _TileSelection?: TileSelectionProps;
   _TileOptions?: TileOptionsProps;
   _VariantSelection?: VariantSelectionProps;
   _UnderlaySelection?: UnderlaySelectionProps;
@@ -278,7 +278,7 @@ jest.mock("../_RoofDimensions", () => {
   };
 });
 jest.mock("../_TileSelection", () => {
-  const TileSelection = (props: TileSelecionProps) => {
+  const TileSelection = (props: TileSelectionProps) => {
     componentProps["_TileSelection"] = props;
     return <p>Rendering _TileSelection</p>;
   };
@@ -560,6 +560,54 @@ describe("PitchedRoofCalculatorSteps component", () => {
 
     rerender(getComponent(selected));
     expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
+  });
+
+  it("allows to skip tile and tile options selection steps if there is no tile", () => {
+    jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValueOnce({ hits: { hits: [] } });
+
+    const getComponent = (selected: CalculatorSteps) => (
+      <MicroCopy.Provider values={en}>
+        <PitchedRoofCalculatorSteps
+          selected={selected}
+          setSelected={setSelected}
+          calculatorConfig={null}
+        />
+      </MicroCopy.Provider>
+    );
+    const { rerender } = render(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectRoof].nextButtonOnClick(createFormEvent(), {
+      roof: roofs[0].id
+    });
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick(
+      createFormEvent(),
+      dimensions
+    );
+    rerender(getComponent(selected));
+
+    expect(selected).toBe(CalculatorSteps.SelectTile);
+    stepProps[CalculatorSteps.SelectTile].nextButtonOnClick(createFormEvent(), {
+      tile: undefined
+    });
+    rerender(getComponent(selected));
+
+    stepProps[CalculatorSteps.SelectVariant].nextButtonOnClick(
+      createFormEvent(),
+      { variant: undefined }
+    );
+    rerender(getComponent(selected));
+    expect(selected).toBe(CalculatorSteps.TileOptions);
+
+    stepProps[CalculatorSteps.TileOptions].nextButtonOnClick(
+      createFormEvent(),
+      { verge: undefined, ridge: undefined, ventilation: [] }
+    );
+    rerender(getComponent(selected));
+    expect(selected).toBe(CalculatorSteps.SelectUnderlay);
   });
 
   it("shouldn't send second request if user selects the same tile twice", async () => {

@@ -82,7 +82,7 @@ export interface Tile
   ridgeSpacing: number;
   minBattenSpacing: number;
   width: number;
-  height: number;
+  length: number;
   vergeOption?: VergeOption;
 }
 

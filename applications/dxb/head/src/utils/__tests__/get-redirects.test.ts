@@ -42,14 +42,12 @@ describe("getRedirects", () => {
     expect(redirects).toEqual([
       {
         from: "/no/sxa/file/*",
-        to: "/no/product-catalogues-brochures-folders/",
-        force: true
+        to: "/no/product-catalogues-brochures-folders/"
       },
       {
         from: "/",
         to: "/no/",
-        status: 301,
-        force: true
+        status: 301
       }
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
@@ -80,14 +78,12 @@ describe("getRedirects", () => {
     expect(redirects).toEqual([
       {
         from: "/no/sxa/file/*",
-        to: "/no/product-catalogues-brochures-folders/",
-        force: true
+        to: "/no/product-catalogues-brochures-folders/"
       },
       {
         from: "/",
         to: "/no/",
-        status: 301,
-        force: true
+        status: 301
       }
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
@@ -113,14 +109,12 @@ describe("getRedirects", () => {
     expect(redirects).toEqual([
       {
         from: "/no/sxa/file/*",
-        to: "/no/product-catalogues-brochures-folders/",
-        force: true
+        to: "/no/product-catalogues-brochures-folders/"
       },
       {
         from: "/",
         to: "/no/",
-        status: 301,
-        force: true
+        status: 301
       }
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
@@ -137,14 +131,12 @@ describe("getRedirects", () => {
     expect(redirects).toEqual([
       {
         from: "/no/sxa/file/*",
-        to: "/no/product-catalogues-brochures-folders/",
-        force: true
+        to: "/no/product-catalogues-brochures-folders/"
       },
       {
         from: "/",
         to: "/no/",
-        status: 301,
-        force: true
+        status: 301
       }
     ]);
     expect(fetchMock).not.toHaveBeenCalled();

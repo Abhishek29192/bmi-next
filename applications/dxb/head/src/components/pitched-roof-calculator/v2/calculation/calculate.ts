@@ -52,7 +52,7 @@ export const battenCalc = (vertices: Vertex[], mainTileVariant: Tile) => {
   for (let i = 0; i < battenCount + 1; i += 1) {
     const battenHeight = firstBatten + i * spacing;
     const topOfTile = battenHeight;
-    const bottomOfTile = Math.max(0, battenHeight - mainTileVariant.height);
+    const bottomOfTile = Math.max(0, battenHeight - mainTileVariant.length);
     // Keep track of intersections with y = batten, and the edges of the shapes
     let intersections = [];
     // First consider edge between final point in list and first point
@@ -161,13 +161,15 @@ export const battenCalc = (vertices: Vertex[], mainTileVariant: Tile) => {
 export const surface = (
   { battens, sides, subtract }: FaceWithBattens,
   tile: Tile,
+  hasHalfLeftVerges: boolean,
+  hasHalfRightVerges: boolean,
   cloakedVerge?: VergeOption
 ) => {
   const { halfTile: half } = tile;
   const [left, right] = sides;
   // Count the number of main tiles and half tiles
   let count = 0;
-  let halfcount = 0;
+  let halfCount = 0;
   let leftVergeCount = 0;
   let rightVergeCount = 0;
   let halfLeftVergeCount = 0;
@@ -180,15 +182,15 @@ export const surface = (
       if (tile.brokenBond) {
         if (row % 2 === 0) {
           if (batten.index % 2 == 0) {
-            if (left === "VERGE") {
+            if (left === "VERGE" && cloakedVerge.halfLeft) {
               halfLeftVergeCount++;
-            } else {
-              halfcount++;
+            } else if (!hasHalfLeftVerges) {
+              halfCount++;
             }
-            if (right === "VERGE") {
+            if (right === "VERGE" && cloakedVerge.halfRight) {
               halfRightVergeCount++;
-            } else {
-              halfcount++;
+            } else if (!hasHalfRightVerges) {
+              halfCount++;
             }
             row -= 2;
           } else {
@@ -208,10 +210,10 @@ export const surface = (
             } else {
               count++;
             }
-            if (right === "VERGE") {
+            if (right === "VERGE" && cloakedVerge.halfRight) {
               halfRightVergeCount++;
-            } else {
-              halfcount++;
+            } else if (!hasHalfRightVerges) {
+              halfCount++;
             }
           } else {
             if (right === "VERGE") {
@@ -219,10 +221,10 @@ export const surface = (
             } else {
               count++;
             }
-            if (left === "VERGE") {
+            if (left === "VERGE" && cloakedVerge.halfLeft) {
               halfLeftVergeCount++;
-            } else {
-              halfcount++;
+            } else if (!hasHalfLeftVerges) {
+              halfCount++;
             }
           }
           row -= 3;
@@ -244,15 +246,18 @@ export const surface = (
         if (tile.brokenBond && !cloakedVerge && batten.index % 2 == 0) {
           // Replace one full width tile with two half tiles
           count += row / 2 - 1;
-          halfcount += 2;
+          halfCount += 2;
         } else {
           count += row / 2;
         }
       } else {
         // Half tile required - add integer part to tile count
         count += (row - 1) / 2;
-        // Increment half tile count
-        halfcount += 1;
+
+        if (!hasHalfRightVerges && !hasHalfLeftVerges) {
+          // Increment half tile count
+          halfCount += 1;
+        }
       }
     } else {
       if (subtract) {
@@ -267,7 +272,7 @@ export const surface = (
   const result = {
     quantity: count,
     half: {
-      quantity: halfcount
+      quantity: halfCount
     },
     cloakedVerge: {
       left: leftVergeCount,

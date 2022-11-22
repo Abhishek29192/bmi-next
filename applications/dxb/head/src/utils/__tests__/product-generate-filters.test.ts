@@ -666,7 +666,7 @@ describe("product-filters geterateFilters tests", () => {
             it("returns matching filters", () => {
               const categoryFilter = new Map<string, string[]>();
               const classFilter = new Map<string, string[]>();
-              classFilter.set("roofattributes.minimumpitch", []);
+              classFilter.set("roofattributes$minimumpitch", []);
               const result: ProductFilter[] = generateFilters(
                 [
                   createFirestoreFilter({
@@ -694,8 +694,8 @@ describe("product-filters geterateFilters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  filterCode: "roofAttributes.minimumpitch",
-                  name: "roofAttributes.minimumpitch",
+                  filterCode: "roofAttributes$minimumpitch",
+                  name: "roofAttributes$minimumpitch",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -719,7 +719,7 @@ describe("product-filters geterateFilters tests", () => {
             it("returns matching filters", () => {
               const categoryFilter = new Map<string, string[]>();
               const classFilter = new Map<string, string[]>();
-              classFilter.set("roofattributes.minimumpitch", []);
+              classFilter.set("roofattributes$minimumpitch", []);
               const result: ProductFilter[] = generateFilters(
                 [
                   createFirestoreFilter({
@@ -747,8 +747,8 @@ describe("product-filters geterateFilters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  filterCode: "roofAttributes.minimumpitch",
-                  name: "roofAttributes.minimumpitch",
+                  filterCode: "roofAttributes$minimumpitch",
+                  name: "roofAttributes$minimumpitch",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -772,7 +772,7 @@ describe("product-filters geterateFilters tests", () => {
             it("returns matching filters", () => {
               const categoryFilter = new Map<string, string[]>();
               const classFilter = new Map<string, string[]>();
-              classFilter.set("roofattributes.minimumpitch", []);
+              classFilter.set("roofattributes$minimumpitch", []);
               const result: ProductFilter[] = generateFilters(
                 [
                   createFirestoreFilter({
@@ -800,8 +800,8 @@ describe("product-filters geterateFilters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  filterCode: "roofAttributes.minimumpitch",
-                  name: "roofAttributes.minimumpitch",
+                  filterCode: "roofAttributes$minimumpitch",
+                  name: "roofAttributes$minimumpitch",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -830,7 +830,7 @@ describe("product-filters geterateFilters tests", () => {
               it("returns matching filters in numerical order", () => {
                 const categoryFilter = new Map<string, string[]>();
                 const classFilter = new Map<string, string[]>();
-                classFilter.set("roofattributes.minimumpitch", []);
+                classFilter.set("roofattributes$minimumpitch", []);
                 const result = generateFilters(
                   [
                     createFirestoreFilter({
@@ -881,8 +881,8 @@ describe("product-filters geterateFilters tests", () => {
 
                 expect(result).toEqual([
                   {
-                    filterCode: "roofAttributes.minimumpitch",
-                    name: "roofAttributes.minimumpitch",
+                    filterCode: "roofAttributes$minimumpitch",
+                    name: "roofAttributes$minimumpitch",
                     label: "minimumpitch",
                     value: [],
                     options: [
@@ -911,7 +911,7 @@ describe("product-filters geterateFilters tests", () => {
               it("returns matching filters in alphabetic order", () => {
                 const categoryFilter = new Map<string, string[]>();
                 const classFilter = new Map<string, string[]>();
-                classFilter.set("roofattributes.color", []);
+                classFilter.set("roofattributes$color", []);
                 const result = generateFilters(
                   [
                     createFirestoreFilter({
@@ -961,8 +961,8 @@ describe("product-filters geterateFilters tests", () => {
                 );
                 expect(result).toEqual([
                   {
-                    filterCode: "roofAttributes.color",
-                    name: "roofAttributes.color",
+                    filterCode: "roofAttributes$color",
+                    name: "roofAttributes$color",
                     label: "color",
                     value: [],
                     options: [
@@ -1003,7 +1003,7 @@ describe("product-filters geterateFilters tests", () => {
               const categoryFilter = new Map<string, string[]>();
               categoryFilter.set("Category", ["MAINTILE_STEELROOF_NO"]);
               const classFilter = new Map<string, string[]>();
-              classFilter.set("roofattributes.minimumpitch", []);
+              classFilter.set("roofattributes$minimumpitch", []);
               const result = generateFilters(
                 [
                   createFirestoreFilter({
@@ -1058,8 +1058,8 @@ describe("product-filters geterateFilters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  filterCode: "roofAttributes.minimumpitch",
-                  name: "roofAttributes.minimumpitch",
+                  filterCode: "roofAttributes$minimumpitch",
+                  name: "roofAttributes$minimumpitch",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -1089,8 +1089,8 @@ describe("product-filters geterateFilters tests", () => {
           it("returns empty filters", () => {
             const categoryFilter = new Map<string, string[]>();
             const classFilter = new Map<string, string[]>();
-            classFilter.set("colorattributes.color", []);
-            classFilter.set("roofattributes.maximumpitch", []);
+            classFilter.set("colorattributes$color", []);
+            classFilter.set("roofattributes$maximumpitch", []);
             const result = generateFilters(
               [
                 createFirestoreFilter({
@@ -1147,8 +1147,8 @@ describe("product-filters geterateFilters tests", () => {
         it("returns empty filters", () => {
           const categoryFilter = new Map<string, string[]>();
           const classFilter = new Map<string, string[]>();
-          classFilter.set("invalid.invalid", []);
-          classFilter.set("invalidAttributes.invalid", []);
+          classFilter.set("invalid$invalid", []);
+          classFilter.set("invalidAttributes$invalid", []);
           const result = generateFilters(
             [
               createFirestoreFilter({

@@ -212,11 +212,11 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "MEASUREMENTS.WIDTH"
+          "MEASUREMENTS$WIDTH"
         );
 
         expect(featureNameAsProp).toEqual([
-          { code: "100symbol", name: "100 symbol" }
+          { code: "100symbol", name: "100 symbol", value: "100" }
         ]);
       });
 
@@ -243,7 +243,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "MEASUREMENTS.HEIGHT"
+          "MEASUREMENTS$HEIGHT"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -280,7 +280,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "APPEARANCEATTRIBUTES.COLORFAMILY"
+          "APPEARANCEATTRIBUTES$COLORFAMILY"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -315,7 +315,7 @@ describe("transformProduct", () => {
         const transformedProduct = await transformProduct(product);
         const featureNameAsProp = getDynamicPropValue(
           transformedProduct[0],
-          "APPEARANCEATTRIBUTES.COLORFAMILY"
+          "APPEARANCEATTRIBUTES$COLORFAMILY"
         );
 
         expect(featureNameAsProp).toEqual([
@@ -1289,6 +1289,180 @@ describe("transformProduct", () => {
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
       originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("transforms product correctly with productReferences", async () => {
+    const pimProduct = createPimProduct({
+      name: "name",
+      code: "code",
+      productReferences: [
+        {
+          referenceType: "HIP",
+          target: {
+            code: "base_product_reference_product_code",
+            name: "base product reference product"
+          },
+          preselected: false
+        }
+      ],
+      variantOptions: [
+        createVariantOption({
+          approvalStatus: "unapproved",
+          productReferences: [
+            {
+              referenceType: "CLIP",
+              target: {
+                code: "variant_reference_product_code",
+                name: "variant reference product"
+              },
+              preselected: false
+            }
+          ]
+        })
+      ]
+    });
+
+    const transformedProducts = await transformProduct(pimProduct);
+    const expectedProductReferences = [
+      {
+        type: "CLIP",
+        code: "variant_reference_product_code",
+        name: "variant reference product"
+      },
+      {
+        type: "HIP",
+        code: "base_product_reference_product_code",
+        name: "base product reference product"
+      }
+    ];
+    expect(transformedProducts[0].productReferences).toStrictEqual(
+      expectedProductReferences
+    );
+  });
+
+  it("returns correct value for productReferences if baseProduct doesn't have productReferences", async () => {
+    const pimProduct = createPimProduct({
+      name: "name",
+      code: "code",
+      productReferences: undefined,
+      variantOptions: [
+        createVariantOption({
+          approvalStatus: "unapproved",
+          productReferences: [
+            {
+              referenceType: "CLIP",
+              target: {
+                code: "variant_reference_product_code",
+                name: "variant reference product"
+              },
+              preselected: false
+            }
+          ]
+        })
+      ]
+    });
+
+    const transformedProducts = await transformProduct(pimProduct);
+    expect(transformedProducts[0].productReferences).toStrictEqual([
+      {
+        type: "CLIP",
+        code: "variant_reference_product_code",
+        name: "variant reference product"
+      }
+    ]);
+  });
+
+  it("returns correct value for productReferences if only base product has productReferences", async () => {
+    const pimProduct = createPimProduct({
+      name: "name",
+      code: "code",
+      productReferences: [
+        {
+          referenceType: "CLIP",
+          target: {
+            code: "variant_reference_product_code",
+            name: "variant reference product"
+          },
+          preselected: false
+        }
+      ],
+      variantOptions: [
+        createVariantOption({
+          approvalStatus: "unapproved",
+          productReferences: undefined
+        })
+      ]
+    });
+
+    const transformedProducts = await transformProduct(pimProduct);
+    expect(transformedProducts[0].productReferences).toStrictEqual([
+      {
+        type: "CLIP",
+        code: "variant_reference_product_code",
+        name: "variant reference product"
+      }
+    ]);
+  });
+
+  it("returns only references of variant if it contains the same reference as the base product", async () => {
+    const pimProduct = createPimProduct({
+      name: "name",
+      code: "code",
+      productReferences: [
+        {
+          referenceType: "CLIP",
+          target: {
+            code: "base_product_reference_product_code",
+            name: "base product reference product"
+          },
+          preselected: false
+        }
+      ],
+      variantOptions: [
+        createVariantOption({
+          approvalStatus: "unapproved",
+          productReferences: [
+            {
+              referenceType: "CLIP",
+              target: {
+                code: "variant_reference_product_code",
+                name: "variant reference product"
+              },
+              preselected: false
+            }
+          ]
+        })
+      ]
+    });
+
+    const transformedProducts = await transformProduct(pimProduct);
+    const expectedProductReferences = [
+      {
+        type: "CLIP",
+        code: "variant_reference_product_code",
+        name: "variant reference product"
+      }
+    ];
+    expect(transformedProducts[0].productReferences).toStrictEqual(
+      expectedProductReferences
+    );
+  });
+
+  it("returns undefined for productReferences if both variant and base product don't have any product references", async () => {
+    const pimProduct = createPimProduct({
+      name: "name",
+      code: "code",
+      productReferences: undefined,
+      variantOptions: [
+        createVariantOption({
+          approvalStatus: "unapproved",
+          productReferences: undefined
+        })
+      ]
+    });
+
+    const transformedProducts = await transformProduct(pimProduct);
+    expect(transformedProducts[0].productReferences).toBeUndefined();
   });
 
   it("creates path using the product name if variant name is present", async () => {

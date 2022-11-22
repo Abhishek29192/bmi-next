@@ -1,5 +1,4 @@
-import { ExploreBar } from "@bmi/components";
-import { Section } from "@bmi/components";
+import { ExploreBar, Section } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import { devLog } from "../utils/devLog";

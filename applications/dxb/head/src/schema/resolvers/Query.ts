@@ -6,7 +6,7 @@ import {
   FourOFourResponse
 } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
-import { getPlpFilters } from "./utils/filters";
+import { getPlpFilters, transformFilterKeys } from "./utils/filters";
 
 export default {
   plpFilters: {
@@ -21,6 +21,7 @@ export default {
       context: Context
     ): Promise<PLPFilterResponse> {
       const { categoryCodes, allowFilterBy } = args;
+      const transformedAllowFilterBy = transformFilterKeys(allowFilterBy || []);
 
       const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
@@ -38,14 +39,14 @@ export default {
       const resolvedProducts = [...entries];
 
       if (resolvedProducts.length === 0) {
-        return { filters: [], allowFilterBy: allowFilterBy };
+        return { filters: [], allowFilterBy: transformedAllowFilterBy };
       }
 
       const pageCategory = (resolvedProducts[0].categories || []).find(
         ({ code }) => (categoryCodes || []).includes(code)
       );
 
-      let allowFilterByLocal = allowFilterBy || [];
+      let allowFilterByLocal = transformedAllowFilterBy;
       //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
       if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
@@ -61,10 +62,10 @@ export default {
             allowFilterByLocal.push("ProductLine");
           }
         }
-        allowFilterByLocal.push("appearanceAttributes.colourFamily");
-        allowFilterByLocal.push("generalInformation.materials");
+        allowFilterByLocal.push("appearanceAttributes$colourFamily");
+        allowFilterByLocal.push("generalInformation$materials");
         //couldnt see this in Elastic search response..hence all the options are disabled on the UI!
-        allowFilterByLocal.push("appearanceAttributes.textureFamily");
+        allowFilterByLocal.push("appearanceAttributes$textureFamily");
         // If you are not on a category product listing page, then show category filters!
         // if `pageCategory` is specified, then check its category type too!
         // This is done afterwards to ensure the category specific filters are after the others.
@@ -229,9 +230,9 @@ export default {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ];
 
