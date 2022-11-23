@@ -1758,4 +1758,3 @@ status = 301
 from = "/"
 to = "/be/fr-be"
 status = 301
-status = 301

@@ -467,11 +467,9 @@ status = 301
 from = "/uk/sxa/file/*"
 to = "/uk/downloads/"
 status = 301
-status = 301
 
 # Redirect root to /uk.
 [[redirects]]
 from = "/"
 to = "/uk"
-status = 301
 status = 301
