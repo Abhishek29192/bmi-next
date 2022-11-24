@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   Table,
   Grid,
@@ -54,6 +54,10 @@ export const RewardCategoryForm = ({
     },
     [updateRewardTiers, formData]
   );
+
+  useEffect(() => {
+    setFormData(data);
+  }, [data]);
 
   const onItemChange = useCallback(
     (id, value) => {

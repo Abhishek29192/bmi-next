@@ -74,7 +74,7 @@ export const addRewardRecord = async (
     const {
       rows: [company]
     } = await pgClient.query(
-      "SELECT c.* FROM company_member m LEFT JOIN account a ON a.id = m.account_id JOIN company c ON m.company_id = c.id WHERE a.id = $1",
+      "SELECT c.tier, c.market_id, c.id FROM company_member m LEFT JOIN account a ON a.id = m.account_id JOIN company c ON m.company_id = c.id WHERE a.id = $1",
       [accountId]
     );
 
