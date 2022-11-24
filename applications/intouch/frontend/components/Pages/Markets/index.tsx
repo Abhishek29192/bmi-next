@@ -79,7 +79,11 @@ const getValue = (t, type, value) => {
   }
 };
 
-const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
+const MarketPage = ({
+  markets,
+  doceboTiers: doceboTiersNodes,
+  merchandiseTiers: merchandiseTiersNoes
+}: Props) => {
   const { t } = useTranslation("admin-markets");
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [result, setResult] = useState<ResultProps>({
@@ -89,6 +93,29 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
   });
   const [selectedMarketId, setSelectedMarketId] = useState(markets.nodes[0].id);
   const [items, setItems] = useState<MarketList>(markets);
+  const [doceboTiers, setDoceboTiers] = useState(
+    doceboTiersNodes.nodes.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [`${cur.marketId}`]: {
+          ...prev[`${cur.marketId}`],
+          [`${cur.tierCode}`]: cur.doceboCatalogueId
+        }
+      }),
+      {}
+    )
+  );
+  const [merchandiseTiers, setMerchandiseTiers] = useState(
+    merchandiseTiersNoes.nodes.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [`${cur.marketId}`]: {
+          [`merchandise${cur.tierCode}`]: cur.merchandiseDivisionId
+        }
+      }),
+      {}
+    )
+  );
   const [filteredItems, setFilteredItems] = useState<MarketList>(markets);
   const [filterState, setFilterState] = useState({
     searched: null,
@@ -111,7 +138,7 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
         });
       },
       onCompleted: (data) => {
-        setItems({ ...items, ...data.updateMarket.query.markets });
+        setItems(data.updateMarket.query.markets);
         setResult({
           title: t("success"),
           severity: "success",
@@ -132,15 +159,18 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
           messages: [...result.messages, ...errors]
         });
       },
-      onCompleted: (data) => {
-        const doceboTiers = data.updateDoceboTiersByMarket.reduce(
-          (prev, cur) => ({
-            ...prev,
-            [cur.tier_code]: cur.docebo_catalogue_id
-          }),
-          {}
-        ) as DoceboTiers;
-        setItems({ ...items, ...doceboTiers });
+      onCompleted: ({ updateDoceboTiersByMarket }) => {
+        const result = {
+          ...doceboTiers,
+          [`${selectedMarketId}`]: updateDoceboTiersByMarket.reduce(
+            (prev, cur) => ({
+              ...prev,
+              [`${cur.tier_code}`]: cur.docebo_catalogue_id
+            }),
+            {}
+          )
+        };
+        setDoceboTiers(result);
       }
     });
 
@@ -156,15 +186,18 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
           messages: [...result.messages, ...errors]
         });
       },
-      onCompleted: (data) => {
-        const merchandiseTiers = data.updateMerchandiseTiersByMarket.reduce(
-          (prev, cur) => ({
-            ...prev,
-            [`merchandise${cur.tier_code}`]: cur.merchandise_division_id
-          }),
-          {}
-        ) as MerchandiseTiers;
-        setItems({ ...items, ...merchandiseTiers });
+      onCompleted: ({ updateMerchandiseTiersByMarket }) => {
+        const result = {
+          ...merchandiseTiers,
+          [`${selectedMarketId}`]: updateMerchandiseTiersByMarket.reduce(
+            (prev, cur) => ({
+              ...prev,
+              [`merchandise${cur.tier_code}`]: cur.merchandise_division_id
+            }),
+            {}
+          )
+        };
+        setMerchandiseTiers(result);
       }
     });
 
@@ -275,28 +308,13 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
   }, [filterState]);
 
   useEffect(() => {
-    const catalogueIds: DoceboTiers = doceboTiers.nodes
-      .filter(({ marketId }) => marketId === selectedMarketId)
-      .reduce(
-        (prev, cur) => ({ ...prev, [cur.tierCode]: cur.doceboCatalogueId }),
-        {}
-      );
-    const divisionIds: MerchandiseTiers = merchandiseTiers.nodes
-      .filter(({ marketId }) => marketId === selectedMarketId)
-      .reduce(
-        (prev, cur) => ({
-          ...prev,
-          [`merchandise${cur.tierCode}`]: cur.merchandiseDivisionId
-        }),
-        {}
-      );
     const item = {
-      ...markets.nodes.find(({ id }) => id === selectedMarketId),
-      ...catalogueIds,
-      ...divisionIds
+      ...items.nodes.find(({ id }) => id === selectedMarketId),
+      ...doceboTiers[`${selectedMarketId}`],
+      ...merchandiseTiers[`${selectedMarketId}`]
     };
     setSelectedItem(item);
-  }, [selectedMarketId]);
+  }, [selectedMarketId, items, doceboTiers, merchandiseTiers]);
 
   return (
     <div
@@ -366,7 +384,7 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
                       </Grid>
                       {marketKeys.map(({ key, type, label }) =>
                         type === "checkbox" ? (
-                          <Grid item xs={12}>
+                          <Grid item xs={12} key={key}>
                             <Checkbox
                               name={key}
                               label={label}
@@ -473,7 +491,11 @@ const MarketPage = ({ markets, doceboTiers, merchandiseTiers }: Props) => {
                 <Grid item xs={12}>
                   <Grid container>
                     <Grid item xs={12}>
-                      <RewardSystemForm market={selectedItem} />
+                      <RewardSystemForm
+                        market={selectedItem}
+                        markets={items}
+                        updateMarkets={setItems}
+                      />
                     </Grid>
                     <Grid item xs={12}>
                       <RewardCategory market={selectedItem} />

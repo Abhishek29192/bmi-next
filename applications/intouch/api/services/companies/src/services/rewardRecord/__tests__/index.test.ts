@@ -175,8 +175,8 @@ describe("Reward Record", () => {
         [input.accountId]
       );
       expect(mockQuery).toHaveBeenCalledWith(
-        "SELECT id, reward_point FROM reward_tier WHERE reward_category = $1 AND tier_code = $2",
-        [input.rewardCategory, company.tier]
+        "SELECT id, reward_point FROM reward_tier WHERE reward_category = $1 AND tier_code = $2 AND market_id = $3",
+        [input.rewardCategory, company.tier, company.market_id]
       );
       expect(mockQuery).toHaveBeenCalledWith(
         "INSERT INTO reward_record (market_id, account_id, company_id, reward_tier, reward_point) VALUES ($1,$2,$3,$4,$5) RETURNING *",

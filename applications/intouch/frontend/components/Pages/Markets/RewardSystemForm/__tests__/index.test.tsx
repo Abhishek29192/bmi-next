@@ -22,6 +22,7 @@ jest.mock("../../../../../lib/logger", () => (log) => logSpy(log));
 afterEach(() => {
   jest.clearAllMocks();
 });
+const updateMarketsSpy = jest.fn();
 
 describe("RewardSummary", () => {
   const updatedMarketFactory = (data = {}) => ({
@@ -32,7 +33,13 @@ describe("RewardSummary", () => {
 
   it("render correctly", async () => {
     const market = generateMarketContext();
-    const { container } = render(<RewardSystemForm market={market} />);
+    const { container } = render(
+      <RewardSystemForm
+        market={market}
+        markets={{ nodes: [market] }}
+        updateMarkets={updateMarketsSpy}
+      />
+    );
 
     expect(container).toMatchSnapshot();
     expect(screen.queryByText("Reward System")).toBeTruthy();
@@ -54,7 +61,13 @@ describe("RewardSummary", () => {
           updatedMarketFactory({ rewardEffectiveDate: rewardEffectiveDate })
         )
       );
-      const { container } = render(<RewardSystemForm market={market} />);
+      const { container } = render(
+        <RewardSystemForm
+          market={market}
+          markets={{ nodes: [market] }}
+          updateMarkets={updateMarketsSpy}
+        />
+      );
 
       expect(screen.queryByText("edit")).toBeTruthy();
       expect(screen.queryByText("disabled")).toBeTruthy();
@@ -88,8 +101,9 @@ describe("RewardSummary", () => {
       );
 
       expect(screen.queryByText("edit")).toBeTruthy();
-      expect(screen.queryByText("enabled")).toBeTruthy();
-      expect(screen.queryByText(rewardEffectiveDate)).toBeTruthy();
+      expect(updateMarketsSpy).toHaveBeenCalledWith({
+        nodes: [{ ...market, rewardEffectiveDate }]
+      });
     });
 
     it("disable reward system", async () => {
@@ -100,7 +114,13 @@ describe("RewardSummary", () => {
       useUpdateMarketMutationSpy.mockImplementationOnce(({ onCompleted }) =>
         onCompleted(updatedMarketFactory({ rewardEffectiveDate: null }))
       );
-      render(<RewardSystemForm market={market} />);
+      render(
+        <RewardSystemForm
+          market={market}
+          markets={{ nodes: [market] }}
+          updateMarkets={updateMarketsSpy}
+        />
+      );
 
       fireEvent.click(screen.queryByTestId("reward-category-btn-edit"));
       fireEvent.click(screen.queryByLabelText("Reward System Enabled"));
@@ -120,8 +140,9 @@ describe("RewardSummary", () => {
       );
 
       expect(screen.queryByText("edit")).toBeTruthy();
-      expect(screen.queryByText("disabled")).toBeTruthy();
-      expect(screen.queryByText("null")).toBeTruthy();
+      expect(updateMarketsSpy).toHaveBeenCalledWith({
+        nodes: [{ ...market, rewardEffectiveDate: null }]
+      });
     });
 
     it("failed to update reward system", async () => {
@@ -134,7 +155,13 @@ describe("RewardSummary", () => {
       useUpdateMarketMutationSpy.mockImplementationOnce(({ onError }) =>
         onError(error)
       );
-      render(<RewardSystemForm market={market} />);
+      render(
+        <RewardSystemForm
+          market={market}
+          markets={{ nodes: [market] }}
+          updateMarkets={updateMarketsSpy}
+        />
+      );
 
       fireEvent.click(screen.queryByTestId("reward-category-btn-edit"));
       fireEvent.click(screen.queryByLabelText("Reward System Enabled"));

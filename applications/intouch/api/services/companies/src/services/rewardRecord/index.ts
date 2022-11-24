@@ -82,8 +82,8 @@ export const addRewardRecord = async (
       const {
         rows: [rewardTier]
       } = await pgClient.query(
-        "SELECT id, reward_point FROM reward_tier WHERE reward_category = $1 AND tier_code = $2",
-        [rewardCategory, company.tier]
+        "SELECT id, reward_point FROM reward_tier WHERE reward_category = $1 AND tier_code = $2 AND market_id = $3",
+        [rewardCategory, company.tier, company.market_id]
       );
 
       if (rewardTier) {
