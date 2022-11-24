@@ -131,7 +131,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   variantCode: pageContext.productCode,
                   isRecaptchaShown:
                     Object.keys(product.keyAssetDocuments).length > 0,
-                  isVisualiserAvailable: product.isVisualiserAvailable
+                  isNavigationToVisualiserAvailable:
+                    product.isVisualiserAvailable
                 }}
               >
                 <SampleOrderSection
