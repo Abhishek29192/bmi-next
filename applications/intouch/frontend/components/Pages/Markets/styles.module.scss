@@ -21,9 +21,8 @@
   margin-left: auto;
   display: flex;
 }
+
 .detailPanel {
-  background-color: #ffffff;
-  padding: 1.5rem;
   margin: 1.5rem;
   width: 100%;
 }
@@ -31,12 +30,19 @@
 .container {
   display: flex;
   background-color: $color-pearl;
+
+  section {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: $color-white;
+  }
 }
 
 .alertContainer {
   margin-right: 24px;
   width: 100%;
 }
+
 .message {
   margin-top: 24px;
 }

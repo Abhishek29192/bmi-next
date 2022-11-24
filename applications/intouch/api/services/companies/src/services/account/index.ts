@@ -10,6 +10,7 @@ import { Account, PostGraphileContext } from "../../types";
 import { tierBenefit } from "../contentful";
 import { getTranslatedRole, getTargetDomain } from "../../utils/account";
 import { parseMarketCompanyTag } from "../../utils/contentful";
+import { addRewardRecord } from "../rewardRecord";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -583,20 +584,31 @@ export const completeInvitation = async (
 
     const [row] = await resolveInfo.graphile.selectGraphQLResultFromTable(
       sql.fragment`public.account`,
-      (tableAlias, queryBuilder) => {
+      (tableAlias, queryBuilder) =>
         queryBuilder.where(
           sql.fragment`${tableAlias}.id = ${sql.value(user.id)}`
-        );
-      }
+        )
     );
 
-    await pgRootPool.query(
+    const {
+      rows: [invitation]
+    } = await pgRootPool.query(
       "update invitation set status = $1 where id = $2 returning *",
       ["ACCEPTED", invitations[0].id]
     );
     await pgRootPool.query(
       "update invitation set status = $1 where invitee = $2 and status = $3 returning *",
       ["CANCELLED", user.email, "NEW"]
+    );
+    await addRewardRecord(
+      _query,
+      {
+        input: {
+          accountId: invitation.sender_account_id,
+          rewardCategory: "rc1"
+        }
+      },
+      context
     );
 
     return row;

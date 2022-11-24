@@ -1011,6 +1011,49 @@ export const ssrGetGuaranteeTemplates = {
 
   usePage: useGetGuaranteeTemplates
 };
+export async function getServerPageMarkets(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.MarketsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.MarketsQuery>({
+    ...options,
+    query: Operations.MarketsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useMarkets = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.MarketsDocument, options);
+};
+export type PageMarketsComp = React.FC<{
+  data?: OperationTypes.MarketsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrMarkets = {
+  getServerPage: getServerPageMarkets,
+
+  usePage: useMarkets
+};
 export async function getServerPageGetMarketsByDomain(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetMarketsByDomainQueryVariables>,
@@ -1053,6 +1096,7 @@ export const ssrGetMarketsByDomain = {
 
   usePage: useGetMarketsByDomain
 };
+
 export async function getServerPageGetMediaFolders(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetMediaFoldersQueryVariables>,
@@ -1227,6 +1271,95 @@ export const ssrGetGlobalDataPublic = {
 
   usePage: useGetGlobalDataPublic
 };
+
+export async function getServerPageGetRewardRequests(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetRewardRequestsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetRewardRequestsQuery>({
+    ...options,
+    query: Operations.GetRewardRequestsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetRewardRequests = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetRewardRequestsQuery,
+    OperationTypes.GetRewardRequestsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetRewardRequestsDocument, options);
+};
+export type PageGetRewardRequestsComp = React.FC<{
+  data?: OperationTypes.GetRewardRequestsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetRewardRequests = {
+  getServerPage: getServerPageGetRewardRequests,
+
+  usePage: useGetRewardRequests
+};
+export async function getServerPageRewardTierByMarketId(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.QueryRewardTierByMarketIdQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.QueryRewardTierByMarketIdQuery>({
+      ...options,
+      query: Operations.QueryRewardTierByMarketIdDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useRewardTierByMarketId = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.QueryRewardTierByMarketIdQuery,
+    OperationTypes.QueryRewardTierByMarketIdQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.QueryRewardTierByMarketIdDocument, options);
+};
+export type PageRewardTierByMarketIdComp = React.FC<{
+  data?: OperationTypes.QueryRewardTierByMarketIdQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrRewardTierByMarketId = {
+  getServerPage: getServerPageRewardTierByMarketId,
+
+  usePage: useRewardTierByMarketId
+};
+
 export async function getServerPageGetContentArticleContent(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
@@ -1270,49 +1403,6 @@ export const ssrGetContentArticleContent = {
   getServerPage: getServerPageGetContentArticleContent,
 
   usePage: useGetContentArticleContent
-};
-export async function getServerPageMarkets(
-  options: Omit<
-    Apollo.QueryOptions<OperationTypes.MarketsQueryVariables>,
-    "query"
-  >,
-  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
-) {
-  const data = await apolloClient.query<OperationTypes.MarketsQuery>({
-    ...options,
-    query: Operations.MarketsDocument
-  });
-
-  const apolloState = apolloClient.cache.extract();
-
-  return {
-    props: {
-      apolloState: apolloState,
-      data: data?.data,
-      error: data?.error ?? data?.errors ?? null
-    }
-  };
-}
-export const useMarkets = (
-  optionsFunc?: (
-    router: NextRouter
-  ) => QueryHookOptions<
-    OperationTypes.MarketsQuery,
-    OperationTypes.MarketsQueryVariables
-  >
-) => {
-  const router = useRouter();
-  const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.MarketsDocument, options);
-};
-export type PageMarketsComp = React.FC<{
-  data?: OperationTypes.MarketsQuery;
-  error?: Apollo.ApolloError;
-}>;
-export const ssrMarkets = {
-  getServerPage: getServerPageMarkets,
-
-  usePage: useMarkets
 };
 export async function getServerPageProductsAndSystems(
   options: Omit<

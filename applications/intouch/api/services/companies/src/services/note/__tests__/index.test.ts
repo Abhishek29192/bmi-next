@@ -4,10 +4,14 @@ import {
   sendMessageWithTemplate,
   sendMailToMarketAdmins
 } from "../../../services/mailer";
+import * as rewardRecord from "../../rewardRecord";
 
 jest.mock("../../../services/mailer", () => ({
   sendMessageWithTemplate: jest.fn(),
   sendMailToMarketAdmins: jest.fn()
+}));
+jest.mock("../../rewardRecord", () => ({
+  addRewardRecord: jest.fn().mockImplementation(() => Promise.resolve())
 }));
 
 const mockCompanyAdminUsers = [
@@ -109,6 +113,16 @@ describe("Note", () => {
         projectId: 1,
         ...authorDetails
       }
+    );
+    expect(rewardRecord.addRewardRecord).toHaveBeenCalledWith(
+      null,
+      {
+        input: {
+          accountId: args.input.note.authorId,
+          rewardCategory: "rc7"
+        }
+      },
+      context
     );
   });
 

@@ -114,9 +114,6 @@ export const insertOne = async (
       `SELECT * FROM ${tableName} WHERE ${condition}`,
       parameters
     );
-    if (tableName === "docebo_tier") {
-      console.debug(condition, parameters);
-    }
     return existingRows[0];
   }
 
@@ -363,6 +360,57 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     docebo_catalogue_id: 1
   });
 
+  const rewardTier = await dbInsertOne("reward_tier", {
+    market_id: market.id,
+    tier_code: "T1",
+    reward_category: "rc1",
+    reward_point: 5
+  });
+
+  const otherMarketRewardTier = await dbInsertOne("reward_tier", {
+    market_id: otherMarket.id,
+    tier_code: "T1",
+    reward_category: "rc1",
+    reward_point: 5
+  });
+
+  const rewardRecord = await dbInsertOne("reward_record", {
+    market_id: market.id,
+    account_id: account.id,
+    company_id: company.id,
+    reward_tier: rewardTier.id,
+    reward_point: rewardTier.reward_point
+  });
+
+  const otherMarketRewardRecord = await dbInsertOne("reward_record", {
+    market_id: otherMarket.id,
+    account_id: otherMarketAccount.id,
+    company_id: otherMarketCompany.id,
+    reward_tier: otherMarketRewardTier.id,
+    reward_point: otherMarketRewardTier.reward_point
+  });
+
+  const rewardRequest = await dbInsertOne("reward_request", {
+    market_id: market.id,
+    account_id: account.id,
+    company_id: company.id,
+    reward_point: rewardTier.reward_point
+  });
+
+  const otherCompanyRewardRequest = await dbInsertOne("reward_request", {
+    market_id: market.id,
+    account_id: otherCompanyAdmin.id,
+    company_id: otherCompany.id,
+    reward_point: rewardTier.reward_point
+  });
+
+  const otherMarketRewardRequest = await dbInsertOne("reward_request", {
+    market_id: otherMarket.id,
+    account_id: otherMarketAccount.id,
+    company_id: otherMarketCompany.id,
+    reward_point: otherMarketRewardTier.reward_point
+  });
+
   await dbInsertOne("company_member", {
     market_id: market.id,
     company_id: company.id,
@@ -430,6 +478,13 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     certification,
     otherMarketCertification,
     doceboTier,
-    otherMarketDoceboTier
+    otherMarketDoceboTier,
+    rewardTier,
+    otherMarketRewardTier,
+    rewardRecord,
+    otherMarketRewardRecord,
+    rewardRequest,
+    otherCompanyRewardRequest,
+    otherMarketRewardRequest
   };
 };
