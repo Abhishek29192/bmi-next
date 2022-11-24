@@ -48,7 +48,7 @@ describe("ProductOverview component", () => {
     attributes: null,
     isRecaptchaShown: true,
     variantCode: "variant1",
-    isVisualiserAvailable: false,
+    isNavigationToVisualiserAvailable: false,
     color: "dark grey"
   };
 
@@ -92,7 +92,7 @@ describe("ProductOverview component", () => {
       <ProductOverview
         data={{
           ...data,
-          isVisualiserAvailable: true,
+          isNavigationToVisualiserAvailable: true,
           variantCode: "133000634_Zanda_Arktis_main_tile_antique_red"
         }}
       >
