@@ -121,7 +121,7 @@ export const RewardSummary = ({ company }: RewardSummaryProps) => {
                   const currentStageMax = stageMax[`${id}`];
                   const value =
                     rewardPoints.points - currentStageMax * id < currentStageMax
-                      ? rewardPoints.points - currentStageMax * id
+                      ? Math.max(rewardPoints.points - currentStageMax * id, 0)
                       : currentStageMax;
                   const status = stageClaimed[`${id}`]
                     ? "claimed"

@@ -25,5 +25,7 @@ export const mockCompany: Company = {
     pageInfo: singlePageInfo,
     totalCount: 1
   },
-  market: mockMarket
+  market: mockMarket,
+  rewardRecords: emptyNodes,
+  rewardRequests: emptyNodes
 };
