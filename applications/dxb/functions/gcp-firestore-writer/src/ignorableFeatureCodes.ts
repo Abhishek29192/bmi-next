@@ -1,7 +1,6 @@
 import { FeatureCode } from "@bmi/pim-types";
 
 export const productIgnorableAttributes: FeatureCode[] = [
-  "appearanceAttributes.colourfamily",
   "scoringWeightAttributes.scoringweight",
   "bagUomAttributes.categoryOfEan11",
   "bagUomAttributes.denominatorForConversion",
@@ -263,6 +262,12 @@ export const productIgnorableAttributes: FeatureCode[] = [
   "fabDisAssetInformation.RNOM",
   "fabDisAssetInformation.RURL",
   "fabDisAssetInformation.RURLT"
+];
+// we need to ignore `colourfamily` from classifications list but not from
+// filter generation list!!
+export const productIgnorableClassfications: FeatureCode[] = [
+  "appearanceAttributes.colourfamily",
+  ...productIgnorableAttributes
 ];
 
 export const systemIgnorableAttributes: FeatureCode[] = [

@@ -2506,6 +2506,16 @@ describe("transformProduct", () => {
             },
             Object {
               "code": "code",
+              "filterCode": "appearanceAttributes.colourfamily",
+              "groupLabel": "Colour Family",
+              "isCategory": false,
+              "name": "Colour Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Black",
+            },
+            Object {
+              "code": "code",
               "filterCode": "appearanceAttributes.texturefamily",
               "groupLabel": "Texture Family",
               "isCategory": false,
@@ -3400,6 +3410,16 @@ describe("transformProduct", () => {
             },
             Object {
               "code": "code",
+              "filterCode": "appearanceAttributes.colourfamily",
+              "groupLabel": "Colour Family",
+              "isCategory": false,
+              "name": "Colour Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Black",
+            },
+            Object {
+              "code": "code",
               "filterCode": "appearanceAttributes.texturefamily",
               "groupLabel": "Texture Family",
               "isCategory": false,
@@ -3962,6 +3982,220 @@ describe("transformProduct", () => {
           }
         ],
         name: "variant only classification name"
+      }
+    ]);
+  });
+
+  it("ignores colourfamily classifications on classifications but keeps them on filters When there are more than one variants", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          name: "Appearance",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              name: "Colour",
+              featureValues: [createFeatureValue({ value: "Rustic Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+              name: "Colour Family",
+              featureValues: [createFeatureValue({ value: "Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+              name: "Texture Family",
+              featureValues: [createFeatureValue({ value: "Matt" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+              name: "Variant Attribute",
+              featureValues: [
+                createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+              ],
+              featureUnit: undefined
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              name: "Appearance",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                  name: "Colour",
+                  featureValues: [createFeatureValue({ value: "Rustic Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+                  name: "Colour Family",
+                  featureValues: [createFeatureValue({ value: "Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+                  name: "Texture Family",
+                  featureValues: [createFeatureValue({ value: "Matt" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+                  name: "Variant Attribute",
+                  featureValues: [
+                    createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+                  ],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        }),
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              name: "Appearance",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                  name: "Colour",
+                  featureValues: [createFeatureValue({ value: "Rustic Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+                  name: "Colour Family",
+                  featureValues: [createFeatureValue({ value: "Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+                  name: "Texture Family",
+                  featureValues: [createFeatureValue({ value: "Matt" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+                  name: "Variant Attribute",
+                  featureValues: [
+                    createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+                  ],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].filters).toEqual([
+      {
+        filterCode: "appearanceAttributes.colour",
+        name: "Colour",
+        value: "Rustic Red",
+        code: "code",
+        groupLabel: "Colour",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.colourfamily",
+        name: "Colour Family",
+        value: "Red",
+        code: "code",
+        groupLabel: "Colour Family",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.TextureFamily",
+        name: "Texture Family",
+        value: "Matt",
+        code: "code",
+        groupLabel: "Texture Family",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.VariantAttribute",
+        name: "Variant Attribute",
+        value: "Rustic Red Matt 1x2x3x4x5",
+        code: "code",
+        groupLabel: "Variant Attribute",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "parent-category-code",
+        code: "parent-category-code",
+        parentFilterCode: "",
+        isCategory: true
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "ProductFamily",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "ProductLine",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "BMI-brand-code",
+        code: "BMI-brand-code",
+        parentFilterCode: "BMI_Brands",
+        isCategory: true
+      }
+    ]);
+    expect(transformedProducts[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "Colour",
+            value: "Rustic Red"
+          },
+          {
+            name: "Texture Family",
+            value: "Matt"
+          },
+          {
+            name: "Variant Attribute",
+            value: "Rustic Red Matt 1x2x3x4x5"
+          }
+        ],
+        name: "Appearance"
       }
     ]);
   });
