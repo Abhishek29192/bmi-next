@@ -28,7 +28,7 @@ export type Data = {
   variantCode: string;
   isRecaptchaShown?: boolean;
   videos?: MediaData[];
-  isVisualiserAvailable: boolean;
+  isNavigationToVisualiserAvailable: boolean;
 };
 
 type Props = {
@@ -56,7 +56,7 @@ const ProductOverview = ({
     isRecaptchaShown,
     videos = [],
     variantCode,
-    isVisualiserAvailable
+    isNavigationToVisualiserAvailable
   },
   children
 }: Props) => {
@@ -67,7 +67,7 @@ const ProductOverview = ({
   } = useConfig();
 
   const getVisualiserMedia = () => {
-    if (!isVisualiserAvailable) {
+    if (isV2VisualiserEnabled && !isNavigationToVisualiserAvailable) {
       return;
     }
 
