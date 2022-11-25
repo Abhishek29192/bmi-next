@@ -15,9 +15,15 @@ import { MarketList } from "..";
 
 export type RewardSystemFormProps = {
   market: MarketList["nodes"][0];
+  markets: MarketList;
+  updateMarkets: React.Dispatch<React.SetStateAction<MarketList>>;
 };
 
-export const RewardSystemForm = ({ market }: RewardSystemFormProps) => {
+export const RewardSystemForm = ({
+  market,
+  markets,
+  updateMarkets
+}: RewardSystemFormProps) => {
   const { t } = useTranslation("admin-markets");
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [formData, setFormData] = useState(null);
@@ -30,15 +36,7 @@ export const RewardSystemForm = ({ market }: RewardSystemFormProps) => {
         });
       },
       onCompleted: ({ updateMarket }) => {
-        const data = updateMarket.query.markets.nodes.find(
-          ({ id }) => id === market.id
-        );
-        setFormData({
-          isEnabled: !!data.rewardEffectiveDate,
-          rewardEffectiveDate: data.rewardEffectiveDate
-            ? dayjs(data.rewardEffectiveDate).format("MM-DD-YYYY")
-            : null
-        });
+        updateMarkets({ ...markets, ...updateMarket.query.markets });
         setIsEditing(false);
       }
     });

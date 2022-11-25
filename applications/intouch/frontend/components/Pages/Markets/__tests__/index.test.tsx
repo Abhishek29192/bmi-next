@@ -104,7 +104,7 @@ const doceboTiers = { nodes: [generateDoceboTier()] };
 const merchandiseTiers = { nodes: [generateMerchandiseTier()] };
 
 describe("Market page", () => {
-  afterEach(() => {
+  beforeEach(() => {
     jest.clearAllMocks();
   });
 
@@ -181,17 +181,14 @@ describe("Market page", () => {
       mockUseUpdateMarketMutationOnCompleted({
         updateMarket: {
           query: {
-            markets: generateMarketContext({
-              projectsEnabled: true,
-              name: "New Name"
-            })
+            markets: {
+              nodes: [
+                markets[0],
+                { ...markets[1], projectsEnabled: true, name: "New Name" }
+              ]
+            }
           }
         }
-      })
-    );
-    mockUpdateDoceboTiers.mockImplementationOnce(() =>
-      mockUpdateDoceboTiersOnCompleted({
-        updateDoceboTiersByMarket: [genereateDoceboTierResult()]
       })
     );
     const { container } = renderWithUserProvider(
@@ -206,18 +203,15 @@ describe("Market page", () => {
 
     fireEvent.click(screen.getByText("Mapleland-1"));
     fireEvent.click(screen.getByTestId("btn-edit"));
-
     fireEvent.change(screen.getByDisplayValue("Mapleland-1"), {
       target: {
         value: "New Name"
       }
     });
     fireEvent.click(container.querySelector("input[name='projectsEnabled']"));
-
     fireEvent.click(screen.getByTestId("btn-save"));
 
     expect(mockUseUpdateMarketMutation).toMatchSnapshot();
-    await waitFor(() => expect(mockUpdateDoceboTiers).toHaveBeenCalledTimes(1));
 
     fireEvent.click(screen.getByTestId("btn-show"));
 
@@ -228,11 +222,13 @@ describe("Market page", () => {
   });
 
   it("should run updateDoceboTiers when updating catalogue id", async () => {
-    mockUseUpdateMarketMutation.mockImplementationOnce(({ variables }) =>
+    mockUseUpdateMarketMutation.mockImplementationOnce(() =>
       mockUseUpdateMarketMutationOnCompleted({
         updateMarket: {
           query: {
-            markets: variables.input.id
+            markets: {
+              nodes: markets
+            }
           }
         }
       })
@@ -258,19 +254,11 @@ describe("Market page", () => {
 
     fireEvent.click(screen.getByText("Mapleland-1"));
     fireEvent.click(screen.getByTestId("btn-edit"));
-
     fireEvent.change(container.querySelector("input[name='T1']"), {
       target: {
         value: "123"
       }
     });
-
-    fireEvent.change(container.querySelector("input[name='projectsEnabled']"), {
-      target: {
-        value: true
-      }
-    });
-
     fireEvent.click(screen.getByTestId("btn-save"));
 
     await waitFor(() => {
@@ -325,7 +313,9 @@ describe("Market page", () => {
     );
     expect(mockRewardSystemForm).toHaveBeenCalledWith(
       expect.objectContaining({
-        market: props
+        market: props,
+        markets: { nodes: markets },
+        updateMarkets: expect.any(Function)
       })
     );
   });
@@ -457,11 +447,13 @@ describe("Market page", () => {
     });
 
     it("error only occur from updatetiers", async () => {
-      mockUseUpdateMarketMutation.mockImplementationOnce(({ variables }) =>
+      mockUseUpdateMarketMutation.mockImplementationOnce(() =>
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -500,7 +492,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -532,7 +526,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -564,7 +560,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })

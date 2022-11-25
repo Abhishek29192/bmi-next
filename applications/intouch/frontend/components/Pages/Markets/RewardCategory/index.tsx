@@ -15,7 +15,6 @@ export type RewardTier = {
 };
 
 export const RewardCategory = ({ market }: RewardCategoryFormProps) => {
-  console.log(market);
   const [rewardCategories, setRewardCategories] = useState<RewardTier>(null);
   const [getRewardTiers] = useQueryRewardTierByMarketIdLazyQuery({
     variables: {
@@ -37,7 +36,6 @@ export const RewardCategory = ({ market }: RewardCategoryFormProps) => {
           ]
         };
       }, {});
-      console.log(groupByRewardCategory);
       setRewardCategories(groupByRewardCategory);
     }
   });
