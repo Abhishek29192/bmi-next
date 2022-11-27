@@ -24,6 +24,7 @@ import AccessControl from "../lib/permissions/AccessControl";
 import styles from "../styles/Homepage.module.scss";
 import { getMarketAndEnvFromReq, parseMarketTag } from "../lib/utils";
 import { MerchandiseCTA } from "../components/Cta/Merchandise";
+import { getGtmData } from "../lib/utils/gtm";
 
 export type HomePageProps = GlobalPageProps & {
   marketContent: GetPartnerBrandsQuery["marketContentCollection"]["items"][0];
@@ -319,6 +320,9 @@ export const getServerSideProps = withPage(
 
 const ProjectCTA = ({ onClick }: { onClick: () => void }) => {
   const { t } = useTranslation("home-page");
+  const buttonLabel = t(`hero.cta.PROJECT`);
+  const dataGtm = getGtmData("cta-click1", buttonLabel, "project");
+
   return (
     <Button
       hasDarkBackground
@@ -326,8 +330,9 @@ const ProjectCTA = ({ onClick }: { onClick: () => void }) => {
       style={{ marginTop: "2em" }}
       onClick={onClick}
       data-testid="project-cta"
+      data-gtm={dataGtm}
     >
-      {t(`hero.cta.PROJECT`)}
+      {buttonLabel}
     </Button>
   );
 };
@@ -341,11 +346,13 @@ const OtherCTA = ({
   buttonText?: string;
 }) => {
   const { t } = useTranslation("home-page");
+  const buttonLabel = buttonText || t(`hero.cta.${ctaName}`);
+  const dataGtm = getGtmData("cta-click1", buttonLabel, url);
 
   return (
-    <Link href={url} isExternal={true}>
+    <Link data-gtm={dataGtm} href={url} isExternal={true}>
       <Button hasDarkBackground variant="outlined" style={{ marginTop: "2em" }}>
-        {buttonText || t(`hero.cta.${ctaName}`)}
+        {buttonLabel}
       </Button>
     </Link>
   );
