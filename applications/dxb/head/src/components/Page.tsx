@@ -151,6 +151,11 @@ const Page = ({
                   navigationData={menuNavigation}
                   utilitiesData={menuUtilities}
                   countryCode={countryCode}
+                  lastNavigationLabel={
+                    (breadcrumbs &&
+                      breadcrumbs[breadcrumbs.length - 1].label) ||
+                    undefined
+                  }
                   activeLabel={
                     (breadcrumbs && breadcrumbs[0]?.label) || undefined
                   }
