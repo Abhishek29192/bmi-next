@@ -11,11 +11,13 @@ import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
 import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
+import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -49,9 +51,10 @@ const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
-  token: string,
   config: EnvConfig["config"],
-  callback?: () => void
+  token?: string,
+  callback?: () => void,
+  qaAuthToken?: string
 ) => {
   const { isPreviewMode, documentDownloadEndpoint } = config;
   const listValues = Object.values(list).filter(Boolean);
@@ -101,7 +104,8 @@ export const handleDownloadClick = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Recaptcha-Token": token
+        "X-Recaptcha-Token": token,
+        authorization: qaAuthToken && `Bearer ${qaAuthToken}`
       },
       body: JSON.stringify({ documents })
     });
@@ -163,6 +167,7 @@ const DocumentResultsFooter = ({
   const { resetList, list } = useContext(DownloadListContext);
   const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
@@ -195,9 +200,14 @@ const DocumentResultsFooter = ({
               microCopy.DOWNLOAD_LIST_DOWNLOAD
             )} ({{count}})`}
             onClick={async (list) => {
-              const token = await executeRecaptcha();
-
-              await handleDownloadClick(list, token, config, resetList);
+              const token = qaAuthToken ? undefined : await executeRecaptcha();
+              await handleDownloadClick(
+                list,
+                config,
+                token,
+                resetList,
+                qaAuthToken
+              );
             }}
             data-testid="document-table-download-button"
           />

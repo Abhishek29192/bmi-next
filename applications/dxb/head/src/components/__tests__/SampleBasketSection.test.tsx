@@ -93,7 +93,10 @@ const data: Data = {
   }
 };
 
-const fetchMock = jest.fn();
+const mockedWindowDocumentCookie = jest.spyOn(window.document, "cookie", "get");
+const qaAuthToken = "qaAuthToken";
+
+const fetchMock = jest.fn().mockResolvedValue({ ok: true });
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
@@ -178,8 +181,6 @@ describe("SampleBasketSection with form", () => {
 
     fireEvent.submit(container.querySelector("form"));
 
-    fetchMock.mockResolvedValueOnce({ ok: true });
-
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -197,7 +198,62 @@ describe("SampleBasketSection with form", () => {
           }),
           headers: {
             "X-Recaptcha-Token": "RECAPTCHA",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
+        }
+      )
+    );
+
+    expect(BasketContextUtils.basketReducer).toHaveBeenCalledWith(
+      { products: [sample] },
+      { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
+    );
+    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+  });
+
+  it("should submit form with provided samples without recaptcha call", async () => {
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const { container } = render(
+      <MockSiteContext>
+        <BasketContextProvider>
+          <SampleBasketSection data={data} />
+        </BasketContextProvider>
+      </MockSiteContext>
+    );
+
+    jest.spyOn(BasketContextUtils, "basketReducer");
+
+    fireEvent.click(screen.getByText("MC: pdp.overview.completeSampleOrder"));
+
+    fireEvent.change(screen.getByRole("textbox"), {
+      target: { value: "Text" }
+    });
+
+    fireEvent.submit(container.querySelector("form"));
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Complete form",
+            recipients: "recipient@mail.com",
+            values: {
+              text: "Text",
+              samples:
+                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/<br>color: green<br>texture: rough<br>measurements: 1x2x3 mm"
+            }
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
           }
         }
       )
@@ -241,8 +297,6 @@ describe("SampleBasketSection with form", () => {
 
     fireEvent.submit(container.querySelector("form"));
 
-    fetchMock.mockResolvedValueOnce({ ok: true });
-
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -260,7 +314,73 @@ describe("SampleBasketSection with form", () => {
           }),
           headers: {
             "X-Recaptcha-Token": "RECAPTCHA",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
+        }
+      )
+    );
+
+    expect(BasketContextUtils.basketReducer).toHaveBeenCalledWith(
+      { products: [sample] },
+      { type: BasketContextUtils.ACTION_TYPES.BASKET_CLEAR }
+    );
+    expect(local.getItem).lastCalledWith("no-basketItems");
+    expect(local.setItem).lastCalledWith("no-basketItems", "[]");
+  });
+
+  it("should submit form with provided samples, ignoring null values without recaptcha call", async () => {
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const sample: Sample = {
+      name: "sample-1",
+      code: "sample-1",
+      path: "sample-1-details",
+      colour: null,
+      textureFamily: null,
+      measurements: null
+    };
+
+    jest.spyOn(local, "getItem").mockReturnValueOnce(JSON.stringify([sample]));
+
+    const { container } = render(
+      <MockSiteContext>
+        <BasketContextProvider>
+          <SampleBasketSection data={data} />
+        </BasketContextProvider>
+      </MockSiteContext>
+    );
+
+    jest.spyOn(BasketContextUtils, "basketReducer");
+
+    fireEvent.click(screen.getByText("MC: pdp.overview.completeSampleOrder"));
+
+    fireEvent.change(screen.getByRole("textbox"), {
+      target: { value: "Text" }
+    });
+
+    fireEvent.submit(container.querySelector("form"));
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Complete form",
+            recipients: "recipient@mail.com",
+            values: {
+              text: "Text",
+              samples:
+                "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/"
+            }
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
           }
         }
       )
@@ -274,10 +394,11 @@ describe("SampleBasketSection with form", () => {
     expect(local.setItem).lastCalledWith("no-basketItems", "[]");
   });
 });
+
 describe("SampleBasketSection remove sample from basket", () => {
   describe("when all samples are removed", () => {
     it("renders empty basket content and `browse all products` button", async () => {
-      const { container } = render(
+      render(
         <MockSiteContext>
           <BasketContextProvider>
             <SampleBasketSection data={data} />
@@ -291,7 +412,6 @@ describe("SampleBasketSection remove sample from basket", () => {
 
       const browseAllButton = screen.getByText("browse all products");
 
-      expect(container).toMatchSnapshot();
       expect(screen.queryByText("your basket is empty.")).not.toBeNull();
       expect(browseAllButton).not.toBeNull();
       expect(browseAllButton).toHaveAttribute(

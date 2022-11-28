@@ -24,9 +24,11 @@ import createAssetFileCountMap, {
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
 import { Format } from "../../../components/types";
+import { QA_AUTH_TOKEN } from "../../../constants/cookieConstants";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { downloadAs } from "../../../utils/client-download";
+import getCookie from "../../../utils/getCookie";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
 import { classes, Root, Title } from "./DocumentTechnicalTableResultsStyles";
@@ -48,6 +50,7 @@ const DesktopDocumentTechnicalTableResults = ({
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   const GTMClickable = withGTM<ClickableProps>(Clickable);
   const GTMButton = withGTM<IconButtonProps>(Button);
@@ -112,7 +115,7 @@ const DesktopDocumentTechnicalTableResults = ({
           zipFileName = `${assets[0].productName} ${assets[0].assetType.name}.zip`;
         }
 
-        const token = await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha();
         const assetFileCountMap: AssetUniqueFileCountMap =
           createAssetFileCountMap(assets);
         const documents = assets.map((asset, index) => ({
@@ -132,7 +135,8 @@ const DesktopDocumentTechnicalTableResults = ({
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-Recaptcha-Token": token
+            "X-Recaptcha-Token": token,
+            authorization: qaAuthToken && `Bearer ${qaAuthToken}`
           },
           body: JSON.stringify({ documents })
         });

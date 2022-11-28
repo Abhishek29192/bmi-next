@@ -17,10 +17,12 @@ import React, {
   useState
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { queryElasticSearch } from "../utils/elasticSearch";
+import getCookie from "../utils/getCookie";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
@@ -127,6 +129,7 @@ const SystemConfiguratorQuestion = ({
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
   const [nextId, setNextId] = useState<string>(myStoredAnswerId);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
@@ -147,7 +150,7 @@ const SystemConfiguratorQuestion = ({
 
     const controller = new AbortController();
 
-    const recaptchaToken = await executeRecaptcha();
+    const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
 
     try {
       const response: Response = await fetch(
@@ -155,7 +158,8 @@ const SystemConfiguratorQuestion = ({
         {
           method: "GET",
           headers: {
-            "X-Recaptcha-Token": recaptchaToken
+            "X-Recaptcha-Token": recaptchaToken,
+            authorization: qaAuthToken && `Bearer ${qaAuthToken}`
           },
           signal: controller.signal
         }
