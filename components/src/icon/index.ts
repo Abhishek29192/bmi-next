@@ -22,10 +22,15 @@ import Download from "./svgs/Download.svg";
 import External from "./svgs/External.svg";
 import ExternalMobile from "./svgs/ExternalMobile.svg";
 import Facebook from "./svgs/Facebook.svg";
+import FileDOCX from "./svgs/FileDOCX.svg";
 import FileJPEG from "./svgs/FileJPEG.svg";
 import FileJPG from "./svgs/FileJPG.svg";
 import FilePDF from "./svgs/FilePDF.svg";
 import FilePNG from "./svgs/FilePNG.svg";
+import FileSVG from "./svgs/FileSVG.svg";
+import FileTXT from "./svgs/FileTXT.svg";
+import FileUniversal from "./svgs/FileUniversal.svg";
+import FileXLSX from "./svgs/FileXLSX.svg";
 import FileZIP from "./svgs/FileZIP.svg";
 import FlatRoof from "./svgs/FlatRoof.svg";
 import FolderZip from "./svgs/FolderZip.svg";
@@ -57,6 +62,11 @@ export {
   FileJPG,
   FilePDF,
   FilePNG,
+  FileDOCX,
+  FileSVG,
+  FileTXT,
+  FileUniversal,
+  FileXLSX,
   Cross,
   Design,
   External,
@@ -96,6 +106,11 @@ export const iconMap = {
   FileJPG,
   FilePDF,
   FilePNG,
+  FileDOCX,
+  FileSVG,
+  FileTXT,
+  FileUniversal,
+  FileXLSX,
   FileZIP,
   Cross,
   Design,
