@@ -2540,6 +2540,8 @@ type Company implements Node {
   registeredAddressMigrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
+  contractStatus: Boolean
+  renewalDate: Datetime
 
   """Reads a single `Market` that is related to this `Company`."""
   market: Market
@@ -8144,6 +8146,8 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -8842,6 +8846,8 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -9113,6 +9119,8 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -9499,6 +9507,8 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -9757,6 +9767,8 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -10745,6 +10757,8 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -11003,6 +11017,8 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -14334,6 +14350,8 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -17833,6 +17851,8 @@ input updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -18064,6 +18084,8 @@ input updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
@@ -18342,6 +18364,8 @@ input CompanyPatch {
   registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  contractStatus: Boolean
+  renewalDate: Datetime
   marketToMarketId: CompanyMarketIdFkeyInput
   addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
   addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
