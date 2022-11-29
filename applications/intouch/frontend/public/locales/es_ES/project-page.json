@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Los datos del proyecto no se pueden editar debido al estado de la garantía."
     },
     "loading": "Cargando datos del proyecto",
-    "error": "Error al cargar los datos del proyecto"
+    "error": "Error al cargar los datos del proyecto",
+    "technology": "Tipo de tecnología"
   },
   "buildingOwnerDetails": {
     "title": "Datos del propietario",

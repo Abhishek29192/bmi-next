@@ -90,5 +90,7 @@
   "button": {
     "more": "Mostra di più",
     "less": "Mostra meno"
-  }
+  },
+  "Technology type": "Tipo di tecnologia",
+  "Tier type": "Tipo di livello"
 }

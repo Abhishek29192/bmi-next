@@ -90,5 +90,7 @@
   "button": {
     "more": "Zeig mehr",
     "less": "Zeige weniger"
-  }
+  },
+  "Technology type": "Technologietyp",
+  "Tier type": "Leveltyp"
 }

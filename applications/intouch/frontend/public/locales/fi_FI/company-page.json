@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Järjestelmänvalvojat",
-  "companyMembers": "Asentajat/Jäsenet"
+  "companyMembers": "Asentajat/Jäsenet",
+  "reward": {
+    "title": "Aktiivisuuden seurantalaite",
+    "stage": "Osa",
+    "status": {
+      "pending": "Tullakseen tehdyksi",
+      "inProgress": "Meneillään",
+      "completed": "Valmis",
+      "claimed": "Väitetty"
+    },
+    "claimLabel": "Lunasta palkinto",
+    "claimRewardDialog": {
+      "title": "Onnittelut!",
+      "description": "Osa {{stage}} on valmis! Edistyt hyvin ja voit nyt lunastaa palkinnon. Lähetämme sinulle tiedot vaatimuksen tekemiseen sähköpostitse, kun olet vahvistanut vaatimuksesi. Kiitos!",
+      "confirmLabel": "Vahvistaa",
+      "cancelLabel": "Peruuttaa",
+      "closeLabel": "Kiinni",
+      "acknowledgement": {
+        "title": "Kiitos, että olet niin aktiivinen!",
+        "description": "Lähetämme sinulle sähköpostin, jossa on kaikki tiedot. Ole hyvä ja tarkista se."
+      }
+    }
+  },
+  "filters.labels.ALL": "Kaikki"
 }

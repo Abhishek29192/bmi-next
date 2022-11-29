@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administratoren",
-  "companyMembers": "Installateure/Mitglieder"
+  "companyMembers": "Installateure/Mitglieder",
+  "reward": {
+    "title": "Aktivitätstracker",
+    "stage": "Stufe",
+    "status": {
+      "pending": "Getan werden",
+      "inProgress": "Im Gange",
+      "completed": "Abgeschlossen",
+      "claimed": "Behauptet"
+    },
+    "claimLabel": "Belohnung einfordern",
+    "claimRewardDialog": {
+      "title": "Herzliche Glückwünsche!",
+      "description": "Stufe {{stage}} ist abgeschlossen! Sie machen gute Fortschritte und können jetzt eine Belohnung beanspruchen. Wir senden Ihnen Einzelheiten zur Geltendmachung eines Anspruchs per E-Mail, nachdem Sie Ihren Anspruch bestätigt haben. Vielen Dank!",
+      "confirmLabel": "Bestätigen",
+      "cancelLabel": "Absagen",
+      "closeLabel": "Nah dran",
+      "acknowledgement": {
+        "title": "Danke, dass Sie so aktiv sind!",
+        "description": "Wir senden Ihnen eine E-Mail mit allen Details. Überprüfen Sie bitte das."
+      }
+    }
+  },
+  "filters.labels.ALL": "Alle"
 }
