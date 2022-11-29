@@ -48,7 +48,7 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     : {};
 
   logger.info({
-    message: `WRITE: Received message with type: [${message.type}][${
+    message: `WRITE: Received message [${message.type}][${
       message.itemType
     }]: ${JSON.stringify(message.item)}`
   });
