@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Projektdetaljer kan inte redigeras på grund av garantistatus."
     },
     "loading": "Laddar projektdetaljer",
-    "error": "Det gick inte att läsa in projektinformation."
+    "error": "Det gick inte att läsa in projektinformation.",
+    "technology": "Teknik typ"
   },
   "buildingOwnerDetails": {
     "title": "Byggnadsägarens detaljer",

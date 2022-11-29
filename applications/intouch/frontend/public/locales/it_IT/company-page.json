@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Amministratori",
-  "companyMembers": "Installatori/Membri"
+  "companyMembers": "Installatori/Membri",
+  "reward": {
+    "title": "Rilevatore di attività",
+    "stage": "Fase",
+    "status": {
+      "pending": "Da fare",
+      "inProgress": "In corso",
+      "completed": "Completato",
+      "claimed": "Ha sostenuto"
+    },
+    "claimLabel": "Reclamare la ricompensa",
+    "claimRewardDialog": {
+      "title": "Congratulazioni!",
+      "description": "La fase {{stage}} è completata! Stai facendo buoni progressi e ora puoi richiedere una ricompensa. Ti invieremo i dettagli per presentare un reclamo tramite e-mail dopo che avrai confermato il tuo reclamo. Grazie!",
+      "confirmLabel": "Confermare",
+      "cancelLabel": "Annulla",
+      "closeLabel": "Chiudere",
+      "acknowledgement": {
+        "title": "Grazie per essere così attivo!",
+        "description": "Ti stiamo inviando una mail con tutti i dettagli. Per favore controllalo."
+      }
+    }
+  },
+  "filters.labels.ALL": "Tutto"
 }

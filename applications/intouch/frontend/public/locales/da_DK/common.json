@@ -90,5 +90,7 @@
   "button": {
     "more": "Vis mere",
     "less": "Vis mindre"
-  }
+  },
+  "Technology type": "Teknologi type",
+  "Tier type": "Niveau type"
 }

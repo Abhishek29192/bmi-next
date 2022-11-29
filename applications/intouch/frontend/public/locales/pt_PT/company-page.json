@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administradores",
-  "companyMembers": "Instaladores/Membros"
+  "companyMembers": "Instaladores/Membros",
+  "reward": {
+    "title": "Rastreador de atividades",
+    "stage": "Parte",
+    "status": {
+      "pending": "Para ser feito",
+      "inProgress": "Em andamento",
+      "completed": "Concluído",
+      "claimed": "Reivindicado"
+    },
+    "claimLabel": "Reivindicar recompensa",
+    "claimRewardDialog": {
+      "title": "Parabéns!",
+      "description": "A parte {{stage}} está concluída! Você está fazendo um bom progresso e agora pode reivindicar uma recompensa. Enviaremos a você os detalhes para fazer uma reclamação por e-mail depois que você confirmar sua reclamação. Obrigada!",
+      "confirmLabel": "Confirme",
+      "cancelLabel": "Cancelar",
+      "closeLabel": "Perto",
+      "acknowledgement": {
+        "title": "Obrigado por ser tão ativo!",
+        "description": "Estamos enviando um e-mail para você com todos os detalhes. Por favor verifique isto."
+      }
+    }
+  },
+  "filters.labels.ALL": "Tudo"
 }

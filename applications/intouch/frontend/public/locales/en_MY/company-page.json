@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administrators",
-  "companyMembers": "Installers/Members"
+  "companyMembers": "Installers",
+  "reward": {
+    "title": "Activity Tracker",
+    "stage": "Stage",
+    "status": {
+      "pending": "Pending",
+      "inProgress": "To Do",
+      "completed": "Completed",
+      "claimed": "Claimed"
+    },
+    "claimLabel": "Claim Reward",
+    "claimRewardDialog": {
+      "title": "Congratulations!",
+      "description": "Stage {{stage}} is completed! You have been very proactive.We will send you all details to your email after you claim reward. Thank you!",
+      "confirmLabel": "Confirm",
+      "cancelLabel": "Cancel",
+      "closeLabel": "Close",
+      "acknowledgement": {
+        "title": "Thank you for being so active!",
+        "description": "We have sent you an email with all the details, please check it."
+      }
+    }
+  },
+  "filters.labels.ALL": "All"
 }

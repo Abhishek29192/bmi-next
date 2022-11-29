@@ -172,12 +172,12 @@
   "companyAdministrators": "Administrators",
   "companyMembers": "Installers",
   "reward": {
-    "title": "Rewards section",
+    "title": "Activity Tracker",
     "stage": "Stage",
     "status": {
       "pending": "Pending",
       "inProgress": "To Do",
-      "completed": "Complated",
+      "completed": "Completed",
       "claimed": "Claimed"
     },
     "claimLabel": "Claim Rewards",
@@ -192,5 +192,6 @@
         "description": "We have sent you an  email with all the details, please check it."
       }
     }
-  }
+  },
+  "filters.labels.ALL": "All"
 }
