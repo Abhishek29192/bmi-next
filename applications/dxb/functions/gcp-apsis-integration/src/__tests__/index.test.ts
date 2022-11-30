@@ -361,6 +361,28 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
+  it("returns status code 400 when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(
+      { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+      {
+        "X-Recaptcha-Token": undefined,
+        authorization: "Bearer qaAuthTokenFailed"
+      }
+    );
+    const res = mockResponse();
+
+    await optInEmailMarketing(req, res);
+
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
+      { method: "POST" }
+    );
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+  });
+
   it("returns status code 500 when an error is returned from Secret Manager", async () => {
     const req = mockRequest();
     const res = mockResponse();
@@ -1382,5 +1404,108 @@ describe("Making a POST request", () => {
       },
       method: "PATCH"
     });
+  });
+
+  it("returns status code 200 when ALL api calls succeed when the authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const payloadEmail = "a@a.com";
+    const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
+    const req = mockRequest(
+      {
+        email: payloadEmail,
+        gdpr_1: true,
+        gdpr_2: true
+      },
+      { "x-recaptcha-token": undefined, authorization: "Bearer qaAuthToken" }
+    );
+    const res = mockResponse();
+
+    mockResponses(
+      fetchMock,
+      {
+        method: "POST",
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        })
+      },
+      {
+        method: "PATCH",
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateSubscriptionEndpoint(payloadEmail),
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+    expect(fetchMock).toHaveFetchedTimes(4);
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
+      { method: "POST" }
+    );
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: process.env.APSIS_CLIENT_ID,
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
+      {
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
+        },
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      }
+    );
   });
 });

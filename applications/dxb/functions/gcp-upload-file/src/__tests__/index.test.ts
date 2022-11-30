@@ -373,6 +373,29 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
+  it("returns status code 400 when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
+      "X-Recaptcha-Token": undefined,
+      authorization: "Bearer qaAuthTokenFailed"
+    });
+    const res = mockResponse();
+
+    await upload(req, res);
+
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
+      { method: "POST" }
+    );
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createUpload).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+    process.env.QA_AUTH_TOKEN = undefined;
+  });
+
   it("returns status code 406 when the type of file to be uploaded is not allowed", async () => {
     const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.gif`));
     const res = mockResponse();
@@ -750,5 +773,31 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledTimes(2);
     expect(res.send).toBeCalledWith(uploadResponse);
     expect(res.send).toBeCalledTimes(2);
+  });
+
+  it("returns status 200 when authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
+      "x-recaptcha-token": undefined,
+      authorization: "Bearer qaAuthToken"
+    });
+    const res = mockResponse();
+
+    const uploadResponse = {
+      expected: "response"
+    };
+    createUpload.mockResolvedValueOnce(uploadResponse);
+
+    await upload(req, res);
+
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.send).toBeCalledWith(uploadResponse);
   });
 });
