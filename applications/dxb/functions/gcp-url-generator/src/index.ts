@@ -71,6 +71,11 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
   } else {
     transformedItems = transformSystem(item);
   }
+
+  logger.info({
+    message: `Final transformedItems: ${JSON.stringify(transformedItems)}`
+  });
+
   await publishMessage({
     type: type,
     itemType: itemType,
