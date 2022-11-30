@@ -104,7 +104,7 @@ describe("DocumentDownloadSection component", () => {
     expect(container.querySelectorAll("table").length).toBe(0);
   });
 
-  it("does not render icon with unknown content type", () => {
+  it("render FileUniversal icon for document with unknown content type", () => {
     const documentWithUnknownContentType = createContentfulDocument({
       asset: {
         file: {
@@ -130,6 +130,6 @@ describe("DocumentDownloadSection component", () => {
     );
 
     expect(container.querySelectorAll("table tbody button").length).toBe(1);
-    expect(container.querySelectorAll("table tbody svg").length).toBe(0);
+    expect(container.querySelectorAll("table tbody svg").length).toBe(1);
   });
 });
