@@ -9,8 +9,8 @@ import {
   Classification,
   Feature,
   Product as PIMProduct,
-  VariantOption as PIMVariant,
-  ProductReference as PIMProductReference
+  ProductReference as PIMProductReference,
+  VariantOption as PIMVariant
 } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
@@ -52,7 +52,9 @@ const combineVariantClassifications = (
     ])
   );
   logger.info({
-    message: `product classification: ${productClassificationMap}`
+    message: `product classification: ${JSON.stringify(
+      productClassificationMap
+    )}`
   });
   // process variant classifications except "scoringWeightAttributes"
   const variantClassificationsMap = new Map(
@@ -61,7 +63,9 @@ const combineVariantClassifications = (
       .map((classification) => [classification.code, classification])
   );
   logger.info({
-    message: `variant classifications except "scoringWeightAttributes": ${variantClassificationsMap}`
+    message: `variant classifications except "scoringWeightAttributes": ${JSON.stringify(
+      variantClassificationsMap
+    )}`
   });
   // take all COMMON classifications and Variant ONLY classifications
   // merge their features in such that base features
@@ -93,7 +97,9 @@ const combineVariantClassifications = (
     );
     mergedClassifications.set(key, variantClassification);
     logger.info({
-      message: `mergedClassifications common and variant classification: ${mergedClassifications}`
+      message: `mergedClassifications common and variant classification: ${JSON.stringify(
+        mergedClassifications
+      )}`
     });
   });
 
@@ -102,7 +108,9 @@ const combineVariantClassifications = (
   productClassificationMap.forEach((classification, key) => {
     if (variantClassificationsMap.get(key) === undefined) {
       logger.info({
-        message: `classifications that exists ONLY in base/product: ${classification}`
+        message: `classifications that exists ONLY in base/product: ${JSON.stringify(
+          classification
+        )}`
       });
       const origFeatures = classification.features || [];
       classification.features = filterTwoOneAttributes(
@@ -135,7 +143,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     getCategoryFilters(product.categories || []);
 
   logger.info({
-    message: `allCategoriesAsProps: ${allCategoriesAsProps}`
+    message: `allCategoriesAsProps: ${JSON.stringify(allCategoriesAsProps)}`
   });
   return (product.variantOptions || []).map((variant) => {
     const combinedClassifications = combineVariantClassifications(
@@ -143,7 +151,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       variant
     );
     logger.info({
-      message: `combinedClassifications: ${combinedClassifications}`
+      message: `combinedClassifications: ${JSON.stringify(
+        combinedClassifications
+      )}`
     });
     const indexedFeatures = indexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
@@ -188,7 +198,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       measurementValue = "";
     }
     logger.info({
-      message: `measurementsClassification: ${measurementsClassification}`
+      message: `measurementsClassification: ${JSON.stringify(
+        measurementsClassification
+      )}`
     });
     const colorTextureSubtitle: string = generateSubtitleValues(
       combinedClassifications
@@ -208,6 +220,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     const keywords = Array.from(
       new Set([...(product?.keywords ?? []), ...(variant?.keywords ?? [])])
     );
+
+    logger.info({
+      message: `product keywords: ${JSON.stringify(keywords)}`
+    });
 
     const esProduct: ESProduct = {
       ...indexedFeatures,
@@ -290,10 +306,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           )?.featureValues[0].value
       )}`,
       subTitle,
-      ...(keywords.length && { keywords })
+      ...(keywords.length && { keywords: keywords })
     };
     logger.info({
-      message: `esProduct: ${esProduct}`
+      message: `esProduct: ${JSON.stringify(esProduct)}`
     });
     return esProduct;
   });
