@@ -31,6 +31,7 @@ import { xferFilterValue } from "../../utils/elasticSearchPLP";
 import {
   clearFilterValues,
   convertToURLFilters,
+  replaceDotFiltersParameter,
   updateFilterValue
 } from "../../utils/filters";
 import { Format } from "./components/DocumentResults";
@@ -200,7 +201,11 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
     return {
       ...parsedQueryParams,
       ...(parsedQueryParams.filters
-        ? { filters: JSON.parse(parsedQueryParams.filters as string) }
+        ? {
+            filters: JSON.parse(
+              replaceDotFiltersParameter(parsedQueryParams.filters as string)
+            )
+          }
         : { filters: [] })
     };
   }, [location]);

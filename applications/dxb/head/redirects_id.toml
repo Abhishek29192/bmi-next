@@ -1,376 +1,375 @@
 [[redirects]]
- from="/id/tentangkami/karier/pengembangan-karir"
- to="/id/karier/pengembangan-karir/"
- force=true
+from = "/id/tentangkami/karier/pengembangan-karir"
+to = "/id/karier/pengembangan-karir/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/karier/keberagaman"
- to="/id/karier/keberagaman/"
- force=true
+from = "/id/tentangkami/karier/keberagaman"
+to = "/id/karier/keberagaman/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/karier/edy-hariyanto"
- to="/id/karier/edy-hariyanto/"
- force=true
+from = "/id/tentangkami/karier/edy-hariyanto"
+to = "/id/karier/edy-hariyanto/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/karier/audra-puspratami"
- to="/id/karier/audra-puspratami/"
- force=true
+from = "/id/tentangkami/karier/audra-puspratami"
+to = "/id/karier/audra-puspratami/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/karier"
- to="/id/karier/"
- force=true
+from = "/id/tentangkami/karier"
+to = "/id/karier/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/berita/nama-baru-monier"
- to="/id/berita/nama-baru-monier/"
- force=true
+from = "/id/tentangkami/berita/nama-baru-monier"
+to = "/id/berita/nama-baru-monier/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/berita/kantor-pusat"
- to="/id/berita/kantor-pusat/"
- force=true
+from = "/id/tentangkami/berita/kantor-pusat"
+to = "/id/berita/kantor-pusat/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/berita/indobuildtech"
- to="/id/berita/indobuildtech/"
- force=true
+from = "/id/tentangkami/berita/indobuildtech"
+to = "/id/berita/indobuildtech/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami/berita"
- to="/id/berita/"
- force=true
+from = "/id/tentangkami/berita"
+to = "/id/berita/"
+status = 301
 
 [[redirects]]
- from="/id/tentangkami"
- to="/id/tentang-kami/"
- force=true
+from = "/id/tentangkami"
+to = "/id/tentang-kami/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/temukan-depo-toko"
- to="/id/pemilik-rumah/temukan-depo-toko/"
- force=true
+from = "/id/profesional/temukan-depo-toko"
+to = "/id/pemilik-rumah/temukan-depo-toko/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/referensi-proyek-kami/reiwa-town-leakproof"
- to="/id/profesional/inspirasi/reiwa-town-leakproof/"
- force=true
+from = "/id/profesional/referensi-proyek-kami/reiwa-town-leakproof"
+to = "/id/profesional/inspirasi/reiwa-town-leakproof/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/referensi-proyek-kami/metropolitan-land-puri"
- to="/id/profesional/inspirasi/metropolitan-land-puri/"
- force=true
+from = "/id/profesional/referensi-proyek-kami/metropolitan-land-puri"
+to = "/id/profesional/inspirasi/metropolitan-land-puri/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/referensi-proyek-kami/citra-raya-cikupa"
- to="/id/profesional/inspirasi/citra-raya-cikupa/"
- force=true
+from = "/id/profesional/referensi-proyek-kami/citra-raya-cikupa"
+to = "/id/profesional/inspirasi/citra-raya-cikupa/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/kepedulian-pada-atap"
- to="/id/profesional/merawat-atap/"
- force=true
+from = "/id/profesional/kepedulian-pada-atap"
+to = "/id/profesional/merawat-atap/"
+status = 301
 
 [[redirects]]
- from="/id/profesional/info-garansi"
- to="/id/profesional/garansi/"
- force=true
+from = "/id/profesional/info-garansi"
+to = "/id/profesional/garansi/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/solusi-sistem-atap/produk/komponen-sistem-atap"
- to="/id/produk-kami/pitched-roofs/komponen-sistem-atap/"
- force=true
+from = "/id/produk-kami/solusi-sistem-atap/produk/komponen-sistem-atap"
+to = "/id/produk-kami/pitched-roofs/komponen-sistem-atap/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/vee-three-way-apex"
- to="/id/p/vee-3-way-apex-beton-4236777163/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/vee-three-way-apex"
+to = "/id/p/vee-3-way-apex-beton-4236777163/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/vee-ridge-starter"
- to="/id/p/vee-ridge-starter-beton-3487847518/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/vee-ridge-starter"
+to = "/id/p/vee-ridge-starter-beton-3487847518/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/vee-ridge-end"
- to="/id/p/vee-ridge-end-beton-3226762170/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/vee-ridge-end"
+to = "/id/p/vee-ridge-end-beton-3226762170/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/vee-ridge"
- to="/id/p/vee-ridge-beton-4259747792/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/vee-ridge"
+to = "/id/p/vee-ridge-beton-4259747792/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/vee-four-way-apex"
- to="/id/p/vee-four-way-apex-733477454/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/vee-four-way-apex"
+to = "/id/p/vee-four-way-apex-733477454/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/topflex"
- to="/id/p/topflex-aluminium-182024646/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/topflex"
+to = "/id/p/topflex-aluminium-182024646/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/roll-fix"
- to="/id/p/roll-fix-anthracite-fleece-1238678688/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/roll-fix"
+to = "/id/p/roll-fix-anthracite-fleece-1238678688/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/ridge-tree"
- to="/id/p/ridge-tree-galvanized-steel-1807529416/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/ridge-tree"
+to = "/id/p/ridge-tree-galvanized-steel-1807529416/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/radenshield-met"
- to="/id/p/radenshield-met-aluminium-2263425744/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/radenshield-met"
+to = "/id/p/radenshield-met-aluminium-2263425744/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/radenshield-deluxe-bubble-al"
- to="/id/p/radenshield-deluxe-bubble-al-aluminium-1722983980/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/radenshield-deluxe-bubble-al"
+to = "/id/p/radenshield-deluxe-bubble-al-aluminium-1722983980/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/radenshield-al"
- to="/id/p/radenshield-al-aluminium-3360475967/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/radenshield-al"
+to = "/id/p/radenshield-al-aluminium-3360475967/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/radenshield-al"
- to="/id/p/radenshield-al-aluminium-1167805874/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/radenshield-al"
+to = "/id/p/radenshield-al-aluminium-1167805874/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/perspective"
- to="/id/p/perspective-midnight-black-gep-beton-3528558525/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/perspective"
+to = "/id/p/perspective-midnight-black-gep-beton-3528558525/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/long-verge-end"
- to="/id/p/long-verge-end-beton-642151677/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/long-verge-end"
+to = "/id/p/long-verge-end-beton-642151677/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/long-verge"
- to="/id/p/long-verge-beton-2745021003/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/long-verge"
+to = "/id/p/long-verge-beton-2745021003/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-verge-end"
- to="/id/p/exel-verge-end-beton-3316779067/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-verge-end"
+to = "/id/p/exel-verge-end-beton-3316779067/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-verge"
- to="/id/p/exel-verge-beton-82486781/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-verge"
+to = "/id/p/exel-verge-beton-82486781/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-twin-palace"
- to="/id/p/exel-twin-palace-midnight-black-gep-beton-3788177168/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-twin-palace"
+to = "/id/p/exel-twin-palace-midnight-black-gep-beton-3788177168/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-toplight"
- to="/id/p/exel-toplight-transparan-pmma-3164487932/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-toplight"
+to = "/id/p/exel-toplight-transparan-pmma-3164487932/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-ridge-starter"
- to="/id/p/exel-starter-beton-397894164/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-ridge-starter"
+to = "/id/p/exel-starter-beton-397894164/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-ridge-end"
- to="/id/p/exel-ridge-end-beton-633258326/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-ridge-end"
+to = "/id/p/exel-ridge-end-beton-633258326/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-ridge"
- to="/id/p/exel-ridge-3739871827/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-ridge"
+to = "/id/p/exel-ridge-3739871827/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-plano"
- to="/id/p/exel-plano-perfect-brown-gep-beton-1669167527/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-plano"
+to = "/id/p/exel-plano-perfect-brown-gep-beton-1669167527/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-plano"
- to="/id/p/exel-plano-midnight-black-gep-beton-805269836/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-plano"
+to = "/id/p/exel-plano-midnight-black-gep-beton-805269836/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-multiline"
- to="/id/p/exel-multiline-midnight-black-gep-beton-3243777832/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-multiline"
+to = "/id/p/exel-multiline-midnight-black-gep-beton-3243777832/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-monoridge-end"
- to="/id/p/exel-monoridge-end-beton-954942061/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-monoridge-end"
+to = "/id/p/exel-monoridge-end-beton-954942061/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-monoridge"
- to="/id/p/exel-monoridge-beton-1225544711/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-monoridge"
+to = "/id/p/exel-monoridge-beton-1225544711/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-flash"
- to="/id/p/exel-flash-black-flash-flash-beton-977077951/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-flash"
+to = "/id/p/exel-flash-black-flash-flash-beton-977077951/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/exel-3-way-apex"
- to="/id/p/exel-3-way-apex-beton-4237245321/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/exel-3-way-apex"
+to = "/id/p/exel-3-way-apex-beton-4237245321/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-tropical"
- to="/id/p/elabana-tropical-antique-gep-beton-1519314087/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-tropical"
+to = "/id/p/elabana-tropical-antique-gep-beton-1519314087/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-toplight"
- to="/id/p/elabana-toplight-transparan-pmma-4136098347/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-toplight"
+to = "/id/p/elabana-toplight-transparan-pmma-4136098347/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-monoridge-end"
- to="/id/p/elabana-monoridge-end-1744778115/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-monoridge-end"
+to = "/id/p/elabana-monoridge-end-1744778115/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-monoridge"
- to="/id/p/elabana-monoridge-beton-1207056357/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-monoridge"
+to = "/id/p/elabana-monoridge-beton-1207056357/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-flash"
- to="/id/p/elabana-flash-black-flash-slurry-beton-3197056342/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-flash"
+to = "/id/p/elabana-flash-black-flash-slurry-beton-3197056342/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/elabana-classic"
- to="/id/p/elabana-classic-black-classic-slurry-beton-932807273/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/elabana-classic"
+to = "/id/p/elabana-classic-black-classic-slurry-beton-932807273/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/centurion-classic"
- to="/id/p/centurion-classic-red-classic-classic-beton-997182825/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/centurion-classic"
+to = "/id/p/centurion-classic-red-classic-classic-beton-997182825/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/centurion"
- to="/id/p/centurion-flame-gep-beton-2858055112/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/centurion"
+to = "/id/p/centurion-flame-gep-beton-2858055112/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-ridge-starter"
- to="/id/p/cap-ridge-starter-4121154181/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-ridge-starter"
+to = "/id/p/cap-ridge-starter-4121154181/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-ridge-end"
- to="/id/p/cap-ridge-end-beton-3543006808/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-ridge-end"
+to = "/id/p/cap-ridge-end-beton-3543006808/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-ridge"
- to="/id/p/cap-ridge-beton-2992389024/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-ridge"
+to = "/id/p/cap-ridge-beton-2992389024/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-4-way-apex"
- to="/id/p/cap-4-way-apex-beton-2737230494/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-4-way-apex"
+to = "/id/p/cap-4-way-apex-beton-2737230494/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-3-way-apex"
- to="/id/p/cap-3-way-apex-beton-2527619904/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-3-way-apex"
+to = "/id/p/cap-3-way-apex-beton-2527619904/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/cap-2-way-ridge-apex"
- to="/id/p/cap-2-way-ridge-apex-beton-360667740/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/cap-2-way-ridge-apex"
+to = "/id/p/cap-2-way-ridge-apex-beton-360667740/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/camel-strip"
- to="/id/p/camel-strip-besi-243780748/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/camel-strip"
+to = "/id/p/camel-strip-besi-243780748/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-monier/camel-flash"
- to="/id/p/camel-flash-anthracite-coated-butyl-642164220/"
- force=true
+from = "/id/produk-kami/products/bmi-monier/camel-flash"
+to = "/id/p/camel-flash-anthracite-coated-butyl-642164220/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/products/bmi-gci/toscana"
- to="/id/p/toscana-black-glazed-glossy-glazed-clay-3007940966/"
- force=true
+from = "/id/produk-kami/products/bmi-gci/toscana"
+to = "/id/p/toscana-black-glazed-glossy-glazed-clay-3007940966/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-datar/bmi-everguard"
- to="/id/bmi-everguard/"
- force=true
+from = "/id/produk-kami/atap-datar/bmi-everguard"
+to = "/id/bmi-everguard/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-datar"
- to="/id/flat-roof/"
- force=true
+from = "/id/produk-kami/atap-datar"
+to = "/id/flat-roof/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut/produk/pitchedroof-components"
- to="/id/produk-kami/pitched-roofs/komponen-sistem-atap/"
- force=true
+from = "/id/produk-kami/atap-bersudut/produk/pitchedroof-components"
+to = "/id/produk-kami/pitched-roofs/komponen-sistem-atap/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut/produk/keramik"
- to="/id/produk-kami/pitched-roofs/genteng-keramik/"
- force=true
+from = "/id/produk-kami/atap-bersudut/produk/keramik"
+to = "/id/produk-kami/pitched-roofs/genteng-keramik/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut/produk/beton"
- to="/id/produk-kami/pitched-roofs/beton/"
- force=true
+from = "/id/produk-kami/atap-bersudut/produk/beton"
+to = "/id/produk-kami/pitched-roofs/beton/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut/bmi-monier"
- to="/id/bmi-monier/"
- force=true
+from = "/id/produk-kami/atap-bersudut/bmi-monier"
+to = "/id/bmi-monier/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut/bmi-gci"
- to="/id/bmi-gci/"
- force=true
+from = "/id/produk-kami/atap-bersudut/bmi-gci"
+to = "/id/bmi-gci/"
+status = 301
 
 [[redirects]]
- from="/id/produk-kami/atap-bersudut"
- to="/id/produk-kami/pitched-roofs/"
- force=true
+from = "/id/produk-kami/atap-bersudut"
+to = "/id/produk-kami/pitched-roofs/"
+status = 301
 
 [[redirects]]
- from="/id/pemilik-rumah/merawat-atap-anda/kapan-terakhir-kali-anda-memeriksa-atap"
- to="/id/pemilik-rumah/perawatan-atap-anda/pemeriksaan-atap-lihat-lebih-dekat/"
- force=true
+from = "/id/pemilik-rumah/merawat-atap-anda/kapan-terakhir-kali-anda-memeriksa-atap"
+to = "/id/pemilik-rumah/perawatan-atap-anda/pemeriksaan-atap-lihat-lebih-dekat/"
+status = 301
 
 [[redirects]]
- from="/id/pemilik-rumah/merawat-atap-anda/5-tips-bagi-pemilik-rumah-baru"
- to="/id/pemilik-rumah/perawatan-atap-anda/5-kiat-bagi-pemilik-rumah-baru/"
- force=true
+from = "/id/pemilik-rumah/merawat-atap-anda/5-tips-bagi-pemilik-rumah-baru"
+to = "/id/pemilik-rumah/perawatan-atap-anda/5-kiat-bagi-pemilik-rumah-baru/"
+status = 301
 
 [[redirects]]
- from="/id/pemilik-rumah/merawat-atap-anda"
- to="/id/pemilik-rumah/perawatan-atap-anda/"
- force=true
+from = "/id/pemilik-rumah/merawat-atap-anda"
+to = "/id/pemilik-rumah/perawatan-atap-anda/"
+status = 301
 
 # Redirect root to /id.
 [[redirects]]
-  from = "/"
-  to = "/id"
-  status = 301
-  force = true
+from = "/"
+to = "/id"
+status = 301

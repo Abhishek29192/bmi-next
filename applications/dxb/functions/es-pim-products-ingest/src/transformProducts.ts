@@ -1,12 +1,16 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
-import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import type {
+  Product as ESProduct,
+  ProductReference as ESProductReference
+} from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
   Classification,
   Feature,
   Product as PIMProduct,
-  VariantOption as PIMVariant
+  VariantOption as PIMVariant,
+  ProductReference as PIMProductReference
 } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
@@ -51,18 +55,18 @@ const combineVariantClassifications = (
     message: `product classification: ${productClassificationMap}`
   });
   // process variant classifications except "scoringWeightAttributes"
-  const vairantClassificationsMap = new Map(
+  const variantClassificationsMap = new Map(
     (variant.classifications || [])
       .filter(({ code }) => code !== "scoringWeightAttributes")
       .map((classification) => [classification.code, classification])
   );
   logger.info({
-    message: `variant classifications except "scoringWeightAttributes": ${vairantClassificationsMap}`
+    message: `variant classifications except "scoringWeightAttributes": ${variantClassificationsMap}`
   });
   // take all COMMON classifications and Variant ONLY classifications
   // merge their features in such that base features
   // are overwritten by variant features of same classifications
-  vairantClassificationsMap.forEach((variantClassification, key) => {
+  variantClassificationsMap.forEach((variantClassification, key) => {
     const mergedFeaturesMap: Map<string, Feature> = new Map(
       (variantClassification.features || []).map((feature) => [
         feature.code,
@@ -96,7 +100,7 @@ const combineVariantClassifications = (
   // process remaining classifications that exists ONLY in base/product
   // add them to collection at the end
   productClassificationMap.forEach((classification, key) => {
-    if (vairantClassificationsMap.get(key) === undefined) {
+    if (variantClassificationsMap.get(key) === undefined) {
       logger.info({
         message: `classifications that exists ONLY in base/product: ${classification}`
       });
@@ -236,6 +240,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ...(variant.images || []),
         ...(product.images || [])
       ]),
+      productReferences: combineProductReferences(product, variant),
       path: `/p/${generateProductUrl(
         name,
         generateHashFromString(variant.code, false),
@@ -328,7 +333,14 @@ export enum TwoOneClassToIgnore {
   pieceUomAttributes = "pieceUomAttributes",
   rollsUomAttributes = "rollsUomAttributes",
   squareMeterUomAttributes = "squareMeterUomAttributes",
-  bimAttributes = "bimAttributes"
+  bimAttributes = "bimAttributes",
+  fabDisProductInformation = "fabDisProductInformation",
+  fabDisPricingInformation = "fabDisPricingInformation",
+  fabDisOrderInformation = "fabDisOrderInformation",
+  fabDisSupplierAndDistributorInformation = "fabDisSupplierAndDistributorInformation",
+  fabDisCategoryInformation = "fabDisCategoryInformation",
+  fabDisPackagingInformation = "fabDisPackagingInformation",
+  fabDisAssetInformation = "fabDisAssetInformation"
 }
 
 export enum TwoOneAttribToIgnore {
@@ -343,7 +355,76 @@ export enum TwoOneAttribToIgnore {
   width = "width",
   unit = "unit",
   uomType = "uomType",
-  productPageURL = "productPageURL"
+  productPageURL = "productPageURL",
+  MANUFACTURER = "MANUFACTURER",
+  IDENTIFIER30 = "IDENTIFIER30",
+  IDENTIFIER240 = "IDENTIFIER240",
+  DOUANE = "DOUANE",
+  SECT = "SECT",
+  SECTU = "SECTU",
+  MADE = "MADE",
+  DATETARIF = "DATETARIF",
+  TARIFD = "TARIFD",
+  QMC = "QMC",
+  MUL = "MUL",
+  UB = "UB",
+  QMVT = "QMVT",
+  ST = "ST",
+  DELAY = "DELAY",
+  DATESTA = "DATESTA",
+  DLSR = "DLSR",
+  EDI = "EDI",
+  REFANT = "REFANT",
+  DATEREC = "DATEREC",
+  REFE = "REFE",
+  REFNEW = "REFNEW",
+  REFOLD = "REFOLD",
+  MKT1 = "MKT1",
+  MKT1L = "MKT1L",
+  MKT2 = "MKT2",
+  MKT2L = "MKT2L",
+  MKT3 = "MKT3",
+  MKT3L = "MKT3L",
+  MKT4 = "MKT4",
+  MKT4L = "MKT4L",
+  MKT5 = "MKT5",
+  MKT5L = "MKT5L",
+  FAM1 = "FAM1",
+  FAM1L = "FAM1L",
+  FAM2 = "FAM2",
+  FAM2L = "FAM2L",
+  FAM3 = "FAM3",
+  FAM3L = "FAM3L",
+  QCT = "QCT",
+  GTIN14 = "GTIN14",
+  HAUT = "HAUT",
+  HAUTU = "HAUTU",
+  LARG = "LARG",
+  LARGU = "LARGU",
+  PROF = "PROF",
+  PROFU = "PROFU",
+  POIDS = "POIDS",
+  POIDSU = "POIDSU",
+  VOL = "VOL",
+  VOLU = "VOLU",
+  CONSI = "CONSI",
+  STACK = "STACK",
+  CODVAL = "CODVAL",
+  NUM = "NUM",
+  URL = "URL",
+  URLT = "URLT",
+  RTYP = "RTYP",
+  RNUM = "RNUM",
+  RNAT = "RNAT",
+  RCOD = "RCOD",
+  RNBR = "RNBR",
+  RTEXTE = "RTEXTE",
+  RDATE = "RDATE",
+  RVAL = "RVAL",
+  RVU = "RVU",
+  RNOM = "RNOM",
+  RURL = "RURL",
+  RURLT = "RURLT"
 }
 
 export const commonIgnoreList = [
@@ -388,7 +469,92 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
     TwoOneAttribToIgnore.unit,
     TwoOneAttribToIgnore.uomType
   ],
-  [TwoOneClassToIgnore.bimAttributes]: [TwoOneAttribToIgnore.productPageURL]
+  [TwoOneClassToIgnore.bimAttributes]: [TwoOneAttribToIgnore.productPageURL],
+  [TwoOneClassToIgnore.fabDisAssetInformation]: [
+    TwoOneAttribToIgnore.MANUFACTURER,
+    TwoOneAttribToIgnore.IDENTIFIER30,
+    TwoOneAttribToIgnore.IDENTIFIER240,
+    TwoOneAttribToIgnore.DOUANE,
+    TwoOneAttribToIgnore.SECT,
+    TwoOneAttribToIgnore.SECTU,
+    TwoOneAttribToIgnore.MADE
+  ],
+  [TwoOneClassToIgnore.fabDisPricingInformation]: [
+    TwoOneAttribToIgnore.DATETARIF,
+    TwoOneAttribToIgnore.TARIFD,
+    TwoOneAttribToIgnore.QMC,
+    TwoOneAttribToIgnore.MUL
+  ],
+  [TwoOneClassToIgnore.fabDisOrderInformation]: [
+    TwoOneAttribToIgnore.UB,
+    TwoOneAttribToIgnore.QMC,
+    TwoOneAttribToIgnore.MUL,
+    TwoOneAttribToIgnore.QMVT,
+    TwoOneAttribToIgnore.ST,
+    TwoOneAttribToIgnore.DELAY,
+    TwoOneAttribToIgnore.DATESTA,
+    TwoOneAttribToIgnore.DLSR
+  ],
+  [TwoOneClassToIgnore.fabDisSupplierAndDistributorInformation]: [
+    TwoOneAttribToIgnore.EDI,
+    TwoOneAttribToIgnore.REFANT,
+    TwoOneAttribToIgnore.DATEREC,
+    TwoOneAttribToIgnore.REFE,
+    TwoOneAttribToIgnore.REFNEW,
+    TwoOneAttribToIgnore.REFOLD
+  ],
+  [TwoOneClassToIgnore.fabDisCategoryInformation]: [
+    TwoOneAttribToIgnore.MKT1,
+    TwoOneAttribToIgnore.MKT1L,
+    TwoOneAttribToIgnore.MKT2,
+    TwoOneAttribToIgnore.MKT2L,
+    TwoOneAttribToIgnore.MKT3,
+    TwoOneAttribToIgnore.MKT3L,
+    TwoOneAttribToIgnore.MKT4,
+    TwoOneAttribToIgnore.MKT4L,
+    TwoOneAttribToIgnore.MKT5,
+    TwoOneAttribToIgnore.MKT5L,
+    TwoOneAttribToIgnore.FAM1,
+    TwoOneAttribToIgnore.FAM1L,
+    TwoOneAttribToIgnore.FAM2,
+    TwoOneAttribToIgnore.FAM2L,
+    TwoOneAttribToIgnore.FAM3,
+    TwoOneAttribToIgnore.FAM3L
+  ],
+  [TwoOneClassToIgnore.fabDisPackagingInformation]: [
+    TwoOneAttribToIgnore.QCT,
+    TwoOneAttribToIgnore.GTIN14,
+    TwoOneAttribToIgnore.HAUT,
+    TwoOneAttribToIgnore.HAUTU,
+    TwoOneAttribToIgnore.LARG,
+    TwoOneAttribToIgnore.LARGU,
+    TwoOneAttribToIgnore.PROF,
+    TwoOneAttribToIgnore.PROFU,
+    TwoOneAttribToIgnore.POIDS,
+    TwoOneAttribToIgnore.POIDSU,
+    TwoOneAttribToIgnore.VOL,
+    TwoOneAttribToIgnore.VOLU,
+    TwoOneAttribToIgnore.CONSI,
+    TwoOneAttribToIgnore.STACK
+  ],
+  [TwoOneClassToIgnore.fabDisAssetInformation]: [
+    TwoOneAttribToIgnore.CODVAL,
+    TwoOneAttribToIgnore.NUM,
+    TwoOneAttribToIgnore.URL,
+    TwoOneAttribToIgnore.URLT,
+    TwoOneAttribToIgnore.RTYP,
+    TwoOneAttribToIgnore.RNUM,
+    TwoOneAttribToIgnore.RNAT,
+    TwoOneAttribToIgnore.RCOD,
+    TwoOneAttribToIgnore.RNBR,
+    TwoOneAttribToIgnore.RTEXTE,
+    TwoOneAttribToIgnore.RDATE,
+    TwoOneAttribToIgnore.RVAL,
+    TwoOneAttribToIgnore.RVU,
+    TwoOneAttribToIgnore.RNOM,
+    TwoOneAttribToIgnore.RURL,
+    TwoOneAttribToIgnore.RURLT
+  ]
 };
 
 const extractFeatureCode = (
@@ -424,4 +590,53 @@ const filterTwoOneAttributes = (
     }
     return true;
   });
+};
+
+const combineProductReferences = (
+  product: PIMProduct,
+  variant: PIMVariant
+): ESProductReference[] | undefined => {
+  const mappedBaseProductReferences = transformProductReferences(
+    product.productReferences
+  );
+
+  const mappedVariantReferences = transformProductReferences(
+    variant.productReferences
+  );
+
+  if (!mappedBaseProductReferences?.length) {
+    return mappedVariantReferences;
+  }
+
+  if (!mappedVariantReferences?.length) {
+    return mappedBaseProductReferences;
+  }
+
+  //combines productReferences of the base product and variant.
+  // If the variant and base product has productReferences of the same type, the productReference of the base product will be ignored
+  return mappedBaseProductReferences.reduce((prev, current) => {
+    const existsForVariant = prev.find(
+      (productReference) => productReference.type === current.type
+    );
+
+    if (existsForVariant) {
+      return prev;
+    }
+
+    return [...prev, current];
+  }, mappedVariantReferences);
+};
+
+const transformProductReferences = (
+  productReferences?: PIMProductReference[]
+): ESProductReference[] | undefined => {
+  if (!productReferences?.length) {
+    return undefined;
+  }
+
+  return productReferences.map((productReference) => ({
+    type: productReference.referenceType,
+    code: productReference.target.code,
+    name: productReference.target.name
+  }));
 };

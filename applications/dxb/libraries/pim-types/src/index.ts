@@ -32,6 +32,7 @@ import {
   CategoryType,
   Classification,
   ClassificationCode,
+  ClassificationWithFeatures,
   ErrorResponse,
   Feature,
   FeatureCode,
@@ -113,5 +114,6 @@ export {
   VariantOption,
   BaseProduct,
   ProductReference,
-  ProductReferenceType
+  ProductReferenceType,
+  ClassificationWithFeatures
 };

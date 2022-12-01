@@ -10,7 +10,10 @@ import en from "../../samples/copy/en.json";
 import RoofSelection, { RoofSelectionProps } from "../_RoofSelection";
 
 const defaultProps: RoofSelectionProps = {
-  requiredRoofShapes: [{ roofShapeId: "1" }]
+  requiredRoofShapes: [{ roofShapeId: "1" }],
+  name: "roof",
+  isRequired: true,
+  fieldIsRequiredError: "field is required"
 };
 
 const pushEvent = jest.fn();

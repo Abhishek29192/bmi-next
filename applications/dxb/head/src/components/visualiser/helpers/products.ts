@@ -12,16 +12,16 @@ export const prepareProducts = (products: ESProduct[]): PIMTile[] => {
 
 export const convertEsValues = (product: ESProduct): PIMTile => {
   const {
-    "APPEARANCEATTRIBUTES.COLOUR": colour,
-    "GENERALINFORMATION.CLASSIFICATION": category,
-    "TILESATTRIBUTES.VERTICALOVERLAP": verticalOverlap,
-    "TILESATTRIBUTES.HORIZONTALOVERLAP": horizontalOverlap,
-    "TILESATTRIBUTES.HORIZONTALOFFSET": horizontalOffset,
-    "TILESATTRIBUTES.SNOWFENCEACTIVE": snowFenceActive,
-    "TILESATTRIBUTES.LARGETILE": isLargeTile,
-    "TILESATTRIBUTES.THICKNESSREDUCTION": thicknessReduction,
-    "TILESATTRIBUTES.INVERT": invert,
-    "TILESATTRIBUTES.INVERTY": invertY
+    APPEARANCEATTRIBUTES$COLOUR: colour,
+    GENERALINFORMATION$CLASSIFICATION: category,
+    TILESATTRIBUTES$VERTICALOVERLAP: verticalOverlap,
+    TILESATTRIBUTES$HORIZONTALOVERLAP: horizontalOverlap,
+    TILESATTRIBUTES$HORIZONTALOFFSET: horizontalOffset,
+    TILESATTRIBUTES$SNOWFENCEACTIVE: snowFenceActive,
+    TILESATTRIBUTES$LARGETILE: isLargeTile,
+    TILESATTRIBUTES$THICKNESSREDUCTION: thicknessReduction,
+    TILESATTRIBUTES$INVERT: invert,
+    TILESATTRIBUTES$INVERTY: invertY
   } = product;
 
   const getAssetUrl = getVisualiserAssetUrlByType(product);
@@ -29,6 +29,7 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
   return {
     name: product.name,
     code: product.code,
+    path: product.path,
     colour: colour[0].name,
     category: category[0].name.toLowerCase(),
     verticalOverlap: convertAttrToNumber(verticalOverlap[0]),
@@ -36,7 +37,7 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
     horizontalOffset: convertAttrToNumber(horizontalOffset[0]),
     snowFenceActive: convertStrToBool(snowFenceActive?.[0].name),
     isLargeTile: convertStrToBool(isLargeTile?.[0].name),
-    thicknessReduction: convertAttrToNumber(thicknessReduction[0]),
+    thicknessReduction: convertAttrToNumber(thicknessReduction?.[0]),
     invert: convertStrToBool(invert?.[0].name),
     invertY: convertStrToBool(invertY?.[0].name),
     normalMapRef: getAssetUrl("NORMAL_MAP_REFERENCE"),
@@ -50,8 +51,8 @@ export const convertEsValues = (product: ESProduct): PIMTile => {
   };
 };
 
-export const convertAttrToNumber = (attr: { code: string; name: string }) => {
-  return Number(attr.name) || 0;
+export const convertAttrToNumber = (attr?: { code: string; name: string }) => {
+  return Number(attr?.name) || 0;
 };
 
 export const getVisualiserAssetUrlByType = (product: ESProduct) => {

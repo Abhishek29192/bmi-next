@@ -1,6 +1,5 @@
 # Redirect root to /cz
 [[redirects]]
-  from = "/"
-  to = "/cz"
-  status = 301
-  force = true
+from = "/"
+to = "/cz"
+status = 301

@@ -294,7 +294,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       createRedirect({
         fromPath: redirect.from,
         toPath: redirect.to,
-        isPermanent: !redirect.status || redirect.status === "301"
+        isPermanent: redirect.status === "301"
       })
     )
   );

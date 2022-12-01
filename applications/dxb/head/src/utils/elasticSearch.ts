@@ -130,9 +130,9 @@ export const compileElasticSearchQuery = ({
                     "longDescription",
                     "shortDescription",
                     // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword", // this doesn't have any effect when caret boosting
-                    "GENERALINFORMATION.MATERIALS.name.keyword",
-                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "APPEARANCEATTRIBUTES$COLOURFAMILY.name.keyword", // this doesn't have any effect when caret boosting
+                    "GENERALINFORMATION$MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)

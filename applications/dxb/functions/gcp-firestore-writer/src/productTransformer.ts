@@ -13,15 +13,19 @@ import {
   GuaranteesAndWarrantiesAssetType
 } from "@bmi/firestore-types";
 import type {
+  Asset,
   Category as PimCategory,
   Classification as PimClassification,
+  ClassificationWithFeatures,
   Feature,
-  Product as PimProduct,
-  Asset
+  Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
-import { productIgnorableAttributes } from "./ignorableFeatureCodes";
+import {
+  productIgnorableAttributes,
+  productIgnorableClassfications
+} from "./ignorableFeatureCodes";
 import {
   filterClassifications,
   getAwardAndCertificateAsset,
@@ -56,17 +60,47 @@ export const transformProduct = (product: PimProduct): Product[] => {
         product.classifications || [],
         variant.classifications || []
       );
+
+      const additionalIgnoreList = [
+        "appearanceAttributes.colour",
+        "appearanceAttributes.texturefamily",
+        "appearanceAttributes.textureFamily",
+        "appearanceAttributes.colourfamily",
+        "appearanceAttributes.variantattribute"
+      ];
       const filteredClassifications = filterClassifications(
         mergedClassifications,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         product.variantOptions!.length === 1
-          ? productIgnorableAttributes.concat(
-              "appearanceAttributes.colour",
-              "appearanceAttributes.texturefamily",
-              "appearanceAttributes.colourfamily",
-              "appearanceAttributes.variantattribute"
-            )
+          ? productIgnorableClassfications.concat(additionalIgnoreList)
+          : productIgnorableClassfications
+      );
+      const classificationsForFilters = filterClassifications(
+        mergedClassifications,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        product.variantOptions!.length === 1
+          ? productIgnorableAttributes.concat(additionalIgnoreList)
           : productIgnorableAttributes
       );
+      logger.info({
+        message: `---- filteredClassifications ----`
+      });
+      logger.info({
+        message: `${JSON.stringify(filteredClassifications)}`
+      });
+      logger.info({
+        message: `---- filteredClassifications ----`
+      });
+
+      logger.info({
+        message: `---- classificationsForFilters ----`
+      });
+      logger.info({
+        message: `${JSON.stringify(classificationsForFilters)}`
+      });
+      logger.info({
+        message: `---- classificationsForFilters ----`
+      });
       const classifications = groupClassifications(filteredClassifications);
       let colour: string | undefined;
       let colourFamily: string | undefined;
@@ -227,7 +261,10 @@ export const transformProduct = (product: PimProduct): Product[] => {
         documents: mapProductDocuments(product),
         externalProductCode:
           variant.externalProductCode ?? product.externalProductCode,
-        filters: getFilters(mergedClassifications, product.categories || []),
+        filters: getFilters(
+          classificationsForFilters,
+          product.categories || []
+        ),
         fixingToolIframeUrl: product.assets?.find(
           (asset) => asset.assetType === "FIXING_TOOL"
         )?.url,
@@ -376,7 +413,7 @@ const groupClassifications = (
 };
 
 const getFilters = (
-  classifications: readonly PimClassification[],
+  classifications: ClassificationWithFeatures[],
   categories: readonly PimCategory[]
 ): Filter[] => {
   const classificationFilters: Filter[] = classifications
@@ -387,7 +424,7 @@ const getFilters = (
         "scoringWeightAttributes".toUpperCase()
     )
     .flatMap((classification) =>
-      (classification.features || []).map((feature) => ({
+      classification.features.map((feature) => ({
         filterCode: feature.code.split("/").pop()!,
         name: feature.name,
         value: feature.featureValues[0].value,
@@ -668,8 +705,7 @@ const getIsVisualiserAvailable = (
     "tilesAttributes.horizontalOverlap",
     "tilesAttributes.horizontalOffset",
     "tilesAttributes.snowFenceActive",
-    "tilesAttributes.largeTile",
-    "tilesAttributes.thicknessReduction"
+    "tilesAttributes.largeTile"
   ];
 
   const hasChannel = categories.find(
@@ -719,8 +755,7 @@ const getIsVisualiserAvailable = (
       if (
         featureCode === "tilesAttributes.verticalOverlap" ||
         featureCode === "tilesAttributes.horizontalOverlap" ||
-        featureCode === "tilesAttributes.horizontalOffset" ||
-        featureCode === "tilesAttributes.thicknessReduction"
+        featureCode === "tilesAttributes.horizontalOffset"
       ) {
         return (
           Number(featureValues[0].value) === 0 ||
@@ -741,7 +776,7 @@ const hasRequiredVisualiserAssets = (
     "LOW_DETAIL_MESH_REFERENCE",
     "METALLIC_ROUGHNESS_MAP_REFERENCE",
     "NORMAL_MAP_REFERENCE",
-    "RIDGE_END_REFERENCE",
+    "DIFFUSE_MAP_REFERENCE",
     "RIDGE_REFERENCE"
   ];
 

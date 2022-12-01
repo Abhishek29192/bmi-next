@@ -4,6 +4,10 @@
   height: 100vh;
   width: 100vw;
 
+  &>div:first-child button{
+    margin: 10px 6px 10px 16px;
+  }
+
   &--secondary {
     box-shadow: none;
 

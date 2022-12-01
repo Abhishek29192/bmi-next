@@ -81,7 +81,7 @@ export const getClassificationsFilters = (product: PIMProduct) => {
   );
   if (listOfFilters.length) {
     return {
-      "APPEARANCEATTRIBUTES.TEXTUREFAMILY": [
+      APPEARANCEATTRIBUTES$TEXTUREFAMILY: [
         ...new Set(
           listOfFilters.map(({ code, value }) =>
             JSON.stringify({ code, name: value })

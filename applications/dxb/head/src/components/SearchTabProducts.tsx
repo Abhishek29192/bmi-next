@@ -39,13 +39,13 @@ export const getCount = async (searchQuery: string): Promise<number> => {
       "ProductFamily",
       "ProductLine",
       "Brand",
-      "appearanceAttributes.colourFamily",
-      "generalInformation.materials",
-      "appearanceAttributes.textureFamily",
+      "appearanceAttributes$colourFamily",
+      "generalInformation$materials",
+      "appearanceAttributes$textureFamily",
       "Category"
     ],
     filters: [],
-    groupByVariant: true,
+    groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
     page: 0,
     pageSize: 0,
     searchQuery
@@ -127,13 +127,13 @@ const SearchTabPanelProducts = (props: Props) => {
         "ProductFamily",
         "ProductLine",
         "Brand",
-        "appearanceAttributes.colourFamily",
-        "generalInformation.materials",
-        "appearanceAttributes.textureFamily",
+        "appearanceAttributes$colourFamily",
+        "generalInformation$materials",
+        "appearanceAttributes$textureFamily",
         "Category"
       ],
       filters,
-      groupByVariant: true,
+      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
       page,
       pageSize,
       searchQuery
@@ -150,8 +150,12 @@ const SearchTabPanelProducts = (props: Props) => {
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
-      setProducts(results.hits.hits.map((hit) => hit._source));
-
+      setProducts(
+        results.hits.hits.map((hit) => ({
+          ...hit._source,
+          all_variants: hit.inner_hits.all_variants.hits.hits || []
+        }))
+      );
       onCountChange &&
         onCountChange(results.aggregations.unique_base_products_count.value);
     }

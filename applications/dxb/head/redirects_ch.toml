@@ -1,31 +1,30 @@
 [[redirects]]
- from="/ch/steildacheindeckung"
- to="/ch/steildachprodukte/"
- force=true
+from = "/ch/steildacheindeckung"
+to = "/ch/steildachprodukte/"
+status = 301
 
 [[redirects]]
- from="/ch/kontakt-neu"
- to="/ch/kontakt/"
- force=true
+from = "/ch/kontakt-neu"
+to = "/ch/kontakt/"
+status = 301
 
 [[redirects]]
- from="/ch/flachdachabdichtung-kunststoffbahnen"
- to="/ch/flachdachprodukte/alle-flachdachprodukte/"
- force=true
+from = "/ch/flachdachabdichtung-kunststoffbahnen"
+to = "/ch/flachdachprodukte/alle-flachdachprodukte/"
+status = 301
 
 [[redirects]]
- from="/ch/flachdachabdichtung-bitumenbahnen"
- to="/ch/flachdachprodukte/alle-flachdachprodukte/"
- force=true
+from = "/ch/flachdachabdichtung-bitumenbahnen"
+to = "/ch/flachdachprodukte/alle-flachdachprodukte/"
+status = 301
 
 [[redirects]]
- from="/ch/downloads"
- to="/ch/downloads-and-services/alle-downloads/"
- force=true
+from = "/ch/downloads"
+to = "/ch/downloads-and-services/alle-downloads/"
+status = 301
 
 # Redirect root to /ch
 [[redirects]]
-  from = "/"
-  to = "/ch"
-  status = 301
-  force = true
+from = "/"
+to = "/ch"
+status = 301

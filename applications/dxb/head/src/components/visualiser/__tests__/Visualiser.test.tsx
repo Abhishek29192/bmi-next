@@ -1,29 +1,57 @@
-import { render, waitFor, fireEvent, screen } from "@testing-library/react";
-import React from "react";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
-import fetchMockJest from "fetch-mock-jest";
 import { createProduct } from "@bmi/elasticsearch-types";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import fetchMockJest from "fetch-mock-jest";
+import React, { useEffect } from "react";
 import { sidingsSetData } from "../index";
 import Visualiser from "../Visualiser";
+import sidingMock from "./__mocks__/siding";
 
 const mockChildComponent = jest.fn();
-jest.mock(".././HouseViewer", () => ({
+jest.mock("../HouseViewer", () => ({
   __esModule: true,
   default: (props) => {
+    useEffect(() => {
+      props.setIsLoading(false);
+    }, []);
+
     mockChildComponent(props);
-    return <div />;
+    return <div>House viewer</div>;
   }
 }));
 
-const esProduct = createProduct({
-  "APPEARANCEATTRIBUTES.COLOUR": [{ value: "Dark Black" }],
-  "GENERALINFORMATION.CLASSIFICATION": [{ value: "clay" }],
-  "TILESATTRIBUTES.VERTICALOVERLAP": [{ value: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOVERLAP": [{ value: "10" }],
-  "TILESATTRIBUTES.HORIZONTALOFFSET": [{ value: "10" }],
-  "TILESATTRIBUTES.THICKNESSREDUCTION": [{ value: "10" }],
+jest.mock("../TileViewer", () => ({
+  __esModule: true,
+  default: (props) => {
+    useEffect(() => {
+      props.setIsLoading(false);
+    }, []);
+
+    return <div>Tile viewer</div>;
+  }
+}));
+
+const blackTile = createProduct({
+  APPEARANCEATTRIBUTES$COLOUR: [{ name: "Dark Black" }],
+  GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+  TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+  TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
   name: "Black tile",
   code: "black_tile",
+  visualiserAssets: []
+});
+
+const redTile = createProduct({
+  APPEARANCEATTRIBUTES$COLOUR: [{ name: "Red" }],
+  GENERALINFORMATION$CLASSIFICATION: [{ name: "clay" }],
+  TILESATTRIBUTES$VERTICALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOVERLAP: [{ name: "10" }],
+  TILESATTRIBUTES$HORIZONTALOFFSET: [{ name: "10" }],
+  TILESATTRIBUTES$THICKNESSREDUCTION: [{ name: "10" }],
+  name: "Red tile",
+  code: "red_tile",
   visualiserAssets: []
 });
 
@@ -40,45 +68,45 @@ describe("Visualiser component", () => {
   });
 
   it("renders correctly", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource="" //TODO: Need to mock this?
-        open={false}
+        open
         sidings={sidingsSetData}
-        onClose={() => console.log("close")}
+        onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when test asset url provided", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource=""
-        open={false}
+        open
         sidings={sidingsSetData}
         onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when non-test asset url provided", () => {
-    const { container } = render(
+    const { baseElement } = render(
       <Visualiser
         contentSource=""
-        open={false}
+        open
         sidings={sidingsSetData}
         onClose={jest.fn()}
         onClick={jest.fn()}
         houseTypes={[]}
       />
     );
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("passes house types to HouseViewer", () => {
@@ -86,7 +114,9 @@ describe("Visualiser component", () => {
       url: "*",
       method: "POST",
       status: 200,
-      body: { hits: { hits: [{ _source: esProduct }] } }
+      body: {
+        hits: { hits: [{ _source: blackTile }, { _source: redTile }] }
+      }
     });
 
     const houseModelUrl = "https://mock_url";
@@ -99,7 +129,7 @@ describe("Visualiser component", () => {
         onClick={jest.fn()}
         houseTypes={[{ houseModel: { url: houseModelUrl } }]}
         viewMode="roof"
-        tileId={esProduct.code}
+        tileId={blackTile.code}
       />
     );
 
@@ -154,7 +184,9 @@ describe("Visualiser component", () => {
       url: "*",
       method: "POST",
       status: 200,
-      body: { hits: { hits: [{ _source: esProduct }] } }
+      body: {
+        hits: { hits: [{ _source: blackTile }, { _source: redTile }] }
+      }
     });
 
     render(
@@ -165,22 +197,262 @@ describe("Visualiser component", () => {
         houseTypes={[{ houseModel: { url: "" } }]}
         onClick={onClick}
         sidings={[]}
+        shareWidget={<div>Share widget</div>}
       />
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
     waitFor(() =>
       fireEvent.click(
-        screen.getByRole("heading", { level: 6, name: esProduct.name })
+        screen.getByRole("heading", { level: 6, name: blackTile.name })
       )
     );
     waitFor(() =>
       expect(onClick).toHaveBeenCalledWith(
         expect.objectContaining({
-          tileId: esProduct.code,
-          label: `${esProduct.name} + Dark Black`
+          tileId: blackTile.code,
+          label: `${blackTile.name} + Dark Black`
         })
       )
+    );
+  });
+
+  it("opens wall color selector dialog", () => {
+    const onClick = jest.fn();
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={onClick}
+        sidings={[]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.wallColor"));
+    expect(
+      screen.getByText("visualizer.sidingsSelector.title")
+    ).toBeInTheDocument();
+  });
+
+  it("switches to roof view mode", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: {
+        hits: { hits: [{ _source: blackTile }, { _source: redTile }] }
+      }
+    });
+
+    render(
+      <Visualiser
+        viewMode="tile"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={jest.fn()}
+        sidings={[]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.roofMode"));
+    await waitFor(() =>
+      expect(screen.getByText("House viewer")).toBeInTheDocument()
+    );
+  });
+
+  it("switches to tile view mode", async () => {
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: {
+        hits: { hits: [{ _source: blackTile }, { _source: redTile }] }
+      }
+    });
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={jest.fn()}
+        sidings={[]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.tileMode"));
+    await waitFor(() =>
+      expect(screen.getByText("Tile viewer")).toBeInTheDocument()
+    );
+  });
+
+  it("selects wall", () => {
+    const onClick = jest.fn();
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={onClick}
+        sidings={[sidingMock]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.wallColor"));
+    expect(
+      screen.getByText("visualizer.sidingsSelector.title")
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText(sidingMock.name));
+    expect(onClick).toHaveBeenCalledWith(
+      expect.objectContaining({ type: "wall-selector", label: sidingMock.name })
+    );
+  });
+
+  it("calls onClick function if user clicks on 'Read more'", async () => {
+    const onClick = jest.fn();
+    mockResponses(fetchMock, {
+      url: "*",
+      method: "POST",
+      status: 200,
+      body: {
+        hits: { hits: [{ _source: blackTile }, { _source: redTile }] }
+      }
+    });
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={onClick}
+        onChange={jest.fn()}
+        sidings={[sidingMock]}
+        tileId={blackTile.code}
+      />
+    );
+
+    const readMoreBtn = await screen.findByText("visualizer.readMore");
+    fireEvent.click(readMoreBtn);
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it("calls onClose function if user closes modal", async () => {
+    const onClose = jest.fn();
+
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={onClose}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={onClose}
+        onChange={jest.fn()}
+        sidings={[sidingMock]}
+        tileId={blackTile.code}
+      />
+    );
+
+    const closeBtn = screen.getByLabelText("Close");
+    fireEvent.click(closeBtn);
+    expect(onClose).toHaveBeenCalled();
+  });
+
+  it("opens and closes share popover", async () => {
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={jest.fn()}
+        onChange={jest.fn()}
+        sidings={[sidingMock]}
+        shareWidget={<div>Share widget</div>}
+        tileId={blackTile.code}
+      />
+    );
+
+    fireEvent.click(
+      document.querySelector("button[aria-describedby='share-popover']")
+    );
+    expect(screen.getByText("Share widget")).toBeInTheDocument();
+
+    fireEvent.keyDown(screen.getByText("Share widget"), {
+      key: "Escape",
+      keyCode: 27
+    });
+    await waitFor(() =>
+      expect(screen.queryByText("Share widget")).not.toBeInTheDocument()
+    );
+  });
+
+  it("closes tile selector dialog on cross button click", async () => {
+    render(
+      <Visualiser
+        viewMode="tile"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={jest.fn()}
+        onChange={jest.fn()}
+        sidings={[]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
+    expect(
+      screen.getByText("visualizer.tileSelector.title")
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByLabelText("Close")[1]);
+    await waitFor(() =>
+      expect(
+        screen.queryByText("visualizer.tileSelector.title")
+      ).not.toBeInTheDocument()
+    );
+  });
+
+  it("closes wall selector dialog if the user clicks on the cross button", async () => {
+    render(
+      <Visualiser
+        viewMode="roof"
+        contentSource=""
+        open={true}
+        onClose={jest.fn()}
+        houseTypes={[{ houseModel: { url: "" } }]}
+        onClick={jest.fn()}
+        onChange={jest.fn()}
+        sidings={[]}
+      />
+    );
+
+    fireEvent.click(screen.getByText("visualizer.actions.wallColor"));
+    expect(
+      screen.getByText("visualizer.sidingsSelector.title")
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getAllByLabelText("Close")[1]);
+    await waitFor(() =>
+      expect(
+        screen.queryByText("visualizer.sidingsSelector.title")
+      ).not.toBeInTheDocument()
     );
   });
 });

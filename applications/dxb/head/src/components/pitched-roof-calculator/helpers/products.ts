@@ -51,18 +51,17 @@ export function transformClassificationAttributes(
   return products
     .map((product) => {
       const {
-        "APPEARANCEATTRIBUTES.COLOUR": color,
-        "GENERALINFORMATION.CLASSIFICATION": category,
-        "TILESATTRIBUTES.BROKENBOND": brokenBond,
-        "MEASUREMENTS.WIDTH": width,
-        "MEASUREMENTS.HEIGHT": height,
-        "TILESATTRIBUTES.MINIMUMBATTENSPACING": minBattenSpacing,
-        "TILESATTRIBUTES.MAXIMUMBATTENSPACING": maxBattenSpacing,
-        "TILESATTRIBUTES.RIDGESPACE": ridgeSpacing,
-        "TILESATTRIBUTES.EAVEGAUGE": eaveGauge,
-        "MEASUREMENTS.LENGTH": length,
-        "UNDERLAYATTRIBUTES.OVERLAP": overlap,
-        "PACKAGINGINFORMATION.QUANTITYPERUNIT": packSize,
+        APPEARANCEATTRIBUTES$COLOUR: color,
+        GENERALINFORMATION$CLASSIFICATION: category,
+        TILESATTRIBUTES$BROKENBOND: brokenBond,
+        MEASUREMENTS$WIDTH: width,
+        TILESATTRIBUTES$MINIMUMBATTENSPACING: minBattenSpacing,
+        TILESATTRIBUTES$MAXIMUMBATTENSPACING: maxBattenSpacing,
+        TILESATTRIBUTES$RIDGESPACE: ridgeSpacing,
+        TILESATTRIBUTES$EAVEGAUGE: eaveGauge,
+        MEASUREMENTS$LENGTH: length,
+        UNDERLAYATTRIBUTES$OVERLAP: overlap,
+        PACKAGINGINFORMATION$QUANTITYPERUNIT: packSize,
         ...rest
       } = product;
 
@@ -70,21 +69,22 @@ export function transformClassificationAttributes(
       try {
         const initialData = {
           ...rest,
-          packSize: Number(packSize?.[0].value) || 1
+          packSize: Number(packSize?.[0].name) || 1
         };
 
         if (productType === ProductType.tile) {
           return {
             ...initialData,
-            brokenBond: convertStrToBool(brokenBond?.[0].value),
+            brokenBond: convertStrToBool(brokenBond?.[0].name),
             category: category[0].name,
             color: color[0].name,
             width: convertToCentimeters(width[0]),
-            height: convertToCentimeters(height[0]),
+            length: convertToCentimeters(length[0]),
             minBattenSpacing: convertToCentimeters(minBattenSpacing[0]),
             maxBattenSpacing: convertToCentimeters(maxBattenSpacing[0]),
             ridgeSpacing: convertToCentimeters(ridgeSpacing[0]),
-            eaveGauge: convertToCentimeters(eaveGauge[0])
+            eaveGauge: convertToCentimeters(eaveGauge[0]),
+            productReferences: initialData.productReferences || []
           };
         }
 
@@ -130,7 +130,7 @@ export const groupByProductType = (
 } => {
   const groupedProducts = groupBy(
     products,
-    (product) => product["GENERALINFORMATION.PRODUCTTYPE"][0].code
+    (product) => product["GENERALINFORMATION$PRODUCTTYPE"][0].code
   );
 
   return {

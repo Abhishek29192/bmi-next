@@ -1,15 +1,15 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
-import { Data as MicroCopyData } from "./MicroCopy";
-import { Data as TitleWithContentData } from "./TitleWithContent";
-import { Data as PromoData } from "./Promo";
-import { Data as PageInfoData } from "./PageInfo";
+import { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
 import { Data as ExploreBarData } from "./ExploreBar";
+import { Data as MicroCopyData } from "./MicroCopy";
+import { Data as NextBestActionsData } from "./NextBestActions";
+import { Data as PageInfoData } from "./PageInfo";
+import { Data as PromoData } from "./Promo";
+import { RichTextData } from "./RichText";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import { Data as SignupBlockData } from "./SignupBlock";
-import { Data as NextBestActionsData } from "./NextBestActions";
-import { RichTextData } from "./RichText";
-import { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
+import { Data as TitleWithContentData } from "./TitleWithContent";
 
 export type DocumentDisplayFormatType = "Asset type" | "Asset name";
 
@@ -66,6 +66,11 @@ export const query = graphql`
     sampleBasketLink {
       ... on ContentfulSimplePage {
         ...PageInfoFragment
+        sections {
+          ... on ContentfulSampleBasketSection {
+            title
+          }
+        }
       }
     }
     pdpCards {

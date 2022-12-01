@@ -39,7 +39,7 @@ import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewer from "./HouseViewer";
 import styles from "./styles/Visualiser.module.scss";
 import TileViewer from "./TileViewer";
-import { HouseType, Siding, Category, PIMTile } from "./Types";
+import { Category, HouseType, PIMTile, Siding } from "./Types";
 
 export type Parameters = {
   tileId?: string | number;
@@ -49,7 +49,7 @@ export type Parameters = {
   sidings: Siding[];
 };
 
-type Props = {
+export type Props = {
   contentSource: string;
   open: boolean;
   onClose: () => void;
@@ -164,7 +164,6 @@ const Actions = ({
 };
 
 const SelectionOptions = ({
-  contentSource,
   defaultValue,
   products,
   title,
@@ -230,7 +229,6 @@ const TileSectorDialog = ({
     <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
-      onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
       className={classnames(
@@ -265,7 +263,8 @@ const TileSectorDialog = ({
             contentSource={contentSource}
             defaultValue={activeTile.code}
             key={`material-group-${category}`}
-            title={getMicroCopy(`microCopy.materials.${category}`)}
+            //eslint-disable-next-line security/detect-object-injection
+            title={getMicroCopy(microCopy.materials[category])}
             products={products}
             onClick={onButtonClick}
           />
@@ -297,7 +296,6 @@ const SidingsSelectorDialog = ({
     <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
-      onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
       className={classnames(
@@ -430,7 +428,6 @@ const Visualiser = ({
   const {
     config: { esIndexNameProduct }
   } = useConfig();
-  const header = useRef<HTMLDivElement>(null);
   const shareAnchor = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, sidingId, viewMode });
   const [tiles, setTiles] = useState<PIMTile[]>([]);
@@ -541,15 +538,6 @@ const Visualiser = ({
       className={styles["Visualiser"]}
       containerClassName={styles["content"]}
     >
-      <ContainerDialog.Header ref={header}>
-        <Typography
-          component="h2"
-          variant="h3"
-          className={styles["content-title"]}
-        >
-          RoofTile Visualiser
-        </Typography>
-      </ContainerDialog.Header>
       <div
         className={classnames(styles["container"], styles["container--viewer"])}
       >
@@ -584,9 +572,11 @@ const Visualiser = ({
                   handleOnClick({
                     type: "product-link",
                     label: getMicroCopy(microCopy.readMore),
-                    data: { variantCode: activeTile.code }
+                    data: {
+                      variantCode: activeTile.code,
+                      productPath: activeTile.path
+                    }
                   });
-                  handleOnClose();
                 }}
               >
                 <span className={styles["details-text"]}>

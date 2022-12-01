@@ -1,2927 +1,2430 @@
-
 [[redirects]]
-  from = "/at/p/luminex-uni-max-braun-4180304661"
-  to = "/at//produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/p/luminex-uni-max-braun-4180304661"
+to = "/at//produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ton-solar-kabeldurchgang"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ton-solar-kabeldurchgang"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-concrete-primer-für-beton"
-  to = "/at/p/sealoflex-ultima-concrete-primer-f%C3%BCr-beton-milchig-wei%C3%9F-632889438"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-concrete-primer-für-beton"
+to = "/at/p/sealoflex-ultima-concrete-primer-f%C3%BCr-beton-milchig-wei%C3%9F-632889438"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach"
-  to = "/at/produkte/flachdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach"
+to = "/at/produkte/flachdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/systemloesungens/systemkonfigurator/flachdach-systemkonfigurator/villas-dichtdach-profi-warmdach"
-  to = "/at/produkte/flachdach/dachsysteme-flachdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/systemloesungens/systemkonfigurator/flachdach-systemkonfigurator/villas-dichtdach-profi-warmdach"
+to = "/at/produkte/flachdach/dachsysteme-flachdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/angebot-anfordern"
-  to = "/at/services/angebot-anfordern/"
-  status = 301
-  force = true
+from = "/at/angebot-anfordern"
+to = "/at/services/angebot-anfordern/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac-adria-1-1-normalstein"
-  to = "/at/p/bramac-adria-1-1-normalstein-terrakotta-standard-beton-2784113626"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac-adria-1-1-normalstein"
+to = "/at/p/bramac-adria-1-1-normalstein-terrakotta-standard-beton-2784113626"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-pultortgangstein-links"
-  to = "/at/p/bramac-markant-pultortgangstein-links-ziegelrot-protector-plus-beton-3543552012"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-pultortgangstein-links"
+to = "/at/p/bramac-markant-pultortgangstein-links-ziegelrot-protector-plus-beton-3543552012"
+status = 301
 
 [[redirects]]
-  from = "/at/ihr-dach-planen"
-  to = "/at/dach-tipps/ihr-dach-planen/"
-  status = 301
-  force = true
+from = "/at/ihr-dach-planen"
+to = "/at/dach-tipps/ihr-dach-planen/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/traufklammer-100-stück"
-  to = "/at/bmi-bramac/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/traufklammer-100-stück"
+to = "/at/bmi-bramac/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/divotape-anschlussband-dehnfähig-1-5-x-150-mm"
-  to = "/at/p/divotape-anschlussband-dehnfähig-1-5-x-150-mm-1092574519"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/divotape-anschlussband-dehnfähig-1-5-x-150-mm"
+to = "/at/p/divotape-anschlussband-dehnfähig-1-5-x-150-mm-1092574519"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bügel-für-standbrettstein-stahl"
-  to = "/at/bmi-bramac/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bügel-für-standbrettstein-stahl"
+to = "/at/bmi-bramac/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-adria"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-adria/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-adria"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-adria/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-catalyst-kat-pulver"
-  to = "/at/p/sealoflex-endura-catalyst-kat-pulver-wei%C3%9F-farblos-887797608"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-catalyst-kat-pulver"
+to = "/at/p/sealoflex-endura-catalyst-kat-pulver-wei%C3%9F-farblos-887797608"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu"
-  to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu"
+to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/klöber-venduct-uni-be-entlüfter-set-dn150-wärmegedämmt-mit-langer-schürze-und-anschlussmanschette-rot-3354122027"
-  to = "/at/p/kl%C3%B6ber-venduct-uni-be-entl%C3%BCfter-set-dn150-w%C3%A4rmeged%C3%A4mmt-inkl-anschlussmanschette-rot-1793771982"
-  status = 301
-  force = true
+from = "/at/p/klöber-venduct-uni-be-entlüfter-set-dn150-wärmegedämmt-mit-langer-schürze-und-anschlussmanschette-rot-3354122027"
+to = "/at/p/kl%C3%B6ber-venduct-uni-be-entl%C3%BCfter-set-dn150-w%C3%A4rmeged%C3%A4mmt-inkl-anschlussmanschette-rot-1793771982"
+status = 301
 
 [[redirects]]
-  from = "/at/fsv-zulassungen"
-  to = "/at/bruecke-und-strasse/fsv-zulassungen/"
-  status = 301
-  force = true
+from = "/at/fsv-zulassungen"
+to = "/at/bruecke-und-strasse/fsv-zulassungen/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/almdorf-seinerzeit-neu"
-  to = "/at/referenzen/almdorf-seinerzeit-neu/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/almdorf-seinerzeit-neu"
+to = "/at/referenzen/almdorf-seinerzeit-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/bmi-akademie"
-  to = "/at/services/bmi-akademie/"
-  status = 301
-  force = true
+from = "/at/bmi-akademie"
+to = "/at/services/bmi-akademie/"
+status = 301
 
 [[redirects]]
-  from = "/at/qr-tag-preisliste-bmi-villas-thermazone"
-  to = "https://assets.ctfassets.net/6s50ptwznz42/3SeHJcRPy7iVP0SNSntvcR/6c9f3c674e7b8e40d28ce72c59401ee4/Preisliste_-_BMI_Villas_Thermazone.pdf"
-  status = 301
-  force = true
+from = "/at/qr-tag-preisliste-bmi-villas-thermazone"
+to = "https://assets.ctfassets.net/6s50ptwznz42/3SeHJcRPy7iVP0SNSntvcR/6c9f3c674e7b8e40d28ce72c59401ee4/Preisliste_-_BMI_Villas_Thermazone.pdf"
+status = 301
 
 [[redirects]]
-  from = "/at/qr-tag-preisliste-bmi-bramac-thermazone"
-  to = "https://assets.ctfassets.net/6s50ptwznz42/7prgUKnkqKVvNczejWVFvW/e0aeebf11f018430d3db38eca568462f/Preisliste_-_BMI_Bramac_Thermazone.pdf"
-  status = 301
-  force = true
+from = "/at/qr-tag-preisliste-bmi-bramac-thermazone"
+to = "https://assets.ctfassets.net/6s50ptwznz42/7prgUKnkqKVvNczejWVFvW/e0aeebf11f018430d3db38eca568462f/Preisliste_-_BMI_Bramac_Thermazone.pdf"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/kamin-und-wandanschlüsse"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/kamin-und-wandanschlüsse"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/projekte-und-referenzen"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/projekte-und-referenzen"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/dachtipps"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/dachtipps"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/systemloesungens/steildach-systeme/dichtdach"
-  to = "/at/produkte/steildach/dichtdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/systemloesungens/steildach-systeme/dichtdach"
+to = "/at/produkte/steildach/dichtdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/photovoltaik"
-  to = "/at/produkte/photovoltaik/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/photovoltaik"
+to = "/at/produkte/photovoltaik/"
+status = 301
 
 [[redirects]]
-  from = "/at/downloads/leistungserklärung"
-  to = "/at/downloads/leistungserklaerungen/"
-  status = 301
-  force = true
+from = "/at/downloads/leistungserklärung"
+to = "/at/downloads/leistungserklaerungen/"
+status = 301
 
 [[redirects]]
-  from = "/at/downloads/produktdatenbl%C3%A4tter"
-  to = "/at/downloads/produktdatenblatt/"
-  status = 301
-  force = true
+from = "/at/downloads/produktdatenbl%C3%A4tter"
+to = "/at/downloads/produktdatenblatt/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/aktionen/dachfoerderung"
-  to = "/at/services/dachfoerderung-und-aktionen/dachfoerderung/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/aktionen/dachfoerderung"
+to = "/at/services/dachfoerderung-und-aktionen/dachfoerderung/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/aktionen/dachschaden-gewinnspiel"
-  to = "/at/services/dachfoerderung-und-aktionen/dachschaden-gewinnspiel/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/aktionen/dachschaden-gewinnspiel"
+to = "/at/services/dachfoerderung-und-aktionen/dachschaden-gewinnspiel/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/aktionen"
-  to = "/at/services/dachfoerderung-und-aktionen/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/aktionen"
+to = "/at/services/dachfoerderung-und-aktionen/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/ihr-dach-planen"
-  to = "/at/dach-tipps/ihr-dach-planen/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/ihr-dach-planen"
+to = "/at/dach-tipps/ihr-dach-planen/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/ihr-dach-sanieren"
-  to = "/at/dach-tipps/ihr-dach-sanieren/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/ihr-dach-sanieren"
+to = "/at/dach-tipps/ihr-dach-sanieren/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/ihr-dach-warten"
-  to = "/at/dach-tipps/ihr-dach-warten/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/ihr-dach-warten"
+to = "/at/dach-tipps/ihr-dach-warten/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/inspirationen"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/inspirationen"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/fachpartner-suche"
-  to = "/at/services/fachpartner-suche-services/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/fachpartner-suche"
+to = "/at/services/fachpartner-suche-services/"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren"
-  to = "/at/services/"
-  status = 301
-  force = true
+from = "/at/private-bauherren"
+to = "/at/services/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bmi-bramac"
-  to = "/at/bmi-bramac/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bmi-bramac"
+to = "/at/bmi-bramac/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-classic"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-classic/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-classic"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-classic/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bmi-villas"
-  to = "/at/bmi-villas/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bmi-villas"
+to = "/at/bmi-villas/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach"
-  to = "/at/produkte/steildach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach"
+to = "/at/produkte/steildach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/photovoltaik"
-  to = "/at/produkte/photovoltaik/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/photovoltaik"
+to = "/at/produkte/photovoltaik/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/bitumen"
-  to = "/at/produkte/flachdach/bitumen/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/bitumen"
+to = "/at/produkte/flachdach/bitumen/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-x-1-1-normalstein"
-  to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-x-1-1-normalstein"
+to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-markant"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-markant/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-markant"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-markant/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte"
-  to = "/at/produkte/steildach/steildach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte"
+to = "/at/produkte/steildach/steildach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-aerlox"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-aerlox-classic/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-aerlox"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-aerlox-classic/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dichtdach"
-  to = "/at/produkte/steildach/dichtdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dichtdach"
+to = "/at/produkte/steildach/dichtdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-tegalit"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-tegalit/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-tegalit"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-tegalit/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen"
-  to = "/at/produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen"
+to = "/at/produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-7-dachsystem"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-7-grad-dachsystem/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-7-dachsystem"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-7-grad-dachsystem/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-donau"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-donau/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-donau"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-donau/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-aerlox-classic-ultra-1-1-normalstein"
-  to = "/at/p/bramac-aerlox-classic-ultra-1-1-normalstein-rotbraun-protector-plus-beton-3472511458"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-aerlox-classic-ultra-1-1-normalstein"
+to = "/at/p/bramac-aerlox-classic-ultra-1-1-normalstein-rotbraun-protector-plus-beton-3472511458"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-1-1-normalstein"
-  to = "/at/p/bramac-tegalit-1-1-normalstein-schiefer-protector-plus-beton-477081581"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-1-1-normalstein"
+to = "/at/p/bramac-tegalit-1-1-normalstein-schiefer-protector-plus-beton-477081581"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/systemloesungen"
-  to = "/at/produkte/flachdach/dachsysteme-flachdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/systemloesungen"
+to = "/at/produkte/flachdach/dachsysteme-flachdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-1-1-normalstein"
-  to = "/at/p/bramac-markant-1-1-normalstein-antik-protector-plus-beton-1847882253"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-1-1-normalstein"
+to = "/at/p/bramac-markant-1-1-normalstein-antik-protector-plus-beton-1847882253"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-algv-45-e"
-  to = "/at/p/elastovill-algv-45-e-bitumen-4208196922"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-algv-45-e"
+to = "/at/p/elastovill-algv-45-e-bitumen-4208196922"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-alpin"
-  to = "/at/p/dichtdach-alpin-anthrazit-bitumen-665987729"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-alpin"
+to = "/at/p/dichtdach-alpin-anthrazit-bitumen-665987729"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-rubin-13v"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-rubin-13v"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-1-1-normalstein"
-  to = "/at/p/bramac-7-dachsystem-1-1-normalstein-brillantschwarz-protector-beton-324742732"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-1-1-normalstein"
+to = "/at/p/bramac-7-dachsystem-1-1-normalstein-brillantschwarz-protector-beton-324742732"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-montero"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-montero/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/bramac-montero"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-montero/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-montero"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-montero/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-montero"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-montero/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-1-1-normalstein"
-  to = "/at/p/bramac-donau-1-1-normalstein-rotbraun-protector-beton-2558724570"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-1-1-normalstein"
+to = "/at/p/bramac-donau-1-1-normalstein-rotbraun-protector-beton-2558724570"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-x-1-1-normalstein"
-  to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-x-1-1-normalstein"
+to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-topas-13v"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-topas-13v"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-granat-11v"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-granat-11v"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachpaneele"
-  to = "/at/produkte/steildach/lichtdacht/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachpaneele"
+to = "/at/produkte/steildach/lichtdacht/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-4"
-  to = "/at/p/elastovill-e-kv-4-bitumen-1561123330"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-4"
+to = "/at/p/elastovill-e-kv-4-bitumen-1561123330"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-5"
-  to = "/at/p/elastovill-e-kv-5-bitumen-400809274"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-5"
+to = "/at/p/elastovill-e-kv-5-bitumen-400809274"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-contur"
-  to = "/at/p/dichtdach-contur-dolomitgrau-bitumen-3917200029"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-contur"
+to = "/at/p/dichtdach-contur-dolomitgrau-bitumen-3917200029"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte"
-  to = "/at/produkte/photovoltaik/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte"
+to = "/at/produkte/photovoltaik/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/baumaterial/sand"
-  to = "/at/produkte/sand/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/baumaterial/sand"
+to = "/at/produkte/sand/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte/bramac-photovoltaik-indax®-system"
-  to = "/at/p/pv-modul-bramac-indax-310-black-mono-447921620"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte/bramac-photovoltaik-indax®-system"
+to = "/at/p/pv-modul-bramac-indax-310-black-mono-447921620"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-1-1-flächenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-1-1-flächenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte/bramac-photovoltaik-premium-system"
-  to = "/at/p/pv-modul-bramac-premium-te-105-wp-ps-3765125266"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/photovoltaik/photovoltaik-produkte/bramac-photovoltaik-premium-system"
+to = "/at/p/pv-modul-bramac-premium-te-105-wp-ps-3765125266"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-indax-310-black-mono"
-  to = "/at/p/pv-modul-bramac-indax-310-black-mono-447921620"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-indax-310-black-mono"
+to = "/at/p/pv-modul-bramac-indax-310-black-mono-447921620"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bauwerksabdichtung"
-  to = "/at/produkte/bauwerksabdichtung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bauwerksabdichtung"
+to = "/at/produkte/bauwerksabdichtung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-3-m"
-  to = "/at/p/lichtdach-fastlock-uni-3-m-transparent-polycarbonat-2964221149"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-3-m"
+to = "/at/p/lichtdach-fastlock-uni-3-m-transparent-polycarbonat-2964221149"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-15-nsk"
-  to = "/at/p/villasub-e-kv-15-nsk-2801550141"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-15-nsk"
+to = "/at/p/villasub-e-kv-15-nsk-2801550141"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-zubehör"
-  to = "/at/produkte/flachdach/flachdach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-zubehör"
+to = "/at/produkte/flachdach/flachdach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbelichtung"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22COLD_ROOF_WINDOWS%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbelichtung"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22COLD_ROOF_WINDOWS%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-smaragd"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-smaragd"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-sicherheitsdachstein"
-  to = "/at/p/bramac-classic-sicherheitsdachstein-brillantschwarz-protector-plus-beton-1157444706"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-sicherheitsdachstein"
+to = "/at/p/bramac-classic-sicherheitsdachstein-brillantschwarz-protector-plus-beton-1157444706"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-4-m"
-  to = "/at/p/lichtdach-fastlock-uni-4-m-transparent-polycarbonat-636200239"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-4-m"
+to = "/at/p/lichtdach-fastlock-uni-4-m-transparent-polycarbonat-636200239"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-rapid-28-lt"
-  to = "/at/p/pormex-rapid-28-lt-1011416386"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-rapid-28-lt"
+to = "/at/p/pormex-rapid-28-lt-1011416386"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-max"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-max/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-max"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-max/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-uds-e-3"
-  to = "/at/p/villasub-uds-e-3-3330042745"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-uds-e-3"
+to = "/at/p/villasub-uds-e-3-3330042745"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-pm-schindel-rechteckform"
-  to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-pm-schindel-rechteckform"
+to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-1-1-flächenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-1-1-flächenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/kunststoff/pvc"
-  to = "/at/produkte/flachdach/kunststoffbahnen/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/kunststoff/pvc"
+to = "/at/produkte/flachdach/kunststoffbahnen/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villacolor-schindel-rechteckform"
-  to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villacolor-schindel-rechteckform"
+to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-adria"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-adria/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-adria"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-adria/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-mit-aerlox-technologie-1-1-normalstein"
-  to = "/at/p/bramac-aerlox-classic-ultra-1-1-normalstein-rotbraun-protector-plus-beton-3472511458"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-mit-aerlox-technologie-1-1-normalstein"
+to = "/at/p/bramac-aerlox-classic-ultra-1-1-normalstein-rotbraun-protector-plus-beton-3472511458"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-doppelwulstziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-doppelwulstziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-premium-te-105-wp-ps"
-  to = "/at/p/pv-modul-bramac-premium-te-105-wp-ps-3765125266"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-premium-te-105-wp-ps"
+to = "/at/p/pv-modul-bramac-premium-te-105-wp-ps-3765125266"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/baumaterial"
-  to = "/at/produkte/flaechenbefestigung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/baumaterial"
+to = "/at/produkte/flaechenbefestigung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bruecke-und-strasse"
-  to = "/at/bruecke-und-strasse/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bruecke-und-strasse"
+to = "/at/bruecke-und-strasse/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-skb-plus"
-  to = "/at/p/villaself-skb-plus-bitumen-3384626732"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-skb-plus"
+to = "/at/p/villaself-skb-plus-bitumen-3384626732"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-dämmung"
-  to = "/at/produkte/steildach/steildach-daemmung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-dämmung"
+to = "/at/produkte/steildach/steildach-daemmung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villatop-duo-dolomitgrau"
-  to = "/at/p/villatop-duo-dolomitgrau-bitumen-2598315175"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villatop-duo-dolomitgrau"
+to = "/at/p/villatop-duo-dolomitgrau-bitumen-2598315175"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-reviva"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-reviva/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-reviva"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-reviva/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-1-1-flächenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-1-1-flächenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte"
-  to = "/at/produkte/bauwerksabdichtung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte"
+to = "/at/produkte/bauwerksabdichtung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-1-1-standard-biber"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-1-1-standard-biber"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/first-grat"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22RIDGE_%26_HIP%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/first-grat"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22RIDGE_%26_HIP%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-adria-1-1-normalstein"
-  to = "/at/p/bramac-adria-1-1-normalstein-terrakotta-standard-beton-2784113626"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-adria-1-1-normalstein"
+to = "/at/p/bramac-adria-1-1-normalstein-terrakotta-standard-beton-2784113626"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bmi-everguard"
-  to = "/at/dach-tipps/everguard/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bmi-everguard"
+to = "/at/dach-tipps/everguard/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-5s"
-  to = "/at/p/elastovill-e-kv-5s-bitumen-2078867940"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-5s"
+to = "/at/p/elastovill-e-kv-5s-bitumen-2078867940"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-vs-25"
-  to = "/at/p/villasub-vs-25-4247245811"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-vs-25"
+to = "/at/p/villasub-vs-25-4247245811"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/kunststoff/tpo"
-  to = "/at/produkte/flachdach/kunststoffbahnen/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/kunststoff/tpo"
+to = "/at/produkte/flachdach/kunststoffbahnen/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/vedatect-pye-pv-200-s5-en-bluespeed"
-  to = "/at/p/vedatect-pye-pv-200-s5-en-bluespeed-blau-gr%C3%BCn-bitumen-2506535518"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/vedatect-pye-pv-200-s5-en-bluespeed"
+to = "/at/p/vedatect-pye-pv-200-s5-en-bluespeed-blau-gr%C3%BCn-bitumen-2506535518"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-e-4-sk-wf"
-  to = "/at/p/villaself-e-4-sk-wf-bitumen-735288934"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-e-4-sk-wf"
+to = "/at/p/villaself-e-4-sk-wf-bitumen-735288934"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-opal-standard"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-opal-standard"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-su-si"
-  to = "/at/p/villaself-su-si-bitumen-3634874818"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-su-si"
+to = "/at/p/villaself-su-si-bitumen-3634874818"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-gvf-45-flämmdicht"
-  to = "/at/p/villox-gvf-45-fl%C3%A4mmdicht-451387021"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-gvf-45-flämmdicht"
+to = "/at/p/villox-gvf-45-fl%C3%A4mmdicht-451387021"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/hydrostop-multi-5"
-  to = "/at/p/hydrostop-multi-5-bitumen-1569377527"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/hydrostop-multi-5"
+to = "/at/p/hydrostop-multi-5-bitumen-1569377527"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/fundament"
-  to = "/at/produkte/bauwerksabdichtung/fundament/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/fundament"
+to = "/at/produkte/bauwerksabdichtung/fundament/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-1-1-normalstein"
-  to = "/at/p/bramac-max-1-1-normalstein-brillantschwarz-protector-beton-2269127477"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-1-1-normalstein"
+to = "/at/p/bramac-max-1-1-normalstein-brillantschwarz-protector-beton-2269127477"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/hydrostop-s4"
-  to = "/at/p/hydrostop-s4-polymerbitumen-3896253518"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/hydrostop-s4"
+to = "/at/p/hydrostop-s4-polymerbitumen-3896253518"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-ad"
-  to = "/at/p/luminex-ad-rot-3443104743"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-ad"
+to = "/at/p/luminex-ad-rot-3443104743"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/solarbügel-set"
-  to = "/at/p/solarb%C3%BCgel-set-1850257916"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/solarbügel-set"
+to = "/at/p/solarb%C3%BCgel-set-1850257916"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte/brücke-straße"
-  to = "/at/bruecke-und-strasse/bruecke-und-strasse-alle-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte/brücke-straße"
+to = "/at/bruecke-und-strasse/bruecke-und-strasse-alle-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villacolor-schindel-biberschwanzform"
-  to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villacolor-schindel-biberschwanzform"
+to = "/at/p/dichtdach-pm-schindel-rechteckform-herbstbraun-810542184"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-set-modulstütze-max-7"
-  to = "/at/p/bramac-set-modulst%C3%BCtze-max-7-rot-3906920162"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-set-modulstütze-max-7"
+to = "/at/p/bramac-set-modulst%C3%BCtze-max-7-rot-3906920162"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/unterdach-lüfterelement-für-spitzbodenlüftung"
-  to = "/at/p/unterdach-l%C3%BCfterelement-f%C3%BCr-spitzbodenl%C3%BCftung-97640553"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/unterdach-lüfterelement-für-spitzbodenlüftung"
+to = "/at/p/unterdach-l%C3%BCfterelement-f%C3%BCr-spitzbodenl%C3%BCftung-97640553"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/sicherheitsdachhaken-typ-b-nach-en-517"
-  to = "/at/p/sicherheitsdachhaken-typ-b-nach-en-517-braun-2138254696"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/sicherheitsdachhaken-typ-b-nach-en-517"
+to = "/at/p/sicherheitsdachhaken-typ-b-nach-en-517-braun-2138254696"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-entlüftungsstein"
-  to = "/at/p/bramac-classic-entl%C3%BCftungsstein-brillantschwarz-protector-plus-beton-1129275783"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-entlüftungsstein"
+to = "/at/p/bramac-classic-entl%C3%BCftungsstein-brillantschwarz-protector-plus-beton-1129275783"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/unterdeckbahnen"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/unterdeckbahnen"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/schneesicherung"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22SNOW%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/schneesicherung"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22SNOW%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-4s"
-  to = "/at/p/elastovill-e-kv-4s-bitumen-2394369698"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/elastovill-e-kv-4s"
+to = "/at/p/elastovill-e-kv-4s-bitumen-2394369698"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-e-4-sk-si"
-  to = "/at/p/villaself-e-4-sk-si-bitumen-2660960561"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaself-e-4-sk-si"
+to = "/at/p/villaself-e-4-sk-si-bitumen-2660960561"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-dolomit"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-dolomit/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachsteine/bramac-dolomit"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-dolomit/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-reviva-1-1-normalstein"
-  to = "/at/p/bramac-reviva-1-1-normalstein-antik-protector-beton-1262513749"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-reviva-1-1-normalstein"
+to = "/at/p/bramac-reviva-1-1-normalstein-antik-protector-beton-1262513749"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/comfort-seal-resistant-255-1-5-x-30-m"
-  to = "/at/p/comfort-seal-resistant-255-1-5-x-30-m-1385505986"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/comfort-seal-resistant-255-1-5-x-30-m"
+to = "/at/p/comfort-seal-resistant-255-1-5-x-30-m-1385505986"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-rapid-ztv-28-lt"
-  to = "/at/p/pormex-rapid-ztv-28-lt-3391329824"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-rapid-ztv-28-lt"
+to = "/at/p/pormex-rapid-ztv-28-lt-3391329824"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/wand"
-  to = "/at/produkte/bauwerksabdichtung/wand/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/wand"
+to = "/at/produkte/bauwerksabdichtung/wand/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-10-lt"
-  to = "/at/p/pormex-10-lt-167194497"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-10-lt"
+to = "/at/p/pormex-10-lt-167194497"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-turmalin"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/bramac-turmalin"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-sicherheitsdachstein"
-  to = "/at/p/bramac-markant-sicherheitsdachstein-antik-protector-plus-beton-1586917574"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-sicherheitsdachstein"
+to = "/at/p/bramac-markant-sicherheitsdachstein-antik-protector-plus-beton-1586917574"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/schindelbahn-5m-x-0-5m"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/schindelbahn-5m-x-0-5m"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanghaken"
-  to = "/at/p/schneefanghaken-braun-1291810905"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanghaken"
+to = "/at/p/schneefanghaken-braun-1291810905"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flüssigkunststoff"
-  to = "/at/produkte/flachdach/fluessigkunststoff/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flüssigkunststoff"
+to = "/at/produkte/flachdach/fluessigkunststoff/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/baumaterial/flaechenbefestigung"
-  to = "/at/produkte/flaechenbefestigung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/baumaterial/flaechenbefestigung"
+to = "/at/produkte/flaechenbefestigung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte"
-  to = "/at/bruecke-und-strasse/bruecke-und-strasse-alle-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte"
+to = "/at/bruecke-und-strasse/bruecke-und-strasse-alle-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-alu-44"
-  to = "/at/p/luminex-alu-44-rot-1435720897"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-alu-44"
+to = "/at/p/luminex-alu-44-rot-1435720897"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-ortgangstein-links"
-  to = "/at/p/bramac-classic-ortgangstein-links-brillantschwarz-protector-plus-beton-1381803249"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-ortgangstein-links"
+to = "/at/p/bramac-classic-ortgangstein-links-brillantschwarz-protector-plus-beton-1381803249"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/innen"
-  to = "/at/produkte/bauwerksabdichtung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bauwerksabdichtung/bauwerksabdichtung-produkte/innen"
+to = "/at/produkte/bauwerksabdichtung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/aufdachmodulhalter"
-  to = "/at/p/aufdachmodulhalter-2390886816"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/aufdachmodulhalter"
+to = "/at/p/aufdachmodulhalter-2390886816"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-dolomit-1-1-normalstein"
-  to = "/at/p/bramac-dolomit-1-1-normalstein-quarz-protector-plus-beton-776691184"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-dolomit-1-1-normalstein"
+to = "/at/p/bramac-dolomit-1-1-normalstein-quarz-protector-plus-beton-776691184"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-smaragd-1-1-rautenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-smaragd-1-1-rautenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/vedagard-safety-blank-108-cm"
-  to = "/at/p/vedagard-safety-blank-108-cm-bitumen-2370439949"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/vedagard-safety-blank-108-cm"
+to = "/at/p/vedagard-safety-blank-108-cm-bitumen-2370439949"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-p-5-b"
-  to = "/at/p/isovill-p-5-b-1669675078"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-p-5-b"
+to = "/at/p/isovill-p-5-b-1669675078"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/bmi-feuchtesensor-fs-150"
-  to = "/at/p/bmi-feuchtesensor-fs-150-3826899892"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/bmi-feuchtesensor-fs-150"
+to = "/at/p/bmi-feuchtesensor-fs-150-3826899892"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/cosmofin-gg-plus"
-  to = "/at/p/cosmofin-gg-plus-hellgrau-pvc-3709181378"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/cosmofin-gg-plus"
+to = "/at/p/cosmofin-gg-plus-hellgrau-pvc-3709181378"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-sicherheitsdachstein"
-  to = "/at/p/bramac-donau-sicherheitsdachstein-rotbraun-protector-beton-1975888540"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-sicherheitsdachstein"
+to = "/at/p/bramac-donau-sicherheitsdachstein-rotbraun-protector-beton-1975888540"
+status = 301
 
 [[redirects]]
-  from = "/at/private-bauherren/angebot-anfordern"
-  to = "/at/services/fachpartner-suche-services/"
-  status = 301
-  force = true
+from = "/at/private-bauherren/angebot-anfordern"
+to = "/at/services/fachpartner-suche-services/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-ortgangstein-rechts"
-  to = "/at/p/bramac-classic-ortgangstein-rechts-brillantschwarz-protector-plus-beton-4037774"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-ortgangstein-rechts"
+to = "/at/p/bramac-classic-ortgangstein-rechts-brillantschwarz-protector-plus-beton-4037774"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte/parkdeck"
-  to = "/at/bruecke-und-strasse/parkdeck/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/bruecke-und-strasse/bruecke-und-strasse-produkte/parkdeck"
+to = "/at/bruecke-und-strasse/parkdeck/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-entlüftungsstein"
-  to = "/at/p/bramac-markant-entl%C3%BCftungsstein-antik-protector-plus-beton-1583240127"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-entlüftungsstein"
+to = "/at/p/bramac-markant-entl%C3%BCftungsstein-antik-protector-plus-beton-1583240127"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villacryl-harz-20-kg"
-  to = "/at/p/villacryl-harz-20-kg-2237367743"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villacryl-harz-20-kg"
+to = "/at/p/villacryl-harz-20-kg-2237367743"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbegehung"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22WALKWAYS%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbegehung"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22WALKWAYS%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/vedatex-bitumenkleber-310ml"
-  to = "/at/p/vedatex-bitumenkleber-310ml-549132409"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/vedatex-bitumenkleber-310ml"
+to = "/at/p/vedatex-bitumenkleber-310ml-549132409"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-gv-10-nsk"
-  to = "/at/p/villasub-e-gv-10-nsk-3823883892"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-gv-10-nsk"
+to = "/at/p/villasub-e-gv-10-nsk-3823883892"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/everguard/everguard-tpo-2-mm"
-  to = "/at/p/everguard-tpo-2-mm-grau-tpo-827879644"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/everguard/everguard-tpo-2-mm"
+to = "/at/p/everguard-tpo-2-mm-grau-tpo-827879644"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villafalt-5es-25-kg"
-  to = "/at/p/villafalt-5es-25-kg-1194702097"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villafalt-5es-25-kg"
+to = "/at/p/villafalt-5es-25-kg-1194702097"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/alu-villatherm"
-  to = "/at/p/alu-villatherm-bitumen-3910842119"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/alu-villatherm"
+to = "/at/p/alu-villatherm-bitumen-3910842119"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villafalt-2-k-30-kg"
-  to = "/at/p/villafalt-2-k-30-kg-2848694448"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villafalt-2-k-30-kg"
+to = "/at/p/villafalt-2-k-30-kg-2848694448"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/eco-activ"
-  to = "/at/p/eco-activ-bitumen-1499017929"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/eco-activ"
+to = "/at/p/eco-activ-bitumen-1499017929"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-mit-aerlox-technologie-1-1-normalstein"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-mit-aerlox-technologie-1-1-normalstein"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-dämmung"
-  to = "/at/produkte/flachdach/flachdach-daemmung/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-dämmung"
+to = "/at/produkte/flachdach/flachdach-daemmung/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/ecoroll-5-m"
-  to = "/at/p/ecoroll-5-m-braun-1490711464"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/ecoroll-5-m"
+to = "/at/p/ecoroll-5-m-braun-1490711464"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ortgangziegel-rechts"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ortgangziegel-rechts"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/plexiglaspfanne-ad"
-  to = "/at/p/plexiglaspfanne-ad-174350658"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/plexiglaspfanne-ad"
+to = "/at/p/plexiglaspfanne-ad-174350658"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-uni"
-  to = "/at/p/luminex-uni-braun-3385489788"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-uni"
+to = "/at/p/luminex-uni-braun-3385489788"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/aero-traufelement"
-  to = "/at/p/aero-traufelement-schwarz-1511802661"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/aero-traufelement"
+to = "/at/p/aero-traufelement-schwarz-1511802661"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-standbrettstein"
-  to = "/at/p/bramac-classic-standbrettstein-brillantschwarz-protector-plus-beton-2695635538"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-standbrettstein"
+to = "/at/p/bramac-classic-standbrettstein-brillantschwarz-protector-plus-beton-2695635538"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/top-ru-resistant-230-1-5-x-50-m"
-  to = "/at/p/top-ru-resistant-230-1-5-x-50-m-2531407267"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/top-ru-resistant-230-1-5-x-50-m"
+to = "/at/p/top-ru-resistant-230-1-5-x-50-m-2531407267"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/innovationen"
-  to = "/at/services/innovationen/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/innovationen"
+to = "/at/services/innovationen/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-rp-35"
-  to = "/at/p/villox-rp-35-3083100702"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-rp-35"
+to = "/at/p/villox-rp-35-3083100702"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-lüfterziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-lüfterziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ortgangziegel-links"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ortgangziegel-links"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-sicherheitsdachstein"
-  to = "/at/p/bramac-7-dachsystem-sicherheitsdachstein-brillantschwarz-protector-beton-561549529"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-sicherheitsdachstein"
+to = "/at/p/bramac-7-dachsystem-sicherheitsdachstein-brillantschwarz-protector-beton-561549529"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-kompakt"
-  to = "/at/p/bramac-therm-kompakt-812289406"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-kompakt"
+to = "/at/p/bramac-therm-kompakt-812289406"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/emulbit-25-kg"
-  to = "/at/p/emulbit-25-kg-4217689367"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/emulbit-25-kg"
+to = "/at/p/emulbit-25-kg-4217689367"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/figaroll-plus-5-m"
-  to = "/at/p/figaroll-plus-5-m-braun-4034562595"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/figaroll-plus-5-m"
+to = "/at/p/figaroll-plus-5-m-braun-4034562595"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/wakaflex-280-mm-5-m"
-  to = "/at/p/wakaflex-280-mm-5-m-braun-3033426746"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/wakaflex-280-mm-5-m"
+to = "/at/p/wakaflex-280-mm-5-m-braun-3033426746"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/firststein-glatt-inkl-firstklammer-protector"
-  to = "/at/p/firststein-glatt-inkl-firstklammer-protector-brillantschwarz-tiefschwarz-protector-2196462984"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/firststein-glatt-inkl-firstklammer-protector"
+to = "/at/p/firststein-glatt-inkl-firstklammer-protector-brillantschwarz-tiefschwarz-protector-2196462984"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-doppelwulstziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-doppelwulstziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villathene"
-  to = "/at/p/villathene-3897030701"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villathene"
+to = "/at/p/villathene-3897030701"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-entlüftungsstein"
-  to = "/at/p/bramac-donau-entl%C3%BCftungsstein-rotbraun-protector-beton-1872793284"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-entlüftungsstein"
+to = "/at/p/bramac-donau-entl%C3%BCftungsstein-rotbraun-protector-beton-1872793284"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-20-nsk-plus"
-  to = "/at/p/villasub-e-kv-20-nsk-plus-2550801555"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-20-nsk-plus"
+to = "/at/p/villasub-e-kv-20-nsk-plus-2550801555"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbefestigung"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22FIXINGS%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachbefestigung"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22FIXINGS%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-5-wf"
-  to = "/at/p/villaverde-e-kv-5-wf-bitumen-4189859031"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-5-wf"
+to = "/at/p/villaverde-e-kv-5-wf-bitumen-4189859031"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtmasse-konterlattung"
-  to = "/at/p/dichtmasse-konterlattung-2776681019"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtmasse-konterlattung"
+to = "/at/p/dichtmasse-konterlattung-2776681019"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-premium-tu-105-wp-ps"
-  to = "/at/produkte/photovoltaik/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/pv-modul-bramac-premium-tu-105-wp-ps"
+to = "/at/produkte/photovoltaik/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villas-bsm-6-10-m-x-1-25-m"
-  to = "/at/p/villas-bsm-6-10-m-x-1-25-m-394403721"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villas-bsm-6-10-m-x-1-25-m"
+to = "/at/p/villas-bsm-6-10-m-x-1-25-m-394403721"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-30-nsk-plus"
-  to = "/at/p/villasub-e-kv-30-nsk-plus-1278276631"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villasub-e-kv-30-nsk-plus"
+to = "/at/p/villasub-e-kv-30-nsk-plus-1278276631"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-sicherheitsdachstein"
-  to = "/at/p/bramac-montero-sicherheitsdachstein-bordeaux-granuliert-beton-2630907906"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-sicherheitsdachstein"
+to = "/at/p/bramac-montero-sicherheitsdachstein-bordeaux-granuliert-beton-2630907906"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/greencity-graz"
-  to = "/at/referenzen/greencity-graz/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/greencity-graz"
+to = "/at/referenzen/greencity-graz/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-entlüftungsstein"
-  to = "/at/p/bramac-7-dachsystem-entl%C3%BCftungsstein-brillantschwarz-protector-beton-1705778126"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-entlüftungsstein"
+to = "/at/p/bramac-7-dachsystem-entl%C3%BCftungsstein-brillantschwarz-protector-beton-1705778126"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/elite-2s-resistant-180-1-5-x-50-m"
-  to = "/at/p/elite-2s-resistant-180-1-5-x-50-m-3701531101"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/elite-2s-resistant-180-1-5-x-50-m"
+to = "/at/p/elite-2s-resistant-180-1-5-x-50-m-3701531101"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/pur-keil-50-50"
-  to = "/at/p/pur-keil-50-50-1931596702"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/pur-keil-50-50"
+to = "/at/p/pur-keil-50-50-1931596702"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/antennenhalter-universal-lattenmontage"
-  to = "/at/p/antennenhalter-universal-lattenmontage-425796309"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/antennenhalter-universal-lattenmontage"
+to = "/at/p/antennenhalter-universal-lattenmontage-425796309"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/wolfin-m"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/wolfin-m"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/everguard/everguard-tpo-1-8-mm"
-  to = "/at/p/everguard-tpo-1-8-mm-grau-tpo-1497163730"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/everguard/everguard-tpo-1-8-mm"
+to = "/at/p/everguard-tpo-1-8-mm-grau-tpo-1497163730"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-pm-schindel-biberschwanzform"
-  to = "/at/produkte/steildach/dichtdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dichtdach-pm-schindel-biberschwanzform"
+to = "/at/produkte/steildach/dichtdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-alu-60"
-  to = "/at/p/luminex-alu-60-rot-3865837307"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-alu-60"
+to = "/at/p/luminex-alu-60-rot-3865837307"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dichtdach/dichtdach-pm-schindel"
-  to = "/at/p/dichtdach-pm-schindel-rechteckform-anthrazit-2322565746"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dichtdach/dichtdach-pm-schindel"
+to = "/at/p/dichtdach-pm-schindel-rechteckform-anthrazit-2322565746"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-ortgangstein-links"
-  to = "/at/p/bramac-7-dachsystem-ortgangstein-links-brillantschwarz-protector-beton-715552394"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-ortgangstein-links"
+to = "/at/p/bramac-7-dachsystem-ortgangstein-links-brillantschwarz-protector-beton-715552394"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-gv-35-v40"
-  to = "/at/p/villox-gv-35-v40-1023472357"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-gv-35-v40"
+to = "/at/p/villox-gv-35-v40-1023472357"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-p-4-b"
-  to = "/at/p/isovill-p-4-b-1633946958"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-p-4-b"
+to = "/at/p/isovill-p-4-b-1633946958"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/polartherm-sk-plus"
-  to = "/at/p/polartherm-sk-plus-bitumen-1409036805"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/polartherm-sk-plus"
+to = "/at/p/polartherm-sk-plus-bitumen-1409036805"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/maria-taferl"
-  to = "/at/referenzen/maria-taferl/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/maria-taferl"
+to = "/at/referenzen/maria-taferl/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/traufe"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22EAVES%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/traufe"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22EAVES%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-schneestoppstein"
-  to = "/at/p/bramac-7-dachsystem-schneestoppstein-brillantschwarz-protector-beton-2913650001"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-schneestoppstein"
+to = "/at/p/bramac-7-dachsystem-schneestoppstein-brillantschwarz-protector-beton-2913650001"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/premium-top-ru-resistant-330-1-5-x-30-m"
-  to = "/at/p/premium-top-ru-resistant-330-1-5-x-30-m-656262377"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/premium-top-ru-resistant-330-1-5-x-30-m"
+to = "/at/p/premium-top-ru-resistant-330-1-5-x-30-m-656262377"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-halbstein"
-  to = "/at/p/bramac-classic-halbstein-brillantschwarz-protector-plus-beton-2641518410"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-halbstein"
+to = "/at/p/bramac-classic-halbstein-brillantschwarz-protector-plus-beton-2641518410"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanggitter-3-m"
-  to = "/at/p/schneefanggitter-3-m-braun-1586617679"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanggitter-3-m"
+to = "/at/p/schneefanggitter-3-m-braun-1586617679"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-ws-i"
-  to = "/at/p/villaverde-ws-i-bitumen-2308828116"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-ws-i"
+to = "/at/p/villaverde-ws-i-bitumen-2308828116"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-standbrettstein"
-  to = "/at/p/bramac-7-dachsystem-standbrettstein-brillantschwarz-protector-beton-890629271"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-standbrettstein"
+to = "/at/p/bramac-7-dachsystem-standbrettstein-brillantschwarz-protector-beton-890629271"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-sanilüfter"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-sanilüfter"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-5-b"
-  to = "/at/p/isovill-e-5-b-2734838034"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-5-b"
+to = "/at/p/isovill-e-5-b-2734838034"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-4-wf"
-  to = "/at/p/villaverde-e-kv-4-wf-bitumen-3536408433"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-4-wf"
+to = "/at/p/villaverde-e-kv-4-wf-bitumen-3536408433"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/uni-eco-2s-140-1-5-x-50-m"
-  to = "/at/p/uni-eco-2s-140-1-5-x-50-m-907989971"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/uni-eco-2s-140-1-5-x-50-m"
+to = "/at/p/uni-eco-2s-140-1-5-x-50-m-907989971"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/house-of-brands"
-  to = "/at/referenzen/house-of-brands/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/house-of-brands"
+to = "/at/referenzen/house-of-brands/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaseal-komponente-a-harz-21-kg"
-  to = "/at/p/villaseal-komponente-a-harz-21-kg-2238133989"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaseal-komponente-a-harz-21-kg"
+to = "/at/p/villaseal-komponente-a-harz-21-kg-2238133989"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-28-lt"
-  to = "/at/p/pormex-28-lt-1677689392"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/pormex-28-lt"
+to = "/at/p/pormex-28-lt-1677689392"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/teroson-ef-tk-395"
-  to = "/at/p/teroson-ef-tk-395-2127206311"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/teroson-ef-tk-395"
+to = "/at/p/teroson-ef-tk-395-2127206311"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/set-dunstrohr-durovent-ad-125"
-  to = "/at/p/set-dunstrohr-durovent-ad-125-braun-924353224"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/set-dunstrohr-durovent-ad-125"
+to = "/at/p/set-dunstrohr-durovent-ad-125-braun-924353224"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-firstplatte"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-firstplatte"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villatop-duo-blank"
-  to = "/at/p/villatop-duo-blank-bitumen-2072415824"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villatop-duo-blank"
+to = "/at/p/villatop-duo-blank-bitumen-2072415824"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/antennenaufsatz-durovent"
-  to = "/at/p/antennenaufsatz-durovent-braun-1910422623"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/antennenaufsatz-durovent"
+to = "/at/p/antennenaufsatz-durovent-braun-1910422623"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/bison-1-50-m-x-50-m"
-  to = "/at/p/bison-1-50-m-x-50-m-3234025488"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/bison-1-50-m-x-50-m"
+to = "/at/p/bison-1-50-m-x-50-m-3234025488"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-ws-i-5s"
-  to = "/at/p/villaverde-ws-i-5s-bitumen-3211948737"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-ws-i-5s"
+to = "/at/p/villaverde-ws-i-5s-bitumen-3211948737"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/wohnanlage-the-view2"
-  to = "/at/referenzen/wohnanlage-the-view2/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/wohnanlage-the-view2"
+to = "/at/referenzen/wohnanlage-the-view2/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/hygrodiode-20-classic-1-25-m-x-20-m"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/hygrodiode-20-classic-1-25-m-x-20-m"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-turmalin-1-1-flächenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-turmalin-1-1-flächenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/vedatop-s5-bluespeed"
-  to = "/at/p/vedatop-s5-bluespeed-blau-gr%C3%BCn-bitumen-3253545970"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/vedatop-s5-bluespeed"
+to = "/at/p/vedatop-s5-bluespeed-blau-gr%C3%BCn-bitumen-3253545970"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-n-350"
-  to = "/at/p/villox-n-350-4281638872"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-n-350"
+to = "/at/p/villox-n-350-4281638872"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-entlüftungsstein"
-  to = "/at/p/bramac-tegalit-entl%C3%BCftungsstein-schiefer-protector-plus-beton-3918667358"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-entlüftungsstein"
+to = "/at/p/bramac-tegalit-entl%C3%BCftungsstein-schiefer-protector-plus-beton-3918667358"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/hygrodiode-100-1-25-m-x-40-m"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/hygrodiode-100-1-25-m-x-40-m"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-doppelwulstziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-doppelwulstziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/fixodrain-xd-20"
-  to = "/at/p/fixodrain-xd-20-3503061101"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/fixodrain-xd-20"
+to = "/at/p/fixodrain-xd-20-3503061101"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-gw-b"
-  to = "/at/p/isovill-e-gw-b-723559206"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-gw-b"
+to = "/at/p/isovill-e-gw-b-723559206"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/vmx-5"
-  to = "/at/p/vmx-5-2297536776"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/vmx-5"
+to = "/at/p/vmx-5-2297536776"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultstein"
-  to = "/at/p/bramac-classic-pultstein-brillantschwarz-protector-plus-beton-3308897134"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultstein"
+to = "/at/p/bramac-classic-pultstein-brillantschwarz-protector-plus-beton-3308897134"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-clima-comfort"
-  to = "/at/p/bramac-therm-clima-comfort-3434414687"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-clima-comfort"
+to = "/at/p/bramac-therm-clima-comfort-3434414687"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/kabeldurchgang-uni-8-k"
-  to = "/at/p/kabeldurchgang-uni-8-k-braun-414746488"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/kabeldurchgang-uni-8-k"
+to = "/at/p/kabeldurchgang-uni-8-k-braun-414746488"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/ultra-uv-2s-1-5-x-50m-fassadenbahn"
-  to = "/at/p/ultra-uv-2s-1-5-x-50m-fassadenbahn-3822628594"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/ultra-uv-2s-1-5-x-50m-fassadenbahn"
+to = "/at/p/ultra-uv-2s-1-5-x-50m-fassadenbahn-3822628594"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/premium-wu-350-1-5-x-30-m"
-  to = "/at/p/premium-top-ru-resistant-330-1-5-x-30-m-656262377"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/premium-wu-350-1-5-x-30-m"
+to = "/at/p/premium-top-ru-resistant-330-1-5-x-30-m-656262377"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-poly-eingießmasse"
-  to = "/at/p/isovill-poly-eingie%C3%9Fmasse-2825868205"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-poly-eingießmasse"
+to = "/at/p/isovill-poly-eingie%C3%9Fmasse-2825868205"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachsicherheit"
-  to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22SAFETY%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachsicherheit"
+to = "/at/produkte/steildach/steildach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22SAFETY%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-dd"
-  to = "/at/p/luminex-dd-braun-1482299893"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-dd"
+to = "/at/p/luminex-dd-braun-1482299893"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachrinnen"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/steildach-zubehör/dachrinnen"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-basic"
-  to = "/at/p/bramac-therm-basic-3151748284"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-basic"
+to = "/at/p/bramac-therm-basic-3151748284"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-waterproof-coating-–-abdichtung-weiß"
-  to = "/at/p/sealoflex-ultima-waterproof-coating-abdichtung-wei%C3%9F-wei%C3%9F-883960054"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-waterproof-coating-–-abdichtung-weiß"
+to = "/at/p/sealoflex-ultima-waterproof-coating-abdichtung-wei%C3%9F-wei%C3%9F-883960054"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/aero-firstelement"
-  to = "/at/p/aero-firstelement-braun-3851610424"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/aero-firstelement"
+to = "/at/p/aero-firstelement-braun-3851610424"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/geodren-peit-150g-2m-x-100m"
-  to = "/at/p/geodren-peit-150g-2m-x-100m-2358575120"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/geodren-peit-150g-2m-x-100m"
+to = "/at/p/geodren-peit-150g-2m-x-100m-2358575120"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-top"
-  to = "/at/p/bramac-therm-top-2319204260"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-therm-top"
+to = "/at/p/bramac-therm-top-2319204260"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/micoral-nb"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/micoral-nb"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/thermosolo"
-  to = "/at/p/thermosolo-bitumen-1655266646"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/thermosolo"
+to = "/at/p/thermosolo-bitumen-1655266646"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv"
-  to = "/at/p/villaverde-e-kv-4-wf-bitumen-3536408433"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv"
+to = "/at/p/villaverde-e-kv-4-wf-bitumen-3536408433"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-5s-wf"
-  to = "/at/p/villaverde-e-kv-5s-wf-bitumen-2483129227"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villaverde-e-kv-5s-wf"
+to = "/at/p/villaverde-e-kv-5s-wf-bitumen-2483129227"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-ortgangstein-rechts"
-  to = "/at/p/bramac-markant-ortgangstein-rechts-kastanienrot-protector-plus-beton-3197341130"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-ortgangstein-rechts"
+to = "/at/p/bramac-markant-ortgangstein-rechts-kastanienrot-protector-plus-beton-3197341130"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-membran-100-2s-75-m²-dampfsperre"
-  to = "/at/p/bramac-membran-100-2s-75-m-dampfsperre-1375901050"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-membran-100-2s-75-m²-dampfsperre"
+to = "/at/p/bramac-membran-100-2s-75-m-dampfsperre-1375901050"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-dreiviertelbiber"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-dreiviertelbiber"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/almlust-flachau"
-  to = "/at/referenzen/almlust-flachau/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/almlust-flachau"
+to = "/at/referenzen/almlust-flachau/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-ortgangstein-rechts"
-  to = "/at/p/bramac-7-dachsystem-ortgangstein-rechts-brillantschwarz-protector-beton-390523105"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-ortgangstein-rechts"
+to = "/at/p/bramac-7-dachsystem-ortgangstein-rechts-brillantschwarz-protector-beton-390523105"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/set-dunstrohr-durovent-ad-100"
-  to = "/at/p/set-dunstrohr-durovent-ad-100-braun-2276374634"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/set-dunstrohr-durovent-ad-100"
+to = "/at/p/set-dunstrohr-durovent-ad-100-braun-2276374634"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/cosmofin-f"
-  to = "/at/p/cosmofin-f-hellgrau-pvc-760340270"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/cosmofin-f"
+to = "/at/p/cosmofin-f-hellgrau-pvc-760340270"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/grow-together-bramac-und-villas-unter-bmi-group"
-  to = "/at/ueber-bmi-oesterreich/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/grow-together-bramac-und-villas-unter-bmi-group"
+to = "/at/ueber-bmi-oesterreich/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-standbrettstein"
-  to = "/at/p/bramac-donau-standbrettstein-rotbraun-protector-beton-1628103331"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-standbrettstein"
+to = "/at/p/bramac-donau-standbrettstein-rotbraun-protector-beton-1628103331"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/firststein-glatt-inkl-firstklammer"
-  to = "/at/p/firststein-glatt-inkl-firstklammer-schiefer-standard-1209985335"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/firststein-glatt-inkl-firstklammer"
+to = "/at/p/firststein-glatt-inkl-firstklammer-schiefer-standard-1209985335"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-antennenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-antennenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-solar-kabeldurchgang"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-ton-solar-kabeldurchgang"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-pultstein"
-  to = "/at/p/bramac-max-pultstein-brillantschwarz-protector-beton-1665262601"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-pultstein"
+to = "/at/p/bramac-max-pultstein-brillantschwarz-protector-beton-1665262601"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-3-5-m"
-  to = "/at/p/lichtdach-fastlock-uni-3-5-m-transparent-polycarbonat-98094099"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-3-5-m"
+to = "/at/p/lichtdach-fastlock-uni-3-5-m-transparent-polycarbonat-98094099"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/dunstrohraufsatz-durovent"
-  to = "/at/p/dunstrohraufsatz-durovent-braun-synthetic-1976224210"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/dunstrohraufsatz-durovent"
+to = "/at/p/dunstrohraufsatz-durovent-braun-synthetic-1976224210"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/geodren-peit-300g-2m-x-50m"
-  to = "/at/p/geodren-peit-300g-2m-x-50m-2799538"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/geodren-peit-300g-2m-x-50m"
+to = "/at/p/geodren-peit-300g-2m-x-50m-2799538"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/performadrain-attikaablauf-mit-abgewinkeltem-flansch"
-  to = "/at/p/performadrain-attikaablauf-mit-abgewinkeltem-flansch-mit-bitumen-manschette-4002774004"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/performadrain-attikaablauf-mit-abgewinkeltem-flansch"
+to = "/at/p/performadrain-attikaablauf-mit-abgewinkeltem-flansch-mit-bitumen-manschette-4002774004"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/trittstufe-40-größe-40-x-25-cm"
-  to = "/at/p/trittstufe-40-gr%C3%B6%C3%9Fe-40-x-25-cm-braun-3966925104"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/trittstufe-40-größe-40-x-25-cm"
+to = "/at/p/trittstufe-40-gr%C3%B6%C3%9Fe-40-x-25-cm-braun-3966925104"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-4-5-m"
-  to = "/at/p/lichtdach-fastlock-uni-4-5-m-transparent-polycarbonat-550368998"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-4-5-m"
+to = "/at/p/lichtdach-fastlock-uni-4-5-m-transparent-polycarbonat-550368998"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-sonderlängen"
-  to = "/at/p/lichtdach-fastlock-uni-sonderl%C3%A4ngen-transparent-polycarbonat-374857587"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-sonderlängen"
+to = "/at/p/lichtdach-fastlock-uni-sonderl%C3%A4ngen-transparent-polycarbonat-374857587"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/infineon-villach"
-  to = "/at/referenzen/infineon-villach/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/infineon-villach"
+to = "/at/referenzen/infineon-villach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/wetterkappe-durovent"
-  to = "/at/p/wetterkappe-durovent-braun-3813462994"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/wetterkappe-durovent"
+to = "/at/p/wetterkappe-durovent-braun-3813462994"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/museum-liaunig"
-  to = "/at/referenzen/museum-liaunig/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/museum-liaunig"
+to = "/at/referenzen/museum-liaunig/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/edelweiss-salzburg"
-  to = "/at/referenzen/edelweiss-salzburg/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/edelweiss-salzburg"
+to = "/at/referenzen/edelweiss-salzburg/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/historisches-gebaeude-pottenbrunn"
-  to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/historisches-gebaeude-pottenbrunn"
+to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-ortgangstein-links"
-  to = "/at/p/bramac-donau-ortgangstein-links-rotbraun-protector-beton-214013323"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-ortgangstein-links"
+to = "/at/p/bramac-donau-ortgangstein-links-rotbraun-protector-beton-214013323"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/plastovill-p-kv-4"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/plastovill-p-kv-4"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-zubehör/flachdach-entlüftung-entwässerung"
-  to = "/at/produkte/flachdach/flachdach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22FLATROOF_OUTLETS%22%5D%7D%5D"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach/flachdach-produkte/flachdach-zubehör/flachdach-entlüftung-entwässerung"
+to = "/at/produkte/flachdach/flachdach-zubehoer/?filters=%5B%7B%22name%22%3A%22Category%22%2C%22value%22%3A%5B%22FLATROOF_OUTLETS%22%5D%7D%5D"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/flachdach"
-  to = "/at/produkte/flachdach/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/flachdach"
+to = "/at/produkte/flachdach/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/newdrain-dbv-10"
-  to = "/at/p/newdrain-dbv-10-339715977"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/newdrain-dbv-10"
+to = "/at/p/newdrain-dbv-10-339715977"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-entlüftungsstein"
-  to = "/at/p/bramac-montero-entl%C3%BCftungsstein-bordeaux-granuliert-beton-116751828"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-entlüftungsstein"
+to = "/at/p/bramac-montero-entl%C3%BCftungsstein-bordeaux-granuliert-beton-116751828"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-uni-max"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-uni-max"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/diversity"
-  to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/wir-foerdern-die-vielfalt/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/diversity"
+to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/wir-foerdern-die-vielfalt/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultortgangstein-rechts"
-  to = "/at/p/bramac-classic-pultortgangstein-rechts-brillantschwarz-protector-plus-beton-530941397"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultortgangstein-rechts"
+to = "/at/p/bramac-classic-pultortgangstein-rechts-brillantschwarz-protector-plus-beton-530941397"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-5-m"
-  to = "/at/p/lichtdach-fastlock-uni-5-m-transparent-polycarbonat-1690179612"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-5-m"
+to = "/at/p/lichtdach-fastlock-uni-5-m-transparent-polycarbonat-1690179612"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villafix-klemmschiene-3-lm"
-  to = "/at/p/villafix-klemmschiene-3-lm-504727378"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villafix-klemmschiene-3-lm"
+to = "/at/p/villafix-klemmschiene-3-lm-504727378"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultortgangstein-links"
-  to = "/at/p/bramac-classic-pultortgangstein-links-brillantschwarz-protector-plus-beton-2251197373"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pultortgangstein-links"
+to = "/at/p/bramac-classic-pultortgangstein-links-brillantschwarz-protector-plus-beton-2251197373"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-zweidrittelstein"
-  to = "/at/p/bramac-markant-zweidrittelstein-antik-protector-plus-beton-2915689064"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-zweidrittelstein"
+to = "/at/p/bramac-markant-zweidrittelstein-antik-protector-plus-beton-2915689064"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/teroson-ad-adhesive-spray"
-  to = "/at/p/teroson-ad-adhesive-spray-320273538"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/teroson-ad-adhesive-spray"
+to = "/at/p/teroson-ad-adhesive-spray-320273538"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/luerzerhof-untertauern"
-  to = "/at/referenzen/luerzerhof-untertauern/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/luerzerhof-untertauern"
+to = "/at/referenzen/luerzerhof-untertauern/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-6-m"
-  to = "/at/p/lichtdach-fastlock-uni-6-m-transparent-polycarbonat-1061422281"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/lichtdach-fastlock-uni-6-m"
+to = "/at/p/lichtdach-fastlock-uni-6-m-transparent-polycarbonat-1061422281"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-85-25"
-  to = "/at/p/villox-85-25-118685475"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-85-25"
+to = "/at/p/villox-85-25-118685475"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-standbrettstein"
-  to = "/at/p/bramac-markant-standbrettstein-rotbraun-standard-999401086"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-standbrettstein"
+to = "/at/p/bramac-markant-standbrettstein-rotbraun-standard-999401086"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-halbstein"
-  to = "/at/p/bramac-7-dachsystem-halbstein-brillantschwarz-protector-beton-872926324"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-7-dachsystem-halbstein"
+to = "/at/p/bramac-7-dachsystem-halbstein-brillantschwarz-protector-beton-872926324"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-ortgangstein-links"
-  to = "/at/p/bramac-markant-ortgangstein-links-kastanienrot-protector-plus-beton-61358819"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-markant-ortgangstein-links"
+to = "/at/p/bramac-markant-ortgangstein-links-kastanienrot-protector-plus-beton-61358819"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-pv-b"
-  to = "/at/p/isovill-e-pv-b-312784866"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/isovill-e-pv-b"
+to = "/at/p/isovill-e-pv-b-312784866"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-ortgangstein-rechts"
-  to = "/at/p/bramac-donau-ortgangstein-rechts-rotbraun-protector-beton-2695142255"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-donau-ortgangstein-rechts"
+to = "/at/p/bramac-donau-ortgangstein-rechts-rotbraun-protector-beton-2695142255"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-lüfterziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-lüfterziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/klöber-venduct-uni-be-entlüfter-set-dn150-wärmegedämmt-mit-langer-schürze-und-anschlussmanschette"
-  to = "/at/p/kl%C3%B6ber-venduct-uni-be-entl%C3%BCfter-set-dn150-w%C3%A4rmeged%C3%A4mmt-mit-langer-sch%C3%BCrze-und-anschlussmanschette-rot-3354122027"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/klöber-venduct-uni-be-entlüfter-set-dn150-wärmegedämmt-mit-langer-schürze-und-anschlussmanschette"
+to = "/at/p/kl%C3%B6ber-venduct-uni-be-entl%C3%BCfter-set-dn150-w%C3%A4rmeged%C3%A4mmt-mit-langer-sch%C3%BCrze-und-anschlussmanschette-rot-3354122027"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/metalldachplatte-click-17-mit-einhängebügel"
-  to = "/at/p/laufsteghalter-f%C3%BCr-metalldachplatte-bitumen-click-17-761117234"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/metalldachplatte-click-17-mit-einhängebügel"
+to = "/at/p/laufsteghalter-f%C3%BCr-metalldachplatte-bitumen-click-17-761117234"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/traufgitter"
-  to = "/at/p/traufgitter-763021857"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/traufgitter"
+to = "/at/p/traufgitter-763021857"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-taufplatte"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-opal-standard-taufplatte"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-sicherheitsdachstein"
-  to = "/at/p/bramac-tegalit-sicherheitsdachstein-schiefer-protector-plus-beton-2841668809"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-sicherheitsdachstein"
+to = "/at/p/bramac-tegalit-sicherheitsdachstein-schiefer-protector-plus-beton-2841668809"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villox-v4"
-  to = "/at/p/villox-v4-194593743"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villox-v4"
+to = "/at/p/villox-v4-194593743"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-detail-coating"
-  to = "/at/p/sealoflex-endura-detail-coating-grau-997024314"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-detail-coating"
+to = "/at/p/sealoflex-endura-detail-coating-grau-997024314"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-waterproof-coating-–-abdichtung-grau"
-  to = "/at/p/sealoflex-endura-detail-coating-grau-997024314"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-ultima-waterproof-coating-–-abdichtung-grau"
+to = "/at/p/sealoflex-endura-detail-coating-grau-997024314"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/aerofirstelement"
-  to = "/at/p/aero-firstelement-rot-standard-1236696136"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/aerofirstelement"
+to = "/at/p/aero-firstelement-rot-standard-1236696136"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-ortgangstein-rechts"
-  to = "/at/p/bramac-montero-ortgangstein-rechts-bordeaux-granuliert-beton-3957661880"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-montero-ortgangstein-rechts"
+to = "/at/p/bramac-montero-ortgangstein-rechts-bordeaux-granuliert-beton-3957661880"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-halber-flächenziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-granat-11v-halber-flächenziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/flächenbefestigungsmaterial-rb-0-200"
-  to = "/at/p/fl%C3%A4chenbefestigungsmaterial-rb-0-200-1724177531"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/flächenbefestigungsmaterial-rb-0-200"
+to = "/at/p/fl%C3%A4chenbefestigungsmaterial-rb-0-200-1724177531"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanggitterhaken-uni-verzinkt"
-  to = "/at/p/schneefanggitter-uni-3-m-verzinkt-3123051993"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/schneefanggitterhaken-uni-verzinkt"
+to = "/at/p/schneefanggitter-uni-3-m-verzinkt-3123051993"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/anschluss-set-dn-100"
-  to = "/at/p/anschluss-set-dn-100-800062020"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/anschluss-set-dn-100"
+to = "/at/p/anschluss-set-dn-100-800062020"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/performadrain-dachablauf-senkrecht-und-performavent-unterteil"
-  to = "/at/p/performadrain-dachablauf-senkrecht-und-performavent-unterteil-mit-pvc-p-bv-manschette-wolfin-ib-1-5-mm-tiefschwarz-4282295873"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/performadrain-dachablauf-senkrecht-und-performavent-unterteil"
+to = "/at/p/performadrain-dachablauf-senkrecht-und-performavent-unterteil-mit-pvc-p-bv-manschette-wolfin-ib-1-5-mm-tiefschwarz-4282295873"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-ortgangstein-rechts"
-  to = "/at/p/bramac-tegalit-ortganghalbstein-rechts-schiefer-protector-plus-beton-3721283090"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-tegalit-ortgangstein-rechts"
+to = "/at/p/bramac-tegalit-ortganghalbstein-rechts-schiefer-protector-plus-beton-3721283090"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/compriband-keil-30-x-60-1-m"
-  to = "/at/p/compriband-keil-30-x-60-1-m-3327182711"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/compriband-keil-30-x-60-1-m"
+to = "/at/p/compriband-keil-30-x-60-1-m-3327182711"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte"
-  to = "/at/produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte"
+to = "/at/produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-adria-entlüftungsstein"
-  to = "/at/p/bramac-adria-entl%C3%BCftungsstein-terrakotta-standard-beton-3230326145"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-adria-entlüftungsstein"
+to = "/at/p/bramac-adria-entl%C3%BCftungsstein-terrakotta-standard-beton-3230326145"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villas-bsm-10-6m-x-1-25m"
-  to = "/at/p/villas-bsm-10-6m-x-1-25m-1339623527"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villas-bsm-10-6m-x-1-25m"
+to = "/at/p/villas-bsm-10-6m-x-1-25m-1339623527"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/villas-thermazone-steinodur-wdk-ld"
-  to = "/at/produkte/flachdach/flachdach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/villas-thermazone-steinodur-wdk-ld"
+to = "/at/produkte/flachdach/flachdach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/"
-  to = "/at/produkte/steildach/steildach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/"
+to = "/at/produkte/steildach/steildach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/spa-vitalressort-eggerwirt-neu"
-  to = "/at/referenzen/spa-vitalressort-eggerwirt/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/spa-vitalressort-eggerwirt-neu"
+to = "/at/referenzen/spa-vitalressort-eggerwirt/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/icodicht-sk"
-  to = "/at/produkte/flachdach/flachdach-produkte/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/icodicht-sk"
+to = "/at/produkte/flachdach/flachdach-produkte/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-set-dunstrohraufsatz-durovent-dd-100"
-  to = "/at/p/bramac-set-dunstrohraufsatz-durovent-ba-dol-100-braun-1895874475"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-set-dunstrohraufsatz-durovent-dd-100"
+to = "/at/p/bramac-set-dunstrohraufsatz-durovent-ba-dol-100-braun-1895874475"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/lüftungsband-alu-5m"
-  to = "/at/p/l%C3%BCftungsband-alu-5m-braun-2270523746"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/lüftungsband-alu-5m"
+to = "/at/p/l%C3%BCftungsband-alu-5m-braun-2270523746"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pulthalbstein"
-  to = "/at/p/bramac-classic-pulthalbstein-brillantschwarz-protector-plus-beton-4043116419"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-classic-pulthalbstein"
+to = "/at/p/bramac-classic-pulthalbstein-brillantschwarz-protector-plus-beton-4043116419"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-lüfterziegel"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-rubin-13v-lüfterziegel"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/metalroll-5-m"
-  to = "/at/p/metalroll-5-m-654120093"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/metalroll-5-m"
+to = "/at/p/metalroll-5-m-654120093"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/grau"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/steildach/steildach-produkte/dachziegel/grau"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-schneestoppstein"
-  to = "/at/p/bramac-max-schneestoppstein-brillantschwarz-protector-beton-744511072"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-max-schneestoppstein"
+to = "/at/p/bramac-max-schneestoppstein-brillantschwarz-protector-beton-744511072"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/ersatzscheibe-luminex-ad"
-  to = "/at/p/ersatzscheibe-luminex-ad-2852917325"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/ersatzscheibe-luminex-ad"
+to = "/at/p/ersatzscheibe-luminex-ad-2852917325"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-top-wärmegedämmt"
-  to = "/at/p/luminex-top-w%C3%A4rmeged%C3%A4mmt-rot-846567812"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/luminex-top-wärmegedämmt"
+to = "/at/p/luminex-top-w%C3%A4rmeged%C3%A4mmt-rot-846567812"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/villas/permo-sec-metal-sk-390-1-50-x-25-m"
-  to = "/at/p/permo-sec-metal-sk-390-1-50-x-25-m-2530637685"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/villas/permo-sec-metal-sk-390-1-50-x-25-m"
+to = "/at/p/permo-sec-metal-sk-390-1-50-x-25-m-2530637685"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-asphalt-primer-–-bitumen-primer"
-  to = "/at/p/sealoflex-endura-asphalt-primer-bitumen-primer-transparent-1625569222"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bmi/sealoflex-endura-asphalt-primer-–-bitumen-primer"
+to = "/at/p/sealoflex-endura-asphalt-primer-bitumen-primer-transparent-1625569222"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/architekten-und-planer"
-  to = "/at/services/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/architekten-und-planer"
+to = "/at/services/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/bmi-akademie"
-  to = "/at/services/bmi-akademie/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/bmi-akademie"
+to = "/at/services/bmi-akademie/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/garantien"
-  to = "/at/services/garantien/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/garantien"
+to = "/at/services/garantien/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/planungstools/villas-system-konfigurator"
-  to = "/at/services/plannungstool/villas-dichtdach-konfigurator/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/planungstools/villas-system-konfigurator"
+to = "/at/services/plannungstool/villas-dichtdach-konfigurator/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/planungstools/windsogrechner"
-  to = "/at/services/plannungstool/windsogrechner/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/planungstools/windsogrechner"
+to = "/at/services/plannungstool/windsogrechner/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/planungstools"
-  to = "/at/services/plannungstool/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/planungstools"
+to = "/at/services/plannungstool/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/gipfelhaus-magdalensberg-neu"
-  to = "/at/referenzen/gipfelhaus-magdalensberg/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/gipfelhaus-magdalensberg-neu"
+to = "/at/referenzen/gipfelhaus-magdalensberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/grizzly-resort-st-margarethen"
-  to = "/at/referenzen/grizzly-resort-st-margarethen/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/grizzly-resort-st-margarethen"
+to = "/at/referenzen/grizzly-resort-st-margarethen/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/hoho-wien"
-  to = "/at/referenzen/hoho-wien/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/hoho-wien"
+to = "/at/referenzen/hoho-wien/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/hotel-central-flachau"
-  to = "/at/referenzen/hotel-central-flachau/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/hotel-central-flachau"
+to = "/at/referenzen/hotel-central-flachau/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/kohlmaisbahn-saalbach-hinterglemm"
-  to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/kohlmaisbahn-saalbach-hinterglemm"
+to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/landesklinikum-baden"
-  to = "/at/referenzen/landesklinikum-baden/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/landesklinikum-baden"
+to = "/at/referenzen/landesklinikum-baden/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/motto-am-fluss"
-  to = "/at/referenzen/motto-am-fluss/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/motto-am-fluss"
+to = "/at/referenzen/motto-am-fluss/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/mountain-resort-feuerberg-gerlitzen"
-  to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/mountain-resort-feuerberg-gerlitzen"
+to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/mq-libelle"
-  to = "/at/referenzen/mq-libelle/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/mq-libelle"
+to = "/at/referenzen/mq-libelle/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/paracelsusbad-salzburg"
-  to = "/at/referenzen/paracelsusbad-salzburg/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/paracelsusbad-salzburg"
+to = "/at/referenzen/paracelsusbad-salzburg/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/schloassalmbahn-bad-hofgastein"
-  to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/schloassalmbahn-bad-hofgastein"
+to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/silverjet-katschberg"
-  to = "/at/referenzen/silverjet-katschberg/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/silverjet-katschberg"
+to = "/at/referenzen/silverjet-katschberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen/stadthaus-bischofshofen"
-  to = "/at/referenzen/stadthaus-bischofshofen/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen/stadthaus-bischofshofen"
+to = "/at/referenzen/stadthaus-bischofshofen/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projekte-und-referenzen"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projekte-und-referenzen"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/projektpartner"
-  to = "/at/services/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/projektpartner"
+to = "/at/services/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis/verarbeiter"
-  to = "/at/services/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis/verarbeiter"
+to = "/at/services/"
+status = 301
 
 [[redirects]]
-  from = "/at/services-fuer-profis"
-  to = "/at/services/"
-  status = 301
-  force = true
+from = "/at/services-fuer-profis"
+to = "/at/services/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/auch-2021-soforthilfe-bei-unwetter-und-sturmschaeden"
-  to = "/at/dach-tipps/auch-2021-soforthilfe-bei-unwetter-und-sturmschaeden/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/auch-2021-soforthilfe-bei-unwetter-und-sturmschaeden"
+to = "/at/dach-tipps/auch-2021-soforthilfe-bei-unwetter-und-sturmschaeden/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/erich-fuchs"
-  to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/erich-fuchs/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/erich-fuchs"
+to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/erich-fuchs/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/herbert-gansberger"
-  to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/herbert-gansberger/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/herbert-gansberger"
+to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/herbert-gansberger/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/michaela-blaser"
-  to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/michaela-blaser/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/jobs-und-karriere/mitarbeiter-stories/michaela-blaser"
+to = "/at/ueber-bmi-oesterreich/jobs-und-karriere/erfahrungsberichte-mitarbeiter/michaela-blaser/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/bramac-superbrand-2020-2021"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/bramac-superbrand-2020-2021"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/fotostar-2021"
-  to = "/at/news/fotostar-2021/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/fotostar-2021"
+to = "/at/news/fotostar-2021/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/neues-lagersetup-2021"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/neues-lagersetup-2021"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news/smartes-dach-neuer-bmi-feuchtesensor"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news/smartes-dach-neuer-bmi-feuchtesensor"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/presse-und-news"
-  to = "/at/dach-tipps/"
-  status = 301
-  force = true
+from = "/at/ueber-bmi-oesterreich/presse-und-news"
+to = "/at/dach-tipps/"
+status = 301
 
 [[redirects]]
-  from = "/at/ueber-bmi-oesterreich/standorte"
-  to = "/at/kontakt/"
-  status = 301
-  force = true
-
+from = "/at/ueber-bmi-oesterreich/standorte"
+to = "/at/kontakt/"
+status = 301
 
-
-
 [[redirects]]
-  from = "/at/aktionen"
-  to = "/at/services/dachfoerderung-und-aktionen/"
-  status = 301
-  force = true
+from = "/at/aktionen"
+to = "/at/services/dachfoerderung-und-aktionen/"
+status = 301
 
 [[redirects]]
-  from = "/at/bmi-bramac/lagerhaeusermode/1"
-  to = "/at/bmi-bramac/"
-  status = 301
-  force = true
+from = "/at/bmi-bramac/lagerhaeusermode/1"
+to = "/at/bmi-bramac/"
+status = 301
 
 [[redirects]]
-  from = "/at/downloads/datenblatt"
-  to = "/at/downloads/produktdatenblatt/"
-  status = 301
-  force = true
+from = "/at/downloads/datenblatt"
+to = "/at/downloads/produktdatenblatt/"
+status = 301
 
 [[redirects]]
-  from = "/at/downloads/leistungserklärungen/bramac"
-  to = "/at/downloads/leistungserklaerungen/"
-  status = 301
-  force = true
+from = "/at/downloads/leistungserklärungen/bramac"
+to = "/at/downloads/leistungserklaerungen/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-tegalit-standbrettstein-protector-plus-3744467422"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-tegalit/"
-  status = 301
-  force = true
+from = "/at/p/bramac-tegalit-standbrettstein-protector-plus-3744467422"
+to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-tegalit/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-therm-kompakt-812289406"
-  to = "/at/produkte/steildach/steildach-zubehoer/"
-  status = 301
-  force = true
+from = "/at/p/bramac-therm-kompakt-812289406"
+to = "/at/produkte/steildach/steildach-zubehoer/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/pormex-28-lt-1677689392/"
-  to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
-  status = 301
-  force = true
+from = "/at/p/pormex-28-lt-1677689392/"
+to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
+status = 301
 
 [[redirects]]
-  from = "/at/p/pormex-rapid-28-lt-1011416386"
-  to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
-  status = 301
-  force = true
+from = "/at/p/pormex-rapid-28-lt-1011416386"
+to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
+status = 301
 
 [[redirects]]
-  from = "/at/p/sealoflex-ultima-waterproof-coating-abdichtung-weiß-weiß-883960054"
-  to = "/at/produkte/flachdach/fluessigkunststoff/"
-  status = 301
-  force = true
+from = "/at/p/sealoflex-ultima-waterproof-coating-abdichtung-weiß-weiß-883960054"
+to = "/at/produkte/flachdach/fluessigkunststoff/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/vedatop-s5-bluespeed-blau-grün-bitumen-3253545970"
-  to = "/at/produkte/flachdach/bitumen/"
-  status = 301
-  force = true
+from = "/at/p/vedatop-s5-bluespeed-blau-grün-bitumen-3253545970"
+to = "/at/produkte/flachdach/bitumen/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/villafalt-5es-25-kg-1194702097"
-  to = "/at/p/villafalt-2-k-30-kg-2848694448"
-  status = 301
-  force = true
+from = "/at/p/villafalt-5es-25-kg-1194702097"
+to = "/at/p/villafalt-2-k-30-kg-2848694448"
+status = 301
 
 [[redirects]]
-  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ortgangziegel-links"
-  to = "/at/produkte/steildach/dachsteine-dachziegel/"
-  status = 301
-  force = true
+from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ortgangziegel-links"
+to = "/at/produkte/steildach/dachsteine-dachziegel/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/homestory-handler-posch-bramac-tegalit/"
-  to = "/at/homestories/homestory-handler-posch-bramac-tegalit/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/homestory-handler-posch-bramac-tegalit/"
+to = "/at/homestories/homestory-handler-posch-bramac-tegalit/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/homestory-haller-bramac-classic/"
-  to = "/at/homestories/bmi-homestory-haller-bramac-classic/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/homestory-haller-bramac-classic/"
+to = "/at/homestories/bmi-homestory-haller-bramac-classic/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/homestory-linder-bramac-classic/"
-  to = "/at/homestory/homestory-linder-bramac-classic/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/homestory-linder-bramac-classic/"
+to = "/at/homestory/homestory-linder-bramac-classic/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bmi-homestory-h%C3%A4usler/"
-  to = "/at/homestories/homestory-h%C3%A4usler-bramac-photovoltaik/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bmi-homestory-h%C3%A4usler/"
+to = "/at/homestories/homestory-h%C3%A4usler-bramac-photovoltaik/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bmi-gr%C3%BCndachpaket/"
-  to = "/at/news/bmi-gr%C3%BCndachpaket/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bmi-gr%C3%BCndachpaket/"
+to = "/at/news/bmi-gr%C3%BCndachpaket/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bmi-roofing-award/"
-  to = "/at/news/bmi-roofing-award/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bmi-roofing-award/"
+to = "/at/news/bmi-roofing-award/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bramac-superbrand-2020-2021/"
-  to = "/at/news/bramac-superbrand/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bramac-superbrand-2020-2021/"
+to = "/at/news/bramac-superbrand/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bramac.dach.foto.star-unsere-gewinner-2021/"
-  to = "/at/news/bramac.dach.foto.star-unsere-gewinner-2021/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bramac.dach.foto.star-unsere-gewinner-2021/"
+to = "/at/news/bramac.dach.foto.star-unsere-gewinner-2021/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/fotostar-2021/"
-  to = "/at/news/fotostar-2021/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/fotostar-2021/"
+to = "/at/news/fotostar-2021/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/quality-award-2021/"
-  to = "/at/news/quality-award/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/quality-award-2021/"
+to = "/at/news/quality-award/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/quality-award/"
-  to = "/at/news/quality-award/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/quality-award/"
+to = "/at/news/quality-award/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/rooftop-talk-2022/"
-  to = "/at/news/rooftop-talk-2022/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/rooftop-talk-2022/"
+to = "/at/news/rooftop-talk-2022/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/baustellen-corona/"
-  to = "/at/news/baustellen-corona/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/baustellen-corona/"
+to = "/at/news/baustellen-corona/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/soforthilfe-bei-unwetter-und-sturmschaeden/"
-  to = "/at/news/soforthilfe-bei-unwetter-und-sturmschaeden/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/soforthilfe-bei-unwetter-und-sturmschaeden/"
+to = "/at/news/soforthilfe-bei-unwetter-und-sturmschaeden/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/unternehmensupdate-2020-04-10/"
-  to = "/at/news/unternehmensupdate-2020-04-10/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/unternehmensupdate-2020-04-10/"
+to = "/at/news/unternehmensupdate-2020-04-10/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/almdorf-seinerzeit-neu/"
-  to = "/at/referenzen/almdorf-seinerzeit-neu/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/almdorf-seinerzeit-neu/"
+to = "/at/referenzen/almdorf-seinerzeit-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/almlust-flachau/"
-  to = "/at/referenzen/almlust-flachau/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/almlust-flachau/"
+to = "/at/referenzen/almlust-flachau/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/architektenhaus-ronacher-new/"
-  to = "/at/referenzen/architektenhaus-ronacher-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/architektenhaus-ronacher-new/"
+to = "/at/referenzen/architektenhaus-ronacher-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/architektur-vision-und-technik/"
-  to = "/at/referenzen/architektur-vision-und-technik/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/architektur-vision-und-technik/"
+to = "/at/referenzen/architektur-vision-und-technik/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/autohaus-hinterbauer/"
-  to = "/at/referenzen/autohaus-hinterbauer/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/autohaus-hinterbauer/"
+to = "/at/referenzen/autohaus-hinterbauer/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/berufsschule-schaerding/"
-  to = "/at/referenzen/berufsschule-schaerding/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/berufsschule-schaerding/"
+to = "/at/referenzen/berufsschule-schaerding/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bmi-experten-talk-mag-michael-dell/"
-  to = "/at/referenzen/bmi-experten-talk-mag-michael-dell/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bmi-experten-talk-mag-michael-dell/"
+to = "/at/referenzen/bmi-experten-talk-mag-michael-dell/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bmi-experten-talk-thomas-freunschlag/"
-  to = "/at/referenzen/bmi-experten-talk-thomas-freunschlag/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bmi-experten-talk-thomas-freunschlag/"
+to = "/at/referenzen/bmi-experten-talk-thomas-freunschlag/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/bushalle-klagenfurt-neu/"
-  to = "/at/referenzen/bushalle-klagenfurt-neu/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/bushalle-klagenfurt-neu/"
+to = "/at/referenzen/bushalle-klagenfurt-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/edelweiss-salzburg/"
-  to = "/at/referenzen/edelweiss-salzburg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/edelweiss-salzburg/"
+to = "/at/referenzen/edelweiss-salzburg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/festspielhaus-st-p%C3%B6lten/"
-  to = "/at/referenzen/festspielhaus-st-p%C3%B6lten/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/festspielhaus-st-p%C3%B6lten/"
+to = "/at/referenzen/festspielhaus-st-p%C3%B6lten/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/firmenzentrale-doppelmayr/"
-  to = "/at/referenzen/firmenzentrale-doppelmayr/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/firmenzentrale-doppelmayr/"
+to = "/at/referenzen/firmenzentrale-doppelmayr/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/fit-fabrik-plus-ternitz/"
-  to = "/at/referenzen/fit-fabrik-plus-ternitz/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/fit-fabrik-plus-ternitz/"
+to = "/at/referenzen/fit-fabrik-plus-ternitz/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/futurebase/"
-  to = "/at/referenzen/futurebase/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/futurebase/"
+to = "/at/referenzen/futurebase/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/gemeindeamt-wernberg-new/"
-  to = "/at/referenzen/gemeindeamt-wernberg-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/gemeindeamt-wernberg-new/"
+to = "/at/referenzen/gemeindeamt-wernberg-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/genussufer-unterach-am-attersee/"
-  to = "/at/referenzen/genussufer-unterach-am-attersee/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/genussufer-unterach-am-attersee/"
+to = "/at/referenzen/genussufer-unterach-am-attersee/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/gipfelhaus-magdalensberg/"
-  to = "/at/referenzen/gipfelhaus-magdalensberg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/gipfelhaus-magdalensberg/"
+to = "/at/referenzen/gipfelhaus-magdalensberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/greencity-graz/"
-  to = "/at/referenzen/greencity-graz/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/greencity-graz/"
+to = "/at/referenzen/greencity-graz/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/grizzly-resort-st-margarethen/"
-  to = "/at/referenzen/grizzly-resort-st-margarethen/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/grizzly-resort-st-margarethen/"
+to = "/at/referenzen/grizzly-resort-st-margarethen/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/historisches-gebaeude-pottenbrunn/"
-  to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/historisches-gebaeude-pottenbrunn/"
+to = "/at/referenzen/historisches-gebaeude-pottenbrunn/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/hoho-wien/"
-  to = "/at/referenzen/hoho-wien/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/hoho-wien/"
+to = "/at/referenzen/hoho-wien/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/holzfaltatelier-gmuend-neu-1/"
-  to = "/at/referenzen/holzfaltatelier-gmuend-neu-1/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/holzfaltatelier-gmuend-neu-1/"
+to = "/at/referenzen/holzfaltatelier-gmuend-neu-1/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/hotel-central-flachau/"
-  to = "/at/referenzen/hotel-central-flachau/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/hotel-central-flachau/"
+to = "/at/referenzen/hotel-central-flachau/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/hotel-gmachl-bergheim/"
-  to = "/at/referenzen/hotel-gmachl-bergheim/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/hotel-gmachl-bergheim/"
+to = "/at/referenzen/hotel-gmachl-bergheim/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/house-of-brands/"
-  to = "/at/referenzen/house-of-brands/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/house-of-brands/"
+to = "/at/referenzen/house-of-brands/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/infineon-villach/"
-  to = "/at/referenzen/infineon-villach/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/infineon-villach/"
+to = "/at/referenzen/infineon-villach/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/interspar-mistelbach/"
-  to = "/at/referenzen/interspar-mistelbach/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/interspar-mistelbach/"
+to = "/at/referenzen/interspar-mistelbach/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/kindergarten-stra%C3%9F/"
-  to = "/at/referenzen/kindergarten-stra%C3%9F/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/kindergarten-stra%C3%9F/"
+to = "/at/referenzen/kindergarten-stra%C3%9F/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/kohlmaisbahn-saalbach-hinterglemm/"
-  to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/kohlmaisbahn-saalbach-hinterglemm/"
+to = "/at/referenzen/kohlmaisbahn-saalbach-hinterglemm/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/laabacher-weinschenke/"
-  to = "/at/referenzen/laabacher-weinschenke/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/laabacher-weinschenke/"
+to = "/at/referenzen/laabacher-weinschenke/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/landesberufsschulzentrum-stpeter/"
-  to = "/at/referenzen/landesberufsschulzentrum-stpeter/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/landesberufsschulzentrum-stpeter/"
+to = "/at/referenzen/landesberufsschulzentrum-stpeter/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/landesklinikum-baden/"
-  to = "/at/referenzen/landesklinikum-baden/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/landesklinikum-baden/"
+to = "/at/referenzen/landesklinikum-baden/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/landsitz-villas-landskron-neu/"
-  to = "/at/referenzen/landsitz-villas-landskron-neu/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/landsitz-villas-landskron-neu/"
+to = "/at/referenzen/landsitz-villas-landskron-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/lkh-graz-energiezentrale-new/"
-  to = "/at/referenzen/lkh-graz-energiezentrale-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/lkh-graz-energiezentrale-new/"
+to = "/at/referenzen/lkh-graz-energiezentrale-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/loacker-werk-osttirol/"
-  to = "/at/referenzen/loacker-werk-osttirol/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/loacker-werk-osttirol/"
+to = "/at/referenzen/loacker-werk-osttirol/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/luerzerhof-untertauern/"
-  to = "/at/referenzen/luerzerhof-untertauern/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/luerzerhof-untertauern/"
+to = "/at/referenzen/luerzerhof-untertauern/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/mandlbauer-gleichenberg/"
-  to = "/at/referenzen/mandlbauer-gleichenberg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/mandlbauer-gleichenberg/"
+to = "/at/referenzen/mandlbauer-gleichenberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/maria-taferl/"
-  to = "/at/referenzen/maria-taferl/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/maria-taferl/"
+to = "/at/referenzen/maria-taferl/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/motto-am-fluss/"
-  to = "/at/referenzen/motto-am-fluss/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/motto-am-fluss/"
+to = "/at/referenzen/motto-am-fluss/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/mountain-resort-feuerberg-gerlitzen/"
-  to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/mountain-resort-feuerberg-gerlitzen/"
+to = "/at/referenzen/mountain-resort-feuerberg-gerlitzen/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/mq-libelle/"
-  to = "/at/referenzen/mq-libelle/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/mq-libelle/"
+to = "/at/referenzen/mq-libelle/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/museum-liaunig/"
-  to = "/at/referenzen/museum-liaunig/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/museum-liaunig/"
+to = "/at/referenzen/museum-liaunig/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/paracelsusbad-salzburg/"
-  to = "/at/referenzen/paracelsusbad-salzburg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/paracelsusbad-salzburg/"
+to = "/at/referenzen/paracelsusbad-salzburg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/parkapartments-montleart/"
-  to = "/at/referenzen/parkapartments-montleart/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/parkapartments-montleart/"
+to = "/at/referenzen/parkapartments-montleart/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/post-am-rochus-new/"
-  to = "/at/referenzen/post-am-rochus-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/post-am-rochus-new/"
+to = "/at/referenzen/post-am-rochus-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/qness-neu/"
-  to = "/at/referenzen/qness-neu/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/qness-neu/"
+to = "/at/referenzen/qness-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/robinson-club-amade-kleinarl/"
-  to = "/at/referenzen/robinson-club-amade-kleinarl/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/robinson-club-amade-kleinarl/"
+to = "/at/referenzen/robinson-club-amade-kleinarl/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
-  to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+to = "/at/referenzen/rotes-kreuz-freiwillige-feuerwehr-stmichael-neu/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/salzkammergut-klinikum-gmunden/"
-  to = "/at/referenzen/salzkammergut-klinikum-gmunden/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/salzkammergut-klinikum-gmunden/"
+to = "/at/referenzen/salzkammergut-klinikum-gmunden/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/schloassalmbahn-bad-hofgastein/"
-  to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/schloassalmbahn-bad-hofgastein/"
+to = "/at/referenzen/schloassalmbahn-bad-hofgastein/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/silverjet-katschberg/"
-  to = "/at/referenzen/silverjet-katschberg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/silverjet-katschberg/"
+to = "/at/referenzen/silverjet-katschberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/spa-vitalressort-eggerwirt/"
-  to = "/at/referenzen/spa-vitalressort-eggerwirt/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/spa-vitalressort-eggerwirt/"
+to = "/at/referenzen/spa-vitalressort-eggerwirt/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/stadthaus-bischofshofen/"
-  to = "/at/referenzen/stadthaus-bischofshofen/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/stadthaus-bischofshofen/"
+to = "/at/referenzen/stadthaus-bischofshofen/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/steiermarkhof/"
-  to = "/at/referenzen/steiermarkhof/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/steiermarkhof/"
+to = "/at/referenzen/steiermarkhof/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/therme-sankt-kathrein/"
-  to = "/at/referenzen/therme-sankt-kathrein/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/therme-sankt-kathrein/"
+to = "/at/referenzen/therme-sankt-kathrein/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/turnsaal-musikvereinshaus-kirchberg/"
-  to = "/at/referenzen/turnsaal-musikvereinshaus-kirchberg/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/turnsaal-musikvereinshaus-kirchberg/"
+to = "/at/referenzen/turnsaal-musikvereinshaus-kirchberg/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/vgp-park-graz/"
-  to = "/at/referenzen/vgp-park-graz/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/vgp-park-graz/"
+to = "/at/referenzen/vgp-park-graz/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wipur-bildungszentrum-new/"
-  to = "/at/referenzen/wipur-bildungszentrum-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wipur-bildungszentrum-new/"
+to = "/at/referenzen/wipur-bildungszentrum-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wohnanlage-riferside/"
-  to = "/at/referenzen/wohnanlage-riferside/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wohnanlage-riferside/"
+to = "/at/referenzen/wohnanlage-riferside/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wohnanlage-the-view2/"
-  to = "/at/referenzen/wohnanlage-the-view2/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wohnanlage-the-view2/"
+to = "/at/referenzen/wohnanlage-the-view2/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wohnhausanlage-stetten-new/"
-  to = "/at/referenzen/wohnhausanlage-stetten-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wohnhausanlage-stetten-new/"
+to = "/at/referenzen/wohnhausanlage-stetten-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wohnhausanlage-teichweg-altenmarkt-new/"
-  to = "/at/referenzen/wohnhausanlage-teichweg-altenmarkt-new/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wohnhausanlage-teichweg-altenmarkt-new/"
+to = "/at/referenzen/wohnhausanlage-teichweg-altenmarkt-new/"
+status = 301
 
 [[redirects]]
-  from = "/at/dach-tipps/wohnhausanlage-tenscherstrasse-neu-1/"
-  to = "/at/referenzen/wohnhausanlage-tenscherstrasse-neu-1/"
-  status = 301
-  force = true
+from = "/at/dach-tipps/wohnhausanlage-tenscherstrasse-neu-1/"
+to = "/at/referenzen/wohnhausanlage-tenscherstrasse-neu-1/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-brilliantschwarz-protector-plus-beton-3064423322"
-  to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-brilliantschwarz-protector-plus-beton-3064423322"
+to = "/at/p/bramac-classic-1-1-normalstein-brilliantschwarz-protector-plus-beton-1811592945/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-dunkelbraun-protector-plus-beton-2500864991"
-  to = "/at/p/bramac-classic-1-1-normalstein-dunkelbraun-protector-plus-beton-1848886905"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-dunkelbraun-protector-plus-beton-2500864991"
+to = "/at/p/bramac-classic-1-1-normalstein-dunkelbraun-protector-plus-beton-1848886905"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-rotbraun-protector-plus-beton-3886973280/"
-  to = "/at/p/bramac-classic-1-1-normalstein-rotbraun-protector-plus-beton-2990321837/"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-rotbraun-protector-plus-beton-3886973280/"
+to = "/at/p/bramac-classic-1-1-normalstein-rotbraun-protector-plus-beton-2990321837/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-rubinrot-protector-plus-beton-3855872020/"
-  to = "/at/p/bramac-classic-1-1-normalstein-rubinrot-protector-plus-beton-760843353/"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-rubinrot-protector-plus-beton-3855872020/"
+to = "/at/p/bramac-classic-1-1-normalstein-rubinrot-protector-plus-beton-760843353/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-schiefer-protector-plus-beton-3281118669/"
-  to = "/at/p/bramac-classic-1-1-normalstein-schiefer-protector-plus-beton-3342360383"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-schiefer-protector-plus-beton-3281118669/"
+to = "/at/p/bramac-classic-1-1-normalstein-schiefer-protector-plus-beton-3342360383"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-classic-x-1-1-normalstein-ziegelrot-protector-plus-sand-513283530"
-  to = "/at/p/bramac-classic-1-1-normalstein-ziegelrot-protector-plus-sand-4221712421/"
-  status = 301
-  force = true
+from = "/at/p/bramac-classic-x-1-1-normalstein-ziegelrot-protector-plus-sand-513283530"
+to = "/at/p/bramac-classic-1-1-normalstein-ziegelrot-protector-plus-sand-4221712421/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-montero-x-1-1-normalstein-bordeaux-granuliert-beton-2582677218"
-  to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
-  status = 301
-  force = true
+from = "/at/p/bramac-montero-x-1-1-normalstein-bordeaux-granuliert-beton-2582677218"
+to = "/at/p/bramac-montero-1-1-normalstein-bordeaux-granuliert-beton-1619756757"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-montero-x-1-1-normalstein-canyon-granuliert-beton-3559388590"
-  to = "/at/p/bramac-montero-1-1-normalstein-canyon-granuliert-beton-837425957/"
-  status = 301
-  force = true
+from = "/at/p/bramac-montero-x-1-1-normalstein-canyon-granuliert-beton-3559388590"
+to = "/at/p/bramac-montero-1-1-normalstein-canyon-granuliert-beton-837425957/"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-montero-x-1-1-normalstein-granit-granuliert-beton-427258348"
-  to = "/at/p/bramac-montero-1-1-normalstein-granit-granuliert-beton-1163390606"
-  status = 301
-  force = true
+from = "/at/p/bramac-montero-x-1-1-normalstein-granit-granuliert-beton-427258348"
+to = "/at/p/bramac-montero-1-1-normalstein-granit-granuliert-beton-1163390606"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-montero-x-1-1-normalstein-rubinrot-granuliert-beton-1947361787"
-  to = "/at/p/bramac-montero-1-1-normalstein-rubinrot-granuliert-beton-1522446397"
-  status = 301
-  force = true
+from = "/at/p/bramac-montero-x-1-1-normalstein-rubinrot-granuliert-beton-1947361787"
+to = "/at/p/bramac-montero-1-1-normalstein-rubinrot-granuliert-beton-1522446397"
+status = 301
 
 [[redirects]]
-  from = "/at/p/bramac-montero-x-1-1-normalstein-terra-granuliert-beton-3140364328"
-  to = "/at/p/bramac-montero-1-1-normalstein-terra-granuliert-beton-94918540"
-  status = 301
-  force = true
-
+from = "/at/p/bramac-montero-x-1-1-normalstein-terra-granuliert-beton-3140364328"
+to = "/at/p/bramac-montero-1-1-normalstein-terra-granuliert-beton-94918540"
+status = 301
 
-
-
-
-
 [[redirects]]
-  from = "/at/sxa/file/*"
-  to = "/at/downloads/"
-  status = 301
-  force = true
-
+from = "/at/sxa/file/*"
+to = "/at/downloads/"
+status = 301
 
 # Redirect root to /at.
 [[redirects]]
-  from = "/"
-  to = "/at"
-  status = 301
-  force = true
-  
+from = "/"
+to = "/at"
+status = 301

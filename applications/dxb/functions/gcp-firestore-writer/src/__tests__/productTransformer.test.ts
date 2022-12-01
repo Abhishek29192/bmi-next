@@ -706,46 +706,6 @@ describe("transformProduct", () => {
             },
             Object {
               "code": "code",
-              "filterCode": "appearanceAttributes.colour",
-              "groupLabel": "Colour",
-              "isCategory": false,
-              "name": "Colour",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.colourfamily",
-              "groupLabel": "Colour Family",
-              "isCategory": false,
-              "name": "Colour Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.texturefamily",
-              "groupLabel": "Texture Family",
-              "isCategory": false,
-              "name": "Texture Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Gloss",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.variantattribute",
-              "groupLabel": "Variant Attribute",
-              "isCategory": false,
-              "name": "Variant Attribute",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black Gloss 6x7x8x9x10",
-            },
-            Object {
-              "code": "code",
               "filterCode": "generalInformation.materials",
               "groupLabel": "Material",
               "isCategory": false,
@@ -1661,46 +1621,6 @@ describe("transformProduct", () => {
               "parentFilterCode": "",
               "unit": "symbol",
               "value": "value",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.colour",
-              "groupLabel": "Colour",
-              "isCategory": false,
-              "name": "Colour",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.colourfamily",
-              "groupLabel": "Colour Family",
-              "isCategory": false,
-              "name": "Colour Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.texturefamily",
-              "groupLabel": "Texture Family",
-              "isCategory": false,
-              "name": "Texture Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Gloss",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "appearanceAttributes.variantattribute",
-              "groupLabel": "Variant Attribute",
-              "isCategory": false,
-              "name": "Variant Attribute",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black Gloss 6x7x8x9x10",
             },
             Object {
               "code": "code",
@@ -4062,6 +3982,220 @@ describe("transformProduct", () => {
           }
         ],
         name: "variant only classification name"
+      }
+    ]);
+  });
+
+  it("ignores colourfamily classifications on classifications but keeps them on filters When there are more than one variants", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          name: "Appearance",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              name: "Colour",
+              featureValues: [createFeatureValue({ value: "Rustic Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+              name: "Colour Family",
+              featureValues: [createFeatureValue({ value: "Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+              name: "Texture Family",
+              featureValues: [createFeatureValue({ value: "Matt" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+              name: "Variant Attribute",
+              featureValues: [
+                createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+              ],
+              featureUnit: undefined
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              name: "Appearance",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                  name: "Colour",
+                  featureValues: [createFeatureValue({ value: "Rustic Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+                  name: "Colour Family",
+                  featureValues: [createFeatureValue({ value: "Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+                  name: "Texture Family",
+                  featureValues: [createFeatureValue({ value: "Matt" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+                  name: "Variant Attribute",
+                  featureValues: [
+                    createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+                  ],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        }),
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "appearanceAttributes",
+              name: "Appearance",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                  name: "Colour",
+                  featureValues: [createFeatureValue({ value: "Rustic Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+                  name: "Colour Family",
+                  featureValues: [createFeatureValue({ value: "Red" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.TextureFamily",
+                  name: "Texture Family",
+                  featureValues: [createFeatureValue({ value: "Matt" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/appearanceAttributes.VariantAttribute",
+                  name: "Variant Attribute",
+                  featureValues: [
+                    createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+                  ],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].filters).toEqual([
+      {
+        filterCode: "appearanceAttributes.colour",
+        name: "Colour",
+        value: "Rustic Red",
+        code: "code",
+        groupLabel: "Colour",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.colourfamily",
+        name: "Colour Family",
+        value: "Red",
+        code: "code",
+        groupLabel: "Colour Family",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.TextureFamily",
+        name: "Texture Family",
+        value: "Matt",
+        code: "code",
+        groupLabel: "Texture Family",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "appearanceAttributes.VariantAttribute",
+        name: "Variant Attribute",
+        value: "Rustic Red Matt 1x2x3x4x5",
+        code: "code",
+        groupLabel: "Variant Attribute",
+        parentFilterCode: "",
+        isCategory: false
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "parent-category-code",
+        code: "parent-category-code",
+        parentFilterCode: "",
+        isCategory: true
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "ProductFamily",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "ProductLine",
+        name: "name",
+        value: "code",
+        code: "code",
+        parentFilterCode: "parent-category-code",
+        groupLabel: "name",
+        isCategory: true
+      },
+      {
+        filterCode: "Category",
+        name: "name",
+        value: "BMI-brand-code",
+        code: "BMI-brand-code",
+        parentFilterCode: "BMI_Brands",
+        isCategory: true
+      }
+    ]);
+    expect(transformedProducts[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "Colour",
+            value: "Rustic Red"
+          },
+          {
+            name: "Texture Family",
+            value: "Matt"
+          },
+          {
+            name: "Variant Attribute",
+            value: "Rustic Red Matt 1x2x3x4x5"
+          }
+        ],
+        name: "Appearance"
       }
     ]);
   });
@@ -7099,46 +7233,6 @@ describe("transformProduct", () => {
           "filters": Array [
             Object {
               "code": "code",
-              "filterCode": "AppearanceAttributes.Colour",
-              "groupLabel": "Colour",
-              "isCategory": false,
-              "name": "Colour",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Rustic Red",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.ColourFamily",
-              "groupLabel": "Colour Family",
-              "isCategory": false,
-              "name": "Colour Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Red",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.TextureFamily",
-              "groupLabel": "Texture Family",
-              "isCategory": false,
-              "name": "Texture Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Matt",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.VariantAttribute",
-              "groupLabel": "Variant Attribute",
-              "isCategory": false,
-              "name": "Variant Attribute",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Rustic Red Matt 1x2x3x4x5",
-            },
-            Object {
-              "code": "code",
               "filterCode": "GeneralInformation.Materials",
               "groupLabel": "Material",
               "isCategory": false,
@@ -8092,46 +8186,6 @@ describe("transformProduct", () => {
           "filters": Array [
             Object {
               "code": "code",
-              "filterCode": "AppearanceAttributes.Colour",
-              "groupLabel": "Colour",
-              "isCategory": false,
-              "name": "Colour",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.ColourFamily",
-              "groupLabel": "Colour Family",
-              "isCategory": false,
-              "name": "Colour Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Black",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.TextureFamily",
-              "groupLabel": "Texture Family",
-              "isCategory": false,
-              "name": "Texture Family",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Gloss",
-            },
-            Object {
-              "code": "code",
-              "filterCode": "AppearanceAttributes.VariantAttribute",
-              "groupLabel": "Variant Attribute",
-              "isCategory": false,
-              "name": "Variant Attribute",
-              "parentFilterCode": "",
-              "unit": undefined,
-              "value": "Shadow Black Gloss 6x7x8x9x10",
-            },
-            Object {
-              "code": "code",
               "filterCode": "GeneralInformation.Materials",
               "groupLabel": "Material",
               "isCategory": false,
@@ -8424,6 +8478,896 @@ describe("transformProduct", () => {
     ]);
   });
 
+  it("ignore fabDisProductInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisProductInformation",
+              name: "fabDisProductInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.MANUFACTURER",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER30",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER240",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.DOUANE",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.SECT",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.SECTU",
+                  name: "fabDisProductInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisProductInformation.MADE",
+                  name: "fabDisProductInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisProductInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisProductInformation",
+          name: "fabDisProductInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.MANUFACTURER",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER30",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.IDENTIFIER240",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.DOUANE",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.SECT",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.SECTU",
+              name: "fabDisProductInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisProductInformation.MADE",
+              name: "fabDisProductInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisPricingInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisPricingInformation",
+              name: "fabDisPricingInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.DATETARIF",
+                  name: "fabDisPricingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.TARIFD",
+                  name: "fabDisPricingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.QMC",
+                  name: "fabDisPricingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.MUL",
+                  name: "fabDisPricingInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisPricingInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisPricingInformation",
+          name: "fabDisPricingInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.DATETARIF",
+              name: "fabDisPricingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.TARIFD",
+              name: "fabDisPricingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.QMC",
+              name: "fabDisPricingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPricingInformation.MUL",
+              name: "fabDisPricingInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisOrderInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisOrderInformation",
+              name: "fabDisOrderInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.UB",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.QMC",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.MUL",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.QMVT",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.ST",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DELAY",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DATESTA",
+                  name: "fabDisOrderInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DLSR",
+                  name: "fabDisOrderInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisOrderInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisOrderInformation",
+          name: "fabDisOrderInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.UB",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.QMC",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.MUL",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.QMVT",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.ST",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DELAY",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DATESTA",
+              name: "fabDisOrderInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisOrderInformation.DLSR",
+              name: "fabDisOrderInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisSupplierAndDistributorInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisSupplierAndDistributorInformation",
+              name: "fabDisSupplierAndDistributorInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.EDI",
+                  name: "fabDisSupplierAndDistributorInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFANT",
+                  name: "fabDisSupplierAndDistributorInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.DATEREC",
+                  name: "fabDisSupplierAndDistributorInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFE",
+                  name: "fabDisSupplierAndDistributorInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFNEW",
+                  name: "fabDisSupplierAndDistributorInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFOLD",
+                  name: "fabDisSupplierAndDistributorInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisSupplierAndDistributorInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisSupplierAndDistributorInformation",
+          name: "fabDisSupplierAndDistributorInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.EDI",
+              name: "fabDisSupplierAndDistributorInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFANT",
+              name: "fabDisSupplierAndDistributorInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.DATEREC",
+              name: "fabDisSupplierAndDistributorInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFE",
+              name: "fabDisSupplierAndDistributorInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFNEW",
+              name: "fabDisSupplierAndDistributorInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisSupplierAndDistributorInformation.REFOLD",
+              name: "fabDisSupplierAndDistributorInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisCategoryInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisCategoryInformation",
+              name: "fabDisCategoryInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT1",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT1L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT2",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT2L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT3",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT3L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT4",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT4L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT5",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT5L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM1",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM1L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM2",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM2L",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM3",
+                  name: "fabDisCategoryInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM3L",
+                  name: "fabDisCategoryInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisCategoryInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisCategoryInformation",
+          name: "fabDisCategoryInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT1",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT1L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT2",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT2L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT3",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT3L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT4",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT4L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT5",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.MKT5L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM1",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM1L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM2",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM2L",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM3",
+              name: "fabDisCategoryInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisCategoryInformation.FAM3L",
+              name: "fabDisCategoryInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisPackagingInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisPackagingInformation",
+              name: "fabDisPackagingInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.QCT",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.GTIN14",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.HAUT",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.HAUTU",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.LARG",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.LARGU",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.PROF",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.PROFU",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.POIDS",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.POIDSU",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.VOL",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.VOLU",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.CONSI",
+                  name: "fabDisPackagingInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.STACK",
+                  name: "fabDisPackagingInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisPackagingInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisPackagingInformation",
+          name: "fabDisPackagingInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.QCT",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.GTIN14",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.HAUT",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.HAUTU",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.LARG",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.LARGU",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.PROF",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.PROFU",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.POIDS",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.POIDSU",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.VOL",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.VOLU",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.CONSI",
+              name: "fabDisPackagingInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisPackagingInformation.STACK",
+              name: "fabDisPackagingInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
+  it("ignore fabDisAssetInformation classifications from variant product", async () => {
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "fabDisAssetInformation",
+              name: "fabDisAssetInformation",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.CODVAL",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.NUM",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.URL",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.URLT",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RTYP",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNUM",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNAT",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RCOD",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNBR",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RTEXTE",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RDATE",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RVAL",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RVU",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNOM",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RURL",
+                  name: "fabDisAssetInformation"
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RURLT",
+                  name: "fabDisAssetInformation"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([]);
+  });
+
+  it("ignore fabDisAssetInformation classifications from product", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "fabDisAssetInformation",
+          name: "fabDisAssetInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.CODVAL",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.NUM",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.URL",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.URLT",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RTYP",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNUM",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNAT",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RCOD",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNBR",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RTEXTE",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RDATE",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RVAL",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RVU",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RNOM",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RURL",
+              name: "fabDisAssetInformation"
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/fabDisAssetInformation.RURLT",
+              name: "fabDisAssetInformation"
+            })
+          ]
+        })
+      ],
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProduct = await transformProduct(product);
+    expect(transformedProduct[0].classifications).toEqual([
+      {
+        features: [
+          {
+            name: "name",
+            value: "value symbol"
+          }
+        ],
+        name: "name"
+      }
+    ]);
+  });
+
   it("ignore webtools-related classifications", async () => {
     const product = createProduct({
       classifications: [],
@@ -8566,7 +9510,6 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
         createAsset({ assetType: "RIDGE_REFERENCE" })
       ],
       categories: [
@@ -8591,8 +9534,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ],
       categories: [
         createCategory({ categoryType: "Channel", code: "VISUALISER" })
@@ -8625,8 +9568,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ]
     });
     const transformedProduct = await transformProduct(product);
@@ -8675,11 +9618,6 @@ describe("transformProduct", () => {
               code: "bmiClassificationCatalog/1.0/tilesAttributes.largeTile",
               name: "tilesAttributes",
               featureValues: [{ value: "true" }]
-            }),
-            createFeature({
-              code: "bmiClassificationCatalog/1.0/tilesAttributes.thicknessReduction",
-              name: "tilesAttributes",
-              featureValues: [{ value: "10" }]
             })
           ]
         })
@@ -8692,8 +9630,8 @@ describe("transformProduct", () => {
         createAsset({ assetType: "LOW_DETAIL_MESH_REFERENCE" }),
         createAsset({ assetType: "METALLIC_ROUGHNESS_MAP_REFERENCE" }),
         createAsset({ assetType: "NORMAL_MAP_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_END_REFERENCE" }),
-        createAsset({ assetType: "RIDGE_REFERENCE" })
+        createAsset({ assetType: "RIDGE_REFERENCE" }),
+        createAsset({ assetType: "DIFFUSE_MAP_REFERENCE" })
       ]
     });
     const transformedProduct = await transformProduct(product);

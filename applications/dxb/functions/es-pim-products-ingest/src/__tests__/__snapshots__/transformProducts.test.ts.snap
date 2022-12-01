@@ -3,13 +3,13 @@
 exports[`transformProduct original transform tests should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
 Array [
   Object {
-    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
@@ -47,34 +47,36 @@ Array [
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION.MATERIALS": Array [
+    "GENERALINFORMATION$MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS.HEIGHT": Array [
+    "MEASUREMENTS$HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS.LENGTH": Array [
+    "MEASUREMENTS$LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
-    "MEASUREMENTS.THICKNESS": Array [
+    "MEASUREMENTS$THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS.WIDTH": Array [
+    "MEASUREMENTS$WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -107,7 +109,7 @@ Array [
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
@@ -348,6 +350,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -479,6 +482,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -610,6 +614,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -624,13 +629,13 @@ Array [
 exports[`transformProduct original transform tests should handle no categories 1`] = `
 Array [
   Object {
-    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
@@ -642,37 +647,39 @@ Array [
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION.MATERIALS": Array [
+    "GENERALINFORMATION$MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS.HEIGHT": Array [
+    "MEASUREMENTS$HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS.LENGTH": Array [
+    "MEASUREMENTS$LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
-    "MEASUREMENTS.THICKNESS": Array [
+    "MEASUREMENTS$THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS.WIDTH": Array [
+    "MEASUREMENTS$WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
@@ -888,6 +895,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1013,6 +1021,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 0,
     "shortDescription": "Short description",
     "subTitle": "",
@@ -1027,13 +1036,13 @@ Array [
 exports[`transformProduct original transform tests should handle no images 1`] = `
 Array [
   Object {
-    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
@@ -1065,34 +1074,36 @@ Array [
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION.MATERIALS": Array [
+    "GENERALINFORMATION$MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS.HEIGHT": Array [
+    "MEASUREMENTS$HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS.LENGTH": Array [
+    "MEASUREMENTS$LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
-    "MEASUREMENTS.THICKNESS": Array [
+    "MEASUREMENTS$THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS.WIDTH": Array [
+    "MEASUREMENTS$WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1121,7 +1132,7 @@ Array [
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
@@ -1335,6 +1346,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",
@@ -1351,13 +1363,13 @@ exports[`transformProduct original transform tests should not transform full pro
 exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
 Array [
   Object {
-    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+    "APPEARANCEATTRIBUTES$COLOURFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+    "APPEARANCEATTRIBUTES$TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
@@ -1389,34 +1401,36 @@ Array [
         "name": "value symbol",
       },
     ],
-    "GENERALINFORMATION.MATERIALS": Array [
+    "GENERALINFORMATION$MATERIALS": Array [
       Object {
         "code": "codesymbol",
         "name": "concrete symbol",
       },
     ],
-    "MEASUREMENTS.HEIGHT": Array [
+    "MEASUREMENTS$HEIGHT": Array [
       Object {
         "code": "codemm",
         "name": "30 mm",
       },
     ],
-    "MEASUREMENTS.LENGTH": Array [
+    "MEASUREMENTS$LENGTH": Array [
       Object {
         "code": "codemm",
         "name": "10 mm",
+        "value": "10",
       },
     ],
-    "MEASUREMENTS.THICKNESS": Array [
+    "MEASUREMENTS$THICKNESS": Array [
       Object {
         "code": "codemm",
         "name": "40 mm",
       },
     ],
-    "MEASUREMENTS.WIDTH": Array [
+    "MEASUREMENTS$WIDTH": Array [
       Object {
         "code": "codemm",
         "name": "20 mm",
+        "value": "20",
       },
     ],
     "PARENT-CATEGORY-CODE": Array [
@@ -1445,7 +1459,7 @@ Array [
         "name": "name",
       },
     ],
-    "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT": Array [
+    "SCORINGWEIGHTATTRIBUTES$SCORINGWEIGHT": Array [
       Object {
         "code": "codesymbol",
         "name": "1.0 symbol",
@@ -1682,6 +1696,7 @@ Array [
     "productBenefits": Array [
       "product-benefits",
     ],
+    "productReferences": undefined,
     "productScoringWeightInt": 1,
     "shortDescription": "Short description",
     "subTitle": "glossy",

@@ -29,6 +29,7 @@ export type Colour = {
   isDraft: boolean;
   type: string;
   variantCode: string;
+  path: string;
 };
 
 export type Tile = {
@@ -98,6 +99,7 @@ export type PIMTile = {
   invert?: boolean;
   invertY?: boolean;
   mainImage: string;
+  path: string;
 };
 
 export interface HouseType {
