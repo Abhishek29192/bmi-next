@@ -6,6 +6,10 @@ export const formatDate = (date) =>
   });
 
 export const getDateOnlyString = (date: string) => {
+  if (!date || date.length === 0) {
+    return "";
+  }
+
   const d = new Date(date);
 
   return [

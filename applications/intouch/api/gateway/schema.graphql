@@ -3646,6 +3646,7 @@ type Company implements Node {
     """
     orderBy: [CompanyOperationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CompanyOperationsConnection!
+  contractStatus: Boolean
   createdAt: Datetime!
 
   """
@@ -3840,6 +3841,7 @@ type Company implements Node {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
 
   """
   Reads and enables pagination through a set of `RewardRecord`.
@@ -6838,6 +6840,7 @@ input CompanyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -6928,6 +6931,7 @@ input CompanyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -39891,6 +39895,7 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -39981,6 +39986,7 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40035,6 +40041,7 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40120,6 +40127,7 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40174,6 +40182,7 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40259,6 +40268,7 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40313,6 +40323,7 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40403,6 +40414,7 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40452,6 +40464,7 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40542,6 +40555,7 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40596,6 +40610,7 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40686,6 +40701,7 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40740,6 +40756,7 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40830,6 +40847,7 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -40884,6 +40902,7 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -40974,6 +40993,7 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -41028,6 +41048,7 @@ input updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -41118,6 +41139,7 @@ input updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
@@ -41172,6 +41194,7 @@ input updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -41262,6 +41285,7 @@ input updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
   rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
   rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean

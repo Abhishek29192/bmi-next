@@ -231,6 +231,8 @@ export type UpdateCompanyDetailsMutation = {
       website?: string | null;
       facebook?: string | null;
       linkedIn?: string | null;
+      contractStatus?: boolean | null;
+      renewalDate?: any | null;
       referenceNumber: number;
       taxNumber?: string | null;
       tier?: SchemaTypes.Tier | null;
@@ -906,6 +908,8 @@ export type UpdateAccountProfileMutation = {
             website?: string | null;
             facebook?: string | null;
             linkedIn?: string | null;
+            contractStatus?: boolean | null;
+            renewalDate?: any | null;
             tradingAddress?: {
               __typename?: "Address";
               id: number;
@@ -978,6 +982,8 @@ export type LeaveCompanyMutation = {
             website?: string | null;
             facebook?: string | null;
             linkedIn?: string | null;
+            contractStatus?: boolean | null;
+            renewalDate?: any | null;
             tradingAddress?: {
               __typename?: "Address";
               id: number;
@@ -2280,6 +2286,8 @@ export type CompanyDetailsFragmentFragment = {
   website?: string | null;
   facebook?: string | null;
   linkedIn?: string | null;
+  contractStatus?: boolean | null;
+  renewalDate?: any | null;
   tradingAddress?: {
     __typename?: "Address";
     id: number;
@@ -2337,6 +2345,8 @@ export type CompanyPageDetailsFragmentFragment = {
   website?: string | null;
   facebook?: string | null;
   linkedIn?: string | null;
+  contractStatus?: boolean | null;
+  renewalDate?: any | null;
   referenceNumber: number;
   taxNumber?: string | null;
   tier?: SchemaTypes.Tier | null;
@@ -2431,6 +2441,8 @@ export type GetCompaniesByMarketQuery = {
       website?: string | null;
       facebook?: string | null;
       linkedIn?: string | null;
+      contractStatus?: boolean | null;
+      renewalDate?: any | null;
       referenceNumber: number;
       taxNumber?: string | null;
       tier?: SchemaTypes.Tier | null;
@@ -2534,6 +2546,8 @@ export type GetCompanyQuery = {
     website?: string | null;
     facebook?: string | null;
     linkedIn?: string | null;
+    contractStatus?: boolean | null;
+    renewalDate?: any | null;
     referenceNumber: number;
     taxNumber?: string | null;
     tier?: SchemaTypes.Tier | null;
@@ -3652,6 +3666,8 @@ export type AccountPageDetailsFragmentFragment = {
         website?: string | null;
         facebook?: string | null;
         linkedIn?: string | null;
+        contractStatus?: boolean | null;
+        renewalDate?: any | null;
         tradingAddress?: {
           __typename?: "Address";
           id: number;
@@ -3713,6 +3729,8 @@ export type GetUserProfileQuery = {
           website?: string | null;
           facebook?: string | null;
           linkedIn?: string | null;
+          contractStatus?: boolean | null;
+          renewalDate?: any | null;
           tradingAddress?: {
             __typename?: "Address";
             id: number;

@@ -188,6 +188,8 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     website
     facebook
     linkedIn
+    contractStatus
+    renewalDate
   }
   ${AddressLinesFragmentFragmentDoc}
 `;

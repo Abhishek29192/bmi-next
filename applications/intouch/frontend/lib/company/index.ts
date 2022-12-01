@@ -34,6 +34,8 @@ export const COMPANY_DETAILS_FRAGMENT = gql`
     website
     facebook
     linkedIn
+    contractStatus
+    renewalDate
   }
 `;
 

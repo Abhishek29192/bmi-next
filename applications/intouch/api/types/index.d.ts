@@ -2096,6 +2096,7 @@ export type Company = Node & {
   companyMembers: CompanyMembersConnection;
   /** Reads and enables pagination through a set of `CompanyOperation`. */
   companyOperationsByCompany: CompanyOperationsConnection;
+  contractStatus?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   /** The Company facebook website */
   facebook?: Maybe<Scalars["String"]>;
@@ -2142,6 +2143,7 @@ export type Company = Node & {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
+  renewalDate?: Maybe<Scalars["Datetime"]>;
   /** Reads and enables pagination through a set of `RewardRecord`. */
   rewardRecords: RewardRecordsConnection;
   /** Reads and enables pagination through a set of `RewardRequest`. */
@@ -3822,6 +3824,7 @@ export type CompanyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -3861,6 +3864,7 @@ export type CompanyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -24945,6 +24949,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
     companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
     companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+    contractStatus?: InputMaybe<Scalars["Boolean"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
     /** The Company facebook website */
     facebook?: InputMaybe<Scalars["String"]>;
@@ -24984,6 +24989,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     registeredBy?: InputMaybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: InputMaybe<Scalars["Datetime"]>;
+    renewalDate?: InputMaybe<Scalars["Datetime"]>;
     rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
     rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
     shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25013,6 +25019,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25050,6 +25057,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25079,6 +25087,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25116,6 +25125,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25145,6 +25155,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25184,6 +25195,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25211,6 +25223,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25250,6 +25263,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25280,6 +25294,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
     companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
     companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+    contractStatus?: InputMaybe<Scalars["Boolean"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
     /** The Company facebook website */
     facebook?: InputMaybe<Scalars["String"]>;
@@ -25319,6 +25334,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     registeredBy?: InputMaybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: InputMaybe<Scalars["Datetime"]>;
+    renewalDate?: InputMaybe<Scalars["Datetime"]>;
     rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
     rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
     shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25348,6 +25364,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25387,6 +25404,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25416,6 +25434,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25455,6 +25474,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25484,6 +25504,7 @@ export type UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25523,6 +25544,7 @@ export type UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
@@ -25552,6 +25574,7 @@ export type UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -25591,6 +25614,7 @@ export type UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
   rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
   rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;

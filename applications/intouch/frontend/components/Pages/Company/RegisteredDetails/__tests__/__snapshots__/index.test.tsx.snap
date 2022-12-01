@@ -132,6 +132,34 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         </div>
       </div>
       <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          details.contractStatus
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          details.contractNotSigned
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          details.renewalDate
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          details.renewalDateNA
+        </div>
+      </div>
+      <div
         class="editButtonContainer"
       />
     </div>
