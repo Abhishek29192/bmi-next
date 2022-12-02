@@ -228,6 +228,16 @@ const recaptchaContent_SK: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=sk"
 };
 
+const recaptchaContent_DK: RecaptchaPolicyContentType = {
+  startText: "Denne hjemmeside er beskyttet af reCAPTCHA, og Googles ",
+  privacyPloicyText: "privatlivspolitik",
+  andText: " og ",
+  termsOfServiceText: "vilkår for brug",
+  endText: " gælder.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=da",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=da"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -251,6 +261,7 @@ RecaptchaPrivacyContentMap["cn"] = recaptchaContent_CN_ZH;
 RecaptchaPrivacyContentMap["hu"] = recaptchaContent_HU;
 RecaptchaPrivacyContentMap["cz"] = recaptchaContent_CZ;
 RecaptchaPrivacyContentMap["sk"] = recaptchaContent_SK;
+RecaptchaPrivacyContentMap["dk"] = recaptchaContent_DK;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
