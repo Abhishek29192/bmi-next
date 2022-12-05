@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#aeb1b1;}.cls-3{fill:#246ab3;}</style></defs><g><path class="cls-2" d="M21,2H8V30H29V10L21,2Zm7,27H9V3h12v7h7V29Z"/><polygon class="cls-1" points="21 3 9 3 9 29 28 29 28 10 21 10 21 3"/></g><path class="cls-3" d="M4,15H24.98c.55,0,1,.45,1,1v8c0,.55-.45,1-1,1H4c-.55,0-1-.45-1-1v-8c0-.55,.45-1,1-1Z"/><path class="cls-1" d="M8,23v-5h-2v-1h5v1h-2v5h-1Z"/><path class="cls-1" d="M12,23l1.84-3.13-1.67-2.87h1.27l1.08,1.93,1.06-1.93h1.26l-1.67,2.91,1.84,3.09h-1.31l-1.19-2.08-1.2,2.08h-1.3Z"/><path class="cls-1" d="M20,23v-5h-2v-1h5v1h-2v5h-1Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+    <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <g>
+        <path fill="#aeb1b1" d="M21,2H8V30H29V10L21,2Zm7,27H9V3h12v7h7V29Z"/>
+        <polygon fill="#ffffff" points="21 3 9 3 9 29 28 29 28 10 21 10 21 3"/>
+    </g>
+    <path fill="#246ab3" d="M4,15H24.98c.55,0,1,.45,1,1v8c0,.55-.45,1-1,1H4c-.55,0-1-.45-1-1v-8c0-.55,.45-1,1-1Z"/>
+    <path fill="#ffffff" d="M8,23v-5h-2v-1h5v1h-2v5h-1Z"/>
+    <path fill="#ffffff" d="M12,23l1.84-3.13-1.67-2.87h1.27l1.08,1.93,1.06-1.93h1.26l-1.67,2.91,1.84,3.09h-1.31l-1.19-2.08-1.2,2.08h-1.3Z"/>
+    <path fill="#ffffff" d="M20,23v-5h-2v-1h5v1h-2v5h-1Z"/>
+</svg>
