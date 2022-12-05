@@ -23,7 +23,7 @@ const createProductPages = async (
 
   const result = await graphql(`
     {
-      allProduct {
+      allProduct(filter: { approvalStatus: { eq: "approved" } }) {
         nodes {
           __typename
           code

@@ -61,6 +61,11 @@ describe("transformUtils tests", () => {
   });
 
   describe("mapDocuments tests", () => {
+    it("mapsDocuments if assets are undefined", () => {
+      const result = mapDocuments(undefined);
+      expect(result).toEqual([]);
+    });
+
     it("handles non image assets", () => {
       const asset = createAsset({
         assetType: "WARRANTIES",
