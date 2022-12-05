@@ -6,13 +6,13 @@ import { transformProduct } from "./productTransformer";
 import { transformSystem } from "./systemTransformer";
 import { PubSubMessage } from "./types";
 
-const { GCP_PROJECT_ID, ENV_PREFIX, NON_PROD_ENV_NAME } = process.env;
-export const TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim${
-  NON_PROD_ENV_NAME && `-${NON_PROD_ENV_NAME}-`
+const { PIM_PROJECT_ID, ENV_PREFIX, NON_PROD_ENV_NAME } = process.env;
+export const TOPIC_NAME = `bmi-${ENV_PREFIX}-dxb-pim-${
+  NON_PROD_ENV_NAME && `${NON_PROD_ENV_NAME}-`
 }URLGeneration-topic`;
 
 export const pubSubClient = new PubSub({
-  projectId: GCP_PROJECT_ID
+  projectId: PIM_PROJECT_ID
 });
 let topicPublisher: Topic;
 const getTopicPublisher = () => {

@@ -1,14 +1,14 @@
 test_gcp-url-generator:
   extends: .test_function
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
@@ -21,19 +21,19 @@ test_gcp-url-generator:
 build_gcp-url-generator:
   extends: .build_function
   rules:
-    - !reference [ .ingore_release_mrs, rules ]
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [ .run_for_changes_on_mr, rules, if ]
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
     WORKSPACE: "@bmi/gcp-url-generator"
     ROOT_DIR: "applications/dxb/functions/gcp-url-generator"
@@ -44,15 +44,15 @@ package_gcp-url-generator:
     - job: build_gcp-url-generator
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-types/**/*
-    - if: !reference [ .run_for_preprod_release, rules, if ]
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
+    - if: !reference [.run_for_prod_release, rules, if]
   variables:
-    FUNCTION_NAME: "@bmi/gcp-url-generator"
+    FUNCTION_NAME: "gcp-url-generator"
     ROOT_DIR: "applications/dxb/functions/gcp-url-generator"
 
 deploy_gcp-url-generator:
@@ -61,17 +61,17 @@ deploy_gcp-url-generator:
     - job: package_gcp-url-generator
       artifacts: true
   rules:
-    - if: !reference [ .run_for_changes_on_main, rules, if ]
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - yarn.lock
         - applications/dxb/libraries/pim-types/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
-    - if: !reference [ .run_for_preprod_release, rules, if ]
+    - if: !reference [.run_for_preprod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: !reference [ .run_for_prod_release, rules, if ]
+    - if: !reference [.run_for_prod_release, rules, if]
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
