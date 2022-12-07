@@ -1,0 +1,27 @@
+@import "~@bmi-digital/styles";
+
+$rail-track-color: rgba(0, 159, 227, 0.3);
+$progress-color: #009fe3;
+
+.circularProgressContainer {
+  position: relative;
+
+  .circularProgress {
+    color: $progress-color;
+  }
+
+  .circularProgressRail {
+    color: $rail-track-color;
+    position: absolute;
+    left: calc(50% - 56px);
+    top: 3px;
+  }
+
+  .circularProgressLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -4px;
+  }
+}

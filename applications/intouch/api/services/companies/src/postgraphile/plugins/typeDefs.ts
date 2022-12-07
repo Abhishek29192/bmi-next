@@ -382,6 +382,42 @@ export default gql`
     merchandiseT7: Int
   }
 
+  type CompanyRewardRecord {
+    id: Int
+    marketId: Int
+    accountId: Int
+    companyId: Int
+    rewardTier: Int
+    rewardPoint: Int
+    createdAt: String
+    updatedAt: String
+  }
+
+  type GetCompanyRewardRecordResult {
+    total: Int
+    points: Int
+    records: [CompanyRewardRecord]
+  }
+
+  input GetCompanyRewardRecordInput {
+    companyId: Int
+    rewardEffectiveDate: String
+  }
+
+  input AddRewardRecordInput {
+    accountId: Int
+    rewardCategory: String
+  }
+
+  input RewardTiersInput {
+    id: Int
+    rewardPoint: Int
+  }
+
+  input UpdateRewardTiersInput {
+    rewardTiers: [RewardTiersInput!]
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -416,5 +452,10 @@ export default gql`
     updateMerchandiseTiersByMarket(
       input: UpdateMerchandiseTiersByMarketInput
     ): [UpdateMerchandiseTiersByMarketResult]
+    getCompanyRewardRecord(
+      input: GetCompanyRewardRecordInput
+    ): GetCompanyRewardRecordResult
+    addRewardRecord(input: AddRewardRecordInput!): CompanyRewardRecord
+    updateRewardTiers(input: UpdateRewardTiersInput!): [RewardTier]
   }
 `;

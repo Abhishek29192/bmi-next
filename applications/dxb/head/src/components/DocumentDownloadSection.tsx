@@ -1,4 +1,11 @@
-import { Button, ButtonProps, Icon, Section, Table } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  Icon,
+  iconMap,
+  Section,
+  Table
+} from "@bmi/components";
 import filesize from "filesize";
 import { graphql } from "gatsby";
 import React from "react";
@@ -77,9 +84,12 @@ const DocumentDownloadSection = ({
                       )}
                       variant="text"
                       startIcon={
+                        // eslint-disable-next-line security/detect-object-injection
                         <Icon
-                          // eslint-disable-next-line security/detect-object-injection
-                          source={fileIconsMap[contentType]}
+                          source={
+                            // eslint-disable-next-line security/detect-object-injection
+                            fileIconsMap[contentType] || iconMap.FileUniversal
+                          }
                           // TODO: consider responsibility of icon styles
                           style={iconStyle}
                         />

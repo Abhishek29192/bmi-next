@@ -22,11 +22,13 @@ export type Props = {
       completed: boolean;
       guaranteeTemplate: Partial<GuaranteeTemplate>;
     };
+  market?: string;
   headers?: any;
 };
 
 const DoubleAcceptancePage = ({
   doubleAcceptance: doubleAcceptanceProp,
+  market,
   ...props
 }: Props) => {
   const { t } = useTranslation("double-acceptance");
@@ -35,9 +37,17 @@ const DoubleAcceptancePage = ({
   const onUpdateDoubleAcceptanceCompleted = (
     doubleAcceptance: Props["doubleAcceptance"]
   ) => setDoubleAcceptance(doubleAcceptance);
+  const userInfo = Buffer.from(
+    JSON.stringify({
+      source: "double-acceptance-page",
+      market
+    })
+  ).toString("base64");
   const headers = {
     "x-authenticated-user-id": props.headers?.["x-authenticated-user-id"],
-    "x-api-key": process.env.GATEWAY_API_KEY
+    "x-api-key": process.env.GATEWAY_API_KEY,
+    "x-apigateway-api-userinfo": userInfo,
+    "x-request-market-domain": market
   };
   const customApolloClient = createApolloClient({
     req: {

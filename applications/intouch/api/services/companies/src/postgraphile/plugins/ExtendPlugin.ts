@@ -34,6 +34,8 @@ import { PostGraphileContext } from "../../types";
 import * as reminderMutation from "../../services/reminder";
 import * as certificateMutation from "../../services/certification";
 import * as merchandiseMutation from "../../services/merchandise";
+import * as rewardRecordMutation from "../../services/rewardRecord";
+import * as rewardTierMutation from "../../services/rewardTier";
 import { parseMarketCompanyTag } from "../../utils/contentful";
 import typeDefs from "./typeDefs";
 
@@ -270,7 +272,9 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         ...reminderMutation,
         ...certificateMutation,
-        ...merchandiseMutation
+        ...merchandiseMutation,
+        ...rewardRecordMutation,
+        ...rewardTierMutation
       },
       ImportAccountsCompaniesFromCSVResult: {
         accounts: async (parent, args, context, resolveInfo) => {

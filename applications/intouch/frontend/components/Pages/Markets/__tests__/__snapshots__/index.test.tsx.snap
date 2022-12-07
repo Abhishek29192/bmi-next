@@ -22,6 +22,7 @@ exports[`Market page should save the market 1`] = `
               "name": "New Name",
               "nodeId": "1",
               "projectsEnabled": true,
+              "rewardEffectiveDate": "2021-08-23 18:05:17.659497",
               "sendMailbox": "noreply@bmigroup.no",
               "sendName": "BMI Group Norway",
               "updatedAt": "2021-08-23 18:05:17.659497",

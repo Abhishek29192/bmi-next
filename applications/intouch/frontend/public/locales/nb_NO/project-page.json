@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Prosjektdetaljer kan ikke redigeres på grunn av statusen på garantien"
     },
     "loading": "Laster inn prosjektdetaljer",
-    "error": "Feil ved innlasting av prosjektdetaljer."
+    "error": "Feil ved innlasting av prosjektdetaljer.",
+    "technology": "Teknologi type"
   },
   "buildingOwnerDetails": {
     "title": "Bygning kontaktinformasjon",

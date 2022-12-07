@@ -130,6 +130,35 @@ describe("SetCompanyDetailsDialog component", () => {
     expect(onSubmitSpy).toHaveBeenCalledTimes(1);
   });
 
+  it("change contract status", async () => {
+    const { baseElement } = renderWithUserProvider(
+      <MarketContextWrapper>
+        <AccountContextWrapper>
+          <SetCompanyDetailsDialog
+            title={"title"}
+            isOpen={true}
+            onCloseClick={() => {}}
+            onSubmit={onSubmitSpy}
+            errorMessage={null}
+            loading={false}
+            mapsApiKey={null}
+            company={{
+              ...generateCompany()
+            }}
+          />
+        </AccountContextWrapper>
+      </MarketContextWrapper>
+    );
+    const form = screen.getByTestId("company-details-form");
+    const status = baseElement.querySelector("input[name='contractStatus']");
+    fireEvent.click(status);
+    fireEvent.change(baseElement.querySelector("input[name='renewalDate']"), {
+      target: { value: "2022-11-30" }
+    });
+    fireEvent.submit(form);
+    expect(onSubmitSpy).toHaveBeenCalledTimes(1);
+  });
+
   it("hide dialog is isopen is false", async () => {
     renderWithUserProvider(
       <MarketContextWrapper>
@@ -196,6 +225,31 @@ describe("SetCompanyDetailsDialog component", () => {
       </MarketContextWrapper>
     );
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
+  });
+
+  it("should show contract and renewal fields", async () => {
+    renderWithUserProvider(
+      <MarketContextWrapper>
+        <AccountContextWrapper>
+          <SetCompanyDetailsDialog
+            title={"title"}
+            isOpen={true}
+            onCloseClick={() => {}}
+            onSubmit={() => {}}
+            errorMessage={null}
+            loading={false}
+            mapsApiKey={null}
+            company={generateCompany({
+              contractStatus: true,
+              renewalDate: "2020-11-04 08:23:58"
+            })}
+          />
+        </AccountContextWrapper>
+      </MarketContextWrapper>
+    );
+    expect(
+      screen.queryByText("edit_dialog.sections.contract_status")
+    ).toBeTruthy();
   });
 
   it("do not have a company", async () => {

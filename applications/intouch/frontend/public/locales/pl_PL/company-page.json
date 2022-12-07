@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administratorzy",
-  "companyMembers": "Instalatorzy/Członkowie"
+  "companyMembers": "Instalatorzy/Członkowie",
+  "reward": {
+    "title": "Śledzenie aktywności",
+    "stage": "Część",
+    "status": {
+      "pending": "Do zrobienia",
+      "inProgress": "W trakcie",
+      "completed": "Zakończony",
+      "claimed": "Przejęte"
+    },
+    "claimLabel": "Odbierz nagrodę",
+    "claimRewardDialog": {
+      "title": "Gratulacje!",
+      "description": "Część {{stage}} jest zakończona! Robisz duże postępy i możesz teraz odebrać nagrodę. Po potwierdzeniu roszczenia wyślemy Ci e-mailem szczegóły dotyczące zgłoszenia roszczenia. Dziękuję Ci!",
+      "confirmLabel": "Potwierdzać",
+      "cancelLabel": "Anulować",
+      "closeLabel": "Blisko",
+      "acknowledgement": {
+        "title": "Dziękujemy, że byliście tak aktywni!",
+        "description": "Wysyłamy Ci e-mail ze wszystkimi szczegółami. Proszę sprawdź to."
+      }
+    }
+  },
+  "filters.labels.ALL": "Wszystko"
 }

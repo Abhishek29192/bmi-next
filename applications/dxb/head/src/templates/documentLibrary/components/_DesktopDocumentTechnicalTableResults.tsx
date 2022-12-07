@@ -63,7 +63,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format] || iconMap.External}
+          source={fileIconsMap[asset.format] || iconMap.FileUniversal}
           className={styles["format-icon"]}
         />
       </GTMClickable>

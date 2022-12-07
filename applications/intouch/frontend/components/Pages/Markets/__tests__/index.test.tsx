@@ -74,6 +74,20 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
     ];
   }
 }));
+const mockRewardCategory = jest
+  .fn()
+  .mockReturnValue(
+    <div data-testid="reward-category-mock">Reward Category</div>
+  );
+const mockRewardSystemForm = jest
+  .fn()
+  .mockReturnValue(<div data-testid="reward-system-mock">Reward System</div>);
+jest.mock("../RewardCategory", () => ({
+  RewardCategory: ({ ...props }) => mockRewardCategory(props)
+}));
+jest.mock("../RewardSystemForm", () => ({
+  RewardSystemForm: ({ ...props }) => mockRewardSystemForm(props)
+}));
 
 const markets = [
   generateMarketContext({ projectsEnabled: true }),
@@ -90,8 +104,7 @@ const doceboTiers = { nodes: [generateDoceboTier()] };
 const merchandiseTiers = { nodes: [generateMerchandiseTier()] };
 
 describe("Market page", () => {
-  afterEach(() => {
-    jest.resetAllMocks();
+  beforeEach(() => {
     jest.clearAllMocks();
   });
 
@@ -168,17 +181,14 @@ describe("Market page", () => {
       mockUseUpdateMarketMutationOnCompleted({
         updateMarket: {
           query: {
-            markets: generateMarketContext({
-              projectsEnabled: true,
-              name: "New Name"
-            })
+            markets: {
+              nodes: [
+                markets[0],
+                { ...markets[1], projectsEnabled: true, name: "New Name" }
+              ]
+            }
           }
         }
-      })
-    );
-    mockUpdateDoceboTiers.mockImplementationOnce(() =>
-      mockUpdateDoceboTiersOnCompleted({
-        updateDoceboTiersByMarket: [genereateDoceboTierResult()]
       })
     );
     const { container } = renderWithUserProvider(
@@ -193,18 +203,15 @@ describe("Market page", () => {
 
     fireEvent.click(screen.getByText("Mapleland-1"));
     fireEvent.click(screen.getByTestId("btn-edit"));
-
     fireEvent.change(screen.getByDisplayValue("Mapleland-1"), {
       target: {
         value: "New Name"
       }
     });
     fireEvent.click(container.querySelector("input[name='projectsEnabled']"));
-
     fireEvent.click(screen.getByTestId("btn-save"));
 
     expect(mockUseUpdateMarketMutation).toMatchSnapshot();
-    await waitFor(() => expect(mockUpdateDoceboTiers).toHaveBeenCalledTimes(1));
 
     fireEvent.click(screen.getByTestId("btn-show"));
 
@@ -215,11 +222,13 @@ describe("Market page", () => {
   });
 
   it("should run updateDoceboTiers when updating catalogue id", async () => {
-    mockUseUpdateMarketMutation.mockImplementationOnce(({ variables }) =>
+    mockUseUpdateMarketMutation.mockImplementationOnce(() =>
       mockUseUpdateMarketMutationOnCompleted({
         updateMarket: {
           query: {
-            markets: variables.input.id
+            markets: {
+              nodes: markets
+            }
           }
         }
       })
@@ -245,19 +254,11 @@ describe("Market page", () => {
 
     fireEvent.click(screen.getByText("Mapleland-1"));
     fireEvent.click(screen.getByTestId("btn-edit"));
-
     fireEvent.change(container.querySelector("input[name='T1']"), {
       target: {
         value: "123"
       }
     });
-
-    fireEvent.change(container.querySelector("input[name='projectsEnabled']"), {
-      target: {
-        value: true
-      }
-    });
-
     fireEvent.click(screen.getByTestId("btn-save"));
 
     await waitFor(() => {
@@ -282,6 +283,41 @@ describe("Market page", () => {
     fireEvent.click(screen.getByTestId("btn-show"));
 
     expect(screen.queryByText("123")).toBeTruthy();
+  });
+
+  it("should render reward system and reward category", () => {
+    const { tierCode, doceboCatalogueId } = doceboTiers.nodes[0];
+    const props = {
+      ...markets[0],
+      [tierCode]: doceboCatalogueId,
+      [`merchandise${tierCode}`]:
+        merchandiseTiers.nodes[0].merchandiseDivisionId
+    };
+    renderWithUserProvider(
+      <AccountContextWrapper>
+        <Markets
+          markets={{ nodes: markets }}
+          doceboTiers={doceboTiers}
+          merchandiseTiers={merchandiseTiers}
+        />
+      </AccountContextWrapper>
+    );
+    fireEvent.click(screen.getByText("Mapleland-1"));
+
+    expect(screen.queryByTestId("reward-category-mock")).toBeTruthy();
+    expect(screen.queryByTestId("reward-system-mock")).toBeTruthy();
+    expect(mockRewardCategory).toHaveBeenCalledWith(
+      expect.objectContaining({
+        market: props
+      })
+    );
+    expect(mockRewardSystemForm).toHaveBeenCalledWith(
+      expect.objectContaining({
+        market: props,
+        markets: { nodes: markets },
+        updateMarkets: expect.any(Function)
+      })
+    );
   });
 
   describe("error message", () => {
@@ -411,11 +447,13 @@ describe("Market page", () => {
     });
 
     it("error only occur from updatetiers", async () => {
-      mockUseUpdateMarketMutation.mockImplementationOnce(({ variables }) =>
+      mockUseUpdateMarketMutation.mockImplementationOnce(() =>
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -454,7 +492,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -486,7 +526,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })
@@ -518,7 +560,9 @@ describe("Market page", () => {
         mockUseUpdateMarketMutationOnCompleted({
           updateMarket: {
             query: {
-              markets: variables.input.id
+              markets: {
+                nodes: markets
+              }
             }
           }
         })

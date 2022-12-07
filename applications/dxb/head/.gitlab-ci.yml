@@ -61,12 +61,15 @@ wait_until_head_deployed_to_gatsby:
     - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
+        - "applications/dxb/contentful-migrate/**/*"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
   needs: []
   cache: {}
-  allow_failure: true
   timeout: 15m
   script:
     - |
@@ -146,6 +149,10 @@ baseline_scan_head_preview:
     - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
+        - "applications/dxb/contentful-migrate/**/*"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
@@ -214,6 +221,10 @@ lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
     - !reference [.ingore_release_mrs, rules]
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - "applications/dxb/contentful-migrate/**/*"
+      when: never
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*

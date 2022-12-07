@@ -90,5 +90,7 @@
   "button": {
     "more": "Näytä lisää",
     "less": "Näytä vähemmän"
-  }
+  },
+  "Technology type": "Teknologian tyyppi",
+  "Tier type": "Tasotyyppi"
 }

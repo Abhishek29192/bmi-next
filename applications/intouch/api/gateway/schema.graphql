@@ -497,6 +497,98 @@ type Account implements Node {
   ): ProjectMembersConnection!
 
   """
+  Reads and enables pagination through a set of `RewardRecord`.
+  """
+  rewardRecords(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRecordFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsConnection!
+
+  """
+  Reads and enables pagination through a set of `RewardRequest`.
+  """
+  rewardRequests(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRequestCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRequestFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsConnection!
+
+  """
   ek
   """
   role: Role
@@ -710,6 +802,8 @@ input AccountInput {
   """
   photo: String
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -943,6 +1037,10 @@ input AccountMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -1579,6 +1677,126 @@ input AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyUpdate 
 }
 
 """
+The globally unique `ID` look up for the row to update.
+"""
+input AccountOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountEmailKeyUpdate {
+  """
+  The email address associated with the account
+  """
+  email: String!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input AccountOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRequest` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountEmailKeyUpdate {
+  """
+  The email address associated with the account
+  """
+  email: String!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch!
+}
+
+"""
+The fields on `account` to look up the row to update.
+"""
+input AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch!
+}
+
+"""
 Represents an update to a `Account`. Fields that are set will be updated.
 """
 input AccountPatch {
@@ -1654,6 +1872,8 @@ input AccountPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -1730,6 +1950,11 @@ enum AccountsOrderBy {
   NATURAL
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+input AddRewardRecordInput {
+  accountId: Int
+  rewardCategory: String
 }
 
 """
@@ -3421,6 +3646,7 @@ type Company implements Node {
     """
     orderBy: [CompanyOperationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): CompanyOperationsConnection!
+  contractStatus: Boolean
   createdAt: Datetime!
 
   """
@@ -3615,6 +3841,99 @@ type Company implements Node {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+
+  """
+  Reads and enables pagination through a set of `RewardRecord`.
+  """
+  rewardRecords(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRecordFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsConnection!
+
+  """
+  Reads and enables pagination through a set of `RewardRequest`.
+  """
+  rewardRequests(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRequestCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRequestFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsConnection!
 
   """
   ek
@@ -4408,6 +4727,10 @@ input CompanyMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -5162,6 +5485,10 @@ input CompanyMemberMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -5990,6 +6317,136 @@ input CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdat
 }
 
 """
+The globally unique `ID` look up for the row to update.
+"""
+input CompanyOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: Int!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input CompanyOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRequest` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate {
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  The registered name of the Company
+  """
+  name: String!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch!
+}
+
+"""
+The fields on `company` to look up the row to update.
+"""
+input CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate {
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch!
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: Int!
+}
+
+"""
 The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer.
 """
 type CompanyOperation implements Node {
@@ -6383,6 +6840,7 @@ input CompanyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -6473,6 +6931,9 @@ input CompanyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -6672,6 +7133,17 @@ input CompanyRegisteredAddressIdFkeyInverseInput {
   The primary key(s) and patch data for `company` for the far side of the relationship.
   """
   updateByReferenceNumber: [CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate!]
+}
+
+type CompanyRewardRecord {
+  accountId: Int
+  companyId: Int
+  createdAt: String
+  id: Int
+  marketId: Int
+  rewardPoint: Int
+  rewardTier: Int
+  updatedAt: String
 }
 
 enum CompanyStatus {
@@ -10033,6 +10505,187 @@ type CreateProjectPayload {
 }
 
 """
+All input for the create `RewardRecord` mutation.
+"""
+input CreateRewardRecordInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `RewardRecord` to be created by this mutation.
+  """
+  rewardRecord: RewardRecordInput!
+}
+
+"""
+The output of our create `RewardRecord` mutation.
+"""
+type CreateRewardRecordPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRecord`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRecord`.
+  """
+  company: Company
+
+  """
+  Reads a single `Market` that is related to this `RewardRecord`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRecord` that was created by this mutation.
+  """
+  rewardRecord: RewardRecord
+
+  """
+  An edge for our `RewardRecord`. May be used by Relay 1.
+  """
+  rewardRecordEdge(
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsEdge
+
+  """
+  Reads a single `RewardTier` that is related to this `RewardRecord`.
+  """
+  rewardTierByRewardTier: RewardTier
+}
+
+"""
+All input for the create `RewardRequest` mutation.
+"""
+input CreateRewardRequestInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `RewardRequest` to be created by this mutation.
+  """
+  rewardRequest: RewardRequestInput!
+}
+
+"""
+The output of our create `RewardRequest` mutation.
+"""
+type CreateRewardRequestPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRequest`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRequest`.
+  """
+  company: Company
+
+  """
+  Reads a single `Market` that is related to this `RewardRequest`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRequest` that was created by this mutation.
+  """
+  rewardRequest: RewardRequest
+
+  """
+  An edge for our `RewardRequest`. May be used by Relay 1.
+  """
+  rewardRequestEdge(
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsEdge
+}
+
+"""
+All input for the create `RewardTier` mutation.
+"""
+input CreateRewardTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `RewardTier` to be created by this mutation.
+  """
+  rewardTier: RewardTierInput!
+}
+
+"""
+The output of our create `RewardTier` mutation.
+"""
+type CreateRewardTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Market` that is related to this `RewardTier`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardTier` that was created by this mutation.
+  """
+  rewardTier: RewardTier
+
+  """
+  An edge for our `RewardTier`. May be used by Relay 1.
+  """
+  rewardTierEdge(
+    """
+    The method to use when ordering `RewardTier`.
+    """
+    orderBy: [RewardTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardTiersEdge
+}
+
+"""
 All input for the create `System` mutation.
 """
 input CreateSystemInput {
@@ -12334,6 +12987,252 @@ type DeleteProjectPayload {
   Reads a single `Address` that is related to this `Project`.
   """
   siteAddress: Address
+}
+
+"""
+All input for the `deleteRewardRecordByNodeId` mutation.
+"""
+input DeleteRewardRecordByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardRecord` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteRewardRecord` mutation.
+"""
+input DeleteRewardRecordInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `RewardRecord` mutation.
+"""
+type DeleteRewardRecordPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRecord`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRecord`.
+  """
+  company: Company
+  deletedRewardRecordNodeId: ID
+
+  """
+  Reads a single `Market` that is related to this `RewardRecord`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRecord` that was deleted by this mutation.
+  """
+  rewardRecord: RewardRecord
+
+  """
+  An edge for our `RewardRecord`. May be used by Relay 1.
+  """
+  rewardRecordEdge(
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsEdge
+
+  """
+  Reads a single `RewardTier` that is related to this `RewardRecord`.
+  """
+  rewardTierByRewardTier: RewardTier
+}
+
+"""
+All input for the `deleteRewardRequestByNodeId` mutation.
+"""
+input DeleteRewardRequestByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardRequest` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteRewardRequestByRedemptionCode` mutation.
+"""
+input DeleteRewardRequestByRedemptionCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  redemptionCode: String!
+}
+
+"""
+All input for the `deleteRewardRequest` mutation.
+"""
+input DeleteRewardRequestInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `RewardRequest` mutation.
+"""
+type DeleteRewardRequestPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRequest`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRequest`.
+  """
+  company: Company
+  deletedRewardRequestNodeId: ID
+
+  """
+  Reads a single `Market` that is related to this `RewardRequest`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRequest` that was deleted by this mutation.
+  """
+  rewardRequest: RewardRequest
+
+  """
+  An edge for our `RewardRequest`. May be used by Relay 1.
+  """
+  rewardRequestEdge(
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsEdge
+}
+
+"""
+All input for the `deleteRewardTierByMarketIdAndTierCodeAndRewardCategory` mutation.
+"""
+input DeleteRewardTierByMarketIdAndTierCodeAndRewardCategoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+All input for the `deleteRewardTierByNodeId` mutation.
+"""
+input DeleteRewardTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteRewardTier` mutation.
+"""
+input DeleteRewardTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""
+The output of our delete `RewardTier` mutation.
+"""
+type DeleteRewardTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedRewardTierNodeId: ID
+
+  """
+  Reads a single `Market` that is related to this `RewardTier`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardTier` that was deleted by this mutation.
+  """
+  rewardTier: RewardTier
+
+  """
+  An edge for our `RewardTier`. May be used by Relay 1.
+  """
+  rewardTierEdge(
+    """
+    The method to use when ordering `RewardTier`.
+    """
+    orderBy: [RewardTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardTiersEdge
 }
 
 """
@@ -14643,6 +15542,17 @@ Methods to use when ordering `FindRoofer`.
 """
 enum FindRoofersOrderBy {
   NATURAL
+}
+
+input GetCompanyRewardRecordInput {
+  companyId: Int
+  rewardEffectiveDate: String
+}
+
+type GetCompanyRewardRecordResult {
+  points: Int
+  records: [CompanyRewardRecord]
+  total: Int
 }
 
 type GetDoubleAcceptanceByValidTempToken {
@@ -18641,6 +19551,145 @@ type Market implements Node {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+
+  """
+  Reads and enables pagination through a set of `RewardRecord`.
+  """
+  rewardRecords(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRecordFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsConnection!
+
+  """
+  Reads and enables pagination through a set of `RewardRequest`.
+  """
+  rewardRequests(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRequestCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRequestFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsConnection!
+
+  """
+  Reads and enables pagination through a set of `RewardTier`.
+  """
+  rewardTiers(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardTierFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardTier`.
+    """
+    orderBy: [RewardTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardTiersConnection!
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -19063,6 +20112,10 @@ input MarketInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -19401,6 +20454,186 @@ input MarketOnProductForProductMarketIdFkeyUsingMarketPkeyUpdate {
 """
 The globally unique `ID` look up for the row to update.
 """
+input MarketOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDomainKeyUpdate {
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input MarketOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRequest` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDomainKeyUpdate {
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input MarketOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardTier` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: RewardTierPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate {
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardTierForRewardTierMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDomainKeyUpdate {
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardTierForRewardTierMarketIdFkeyPatch!
+}
+
+"""
+The fields on `market` to look up the row to update.
+"""
+input MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketPkeyUpdate {
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: updateMarketOnRewardTierForRewardTierMarketIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
 input MarketOnSystemForSystemMarketIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `system` to be connected.
@@ -19598,6 +20831,10 @@ input MarketPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -20134,6 +21371,12 @@ enum MigrationOrder {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
+  addRewardRecord(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: AddRewardRecordInput!
+  ): CompanyRewardRecord
   annualProjectsInspection: String
   archiveProjects: String
   autoRejectDoubleAcceptance: String
@@ -20435,6 +21678,36 @@ type Mutation {
     """
     input: CreateProjectMemberInput!
   ): CreateProjectMemberPayload
+
+  """
+  Creates a single `RewardRecord`.
+  """
+  createRewardRecord(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateRewardRecordInput!
+  ): CreateRewardRecordPayload
+
+  """
+  Creates a single `RewardRequest`.
+  """
+  createRewardRequest(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateRewardRequestInput!
+  ): CreateRewardRequestPayload
+
+  """
+  Creates a single `RewardTier`.
+  """
+  createRewardTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateRewardTierInput!
+  ): CreateRewardTierPayload
   createSSOUrl(path: String, username: String!): SSOUrlOutput
 
   """
@@ -21139,6 +22412,86 @@ type Mutation {
   ): DeleteProjectMemberPayload
 
   """
+  Deletes a single `RewardRecord` using a unique key.
+  """
+  deleteRewardRecord(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardRecordInput!
+  ): DeleteRewardRecordPayload
+
+  """
+  Deletes a single `RewardRecord` using its globally unique id.
+  """
+  deleteRewardRecordByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardRecordByNodeIdInput!
+  ): DeleteRewardRecordPayload
+
+  """
+  Deletes a single `RewardRequest` using a unique key.
+  """
+  deleteRewardRequest(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardRequestInput!
+  ): DeleteRewardRequestPayload
+
+  """
+  Deletes a single `RewardRequest` using its globally unique id.
+  """
+  deleteRewardRequestByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardRequestByNodeIdInput!
+  ): DeleteRewardRequestPayload
+
+  """
+  Deletes a single `RewardRequest` using a unique key.
+  """
+  deleteRewardRequestByRedemptionCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardRequestByRedemptionCodeInput!
+  ): DeleteRewardRequestPayload
+
+  """
+  Deletes a single `RewardTier` using a unique key.
+  """
+  deleteRewardTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardTierInput!
+  ): DeleteRewardTierPayload
+
+  """
+  Deletes a single `RewardTier` using a unique key.
+  """
+  deleteRewardTierByMarketIdAndTierCodeAndRewardCategory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardTierByMarketIdAndTierCodeAndRewardCategoryInput!
+  ): DeleteRewardTierPayload
+
+  """
+  Deletes a single `RewardTier` using its globally unique id.
+  """
+  deleteRewardTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRewardTierByNodeIdInput!
+  ): DeleteRewardTierPayload
+
+  """
   Deletes a single `System` using a unique key.
   """
   deleteSystem(
@@ -21203,6 +22556,12 @@ type Mutation {
     """
     input: EvidenceItemsAddInput!
   ): EvidenceItemsAddPayload
+  getCompanyRewardRecord(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: GetCompanyRewardRecordInput
+  ): GetCompanyRewardRecordResult
   getDoubleAcceptanceByValidTempToken(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -21965,6 +23324,92 @@ type Mutation {
     """
     input: UpdateProjectMemberByNodeIdInput!
   ): UpdateProjectMemberPayload
+
+  """
+  Updates a single `RewardRecord` using a unique key and a patch.
+  """
+  updateRewardRecord(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardRecordInput!
+  ): UpdateRewardRecordPayload
+
+  """
+  Updates a single `RewardRecord` using its globally unique id and a patch.
+  """
+  updateRewardRecordByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardRecordByNodeIdInput!
+  ): UpdateRewardRecordPayload
+
+  """
+  Updates a single `RewardRequest` using a unique key and a patch.
+  """
+  updateRewardRequest(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardRequestInput!
+  ): UpdateRewardRequestPayload
+
+  """
+  Updates a single `RewardRequest` using its globally unique id and a patch.
+  """
+  updateRewardRequestByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardRequestByNodeIdInput!
+  ): UpdateRewardRequestPayload
+
+  """
+  Updates a single `RewardRequest` using a unique key and a patch.
+  """
+  updateRewardRequestByRedemptionCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardRequestByRedemptionCodeInput!
+  ): UpdateRewardRequestPayload
+
+  """
+  Updates a single `RewardTier` using a unique key and a patch.
+  """
+  updateRewardTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardTierInput!
+  ): UpdateRewardTierPayload
+
+  """
+  Updates a single `RewardTier` using a unique key and a patch.
+  """
+  updateRewardTierByMarketIdAndTierCodeAndRewardCategory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardTierByMarketIdAndTierCodeAndRewardCategoryInput!
+  ): UpdateRewardTierPayload
+
+  """
+  Updates a single `RewardTier` using its globally unique id and a patch.
+  """
+  updateRewardTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardTierByNodeIdInput!
+  ): UpdateRewardTierPayload
+  updateRewardTiers(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRewardTiersInput!
+  ): [RewardTier]
 
   """
   Updates a single `System` using a unique key and a patch.
@@ -23819,6 +25264,10 @@ input ProductMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -28361,6 +29810,183 @@ type Query implements Node {
   which can only query top level fields if they are in a particular form.
   """
   query: Query!
+  rewardRecord(id: Int!): RewardRecord
+
+  """
+  Reads a single `RewardRecord` using its globally unique `ID`.
+  """
+  rewardRecordByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `RewardRecord`.
+    """
+    nodeId: ID!
+  ): RewardRecord
+
+  """
+  Reads and enables pagination through a set of `RewardRecord`.
+  """
+  rewardRecords(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRecordFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsConnection
+  rewardRequest(id: Int!): RewardRequest
+
+  """
+  Reads a single `RewardRequest` using its globally unique `ID`.
+  """
+  rewardRequestByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `RewardRequest`.
+    """
+    nodeId: ID!
+  ): RewardRequest
+  rewardRequestByRedemptionCode(redemptionCode: String!): RewardRequest
+
+  """
+  Reads and enables pagination through a set of `RewardRequest`.
+  """
+  rewardRequests(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRequestCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRequestFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsConnection
+  rewardTier(id: Int!): RewardTier
+  rewardTierByMarketIdAndTierCodeAndRewardCategory(
+    marketId: Int!
+    rewardCategory: String!
+    tierCode: Tier!
+  ): RewardTier
+
+  """
+  Reads a single `RewardTier` using its globally unique `ID`.
+  """
+  rewardTierByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `RewardTier`.
+    """
+    nodeId: ID!
+  ): RewardTier
+
+  """
+  Reads and enables pagination through a set of `RewardTier`.
+  """
+  rewardTiers(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardTierFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardTier`.
+    """
+    orderBy: [RewardTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardTiersConnection
 
   """
   Reads and enables pagination through a set of `Product`.
@@ -28603,6 +30229,2460 @@ enum RequestStatus {
   REJECTED
   REVIEW
   SUBMITTED
+}
+
+type RewardRecord implements Node {
+  """
+  Reads a single `Account` that is related to this `RewardRecord`.
+  """
+  account: Account
+  accountId: Int!
+
+  """
+  Reads a single `Company` that is related to this `RewardRecord`.
+  """
+  company: Company
+  companyId: Int!
+  createdAt: Datetime!
+  id: Int!
+
+  """
+  Reads a single `Market` that is related to this `RewardRecord`.
+  """
+  market: Market
+  marketId: Int!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  rewardPoint: Int!
+  rewardTier: Int!
+
+  """
+  Reads a single `RewardTier` that is related to this `RewardRecord`.
+  """
+  rewardTierByRewardTier: RewardTier
+  updatedAt: Datetime!
+}
+
+"""
+Input for the nested mutation of `account` in the `RewardRecordInput` mutation.
+"""
+input RewardRecordAccountIdFkeyInput {
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByEmail: AccountAccountEmailKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectById: AccountAccountPkeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByNodeId: AccountNodeIdConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByEmail: AccountAccountEmailKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteById: AccountAccountPkeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByNodeId: AccountNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByDoceboUserId: AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByEmail: AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountEmailKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateById: AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRecord` in the `AccountInput` mutation.
+"""
+input RewardRecordAccountIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectById: [RewardRecordRewardRecordPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRecordNodeIdConnect!]
+
+  """
+  A `RewardRecordInput` object that will be created and connected to this object.
+  """
+  create: [RewardRecordAccountIdFkeyRewardRecordCreateInput!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteById: [RewardRecordRewardRecordPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRecordNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `rewardRecord` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateById: [RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyUsingRewardRecordPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateByNodeId: [AccountOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate!]
+}
+
+"""
+The `rewardRecord` to be created by this mutation.
+"""
+input RewardRecordAccountIdFkeyRewardRecordCreateInput {
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int!
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `company` in the `RewardRecordInput` mutation.
+"""
+input RewardRecordCompanyIdFkeyInput {
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectById: CompanyCompanyPkeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByNodeId: CompanyNodeIdConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteById: CompanyCompanyPkeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByNodeId: CompanyNodeIdDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateById: CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByMarketIdAndName: CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRecord` in the `CompanyInput` mutation.
+"""
+input RewardRecordCompanyIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectById: [RewardRecordRewardRecordPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRecordNodeIdConnect!]
+
+  """
+  A `RewardRecordInput` object that will be created and connected to this object.
+  """
+  create: [RewardRecordCompanyIdFkeyRewardRecordCreateInput!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteById: [RewardRecordRewardRecordPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRecordNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `rewardRecord` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateById: [RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyUsingRewardRecordPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateByNodeId: [CompanyOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate!]
+}
+
+"""
+The `rewardRecord` to be created by this mutation.
+"""
+input RewardRecordCompanyIdFkeyRewardRecordCreateInput {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int!
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+A condition to be used against `RewardRecord` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input RewardRecordCondition {
+  """
+  Checks for equality with the object’s `accountId` field.
+  """
+  accountId: Int
+
+  """
+  Checks for equality with the object’s `companyId` field.
+  """
+  companyId: Int
+
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+
+  """
+  Checks for equality with the object’s `rewardTier` field.
+  """
+  rewardTier: Int
+}
+
+"""
+A filter to be used against `RewardRecord` object types. All fields are combined with a logical ‘and.’
+"""
+input RewardRecordFilter {
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [RewardRecordFilter!]
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: RewardRecordFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [RewardRecordFilter!]
+
+  """
+  Filter by the object’s `rewardTier` field.
+  """
+  rewardTier: IntFilter
+}
+
+"""
+An input for mutations affecting `RewardRecord`
+"""
+input RewardRecordInput {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int!
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `market` in the `RewardRecordInput` mutation.
+"""
+input RewardRecordMarketIdFkeyInput {
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDomain: MarketMarketDomainKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectById: MarketMarketPkeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByNodeId: MarketNodeIdConnect
+
+  """
+  A `MarketInput` object that will be created and connected to this object.
+  """
+  create: RewardRecordMarketIdFkeyMarketCreateInput
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDomain: MarketMarketDomainKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteById: MarketMarketPkeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByNodeId: MarketNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDoceboCatalogueId: MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDomain: MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDomainKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateById: MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRecord` in the `MarketInput` mutation.
+"""
+input RewardRecordMarketIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectById: [RewardRecordRewardRecordPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRecordNodeIdConnect!]
+
+  """
+  A `RewardRecordInput` object that will be created and connected to this object.
+  """
+  create: [RewardRecordMarketIdFkeyRewardRecordCreateInput!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteById: [RewardRecordRewardRecordPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRecordNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `rewardRecord` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateById: [RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyUsingRewardRecordPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateByNodeId: [MarketOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate!]
+}
+
+"""
+The `market` to be created by this mutation.
+"""
+input RewardRecordMarketIdFkeyMarketCreateInput {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language!
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+The `rewardRecord` to be created by this mutation.
+"""
+input RewardRecordMarketIdFkeyRewardRecordCreateInput {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int!
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+The globally unique `ID` look up for the row to connect.
+"""
+input RewardRecordNodeIdConnect {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be connected.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to delete.
+"""
+input RewardRecordNodeIdDelete {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `account` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: AccountPatch!
+}
+
+"""
+The fields on `rewardRecord` to look up the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyUsingRewardRecordPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: updateRewardRecordOnRewardRecordForRewardRecordAccountIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `company` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: CompanyPatch!
+}
+
+"""
+The fields on `rewardRecord` to look up the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyUsingRewardRecordPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: updateRewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `market` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: MarketPatch!
+}
+
+"""
+The fields on `rewardRecord` to look up the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyUsingRewardRecordPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: updateRewardRecordOnRewardRecordForRewardRecordMarketIdFkeyPatch!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardTier` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: RewardTierPatch!
+}
+
+"""
+The fields on `rewardRecord` to look up the row to update.
+"""
+input RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardRecordPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: updateRewardRecordOnRewardRecordForRewardRecordRewardTierFkeyPatch!
+}
+
+"""
+Represents an update to a `RewardRecord`. Fields that are set will be updated.
+"""
+input RewardRecordPatch {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+The fields on `rewardRecord` to look up the row to connect.
+"""
+input RewardRecordRewardRecordPkeyConnect {
+  id: Int!
+}
+
+"""
+The fields on `rewardRecord` to look up the row to delete.
+"""
+input RewardRecordRewardRecordPkeyDelete {
+  id: Int!
+}
+
+"""
+Input for the nested mutation of `rewardTier` in the `RewardRecordInput` mutation.
+"""
+input RewardRecordRewardTierFkeyInput {
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectById: RewardTierRewardTierPkeyConnect
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectByMarketIdAndTierCodeAndRewardCategory: RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectByNodeId: RewardTierNodeIdConnect
+
+  """
+  A `RewardTierInput` object that will be created and connected to this object.
+  """
+  create: RewardRecordRewardTierFkeyRewardTierCreateInput
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteById: RewardTierRewardTierPkeyDelete
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteByMarketIdAndTierCodeAndRewardCategory: RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteByNodeId: RewardTierNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateById: RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateByMarketIdAndTierCodeAndRewardCategory: RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRecord` in the `RewardTierInput` mutation.
+"""
+input RewardRecordRewardTierFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectById: [RewardRecordRewardRecordPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRecordNodeIdConnect!]
+
+  """
+  A `RewardRecordInput` object that will be created and connected to this object.
+  """
+  create: [RewardRecordRewardTierFkeyRewardRecordCreateInput!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteById: [RewardRecordRewardRecordPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRecord` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRecordNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `rewardRecord` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateById: [RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardRecordPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRecord` for the far side of the relationship.
+  """
+  updateByNodeId: [RewardTierOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate!]
+}
+
+"""
+The `rewardRecord` to be created by this mutation.
+"""
+input RewardRecordRewardTierFkeyRewardRecordCreateInput {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int!
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+The `rewardTier` to be created by this mutation.
+"""
+input RewardRecordRewardTierFkeyRewardTierCreateInput {
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String!
+  rewardPoint: Int!
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier!
+  updatedAt: Datetime
+}
+
+"""
+A connection to a list of `RewardRecord` values.
+"""
+type RewardRecordsConnection {
+  """
+  A list of edges which contains the `RewardRecord` and cursor to aid in pagination.
+  """
+  edges: [RewardRecordsEdge!]!
+
+  """
+  A list of `RewardRecord` objects.
+  """
+  nodes: [RewardRecord!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `RewardRecord` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `RewardRecord` edge in the connection.
+"""
+type RewardRecordsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `RewardRecord` at the end of the edge.
+  """
+  node: RewardRecord!
+}
+
+"""
+Methods to use when ordering `RewardRecord`.
+"""
+enum RewardRecordsOrderBy {
+  ACCOUNT_ID_ASC
+  ACCOUNT_ID_DESC
+  COMPANY_ID_ASC
+  COMPANY_ID_DESC
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  REWARD_TIER_ASC
+  REWARD_TIER_DESC
+}
+
+type RewardRequest implements Node {
+  """
+  Reads a single `Account` that is related to this `RewardRequest`.
+  """
+  account: Account
+  accountId: Int!
+
+  """
+  Reads a single `Company` that is related to this `RewardRequest`.
+  """
+  company: Company
+  companyId: Int!
+  createdAt: Datetime!
+  id: Int!
+
+  """
+  Reads a single `Market` that is related to this `RewardRequest`.
+  """
+  market: Market
+  marketId: Int!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  redemptionCode: String!
+  rewardPoint: Int!
+  updatedAt: Datetime!
+}
+
+"""
+Input for the nested mutation of `account` in the `RewardRequestInput` mutation.
+"""
+input RewardRequestAccountIdFkeyInput {
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByEmail: AccountAccountEmailKeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectById: AccountAccountPkeyConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  connectByNodeId: AccountNodeIdConnect
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByEmail: AccountAccountEmailKeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteById: AccountAccountPkeyDelete
+
+  """
+  The primary key(s) for `account` for the far side of the relationship.
+  """
+  deleteByNodeId: AccountNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByDoceboUserId: AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByEmail: AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountEmailKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateById: AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRequest` in the `AccountInput` mutation.
+"""
+input RewardRequestAccountIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectById: [RewardRequestRewardRequestPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRequestNodeIdConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyConnect!]
+
+  """
+  A `RewardRequestInput` object that will be created and connected to this object.
+  """
+  create: [RewardRequestAccountIdFkeyRewardRequestCreateInput!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteById: [RewardRequestRewardRequestPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRequestNodeIdDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyDelete!]
+
+  """
+  Flag indicating whether all other `rewardRequest` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateById: [RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByNodeId: [AccountOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByRedemptionCode: [RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate!]
+}
+
+"""
+The `rewardRequest` to be created by this mutation.
+"""
+input RewardRequestAccountIdFkeyRewardRequestCreateInput {
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int!
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `company` in the `RewardRequestInput` mutation.
+"""
+input RewardRequestCompanyIdFkeyInput {
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectById: CompanyCompanyPkeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByMarketIdAndName: CompanyCompanyMarketIdNameKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByNodeId: CompanyNodeIdConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  connectByReferenceNumber: CompanyCompanyReferenceNumberKeyConnect
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteById: CompanyCompanyPkeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByMarketIdAndName: CompanyCompanyMarketIdNameKeyDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByNodeId: CompanyNodeIdDelete
+
+  """
+  The primary key(s) for `company` for the far side of the relationship.
+  """
+  deleteByReferenceNumber: CompanyCompanyReferenceNumberKeyDelete
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateById: CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByMarketIdAndName: CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate
+
+  """
+  The primary key(s) and patch data for `company` for the far side of the relationship.
+  """
+  updateByReferenceNumber: CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRequest` in the `CompanyInput` mutation.
+"""
+input RewardRequestCompanyIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectById: [RewardRequestRewardRequestPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRequestNodeIdConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyConnect!]
+
+  """
+  A `RewardRequestInput` object that will be created and connected to this object.
+  """
+  create: [RewardRequestCompanyIdFkeyRewardRequestCreateInput!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteById: [RewardRequestRewardRequestPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRequestNodeIdDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyDelete!]
+
+  """
+  Flag indicating whether all other `rewardRequest` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateById: [RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByNodeId: [CompanyOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByRedemptionCode: [RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate!]
+}
+
+"""
+The `rewardRequest` to be created by this mutation.
+"""
+input RewardRequestCompanyIdFkeyRewardRequestCreateInput {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int!
+  updatedAt: Datetime
+}
+
+"""
+A condition to be used against `RewardRequest` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input RewardRequestCondition {
+  """
+  Checks for equality with the object’s `accountId` field.
+  """
+  accountId: Int
+
+  """
+  Checks for equality with the object’s `companyId` field.
+  """
+  companyId: Int
+
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+
+  """
+  Checks for equality with the object’s `redemptionCode` field.
+  """
+  redemptionCode: String
+}
+
+"""
+A filter to be used against `RewardRequest` object types. All fields are combined with a logical ‘and.’
+"""
+input RewardRequestFilter {
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [RewardRequestFilter!]
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: RewardRequestFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [RewardRequestFilter!]
+
+  """
+  Filter by the object’s `redemptionCode` field.
+  """
+  redemptionCode: StringFilter
+}
+
+"""
+An input for mutations affecting `RewardRequest`
+"""
+input RewardRequestInput {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int!
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `market` in the `RewardRequestInput` mutation.
+"""
+input RewardRequestMarketIdFkeyInput {
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDomain: MarketMarketDomainKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectById: MarketMarketPkeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByNodeId: MarketNodeIdConnect
+
+  """
+  A `MarketInput` object that will be created and connected to this object.
+  """
+  create: RewardRequestMarketIdFkeyMarketCreateInput
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDomain: MarketMarketDomainKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteById: MarketMarketPkeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByNodeId: MarketNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDoceboCatalogueId: MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDomain: MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDomainKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateById: MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByNodeId: RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardRequest` in the `MarketInput` mutation.
+"""
+input RewardRequestMarketIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectById: [RewardRequestRewardRequestPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardRequestNodeIdConnect!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  connectByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyConnect!]
+
+  """
+  A `RewardRequestInput` object that will be created and connected to this object.
+  """
+  create: [RewardRequestMarketIdFkeyRewardRequestCreateInput!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteById: [RewardRequestRewardRequestPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardRequestNodeIdDelete!]
+
+  """
+  The primary key(s) for `rewardRequest` for the far side of the relationship.
+  """
+  deleteByRedemptionCode: [RewardRequestRewardRequestRedemptionCodeKeyDelete!]
+
+  """
+  Flag indicating whether all other `rewardRequest` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateById: [RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByNodeId: [MarketOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardRequest` for the far side of the relationship.
+  """
+  updateByRedemptionCode: [RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate!]
+}
+
+"""
+The `market` to be created by this mutation.
+"""
+input RewardRequestMarketIdFkeyMarketCreateInput {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language!
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+The `rewardRequest` to be created by this mutation.
+"""
+input RewardRequestMarketIdFkeyRewardRequestCreateInput {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int!
+  updatedAt: Datetime
+}
+
+"""
+The globally unique `ID` look up for the row to connect.
+"""
+input RewardRequestNodeIdConnect {
+  """
+  The globally unique `ID` which identifies a single `rewardRequest` to be connected.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to delete.
+"""
+input RewardRequestNodeIdDelete {
+  """
+  The globally unique `ID` which identifies a single `rewardRequest` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `account` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: AccountPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate {
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch!
+  redemptionCode: String!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `company` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `company` being updated.
+  """
+  patch: CompanyPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate {
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch!
+  redemptionCode: String!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `market` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: MarketPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to update.
+"""
+input RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate {
+  """
+  An object where the defined keys will be set on the `rewardRequest` being updated.
+  """
+  patch: updateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch!
+  redemptionCode: String!
+}
+
+"""
+Represents an update to a `RewardRequest`. Fields that are set will be updated.
+"""
+input RewardRequestPatch {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int
+  updatedAt: Datetime
+}
+
+"""
+The fields on `rewardRequest` to look up the row to connect.
+"""
+input RewardRequestRewardRequestPkeyConnect {
+  id: Int!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to delete.
+"""
+input RewardRequestRewardRequestPkeyDelete {
+  id: Int!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to connect.
+"""
+input RewardRequestRewardRequestRedemptionCodeKeyConnect {
+  redemptionCode: String!
+}
+
+"""
+The fields on `rewardRequest` to look up the row to delete.
+"""
+input RewardRequestRewardRequestRedemptionCodeKeyDelete {
+  redemptionCode: String!
+}
+
+"""
+A connection to a list of `RewardRequest` values.
+"""
+type RewardRequestsConnection {
+  """
+  A list of edges which contains the `RewardRequest` and cursor to aid in pagination.
+  """
+  edges: [RewardRequestsEdge!]!
+
+  """
+  A list of `RewardRequest` objects.
+  """
+  nodes: [RewardRequest!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `RewardRequest` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `RewardRequest` edge in the connection.
+"""
+type RewardRequestsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `RewardRequest` at the end of the edge.
+  """
+  node: RewardRequest!
+}
+
+"""
+Methods to use when ordering `RewardRequest`.
+"""
+enum RewardRequestsOrderBy {
+  ACCOUNT_ID_ASC
+  ACCOUNT_ID_DESC
+  COMPANY_ID_ASC
+  COMPANY_ID_DESC
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  REDEMPTION_CODE_ASC
+  REDEMPTION_CODE_DESC
+}
+
+type RewardTier implements Node {
+  createdAt: Datetime!
+  id: Int!
+
+  """
+  Reads a single `Market` that is related to this `RewardTier`.
+  """
+  market: Market
+  marketId: Int!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  rewardCategory: String!
+  rewardPoint: Int!
+
+  """
+  Reads and enables pagination through a set of `RewardRecord`.
+  """
+  rewardRecordsByRewardTier(
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RewardRecordCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RewardRecordFilter
+
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsConnection!
+  tierCode: Tier!
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `RewardTier` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input RewardTierCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+
+  """
+  Checks for equality with the object’s `rewardCategory` field.
+  """
+  rewardCategory: String
+
+  """
+  Checks for equality with the object’s `tierCode` field.
+  """
+  tierCode: Tier
+}
+
+"""
+A filter to be used against `RewardTier` object types. All fields are combined with a logical ‘and.’
+"""
+input RewardTierFilter {
+  """
+  Checks for all expressions in this list.
+  """
+  and: [RewardTierFilter!]
+
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Negates the expression.
+  """
+  not: RewardTierFilter
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [RewardTierFilter!]
+
+  """
+  Filter by the object’s `rewardCategory` field.
+  """
+  rewardCategory: StringFilter
+
+  """
+  Filter by the object’s `tierCode` field.
+  """
+  tierCode: TierFilter
+}
+
+"""
+An input for mutations affecting `RewardTier`
+"""
+input RewardTierInput {
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String!
+  rewardPoint: Int!
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier!
+  updatedAt: Datetime
+}
+
+"""
+Input for the nested mutation of `market` in the `RewardTierInput` mutation.
+"""
+input RewardTierMarketIdFkeyInput {
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByDomain: MarketMarketDomainKeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectById: MarketMarketPkeyConnect
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  connectByNodeId: MarketNodeIdConnect
+
+  """
+  A `MarketInput` object that will be created and connected to this object.
+  """
+  create: RewardTierMarketIdFkeyMarketCreateInput
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDoceboCatalogueId: MarketMarketDoceboCatalogueIdKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByDomain: MarketMarketDomainKeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteById: MarketMarketPkeyDelete
+
+  """
+  The primary key(s) for `market` for the far side of the relationship.
+  """
+  deleteByNodeId: MarketNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDoceboCatalogueId: MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByDomain: MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDomainKeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateById: MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `market` for the far side of the relationship.
+  """
+  updateByNodeId: RewardTierOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate
+}
+
+"""
+Input for the nested mutation of `rewardTier` in the `MarketInput` mutation.
+"""
+input RewardTierMarketIdFkeyInverseInput {
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectById: [RewardTierRewardTierPkeyConnect!]
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectByMarketIdAndTierCodeAndRewardCategory: [RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect!]
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  connectByNodeId: [RewardTierNodeIdConnect!]
+
+  """
+  A `RewardTierInput` object that will be created and connected to this object.
+  """
+  create: [RewardTierMarketIdFkeyRewardTierCreateInput!]
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteById: [RewardTierRewardTierPkeyDelete!]
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteByMarketIdAndTierCodeAndRewardCategory: [RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete!]
+
+  """
+  The primary key(s) for `rewardTier` for the far side of the relationship.
+  """
+  deleteByNodeId: [RewardTierNodeIdDelete!]
+
+  """
+  Flag indicating whether all other `rewardTier` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateById: [RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateByMarketIdAndTierCodeAndRewardCategory: [RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `rewardTier` for the far side of the relationship.
+  """
+  updateByNodeId: [MarketOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate!]
+}
+
+"""
+The `market` to be created by this mutation.
+"""
+input RewardTierMarketIdFkeyMarketCreateInput {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language!
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+The `rewardTier` to be created by this mutation.
+"""
+input RewardTierMarketIdFkeyRewardTierCreateInput {
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String!
+  rewardPoint: Int!
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier!
+  updatedAt: Datetime
+}
+
+"""
+The globally unique `ID` look up for the row to connect.
+"""
+input RewardTierNodeIdConnect {
+  """
+  The globally unique `ID` which identifies a single `rewardTier` to be connected.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to delete.
+"""
+input RewardTierNodeIdDelete {
+  """
+  The globally unique `ID` which identifies a single `rewardTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardTierOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `rewardRecord` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `rewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+The fields on `rewardTier` to look up the row to update.
+"""
+input RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: updateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch!
+}
+
+"""
+The fields on `rewardTier` to look up the row to update.
+"""
+input RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate {
+  marketId: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: updateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+The globally unique `ID` look up for the row to update.
+"""
+input RewardTierOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `market` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `market` being updated.
+  """
+  patch: MarketPatch!
+}
+
+"""
+The fields on `rewardTier` to look up the row to update.
+"""
+input RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierPkeyUpdate {
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: updateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch!
+}
+
+"""
+The fields on `rewardTier` to look up the row to update.
+"""
+input RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate {
+  marketId: Int!
+
+  """
+  An object where the defined keys will be set on the `rewardTier` being updated.
+  """
+  patch: updateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+Represents an update to a `RewardTier`. Fields that are set will be updated.
+"""
+input RewardTierPatch {
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String
+  rewardPoint: Int
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier
+  updatedAt: Datetime
+}
+
+"""
+The fields on `rewardTier` to look up the row to connect.
+"""
+input RewardTierRewardTierPkeyConnect {
+  id: Int!
+}
+
+"""
+The fields on `rewardTier` to look up the row to delete.
+"""
+input RewardTierRewardTierPkeyDelete {
+  id: Int!
+}
+
+"""
+The fields on `rewardTier` to look up the row to connect.
+"""
+input RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect {
+  marketId: Int!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+The fields on `rewardTier` to look up the row to delete.
+"""
+input RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete {
+  marketId: Int!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+A connection to a list of `RewardTier` values.
+"""
+type RewardTiersConnection {
+  """
+  A list of edges which contains the `RewardTier` and cursor to aid in pagination.
+  """
+  edges: [RewardTiersEdge!]!
+
+  """
+  A list of `RewardTier` objects.
+  """
+  nodes: [RewardTier!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `RewardTier` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `RewardTier` edge in the connection.
+"""
+type RewardTiersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `RewardTier` at the end of the edge.
+  """
+  node: RewardTier!
+}
+
+input RewardTiersInput {
+  id: Int
+  rewardPoint: Int
+}
+
+"""
+Methods to use when ordering `RewardTier`.
+"""
+enum RewardTiersOrderBy {
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  REWARD_CATEGORY_ASC
+  REWARD_CATEGORY_DESC
+  TIER_CODE_ASC
+  TIER_CODE_DESC
 }
 
 enum Role {
@@ -29331,6 +33411,10 @@ input SystemMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -29746,6 +33830,10 @@ input SystemMemberMarketIdFkeyMarketCreateInput {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -30936,6 +35024,66 @@ enum TierBenefitOrder {
   sys_publishedVersion_DESC
   tier_ASC
   tier_DESC
+}
+
+"""
+A filter to be used against Tier fields. All fields are combined with a logical ‘and.’
+"""
+input TierFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Tier
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Tier
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Tier
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Tier
+
+  """
+  Included in the specified list.
+  """
+  in: [Tier!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Tier
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Tier
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Tier
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Tier
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Tier!]
 }
 
 type Token {
@@ -33558,6 +37706,293 @@ type UpdateProjectPayload {
 }
 
 """
+All input for the `updateRewardRecordByNodeId` mutation.
+"""
+input UpdateRewardRecordByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardRecord` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `RewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+All input for the `updateRewardRecord` mutation.
+"""
+input UpdateRewardRecordInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `RewardRecord` being updated.
+  """
+  patch: RewardRecordPatch!
+}
+
+"""
+The output of our update `RewardRecord` mutation.
+"""
+type UpdateRewardRecordPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRecord`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRecord`.
+  """
+  company: Company
+
+  """
+  Reads a single `Market` that is related to this `RewardRecord`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRecord` that was updated by this mutation.
+  """
+  rewardRecord: RewardRecord
+
+  """
+  An edge for our `RewardRecord`. May be used by Relay 1.
+  """
+  rewardRecordEdge(
+    """
+    The method to use when ordering `RewardRecord`.
+    """
+    orderBy: [RewardRecordsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRecordsEdge
+
+  """
+  Reads a single `RewardTier` that is related to this `RewardRecord`.
+  """
+  rewardTierByRewardTier: RewardTier
+}
+
+"""
+All input for the `updateRewardRequestByNodeId` mutation.
+"""
+input UpdateRewardRequestByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardRequest` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `RewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+}
+
+"""
+All input for the `updateRewardRequestByRedemptionCode` mutation.
+"""
+input UpdateRewardRequestByRedemptionCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `RewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+  redemptionCode: String!
+}
+
+"""
+All input for the `updateRewardRequest` mutation.
+"""
+input UpdateRewardRequestInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `RewardRequest` being updated.
+  """
+  patch: RewardRequestPatch!
+}
+
+"""
+The output of our update `RewardRequest` mutation.
+"""
+type UpdateRewardRequestPayload {
+  """
+  Reads a single `Account` that is related to this `RewardRequest`.
+  """
+  account: Account
+
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Company` that is related to this `RewardRequest`.
+  """
+  company: Company
+
+  """
+  Reads a single `Market` that is related to this `RewardRequest`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardRequest` that was updated by this mutation.
+  """
+  rewardRequest: RewardRequest
+
+  """
+  An edge for our `RewardRequest`. May be used by Relay 1.
+  """
+  rewardRequestEdge(
+    """
+    The method to use when ordering `RewardRequest`.
+    """
+    orderBy: [RewardRequestsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardRequestsEdge
+}
+
+"""
+All input for the `updateRewardTierByMarketIdAndTierCodeAndRewardCategory` mutation.
+"""
+input UpdateRewardTierByMarketIdAndTierCodeAndRewardCategoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+
+  """
+  An object where the defined keys will be set on the `RewardTier` being updated.
+  """
+  patch: RewardTierPatch!
+  rewardCategory: String!
+  tierCode: Tier!
+}
+
+"""
+All input for the `updateRewardTierByNodeId` mutation.
+"""
+input UpdateRewardTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `RewardTier` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `RewardTier` being updated.
+  """
+  patch: RewardTierPatch!
+}
+
+"""
+All input for the `updateRewardTier` mutation.
+"""
+input UpdateRewardTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+
+  """
+  An object where the defined keys will be set on the `RewardTier` being updated.
+  """
+  patch: RewardTierPatch!
+}
+
+"""
+The output of our update `RewardTier` mutation.
+"""
+type UpdateRewardTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Reads a single `Market` that is related to this `RewardTier`.
+  """
+  market: Market
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  The `RewardTier` that was updated by this mutation.
+  """
+  rewardTier: RewardTier
+
+  """
+  An edge for our `RewardTier`. May be used by Relay 1.
+  """
+  rewardTierEdge(
+    """
+    The method to use when ordering `RewardTier`.
+    """
+    orderBy: [RewardTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): RewardTiersEdge
+}
+
+input UpdateRewardTiersInput {
+  rewardTiers: [RewardTiersInput!]
+}
+
+"""
 All input for the `updateSystemByBmiRef` mutation.
 """
 input UpdateSystemByBmiRefInput {
@@ -33882,6 +38317,9 @@ union _Entity =
   | Product
   | Project
   | ProjectMember
+  | RewardRecord
+  | RewardRequest
+  | RewardTier
   | System
   | SystemMember
 
@@ -34052,6 +38490,8 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34138,6 +38578,8 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34229,6 +38671,8 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34320,6 +38764,8 @@ input updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34411,6 +38857,8 @@ input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34502,6 +38950,8 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34593,6 +39043,8 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34684,6 +39136,8 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34775,6 +39229,8 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -34866,6 +39322,194 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   photo: String
   photoUpload: Upload
   projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
+
+  """
+  ek
+  """
+  role: Role
+  shouldRemovePhoto: Boolean
+
+  """
+  ek
+  """
+  status: AccountStatus
+  termsCondition: Boolean
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `account` being updated.
+"""
+input updateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch {
+  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+
+  """
+  When the account was created
+  """
+  created: Datetime
+  createdAt: Datetime
+
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int
+
+  """
+  Username in Docebo.  Needed to generate the SSO link
+  """
+  doceboUsername: String
+
+  """
+  The email address associated with the account
+  """
+  email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
+
+  """
+  First name
+  """
+  firstName: String
+  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
+  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
+
+  """
+  Primary key
+  """
+  id: Int
+  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
+
+  """
+  Last name
+  """
+  lastName: String
+
+  """
+  fk
+  """
+  marketId: Int
+  marketToMarketId: AccountMarketIdFkeyInput
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+  notesUsingId: NoteAuthorIdFkeyInverseInput
+  notificationsUsingId: NotificationAccountIdFkeyInverseInput
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """
+  File reference. A profile picture of the user
+  """
+  photo: String
+  photoUpload: Upload
+  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
+
+  """
+  ek
+  """
+  role: Role
+  shouldRemovePhoto: Boolean
+
+  """
+  ek
+  """
+  status: AccountStatus
+  termsCondition: Boolean
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `account` being updated.
+"""
+input updateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch {
+  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+
+  """
+  When the account was created
+  """
+  created: Datetime
+  createdAt: Datetime
+
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int
+
+  """
+  Username in Docebo.  Needed to generate the SSO link
+  """
+  doceboUsername: String
+
+  """
+  The email address associated with the account
+  """
+  email: String
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
+
+  """
+  First name
+  """
+  firstName: String
+  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
+  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
+
+  """
+  Primary key
+  """
+  id: Int
+  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
+
+  """
+  Last name
+  """
+  lastName: String
+
+  """
+  fk
+  """
+  marketId: Int
+  marketToMarketId: AccountMarketIdFkeyInput
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+  notesUsingId: NoteAuthorIdFkeyInverseInput
+  notificationsUsingId: NotificationAccountIdFkeyInverseInput
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """
+  File reference. A profile picture of the user
+  """
+  photo: String
+  photoUpload: Upload
+  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  rewardRecordsUsingId: RewardRecordAccountIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestAccountIdFkeyInverseInput
 
   """
   ek
@@ -35251,6 +39895,7 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -35341,6 +39986,9 @@ input updateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -35393,6 +40041,7 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -35478,6 +40127,9 @@ input updateCompanyOnCompanyForCompanyMarketIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -35530,6 +40182,7 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -35615,6 +40268,9 @@ input updateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -35667,6 +40323,7 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -35757,6 +40414,9 @@ input updateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -35804,6 +40464,7 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -35894,6 +40555,9 @@ input updateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -35946,6 +40610,7 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -36036,6 +40701,9 @@ input updateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -36088,6 +40756,7 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -36178,6 +40847,9 @@ input updateCompanyOnInvitationForInvitationCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -36230,6 +40902,7 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
   companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
   createdAt: Datetime
 
   """
@@ -36320,6 +40993,301 @@ input updateCompanyOnProjectForProjectCompanyIdFkeyPatch {
   the date that the Company registration form was submitted
   """
   registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
+  shouldRemoveLogo: Boolean
+
+  """
+  ek
+  """
+  status: CompanyStatus
+
+  """
+  The Tax number in that Market, such as the VAT number
+  """
+  taxNumber: String
+
+  """
+  ek
+  """
+  tier: Tier
+
+  """
+  fk
+  """
+  tradingAddressId: Int
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+  updatedAt: Datetime
+
+  """
+  The Company website URL
+  """
+  website: String
+}
+
+"""
+An object where the defined keys will be set on the `company` being updated.
+"""
+input updateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch {
+  """
+  A descirption of the Company intended for Find a Roofer
+  """
+  aboutUs: String
+  addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
+  addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
+
+  """
+  ek
+  """
+  businessType: BusinessType
+  companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
+  companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
+  createdAt: Datetime
+
+  """
+  The Company facebook website
+  """
+  facebook: String
+
+  """
+  Primary key
+  """
+  id: Int
+  invitationsUsingId: InvitationCompanyIdFkeyInverseInput
+
+  """
+  Their Company LinkedIn page URL
+  """
+  linkedIn: String
+
+  """
+  A reference to the logo image
+  """
+  logo: String
+  logoUpload: Upload
+
+  """
+  fk
+  """
+  marketId: Int
+  marketToMarketId: CompanyMarketIdFkeyInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  The registered name of the Company
+  """
+  name: String
+
+  """
+  the email address to contact the owner
+  """
+  ownerEmail: String
+
+  """
+  the name of the owner of the Company
+  """
+  ownerFullname: String
+
+  """
+  the phone number to contact the owner
+  """
+  ownerPhone: String
+
+  """
+  The Company public phone number
+  """
+  phone: String
+  projectsUsingId: ProjectCompanyIdFkeyInverseInput
+
+  """
+  The email address that they can be contacted with by the public assuming they are listed
+  """
+  publicEmail: String
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: Int
+
+  """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
+
+  """
+  the email address of the person who filled out the company registration form
+  """
+  registeredBy: String
+
+  """
+  the date that the Company registration form was submitted
+  """
+  registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
+  shouldRemoveLogo: Boolean
+
+  """
+  ek
+  """
+  status: CompanyStatus
+
+  """
+  The Tax number in that Market, such as the VAT number
+  """
+  taxNumber: String
+
+  """
+  ek
+  """
+  tier: Tier
+
+  """
+  fk
+  """
+  tradingAddressId: Int
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+  updatedAt: Datetime
+
+  """
+  The Company website URL
+  """
+  website: String
+}
+
+"""
+An object where the defined keys will be set on the `company` being updated.
+"""
+input updateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch {
+  """
+  A descirption of the Company intended for Find a Roofer
+  """
+  aboutUs: String
+  addressToRegisteredAddressId: CompanyRegisteredAddressIdFkeyInput
+  addressToTradingAddressId: CompanyTradingAddressIdFkeyInput
+
+  """
+  ek
+  """
+  businessType: BusinessType
+  companyDocumentsUsingId: CompanyDocumentCompanyIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberCompanyIdFkeyInverseInput
+  companyOperationsUsingId: CompanyOperationCompanyFkeyInverseInput
+  contractStatus: Boolean
+  createdAt: Datetime
+
+  """
+  The Company facebook website
+  """
+  facebook: String
+
+  """
+  Primary key
+  """
+  id: Int
+  invitationsUsingId: InvitationCompanyIdFkeyInverseInput
+
+  """
+  Their Company LinkedIn page URL
+  """
+  linkedIn: String
+
+  """
+  A reference to the logo image
+  """
+  logo: String
+  logoUpload: Upload
+
+  """
+  fk
+  """
+  marketId: Int
+  marketToMarketId: CompanyMarketIdFkeyInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  The registered name of the Company
+  """
+  name: String
+
+  """
+  the email address to contact the owner
+  """
+  ownerEmail: String
+
+  """
+  the name of the owner of the Company
+  """
+  ownerFullname: String
+
+  """
+  the phone number to contact the owner
+  """
+  ownerPhone: String
+
+  """
+  The Company public phone number
+  """
+  phone: String
+  projectsUsingId: ProjectCompanyIdFkeyInverseInput
+
+  """
+  The email address that they can be contacted with by the public assuming they are listed
+  """
+  publicEmail: String
+
+  """
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
+  """
+  referenceNumber: Int
+
+  """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
+
+  """
+  the email address of the person who filled out the company registration form
+  """
+  registeredBy: String
+
+  """
+  the date that the Company registration form was submitted
+  """
+  registeredDate: Datetime
+  renewalDate: Datetime
+  rewardRecordsUsingId: RewardRecordCompanyIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestCompanyIdFkeyInverseInput
   shouldRemoveLogo: Boolean
 
   """
@@ -37252,6 +42220,10 @@ input updateMarketOnAccountForAccountMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -37347,6 +42319,10 @@ input updateMarketOnCompanyForCompanyMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -37442,6 +42418,10 @@ input updateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -37537,6 +42517,307 @@ input updateMarketOnProductForProductMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `market` being updated.
+"""
+input updateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `market` being updated.
+"""
+input updateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
+
+  """
+  The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
+  """
+  sendMailbox: String
+
+  """
+  The From name used when sending an email
+  """
+  sendName: String
+  systemMembersUsingId: SystemMemberMarketIdFkeyInverseInput
+  systemsUsingId: SystemMarketIdFkeyInverseInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `market` being updated.
+"""
+input updateMarketOnRewardTierForRewardTierMarketIdFkeyPatch {
+  accountsUsingId: AccountMarketIdFkeyInverseInput
+
+  """
+  The space in Contenful
+  """
+  cmsSpaceId: String
+  companiesUsingId: CompanyMarketIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberMarketIdFkeyInverseInput
+  createdAt: Datetime
+
+  """
+  The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int
+  doceboCatalogueIdT2: Int
+  doceboCatalogueIdT3: Int
+  doceboCatalogueIdT4: Int
+
+  """
+  The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboCompanyAdminBranchId: String
+
+  """
+  The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach.
+  """
+  doceboInstallersBranchId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String
+
+  """
+  The coordinates of the middle of the Market on a map
+  """
+  geoMiddle: PointInput
+
+  """
+  Reference to the Google Analytics tracking ID that is used for the Country GA reports
+  """
+  gtag: String
+  gtagMarketMedia: String
+
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  language: Language
+
+  """
+  The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded.
+  """
+  locationBiasRadiusKm: Int
+  merchandiseSso: Boolean
+
+  """
+  The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
+  """
+  merchandisingUrl: String
+
+  """
+  A short name for the market, e.g. Italy, Norway, Netherlands
+  """
+  name: String
+  optanonClass: String
+  productsUsingId: ProductMarketIdFkeyInverseInput
+
+  """
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
+  """
+  projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -37632,6 +42913,10 @@ input updateMarketOnSystemForSystemMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -37727,6 +43012,10 @@ input updateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch {
   Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
+  rewardEffectiveDate: Datetime
+  rewardRecordsUsingId: RewardRecordMarketIdFkeyInverseInput
+  rewardRequestsUsingId: RewardRequestMarketIdFkeyInverseInput
+  rewardTiersUsingId: RewardTierMarketIdFkeyInverseInput
 
   """
   The mailbox on intouch.bmigroup.com that emails will be sent from for this Market
@@ -38678,6 +43967,151 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
   ek
   """
   technology: Technology
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRecord` being updated.
+"""
+input updateRewardRecordOnRewardRecordForRewardRecordAccountIdFkeyPatch {
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRecord` being updated.
+"""
+input updateRewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyPatch {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRecord` being updated.
+"""
+input updateRewardRecordOnRewardRecordForRewardRecordMarketIdFkeyPatch {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int
+  rewardTier: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRecord` being updated.
+"""
+input updateRewardRecordOnRewardRecordForRewardRecordRewardTierFkeyPatch {
+  accountId: Int
+  accountToAccountId: RewardRecordAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRecordCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRecordMarketIdFkeyInput
+  rewardPoint: Int
+  rewardTierToRewardTier: RewardRecordRewardTierFkeyInput
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRequest` being updated.
+"""
+input updateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch {
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRequest` being updated.
+"""
+input updateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardRequest` being updated.
+"""
+input updateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch {
+  accountId: Int
+  accountToAccountId: RewardRequestAccountIdFkeyInput
+  companyId: Int
+  companyToCompanyId: RewardRequestCompanyIdFkeyInput
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardRequestMarketIdFkeyInput
+  redemptionCode: String
+  rewardPoint: Int
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardTier` being updated.
+"""
+input updateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch {
+  createdAt: Datetime
+  id: Int
+  marketId: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String
+  rewardPoint: Int
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier
+  updatedAt: Datetime
+}
+
+"""
+An object where the defined keys will be set on the `rewardTier` being updated.
+"""
+input updateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch {
+  createdAt: Datetime
+  id: Int
+  marketToMarketId: RewardTierMarketIdFkeyInput
+  rewardCategory: String
+  rewardPoint: Int
+  rewardRecordsUsingId: RewardRecordRewardTierFkeyInverseInput
+  tierCode: Tier
   updatedAt: Datetime
 }
 

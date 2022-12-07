@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RewardCategory render correctly signle rewardTier 1`] = `
+<div>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+  >
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-10"
+      >
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          rc1
+        </p>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-2"
+        style="text-align: right;"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+          data-testid="reward-category-btn-edit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-4"
+          >
+            edit
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+  >
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-even-color"
+      >
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        >
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              Tier
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              scope="col"
+            >
+              Point Awarded
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              T1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+            >
+              10
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

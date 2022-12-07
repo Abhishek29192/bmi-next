@@ -90,5 +90,7 @@
   "button": {
     "more": "Visa mer",
     "less": "Visa mindre"
-  }
+  },
+  "Technology type": "Teknik typ",
+  "Tier type": "Nivåtyp"
 }

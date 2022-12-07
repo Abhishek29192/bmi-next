@@ -7,6 +7,7 @@ import {
   autoRejectDoubleAcceptance,
   releaseGuaranteePdf
 } from "../";
+import * as rewardRecord from "../../rewardRecord";
 
 const sendMessageWithTemplateSpy = jest.fn();
 jest.mock("../../mailer", () => ({
@@ -18,6 +19,9 @@ jest.mock("../../../services/events", () => ({
   TOPICS: {
     GUARANTEE_PDF: "GUARANTEE_PDF"
   }
+}));
+jest.mock("../../rewardRecord", () => ({
+  addRewardRecord: jest.fn().mockImplementation(() => Promise.resolve())
 }));
 
 describe("DoubleAcceptance", () => {
@@ -469,7 +473,8 @@ describe("DoubleAcceptance", () => {
         product_name: "product_name",
         system_name: "system_name",
         coverage: "SOLUTION",
-        domain: "en"
+        domain: "en",
+        requestor_account_id: 1
       };
       const data = {
         id: input.id,
@@ -530,6 +535,16 @@ describe("DoubleAcceptance", () => {
         "GUARANTEE_PDF",
         data
       ]);
+      expect(rewardRecord.addRewardRecord).toHaveBeenCalledWith(
+        null,
+        {
+          input: {
+            accountId: 1,
+            rewardCategory: "rc6"
+          }
+        },
+        context
+      );
     });
 
     it("throw error when insert into db", async () => {
@@ -543,6 +558,123 @@ describe("DoubleAcceptance", () => {
 
       expect(loggerError).toHaveBeenCalledWith({
         message: `Error getting guarantee data for release guarantee pdf, ${error}`
+      });
+    });
+
+    describe("addRewardRecord", () => {
+      const guaranteeFactory = (data = {}) => ({
+        status: "APPROVED",
+        building_owner_mail: "building_owner_mail",
+        file_storage_id: "file_storage_id",
+        product_name: "product_name",
+        system_name: "system_name",
+        coverage: "SOLUTION",
+        domain: "en",
+        ...data
+      });
+      const dataFactory = (guarantee) => ({
+        id: input.id,
+        status: guarantee.status,
+        project: {
+          buildingOwnerMail: guarantee.building_owner_mail,
+          company: {
+            market: {
+              domain: guarantee.domain
+            }
+          }
+        },
+        guaranteeType: {
+          coverage: guarantee.coverage,
+          guaranteeTemplatesCollection: {
+            items: [input.template]
+          }
+        },
+        productByProductBmiRef: {
+          name: guarantee.product_name
+        },
+        systemBySystemBmiRef: {
+          name: guarantee.system_name
+        },
+        fileStorageId: guarantee.file_storage_id,
+        signedFileStorageUrl: "signedFileStorageUrl"
+      });
+
+      it("addRewardRecord with category rc4 for product guarantee", async () => {
+        const guarantee = guaranteeFactory({
+          coverage: "PRODUCT",
+          requestor_account_id: 1
+        });
+        const data = dataFactory(guarantee);
+        mockRootQuery
+          .mockReturnValueOnce({ rows: [guarantee] })
+          .mockReturnValueOnce({
+            rows: [
+              {
+                product_name: data.productByProductBmiRef.name,
+                system_name: data.systemBySystemBmiRef.name
+              }
+            ]
+          });
+        mockGetPrivateAssetSignedUrl.mockReturnValueOnce(
+          "signedFileStorageUrl"
+        );
+        publishSpy.mockReturnValueOnce(1);
+        await releaseGuaranteePdf(
+          resolve,
+          source,
+          args(input),
+          context,
+          resolveInfo
+        );
+        expect(rewardRecord.addRewardRecord).toHaveBeenCalledWith(
+          null,
+          {
+            input: {
+              accountId: 1,
+              rewardCategory: "rc4"
+            }
+          },
+          context
+        );
+      });
+
+      it("addRewardRecord with category rc5 for system guarantee", async () => {
+        const guarantee = guaranteeFactory({
+          coverage: "SYSTEM",
+          requestor_account_id: 1
+        });
+        const data = dataFactory(guarantee);
+        mockRootQuery
+          .mockReturnValueOnce({ rows: [guarantee] })
+          .mockReturnValueOnce({
+            rows: [
+              {
+                product_name: data.productByProductBmiRef.name,
+                system_name: data.systemBySystemBmiRef.name
+              }
+            ]
+          });
+        mockGetPrivateAssetSignedUrl.mockReturnValueOnce(
+          "signedFileStorageUrl"
+        );
+        publishSpy.mockReturnValueOnce(1);
+        await releaseGuaranteePdf(
+          resolve,
+          source,
+          args(input),
+          context,
+          resolveInfo
+        );
+        expect(rewardRecord.addRewardRecord).toHaveBeenCalledWith(
+          null,
+          {
+            input: {
+              accountId: 1,
+              rewardCategory: "rc5"
+            }
+          },
+          context
+        );
       });
     });
   });

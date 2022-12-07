@@ -81,6 +81,7 @@ class Auth0 {
 
       return data;
     } catch (error) {
+      console.log(error);
       this.logger.error("Create user:", error.message);
     }
   };

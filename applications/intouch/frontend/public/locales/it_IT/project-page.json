@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "I dettagli del progetto non possono essere modificati a causa dello stato della garanzia."
     },
     "loading": "Caricamento dei dettagli del progetto",
-    "error": "Errore nel caricamento dei dettagli del progetto"
+    "error": "Errore nel caricamento dei dettagli del progetto",
+    "technology": "Tipo di tecnologia"
   },
   "buildingOwnerDetails": {
     "title": "Dettagli proprietario edificio",

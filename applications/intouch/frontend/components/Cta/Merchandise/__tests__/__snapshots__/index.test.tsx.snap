@@ -44,6 +44,7 @@ exports[`MerchandiseCTA should render component for SUPER_ADMIN 1`] = `
 <body>
   <div>
     <a
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"buttonText\\",\\"action\\":\\"url\\"}"
       href="url"
       rel="noopener noreferrer"
       target="_blank"
@@ -72,6 +73,7 @@ exports[`MerchandiseCTA should render component for SUPER_ADMIN without button t
 <body>
   <div>
     <a
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"hero.cta.ctaName\\",\\"action\\":\\"url\\"}"
       href="url"
       rel="noopener noreferrer"
       target="_blank"

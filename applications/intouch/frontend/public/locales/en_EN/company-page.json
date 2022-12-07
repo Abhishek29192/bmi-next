@@ -12,7 +12,12 @@
     "referenceNumber": "Membership number",
     "registeredAddress": "Registered Address",
     "taxNumber": "Company VAT number",
-    "phone": "Phone"
+    "phone": "Phone",
+    "contractStatus": "Contract Status",
+    "renewalDate": "Renewal Date",
+    "contractSigned": "Signed",
+    "contractNotSigned": "Not Signed",
+    "renewalDateNA": "N/A"
   },
   "noCompanies": "This market has no companies yet",
   "search": {
@@ -66,7 +71,8 @@
       "trading_address_fields_heading": "Contact Information",
       "trading_address_description": "Please provide your trading address to appear on BMIGroup.com 'Find a Roofer' locator for building owners to contact you about your services",
       "contact_details": "Contact details",
-      "owner_details": "Company owner details"
+      "owner_details": "Company owner details",
+      "contract_status": "RoofPro contract"
     },
     "form": {
       "fields": {
@@ -118,13 +124,16 @@
         "linkedIn": "LinkedIn profile",
         "ownerFullname": "Name",
         "ownerPhone": "Phone",
-        "ownerEmail": "E-mail address"
+        "ownerEmail": "E-mail address",
+        "contractStatus": "Contract Status",
+        "renewalDate": "Renewal Date"
       },
       "actions": {
         "submit": "Save & Close",
         "cancel": "Cancel"
       },
-      "maxCharacters": "Max of 255 characters"
+      "maxCharacters": "Max of 255 characters",
+      "renewalDate": "The renewal date should be in the future."
     }
   },
   "report": "Download Companies List",
@@ -170,5 +179,28 @@
     }
   },
   "companyAdministrators": "Administrators",
-  "companyMembers": "Installers"
+  "companyMembers": "Installers",
+  "reward": {
+    "title": "Activity Tracker",
+    "stage": "Stage",
+    "status": {
+      "pending": "Pending",
+      "inProgress": "To Do",
+      "completed": "Completed",
+      "claimed": "Claimed"
+    },
+    "claimLabel": "Claim Rewards",
+    "claimRewardDialog": {
+      "title": "Congratulations!",
+      "description": "Stage {{stage}} is completed! You have been very proactive.We will send you all details to your email after you claim reward. Thank you!",
+      "confirmLabel": "Confirm",
+      "cancelLabel": "Cancel",
+      "closeLabel": "Close",
+      "acknowledgement": {
+        "title": "Thank you for being so active!",
+        "description": "We have sent you an  email with all the details, please check it."
+      }
+    }
+  },
+  "filters.labels.ALL": "All"
 }

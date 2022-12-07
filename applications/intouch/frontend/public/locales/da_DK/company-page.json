@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administratorer",
-  "companyMembers": "Installatører/medlemmer"
+  "companyMembers": "Installatører/medlemmer",
+  "reward": {
+    "title": "Aktivitetssporer",
+    "stage": "Trin",
+    "status": {
+      "pending": "Gøres",
+      "inProgress": "I gang",
+      "completed": "Afsluttet",
+      "claimed": "Påstået"
+    },
+    "claimLabel": "Gør krav på belønning",
+    "claimRewardDialog": {
+      "title": "Tillykke!",
+      "description": "Trin {{stage}} er gennemført! Du gør gode fremskridt og kan nu gøre krav på en belønning. Vi sender dig oplysninger om kravet via e-mail, når du har bekræftet dit krav. Tak skal du have!",
+      "confirmLabel": "Bekræfte",
+      "cancelLabel": "Afbestille",
+      "closeLabel": "Tæt",
+      "acknowledgement": {
+        "title": "Tak fordi du er så aktiv!",
+        "description": "Vi sender dig en e-mail med alle detaljer. Vær sød at tjekke det."
+      }
+    }
+  },
+  "filters.labels.ALL": "Alle"
 }

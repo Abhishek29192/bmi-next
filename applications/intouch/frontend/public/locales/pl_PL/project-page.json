@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Nie można edytować szczegółów projektu ze względu na stan gwarancji."
     },
     "loading": "Wczytuję szczegóły projektu",
-    "error": "Błąd podczas ładowania szczegółów projektu."
+    "error": "Błąd podczas ładowania szczegółów projektu.",
+    "technology": "Rodzaj technologii"
   },
   "buildingOwnerDetails": {
     "title": "Dane właściciela budynku",

@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Projektoplysninger kan ikke redigeres på grund af garantiens status"
     },
     "loading": "Indlæser projektoplysninger",
-    "error": "Fejl ved indlæsning af projektoplysninger."
+    "error": "Fejl ved indlæsning af projektoplysninger.",
+    "technology": "Teknologi type"
   },
   "buildingOwnerDetails": {
     "title": "Ejeroplysninger",
