@@ -1167,33 +1167,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.4.5":
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.4.5.tgz#4d303384f1f2028844701bfae16fa2cd598b52d4"
-  integrity sha512-bAEIfXNUCyUomgqnPhy10GZnAKD6scGiqva6MWsr6Y5z9HDGabJzyraLoYKOUdkoBclUsNBoC8oA8oHykLUWew==
-  dependencies:
-    "@bmi-digital/styles" "^1.4.0"
-    "@bmi-digital/svg-import" "^1.4.0"
-    "@bmi-digital/use-dimensions" "^1.4.0"
-    "@googlemaps/js-api-loader" "^1.11.1"
-    "@googlemaps/markerclusterer" "^1.0.15"
-    "@material-ui/core" "^4.10.2"
-    "@material-ui/icons" "^4.11.2"
-    "@material-ui/lab" "^4.0.0-alpha.60"
-    "@material-ui/styles" "^4.11.4"
-    autosuggest-highlight "^3.1.1"
-    axios "^0.26.0"
-    classnames "^2.2.6"
-    csstype "^3.0.7"
-    escape-string-regexp "^4.0.0"
-    react-is "^16.13.1"
-    react-lines-ellipsis "^0.14.1"
-    react-masonry-css "^1.0.14"
-    react-player "^2.9.0"
-    react-swipeable-views "^0.14.0"
-    react-swipeable-views-core "^0.14.0"
-    react-swipeable-views-utils "^0.14.0"
-
 "@bmi-digital/components@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.5.2.tgz#616e844c3da559a2a772d6972578e0478d7785e0"
