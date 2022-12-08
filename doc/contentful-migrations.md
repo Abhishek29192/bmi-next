@@ -5,7 +5,6 @@ We use our own [Contentful Migration](https://gitlab.com/bmi-digital/contentful-
 ## Project documentation
 
 - [DXB](/applications/dxb/contentful-migrate/README.md)
-- [InTouch](/applications/intouch/contentful-migrate/README.md)
 - [Web Tools](/applications/dxb/webtools-contentful-migrate/README.md)
 
 ## Testing changes

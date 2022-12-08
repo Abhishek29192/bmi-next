@@ -5,15 +5,11 @@ test_frc-website:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/frc-website/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/frc-website/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
   variables:
@@ -27,14 +23,10 @@ build_frc-website:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/frc-website/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/frc-website/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/frc-website"

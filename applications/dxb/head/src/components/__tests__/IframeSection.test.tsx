@@ -42,7 +42,11 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Performance"]
         };
 
-        const { container } = render(<IframeSection data={data} />);
+        const { container } = render(
+          <ThemeProvider>
+            <IframeSection data={data} />
+          </ThemeProvider>
+        );
         expect(
           container.getElementsByClassName("optanon-category-C0007").length
         ).toEqual(1);
@@ -63,7 +67,11 @@ describe("IframeSection component", () => {
           allowCookieClasses: ["Analytics", "Targeting"]
         };
 
-        const { container } = render(<IframeSection data={data} />);
+        const { container } = render(
+          <ThemeProvider>
+            <IframeSection data={data} />
+          </ThemeProvider>
+        );
         expect(
           container.getElementsByClassName("optanon-category-C0002-C0004")
             .length

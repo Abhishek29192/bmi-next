@@ -1,8 +1,0 @@
-# Inotuch child yml files!!
-include:
-  - local: "/applications/intouch/api/db-migrations/.gitlab-ci.yml"
-  - local: "/applications/intouch/api/gateway/.gitlab-ci.yml"
-  - local: "/applications/intouch/api/services/companies/.gitlab-ci.yml"
-  - local: "/applications/intouch/api/services/training/.gitlab-ci.yml"
-  - local: "/applications/intouch/frontend/.gitlab-ci.yml"
-  - local: "/applications/intouch/functions/.gitlab-ci.yml"

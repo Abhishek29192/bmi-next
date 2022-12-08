@@ -1,9 +1,0 @@
-{
-  "title": "Något gick fel",
-  "body": "Ett fel uppstod, kontakta en administratör",
-  "user_blocked": "Användaren är blockerad",
-  "errorAlreadyMember": "Användaren är redan medlem i ett annat företag",
-  "errorInvitationNotFound": "Inbjudan hittades inte",
-  "errorUserBlocked": "Användaren är blockerad",
-  "errorAuthentication": "Verifieringsfel"
-}

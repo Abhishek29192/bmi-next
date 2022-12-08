@@ -7,6 +7,7 @@ jest.mock("../Link", () => {
     getClickableActionFromUrl: mockGetClickableActionFromUrl
   };
 });
+import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -52,17 +53,19 @@ const title = "Document Downloads title";
 describe("DocumentDownloadSection component", () => {
   it("renders correctly with all data", () => {
     const { container, getByText } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title,
-          description: {
-            raw: mockDescription,
-            references: []
-          },
-          documents: [document]
-        }}
-      />
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title,
+            description: {
+              raw: mockDescription,
+              references: []
+            },
+            documents: [document]
+          }}
+        />
+      </ThemeProvider>
     );
 
     const downloadButtons = container.querySelectorAll("table tbody button");
@@ -91,14 +94,16 @@ describe("DocumentDownloadSection component", () => {
 
   it("renders correctly without data", () => {
     const { container } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title: null,
-          description: null,
-          documents: []
-        }}
-      />
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title: null,
+            description: null,
+            documents: []
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(container.querySelectorAll("table").length).toBe(0);
@@ -119,14 +124,16 @@ describe("DocumentDownloadSection component", () => {
       __typename: "ContentfulDocument"
     });
     const { container } = render(
-      <DocumentDownloadSection
-        data={{
-          __typename: "ContentfulDocumentDownloadSection",
-          title: null,
-          description: null,
-          documents: [documentWithUnknownContentType]
-        }}
-      />
+      <ThemeProvider>
+        <DocumentDownloadSection
+          data={{
+            __typename: "ContentfulDocumentDownloadSection",
+            title: null,
+            description: null,
+            documents: [documentWithUnknownContentType]
+          }}
+        />
+      </ThemeProvider>
     );
 
     expect(container.querySelectorAll("table tbody button").length).toBe(1);

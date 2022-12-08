@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`getProjectStatus utility returns status COMPLETED correctly 1`] = `"filters.labels.COMPLETED"`;
-
-exports[`getProjectStatus utility returns status IN PROGRESS correctly 1`] = `"filters.labels.IN_PROGRESS"`;
-
-exports[`getProjectStatus utility returns status NOT STARTED correctly 1`] = `"filters.labels.NOT_STARTED"`;

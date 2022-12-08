@@ -9,7 +9,6 @@ import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { Product } from "../types/pim";
-import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -158,12 +157,7 @@ const Page = ({
                     undefined
                   }
                   activeLabel={
-                    checkIfActiveLabelInParentNode(
-                      breadcrumbs,
-                      menuNavigation
-                    ) ||
-                    (breadcrumbs && breadcrumbs[0]?.label) ||
-                    undefined
+                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
                   }
                   isOnSearchPage={isSearchPage}
                   countryNavigationIntroduction={

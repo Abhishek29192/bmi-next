@@ -7,17 +7,8 @@ coverage-ts/**
 .yarn/**
 .yarn_cache
 
-# Auto-generated files
-applications/intouch/api/types/index.d.ts
-**/generated/**
-
 # ESLint config files are JS source files nonetheless
 !**/.eslintrc.js
-
-# Ignore auto-generated migrations from Contentful
-applications/intouch/auth0/auth0-login/src/js/app.js
-applications/intouch/api/db-migrations/migration-companies
-applications/intouch/api/db-migrations/migration-training
 
 # Only brought in as a quick fix in testing purposes for https://bmigroup.atlassian.net/browse/DXB-3373.
 applications/dxb/libraries/gatsby-plugin-google-tagmanager

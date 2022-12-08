@@ -1,9 +1,0 @@
-@import "~@bmi-digital/styles";
-
-.cardHeader {
-  background-color: $color-pearl;
-  @media (min-width: $breakpoint-md) {
-    margin: 0 -1rem;
-    padding: 1rem 2rem;
-  }
-}

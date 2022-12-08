@@ -629,10 +629,10 @@ describe("PitchedRoofCalculator Results component", () => {
     fireEvent.change(nameInput, { target: { value: "Test Name" } });
 
     fireEvent.click(hsForm.contentDocument.getElementById("submit-button"));
-    waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
   });
 
-  it("inserts PDF report into form", () => {
+  it("inserts PDF report into form", async () => {
     render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
@@ -641,7 +641,7 @@ describe("PitchedRoofCalculator Results component", () => {
       </ThemeProvider>
     );
 
-    waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
+    await waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
   });
 
   it("renders with final report", () => {
@@ -690,7 +690,7 @@ describe("PitchedRoofCalculator Results component", () => {
     ).toBeInTheDocument();
   });
 
-  it("Moves product to 'extra section' and change quantity if user clicks on '+' button", () => {
+  it("Moves product to 'extra section' and change quantity if user clicks on '+' button", async () => {
     render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
@@ -718,7 +718,12 @@ describe("PitchedRoofCalculator Results component", () => {
         `Increase quantity of ${resultsProps.variant.clip.name}`
       )
     );
-    waitFor(() => expect(quantityNode.textContent).toBe(initialQuantity + 2));
+    expect(
+      Number(
+        screen.getByLabelText(`Quantity for ${resultsProps.variant.clip.name}`)
+          .textContent
+      )
+    ).toBe(initialQuantity + 2);
   });
 
   it("Removes product if user removes it from 'extra section'", () => {
@@ -780,21 +785,21 @@ describe("PitchedRoofCalculator Results component", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders need help section with title", () => {
+  it("renders need help section with title", async () => {
     const title = "Need help title";
     render(
       <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <Results
             {...resultsProps}
-            isHubSpotFormAvailable
+            isHubSpotFormAvailable={false}
             needHelpSection={{ ...resultsProps.needHelpSection, title }}
           />
         </MicroCopy.Provider>
       </ThemeProvider>
     );
 
-    waitFor(() => expect(screen.getByText(title)).toBeInTheDocument());
+    expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it("opens report correctly for mobile devices", async () => {

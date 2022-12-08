@@ -7,7 +7,6 @@ include:
     file: "yarn.gitlab-ci.yml"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
-  - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/applications/redirects-website/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-siplast/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"

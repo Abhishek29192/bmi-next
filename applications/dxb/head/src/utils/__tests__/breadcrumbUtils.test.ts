@@ -74,13 +74,7 @@ describe("updateBreadcrumbTitleFromContentful function", () => {
 });
 
 describe("checkIfActiveLabelInParentNode function", () => {
-  const mockBreadcrumbs: BreadcrumbsData = [
-    {
-      label: "label-mock",
-      id: "id-mock",
-      slug: "slug-mock"
-    }
-  ];
+  const mockBreadcrumbs = "label-mock";
   it("should return parentNode", () => {
     const mockNestedNavigation: NavigationData = {
       __typename: "ContentfulNavigation",

@@ -5,15 +5,11 @@ test_head:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - jest/**/*
         - yarn.lock
   variables:
@@ -41,14 +37,10 @@ compile_head_mr:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/head"
@@ -66,8 +58,6 @@ wait_until_head_deployed_to_gatsby:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs: []
   cache: {}
   timeout: 15m
@@ -154,8 +144,6 @@ baseline_scan_head_preview:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs:
     - wait_until_head_deployed_to_gatsby
   allow_failure: true
@@ -228,8 +216,6 @@ lighthouseci_scan_head_preview:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
   needs:
     - job: install_yarn
       optional: true

@@ -70,11 +70,13 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                     >
                       <svg
                         class="DocumentTechnicalTableResults-formatIcon-6 format-icon"
+                        data-name="Layer 2"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                          style="fill: #aeb1b1;"
                         />
                       </svg>
                     </div>
@@ -217,11 +219,13 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                     >
                       <svg
                         class="DocumentTechnicalTableResults-formatIcon-69 format-icon"
+                        data-name="Layer 2"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                          d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                          style="fill: #aeb1b1;"
                         />
                       </svg>
                     </div>

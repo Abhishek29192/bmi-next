@@ -7,7 +7,6 @@
   "workspaces": [
     "applications/**",
     "functions/**",
-    "libraries/**",
     "tools/**",
     ".yalc/*"
   ],
@@ -17,14 +16,9 @@
     "clean:head": "yarn workspace @bmi/head run clean",
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
-    "coverage:components": "yarn test:components --coverage",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "coverage:ts": "typescript-coverage-report",
-    "test:components": "jest --config=components/jest.config.js --reporters=default --reporters=jest-junit",
-    "workbench": "styleguidist server",
-    "workbench:build": "styleguidist build",
-    "run-apollo": "yarn workspace @bmi/apollo-server run start",
     "prepare": "husky install"
   },
   "devDependencies": {
