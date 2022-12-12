@@ -9,7 +9,8 @@ import {
   UpdateProjectMemberInput,
   CreateDoubleAcceptanceInput,
   UpdateDoubleAcceptanceInput,
-  UpdateMerchandiseTiersByMarketInput
+  UpdateMerchandiseTiersByMarketInput,
+  CreateRewardRequestInput
 } from "@bmi/intouch-api-types";
 import {
   createCompany,
@@ -31,6 +32,7 @@ import * as companyDocumentMutation from "../../services/companyDocument";
 import * as doceboTierMutation from "../../services/doceboTier";
 import * as doubleAcceptanceMutation from "../../services/doubleAcceptance";
 import { updateMerchandiseTiersByMarket } from "../../services/merchandise";
+import * as rewardRequestMutation from "../../services/rewardRequest";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -238,6 +240,30 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           context: PostGraphileContext
         ) {
           return updateMerchandiseTiersByMarket(resolve, source, args, context);
+        }
+      },
+      createRewardRequest: {
+        requires: {
+          childColumns: [
+            { column: "id", alias: "$id" },
+            { column: "company_id", alias: "$companyId" },
+            { column: "redemption_code", alias: "$redemptionCode" }
+          ]
+        },
+        async resolve(
+          resolve,
+          source: Source | string,
+          args: { input: CreateRewardRequestInput },
+          context: PostGraphileContext,
+          resolveInfo
+        ) {
+          return rewardRequestMutation.createRewardRequest(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo
+          );
         }
       }
     }

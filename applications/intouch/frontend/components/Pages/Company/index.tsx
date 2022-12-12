@@ -1,22 +1,23 @@
+import { Grid } from "@bmi/components";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Grid } from "@bmi/components";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { GlobalPageProps } from "../../../lib/middleware/withPage";
 import { ROLES } from "../../../lib/constants";
+import { GlobalPageProps } from "../../../lib/middleware/withPage";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { validateCompanyProfile } from "../../../lib/validations/company";
 import GridStyles from "../../../styles/Grid.module.scss";
-import { SupportContactCard } from "../../Cards/SupportContactCard";
 import { CertificationsCard } from "../../Cards/Certifications";
 import { CompanyActionsCard } from "../../Cards/CompanyActions";
+import { SupportContactCard } from "../../Cards/SupportContactCard";
 import { OnCompanyUpdateSuccess } from "../../SetCompanyDetailsDialog";
-import { CompanyDetails } from "./Details";
-import { EditCompanyButton } from "./EditCompany/Button";
-import { CompanyRegisteredDetails } from "./RegisteredDetails";
 import { CompanyAdmins } from "./Admins";
-import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
+import { CompanyDetails } from "./Details";
 import { CompanyDocuments } from "./Documents";
+import { EditCompanyButton } from "./EditCompany/Button";
+import { IncompleteProfileAlert } from "./IncompleteProfileAlert";
+import { CompanyRegisteredDetails } from "./RegisteredDetails";
+import { RewardSummary } from "./RewardSummary";
 import styles from "./styles.module.scss";
 
 type Props = GlobalPageProps & {
@@ -85,6 +86,7 @@ export const CompanyPage = ({
           />
         </Grid>
         <Grid item xs={12} lg={5} xl={4}>
+          <RewardSummary company={company} />
           <CompanyRegisteredDetails
             company={company}
             mapsApiKey={mapsApiKey}

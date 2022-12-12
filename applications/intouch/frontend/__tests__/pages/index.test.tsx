@@ -36,12 +36,11 @@ jest.mock("../../graphql/generated/page", () => ({
 jest.mock("next-i18next/serverSideTranslations", () => ({
   serverSideTranslations: () => Promise.resolve({})
 }));
+const useMutationSpy = jest.fn();
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
   useMutation: (_, { onCompleted }) => [
-    jest.fn(() => {
-      onCompleted({ createProject: { project: { id: 1 } } });
-    }),
+    () => useMutationSpy({ onCompleted }),
     { loading: false }
   ]
 }));
@@ -282,6 +281,9 @@ describe("homepage", () => {
     });
 
     it("onComplete", async () => {
+      useMutationSpy.mockImplementationOnce(({ onCompleted }) =>
+        onCompleted({ createProject: { project: { id: 1 } } })
+      );
       const {
         data: {
           marketContentCollection,

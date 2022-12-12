@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Project details cannot be edited due to guarantee status."
     },
     "loading": "Loading project details",
-    "error": "Error loading project details."
+    "error": "Error loading project details.",
+    "technology": "Technologietyp"
   },
   "buildingOwnerDetails": {
     "title": "Building Owner Details",

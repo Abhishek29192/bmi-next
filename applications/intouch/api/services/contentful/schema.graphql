@@ -2277,15 +2277,6 @@ type Query {
     where: AssetFilter
     order: [AssetOrder]
   ): AssetCollection
-  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaToolFilter
-    order: [MediaToolOrder]
-  ): MediaToolCollection
   messageTemplate(
     id: String!
     preview: Boolean
@@ -2299,6 +2290,15 @@ type Query {
     where: MessageTemplateFilter
     order: [MessageTemplateOrder]
   ): MessageTemplateCollection
+  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MediaToolFilter
+    order: [MediaToolOrder]
+  ): MediaToolCollection
   marketContent(id: String!, preview: Boolean, locale: String): MarketContent
   marketContentCollection(
     skip: Int = 0

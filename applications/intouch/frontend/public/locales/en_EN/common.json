@@ -90,5 +90,7 @@
   "button": {
     "more": "Show more",
     "less": "Show less"
-  }
+  },
+  "Technology type": "Technology type",
+  "Tier type": "Tier type"
 }

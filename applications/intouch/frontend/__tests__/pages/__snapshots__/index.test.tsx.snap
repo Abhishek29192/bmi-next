@@ -401,6 +401,7 @@ exports[`homepage render correctly 1`] = `
                                   </div>
                                   <button
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-outlined buttonStyles-outlinedDarkBg-9 MuiButton-outlinedPrimary"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"hero.cta.PROJECT\\",\\"action\\":\\"project\\"}"
                                     data-testid="project-cta"
                                     style="margin-top: 2em;"
                                     tabindex="0"

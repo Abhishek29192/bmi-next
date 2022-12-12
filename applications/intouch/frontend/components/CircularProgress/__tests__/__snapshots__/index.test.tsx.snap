@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircularProgress render correctly 1`] = `
+<div>
+  <div
+    class="circularProgressContainer"
+    data-testid="circular-progress"
+  >
+    <div
+      aria-valuenow="0"
+      class="MuiCircularProgress-root circularProgress MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 120px; height: 120px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="19"
+          stroke-width="6"
+          style="stroke-dasharray: 119.381; stroke-dashoffset: 119.381px;"
+        />
+      </svg>
+    </div>
+    <div
+      aria-valuenow="100"
+      class="MuiCircularProgress-root circularProgressRail MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 114px; height: 114px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20"
+          stroke-width="4"
+          style="stroke-dasharray: 125.664; stroke-dashoffset: 0.000px;"
+        />
+      </svg>
+    </div>
+    <div
+      class="circularProgressLabel"
+    >
+      10%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CircularProgress render correctly with custom backgroundProps 1`] = `
+<div>
+  <div
+    class="circularProgressContainer"
+    data-testid="circular-progress"
+  >
+    <div
+      aria-valuenow="0"
+      class="MuiCircularProgress-root circularProgress MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 100px; height: 100px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="19"
+          stroke-width="6"
+          style="stroke-dasharray: 119.381; stroke-dashoffset: 119.381px;"
+        />
+      </svg>
+    </div>
+    <div
+      aria-valuenow="100"
+      class="MuiCircularProgress-root circularProgressRail MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 114px; height: 114px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20"
+          stroke-width="4"
+          style="stroke-dasharray: 125.664; stroke-dashoffset: 0.000px;"
+        />
+      </svg>
+    </div>
+    <div
+      class="circularProgressLabel"
+    >
+      10%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CircularProgress render correctly with custom circularProgressRailProps 1`] = `
+<div>
+  <div
+    class="circularProgressContainer"
+    data-testid="circular-progress"
+  >
+    <div
+      aria-valuenow="0"
+      class="MuiCircularProgress-root circularProgress MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 120px; height: 120px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="19"
+          stroke-width="6"
+          style="stroke-dasharray: 119.381; stroke-dashoffset: 119.381px;"
+        />
+      </svg>
+    </div>
+    <div
+      aria-valuenow="100"
+      class="MuiCircularProgress-root circularProgressRail MuiCircularProgress-colorPrimary MuiCircularProgress-determinate"
+      role="progressbar"
+      style="width: 100px; height: 100px; transform: rotate(-90deg);"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20"
+          stroke-width="4"
+          style="stroke-dasharray: 125.664; stroke-dashoffset: 0.000px;"
+        />
+      </svg>
+    </div>
+    <div
+      class="circularProgressLabel"
+    >
+      10%
+    </div>
+  </div>
+</div>
+`;

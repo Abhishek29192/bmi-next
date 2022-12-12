@@ -231,6 +231,8 @@ export type UpdateCompanyDetailsMutation = {
       website?: string | null;
       facebook?: string | null;
       linkedIn?: string | null;
+      contractStatus?: boolean | null;
+      renewalDate?: any | null;
       referenceNumber: number;
       taxNumber?: string | null;
       tier?: SchemaTypes.Tier | null;
@@ -389,42 +391,6 @@ export type ImportAccountsCompaniesFromCvsMutation = {
         }>;
       };
     } | null> | null;
-  } | null;
-};
-
-export type UpdateMarketMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.UpdateMarketInput;
-}>;
-
-export type UpdateMarketMutation = {
-  __typename?: "Mutation";
-  updateMarket?: {
-    __typename?: "UpdateMarketPayload";
-    query?: {
-      __typename?: "Query";
-      markets?: {
-        __typename?: "MarketsConnection";
-        nodes: Array<{
-          __typename?: "Market";
-          id: number;
-          language: SchemaTypes.Language;
-          domain: string;
-          cmsSpaceId?: string | null;
-          name?: string | null;
-          sendName?: string | null;
-          sendMailbox?: string | null;
-          doceboInstallersBranchId?: string | null;
-          doceboCompanyAdminBranchId?: string | null;
-          merchandisingUrl?: string | null;
-          merchandiseSso?: boolean | null;
-          projectsEnabled?: boolean | null;
-          locationBiasRadiusKm?: number | null;
-          gtag?: string | null;
-          gtagMarketMedia?: string | null;
-          optanonClass?: string | null;
-        }>;
-      } | null;
-    } | null;
   } | null;
 };
 
@@ -942,6 +908,8 @@ export type UpdateAccountProfileMutation = {
             website?: string | null;
             facebook?: string | null;
             linkedIn?: string | null;
+            contractStatus?: boolean | null;
+            renewalDate?: any | null;
             tradingAddress?: {
               __typename?: "Address";
               id: number;
@@ -1014,6 +982,8 @@ export type LeaveCompanyMutation = {
             website?: string | null;
             facebook?: string | null;
             linkedIn?: string | null;
+            contractStatus?: boolean | null;
+            renewalDate?: any | null;
             tradingAddress?: {
               __typename?: "Address";
               id: number;
@@ -2316,6 +2286,8 @@ export type CompanyDetailsFragmentFragment = {
   website?: string | null;
   facebook?: string | null;
   linkedIn?: string | null;
+  contractStatus?: boolean | null;
+  renewalDate?: any | null;
   tradingAddress?: {
     __typename?: "Address";
     id: number;
@@ -2373,6 +2345,8 @@ export type CompanyPageDetailsFragmentFragment = {
   website?: string | null;
   facebook?: string | null;
   linkedIn?: string | null;
+  contractStatus?: boolean | null;
+  renewalDate?: any | null;
   referenceNumber: number;
   taxNumber?: string | null;
   tier?: SchemaTypes.Tier | null;
@@ -2467,6 +2441,8 @@ export type GetCompaniesByMarketQuery = {
       website?: string | null;
       facebook?: string | null;
       linkedIn?: string | null;
+      contractStatus?: boolean | null;
+      renewalDate?: any | null;
       referenceNumber: number;
       taxNumber?: string | null;
       tier?: SchemaTypes.Tier | null;
@@ -2570,6 +2546,8 @@ export type GetCompanyQuery = {
     website?: string | null;
     facebook?: string | null;
     linkedIn?: string | null;
+    contractStatus?: boolean | null;
+    renewalDate?: any | null;
     referenceNumber: number;
     taxNumber?: string | null;
     tier?: SchemaTypes.Tier | null;
@@ -2889,6 +2867,55 @@ export type GetGuaranteeTemplatesQuery = {
   } | null;
 };
 
+export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
+
+export type MarketsQuery = {
+  __typename?: "Query";
+  markets?: {
+    __typename?: "MarketsConnection";
+    nodes: Array<{
+      __typename?: "Market";
+      id: number;
+      language: SchemaTypes.Language;
+      domain: string;
+      cmsSpaceId?: string | null;
+      name?: string | null;
+      sendName?: string | null;
+      sendMailbox?: string | null;
+      doceboInstallersBranchId?: string | null;
+      doceboCompanyAdminBranchId?: string | null;
+      merchandisingUrl?: string | null;
+      merchandiseSso?: boolean | null;
+      projectsEnabled?: boolean | null;
+      gtag?: string | null;
+      gtagMarketMedia?: string | null;
+      optanonClass?: string | null;
+      locationBiasRadiusKm?: number | null;
+      rewardEffectiveDate?: any | null;
+    }>;
+  } | null;
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
+    }>;
+  } | null;
+  merchandiseTiers?: {
+    __typename?: "MerchandiseTiersConnection";
+    nodes: Array<{
+      __typename?: "MerchandiseTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      merchandiseDivisionId?: number | null;
+    }>;
+  } | null;
+};
+
 export type GetMarketsByDomainQueryVariables = SchemaTypes.Exact<{
   domain: SchemaTypes.Scalars["String"];
 }>;
@@ -2915,8 +2942,46 @@ export type GetMarketsByDomainQuery = {
       sendName?: string | null;
       sendMailbox?: string | null;
       locationBiasRadiusKm?: number | null;
+      rewardEffectiveDate?: any | null;
       geoMiddle?: { __typename?: "Point"; x: number; y: number } | null;
     }>;
+  } | null;
+};
+
+export type UpdateMarketMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateMarketInput;
+}>;
+
+export type UpdateMarketMutation = {
+  __typename?: "Mutation";
+  updateMarket?: {
+    __typename?: "UpdateMarketPayload";
+    query?: {
+      __typename?: "Query";
+      markets?: {
+        __typename?: "MarketsConnection";
+        nodes: Array<{
+          __typename?: "Market";
+          id: number;
+          language: SchemaTypes.Language;
+          domain: string;
+          cmsSpaceId?: string | null;
+          name?: string | null;
+          sendName?: string | null;
+          sendMailbox?: string | null;
+          doceboInstallersBranchId?: string | null;
+          doceboCompanyAdminBranchId?: string | null;
+          merchandisingUrl?: string | null;
+          merchandiseSso?: boolean | null;
+          projectsEnabled?: boolean | null;
+          locationBiasRadiusKm?: number | null;
+          gtag?: string | null;
+          gtagMarketMedia?: string | null;
+          optanonClass?: string | null;
+          rewardEffectiveDate?: any | null;
+        }>;
+      } | null;
+    } | null;
   } | null;
 };
 
@@ -3154,6 +3219,152 @@ export type GetGlobalDataPublicQuery = {
   } | null;
 };
 
+export type RewardRecordFragmentFragment = {
+  __typename?: "CompanyRewardRecord";
+  id?: number | null;
+  marketId?: number | null;
+  accountId?: number | null;
+  companyId?: number | null;
+  rewardTier?: number | null;
+  rewardPoint?: number | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+};
+
+export type GetCompanyRewardRecordMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.GetCompanyRewardRecordInput;
+}>;
+
+export type GetCompanyRewardRecordMutation = {
+  __typename?: "Mutation";
+  getCompanyRewardRecord?: {
+    __typename?: "GetCompanyRewardRecordResult";
+    total?: number | null;
+    points?: number | null;
+    records?: Array<{
+      __typename?: "CompanyRewardRecord";
+      id?: number | null;
+      marketId?: number | null;
+      accountId?: number | null;
+      companyId?: number | null;
+      rewardTier?: number | null;
+      rewardPoint?: number | null;
+      createdAt?: string | null;
+      updatedAt?: string | null;
+    } | null> | null;
+  } | null;
+};
+
+export type AddRewardRecordMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.AddRewardRecordInput;
+}>;
+
+export type AddRewardRecordMutation = {
+  __typename?: "Mutation";
+  addRewardRecord?: {
+    __typename?: "CompanyRewardRecord";
+    id?: number | null;
+    marketId?: number | null;
+    accountId?: number | null;
+    companyId?: number | null;
+    rewardTier?: number | null;
+    rewardPoint?: number | null;
+    createdAt?: string | null;
+    updatedAt?: string | null;
+  } | null;
+};
+
+export type RewardRequestFragmentFragment = {
+  __typename?: "RewardRequest";
+  id: number;
+  marketId: number;
+  accountId: number;
+  companyId: number;
+  redemptionCode: string;
+  rewardPoint: number;
+};
+
+export type CreateRewardRequestMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateRewardRequestInput;
+}>;
+
+export type CreateRewardRequestMutation = {
+  __typename?: "Mutation";
+  createRewardRequest?: {
+    __typename?: "CreateRewardRequestPayload";
+    rewardRequest?: {
+      __typename?: "RewardRequest";
+      id: number;
+      marketId: number;
+      accountId: number;
+      companyId: number;
+      redemptionCode: string;
+      rewardPoint: number;
+    } | null;
+  } | null;
+};
+
+export type GetRewardRequestsQueryVariables = SchemaTypes.Exact<{
+  companyId?: SchemaTypes.InputMaybe<SchemaTypes.Scalars["Int"]>;
+}>;
+
+export type GetRewardRequestsQuery = {
+  __typename?: "Query";
+  rewardRequests?: {
+    __typename?: "RewardRequestsConnection";
+    nodes: Array<{
+      __typename?: "RewardRequest";
+      id: number;
+      marketId: number;
+      accountId: number;
+      companyId: number;
+      redemptionCode: string;
+      rewardPoint: number;
+    }>;
+  } | null;
+};
+
+export type RewardTierFragmentFragment = {
+  __typename?: "RewardTier";
+  id: number;
+  tierCode: SchemaTypes.Tier;
+  rewardCategory: string;
+  rewardPoint: number;
+};
+
+export type QueryRewardTierByMarketIdQueryVariables = SchemaTypes.Exact<{
+  marketId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type QueryRewardTierByMarketIdQuery = {
+  __typename?: "Query";
+  rewardTiers?: {
+    __typename?: "RewardTiersConnection";
+    nodes: Array<{
+      __typename?: "RewardTier";
+      id: number;
+      tierCode: SchemaTypes.Tier;
+      rewardCategory: string;
+      rewardPoint: number;
+    }>;
+  } | null;
+};
+
+export type UpdateRewardTiersMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateRewardTiersInput;
+}>;
+
+export type UpdateRewardTiersMutation = {
+  __typename?: "Mutation";
+  updateRewardTiers?: Array<{
+    __typename?: "RewardTier";
+    id: number;
+    tierCode: SchemaTypes.Tier;
+    rewardCategory: string;
+    rewardPoint: number;
+  } | null> | null;
+};
+
 export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
   relativePath: SchemaTypes.Scalars["String"];
   tag: SchemaTypes.Scalars["String"];
@@ -3203,54 +3414,6 @@ export type ArticleContentLinksFragmentFragment = {
       sys: { __typename?: "Sys"; id: string };
     } | null>;
   };
-};
-
-export type MarketsQueryVariables = SchemaTypes.Exact<{ [key: string]: never }>;
-
-export type MarketsQuery = {
-  __typename?: "Query";
-  markets?: {
-    __typename?: "MarketsConnection";
-    nodes: Array<{
-      __typename?: "Market";
-      id: number;
-      language: SchemaTypes.Language;
-      domain: string;
-      cmsSpaceId?: string | null;
-      name?: string | null;
-      sendName?: string | null;
-      sendMailbox?: string | null;
-      doceboInstallersBranchId?: string | null;
-      doceboCompanyAdminBranchId?: string | null;
-      merchandisingUrl?: string | null;
-      merchandiseSso?: boolean | null;
-      projectsEnabled?: boolean | null;
-      gtag?: string | null;
-      gtagMarketMedia?: string | null;
-      optanonClass?: string | null;
-      locationBiasRadiusKm?: number | null;
-    }>;
-  } | null;
-  doceboTiers?: {
-    __typename?: "DoceboTiersConnection";
-    nodes: Array<{
-      __typename?: "DoceboTier";
-      id: number;
-      marketId: number;
-      tierCode: SchemaTypes.Tier;
-      doceboCatalogueId?: number | null;
-    }>;
-  } | null;
-  merchandiseTiers?: {
-    __typename?: "MerchandiseTiersConnection";
-    nodes: Array<{
-      __typename?: "MerchandiseTier";
-      id: number;
-      marketId: number;
-      tierCode: SchemaTypes.Tier;
-      merchandiseDivisionId?: number | null;
-    }>;
-  } | null;
 };
 
 export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
@@ -3503,6 +3666,8 @@ export type AccountPageDetailsFragmentFragment = {
         website?: string | null;
         facebook?: string | null;
         linkedIn?: string | null;
+        contractStatus?: boolean | null;
+        renewalDate?: any | null;
         tradingAddress?: {
           __typename?: "Address";
           id: number;
@@ -3564,6 +3729,8 @@ export type GetUserProfileQuery = {
           website?: string | null;
           facebook?: string | null;
           linkedIn?: string | null;
+          contractStatus?: boolean | null;
+          renewalDate?: any | null;
           tradingAddress?: {
             __typename?: "Address";
             id: number;

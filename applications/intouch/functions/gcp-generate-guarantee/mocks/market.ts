@@ -12,6 +12,9 @@ export const mockMarket: Market = {
   accounts: emptyNodes,
   products: emptyNodes,
   systemMembers: emptyNodes,
+  rewardRecords: emptyNodes,
+  rewardRequests: emptyNodes,
+  rewardTiers: emptyNodes,
   createdAt: Date.now(),
   updatedAt: Date.now()
 };

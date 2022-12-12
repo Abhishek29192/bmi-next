@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RewardCategory render correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+    >
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+        style="margin-bottom: 15px;"
+      >
+        Reward Category
+      </h4>
+    </div>
+    <div
+      data-testid="reward-category-form-mock"
+    >
+      Reward Category From
+    </div>
+  </div>
+</div>
+`;

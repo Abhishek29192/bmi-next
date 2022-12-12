@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import {
   AlertBanner,
+  Checkbox,
   Dialog,
   Form,
   Grid,
@@ -10,7 +11,7 @@ import {
   Typography
 } from "@bmi/components";
 import { useTranslation } from "next-i18next";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useMarketContext } from "../../context/MarketContext";
 import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
@@ -25,6 +26,7 @@ import {
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
 import { parseMarketTag } from "../../lib/utils";
+import { getDateOnlyString } from "../../lib/utils/date";
 import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
@@ -44,6 +46,14 @@ export type SetCompanyDetailsDialogProps = {
   mapsApiKey: string;
 };
 export const MAX_FILE_SIZE = 3;
+
+const getValue = (company, fieldName) => {
+  if (["renewalDate"].includes(fieldName)) {
+    return getDateOnlyString(getNestedValue(company, fieldName));
+  }
+
+  return getNestedValue(company, fieldName) || "";
+};
 
 export const SetCompanyDetailsDialog = ({
   title,
@@ -66,6 +76,40 @@ export const SetCompanyDetailsDialog = ({
   const [logoUpload, setLogoUpload] = useState(undefined);
   const [fileSizeRestriction, setFileSizeRestriction] = useState(false);
   const [fileValidationMessage, setFileValidationMessage] = useState("");
+
+  // Contract status and renewal date.
+  const [contractStatus, setContractStatus] = useState(company?.contractStatus);
+  const [renewalDate, setRenewalDate] = useState(company?.renewalDate);
+
+  const [contractRestriction, setContractRestriction] = useState(false);
+  const [contractValidationMessage, setContractValidationMessage] =
+    useState("");
+
+  const onContractValidationException = (
+    restriction: boolean,
+    message: string
+  ) => {
+    setContractRestriction(restriction);
+    setContractValidationMessage(message);
+  };
+
+  useEffect(() => {
+    const today = new Date();
+    const d = new Date(renewalDate);
+    const isValid =
+      !contractStatus || (renewalDate !== null && contractStatus && d > today);
+    isValid
+      ? onContractValidationException(false, "")
+      : onContractValidationException(
+          true,
+          t(`company-page:edit_dialog.form.renewalDate`)
+        );
+  }, [company, isOpen, renewalDate, contractStatus]);
+
+  useEffect(() => {
+    setContractStatus(company?.contractStatus);
+    setRenewalDate(company?.renewalDate);
+  }, [company, isOpen]);
 
   // You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
 
@@ -135,7 +179,7 @@ export const SetCompanyDetailsDialog = ({
       name: fieldName,
       label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
       // eslint-disable-next-line security/detect-object-injection
-      defaultValue: getNestedValue(company, fieldName) || "",
+      defaultValue: getValue(company, fieldName),
       fullWidth: true,
       fieldIsRequiredError: t("common:error_messages.required")
     }),
@@ -252,6 +296,40 @@ export const SetCompanyDetailsDialog = ({
                     ))}
                 </Select>
               </AccessControl>
+            </Grid>
+          </Grid>
+
+          <Form.Row>
+            <Typography variant="h6" className={styles.sectionText}>
+              {t("company-page:edit_dialog.sections.contract_status")}
+            </Typography>
+          </Form.Row>
+
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
+              <Checkbox
+                {...getFieldProps("contractStatus")}
+                defaultChecked={company?.contractStatus}
+                defaultValue={company?.contractStatus}
+                onChange={(checked) => setContractStatus(checked)}
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={6}>
+              <TextField
+                {...getFieldProps("renewalDate")}
+                type="date"
+                InputLabelProps={{
+                  shrink: true
+                }}
+                onChange={(val) => setRenewalDate(val)}
+              />
+              <Typography
+                variant="default"
+                className={styles.validationMessage}
+              >
+                {contractValidationMessage}
+              </Typography>
             </Grid>
           </Grid>
 
@@ -373,7 +451,9 @@ export const SetCompanyDetailsDialog = ({
                 {t("company-page:edit_dialog.form.actions.cancel")}
               </Form.Button>
             ) : null}
-            <Form.SubmitButton disabled={loading || fileSizeRestriction}>
+            <Form.SubmitButton
+              disabled={loading || fileSizeRestriction || contractRestriction}
+            >
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

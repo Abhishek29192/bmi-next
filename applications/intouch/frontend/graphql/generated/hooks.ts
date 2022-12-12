@@ -188,6 +188,8 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     website
     facebook
     linkedIn
+    contractStatus
+    renewalDate
   }
   ${AddressLinesFragmentFragmentDoc}
 `;
@@ -376,6 +378,36 @@ export const MediaToolDetailsFragmentDoc = gql`
     mediaItemClass
   }
   ${ImageFragmentFragmentDoc}
+`;
+export const RewardRecordFragmentFragmentDoc = gql`
+  fragment RewardRecordFragment on CompanyRewardRecord {
+    id
+    marketId
+    accountId
+    companyId
+    rewardTier
+    rewardPoint
+    createdAt
+    updatedAt
+  }
+`;
+export const RewardRequestFragmentFragmentDoc = gql`
+  fragment RewardRequestFragment on RewardRequest {
+    id
+    marketId
+    accountId
+    companyId
+    redemptionCode
+    rewardPoint
+  }
+`;
+export const RewardTierFragmentFragmentDoc = gql`
+  fragment RewardTierFragment on RewardTier {
+    id
+    tierCode
+    rewardCategory
+    rewardPoint
+  }
 `;
 export const ArticleContentLinksFragmentFragmentDoc = gql`
   fragment ArticleContentLinksFragment on ContentArticleBodyLinks {
@@ -1089,77 +1121,6 @@ export type ImportAccountsCompaniesFromCvsMutationOptions =
     OperationTypes.ImportAccountsCompaniesFromCvsMutation,
     OperationTypes.ImportAccountsCompaniesFromCvsMutationVariables
   >;
-export const UpdateMarketDocument = gql`
-  mutation updateMarket($input: UpdateMarketInput!) {
-    updateMarket(input: $input) {
-      query {
-        markets {
-          nodes {
-            id
-            language
-            domain
-            cmsSpaceId
-            name
-            sendName
-            sendMailbox
-            doceboInstallersBranchId
-            doceboCompanyAdminBranchId
-            merchandisingUrl
-            merchandiseSso
-            projectsEnabled
-            locationBiasRadiusKm
-            gtag
-            gtagMarketMedia
-            optanonClass
-          }
-        }
-      }
-    }
-  }
-`;
-export type UpdateMarketMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateMarketMutation,
-  OperationTypes.UpdateMarketMutationVariables
->;
-
-/**
- * __useUpdateMarketMutation__
- *
- * To run a mutation, you first call `useUpdateMarketMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateMarketMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [updateMarketMutation, { data, loading, error }] = useUpdateMarketMutation({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUpdateMarketMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateMarketMutation,
-    OperationTypes.UpdateMarketMutationVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useMutation<
-    OperationTypes.UpdateMarketMutation,
-    OperationTypes.UpdateMarketMutationVariables
-  >(UpdateMarketDocument, options);
-}
-export type UpdateMarketMutationHookResult = ReturnType<
-  typeof useUpdateMarketMutation
->;
-export type UpdateMarketMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateMarketMutation>;
-export type UpdateMarketMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateMarketMutation,
-  OperationTypes.UpdateMarketMutationVariables
->;
 export const UpdateDoceboTiersByMarketDocument = gql`
   mutation updateDoceboTiersByMarket($input: UpdateDoceboTiersByMarketInput!) {
     updateDoceboTiersByMarket(input: $input) {
@@ -4451,6 +4412,93 @@ export type GetGuaranteeTemplatesQueryResult = Apollo.QueryResult<
   OperationTypes.GetGuaranteeTemplatesQuery,
   OperationTypes.GetGuaranteeTemplatesQueryVariables
 >;
+export const MarketsDocument = gql`
+  query markets {
+    markets {
+      nodes {
+        id
+        language
+        domain
+        cmsSpaceId
+        name
+        sendName
+        sendMailbox
+        doceboInstallersBranchId
+        doceboCompanyAdminBranchId
+        merchandisingUrl
+        merchandiseSso
+        projectsEnabled
+        gtag
+        gtagMarketMedia
+        optanonClass
+        locationBiasRadiusKm
+        rewardEffectiveDate
+      }
+    }
+    doceboTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        doceboCatalogueId
+      }
+    }
+    merchandiseTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        merchandiseDivisionId
+      }
+    }
+  }
+`;
+
+/**
+ * __useMarketsQuery__
+ *
+ * To run a query within a React component, call `useMarketsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMarketsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMarketsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMarketsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >(MarketsDocument, options);
+}
+export function useMarketsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.MarketsQuery,
+    OperationTypes.MarketsQueryVariables
+  >(MarketsDocument, options);
+}
+export type MarketsQueryHookResult = ReturnType<typeof useMarketsQuery>;
+export type MarketsLazyQueryHookResult = ReturnType<typeof useMarketsLazyQuery>;
+export type MarketsQueryResult = Apollo.QueryResult<
+  OperationTypes.MarketsQuery,
+  OperationTypes.MarketsQueryVariables
+>;
 export const GetMarketsByDomainDocument = gql`
   query getMarketsByDomain($domain: String!) {
     markets(condition: { domain: $domain }) {
@@ -4475,6 +4523,7 @@ export const GetMarketsByDomainDocument = gql`
           x
           y
         }
+        rewardEffectiveDate
       }
     }
   }
@@ -4529,6 +4578,78 @@ export type GetMarketsByDomainLazyQueryHookResult = ReturnType<
 export type GetMarketsByDomainQueryResult = Apollo.QueryResult<
   OperationTypes.GetMarketsByDomainQuery,
   OperationTypes.GetMarketsByDomainQueryVariables
+>;
+export const UpdateMarketDocument = gql`
+  mutation updateMarket($input: UpdateMarketInput!) {
+    updateMarket(input: $input) {
+      query {
+        markets {
+          nodes {
+            id
+            language
+            domain
+            cmsSpaceId
+            name
+            sendName
+            sendMailbox
+            doceboInstallersBranchId
+            doceboCompanyAdminBranchId
+            merchandisingUrl
+            merchandiseSso
+            projectsEnabled
+            locationBiasRadiusKm
+            gtag
+            gtagMarketMedia
+            optanonClass
+            rewardEffectiveDate
+          }
+        }
+      }
+    }
+  }
+`;
+export type UpdateMarketMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateMarketMutation,
+  OperationTypes.UpdateMarketMutationVariables
+>;
+
+/**
+ * __useUpdateMarketMutation__
+ *
+ * To run a mutation, you first call `useUpdateMarketMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateMarketMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateMarketMutation, { data, loading, error }] = useUpdateMarketMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateMarketMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateMarketMutation,
+    OperationTypes.UpdateMarketMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateMarketMutation,
+    OperationTypes.UpdateMarketMutationVariables
+  >(UpdateMarketDocument, options);
+}
+export type UpdateMarketMutationHookResult = ReturnType<
+  typeof useUpdateMarketMutation
+>;
+export type UpdateMarketMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateMarketMutation>;
+export type UpdateMarketMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateMarketMutation,
+  OperationTypes.UpdateMarketMutationVariables
 >;
 export const GetMediaFoldersDocument = gql`
   query getMediaFolders($tag: String!) {
@@ -4932,6 +5053,341 @@ export type GetGlobalDataPublicQueryResult = Apollo.QueryResult<
   OperationTypes.GetGlobalDataPublicQuery,
   OperationTypes.GetGlobalDataPublicQueryVariables
 >;
+export const GetCompanyRewardRecordDocument = gql`
+  mutation getCompanyRewardRecord($input: GetCompanyRewardRecordInput!) {
+    getCompanyRewardRecord(input: $input) {
+      total
+      points
+      records {
+        ...RewardRecordFragment
+      }
+    }
+  }
+  ${RewardRecordFragmentFragmentDoc}
+`;
+export type GetCompanyRewardRecordMutationFn = Apollo.MutationFunction<
+  OperationTypes.GetCompanyRewardRecordMutation,
+  OperationTypes.GetCompanyRewardRecordMutationVariables
+>;
+
+/**
+ * __useGetCompanyRewardRecordMutation__
+ *
+ * To run a mutation, you first call `useGetCompanyRewardRecordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useGetCompanyRewardRecordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [getCompanyRewardRecordMutation, { data, loading, error }] = useGetCompanyRewardRecordMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGetCompanyRewardRecordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.GetCompanyRewardRecordMutation,
+    OperationTypes.GetCompanyRewardRecordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.GetCompanyRewardRecordMutation,
+    OperationTypes.GetCompanyRewardRecordMutationVariables
+  >(GetCompanyRewardRecordDocument, options);
+}
+export type GetCompanyRewardRecordMutationHookResult = ReturnType<
+  typeof useGetCompanyRewardRecordMutation
+>;
+export type GetCompanyRewardRecordMutationResult =
+  Apollo.MutationResult<OperationTypes.GetCompanyRewardRecordMutation>;
+export type GetCompanyRewardRecordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.GetCompanyRewardRecordMutation,
+  OperationTypes.GetCompanyRewardRecordMutationVariables
+>;
+export const AddRewardRecordDocument = gql`
+  mutation addRewardRecord($input: AddRewardRecordInput!) {
+    addRewardRecord(input: $input) {
+      ...RewardRecordFragment
+    }
+  }
+  ${RewardRecordFragmentFragmentDoc}
+`;
+export type AddRewardRecordMutationFn = Apollo.MutationFunction<
+  OperationTypes.AddRewardRecordMutation,
+  OperationTypes.AddRewardRecordMutationVariables
+>;
+
+/**
+ * __useAddRewardRecordMutation__
+ *
+ * To run a mutation, you first call `useAddRewardRecordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddRewardRecordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addRewardRecordMutation, { data, loading, error }] = useAddRewardRecordMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAddRewardRecordMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.AddRewardRecordMutation,
+    OperationTypes.AddRewardRecordMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.AddRewardRecordMutation,
+    OperationTypes.AddRewardRecordMutationVariables
+  >(AddRewardRecordDocument, options);
+}
+export type AddRewardRecordMutationHookResult = ReturnType<
+  typeof useAddRewardRecordMutation
+>;
+export type AddRewardRecordMutationResult =
+  Apollo.MutationResult<OperationTypes.AddRewardRecordMutation>;
+export type AddRewardRecordMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.AddRewardRecordMutation,
+  OperationTypes.AddRewardRecordMutationVariables
+>;
+export const CreateRewardRequestDocument = gql`
+  mutation createRewardRequest($input: CreateRewardRequestInput!) {
+    createRewardRequest(input: $input) {
+      rewardRequest {
+        ...RewardRequestFragment
+      }
+    }
+  }
+  ${RewardRequestFragmentFragmentDoc}
+`;
+export type CreateRewardRequestMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateRewardRequestMutation,
+  OperationTypes.CreateRewardRequestMutationVariables
+>;
+
+/**
+ * __useCreateRewardRequestMutation__
+ *
+ * To run a mutation, you first call `useCreateRewardRequestMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateRewardRequestMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createRewardRequestMutation, { data, loading, error }] = useCreateRewardRequestMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateRewardRequestMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateRewardRequestMutation,
+    OperationTypes.CreateRewardRequestMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateRewardRequestMutation,
+    OperationTypes.CreateRewardRequestMutationVariables
+  >(CreateRewardRequestDocument, options);
+}
+export type CreateRewardRequestMutationHookResult = ReturnType<
+  typeof useCreateRewardRequestMutation
+>;
+export type CreateRewardRequestMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateRewardRequestMutation>;
+export type CreateRewardRequestMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateRewardRequestMutation,
+  OperationTypes.CreateRewardRequestMutationVariables
+>;
+export const GetRewardRequestsDocument = gql`
+  query getRewardRequests($companyId: Int) {
+    rewardRequests(condition: { companyId: $companyId }) {
+      nodes {
+        ...RewardRequestFragment
+      }
+    }
+  }
+  ${RewardRequestFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetRewardRequestsQuery__
+ *
+ * To run a query within a React component, call `useGetRewardRequestsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetRewardRequestsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetRewardRequestsQuery({
+ *   variables: {
+ *      companyId: // value for 'companyId'
+ *   },
+ * });
+ */
+export function useGetRewardRequestsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetRewardRequestsQuery,
+    OperationTypes.GetRewardRequestsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetRewardRequestsQuery,
+    OperationTypes.GetRewardRequestsQueryVariables
+  >(GetRewardRequestsDocument, options);
+}
+export function useGetRewardRequestsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetRewardRequestsQuery,
+    OperationTypes.GetRewardRequestsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetRewardRequestsQuery,
+    OperationTypes.GetRewardRequestsQueryVariables
+  >(GetRewardRequestsDocument, options);
+}
+export type GetRewardRequestsQueryHookResult = ReturnType<
+  typeof useGetRewardRequestsQuery
+>;
+export type GetRewardRequestsLazyQueryHookResult = ReturnType<
+  typeof useGetRewardRequestsLazyQuery
+>;
+export type GetRewardRequestsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetRewardRequestsQuery,
+  OperationTypes.GetRewardRequestsQueryVariables
+>;
+export const QueryRewardTierByMarketIdDocument = gql`
+  query queryRewardTierByMarketId($marketId: Int!) {
+    rewardTiers(
+      condition: { marketId: $marketId }
+      orderBy: REWARD_CATEGORY_ASC
+    ) {
+      nodes {
+        ...RewardTierFragment
+      }
+    }
+  }
+  ${RewardTierFragmentFragmentDoc}
+`;
+
+/**
+ * __useQueryRewardTierByMarketIdQuery__
+ *
+ * To run a query within a React component, call `useQueryRewardTierByMarketIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQueryRewardTierByMarketIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQueryRewardTierByMarketIdQuery({
+ *   variables: {
+ *      marketId: // value for 'marketId'
+ *   },
+ * });
+ */
+export function useQueryRewardTierByMarketIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.QueryRewardTierByMarketIdQuery,
+    OperationTypes.QueryRewardTierByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.QueryRewardTierByMarketIdQuery,
+    OperationTypes.QueryRewardTierByMarketIdQueryVariables
+  >(QueryRewardTierByMarketIdDocument, options);
+}
+export function useQueryRewardTierByMarketIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.QueryRewardTierByMarketIdQuery,
+    OperationTypes.QueryRewardTierByMarketIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.QueryRewardTierByMarketIdQuery,
+    OperationTypes.QueryRewardTierByMarketIdQueryVariables
+  >(QueryRewardTierByMarketIdDocument, options);
+}
+export type QueryRewardTierByMarketIdQueryHookResult = ReturnType<
+  typeof useQueryRewardTierByMarketIdQuery
+>;
+export type QueryRewardTierByMarketIdLazyQueryHookResult = ReturnType<
+  typeof useQueryRewardTierByMarketIdLazyQuery
+>;
+export type QueryRewardTierByMarketIdQueryResult = Apollo.QueryResult<
+  OperationTypes.QueryRewardTierByMarketIdQuery,
+  OperationTypes.QueryRewardTierByMarketIdQueryVariables
+>;
+export const UpdateRewardTiersDocument = gql`
+  mutation updateRewardTiers($input: UpdateRewardTiersInput!) {
+    updateRewardTiers(input: $input) {
+      ...RewardTierFragment
+    }
+  }
+  ${RewardTierFragmentFragmentDoc}
+`;
+export type UpdateRewardTiersMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateRewardTiersMutation,
+  OperationTypes.UpdateRewardTiersMutationVariables
+>;
+
+/**
+ * __useUpdateRewardTiersMutation__
+ *
+ * To run a mutation, you first call `useUpdateRewardTiersMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateRewardTiersMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateRewardTiersMutation, { data, loading, error }] = useUpdateRewardTiersMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateRewardTiersMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateRewardTiersMutation,
+    OperationTypes.UpdateRewardTiersMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateRewardTiersMutation,
+    OperationTypes.UpdateRewardTiersMutationVariables
+  >(UpdateRewardTiersDocument, options);
+}
+export type UpdateRewardTiersMutationHookResult = ReturnType<
+  typeof useUpdateRewardTiersMutation
+>;
+export type UpdateRewardTiersMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateRewardTiersMutation>;
+export type UpdateRewardTiersMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateRewardTiersMutation,
+  OperationTypes.UpdateRewardTiersMutationVariables
+>;
 export const GetContentArticleContentDocument = gql`
   query getContentArticleContent($relativePath: String!, $tag: String!) {
     contentArticleCollection(
@@ -5008,92 +5464,6 @@ export type GetContentArticleContentLazyQueryHookResult = ReturnType<
 export type GetContentArticleContentQueryResult = Apollo.QueryResult<
   OperationTypes.GetContentArticleContentQuery,
   OperationTypes.GetContentArticleContentQueryVariables
->;
-export const MarketsDocument = gql`
-  query markets {
-    markets {
-      nodes {
-        id
-        language
-        domain
-        cmsSpaceId
-        name
-        sendName
-        sendMailbox
-        doceboInstallersBranchId
-        doceboCompanyAdminBranchId
-        merchandisingUrl
-        merchandiseSso
-        projectsEnabled
-        gtag
-        gtagMarketMedia
-        optanonClass
-        locationBiasRadiusKm
-      }
-    }
-    doceboTiers {
-      nodes {
-        id
-        marketId
-        tierCode
-        doceboCatalogueId
-      }
-    }
-    merchandiseTiers {
-      nodes {
-        id
-        marketId
-        tierCode
-        merchandiseDivisionId
-      }
-    }
-  }
-`;
-
-/**
- * __useMarketsQuery__
- *
- * To run a query within a React component, call `useMarketsQuery` and pass it any options that fit your needs.
- * When your component renders, `useMarketsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useMarketsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useMarketsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.MarketsQuery,
-    OperationTypes.MarketsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.MarketsQuery,
-    OperationTypes.MarketsQueryVariables
-  >(MarketsDocument, options);
-}
-export function useMarketsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.MarketsQuery,
-    OperationTypes.MarketsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.MarketsQuery,
-    OperationTypes.MarketsQueryVariables
-  >(MarketsDocument, options);
-}
-export type MarketsQueryHookResult = ReturnType<typeof useMarketsQuery>;
-export type MarketsLazyQueryHookResult = ReturnType<typeof useMarketsLazyQuery>;
-export type MarketsQueryResult = Apollo.QueryResult<
-  OperationTypes.MarketsQuery,
-  OperationTypes.MarketsQueryVariables
 >;
 export const ProductsAndSystemsDocument = gql`
   query ProductsAndSystems($marketId: Int) {

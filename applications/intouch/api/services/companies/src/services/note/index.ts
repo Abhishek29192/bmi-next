@@ -2,6 +2,7 @@ import { Account, CreateNoteInput } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
 import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate, sendMailToMarketAdmins } from "../mailer";
+import { addRewardRecord } from "../rewardRecord";
 
 export const createNote = async (
   resolve,
@@ -88,6 +89,16 @@ where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
     });
   }
   await sendMailToMarketAdmins(context, event, dynamicContent);
+  await addRewardRecord(
+    null,
+    {
+      input: {
+        accountId: authorId,
+        rewardCategory: "rc7"
+      }
+    },
+    context
+  );
 };
 
 type ProjectDetail = {

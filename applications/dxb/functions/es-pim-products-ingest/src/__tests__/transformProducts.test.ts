@@ -489,6 +489,53 @@ describe("transformProduct", () => {
       expect(transformedProduct[0].squareMeterUomAttributes).toEqual(undefined);
       expect(transformedProduct[0].bimAttributes).toEqual(undefined);
     });
+
+    describe("keywords attribute", () => {
+      it("should set keywords to undefined when product and variant's keywords doesn't exist", async () => {
+        const product = createPimProduct({
+          variantOptions: [createVariantOption()]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct[0].keywords).toEqual(undefined);
+      });
+      it("should transform product's keywords into ES keywords", async () => {
+        const keywords = ["test-keyword-1", "test-keyword-2"];
+        const product = createPimProduct({
+          variantOptions: [createVariantOption()],
+          keywords
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct[0].keywords).toEqual(keywords);
+      });
+      it("should transform variant's keywords into ES keywords", async () => {
+        const keywords = ["test-keyword-1", "test-keyword-2"];
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              keywords
+            })
+          ]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct[0].keywords).toEqual(keywords);
+      });
+      it("should transform and merge variant and product's unique keywords into ES keywords", async () => {
+        const keywords = ["test-keyword-1", "test-keyword-2"];
+        const product = createPimProduct({
+          variantOptions: [
+            createVariantOption({
+              keywords
+            })
+          ],
+          keywords: [...keywords, "test-keyword-3"]
+        });
+        const transformedProduct = await transformProduct(product);
+        expect(transformedProduct[0].keywords).toEqual([
+          ...keywords,
+          "test-keyword-3"
+        ]);
+      });
+    });
   });
 
   describe("original transform tests", () => {

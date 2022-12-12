@@ -80,7 +80,8 @@
       "projectEditGuaranteeStatus": "Projektin tietoja ei voi muokata takuun tilan vuoksi."
     },
     "loading": "Ladataan projektin tietoja",
-    "error": "Virhe ladattaessa projektin tietoja"
+    "error": "Virhe ladattaessa projektin tietoja",
+    "technology": "Teknologian tyyppi"
   },
   "buildingOwnerDetails": {
     "title": "Rakennuksen omistajan tiedot",

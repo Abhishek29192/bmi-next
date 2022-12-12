@@ -170,5 +170,28 @@
     }
   },
   "companyAdministrators": "Administratörer",
-  "companyMembers": "Installatörer/medlemmar"
+  "companyMembers": "Installatörer/medlemmar",
+  "reward": {
+    "title": "Aktivitetsspårare",
+    "stage": "Del",
+    "status": {
+      "pending": "Att vara klar",
+      "inProgress": "Pågående",
+      "completed": "Avslutad",
+      "claimed": "Påstod"
+    },
+    "claimLabel": "Ta priset",
+    "claimRewardDialog": {
+      "title": "Grattis!",
+      "description": "Del {{stage}} är klar! Du gör goda framsteg och kan nu göra anspråk på en belöning. Vi skickar dig information för att göra ett anspråk via e-post när du har bekräftat ditt anspråk. Tack!",
+      "confirmLabel": "Bekräfta",
+      "cancelLabel": "Avbryt",
+      "closeLabel": "Stänga",
+      "acknowledgement": {
+        "title": "Tack för att du är så aktiv!",
+        "description": "Vi skickar dig ett mail med alla detaljer. Var vänlig kolla upp det."
+      }
+    }
+  },
+  "filters.labels.ALL": "Allt"
 }

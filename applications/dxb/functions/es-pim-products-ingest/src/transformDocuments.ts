@@ -55,9 +55,9 @@ export const transformDocuments = async (
         (assetType) => assetType.pimCode === asset.assetType
       );
 
-      if (!assetType || !asset.url) {
+      if (!assetType || !asset.url || !isDefined(asset.fileSize)) {
         logger.info({
-          message: `Document ${asset.name} doesn't have assetType or url, assetType is: ${asset.assetType}, url is: ${asset.url}`
+          message: `Document ${asset.name} doesn't have assetType or url or fileSize, assetType is: ${asset.assetType}, url is: ${asset.url}, fileSize is: ${asset.fileSize}`
         });
         return;
       }

@@ -135,7 +135,8 @@ export const compileElasticSearchQuery = ({
                     "APPEARANCEATTRIBUTES$TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
-                    "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
+                    "classifications.features.featureValues.value^6", // boosted - (see confluence documentation, linked above)
+                    "keywords"
                   ],
                   escape: true
                 }

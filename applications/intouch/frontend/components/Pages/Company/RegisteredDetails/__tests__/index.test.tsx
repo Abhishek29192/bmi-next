@@ -259,4 +259,30 @@ describe("CompanyRegisteredDetails", () => {
       expect(screen.queryByText("companyOperations")).toBeFalsy();
     });
   });
+
+  describe("show contract status and renewal date", () => {
+    useGetTierBenefitQuerySpy.mockImplementation(() => null);
+    render(
+      <ApolloProvider>
+        <I18nProvider>
+          <MarketContextWrapper>
+            <AccountContextWrapper>
+              <CompanyRegisteredDetails
+                company={{
+                  ...mockCompany,
+                  contractStatus: true,
+                  renewalDate: "12/12/22"
+                }}
+                mapsApiKey="mapsApiKey"
+              />
+            </AccountContextWrapper>
+          </MarketContextWrapper>
+        </I18nProvider>
+      </ApolloProvider>
+    );
+
+    it("contract", () => {
+      expect(screen.queryByText("details.contractSigned")).toBeFalsy();
+    });
+  });
 });

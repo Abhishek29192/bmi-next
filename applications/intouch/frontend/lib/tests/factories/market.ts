@@ -20,6 +20,7 @@ export const generateMarketContext = (
     sendName: "BMI Group Norway",
     sendMailbox: "noreply@bmigroup.no",
     doceboInstallersBranchId: "1",
+    rewardEffectiveDate: "2021-08-23 18:05:17.659497",
     createdAt: "2021-08-23 18:05:17.659497",
     updatedAt: "2021-08-23 18:05:17.659497"
   },

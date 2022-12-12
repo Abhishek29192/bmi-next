@@ -37,7 +37,8 @@ export default async (req, res, next) => {
         "archive-guarantee-function",
         "certification-function",
         "annual-inspection-function",
-        "auto-reject-double-acceptance-function"
+        "auto-reject-double-acceptance-function",
+        "double-acceptance-page"
       ].includes(user?.source)
     ) {
       // if we want to limit access per function/service

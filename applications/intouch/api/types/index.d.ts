@@ -105,6 +105,10 @@ export type Account = Node & {
   photo?: Maybe<Scalars["String"]>;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+  /** Reads and enables pagination through a set of `RewardRecord`. */
+  rewardRecords: RewardRecordsConnection;
+  /** Reads and enables pagination through a set of `RewardRequest`. */
+  rewardRequests: RewardRequestsConnection;
   /** ek */
   role?: Maybe<Role>;
   signedPhotoUrl?: Maybe<Scalars["String"]>;
@@ -221,6 +225,30 @@ export type AccountProjectMembersArgs = {
   orderBy?: InputMaybe<Array<ProjectMembersOrderBy>>;
 };
 
+/** An InTouch account */
+export type AccountRewardRecordsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRecordCondition>;
+  filter?: InputMaybe<RewardRecordFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** An InTouch account */
+export type AccountRewardRequestsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRequestCondition>;
+  filter?: InputMaybe<RewardRequestFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
 /** The fields on `account` to look up the row to connect. */
 export type AccountAccountDoceboUserIdKeyConnect = {
   /** User account in Docebo */
@@ -325,6 +353,8 @@ export type AccountInput = {
   /** File reference. A profile picture of the user */
   photo?: InputMaybe<Scalars["String"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   /** ek */
@@ -441,6 +471,10 @@ export type AccountMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -810,6 +844,76 @@ export type AccountOnProjectMemberForProjectMemberAccountIdFkeyUsingAccountPkeyU
     patch: UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch;
   };
 
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRecord` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+  patch: RewardRecordPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** The email address associated with the account */
+    email: Scalars["String"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type AccountOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRequest` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+  patch: RewardRequestPatch;
+};
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate =
+  {
+    /** User account in Docebo */
+    doceboUserId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountEmailKeyUpdate =
+  {
+    /** The email address associated with the account */
+    email: Scalars["String"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch;
+  };
+
+/** The fields on `account` to look up the row to update. */
+export type AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: UpdateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch;
+  };
+
 /** Represents an update to a `Account`. Fields that are set will be updated. */
 export type AccountPatch = {
   certificationsUsingDoceboUserId?: InputMaybe<CertificationDoceboUserIdFkeyInverseInput>;
@@ -848,6 +952,8 @@ export type AccountPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -894,6 +1000,11 @@ export type AccountsOrderBy =
   | "NATURAL"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+export type AddRewardRecordInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  rewardCategory?: InputMaybe<Scalars["String"]>;
+};
 
 /** A generic address */
 export type Address = Node & {
@@ -1985,6 +2096,7 @@ export type Company = Node & {
   companyMembers: CompanyMembersConnection;
   /** Reads and enables pagination through a set of `CompanyOperation`. */
   companyOperationsByCompany: CompanyOperationsConnection;
+  contractStatus?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   /** The Company facebook website */
   facebook?: Maybe<Scalars["String"]>;
@@ -2031,6 +2143,11 @@ export type Company = Node & {
   registeredBy?: Maybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: Maybe<Scalars["Datetime"]>;
+  renewalDate?: Maybe<Scalars["Datetime"]>;
+  /** Reads and enables pagination through a set of `RewardRecord`. */
+  rewardRecords: RewardRecordsConnection;
+  /** Reads and enables pagination through a set of `RewardRequest`. */
+  rewardRequests: RewardRequestsConnection;
   /** ek */
   status?: Maybe<CompanyStatus>;
   /** The Tax number in that Market, such as the VAT number */
@@ -2106,6 +2223,30 @@ export type CompanyProjectsArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<ProjectsOrderBy>>;
+};
+
+/** A company that has been registered in InTouch */
+export type CompanyRewardRecordsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRecordCondition>;
+  filter?: InputMaybe<RewardRecordFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** A company that has been registered in InTouch */
+export type CompanyRewardRequestsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRequestCondition>;
+  filter?: InputMaybe<RewardRequestFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
 };
 
 /** The fields on `company` to look up the row to connect. */
@@ -2512,6 +2653,10 @@ export type CompanyMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -2908,6 +3053,10 @@ export type CompanyMemberMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -3383,6 +3532,80 @@ export type CompanyOnProjectForProjectCompanyIdFkeyUsingCompanyReferenceNumberKe
     referenceNumber: Scalars["Int"];
   };
 
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRecord` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+  patch: RewardRecordPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
+  {
+    /** fk */
+    marketId: Scalars["Int"];
+    /** The registered name of the Company */
+    name: Scalars["String"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["Int"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type CompanyOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRequest` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+  patch: RewardRequestPatch;
+};
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate =
+  {
+    /** fk */
+    marketId: Scalars["Int"];
+    /** The registered name of the Company */
+    name: Scalars["String"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch;
+  };
+
+/** The fields on `company` to look up the row to update. */
+export type CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch;
+    /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+    referenceNumber: Scalars["Int"];
+  };
+
 /** The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer. */
 export type CompanyOperation = Node & {
   __typename?: "CompanyOperation";
@@ -3601,6 +3824,7 @@ export type CompanyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -3640,6 +3864,9 @@ export type CompanyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -3746,6 +3973,18 @@ export type CompanyRegisteredAddressIdFkeyInverseInput = {
   updateByReferenceNumber?: InputMaybe<
     Array<CompanyOnCompanyForCompanyRegisteredAddressIdFkeyUsingCompanyReferenceNumberKeyUpdate>
   >;
+};
+
+export type CompanyRewardRecord = {
+  __typename?: "CompanyRewardRecord";
+  accountId?: Maybe<Scalars["Int"]>;
+  companyId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["String"]>;
+  id?: Maybe<Scalars["Int"]>;
+  marketId?: Maybe<Scalars["Int"]>;
+  rewardPoint?: Maybe<Scalars["Int"]>;
+  rewardTier?: Maybe<Scalars["Int"]>;
+  updatedAt?: Maybe<Scalars["String"]>;
 };
 
 export type CompanyStatus = "ACTIVE" | "DEACTIVATED" | "NEW";
@@ -5965,6 +6204,118 @@ export type CreateProjectPayloadProjectEdgeArgs = {
   orderBy?: InputMaybe<Array<ProjectsOrderBy>>;
 };
 
+/** All input for the create `RewardRecord` mutation. */
+export type CreateRewardRecordInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `RewardRecord` to be created by this mutation. */
+  rewardRecord: RewardRecordInput;
+};
+
+/** The output of our create `RewardRecord` mutation. */
+export type CreateRewardRecordPayload = {
+  __typename?: "CreateRewardRecordPayload";
+  /** Reads a single `Account` that is related to this `RewardRecord`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRecord`. */
+  company?: Maybe<Company>;
+  /** Reads a single `Market` that is related to this `RewardRecord`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRecord` that was created by this mutation. */
+  rewardRecord?: Maybe<RewardRecord>;
+  /** An edge for our `RewardRecord`. May be used by Relay 1. */
+  rewardRecordEdge?: Maybe<RewardRecordsEdge>;
+  /** Reads a single `RewardTier` that is related to this `RewardRecord`. */
+  rewardTierByRewardTier?: Maybe<RewardTier>;
+};
+
+/** The output of our create `RewardRecord` mutation. */
+export type CreateRewardRecordPayloadRewardRecordEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** All input for the create `RewardRequest` mutation. */
+export type CreateRewardRequestInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `RewardRequest` to be created by this mutation. */
+  rewardRequest: RewardRequestInput;
+};
+
+/** The output of our create `RewardRequest` mutation. */
+export type CreateRewardRequestPayload = {
+  __typename?: "CreateRewardRequestPayload";
+  /** Reads a single `Account` that is related to this `RewardRequest`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRequest`. */
+  company?: Maybe<Company>;
+  /** Reads a single `Market` that is related to this `RewardRequest`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRequest` that was created by this mutation. */
+  rewardRequest?: Maybe<RewardRequest>;
+  /** An edge for our `RewardRequest`. May be used by Relay 1. */
+  rewardRequestEdge?: Maybe<RewardRequestsEdge>;
+};
+
+/** The output of our create `RewardRequest` mutation. */
+export type CreateRewardRequestPayloadRewardRequestEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
+/** All input for the create `RewardTier` mutation. */
+export type CreateRewardTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `RewardTier` to be created by this mutation. */
+  rewardTier: RewardTierInput;
+};
+
+/** The output of our create `RewardTier` mutation. */
+export type CreateRewardTierPayload = {
+  __typename?: "CreateRewardTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Market` that is related to this `RewardTier`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardTier` that was created by this mutation. */
+  rewardTier?: Maybe<RewardTier>;
+  /** An edge for our `RewardTier`. May be used by Relay 1. */
+  rewardTierEdge?: Maybe<RewardTiersEdge>;
+};
+
+/** The output of our create `RewardTier` mutation. */
+export type CreateRewardTierPayloadRewardTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardTiersOrderBy>>;
+};
+
 /** All input for the create `System` mutation. */
 export type CreateSystemInput = {
   /**
@@ -7479,6 +7830,173 @@ export type DeleteProjectPayload = {
 /** The output of our delete `Project` mutation. */
 export type DeleteProjectPayloadProjectEdgeArgs = {
   orderBy?: InputMaybe<Array<ProjectsOrderBy>>;
+};
+
+/** All input for the `deleteRewardRecordByNodeId` mutation. */
+export type DeleteRewardRecordByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardRecord` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteRewardRecord` mutation. */
+export type DeleteRewardRecordInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `RewardRecord` mutation. */
+export type DeleteRewardRecordPayload = {
+  __typename?: "DeleteRewardRecordPayload";
+  /** Reads a single `Account` that is related to this `RewardRecord`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRecord`. */
+  company?: Maybe<Company>;
+  deletedRewardRecordNodeId?: Maybe<Scalars["ID"]>;
+  /** Reads a single `Market` that is related to this `RewardRecord`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRecord` that was deleted by this mutation. */
+  rewardRecord?: Maybe<RewardRecord>;
+  /** An edge for our `RewardRecord`. May be used by Relay 1. */
+  rewardRecordEdge?: Maybe<RewardRecordsEdge>;
+  /** Reads a single `RewardTier` that is related to this `RewardRecord`. */
+  rewardTierByRewardTier?: Maybe<RewardTier>;
+};
+
+/** The output of our delete `RewardRecord` mutation. */
+export type DeleteRewardRecordPayloadRewardRecordEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** All input for the `deleteRewardRequestByNodeId` mutation. */
+export type DeleteRewardRequestByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardRequest` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteRewardRequestByRedemptionCode` mutation. */
+export type DeleteRewardRequestByRedemptionCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  redemptionCode: Scalars["String"];
+};
+
+/** All input for the `deleteRewardRequest` mutation. */
+export type DeleteRewardRequestInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `RewardRequest` mutation. */
+export type DeleteRewardRequestPayload = {
+  __typename?: "DeleteRewardRequestPayload";
+  /** Reads a single `Account` that is related to this `RewardRequest`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRequest`. */
+  company?: Maybe<Company>;
+  deletedRewardRequestNodeId?: Maybe<Scalars["ID"]>;
+  /** Reads a single `Market` that is related to this `RewardRequest`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRequest` that was deleted by this mutation. */
+  rewardRequest?: Maybe<RewardRequest>;
+  /** An edge for our `RewardRequest`. May be used by Relay 1. */
+  rewardRequestEdge?: Maybe<RewardRequestsEdge>;
+};
+
+/** The output of our delete `RewardRequest` mutation. */
+export type DeleteRewardRequestPayloadRewardRequestEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
+/** All input for the `deleteRewardTierByMarketIdAndTierCodeAndRewardCategory` mutation. */
+export type DeleteRewardTierByMarketIdAndTierCodeAndRewardCategoryInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  rewardCategory: Scalars["String"];
+  tierCode: Tier;
+};
+
+/** All input for the `deleteRewardTierByNodeId` mutation. */
+export type DeleteRewardTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardTier` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteRewardTier` mutation. */
+export type DeleteRewardTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `RewardTier` mutation. */
+export type DeleteRewardTierPayload = {
+  __typename?: "DeleteRewardTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedRewardTierNodeId?: Maybe<Scalars["ID"]>;
+  /** Reads a single `Market` that is related to this `RewardTier`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardTier` that was deleted by this mutation. */
+  rewardTier?: Maybe<RewardTier>;
+  /** An edge for our `RewardTier`. May be used by Relay 1. */
+  rewardTierEdge?: Maybe<RewardTiersEdge>;
+};
+
+/** The output of our delete `RewardTier` mutation. */
+export type DeleteRewardTierPayloadRewardTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardTiersOrderBy>>;
 };
 
 /** All input for the `deleteSystemByBmiRef` mutation. */
@@ -9037,6 +9555,18 @@ export type FindRoofersEdge = {
 
 /** Methods to use when ordering `FindRoofer`. */
 export type FindRoofersOrderBy = "NATURAL";
+
+export type GetCompanyRewardRecordInput = {
+  companyId?: InputMaybe<Scalars["Int"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["String"]>;
+};
+
+export type GetCompanyRewardRecordResult = {
+  __typename?: "GetCompanyRewardRecordResult";
+  points?: Maybe<Scalars["Int"]>;
+  records?: Maybe<Array<Maybe<CompanyRewardRecord>>>;
+  total?: Maybe<Scalars["Int"]>;
+};
 
 export type GetDoubleAcceptanceByValidTempToken = {
   __typename?: "GetDoubleAcceptanceByValidTempToken";
@@ -11614,6 +12144,13 @@ export type Market = Node & {
   products: ProductsConnection;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: Maybe<Scalars["Datetime"]>;
+  /** Reads and enables pagination through a set of `RewardRecord`. */
+  rewardRecords: RewardRecordsConnection;
+  /** Reads and enables pagination through a set of `RewardRequest`. */
+  rewardRequests: RewardRequestsConnection;
+  /** Reads and enables pagination through a set of `RewardTier`. */
+  rewardTiers: RewardTiersConnection;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: Maybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -11671,6 +12208,42 @@ export type MarketProductsArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<ProductsOrderBy>>;
+};
+
+/** A country that BMI operates in */
+export type MarketRewardRecordsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRecordCondition>;
+  filter?: InputMaybe<RewardRecordFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** A country that BMI operates in */
+export type MarketRewardRequestsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRequestCondition>;
+  filter?: InputMaybe<RewardRequestFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
+/** A country that BMI operates in */
+export type MarketRewardTiersArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardTierCondition>;
+  filter?: InputMaybe<RewardTierFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardTiersOrderBy>>;
 };
 
 /** A country that BMI operates in */
@@ -12013,6 +12586,10 @@ export type MarketInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -12205,6 +12782,110 @@ export type MarketOnProductForProductMarketIdFkeyUsingMarketPkeyUpdate = {
 };
 
 /** The globally unique `ID` look up for the row to update. */
+export type MarketOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRecord` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+  patch: RewardRecordPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardRequest` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+  patch: RewardRequestPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketPkeyUpdate =
+  {
+    /** Primary key */
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type MarketOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `rewardTier` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `rewardTier` being updated. */
+  patch: RewardTierPatch;
+};
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate =
+  {
+    /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+    doceboCatalogueId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardTierForRewardTierMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDomainKeyUpdate =
+  {
+    /** the country code used for example as the subdomain */
+    domain: Scalars["String"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: UpdateMarketOnRewardTierForRewardTierMarketIdFkeyPatch;
+  };
+
+/** The fields on `market` to look up the row to update. */
+export type MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketPkeyUpdate = {
+  /** Primary key */
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: UpdateMarketOnRewardTierForRewardTierMarketIdFkeyPatch;
+};
+
+/** The globally unique `ID` look up for the row to update. */
 export type MarketOnSystemForSystemMarketIdFkeyNodeIdUpdate = {
   /** The globally unique `ID` which identifies a single `system` to be connected. */
   nodeId: Scalars["ID"];
@@ -12311,6 +12992,10 @@ export type MarketPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -12888,6 +13573,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
+  addRewardRecord?: Maybe<CompanyRewardRecord>;
   annualProjectsInspection?: Maybe<Scalars["String"]>;
   archiveProjects?: Maybe<Scalars["String"]>;
   autoRejectDoubleAcceptance?: Maybe<Scalars["String"]>;
@@ -12950,6 +13636,12 @@ export type Mutation = {
   createProject?: Maybe<CreateProjectPayload>;
   /** Creates a single `ProjectMember`. */
   createProjectMember?: Maybe<CreateProjectMemberPayload>;
+  /** Creates a single `RewardRecord`. */
+  createRewardRecord?: Maybe<CreateRewardRecordPayload>;
+  /** Creates a single `RewardRequest`. */
+  createRewardRequest?: Maybe<CreateRewardRequestPayload>;
+  /** Creates a single `RewardTier`. */
+  createRewardTier?: Maybe<CreateRewardTierPayload>;
   createSSOUrl?: Maybe<SsoUrlOutput>;
   /** Creates a single `System`. */
   createSystem?: Maybe<CreateSystemPayload>;
@@ -13092,6 +13784,22 @@ export type Mutation = {
   deleteProjectMember?: Maybe<DeleteProjectMemberPayload>;
   /** Deletes a single `ProjectMember` using its globally unique id. */
   deleteProjectMemberByNodeId?: Maybe<DeleteProjectMemberPayload>;
+  /** Deletes a single `RewardRecord` using a unique key. */
+  deleteRewardRecord?: Maybe<DeleteRewardRecordPayload>;
+  /** Deletes a single `RewardRecord` using its globally unique id. */
+  deleteRewardRecordByNodeId?: Maybe<DeleteRewardRecordPayload>;
+  /** Deletes a single `RewardRequest` using a unique key. */
+  deleteRewardRequest?: Maybe<DeleteRewardRequestPayload>;
+  /** Deletes a single `RewardRequest` using its globally unique id. */
+  deleteRewardRequestByNodeId?: Maybe<DeleteRewardRequestPayload>;
+  /** Deletes a single `RewardRequest` using a unique key. */
+  deleteRewardRequestByRedemptionCode?: Maybe<DeleteRewardRequestPayload>;
+  /** Deletes a single `RewardTier` using a unique key. */
+  deleteRewardTier?: Maybe<DeleteRewardTierPayload>;
+  /** Deletes a single `RewardTier` using a unique key. */
+  deleteRewardTierByMarketIdAndTierCodeAndRewardCategory?: Maybe<DeleteRewardTierPayload>;
+  /** Deletes a single `RewardTier` using its globally unique id. */
+  deleteRewardTierByNodeId?: Maybe<DeleteRewardTierPayload>;
   /** Deletes a single `System` using a unique key. */
   deleteSystem?: Maybe<DeleteSystemPayload>;
   /** Deletes a single `System` using a unique key. */
@@ -13105,6 +13813,7 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<DeleteSystemMemberPayload>;
   evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  getCompanyRewardRecord?: Maybe<GetCompanyRewardRecordResult>;
   getDoubleAcceptanceByValidTempToken?: Maybe<GetDoubleAcceptanceByValidTempToken>;
   importAccountsCompaniesFromCVS?: Maybe<ImportAccountsCompaniesFromCsvResult>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
@@ -13262,6 +13971,23 @@ export type Mutation = {
   updateProjectMember?: Maybe<UpdateProjectMemberPayload>;
   /** Updates a single `ProjectMember` using its globally unique id and a patch. */
   updateProjectMemberByNodeId?: Maybe<UpdateProjectMemberPayload>;
+  /** Updates a single `RewardRecord` using a unique key and a patch. */
+  updateRewardRecord?: Maybe<UpdateRewardRecordPayload>;
+  /** Updates a single `RewardRecord` using its globally unique id and a patch. */
+  updateRewardRecordByNodeId?: Maybe<UpdateRewardRecordPayload>;
+  /** Updates a single `RewardRequest` using a unique key and a patch. */
+  updateRewardRequest?: Maybe<UpdateRewardRequestPayload>;
+  /** Updates a single `RewardRequest` using its globally unique id and a patch. */
+  updateRewardRequestByNodeId?: Maybe<UpdateRewardRequestPayload>;
+  /** Updates a single `RewardRequest` using a unique key and a patch. */
+  updateRewardRequestByRedemptionCode?: Maybe<UpdateRewardRequestPayload>;
+  /** Updates a single `RewardTier` using a unique key and a patch. */
+  updateRewardTier?: Maybe<UpdateRewardTierPayload>;
+  /** Updates a single `RewardTier` using a unique key and a patch. */
+  updateRewardTierByMarketIdAndTierCodeAndRewardCategory?: Maybe<UpdateRewardTierPayload>;
+  /** Updates a single `RewardTier` using its globally unique id and a patch. */
+  updateRewardTierByNodeId?: Maybe<UpdateRewardTierPayload>;
+  updateRewardTiers?: Maybe<Array<Maybe<RewardTier>>>;
   /** Updates a single `System` using a unique key and a patch. */
   updateSystem?: Maybe<UpdateSystemPayload>;
   /** Updates a single `System` using a unique key and a patch. */
@@ -13276,6 +14002,11 @@ export type Mutation = {
   updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
   validateSignupUser?: Maybe<Scalars["Boolean"]>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationAddRewardRecordArgs = {
+  input: AddRewardRecordInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13456,6 +14187,21 @@ export type MutationCreateProjectArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateProjectMemberArgs = {
   input: CreateProjectMemberInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRewardRecordArgs = {
+  input: CreateRewardRecordInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRewardRequestArgs = {
+  input: CreateRewardRequestInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRewardTierArgs = {
+  input: CreateRewardTierInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -13821,6 +14567,47 @@ export type MutationDeleteProjectMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardRecordArgs = {
+  input: DeleteRewardRecordInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardRecordByNodeIdArgs = {
+  input: DeleteRewardRecordByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardRequestArgs = {
+  input: DeleteRewardRequestInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardRequestByNodeIdArgs = {
+  input: DeleteRewardRequestByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardRequestByRedemptionCodeArgs = {
+  input: DeleteRewardRequestByRedemptionCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardTierArgs = {
+  input: DeleteRewardTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardTierByMarketIdAndTierCodeAndRewardCategoryArgs =
+  {
+    input: DeleteRewardTierByMarketIdAndTierCodeAndRewardCategoryInput;
+  };
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRewardTierByNodeIdArgs = {
+  input: DeleteRewardTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteSystemArgs = {
   input: DeleteSystemInput;
 };
@@ -13854,6 +14641,11 @@ export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdA
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationEvidenceItemsAddArgs = {
   input: EvidenceItemsAddInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationGetCompanyRewardRecordArgs = {
+  input?: InputMaybe<GetCompanyRewardRecordInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -14270,6 +15062,52 @@ export type MutationUpdateProjectMemberArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateProjectMemberByNodeIdArgs = {
   input: UpdateProjectMemberByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardRecordArgs = {
+  input: UpdateRewardRecordInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardRecordByNodeIdArgs = {
+  input: UpdateRewardRecordByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardRequestArgs = {
+  input: UpdateRewardRequestInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardRequestByNodeIdArgs = {
+  input: UpdateRewardRequestByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardRequestByRedemptionCodeArgs = {
+  input: UpdateRewardRequestByRedemptionCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardTierArgs = {
+  input: UpdateRewardTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardTierByMarketIdAndTierCodeAndRewardCategoryArgs =
+  {
+    input: UpdateRewardTierByMarketIdAndTierCodeAndRewardCategoryInput;
+  };
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardTierByNodeIdArgs = {
+  input: UpdateRewardTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRewardTiersArgs = {
+  input: UpdateRewardTiersInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -15363,6 +16201,10 @@ export type ProductMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -16928,6 +17770,23 @@ export type Query = Node & {
    * which can only query top level fields if they are in a particular form.
    */
   query: Query;
+  rewardRecord?: Maybe<RewardRecord>;
+  /** Reads a single `RewardRecord` using its globally unique `ID`. */
+  rewardRecordByNodeId?: Maybe<RewardRecord>;
+  /** Reads and enables pagination through a set of `RewardRecord`. */
+  rewardRecords?: Maybe<RewardRecordsConnection>;
+  rewardRequest?: Maybe<RewardRequest>;
+  /** Reads a single `RewardRequest` using its globally unique `ID`. */
+  rewardRequestByNodeId?: Maybe<RewardRequest>;
+  rewardRequestByRedemptionCode?: Maybe<RewardRequest>;
+  /** Reads and enables pagination through a set of `RewardRequest`. */
+  rewardRequests?: Maybe<RewardRequestsConnection>;
+  rewardTier?: Maybe<RewardTier>;
+  rewardTierByMarketIdAndTierCodeAndRewardCategory?: Maybe<RewardTier>;
+  /** Reads a single `RewardTier` using its globally unique `ID`. */
+  rewardTierByNodeId?: Maybe<RewardTier>;
+  /** Reads and enables pagination through a set of `RewardTier`. */
+  rewardTiers?: Maybe<RewardTiersConnection>;
   /** Reads and enables pagination through a set of `Product`. */
   searchProducts?: Maybe<ProductsConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -17994,6 +18853,84 @@ export type QueryProjectsByMarketArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryRewardRecordArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRecordByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRecordsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRecordCondition>;
+  filter?: InputMaybe<RewardRecordFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRequestArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRequestByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRequestByRedemptionCodeArgs = {
+  redemptionCode: Scalars["String"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardRequestsArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRequestCondition>;
+  filter?: InputMaybe<RewardRequestFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardTierArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardTierByMarketIdAndTierCodeAndRewardCategoryArgs = {
+  marketId: Scalars["Int"];
+  rewardCategory: Scalars["String"];
+  tierCode: Tier;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardTierByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRewardTiersArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardTierCondition>;
+  filter?: InputMaybe<RewardTierFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardTiersOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QuerySearchProductsArgs = {
   after?: InputMaybe<Scalars["Cursor"]>;
   before?: InputMaybe<Scalars["Cursor"]>;
@@ -18136,6 +19073,1427 @@ export type RequestStatus =
   | "REJECTED"
   | "REVIEW"
   | "SUBMITTED";
+
+export type RewardRecord = Node & {
+  __typename?: "RewardRecord";
+  /** Reads a single `Account` that is related to this `RewardRecord`. */
+  account?: Maybe<Account>;
+  accountId: Scalars["Int"];
+  /** Reads a single `Company` that is related to this `RewardRecord`. */
+  company?: Maybe<Company>;
+  companyId: Scalars["Int"];
+  createdAt: Scalars["Datetime"];
+  id: Scalars["Int"];
+  /** Reads a single `Market` that is related to this `RewardRecord`. */
+  market?: Maybe<Market>;
+  marketId: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  rewardPoint: Scalars["Int"];
+  rewardTier: Scalars["Int"];
+  /** Reads a single `RewardTier` that is related to this `RewardRecord`. */
+  rewardTierByRewardTier?: Maybe<RewardTier>;
+  updatedAt: Scalars["Datetime"];
+};
+
+/** Input for the nested mutation of `account` in the `RewardRecordInput` mutation. */
+export type RewardRecordAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: InputMaybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: InputMaybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: InputMaybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: InputMaybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: InputMaybe<AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: InputMaybe<AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: InputMaybe<AccountOnRewardRecordForRewardRecordAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRecord` in the `AccountInput` mutation. */
+export type RewardRecordAccountIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRecordRewardRecordPkeyConnect>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRecordNodeIdConnect>>;
+  /** A `RewardRecordInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardRecordAccountIdFkeyRewardRecordCreateInput>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRecordRewardRecordPkeyDelete>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRecordNodeIdDelete>>;
+  /** Flag indicating whether all other `rewardRecord` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyUsingRewardRecordPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<AccountOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `rewardRecord` to be created by this mutation. */
+export type RewardRecordAccountIdFkeyRewardRecordCreateInput = {
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint: Scalars["Int"];
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `company` in the `RewardRecordInput` mutation. */
+export type RewardRecordCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: InputMaybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByMarketIdAndName?: InputMaybe<CompanyCompanyMarketIdNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: InputMaybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: InputMaybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByMarketIdAndName?: InputMaybe<CompanyCompanyMarketIdNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<CompanyNodeIdDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: InputMaybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: InputMaybe<CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByMarketIdAndName?: InputMaybe<CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: InputMaybe<CompanyOnRewardRecordForRewardRecordCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRecord` in the `CompanyInput` mutation. */
+export type RewardRecordCompanyIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRecordRewardRecordPkeyConnect>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRecordNodeIdConnect>>;
+  /** A `RewardRecordInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardRecordCompanyIdFkeyRewardRecordCreateInput>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRecordRewardRecordPkeyDelete>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRecordNodeIdDelete>>;
+  /** Flag indicating whether all other `rewardRecord` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyUsingRewardRecordPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<CompanyOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `rewardRecord` to be created by this mutation. */
+export type RewardRecordCompanyIdFkeyRewardRecordCreateInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint: Scalars["Int"];
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/**
+ * A condition to be used against `RewardRecord` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type RewardRecordCondition = {
+  /** Checks for equality with the object’s `accountId` field. */
+  accountId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `companyId` field. */
+  companyId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `rewardTier` field. */
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `RewardRecord` object types. All fields are combined with a logical ‘and.’ */
+export type RewardRecordFilter = {
+  /** Filter by the object’s `accountId` field. */
+  accountId?: InputMaybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<RewardRecordFilter>>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<RewardRecordFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<RewardRecordFilter>>;
+  /** Filter by the object’s `rewardTier` field. */
+  rewardTier?: InputMaybe<IntFilter>;
+};
+
+/** An input for mutations affecting `RewardRecord` */
+export type RewardRecordInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint: Scalars["Int"];
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `market` in the `RewardRecordInput` mutation. */
+export type RewardRecordMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: InputMaybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: InputMaybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<MarketNodeIdConnect>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: InputMaybe<RewardRecordMarketIdFkeyMarketCreateInput>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: InputMaybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: InputMaybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: InputMaybe<MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: InputMaybe<MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: InputMaybe<MarketOnRewardRecordForRewardRecordMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRecord` in the `MarketInput` mutation. */
+export type RewardRecordMarketIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRecordRewardRecordPkeyConnect>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRecordNodeIdConnect>>;
+  /** A `RewardRecordInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardRecordMarketIdFkeyRewardRecordCreateInput>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRecordRewardRecordPkeyDelete>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRecordNodeIdDelete>>;
+  /** Flag indicating whether all other `rewardRecord` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyUsingRewardRecordPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<MarketOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `market` to be created by this mutation. */
+export type RewardRecordMarketIdFkeyMarketCreateInput = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language: Language;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `rewardRecord` to be created by this mutation. */
+export type RewardRecordMarketIdFkeyRewardRecordCreateInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint: Scalars["Int"];
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type RewardRecordNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `rewardRecord` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type RewardRecordNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `rewardRecord` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `rewardRecord` to look up the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordAccountIdFkeyUsingRewardRecordPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+    patch: UpdateRewardRecordOnRewardRecordForRewardRecordAccountIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
+
+/** The fields on `rewardRecord` to look up the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyUsingRewardRecordPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+    patch: UpdateRewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `market` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: MarketPatch;
+  };
+
+/** The fields on `rewardRecord` to look up the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordMarketIdFkeyUsingRewardRecordPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+    patch: UpdateRewardRecordOnRewardRecordForRewardRecordMarketIdFkeyPatch;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `rewardTier` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `rewardTier` being updated. */
+    patch: RewardTierPatch;
+  };
+
+/** The fields on `rewardRecord` to look up the row to update. */
+export type RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardRecordPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+    patch: UpdateRewardRecordOnRewardRecordForRewardRecordRewardTierFkeyPatch;
+  };
+
+/** Represents an update to a `RewardRecord`. Fields that are set will be updated. */
+export type RewardRecordPatch = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The fields on `rewardRecord` to look up the row to connect. */
+export type RewardRecordRewardRecordPkeyConnect = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `rewardRecord` to look up the row to delete. */
+export type RewardRecordRewardRecordPkeyDelete = {
+  id: Scalars["Int"];
+};
+
+/** Input for the nested mutation of `rewardTier` in the `RewardRecordInput` mutation. */
+export type RewardRecordRewardTierFkeyInput = {
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectById?: InputMaybe<RewardTierRewardTierPkeyConnect>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<RewardTierNodeIdConnect>;
+  /** A `RewardTierInput` object that will be created and connected to this object. */
+  create?: InputMaybe<RewardRecordRewardTierFkeyRewardTierCreateInput>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteById?: InputMaybe<RewardTierRewardTierPkeyDelete>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<RewardTierNodeIdDelete>;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateById?: InputMaybe<RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierPkeyUpdate>;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate>;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRecord` in the `RewardTierInput` mutation. */
+export type RewardRecordRewardTierFkeyInverseInput = {
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRecordRewardRecordPkeyConnect>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRecordNodeIdConnect>>;
+  /** A `RewardRecordInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardRecordRewardTierFkeyRewardRecordCreateInput>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRecordRewardRecordPkeyDelete>>;
+  /** The primary key(s) for `rewardRecord` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRecordNodeIdDelete>>;
+  /** Flag indicating whether all other `rewardRecord` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRecordOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardRecordPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRecord` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<RewardTierOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `rewardRecord` to be created by this mutation. */
+export type RewardRecordRewardTierFkeyRewardRecordCreateInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint: Scalars["Int"];
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `rewardTier` to be created by this mutation. */
+export type RewardRecordRewardTierFkeyRewardTierCreateInput = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory: Scalars["String"];
+  rewardPoint: Scalars["Int"];
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode: Tier;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `RewardRecord` values. */
+export type RewardRecordsConnection = {
+  __typename?: "RewardRecordsConnection";
+  /** A list of edges which contains the `RewardRecord` and cursor to aid in pagination. */
+  edges: Array<RewardRecordsEdge>;
+  /** A list of `RewardRecord` objects. */
+  nodes: Array<RewardRecord>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `RewardRecord` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `RewardRecord` edge in the connection. */
+export type RewardRecordsEdge = {
+  __typename?: "RewardRecordsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `RewardRecord` at the end of the edge. */
+  node: RewardRecord;
+};
+
+/** Methods to use when ordering `RewardRecord`. */
+export type RewardRecordsOrderBy =
+  | "ACCOUNT_ID_ASC"
+  | "ACCOUNT_ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC"
+  | "REWARD_TIER_ASC"
+  | "REWARD_TIER_DESC";
+
+export type RewardRequest = Node & {
+  __typename?: "RewardRequest";
+  /** Reads a single `Account` that is related to this `RewardRequest`. */
+  account?: Maybe<Account>;
+  accountId: Scalars["Int"];
+  /** Reads a single `Company` that is related to this `RewardRequest`. */
+  company?: Maybe<Company>;
+  companyId: Scalars["Int"];
+  createdAt: Scalars["Datetime"];
+  id: Scalars["Int"];
+  /** Reads a single `Market` that is related to this `RewardRequest`. */
+  market?: Maybe<Market>;
+  marketId: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  redemptionCode: Scalars["String"];
+  rewardPoint: Scalars["Int"];
+  updatedAt: Scalars["Datetime"];
+};
+
+/** Input for the nested mutation of `account` in the `RewardRequestInput` mutation. */
+export type RewardRequestAccountIdFkeyInput = {
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByEmail?: InputMaybe<AccountAccountEmailKeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectById?: InputMaybe<AccountAccountPkeyConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<AccountNodeIdConnect>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByDoceboUserId?: InputMaybe<AccountAccountDoceboUserIdKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByEmail?: InputMaybe<AccountAccountEmailKeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteById?: InputMaybe<AccountAccountPkeyDelete>;
+  /** The primary key(s) for `account` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<AccountNodeIdDelete>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByDoceboUserId?: InputMaybe<AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByEmail?: InputMaybe<AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountEmailKeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateById?: InputMaybe<AccountOnRewardRequestForRewardRequestAccountIdFkeyUsingAccountPkeyUpdate>;
+  /** The primary key(s) and patch data for `account` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRequest` in the `AccountInput` mutation. */
+export type RewardRequestAccountIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRequestRewardRequestPkeyConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRequestNodeIdConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyConnect>
+  >;
+  /** A `RewardRequestInput` object that will be created and connected to this object. */
+  create?: InputMaybe<
+    Array<RewardRequestAccountIdFkeyRewardRequestCreateInput>
+  >;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRequestRewardRequestPkeyDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRequestNodeIdDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyDelete>
+  >;
+  /** Flag indicating whether all other `rewardRequest` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<AccountOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByRedemptionCode?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate>
+  >;
+};
+
+/** The `rewardRequest` to be created by this mutation. */
+export type RewardRequestAccountIdFkeyRewardRequestCreateInput = {
+  accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+  rewardPoint: Scalars["Int"];
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `company` in the `RewardRequestInput` mutation. */
+export type RewardRequestCompanyIdFkeyInput = {
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectById?: InputMaybe<CompanyCompanyPkeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByMarketIdAndName?: InputMaybe<CompanyCompanyMarketIdNameKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<CompanyNodeIdConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  connectByReferenceNumber?: InputMaybe<CompanyCompanyReferenceNumberKeyConnect>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteById?: InputMaybe<CompanyCompanyPkeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByMarketIdAndName?: InputMaybe<CompanyCompanyMarketIdNameKeyDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<CompanyNodeIdDelete>;
+  /** The primary key(s) for `company` for the far side of the relationship. */
+  deleteByReferenceNumber?: InputMaybe<CompanyCompanyReferenceNumberKeyDelete>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateById?: InputMaybe<CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyPkeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByMarketIdAndName?: InputMaybe<CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyMarketIdNameKeyUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate>;
+  /** The primary key(s) and patch data for `company` for the far side of the relationship. */
+  updateByReferenceNumber?: InputMaybe<CompanyOnRewardRequestForRewardRequestCompanyIdFkeyUsingCompanyReferenceNumberKeyUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRequest` in the `CompanyInput` mutation. */
+export type RewardRequestCompanyIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRequestRewardRequestPkeyConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRequestNodeIdConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyConnect>
+  >;
+  /** A `RewardRequestInput` object that will be created and connected to this object. */
+  create?: InputMaybe<
+    Array<RewardRequestCompanyIdFkeyRewardRequestCreateInput>
+  >;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRequestRewardRequestPkeyDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRequestNodeIdDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyDelete>
+  >;
+  /** Flag indicating whether all other `rewardRequest` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<CompanyOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByRedemptionCode?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate>
+  >;
+};
+
+/** The `rewardRequest` to be created by this mutation. */
+export type RewardRequestCompanyIdFkeyRewardRequestCreateInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+  companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+  rewardPoint: Scalars["Int"];
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/**
+ * A condition to be used against `RewardRequest` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type RewardRequestCondition = {
+  /** Checks for equality with the object’s `accountId` field. */
+  accountId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `companyId` field. */
+  companyId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `redemptionCode` field. */
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+};
+
+/** A filter to be used against `RewardRequest` object types. All fields are combined with a logical ‘and.’ */
+export type RewardRequestFilter = {
+  /** Filter by the object’s `accountId` field. */
+  accountId?: InputMaybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<RewardRequestFilter>>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<RewardRequestFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<RewardRequestFilter>>;
+  /** Filter by the object’s `redemptionCode` field. */
+  redemptionCode?: InputMaybe<StringFilter>;
+};
+
+/** An input for mutations affecting `RewardRequest` */
+export type RewardRequestInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+  rewardPoint: Scalars["Int"];
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `market` in the `RewardRequestInput` mutation. */
+export type RewardRequestMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: InputMaybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: InputMaybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<MarketNodeIdConnect>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: InputMaybe<RewardRequestMarketIdFkeyMarketCreateInput>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: InputMaybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: InputMaybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: InputMaybe<MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: InputMaybe<MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: InputMaybe<MarketOnRewardRequestForRewardRequestMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardRequest` in the `MarketInput` mutation. */
+export type RewardRequestMarketIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardRequestRewardRequestPkeyConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardRequestNodeIdConnect>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  connectByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyConnect>
+  >;
+  /** A `RewardRequestInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardRequestMarketIdFkeyRewardRequestCreateInput>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardRequestRewardRequestPkeyDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardRequestNodeIdDelete>>;
+  /** The primary key(s) for `rewardRequest` for the far side of the relationship. */
+  deleteByRedemptionCode?: InputMaybe<
+    Array<RewardRequestRewardRequestRedemptionCodeKeyDelete>
+  >;
+  /** Flag indicating whether all other `rewardRequest` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<MarketOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardRequest` for the far side of the relationship. */
+  updateByRedemptionCode?: InputMaybe<
+    Array<RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate>
+  >;
+};
+
+/** The `market` to be created by this mutation. */
+export type RewardRequestMarketIdFkeyMarketCreateInput = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language: Language;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `rewardRequest` to be created by this mutation. */
+export type RewardRequestMarketIdFkeyRewardRequestCreateInput = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+  rewardPoint: Scalars["Int"];
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type RewardRequestNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `rewardRequest` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type RewardRequestNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `rewardRequest` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `account` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `account` being updated. */
+    patch: AccountPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestAccountIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch;
+    redemptionCode: Scalars["String"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `company` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `company` being updated. */
+    patch: CompanyPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch;
+    redemptionCode: Scalars["String"];
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `market` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `market` being updated. */
+    patch: MarketPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch;
+  };
+
+/** The fields on `rewardRequest` to look up the row to update. */
+export type RewardRequestOnRewardRequestForRewardRequestMarketIdFkeyUsingRewardRequestRedemptionCodeKeyUpdate =
+  {
+    /** An object where the defined keys will be set on the `rewardRequest` being updated. */
+    patch: UpdateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch;
+    redemptionCode: Scalars["String"];
+  };
+
+/** Represents an update to a `RewardRequest`. Fields that are set will be updated. */
+export type RewardRequestPatch = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+  redemptionCode?: InputMaybe<Scalars["String"]>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The fields on `rewardRequest` to look up the row to connect. */
+export type RewardRequestRewardRequestPkeyConnect = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `rewardRequest` to look up the row to delete. */
+export type RewardRequestRewardRequestPkeyDelete = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `rewardRequest` to look up the row to connect. */
+export type RewardRequestRewardRequestRedemptionCodeKeyConnect = {
+  redemptionCode: Scalars["String"];
+};
+
+/** The fields on `rewardRequest` to look up the row to delete. */
+export type RewardRequestRewardRequestRedemptionCodeKeyDelete = {
+  redemptionCode: Scalars["String"];
+};
+
+/** A connection to a list of `RewardRequest` values. */
+export type RewardRequestsConnection = {
+  __typename?: "RewardRequestsConnection";
+  /** A list of edges which contains the `RewardRequest` and cursor to aid in pagination. */
+  edges: Array<RewardRequestsEdge>;
+  /** A list of `RewardRequest` objects. */
+  nodes: Array<RewardRequest>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `RewardRequest` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `RewardRequest` edge in the connection. */
+export type RewardRequestsEdge = {
+  __typename?: "RewardRequestsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `RewardRequest` at the end of the edge. */
+  node: RewardRequest;
+};
+
+/** Methods to use when ordering `RewardRequest`. */
+export type RewardRequestsOrderBy =
+  | "ACCOUNT_ID_ASC"
+  | "ACCOUNT_ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC"
+  | "REDEMPTION_CODE_ASC"
+  | "REDEMPTION_CODE_DESC";
+
+export type RewardTier = Node & {
+  __typename?: "RewardTier";
+  createdAt: Scalars["Datetime"];
+  id: Scalars["Int"];
+  /** Reads a single `Market` that is related to this `RewardTier`. */
+  market?: Maybe<Market>;
+  marketId: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  rewardCategory: Scalars["String"];
+  rewardPoint: Scalars["Int"];
+  /** Reads and enables pagination through a set of `RewardRecord`. */
+  rewardRecordsByRewardTier: RewardRecordsConnection;
+  tierCode: Tier;
+  updatedAt: Scalars["Datetime"];
+};
+
+export type RewardTierRewardRecordsByRewardTierArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<RewardRecordCondition>;
+  filter?: InputMaybe<RewardRecordFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/**
+ * A condition to be used against `RewardTier` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type RewardTierCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `rewardCategory` field. */
+  rewardCategory?: InputMaybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `tierCode` field. */
+  tierCode?: InputMaybe<Tier>;
+};
+
+/** A filter to be used against `RewardTier` object types. All fields are combined with a logical ‘and.’ */
+export type RewardTierFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<RewardTierFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<RewardTierFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<RewardTierFilter>>;
+  /** Filter by the object’s `rewardCategory` field. */
+  rewardCategory?: InputMaybe<StringFilter>;
+  /** Filter by the object’s `tierCode` field. */
+  tierCode?: InputMaybe<TierFilter>;
+};
+
+/** An input for mutations affecting `RewardTier` */
+export type RewardTierInput = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory: Scalars["String"];
+  rewardPoint: Scalars["Int"];
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode: Tier;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** Input for the nested mutation of `market` in the `RewardTierInput` mutation. */
+export type RewardTierMarketIdFkeyInput = {
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByDomain?: InputMaybe<MarketMarketDomainKeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectById?: InputMaybe<MarketMarketPkeyConnect>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<MarketNodeIdConnect>;
+  /** A `MarketInput` object that will be created and connected to this object. */
+  create?: InputMaybe<RewardTierMarketIdFkeyMarketCreateInput>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDoceboCatalogueId?: InputMaybe<MarketMarketDoceboCatalogueIdKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByDomain?: InputMaybe<MarketMarketDomainKeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteById?: InputMaybe<MarketMarketPkeyDelete>;
+  /** The primary key(s) for `market` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<MarketNodeIdDelete>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDoceboCatalogueId?: InputMaybe<MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDoceboCatalogueIdKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByDomain?: InputMaybe<MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketDomainKeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateById?: InputMaybe<MarketOnRewardTierForRewardTierMarketIdFkeyUsingMarketPkeyUpdate>;
+  /** The primary key(s) and patch data for `market` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<RewardTierOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate>;
+};
+
+/** Input for the nested mutation of `rewardTier` in the `MarketInput` mutation. */
+export type RewardTierMarketIdFkeyInverseInput = {
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectById?: InputMaybe<Array<RewardTierRewardTierPkeyConnect>>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<
+    Array<RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect>
+  >;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  connectByNodeId?: InputMaybe<Array<RewardTierNodeIdConnect>>;
+  /** A `RewardTierInput` object that will be created and connected to this object. */
+  create?: InputMaybe<Array<RewardTierMarketIdFkeyRewardTierCreateInput>>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteById?: InputMaybe<Array<RewardTierRewardTierPkeyDelete>>;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<
+    Array<RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete>
+  >;
+  /** The primary key(s) for `rewardTier` for the far side of the relationship. */
+  deleteByNodeId?: InputMaybe<Array<RewardTierNodeIdDelete>>;
+  /** Flag indicating whether all other `rewardTier` records that match this relationship should be removed. */
+  deleteOthers?: InputMaybe<Scalars["Boolean"]>;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateById?: InputMaybe<
+    Array<RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierPkeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateByMarketIdAndTierCodeAndRewardCategory?: InputMaybe<
+    Array<RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate>
+  >;
+  /** The primary key(s) and patch data for `rewardTier` for the far side of the relationship. */
+  updateByNodeId?: InputMaybe<
+    Array<MarketOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate>
+  >;
+};
+
+/** The `market` to be created by this mutation. */
+export type RewardTierMarketIdFkeyMarketCreateInput = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language: Language;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The `rewardTier` to be created by this mutation. */
+export type RewardTierMarketIdFkeyRewardTierCreateInput = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory: Scalars["String"];
+  rewardPoint: Scalars["Int"];
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode: Tier;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The globally unique `ID` look up for the row to connect. */
+export type RewardTierNodeIdConnect = {
+  /** The globally unique `ID` which identifies a single `rewardTier` to be connected. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to delete. */
+export type RewardTierNodeIdDelete = {
+  /** The globally unique `ID` which identifies a single `rewardTier` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardTierOnRewardRecordForRewardRecordRewardTierFkeyNodeIdUpdate =
+  {
+    /** The globally unique `ID` which identifies a single `rewardRecord` to be connected. */
+    nodeId: Scalars["ID"];
+    /** An object where the defined keys will be set on the `rewardRecord` being updated. */
+    patch: RewardRecordPatch;
+  };
+
+/** The fields on `rewardTier` to look up the row to update. */
+export type RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardTier` being updated. */
+    patch: UpdateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch;
+  };
+
+/** The fields on `rewardTier` to look up the row to update. */
+export type RewardTierOnRewardRecordForRewardRecordRewardTierFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate =
+  {
+    marketId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardTier` being updated. */
+    patch: UpdateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch;
+    rewardCategory: Scalars["String"];
+    tierCode: Tier;
+  };
+
+/** The globally unique `ID` look up for the row to update. */
+export type RewardTierOnRewardTierForRewardTierMarketIdFkeyNodeIdUpdate = {
+  /** The globally unique `ID` which identifies a single `market` to be connected. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `market` being updated. */
+  patch: MarketPatch;
+};
+
+/** The fields on `rewardTier` to look up the row to update. */
+export type RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierPkeyUpdate =
+  {
+    id: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardTier` being updated. */
+    patch: UpdateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch;
+  };
+
+/** The fields on `rewardTier` to look up the row to update. */
+export type RewardTierOnRewardTierForRewardTierMarketIdFkeyUsingRewardTierTierMarketIdCodeRewardCategoryKeyUpdate =
+  {
+    marketId: Scalars["Int"];
+    /** An object where the defined keys will be set on the `rewardTier` being updated. */
+    patch: UpdateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch;
+    rewardCategory: Scalars["String"];
+    tierCode: Tier;
+  };
+
+/** Represents an update to a `RewardTier`. Fields that are set will be updated. */
+export type RewardTierPatch = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory?: InputMaybe<Scalars["String"]>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode?: InputMaybe<Tier>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** The fields on `rewardTier` to look up the row to connect. */
+export type RewardTierRewardTierPkeyConnect = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `rewardTier` to look up the row to delete. */
+export type RewardTierRewardTierPkeyDelete = {
+  id: Scalars["Int"];
+};
+
+/** The fields on `rewardTier` to look up the row to connect. */
+export type RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyConnect = {
+  marketId: Scalars["Int"];
+  rewardCategory: Scalars["String"];
+  tierCode: Tier;
+};
+
+/** The fields on `rewardTier` to look up the row to delete. */
+export type RewardTierRewardTierTierMarketIdCodeRewardCategoryKeyDelete = {
+  marketId: Scalars["Int"];
+  rewardCategory: Scalars["String"];
+  tierCode: Tier;
+};
+
+/** A connection to a list of `RewardTier` values. */
+export type RewardTiersConnection = {
+  __typename?: "RewardTiersConnection";
+  /** A list of edges which contains the `RewardTier` and cursor to aid in pagination. */
+  edges: Array<RewardTiersEdge>;
+  /** A list of `RewardTier` objects. */
+  nodes: Array<RewardTier>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `RewardTier` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `RewardTier` edge in the connection. */
+export type RewardTiersEdge = {
+  __typename?: "RewardTiersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `RewardTier` at the end of the edge. */
+  node: RewardTier;
+};
+
+export type RewardTiersInput = {
+  id?: InputMaybe<Scalars["Int"]>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+};
+
+/** Methods to use when ordering `RewardTier`. */
+export type RewardTiersOrderBy =
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC"
+  | "REWARD_CATEGORY_ASC"
+  | "REWARD_CATEGORY_DESC"
+  | "TIER_CODE_ASC"
+  | "TIER_CODE_DESC";
 
 export type Role =
   | "AUDITOR"
@@ -18489,6 +20847,10 @@ export type SystemMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -18699,6 +21061,10 @@ export type SystemMemberMarketIdFkeyMarketCreateInput = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -19447,6 +21813,32 @@ export type TierBenefitOrder =
   | "sys_publishedVersion_DESC"
   | "tier_ASC"
   | "tier_DESC";
+
+/** A filter to be used against Tier fields. All fields are combined with a logical ‘and.’ */
+export type TierFilter = {
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: InputMaybe<Tier>;
+  /** Equal to the specified value. */
+  equalTo?: InputMaybe<Tier>;
+  /** Greater than the specified value. */
+  greaterThan?: InputMaybe<Tier>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: InputMaybe<Tier>;
+  /** Included in the specified list. */
+  in?: InputMaybe<Array<Tier>>;
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: InputMaybe<Scalars["Boolean"]>;
+  /** Less than the specified value. */
+  lessThan?: InputMaybe<Tier>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: InputMaybe<Tier>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: InputMaybe<Tier>;
+  /** Not equal to the specified value. */
+  notEqualTo?: InputMaybe<Tier>;
+  /** Not included in the specified list. */
+  notIn?: InputMaybe<Array<Tier>>;
+};
 
 export type Token = {
   __typename?: "Token";
@@ -21257,6 +23649,190 @@ export type UpdateProjectPayloadProjectEdgeArgs = {
   orderBy?: InputMaybe<Array<ProjectsOrderBy>>;
 };
 
+/** All input for the `updateRewardRecordByNodeId` mutation. */
+export type UpdateRewardRecordByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardRecord` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `RewardRecord` being updated. */
+  patch: RewardRecordPatch;
+};
+
+/** All input for the `updateRewardRecord` mutation. */
+export type UpdateRewardRecordInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `RewardRecord` being updated. */
+  patch: RewardRecordPatch;
+};
+
+/** The output of our update `RewardRecord` mutation. */
+export type UpdateRewardRecordPayload = {
+  __typename?: "UpdateRewardRecordPayload";
+  /** Reads a single `Account` that is related to this `RewardRecord`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRecord`. */
+  company?: Maybe<Company>;
+  /** Reads a single `Market` that is related to this `RewardRecord`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRecord` that was updated by this mutation. */
+  rewardRecord?: Maybe<RewardRecord>;
+  /** An edge for our `RewardRecord`. May be used by Relay 1. */
+  rewardRecordEdge?: Maybe<RewardRecordsEdge>;
+  /** Reads a single `RewardTier` that is related to this `RewardRecord`. */
+  rewardTierByRewardTier?: Maybe<RewardTier>;
+};
+
+/** The output of our update `RewardRecord` mutation. */
+export type UpdateRewardRecordPayloadRewardRecordEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRecordsOrderBy>>;
+};
+
+/** All input for the `updateRewardRequestByNodeId` mutation. */
+export type UpdateRewardRequestByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardRequest` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `RewardRequest` being updated. */
+  patch: RewardRequestPatch;
+};
+
+/** All input for the `updateRewardRequestByRedemptionCode` mutation. */
+export type UpdateRewardRequestByRedemptionCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `RewardRequest` being updated. */
+  patch: RewardRequestPatch;
+  redemptionCode: Scalars["String"];
+};
+
+/** All input for the `updateRewardRequest` mutation. */
+export type UpdateRewardRequestInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `RewardRequest` being updated. */
+  patch: RewardRequestPatch;
+};
+
+/** The output of our update `RewardRequest` mutation. */
+export type UpdateRewardRequestPayload = {
+  __typename?: "UpdateRewardRequestPayload";
+  /** Reads a single `Account` that is related to this `RewardRequest`. */
+  account?: Maybe<Account>;
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Company` that is related to this `RewardRequest`. */
+  company?: Maybe<Company>;
+  /** Reads a single `Market` that is related to this `RewardRequest`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardRequest` that was updated by this mutation. */
+  rewardRequest?: Maybe<RewardRequest>;
+  /** An edge for our `RewardRequest`. May be used by Relay 1. */
+  rewardRequestEdge?: Maybe<RewardRequestsEdge>;
+};
+
+/** The output of our update `RewardRequest` mutation. */
+export type UpdateRewardRequestPayloadRewardRequestEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardRequestsOrderBy>>;
+};
+
+/** All input for the `updateRewardTierByMarketIdAndTierCodeAndRewardCategory` mutation. */
+export type UpdateRewardTierByMarketIdAndTierCodeAndRewardCategoryInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  /** An object where the defined keys will be set on the `RewardTier` being updated. */
+  patch: RewardTierPatch;
+  rewardCategory: Scalars["String"];
+  tierCode: Tier;
+};
+
+/** All input for the `updateRewardTierByNodeId` mutation. */
+export type UpdateRewardTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `RewardTier` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `RewardTier` being updated. */
+  patch: RewardTierPatch;
+};
+
+/** All input for the `updateRewardTier` mutation. */
+export type UpdateRewardTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `RewardTier` being updated. */
+  patch: RewardTierPatch;
+};
+
+/** The output of our update `RewardTier` mutation. */
+export type UpdateRewardTierPayload = {
+  __typename?: "UpdateRewardTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Reads a single `Market` that is related to this `RewardTier`. */
+  market?: Maybe<Market>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** The `RewardTier` that was updated by this mutation. */
+  rewardTier?: Maybe<RewardTier>;
+  /** An edge for our `RewardTier`. May be used by Relay 1. */
+  rewardTierEdge?: Maybe<RewardTiersEdge>;
+};
+
+/** The output of our update `RewardTier` mutation. */
+export type UpdateRewardTierPayloadRewardTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<RewardTiersOrderBy>>;
+};
+
+export type UpdateRewardTiersInput = {
+  rewardTiers?: InputMaybe<Array<RewardTiersInput>>;
+};
+
 /** All input for the `updateSystemByBmiRef` mutation. */
 export type UpdateSystemByBmiRefInput = {
   /** A unique reference for the system known to BMI */
@@ -21490,6 +24066,9 @@ export type _Entity =
   | Product
   | Project
   | ProjectMember
+  | RewardRecord
+  | RewardRequest
+  | RewardTier
   | System
   | SystemMember;
 
@@ -21620,6 +24199,8 @@ export type UpdateAccountOnAccountForAccountMarketIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21666,6 +24247,8 @@ export type UpdateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch =
     photo?: InputMaybe<Scalars["String"]>;
     photoUpload?: InputMaybe<Scalars["Upload"]>;
     projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+    rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+    rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
     /** ek */
     role?: InputMaybe<Role>;
     shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21713,6 +24296,8 @@ export type UpdateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21761,6 +24346,8 @@ export type UpdateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch
     photo?: InputMaybe<Scalars["String"]>;
     photoUpload?: InputMaybe<Scalars["Upload"]>;
     projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+    rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+    rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
     /** ek */
     role?: InputMaybe<Role>;
     shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21808,6 +24395,8 @@ export type UpdateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21855,6 +24444,8 @@ export type UpdateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21902,6 +24493,8 @@ export type UpdateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21949,6 +24542,8 @@ export type UpdateAccountOnNoteForNoteAuthorIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -21996,6 +24591,8 @@ export type UpdateAccountOnNotificationForNotificationAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -22043,6 +24640,106 @@ export type UpdateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch = {
   photo?: InputMaybe<Scalars["String"]>;
   photoUpload?: InputMaybe<Scalars["Upload"]>;
   projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
+  /** ek */
+  role?: InputMaybe<Role>;
+  shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
+  /** ek */
+  status?: InputMaybe<AccountStatus>;
+  termsCondition?: InputMaybe<Scalars["Boolean"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnRewardRecordForRewardRecordAccountIdFkeyPatch = {
+  certificationsUsingDoceboUserId?: InputMaybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberAccountIdFkeyInverseInput>;
+  /** When the account was created */
+  created?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: InputMaybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: InputMaybe<Scalars["String"]>;
+  /** The email address associated with the account */
+  email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
+  /** First name */
+  firstName?: InputMaybe<Scalars["String"]>;
+  guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  invitationsUsingId?: InputMaybe<InvitationSenderAccountIdFkeyInverseInput>;
+  /** Last name */
+  lastName?: InputMaybe<Scalars["String"]>;
+  /** fk */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<AccountMarketIdFkeyInput>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: InputMaybe<Scalars["Boolean"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: InputMaybe<Scalars["String"]>;
+  notesUsingId?: InputMaybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: InputMaybe<NotificationAccountIdFkeyInverseInput>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: InputMaybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: InputMaybe<Scalars["String"]>;
+  photoUpload?: InputMaybe<Scalars["Upload"]>;
+  projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
+  /** ek */
+  role?: InputMaybe<Role>;
+  shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
+  /** ek */
+  status?: InputMaybe<AccountStatus>;
+  termsCondition?: InputMaybe<Scalars["Boolean"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `account` being updated. */
+export type UpdateAccountOnRewardRequestForRewardRequestAccountIdFkeyPatch = {
+  certificationsUsingDoceboUserId?: InputMaybe<CertificationDoceboUserIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberAccountIdFkeyInverseInput>;
+  /** When the account was created */
+  created?: InputMaybe<Scalars["Datetime"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: InputMaybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: InputMaybe<Scalars["String"]>;
+  /** The email address associated with the account */
+  email?: InputMaybe<Scalars["String"]>;
+  evidenceItemsUsingId?: InputMaybe<EvidenceItemUploaderAccountIdFkeyInverseInput>;
+  /** First name */
+  firstName?: InputMaybe<Scalars["String"]>;
+  guaranteesToRequestorAccountIdUsingId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInverseInput>;
+  guaranteesToReviewerAccountIdUsingId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInverseInput>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  invitationsUsingId?: InputMaybe<InvitationSenderAccountIdFkeyInverseInput>;
+  /** Last name */
+  lastName?: InputMaybe<Scalars["String"]>;
+  /** fk */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<AccountMarketIdFkeyInput>;
+  /** Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent) */
+  migratedToAuth0?: InputMaybe<Scalars["Boolean"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: InputMaybe<Scalars["String"]>;
+  notesUsingId?: InputMaybe<NoteAuthorIdFkeyInverseInput>;
+  notificationsUsingId?: InputMaybe<NotificationAccountIdFkeyInverseInput>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: InputMaybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: InputMaybe<Scalars["String"]>;
+  photoUpload?: InputMaybe<Scalars["Upload"]>;
+  projectMembersUsingId?: InputMaybe<ProjectMemberAccountIdFkeyInverseInput>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordAccountIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestAccountIdFkeyInverseInput>;
   /** ek */
   role?: InputMaybe<Role>;
   shouldRemovePhoto?: InputMaybe<Scalars["Boolean"]>;
@@ -22252,6 +24949,7 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
     companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
     companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+    contractStatus?: InputMaybe<Scalars["Boolean"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
     /** The Company facebook website */
     facebook?: InputMaybe<Scalars["String"]>;
@@ -22291,6 +24989,9 @@ export type UpdateCompanyOnCompanyDocumentForCompanyDocumentCompanyIdFkeyPatch =
     registeredBy?: InputMaybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: InputMaybe<Scalars["Datetime"]>;
+    renewalDate?: InputMaybe<Scalars["Datetime"]>;
+    rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+    rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
     shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
     /** ek */
     status?: InputMaybe<CompanyStatus>;
@@ -22318,6 +25019,7 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22355,6 +25057,9 @@ export type UpdateCompanyOnCompanyForCompanyMarketIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -22382,6 +25087,7 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22419,6 +25125,9 @@ export type UpdateCompanyOnCompanyForCompanyRegisteredAddressIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -22446,6 +25155,7 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22485,6 +25195,9 @@ export type UpdateCompanyOnCompanyForCompanyTradingAddressIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -22510,6 +25223,7 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22549,6 +25263,9 @@ export type UpdateCompanyOnCompanyMemberForCompanyMemberCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -22577,6 +25294,7 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
     companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
     companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+    contractStatus?: InputMaybe<Scalars["Boolean"]>;
     createdAt?: InputMaybe<Scalars["Datetime"]>;
     /** The Company facebook website */
     facebook?: InputMaybe<Scalars["String"]>;
@@ -22616,6 +25334,9 @@ export type UpdateCompanyOnCompanyOperationForCompanyOperationCompanyFkeyPatch =
     registeredBy?: InputMaybe<Scalars["String"]>;
     /** the date that the Company registration form was submitted */
     registeredDate?: InputMaybe<Scalars["Datetime"]>;
+    renewalDate?: InputMaybe<Scalars["Datetime"]>;
+    rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+    rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
     shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
     /** ek */
     status?: InputMaybe<CompanyStatus>;
@@ -22643,6 +25364,7 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22682,6 +25404,9 @@ export type UpdateCompanyOnInvitationForInvitationCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -22709,6 +25434,7 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
   companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
   companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
   createdAt?: InputMaybe<Scalars["Datetime"]>;
   /** The Company facebook website */
   facebook?: InputMaybe<Scalars["String"]>;
@@ -22748,6 +25474,149 @@ export type UpdateCompanyOnProjectForProjectCompanyIdFkeyPatch = {
   registeredBy?: InputMaybe<Scalars["String"]>;
   /** the date that the Company registration form was submitted */
   registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
+  shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
+  /** ek */
+  status?: InputMaybe<CompanyStatus>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  tier?: InputMaybe<Tier>;
+  /** fk */
+  tradingAddressId?: InputMaybe<Scalars["Int"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The Company website URL */
+  website?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnRewardRecordForRewardRecordCompanyIdFkeyPatch = {
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: InputMaybe<Scalars["String"]>;
+  addressToRegisteredAddressId?: InputMaybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: InputMaybe<CompanyTradingAddressIdFkeyInput>;
+  /** ek */
+  businessType?: InputMaybe<BusinessType>;
+  companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The Company facebook website */
+  facebook?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  invitationsUsingId?: InputMaybe<InvitationCompanyIdFkeyInverseInput>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: InputMaybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: InputMaybe<Scalars["String"]>;
+  logoUpload?: InputMaybe<Scalars["Upload"]>;
+  /** fk */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<CompanyMarketIdFkeyInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: InputMaybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: InputMaybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: InputMaybe<Scalars["String"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: InputMaybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: InputMaybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: InputMaybe<Scalars["String"]>;
+  projectsUsingId?: InputMaybe<ProjectCompanyIdFkeyInverseInput>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: InputMaybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: InputMaybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: InputMaybe<Scalars["Int"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: InputMaybe<Scalars["String"]>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: InputMaybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
+  shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
+  /** ek */
+  status?: InputMaybe<CompanyStatus>;
+  /** The Tax number in that Market, such as the VAT number */
+  taxNumber?: InputMaybe<Scalars["String"]>;
+  /** ek */
+  tier?: InputMaybe<Tier>;
+  /** fk */
+  tradingAddressId?: InputMaybe<Scalars["Int"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: InputMaybe<Scalars["String"]>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The Company website URL */
+  website?: InputMaybe<Scalars["String"]>;
+};
+
+/** An object where the defined keys will be set on the `company` being updated. */
+export type UpdateCompanyOnRewardRequestForRewardRequestCompanyIdFkeyPatch = {
+  /** A descirption of the Company intended for Find a Roofer */
+  aboutUs?: InputMaybe<Scalars["String"]>;
+  addressToRegisteredAddressId?: InputMaybe<CompanyRegisteredAddressIdFkeyInput>;
+  addressToTradingAddressId?: InputMaybe<CompanyTradingAddressIdFkeyInput>;
+  /** ek */
+  businessType?: InputMaybe<BusinessType>;
+  companyDocumentsUsingId?: InputMaybe<CompanyDocumentCompanyIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberCompanyIdFkeyInverseInput>;
+  companyOperationsUsingId?: InputMaybe<CompanyOperationCompanyFkeyInverseInput>;
+  contractStatus?: InputMaybe<Scalars["Boolean"]>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The Company facebook website */
+  facebook?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  invitationsUsingId?: InputMaybe<InvitationCompanyIdFkeyInverseInput>;
+  /** Their Company LinkedIn page URL */
+  linkedIn?: InputMaybe<Scalars["String"]>;
+  /** A reference to the logo image */
+  logo?: InputMaybe<Scalars["String"]>;
+  logoUpload?: InputMaybe<Scalars["Upload"]>;
+  /** fk */
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<CompanyMarketIdFkeyInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: InputMaybe<Scalars["String"]>;
+  /** The registered name of the Company */
+  name?: InputMaybe<Scalars["String"]>;
+  /** the email address to contact the owner */
+  ownerEmail?: InputMaybe<Scalars["String"]>;
+  /** the name of the owner of the Company */
+  ownerFullname?: InputMaybe<Scalars["String"]>;
+  /** the phone number to contact the owner */
+  ownerPhone?: InputMaybe<Scalars["String"]>;
+  /** The Company public phone number */
+  phone?: InputMaybe<Scalars["String"]>;
+  projectsUsingId?: InputMaybe<ProjectCompanyIdFkeyInverseInput>;
+  /** The email address that they can be contacted with by the public assuming they are listed */
+  publicEmail?: InputMaybe<Scalars["String"]>;
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  referenceNumber?: InputMaybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: InputMaybe<Scalars["Int"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: InputMaybe<Scalars["String"]>;
+  /** the email address of the person who filled out the company registration form */
+  registeredBy?: InputMaybe<Scalars["String"]>;
+  /** the date that the Company registration form was submitted */
+  registeredDate?: InputMaybe<Scalars["Datetime"]>;
+  renewalDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordCompanyIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestCompanyIdFkeyInverseInput>;
   shouldRemoveLogo?: InputMaybe<Scalars["Boolean"]>;
   /** ek */
   status?: InputMaybe<CompanyStatus>;
@@ -23243,6 +26112,10 @@ export type UpdateMarketOnAccountForAccountMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23291,6 +26164,10 @@ export type UpdateMarketOnCompanyForCompanyMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23339,6 +26216,10 @@ export type UpdateMarketOnCompanyMemberForCompanyMemberMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23387,6 +26268,166 @@ export type UpdateMarketOnProductForProductMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnRewardRecordForRewardRecordMarketIdFkeyPatch = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain?: InputMaybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language?: InputMaybe<Language>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnRewardRequestForRewardRequestMarketIdFkeyPatch = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain?: InputMaybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language?: InputMaybe<Language>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
+  /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
+  sendMailbox?: InputMaybe<Scalars["String"]>;
+  /** The From name used when sending an email */
+  sendName?: InputMaybe<Scalars["String"]>;
+  systemMembersUsingId?: InputMaybe<SystemMemberMarketIdFkeyInverseInput>;
+  systemsUsingId?: InputMaybe<SystemMarketIdFkeyInverseInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `market` being updated. */
+export type UpdateMarketOnRewardTierForRewardTierMarketIdFkeyPatch = {
+  accountsUsingId?: InputMaybe<AccountMarketIdFkeyInverseInput>;
+  /** The space in Contenful */
+  cmsSpaceId?: InputMaybe<Scalars["String"]>;
+  companiesUsingId?: InputMaybe<CompanyMarketIdFkeyInverseInput>;
+  companyMembersUsingId?: InputMaybe<CompanyMemberMarketIdFkeyInverseInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  /** The default catalogue for the Market.  All users in the Market are able to see all courses in the default catalog from InTouch */
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT2?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT3?: InputMaybe<Scalars["Int"]>;
+  doceboCatalogueIdT4?: InputMaybe<Scalars["Int"]>;
+  /** The Docebo branch that new user are inserted into if they register as a Company Admin. Note that this never gets updated by InTouch. Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboCompanyAdminBranchId?: InputMaybe<Scalars["String"]>;
+  /** The Docebo branch that new user are inserted into if they register as an installer.  Note that this never gets updated by InTouch.  Originally there was going to be a distinction between installer branches and admin branches in Docebo, but this is no longer the preferred approach. */
+  doceboInstallersBranchId?: InputMaybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain?: InputMaybe<Scalars["String"]>;
+  /** The coordinates of the middle of the Market on a map */
+  geoMiddle?: InputMaybe<PointInput>;
+  /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
+  gtag?: InputMaybe<Scalars["String"]>;
+  gtagMarketMedia?: InputMaybe<Scalars["String"]>;
+  /** Primary key */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** ek */
+  language?: InputMaybe<Language>;
+  /** The length of the radius in km (from the geo_middle lat/lng), for which the Google Places API biases the search results for address autocomplete. Locations outside of the radius will not be excluded. */
+  locationBiasRadiusKm?: InputMaybe<Scalars["Int"]>;
+  merchandiseSso?: InputMaybe<Scalars["Boolean"]>;
+  /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
+  merchandisingUrl?: InputMaybe<Scalars["String"]>;
+  /** A short name for the market, e.g. Italy, Norway, Netherlands */
+  name?: InputMaybe<Scalars["String"]>;
+  optanonClass?: InputMaybe<Scalars["String"]>;
+  productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
+  projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23435,6 +26476,10 @@ export type UpdateMarketOnSystemForSystemMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23483,6 +26528,10 @@ export type UpdateMarketOnSystemMemberForSystemMemberMarketIdFkeyPatch = {
   productsUsingId?: InputMaybe<ProductMarketIdFkeyInverseInput>;
   /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: InputMaybe<Scalars["Boolean"]>;
+  rewardEffectiveDate?: InputMaybe<Scalars["Datetime"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordMarketIdFkeyInverseInput>;
+  rewardRequestsUsingId?: InputMaybe<RewardRequestMarketIdFkeyInverseInput>;
+  rewardTiersUsingId?: InputMaybe<RewardTierMarketIdFkeyInverseInput>;
   /** The mailbox on intouch.bmigroup.com that emails will be sent from for this Market */
   sendMailbox?: InputMaybe<Scalars["String"]>;
   /** The From name used when sending an email */
@@ -23964,6 +27013,139 @@ export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
   startDate?: InputMaybe<Scalars["Datetime"]>;
   /** ek */
   technology?: InputMaybe<Technology>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `rewardRecord` being updated. */
+export type UpdateRewardRecordOnRewardRecordForRewardRecordAccountIdFkeyPatch =
+  {
+    accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+    companyId?: InputMaybe<Scalars["Int"]>;
+    companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    rewardTier?: InputMaybe<Scalars["Int"]>;
+    rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardRecord` being updated. */
+export type UpdateRewardRecordOnRewardRecordForRewardRecordCompanyIdFkeyPatch =
+  {
+    accountId?: InputMaybe<Scalars["Int"]>;
+    accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+    companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    rewardTier?: InputMaybe<Scalars["Int"]>;
+    rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardRecord` being updated. */
+export type UpdateRewardRecordOnRewardRecordForRewardRecordMarketIdFkeyPatch = {
+  accountId?: InputMaybe<Scalars["Int"]>;
+  accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+  companyId?: InputMaybe<Scalars["Int"]>;
+  companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  rewardTier?: InputMaybe<Scalars["Int"]>;
+  rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `rewardRecord` being updated. */
+export type UpdateRewardRecordOnRewardRecordForRewardRecordRewardTierFkeyPatch =
+  {
+    accountId?: InputMaybe<Scalars["Int"]>;
+    accountToAccountId?: InputMaybe<RewardRecordAccountIdFkeyInput>;
+    companyId?: InputMaybe<Scalars["Int"]>;
+    companyToCompanyId?: InputMaybe<RewardRecordCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRecordMarketIdFkeyInput>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    rewardTierToRewardTier?: InputMaybe<RewardRecordRewardTierFkeyInput>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardRequest` being updated. */
+export type UpdateRewardRequestOnRewardRequestForRewardRequestAccountIdFkeyPatch =
+  {
+    accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+    companyId?: InputMaybe<Scalars["Int"]>;
+    companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+    redemptionCode?: InputMaybe<Scalars["String"]>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardRequest` being updated. */
+export type UpdateRewardRequestOnRewardRequestForRewardRequestCompanyIdFkeyPatch =
+  {
+    accountId?: InputMaybe<Scalars["Int"]>;
+    accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+    companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketId?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+    redemptionCode?: InputMaybe<Scalars["String"]>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardRequest` being updated. */
+export type UpdateRewardRequestOnRewardRequestForRewardRequestMarketIdFkeyPatch =
+  {
+    accountId?: InputMaybe<Scalars["Int"]>;
+    accountToAccountId?: InputMaybe<RewardRequestAccountIdFkeyInput>;
+    companyId?: InputMaybe<Scalars["Int"]>;
+    companyToCompanyId?: InputMaybe<RewardRequestCompanyIdFkeyInput>;
+    createdAt?: InputMaybe<Scalars["Datetime"]>;
+    id?: InputMaybe<Scalars["Int"]>;
+    marketToMarketId?: InputMaybe<RewardRequestMarketIdFkeyInput>;
+    redemptionCode?: InputMaybe<Scalars["String"]>;
+    rewardPoint?: InputMaybe<Scalars["Int"]>;
+    updatedAt?: InputMaybe<Scalars["Datetime"]>;
+  };
+
+/** An object where the defined keys will be set on the `rewardTier` being updated. */
+export type UpdateRewardTierOnRewardRecordForRewardRecordRewardTierFkeyPatch = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory?: InputMaybe<Scalars["String"]>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode?: InputMaybe<Tier>;
+  updatedAt?: InputMaybe<Scalars["Datetime"]>;
+};
+
+/** An object where the defined keys will be set on the `rewardTier` being updated. */
+export type UpdateRewardTierOnRewardTierForRewardTierMarketIdFkeyPatch = {
+  createdAt?: InputMaybe<Scalars["Datetime"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketToMarketId?: InputMaybe<RewardTierMarketIdFkeyInput>;
+  rewardCategory?: InputMaybe<Scalars["String"]>;
+  rewardPoint?: InputMaybe<Scalars["Int"]>;
+  rewardRecordsUsingId?: InputMaybe<RewardRecordRewardTierFkeyInverseInput>;
+  tierCode?: InputMaybe<Tier>;
   updatedAt?: InputMaybe<Scalars["Datetime"]>;
 };
 

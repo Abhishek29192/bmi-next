@@ -3,6 +3,7 @@ import { sendMessageWithTemplate } from "../mailer";
 import { getTargetDomain } from "../../utils/account";
 import { EventMessage } from "../contentful";
 import { publish, TOPICS } from "../../services/events";
+import { addRewardRecord } from "../rewardRecord";
 
 const { FRONTEND_URL } = process.env;
 
@@ -245,7 +246,16 @@ export const releaseGuaranteePdf = async (
 
   try {
     const {
-      rows: [{ status, building_owner_mail, file_storage_id, coverage, domain }]
+      rows: [
+        {
+          status,
+          building_owner_mail,
+          file_storage_id,
+          coverage,
+          domain,
+          requestor_account_id
+        }
+      ]
     } = await pgRootPool.query(
       `SELECT g.*, p.building_owner_mail, m.domain FROM guarantee g JOIN project p ON g.project_id = p.id JOIN company c ON p.company_id = c.id JOIN market m ON c.market_id = m.id WHERE g.id = $1`,
       [id]
@@ -257,8 +267,6 @@ export const releaseGuaranteePdf = async (
       `SELECT g.system_bmi_ref as system_name, p.name as product_name FROM guarantee g JOIN product p ON p.bmi_ref = g.product_bmi_ref WHERE g.id = $1 UNION SELECT s.name as system_name, g.product_bmi_ref as product_name FROM guarantee g JOIN system_member sm ON g.system_bmi_ref = sm.system_bmi_ref JOIN system s ON sm.system_bmi_ref = s.bmi_ref WHERE g.id = $1`,
       [id]
     );
-
-    await pgRootPool.query(`SELECT FROM guarantee g `, []);
 
     const signedFileStorageUrl =
       await context.storageClient.getPrivateAssetSignedUrl(file_storage_id);
@@ -290,6 +298,21 @@ export const releaseGuaranteePdf = async (
     };
 
     const messageId = await publish(context, TOPICS.GUARANTEE_PDF, data);
+    await addRewardRecord(
+      null,
+      {
+        input: {
+          accountId: requestor_account_id,
+          rewardCategory:
+            coverage === "PRODUCT"
+              ? "rc4"
+              : coverage === "SYSTEM"
+              ? "rc5"
+              : "rc6"
+        }
+      },
+      context
+    );
     return { messageId };
   } catch (e) {
     logger.error({

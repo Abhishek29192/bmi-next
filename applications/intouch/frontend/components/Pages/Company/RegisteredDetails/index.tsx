@@ -15,6 +15,7 @@ import {
   useCompanyPageContext,
   ContextProps
 } from "../../../../context/CompanyPageContext";
+import { formatDate } from "../../../../lib/utils/date";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {
@@ -61,7 +62,9 @@ export const CompanyRegisteredDetails = ({
     referenceNumber,
     registeredAddress,
     taxNumber,
-    tier
+    tier,
+    contractStatus,
+    renewalDate
   } = company;
   const { market } = useMarketContext();
   const { operationTypes } = useCompanyPageContext();
@@ -117,6 +120,18 @@ export const CompanyRegisteredDetails = ({
             {formatCompanyOperations(t, operations, operationTypes)}
           </InfoPair>
         ) : null}
+
+        <InfoPair title={t("company-page:details.contractStatus")}>
+          {contractStatus
+            ? t("company-page:details.contractSigned")
+            : t("company-page:details.contractNotSigned")}
+        </InfoPair>
+
+        <InfoPair title={t("company-page:details.renewalDate")}>
+          {renewalDate
+            ? formatDate(renewalDate)
+            : t("company-page:details.renewalDateNA")}
+        </InfoPair>
 
         <EditCompanyButton
           company={company}
