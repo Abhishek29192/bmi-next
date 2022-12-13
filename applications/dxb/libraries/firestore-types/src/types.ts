@@ -239,3 +239,22 @@ export type Video = {
 };
 
 export type CategoryGroup = { label: string; code: string };
+
+export type YoutubeThumbnailDetail = {
+  height?: number | null;
+  url?: string | null;
+  width?: number | null;
+};
+
+export type YoutubeDetails = {
+  uploadStatus: string | undefined;
+  thumbnails: {
+    default?: YoutubeThumbnailDetail;
+    medium?: YoutubeThumbnailDetail;
+    high?: YoutubeThumbnailDetail;
+    standard?: YoutubeThumbnailDetail;
+    maxres?: YoutubeThumbnailDetail;
+  };
+  embedWidth: number;
+  embedHeight: number;
+};

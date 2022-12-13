@@ -8,6 +8,12 @@ const { GCP_PROJECT_ID } = process.env;
 
 let firestoreCache: Firestore;
 
+/**
+ * Creates a Firestore client.
+ *
+ * @returns {Firestore} Configured Firestore client
+ * @throws {Error} GCP_PROJECT_ID must be provided
+ */
 export const getFirestore = (): Firestore => {
   if (!firestoreCache) {
     if (!GCP_PROJECT_ID) {

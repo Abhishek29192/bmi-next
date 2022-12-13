@@ -53,7 +53,7 @@ export const youtubeCache: HttpFunction = async (req, res) => {
 
     const youtubeDetails = await getYoutubeDetails(youtubeId);
 
-    if (!youtubeDetails.items || youtubeDetails.items.length === 0) {
+    if (!youtubeDetails) {
       return res.status(Status.HTTP_404_NOT_FOUND).send({
         message: `Youtube video with id: "${youtubeId}" not found.`
       });
