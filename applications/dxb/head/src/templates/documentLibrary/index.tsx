@@ -32,6 +32,7 @@ import {
   updateFilterValue
 } from "../../utils/filters";
 import { Format } from "./components/DocumentResults";
+import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import {
@@ -40,7 +41,6 @@ import {
   resultTypeFormatMap
 } from "./helpers/documentsLibraryHelpers";
 import { DocumentLibraryProps, QueryParams } from "./types";
-import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
 
 export const PAGE_SIZE = 24;
 

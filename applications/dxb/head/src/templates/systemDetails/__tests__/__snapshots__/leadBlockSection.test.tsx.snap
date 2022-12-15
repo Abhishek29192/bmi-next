@@ -3,22 +3,25 @@
 exports[`LeadBlockSection tests When user navigates with selected systems query string should render back to your selection button 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root-167 Section-white-171"
+    class="LeadBlockSection Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-175"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root LeadBlock-root-177 MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="LeadBlock-leadBlockContentSection-179"
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <svg
                 class="brandLogo"
@@ -34,81 +37,76 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                   />
                 </g>
               </svg>
-            </div>
-            <div
-              class="LeadBlock-leadBlockContentSection-179"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <h1
-                class="MuiTypography-root Typography-root-182 Typography-underline-184 MuiTypography-h1"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
                 data-testid="typography"
               >
                 lead Block section
               </h1>
-            </div>
-            <div
-              class="ctaContainer LeadBlock-leadBlockContentSection-179"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-190 MuiButton-text Button-text-191 backToYourSelectionBtn MuiButton-textPrimary MuiButton-textSizeLarge MuiButton-sizeLarge"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge backToYourSelectionBtn css-1ioi680-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.leadBlock.backToYourSelection\\",\\"action\\":\\"system-configurator-page?referer=sys_details\\"}"
                 href="system-configurator-page?referer=sys_details"
                 rel="noopener noreferrer"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label Button-label-193"
+                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeLarge css-htszrh-MuiButton-startIcon"
                 >
-                  <span
-                    class="MuiButton-startIcon Button-startIcon-194 MuiButton-iconSizeLarge"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowBackIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                      />
-                    </svg>
-                  </span>
-                  MC: sdp.leadBlock.backToYourSelection
+                    <path
+                      d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                    />
+                  </svg>
                 </span>
+                MC: sdp.leadBlock.backToYourSelection
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-190 MuiButton-contained Button-contained-192 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
+                cta label
                 <span
-                  class="MuiButton-label Button-label-193"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
                 >
-                  cta label
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -120,22 +118,25 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
 exports[`LeadBlockSection tests should not render systemAttributes Card with empty uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root-124 Section-white-128"
+    class="LeadBlockSection Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-132"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root LeadBlock-root-134 MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="LeadBlock-leadBlockContentSection-136"
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <svg
                 class="brandLogo"
@@ -151,50 +152,49 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
                   />
                 </g>
               </svg>
-            </div>
-            <div
-              class="LeadBlock-leadBlockContentSection-136"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <h1
-                class="MuiTypography-root Typography-root-139 Typography-underline-141 MuiTypography-h1"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
                 data-testid="typography"
               >
                 lead Block section
               </h1>
-            </div>
-            <div
-              class="ctaContainer LeadBlock-leadBlockContentSection-136"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-147 MuiButton-contained Button-contained-149 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
+                cta label
                 <span
-                  class="MuiButton-label Button-label-150"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
                 >
-                  cta label
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -206,22 +206,25 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
 exports[`LeadBlockSection tests should render 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root-1 Section-white-5"
+    class="LeadBlockSection Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root LeadBlock-root-11 MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="LeadBlock-leadBlockContentSection-13"
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <svg
                 class="brandLogo"
@@ -237,50 +240,49 @@ exports[`LeadBlockSection tests should render 1`] = `
                   />
                 </g>
               </svg>
-            </div>
-            <div
-              class="LeadBlock-leadBlockContentSection-13"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <h1
-                class="MuiTypography-root Typography-root-16 Typography-underline-18 MuiTypography-h1"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
                 data-testid="typography"
               >
                 lead Block section
               </h1>
-            </div>
-            <div
-              class="ctaContainer LeadBlock-leadBlockContentSection-13"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
+                cta label
                 <span
-                  class="MuiButton-label Button-label-27"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
                 >
-                  cta label
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-            </div>
+            </p>
           </div>
         </div>
       </div>
@@ -292,22 +294,25 @@ exports[`LeadBlockSection tests should render 1`] = `
 exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section-root-45 Section-white-49"
+    class="LeadBlockSection Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-53"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root LeadBlock-root-55 MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="LeadBlock-leadBlockContentSection-57"
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <svg
                 class="brandLogo"
@@ -323,92 +328,92 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                   />
                 </g>
               </svg>
-            </div>
-            <div
-              class="LeadBlock-leadBlockContentSection-57"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <h1
-                class="MuiTypography-root Typography-root-60 Typography-underline-62 MuiTypography-h1"
+                class="MuiTypography-root MuiTypography-h1 Typography-underline css-1stz9tq-MuiTypography-root"
                 data-testid="typography"
               >
                 lead Block section
               </h1>
-            </div>
-            <div
-              class="ctaContainer LeadBlock-leadBlockContentSection-57"
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body1 ctaContainer css-131kag5-MuiTypography-root"
+              data-testid="typography"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-68 MuiButton-contained Button-contained-70 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium quotationBtn css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
+                cta label
                 <span
-                  class="MuiButton-label Button-label-71"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
                 >
-                  cta label
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
-            </div>
+            </p>
           </div>
           <div
-            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 card css-5ynyu1-MuiGrid-root"
             data-testid="system-attributes-card"
           >
             <div
-              class="ColorPair-root-92 ColorPair-pearl-94"
+              class="ColorPair-pearl css-1pt14k0"
             >
               <div
-                class="PostItCard-root-88"
+                class="css-qtgtj9"
               >
                 <div
-                  class="PostItCard-section-89"
+                  class="css-wepxue"
                 >
                   <div
                     class="iconList"
                   >
                     <ul
-                      class="IconList-root-118"
+                      class="css-1err4t"
                     >
                       <li
-                        class="IconList-listItem-119 IconList-isCompact-120"
+                        class="IconList-isCompact css-nggtm6"
                       >
                         <div
-                          class="IconList-icon-121"
+                          class="IconList-icon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root BlueCheckIcon-root-44"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bt3ayq-MuiSvgIcon-root"
+                            data-testid="CheckIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
                             <path
-                              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
                             />
                           </svg>
                         </div>
                         <div
-                          class="IconList-content-122"
+                          class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root Typography-root-60 MuiTypography-body1"
+                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                             data-testid="typography"
                           >
                             feature 1
@@ -416,27 +421,28 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                         </div>
                       </li>
                       <li
-                        class="IconList-listItem-119 IconList-isCompact-120"
+                        class="IconList-isCompact css-nggtm6"
                       >
                         <div
-                          class="IconList-icon-121"
+                          class="IconList-icon"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root BlueCheckIcon-root-44"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bt3ayq-MuiSvgIcon-root"
+                            data-testid="CheckIcon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
                             <path
-                              d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                              d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
                             />
                           </svg>
                         </div>
                         <div
-                          class="IconList-content-122"
+                          class="css-1lg3fd1"
                         >
                           <p
-                            class="MuiTypography-root Typography-root-60 MuiTypography-body1"
+                            class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                             data-testid="typography"
                           >
                             feature 2

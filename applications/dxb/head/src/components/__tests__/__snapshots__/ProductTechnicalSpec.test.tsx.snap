@@ -6,55 +6,59 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
     <div
       class="ProductTechnicalSpec"
     >
-      <div>
+      <div
+        class="css-46e850"
+      >
         <table
-          class="MuiTable-root Table-root-115 Table-evenColor-117"
+          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+          data-testid="table"
         >
           <thead
-            class="MuiTableHead-root ColorPair-root-127 ColorPair-pearl-129"
+            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+            data-testid="table-head"
           >
             <tr
-              class="MuiTableRow-root MuiTableRow-head"
+              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
             >
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               >
                 appearanceAttributes
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               />
             </tr>
           </thead>
           <tbody
-            class="MuiTableBody-root"
+            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 measurement
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 200mm
               </td>
             </tr>
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 measurement
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 100mm
               </td>
@@ -73,55 +77,59 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
     <div
       class="ProductTechnicalSpec"
     >
-      <div>
+      <div
+        class="css-46e850"
+      >
         <table
-          class="MuiTable-root Table-root-77 Table-evenColor-79"
+          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+          data-testid="table"
         >
           <thead
-            class="MuiTableHead-root ColorPair-root-89 ColorPair-pearl-91"
+            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+            data-testid="table-head"
           >
             <tr
-              class="MuiTableRow-root MuiTableRow-head"
+              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
             >
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               >
                 appearanceAttributes
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               />
             </tr>
           </thead>
           <tbody
-            class="MuiTableBody-root"
+            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 feature1
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 200mm
               </td>
             </tr>
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 feature1
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 100mm
               </td>
@@ -140,41 +148,45 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     <div
       class="ProductTechnicalSpec"
     >
-      <div>
+      <div
+        class="css-46e850"
+      >
         <table
-          class="MuiTable-root Table-root-39 Table-evenColor-41"
+          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+          data-testid="table"
         >
           <thead
-            class="MuiTableHead-root ColorPair-root-51 ColorPair-pearl-53"
+            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+            data-testid="table-head"
           >
             <tr
-              class="MuiTableRow-root MuiTableRow-head"
+              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
             >
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               >
                 appearanceAttributes
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               />
             </tr>
           </thead>
           <tbody
-            class="MuiTableBody-root"
+            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 feature1
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 200mm
               </td>
@@ -193,41 +205,45 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     <div
       class="ProductTechnicalSpec"
     >
-      <div>
+      <div
+        class="css-46e850"
+      >
         <table
-          class="MuiTable-root Table-root-1 Table-evenColor-3"
+          class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+          data-testid="table"
         >
           <thead
-            class="MuiTableHead-root ColorPair-root-13 ColorPair-pearl-15"
+            class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+            data-testid="table-head"
           >
             <tr
-              class="MuiTableRow-root MuiTableRow-head"
+              class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
             >
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               >
                 appearanceAttributes
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head"
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                 scope="col"
               />
             </tr>
           </thead>
           <tbody
-            class="MuiTableBody-root"
+            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root"
+              class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
               >
                 feature1
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
               >
                 200
               </td>

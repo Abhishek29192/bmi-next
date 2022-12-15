@@ -1,8 +1,8 @@
 import { Button, Form, Typography } from "@bmi-digital/components";
-import { useMediaQuery, useTheme } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Divider from "@material-ui/core/Divider";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useMediaQuery, useTheme } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Divider from "@mui/material/Divider";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import classnames from "classnames";
 import React, { FormEvent } from "react";
 import styles from "./CalculatorStepper.module.scss";
@@ -68,7 +68,7 @@ const Step = ({
   children
 }: StepProps) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const backButton = backLabel ? (
     <Button

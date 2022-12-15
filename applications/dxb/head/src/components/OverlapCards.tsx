@@ -1,5 +1,5 @@
 import { Container, CTACard, Grid } from "@bmi-digital/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";

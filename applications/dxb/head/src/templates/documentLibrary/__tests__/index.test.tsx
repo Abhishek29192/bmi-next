@@ -1,6 +1,6 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
-import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
+import { RenderResult, fireEvent, waitFor } from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
@@ -8,13 +8,13 @@ import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
-import { DocumentLibraryPageContext } from "../types";
 import {
   createCollapseData,
   createData,
   createESDocumentHitResponseMock,
   filtersMock
 } from "../__mocks__/index.mock";
+import { DocumentLibraryPageContext } from "../types";
 
 const count = PAGE_SIZE;
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -169,14 +169,14 @@ describe("Document Library page", () => {
         }
       }
     });
-    const { container } = renderWithProviders({
+    const { container, getByTestId } = renderWithProviders({
       pageData: createData([], { resultsType: "Technical" })
     });
 
     await waitFor(() => expect(mockQueryES).toBeCalled());
-    expect(
-      container.querySelector("[class*=DocumentTechnicalTableResults-root]")
-    ).toBeTruthy();
+    await waitFor(() =>
+      expect(getByTestId("tech-results-table")).toBeInTheDocument()
+    );
     expect(container.querySelector(`a[href="https://url"]`)).toBeTruthy();
     expect(container.querySelector(".results")).toBeTruthy();
     expect(container.querySelector(".DocumentResultsFooter")).toBeTruthy();
@@ -440,10 +440,13 @@ describe("Document Library page", () => {
     );
     expect(title).toBeFalsy();
     fireEvent.click(checkbox2);
+    console.log("Hovering over checkbox");
     fireEvent.mouseOver(checkbox2);
-    expect(
-      container.querySelector("[title='MC: documents.download.maxReached']")
-    ).toBeTruthy();
+    waitFor(() =>
+      expect(
+        container.querySelector("[title='MC: documents.download.maxReached']")
+      ).toBeTruthy()
+    );
   });
 
   it("should prevent document fetching in preview mode", async () => {

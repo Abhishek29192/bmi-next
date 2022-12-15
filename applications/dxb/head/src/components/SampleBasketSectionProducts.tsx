@@ -5,8 +5,8 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { isDefined } from "@bmi/utils";
-import { useMediaQuery, useTheme } from "@material-ui/core";
-import { Remove } from "@material-ui/icons";
+import { useMediaQuery, useTheme } from "@mui/material";
+import { Remove } from "@mui/icons-material";
 import { navigate } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -25,7 +25,7 @@ const SampleBasketSectionProducts = () => {
   const { getMicroCopy, countryCode } = useSiteContext();
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const sampleCards = basketState.products.map((sample) => {
     const media = renderImage(

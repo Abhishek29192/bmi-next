@@ -12,7 +12,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -103,7 +103,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -244,7 +244,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -285,7 +285,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -326,7 +326,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -614,24 +614,26 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert Alert--first"
     >
       <div
-        class="AlertBanner-root-9 ColorPair-root-16 ColorPair-alert-24"
+        class="ColorPair-alert css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-13"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-42"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-14 Typography-root-1 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-15"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -650,24 +652,26 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       class="Alert Alert--last"
     >
       <div
-        class="AlertBanner-root-9 ColorPair-root-16 ColorPair-alabaster-25"
+        class="ColorPair-alabaster css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-13"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-42"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-14 Typography-root-1 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-15"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -701,7 +705,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-52 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -792,7 +796,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-52 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -933,7 +937,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-52 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -974,7 +978,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-52 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -1015,7 +1019,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-52 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -1303,24 +1307,26 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert Alert--first"
     >
       <div
-        class="AlertBanner-root-60 ColorPair-root-67 ColorPair-alert-75"
+        class="ColorPair-alert css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-64"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-93"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-65 Typography-root-52 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-66"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1339,24 +1345,26 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="Alert Alert--last"
     >
       <div
-        class="AlertBanner-root-60 ColorPair-root-67 ColorPair-alabaster-76"
+        class="ColorPair-alabaster css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-64"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-93"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-65 Typography-root-52 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-66"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -1378,13 +1386,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       class="FieldContainer"
     >
       <h3
-        class="MuiTypography-root Typography-root-52 MuiTypography-h3"
+        class="MuiTypography-root MuiTypography-h3  css-d7brak-MuiTypography-root"
         data-testid="typography"
       >
         Measurements (showing because debugging mode is ON)
       </h3>
       <h4
-        class="MuiTypography-root Typography-root-52 MuiTypography-h4"
+        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
         data-testid="typography"
       >
         Lines
@@ -1424,7 +1432,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </li>
       </ul>
       <h4
-        class="MuiTypography-root Typography-root-52 MuiTypography-h4"
+        class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
         data-testid="typography"
       >
         Faces
@@ -1466,7 +1474,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-205 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -1557,7 +1565,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-205 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -1698,7 +1706,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-205 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -1739,7 +1747,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-205 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -1780,7 +1788,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-205 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -1968,24 +1976,26 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert Alert--first"
     >
       <div
-        class="AlertBanner-root-213 ColorPair-root-220 ColorPair-alert-228"
+        class="ColorPair-alert css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-217"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-246"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-218 Typography-root-205 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-219"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -2004,24 +2014,26 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       class="Alert Alert--last"
     >
       <div
-        class="AlertBanner-root-213 ColorPair-root-220 ColorPair-alabaster-229"
+        class="ColorPair-alabaster css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-217"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-246"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-218 Typography-root-205 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-219"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -2055,7 +2067,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-154 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -2146,7 +2158,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-154 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -2287,7 +2299,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-154 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -2328,7 +2340,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-154 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -2369,7 +2381,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-154 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -2557,24 +2569,26 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert Alert--first"
     >
       <div
-        class="AlertBanner-root-162 ColorPair-root-169 ColorPair-alert-177"
+        class="ColorPair-alert css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-166"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-195"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-167 Typography-root-154 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-168"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -2593,24 +2607,26 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       class="Alert Alert--last"
     >
       <div
-        class="AlertBanner-root-162 ColorPair-root-169 ColorPair-alabaster-178"
+        class="ColorPair-alabaster css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-166"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-195"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-167 Typography-root-154 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-168"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -2644,7 +2660,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-103 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.tiles
@@ -2735,7 +2751,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-103 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.fixings
@@ -2876,7 +2892,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-103 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.ventilation
@@ -2917,7 +2933,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-103 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.sealing
@@ -2958,7 +2974,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography-root-103 MuiTypography-h6"
+          class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
           data-testid="typography"
         >
           MC: results.categories.accessories
@@ -3146,24 +3162,26 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert Alert--first"
     >
       <div
-        class="AlertBanner-root-111 ColorPair-root-118 ColorPair-alert-126"
+        class="ColorPair-alert css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-115"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-144"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-116 Typography-root-103 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-117"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -3182,24 +3200,26 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       class="Alert Alert--last"
     >
       <div
-        class="AlertBanner-root-111 ColorPair-root-118 ColorPair-alabaster-127"
+        class="ColorPair-alabaster css-18zndtv"
+        data-testid="alert-banner"
       >
         <div
-          class="AlertBanner-actions-115"
+          class="css-1lz8t7d"
         />
         <div
-          class="Container-root-144"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <h5
-              class="MuiTypography-root AlertBanner-title-116 Typography-root-103 MuiTypography-h5"
-              data-testid="typography"
+              class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+              data-testid="alert-banner-title"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root AlertBanner-icon-117"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+                data-testid="alert-banner-title-icon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >

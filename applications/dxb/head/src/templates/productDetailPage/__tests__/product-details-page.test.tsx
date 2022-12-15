@@ -2,10 +2,10 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { LocationProvider } from "@reach/router";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import createProduct from "../../../__tests__/helpers/ProductHelper";
 import { Data as SiteData } from "../../../components/Site";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { Product } from "../../../types/pim";
-import createProduct from "../../../__tests__/helpers/ProductHelper";
 import ProductDetailsPage, { Props as PdpProps } from "../product-details-page";
 
 const mockpageContext: PdpProps["pageContext"] = {
@@ -67,13 +67,13 @@ describe("Product Details Page", () => {
     jest.clearAllMocks();
   });
   it("should render corectly", () => {
-    const { container } = renderPdpPage({});
+    const { container, getByTestId } = renderPdpPage({});
 
     pdpContent.forEach((item) =>
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
@@ -87,7 +87,7 @@ describe("Product Details Page", () => {
       ...mockProduct,
       keyAssetDocuments: []
     };
-    const { container } = renderPdpPage({
+    const { container, getByTestId } = renderPdpPage({
       product
     });
 
@@ -95,7 +95,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.getByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
@@ -112,7 +112,7 @@ describe("Product Details Page", () => {
         pdpShareWidget: null
       }
     });
-    const { container } = renderPdpPage({
+    const { container, getByTestId } = renderPdpPage({
       contentfulSite
     });
 
@@ -120,7 +120,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument()
     );
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.queryByLabelText("MC: share.email")).not.toBeInTheDocument();
     expect(
@@ -135,7 +135,7 @@ describe("Product Details Page", () => {
       ...mockProduct,
       relatedProducts: []
     };
-    const { container } = renderPdpPage({ product });
+    const { container, getByTestId } = renderPdpPage({ product });
 
     pdpContent.forEach((item) => {
       if (item === "RelatedProducts") {
@@ -145,7 +145,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(screen.queryByLabelText("MC: share.email")).toBeInTheDocument();
     expect(
@@ -162,7 +162,7 @@ describe("Product Details Page", () => {
         pdpCards: null
       }
     });
-    const { container } = renderPdpPage({ contentfulSite });
+    const { container, getByTestId } = renderPdpPage({ contentfulSite });
 
     pdpContent.forEach((item) => {
       if (item === "PdpCardsSection") {
@@ -172,7 +172,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(
@@ -187,7 +187,7 @@ describe("Product Details Page", () => {
         pdpCardsTitle: null
       }
     });
-    const { container } = renderPdpPage({ contentfulSite });
+    const { container, getByTestId } = renderPdpPage({ contentfulSite });
 
     pdpContent.forEach((item) => {
       if (item === "PdpCardsSection") {
@@ -197,7 +197,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(
@@ -213,7 +213,7 @@ describe("Product Details Page", () => {
         pdpExploreBar: null
       }
     });
-    const { container } = renderPdpPage({ contentfulSite });
+    const { container, getByTestId } = renderPdpPage({ contentfulSite });
 
     pdpContent.forEach((item) => {
       if (item === "ExploreBar") {
@@ -223,7 +223,7 @@ describe("Product Details Page", () => {
       expect(container.querySelector(`.${item}`)).toBeInTheDocument();
     });
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(container.querySelector("[class*='Breadcrumbs']")).toBeTruthy();
     expect(
       screen.getByTestId(

@@ -1,11 +1,14 @@
-import { Hero, HeroItem, SpotlightHero } from "@bmi-digital/components";
+import {
+  Hero,
+  HeroProps,
+  SpotlightHero,
+  SpotlightHeroProps
+} from "@bmi-digital/components";
 import React from "react";
 
-type heroLevelType = 1 | 2 | 3;
 export const renderHero = (
-  heroProps: HeroItem,
+  heroProps: HeroProps | SpotlightHeroProps,
   breadcrumbsNode: React.ReactNode,
-  heroLevel: heroLevelType,
   heroType: string,
   heroKeyLine?: {
     isHeroKeyLine?: boolean;
@@ -14,14 +17,13 @@ export const renderHero = (
 ) => {
   return heroType === "Spotlight" ? (
     <SpotlightHero
-      {...heroProps}
+      {...(heroProps as SpotlightHeroProps)}
       breadcrumbs={breadcrumbsNode}
       isHeroKeyLine={heroKeyLine.isSpotlightHeroKeyLine}
     />
   ) : (
     <Hero
-      level={heroLevel}
-      {...heroProps}
+      {...(heroProps as HeroProps)}
       breadcrumbs={breadcrumbsNode}
       isHeroKeyLine={heroKeyLine.isHeroKeyLine}
     />

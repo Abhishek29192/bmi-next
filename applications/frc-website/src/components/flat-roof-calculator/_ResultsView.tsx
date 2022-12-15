@@ -5,16 +5,16 @@ import {
   Grid,
   Typography
 } from "@bmi-digital/components";
-import Divider from "@material-ui/core/Divider";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
-import SaveAltIcon from "@material-ui/icons/SaveAlt";
+import Divider from "@mui/material/Divider";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { fieldLabels } from "./FlatRoofCalculator";

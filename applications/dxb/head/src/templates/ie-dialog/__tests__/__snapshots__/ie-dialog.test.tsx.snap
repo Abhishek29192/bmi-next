@@ -10,12 +10,13 @@ exports[`IEDialog component renders correctly 1`] = `
         class="IEDialog"
       >
         <h3
-          class="MuiTypography-root Dialog-title-3 IEDialog-title Typography-root-15 Typography-underline-17 MuiTypography-h3"
-          data-testid="typography"
+          class="MuiTypography-root MuiTypography-h3 IEDialog-title Typography-underline css-fnhfkn-MuiTypography-root"
+          data-testid="dialog-header-title"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root IEDialog-icon"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium IEDialog-icon css-i4bv87-MuiSvgIcon-root"
+            data-testid="ErrorOutlineOutlinedIcon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -26,19 +27,19 @@ exports[`IEDialog component renders correctly 1`] = `
           IE Dialog Title
         </h3>
         <div
-          class="Dialog-content-5 IEDialog-body"
+          class="IEDialog-body css-96lqid"
         >
           <div
-            class="RichText-root-23"
+            class="RichText-root css-qiddyp"
           >
             <h3
-              class="MuiTypography-root RichText-title-24 Typography-root-15 MuiTypography-h3"
+              class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
               data-testid="typography"
             >
               Rich Text heading 3
             </h3>
             <p
-              class="MuiTypography-root Typography-root-15 MuiTypography-body1 MuiTypography-gutterBottom"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
               data-testid="typography"
             >
               Rich Text paragraph text
@@ -49,34 +50,30 @@ exports[`IEDialog component renders correctly 1`] = `
           class="IEDialog-actions"
         >
           <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root Button-root-25 MuiButton-contained Button-contained-27 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             href="http://localhost"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
           >
+            Label
             <span
-              class="MuiButton-label Button-label-28"
+              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
             >
-              Label
-              <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowForwardIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
             </span>
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
         </div>

@@ -5,7 +5,7 @@ import {
   SectionBackgroundColor,
   Tabs
 } from "@bmi-digital/components";
-import { Tab, TabProps } from "@material-ui/core";
+import { Tab, TabProps } from "@mui/material";
 import classnames from "classnames";
 import { graphql } from "gatsby";
 import React from "react";

@@ -56,7 +56,6 @@ describe("Functionality of sample basket", () => {
             sampleBasketLinkInfo={sampleBasketLinkInfo}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -101,7 +100,6 @@ describe("Functionality of sample basket", () => {
             product={product}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -156,7 +154,6 @@ describe("disable 'Add to basket' if basket is full", () => {
             product={product}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -224,7 +221,6 @@ describe("disable 'Add to basket' if basket is full", () => {
             />
           </BasketContextProvider>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -371,7 +367,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
             sampleBasketLinkInfo={sampleBasketLinkInfo}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -400,7 +395,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
             sampleBasketLinkInfo={sampleBasketLinkInfo}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider
@@ -412,9 +406,9 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
     await waitFor(() => {
       addSampleCta.click();
     });
-    const completeOrderCta = screen.getByRole("button", {
-      name: `MC: pdp.overview.completeSampleOrder`
-    });
+    const completeOrderCta = screen.getByText(
+      "MC: pdp.overview.completeSampleOrder"
+    );
 
     expect(completeOrderCta).toHaveAttribute("href", "/en/sample-basket/");
   });
@@ -434,7 +428,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
             sampleBasketLinkInfo={null}
           ></SampleOrderSection>
         </SiteContextProvider>
-        ,
       </ThemeProvider>,
       {
         wrapper: BasketContextProvider

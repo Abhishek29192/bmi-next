@@ -2,20 +2,18 @@
 
 exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
 <div>
-  <div
-    class="DocumentSimpleTableResultsMobile-root-1 DocumentSimpleTableResults-root-9"
-  >
+  <div>
     <div
-      class="DocumentSimpleTableResultsMobile-listItem-2"
+      class="css-u13iny"
     >
       <div
-        class="DocumentSimpleTableResultsMobile-listTitleRow-5"
+        class="css-kjafn5"
       >
         <div
-          class="DocumentSimpleTableResultsMobile-listIcon-8"
+          class="css-1nfx0y4"
         >
           <svg
-            class="DocumentSimpleTableResults-downloadIcon-14 download-icon"
+            class="download-icon css-x3wokz"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -49,51 +47,47 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           </svg>
         </div>
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentTitle-3 Typography-root-18 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
         </p>
       </div>
       <div
-        class="DocumentSimpleTableResultsMobile-listDownloadRow-6"
+        class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentType-4 Typography-root-18 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
         </p>
         <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
           href="http://doesnot-exist.com/fileName"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
+          87.79 KB
           <span
-            class="MuiButton-label Button-label-29"
+            class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
           >
-            87.79 KB
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="GetAppIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
           </span>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
       </div>
@@ -104,20 +98,18 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
 
 exports[`DocumentSimpleTableResultsMobile component renders correctly when valid asset types are used 1`] = `
 <div>
-  <div
-    class="DocumentSimpleTableResultsMobile-root-46 DocumentSimpleTableResults-root-54"
-  >
+  <div>
     <div
-      class="DocumentSimpleTableResultsMobile-listItem-47"
+      class="css-u13iny"
     >
       <div
-        class="DocumentSimpleTableResultsMobile-listTitleRow-50"
+        class="css-kjafn5"
       >
         <div
-          class="DocumentSimpleTableResultsMobile-listIcon-53"
+          class="css-1nfx0y4"
         >
           <svg
-            class="DocumentSimpleTableResults-downloadIcon-59 download-icon"
+            class="download-icon css-x3wokz"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -151,51 +143,47 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
           </svg>
         </div>
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentTitle-48 Typography-root-63 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
         </p>
       </div>
       <div
-        class="DocumentSimpleTableResultsMobile-listDownloadRow-51"
+        class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentType-49 Typography-root-63 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
         </p>
         <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://doesnot-exist.com/fileName\\"}"
           href="http://doesnot-exist.com/fileName"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
+          87.79 KB
           <span
-            class="MuiButton-label Button-label-74"
+            class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
           >
-            87.79 KB
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="GetAppIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
           </span>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
       </div>
@@ -206,20 +194,18 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
 
 exports[`DocumentSimpleTableResultsMobile component renders multiple documents of same asset type as zip file 1`] = `
 <div>
-  <div
-    class="DocumentSimpleTableResultsMobile-root-136 DocumentSimpleTableResults-root-144"
-  >
+  <div>
     <div
-      class="DocumentSimpleTableResultsMobile-listItem-137"
+      class="css-u13iny"
     >
       <div
-        class="DocumentSimpleTableResultsMobile-listTitleRow-140"
+        class="css-kjafn5"
       >
         <div
-          class="DocumentSimpleTableResultsMobile-listIcon-143"
+          class="css-1nfx0y4"
         >
           <svg
-            class="DocumentSimpleTableResults-downloadIcon-149 download-icon"
+            class="download-icon css-x3wokz"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -253,48 +239,44 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
           </svg>
         </div>
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentTitle-138 Typography-root-153 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document
         </p>
       </div>
       <div
-        class="DocumentSimpleTableResultsMobile-listDownloadRow-141"
+        class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentType-139 Typography-root-153 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
         </p>
         <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root Button-root-161 MuiButton-text Button-text-162 MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
           href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
+          10 B
           <span
-            class="MuiButton-label Button-label-164"
+            class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
           >
-            10 B
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="GetAppIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
           </span>
         </a>
       </div>
@@ -305,20 +287,18 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
 
 exports[`DocumentSimpleTableResultsMobile component renders pim documents correctly 1`] = `
 <div>
-  <div
-    class="DocumentSimpleTableResultsMobile-root-91 DocumentSimpleTableResults-root-99"
-  >
+  <div>
     <div
-      class="DocumentSimpleTableResultsMobile-listItem-92"
+      class="css-u13iny"
     >
       <div
-        class="DocumentSimpleTableResultsMobile-listTitleRow-95"
+        class="css-kjafn5"
       >
         <div
-          class="DocumentSimpleTableResultsMobile-listIcon-98"
+          class="css-1nfx0y4"
         >
           <svg
-            class="DocumentSimpleTableResults-downloadIcon-104 download-icon"
+            class="download-icon css-x3wokz"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -352,51 +332,47 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
           </svg>
         </div>
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentTitle-93 Typography-root-108 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document
         </p>
       </div>
       <div
-        class="DocumentSimpleTableResultsMobile-listDownloadRow-96"
+        class="css-axrk4p"
       >
         <p
-          class="MuiTypography-root DocumentSimpleTableResultsMobile-documentType-94 Typography-root-108 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1 css-l574it-MuiTypography-root"
           data-testid="typography"
         >
           asset-name
         </p>
         <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root Button-root-116 MuiButton-text Button-text-117 MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
           href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
         >
+          10 B
           <span
-            class="MuiButton-label Button-label-119"
+            class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
           >
-            10 B
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="GetAppIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+              />
+            </svg>
           </span>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </a>
       </div>

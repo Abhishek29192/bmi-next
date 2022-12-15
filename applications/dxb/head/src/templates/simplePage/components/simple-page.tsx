@@ -1,4 +1,9 @@
-import { HeroItem, Section, TableOfContent } from "@bmi-digital/components";
+import {
+  HeroProps,
+  Section,
+  SpotlightHeroProps,
+  TableOfContent
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../../../components/BackToResults";
@@ -91,14 +96,16 @@ const SimplePage = ({ data, pageContext }: Props) => {
   const {
     config: { isBrandProviderEnabled }
   } = useConfig();
-  const heroProps: HeroItem = generateHeroProps(
+
+  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
+  const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(
     title,
+    heroLevel,
     subtitle,
     featuredVideo,
     featuredMedia,
     cta
   );
-  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
 
   const isDarkThemed = heroType === "Spotlight" || heroLevel !== 3;
   const breadcrumbsNode = (
@@ -125,7 +132,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+      {renderHero(heroProps, breadcrumbsNode, heroType, {
         isHeroKeyLine: isHeroKeyLine
       })}
       <TableOfContent>

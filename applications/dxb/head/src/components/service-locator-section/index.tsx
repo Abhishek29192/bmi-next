@@ -9,8 +9,8 @@ import {
   Section,
   Tabs
 } from "@bmi-digital/components";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useReducer, useState } from "react";

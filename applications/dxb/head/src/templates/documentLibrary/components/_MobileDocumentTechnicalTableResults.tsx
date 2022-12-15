@@ -11,7 +11,10 @@ import {
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import React from "react";
-import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
+import {
+  Root,
+  classes
+} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
@@ -32,9 +35,11 @@ const MobileDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
-  const classes = useStyles();
   return (
-    <div className={classes["accordion-div"]}>
+    <Root
+      className={classes["accordion-div"]}
+      data-testid="mobile-tech-results-table"
+    >
       <Accordion>
         {documentsByProduct.map(([productName, assets], index) => {
           const key = `${
@@ -141,7 +146,7 @@ const MobileDocumentTechnicalTableResults = ({
           );
         })}
       </Accordion>
-    </div>
+    </Root>
   );
 };
 

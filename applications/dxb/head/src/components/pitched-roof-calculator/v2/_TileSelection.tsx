@@ -4,7 +4,7 @@ import {
   withFormControl,
   WithFormControlProps
 } from "@bmi-digital/components";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import React, { useContext } from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";

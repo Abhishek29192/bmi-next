@@ -159,14 +159,6 @@ const config = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-canonical-urls",

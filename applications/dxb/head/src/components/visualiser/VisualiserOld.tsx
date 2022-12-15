@@ -14,11 +14,11 @@ import {
   ToggleCard,
   Typography
 } from "@bmi-digital/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Popover from "@material-ui/core/Popover";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ShareIcon from "@material-ui/icons/Share";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ShareIcon from "@mui/icons-material/Share";
+import CircularProgress from "@mui/material/CircularProgress";
+import Popover from "@mui/material/Popover";
+import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
 import React, {
   Dispatch,
@@ -30,13 +30,13 @@ import React, {
   useRef,
   useState
 } from "react";
-import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
-import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewerOld from "./HouseViewerOld";
-import { useStyles } from "./styles/VisualiserStylesOld";
 import TileViewer from "./TileViewerOld";
 import { Colour, Material, Siding, Tile } from "./Types";
+import { microCopy } from "./constants/microCopy";
+import { useMicroCopy } from "./helpers/useMicroCopy";
+import { StyledContainerDialog, classes } from "./styles/VisualiserStylesOld";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;
@@ -102,7 +102,7 @@ const Actions = ({
   onButtonClick: (data: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
+
   return (
     <nav className={classes.actions}>
       <Button
@@ -189,7 +189,6 @@ const SelectionOptions = ({
   onClick: (data: { tileId: number; colourId: number; label: string }) => any;
 }) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
 
   return (
     <div>
@@ -261,7 +260,6 @@ const TileSectorDialog = ({
   }, {});
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
-  const classes = useStyles();
 
   return (
     <ContainerDialog
@@ -320,7 +318,7 @@ const SidingsSelectorDialog = ({
   onClick: (event: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
+
   return (
     <ContainerDialog
       open={open}
@@ -395,8 +393,6 @@ const SharePopover = ({
     setAnchorElement(null);
   };
 
-  const classes = useStyles();
-
   return (
     <div>
       <Button
@@ -459,7 +455,6 @@ const Visualiser = ({
   const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
 
   const stateRef = React.useRef(state);
   const setState = useCallback(
@@ -537,7 +532,7 @@ const Visualiser = ({
   const Viewer = viewerComponentMap[state.viewMode || "tile"];
 
   return (
-    <ContainerDialog
+    <StyledContainerDialog
       open={open}
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
@@ -640,7 +635,7 @@ const Visualiser = ({
           onButtonClick={handleOnClick}
         />
       </div>
-    </ContainerDialog>
+    </StyledContainerDialog>
   );
 };
 

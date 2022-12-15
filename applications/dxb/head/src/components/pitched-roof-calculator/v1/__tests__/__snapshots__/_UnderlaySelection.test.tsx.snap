@@ -7,51 +7,52 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
       class="FieldContainer"
     >
       <div
-        class="CardRadioGroup-root-1"
+        class="css-1x11btr"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-5tzluv-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 Grid-item css-9g1klc-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="CardInput-root-5 CardRadioGroup-item-2"
+              class="CardRadioGroup-item css-tmrmui"
             >
               <label>
                 <input
-                  class="CardInput-input-6"
+                  class="CardInput-input"
                   name="underlay"
                   type="radio"
                   value="45917056"
                 />
                 <div
-                  aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard-root-8 CardInput-card-7"
+                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root ToggleCard-body-9 MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
                   >
                     <div
-                      class="ToggleCard-image-13"
+                      class="ToggleCard-image"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root ToggleCard-title-10 Typography-root-16 MuiTypography-h6"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
                       data-testid="typography"
                     >
                       Underlay Divoroll Prima 1-5x50m
                     </h6>
                     <p
-                      class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
                       data-testid="typography"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -59,52 +60,52 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                     </p>
                   </div>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </label>
             </div>
           </div>
           <div
-            class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2 Grid-item css-9g1klc-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="CardInput-root-5 CardRadioGroup-item-2"
+              class="CardRadioGroup-item css-tmrmui"
             >
               <label>
                 <input
-                  class="CardInput-input-6"
+                  class="CardInput-input"
                   name="underlay"
                   type="radio"
                   value="26583450"
                 />
                 <div
-                  aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard-root-8 CardInput-card-7"
+                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root ToggleCard-body-9 MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
                   >
                     <div
-                      class="ToggleCard-image-13"
+                      class="ToggleCard-image"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
                     />
                     <h6
-                      class="MuiTypography-root ToggleCard-title-10 Typography-root-16 MuiTypography-h6"
+                      class="MuiTypography-root MuiTypography-h6 ToggleCard-title css-1le86ss-MuiTypography-root"
                       data-testid="typography"
                     >
                       Underlay Divoroll TOP RU
                     </h6>
                     <p
-                      class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
                       data-testid="typography"
                     >
                       Short underlay description
                     </p>
                     <p
-                      class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                      class="MuiTypography-root MuiTypography-body1 ToggleCard-paragraph css-87ejlm-MuiTypography-root"
                       data-testid="typography"
                     >
                       Nobb: 
@@ -112,7 +113,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`]
                     </p>
                   </div>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </label>
@@ -129,7 +130,7 @@ exports[`PitchedRoofCalculator UnderlaySelection component renders with no optio
 <div>
   <div>
     <h4
-      class="MuiTypography-root Typography-root-24 MuiTypography-h4"
+      class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
       data-testid="typography"
     >
       Couldn't find suitable underlays for the entered dimensions. Please click "Go back" and double-check the dimensions.

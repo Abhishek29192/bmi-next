@@ -5,8 +5,8 @@ import {
   DownloadListContext,
   Pagination
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@material-ui/core";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useMediaQuery } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
@@ -25,16 +25,18 @@ import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
-export const useGlobalDocResFooterStyles = makeStyles(
-  () => ({
-    paginationRoot: {
-      "& ul": {
-        justifyContent: "flex-end"
-      }
+const PREFIX = "docResultsFooterStyles";
+const classes = {
+  paginationRoot: `${PREFIX}-paginationRoot`
+};
+
+const StyledPagination = styled(Pagination)(({ theme }) => ({
+  [`&.${classes.paginationRoot}`]: {
+    "& ul": {
+      justifyContent: "flex-end"
     }
-  }),
-  { classNamePrefix: "docResultsFooterStyles" }
-);
+  }
+}));
 
 type Props = {
   page: number;
@@ -157,24 +159,20 @@ const DocumentResultsFooter = ({
   onPageChange,
   isDownloadButton = true
 }: Props) => {
-  const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
   const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
-      <Pagination
+      <StyledPagination
         page={page}
         onChange={onPageChange}
         count={count}
-        className={classnames(
-          styles["pagination"],
-          globalClasses.paginationRoot
-        )}
+        className={classnames(styles["pagination"], classes.paginationRoot)}
       />
       {isDownloadButton && !isMobile && (
         <>

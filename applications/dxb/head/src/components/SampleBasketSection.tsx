@@ -1,6 +1,6 @@
 import { Button, Section } from "@bmi-digital/components";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import React, { useEffect, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import {

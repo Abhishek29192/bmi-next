@@ -1,7 +1,7 @@
 import { Table } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
-import { useStyles } from "./styles/EmbeddedTableStyles";
+import { StyledEmbeddedTableContainer } from "./styles/EmbeddedTableStyles";
 
 type TableFields = {
   data: {
@@ -18,14 +18,13 @@ const EmbeddedTable = ({ fields }: Props) => {
     data: { tableData }
   } = fields;
   const [head, ...rows] = tableData || [];
-  const classes = useStyles();
 
   if (!head) {
     return null;
   }
 
   return (
-    <div className={classes.root}>
+    <StyledEmbeddedTableContainer>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -91,7 +90,7 @@ const EmbeddedTable = ({ fields }: Props) => {
           </Table.Body>
         ) : null}
       </Table>
-    </div>
+    </StyledEmbeddedTableContainer>
   );
 };
 

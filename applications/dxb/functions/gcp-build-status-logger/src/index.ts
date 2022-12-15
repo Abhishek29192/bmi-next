@@ -5,7 +5,7 @@ import { Status } from "simple-http-status";
 import { getList, saveBuildStatus } from "./db";
 
 type BuildStatusBase = {
-  timestamp: string;
+  timestamp: number;
   event: string;
 };
 
@@ -62,8 +62,8 @@ export const buildStatusLogger: HttpFunction = async (req, res) => {
       let collectionId;
       if (req.headers["x-contentful-webhook-name"]) {
         eventDetails = {
-          event: "BUILD TRIGGRED",
-          timestamp: new Date(req.body.sys.updatedAt).toLocaleString(),
+          event: "BUILD TRIGGERED",
+          timestamp: new Date(req.body.sys.updatedAt).getTime(),
           userId: req.body.sys.updatedBy.sys.id
         };
         collectionId = process.env.FIRESTORE_TRIGGERED_BUILDS_COLLECTION!;
@@ -73,7 +73,7 @@ export const buildStatusLogger: HttpFunction = async (req, res) => {
         eventDetails = {
           event: event.replace("_", " "),
           isError: event.includes("FAILED"),
-          timestamp: new Date().toLocaleString(),
+          timestamp: new Date().getTime(),
           body: body
         };
         collectionId = process.env.FIRESTORE_BUILD_STATUS_COLLECTION!;

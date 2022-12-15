@@ -3,8 +3,8 @@ import {
   ContainerDialog,
   Icon
 } from "@bmi-digital/components";
-import { LinearProgress } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { LinearProgress } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";

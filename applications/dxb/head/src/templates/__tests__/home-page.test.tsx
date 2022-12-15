@@ -322,30 +322,23 @@ describe("Home Page Template", () => {
     isSpaEnabled = false;
     isGatsbyDisabledElasticSearch = false;
 
-    const { container, getByTestId, getByText } = renderWithRouter(
-      <ThemeProvider>
-        <HomePage data={data} pageContext={null} />
-      </ThemeProvider>
-    );
+    const { container, getByTestId, getByText, getAllByTestId } =
+      renderWithRouter(
+        <ThemeProvider>
+          <HomePage data={data} pageContext={null} />
+        </ThemeProvider>
+      );
 
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
+    expect(getByTestId("footer")).toBeInTheDocument();
     expect(getByTestId("brand-colors-provider")).toBeInTheDocument();
-    expect(container.querySelector("[class*=Hero-root]")).toBeInTheDocument();
+    expect(getByTestId("hero")).toBeInTheDocument();
     expect(
       container.querySelector("[class*=Hero-root] [class*=Breadcrumbs-root]")
     ).not.toBeInTheDocument();
-    expect(
-      container.querySelectorAll(
-        "[class*=Hero-container] [class*=Carousel-wrapper] [class*=Carousel-slide]"
-      ).length
-    ).toBe(1);
-    expect(
-      container.querySelectorAll(
-        "[class*=Hero-imageCarousel] [class*=Carousel-slide]"
-      ).length
-    ).toBe(1);
-    expect(container.querySelector("[class*=Search-root]")).toBeInTheDocument();
+
+    expect(getAllByTestId("carousel-slide").length).toEqual(2);
+    expect(getByTestId("search-button")).toBeInTheDocument();
     expect(getByText(slide.title)).toBeInTheDocument();
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
     expect(
@@ -361,9 +354,7 @@ describe("Home Page Template", () => {
       container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
     ).toBe(1);
     expect(container.querySelector(".WelcomeDialog")).not.toBeInTheDocument();
-    expect(
-      container.querySelector("[class*=Hero-root] [class*=YoutubeVideo-root]")
-    ).toBeInTheDocument();
+    expect(getAllByTestId("youtube-dialog-wrapper")).toHaveLength(2);
   });
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {

@@ -6,7 +6,7 @@ import {
   transformHyphens,
   Typography
 } from "@bmi-digital/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
+import Tab, { TabProps } from "@mui/material/Tab";
 import { graphql } from "gatsby";
 import React from "react";
 import RichText from "../components/RichText";

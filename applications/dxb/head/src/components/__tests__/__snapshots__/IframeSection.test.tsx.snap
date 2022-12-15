@@ -3,16 +3,16 @@
 exports[`IframeSection component renders correctly 1`] = `
 <div>
   <div
-    class="IframeSection Section-root-1 Section-pearl-4"
+    class="IframeSection Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-8 title Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           iFrame Section
@@ -21,10 +21,10 @@ exports[`IframeSection component renders correctly 1`] = `
           class="summary"
         >
           <div
-            class="RichText-root-19"
+            class="RichText-root css-qiddyp"
           >
             <p
-              class="MuiTypography-root Typography-root-11 MuiTypography-body1 MuiTypography-gutterBottom"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
               data-testid="typography"
             >
               Summary

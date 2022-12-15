@@ -1,10 +1,10 @@
 import { Typography } from "@bmi-digital/components";
-import Accordion, { AccordionProps } from "@material-ui/core/Accordion";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import React, { ChangeEvent, ReactNode } from "react";
-import { useStyles } from "./styles";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Accordion, { AccordionProps } from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import React, { ReactNode } from "react";
+import { Root, classes } from "./styles";
 
 export type ConfiguratorPanelProps = {
   title: string;
@@ -12,10 +12,7 @@ export type ConfiguratorPanelProps = {
   isExpanded?: boolean;
   options?: ReactNode[];
   children?: ReactNode;
-  handleOnChange?: (
-    event: ChangeEvent<Record<string, unknown>>,
-    expanded: boolean
-  ) => void;
+  handleOnChange?: (event: React.SyntheticEvent, expanded: boolean) => void;
 } & Partial<AccordionProps>;
 
 const ConfiguratorPanel = (
@@ -30,9 +27,8 @@ const ConfiguratorPanel = (
   }: ConfiguratorPanelProps,
   forwardedRef?: React.Ref<HTMLDivElement>
 ) => {
-  const classes = useStyles();
   return (
-    <div ref={forwardedRef} className={classes.root}>
+    <Root ref={forwardedRef} className={classes.root}>
       <Accordion
         square
         className={classes.panel}
@@ -68,7 +64,7 @@ const ConfiguratorPanel = (
           {options}
         </AccordionDetails>
       </Accordion>
-    </div>
+    </Root>
   );
 };
 

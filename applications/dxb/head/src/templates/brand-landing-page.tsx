@@ -1,4 +1,9 @@
-import { Button, Hero, HeroItem, Section } from "@bmi-digital/components";
+import {
+  Button,
+  CarouselHero,
+  CarouselHeroItem,
+  Section
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -21,8 +26,8 @@ import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
-type BrandLandingPageData = PageInfoData &
-  PageData & {
+type BrandLandingPageData = Omit<PageInfoData, "sections"> &
+  Omit<PageData, "breadcrumbs"> & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
@@ -44,7 +49,7 @@ export type Props = {
 const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: BrandLandingPageData["slides"]
-): HeroItem[] => {
+): CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
@@ -99,7 +104,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     config: { isBrandProviderEnabled }
   } = useConfig();
 
-  const firstSlide: HeroItem = {
+  const firstSlide: CarouselHeroItem = {
     title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
     children: description?.description,
     media: featuredVideo
@@ -127,8 +132,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
 
         return (
           <>
-            <Hero
-              level={0}
+            <CarouselHero
               breadcrumbs={
                 <BackToResults isDarkThemed>
                   <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />

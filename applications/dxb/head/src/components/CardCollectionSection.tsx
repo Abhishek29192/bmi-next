@@ -12,8 +12,8 @@ import {
   Typography,
   withClickable
 } from "@bmi-digital/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React, { memo, useMemo, useState } from "react";
 import { microCopy } from "../constants/microCopies";

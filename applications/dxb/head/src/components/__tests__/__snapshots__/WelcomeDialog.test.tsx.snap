@@ -2,67 +2,68 @@
 
 exports[`WelcomeDialog component Renders correctly When Title and rich text content are present 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
+    data-testid="dialog"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ColorPair-root-15 ColorPair-white-16"
+      class="ColorPair-white css-1pt14k0"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog-root-1 Dialog-bg-white-8 Dialog-width-md-12 WelcomeDialog"
+        class="Dialog-bg-white Dialog-width-md WelcomeDialog css-ysdrvb"
       >
         <div
-          class="Dialog-header-2"
+          class="css-1wp1i2i"
+          data-testid="dialog-header"
         >
           <h3
-            class="MuiTypography-root Dialog-title-3 Dialog-title-3 Typography-root-41 Typography-underline-43 MuiTypography-h3"
-            data-testid="typography"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-fnhfkn-MuiTypography-root"
+            data-testid="dialog-header-title"
           >
             Dialog Title
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton-root-60 iconButton IconButton-medium-66 IconButton-text-62 Dialog-iconButton-4"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="dialog-header-icon-button"
             tabindex="0"
             type="button"
           >
-            <span
-              class="MuiIconButton-label"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </div>
         <div
-          class="Dialog-content-5"
+          class="css-96lqid"
         >
           <div
             class="contentArea"
@@ -75,10 +76,10 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
               class="body body--with-brand"
             >
               <div
-                class="RichText-root-69"
+                class="RichText-root css-qiddyp"
               >
                 <p
-                  class="MuiTypography-root Typography-root-41 MuiTypography-body1 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text
@@ -88,27 +89,24 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
           </div>
         </div>
         <div
-          class="Dialog-actions-6"
+          class="css-1n773uz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-49 MuiButton-contained Button-contained-51 Dialog-actionButton-7 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1a04je-MuiButtonBase-root-MuiButton-root"
+            data-testid="dialog-action-button-confirm"
             tabindex="0"
             type="button"
           >
+            MC: dialog.close
             <span
-              class="MuiButton-label Button-label-52"
-            >
-              MC: dialog.close
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </div>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -117,67 +115,68 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
 
 exports[`WelcomeDialog component Renders correctly When Title rich text and icons are present 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
+    data-testid="dialog"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ColorPair-root-85 ColorPair-white-86"
+      class="ColorPair-white css-1pt14k0"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog-root-71 Dialog-bg-white-78 Dialog-width-md-82 WelcomeDialog"
+        class="Dialog-bg-white Dialog-width-md WelcomeDialog css-ysdrvb"
       >
         <div
-          class="Dialog-header-72"
+          class="css-1wp1i2i"
+          data-testid="dialog-header"
         >
           <h3
-            class="MuiTypography-root Dialog-title-73 Dialog-title-73 Typography-root-111 Typography-underline-113 MuiTypography-h3"
-            data-testid="typography"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-fnhfkn-MuiTypography-root"
+            data-testid="dialog-header-title"
           >
             Dialog Title
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton-root-130 iconButton IconButton-medium-136 IconButton-text-132 Dialog-iconButton-74"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="dialog-header-icon-button"
             tabindex="0"
             type="button"
           >
-            <span
-              class="MuiIconButton-label"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </div>
         <div
-          class="Dialog-content-75"
+          class="css-96lqid"
         >
           <div
             class="contentArea"
@@ -233,10 +232,10 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
               class="body body--with-brand"
             >
               <div
-                class="RichText-root-139"
+                class="RichText-root css-qiddyp"
               >
                 <p
-                  class="MuiTypography-root Typography-root-111 MuiTypography-body1 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text
@@ -246,27 +245,24 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
           </div>
         </div>
         <div
-          class="Dialog-actions-76"
+          class="css-1n773uz"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-119 MuiButton-contained Button-contained-121 Dialog-actionButton-77 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1a04je-MuiButtonBase-root-MuiButton-root"
+            data-testid="dialog-action-button-confirm"
             tabindex="0"
             type="button"
           >
+            MC: dialog.close
             <span
-              class="MuiButton-label Button-label-122"
-            >
-              MC: dialog.close
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </div>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>

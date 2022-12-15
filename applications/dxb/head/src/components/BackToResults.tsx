@@ -1,6 +1,6 @@
 import { Button, ButtonProps, QUERY_KEY } from "@bmi-digital/components";
-import { useMediaQuery, useTheme } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useMediaQuery, useTheme } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React, { FC, ReactChild } from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -30,7 +30,7 @@ const BackToResults: FC<Props> = ({
 
   const urlParams = new URLSearchParams(isSSR ? "" : window.location.search);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   if (
     !urlParams.get(QUERY_KEY) &&

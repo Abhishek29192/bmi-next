@@ -289,9 +289,7 @@ describe("SampleBasketSection remove sample from basket", () => {
         fireEvent.click(screen.getByText("MC: pdp.overview.removeSample"))
       );
 
-      const browseAllButton = screen.getByRole("button", {
-        name: "browse all products"
-      });
+      const browseAllButton = screen.getByText("browse all products");
 
       expect(container).toMatchSnapshot();
       expect(screen.queryByText("your basket is empty.")).not.toBeNull();

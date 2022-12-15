@@ -1,66 +1,73 @@
-import { ThemeOptions } from "@bmi-digital/components";
-import { makeStyles } from "@material-ui/styles";
+import { styled } from "@mui/material/styles";
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      "& + &": {
-        marginTop: "16px"
-      },
-      "& $summary": {
-        paddingLeft: "32px",
-        paddingRight: "42px",
-        color: theme.colours.slate,
-        opacity: 1,
-        "&:hover": {
-          color: theme.colours.charcoal,
-          "& $title": {
-            "& > $selectedTitle": {
-              color: theme.colours.focus
-            }
+const PREFIX = "configuratorPanelStyles";
+export const classes = {
+  root: `${PREFIX}-root`,
+  panel: `${PREFIX}-panel`,
+  selectedTitle: `${PREFIX}-selectedTitle`,
+  "@global": "@global",
+  title: `${PREFIX}-title`,
+  summary: `${PREFIX}-summary`,
+  details: `${PREFIX}-details`,
+  content: `${PREFIX}-content`
+};
+
+export const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.root}`]: {
+    "& + &": {
+      marginTop: "16px"
+    },
+    "& $summary": {
+      paddingLeft: "32px",
+      paddingRight: "42px",
+      color: theme.colours.slate,
+      opacity: 1,
+      "&:hover": {
+        color: theme.colours.charcoal,
+        "& $title": {
+          "& > $selectedTitle": {
+            color: theme.colours.focus
           }
         }
       }
-    },
-    panel: {
-      backgroundColor: theme.colours.alabaster
-    },
-    selectedTitle: {},
-    "@global": {
-      "[class*=MuiAccordionSummary-content]": {
-        marginTop: "32px",
-        marginBottom: "32px"
-      },
-      "[class*=MuiAccordionSummary-expandIcon]": {
-        fontSize: "1.33rem"
-      },
-      "[class*=MuiAccordionSummary-root].Mui-disabled": {
-        opacity: 1,
-        "&[class*=MuiAccordionSummary-expandIcon]": {
-          display: "none"
-        }
-      },
-      "[class*=MuiAccordionDetails-root]": {
-        flexFlow: "column"
-      }
-    },
-    title: {
-      "& > $selectedTitle": {
-        color: theme.colours.inter,
-        [theme.breakpoints!.up!("sm")]: {
-          fontSize: "1.6875rem"
-        }
-      }
-    },
-    summary: {},
-    details: {
-      padding: "0 32px 32px",
-      flexFlow: "column"
-    },
-
-    content: {
-      marginBottom: "20px"
     }
-  }),
-  { name: "ConfiguratorPanel" }
-);
+  },
+  [`&.${classes.panel}`]: {
+    backgroundColor: theme.colours.alabaster
+  },
+  [`&.${classes.selectedTitle}`]: {},
+  [`&.${classes["@global"]}`]: {
+    "[class*=MuiAccordionSummary-content]": {
+      marginTop: "32px",
+      marginBottom: "32px"
+    },
+    "[class*=MuiAccordionSummary-expandIcon]": {
+      fontSize: "1.33rem"
+    },
+    "[class*=MuiAccordionSummary-root].Mui-disabled": {
+      opacity: 1,
+      "&[class*=MuiAccordionSummary-expandIcon]": {
+        display: "none"
+      }
+    },
+    "[class*=MuiAccordionDetails-root]": {
+      flexFlow: "column"
+    }
+  },
+  [`&.${classes.title}`]: {
+    "& > $selectedTitle": {
+      color: theme.colours.inter,
+      [theme.breakpoints!.up!("sm")]: {
+        fontSize: "1.6875rem"
+      }
+    }
+  },
+  [`&.${classes.summary}`]: {},
+  [`&.${classes.details}`]: {
+    padding: "0 32px 32px",
+    flexFlow: "column"
+  },
+  [`&.${classes.content}`]: {
+    marginBottom: "20px"
+  }
+}));

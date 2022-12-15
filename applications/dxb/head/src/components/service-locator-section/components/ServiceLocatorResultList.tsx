@@ -10,8 +10,8 @@ import {
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
@@ -72,7 +72,7 @@ export const ServiceLocatorResultList = ({
             isOpen={selectedRoofer && selectedRoofer.id === service.id}
             title={service.name}
             gtm={getResultDataGtm(service, matches)}
-            data-testId={"GTMIntegratedLinkCard-test-id"}
+            data-testid={"GTMIntegratedLinkCard-test-id"}
             subtitle={
               <>
                 {service.address}

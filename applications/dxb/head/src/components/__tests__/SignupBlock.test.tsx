@@ -98,7 +98,7 @@ describe("SignupBlock component", () => {
   });
 
   it("renders dialog correctly when clicked on sign up button", () => {
-    render(
+    const { getByRole } = render(
       <ThemeProvider>
         <SignupBlock data={data} />
       </ThemeProvider>
@@ -106,7 +106,12 @@ describe("SignupBlock component", () => {
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
 
-    expect(document.querySelectorAll("[class*='Dialog-root']").length).toBe(1);
+    // expect(document.querySelectorAll("[class*='Dialog-root']").length).toBe(1);
+
+    const dialogSignupBtn = getByRole("button", {
+      name: data.signupLabel
+    });
+    expect(dialogSignupBtn).toBeInTheDocument();
   });
   it("closes dialog correctly when clicked on close button", () => {
     render(
@@ -151,7 +156,7 @@ describe("SignupBlock component", () => {
   });
 
   it("enables sign up button on valid email and both legal check boxes checked ", () => {
-    render(
+    const { getByRole } = render(
       <ThemeProvider>
         <SignupBlock data={data} />
       </ThemeProvider>
@@ -174,13 +179,14 @@ describe("SignupBlock component", () => {
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
 
-    const dialogSignupBtn = document.querySelectorAll(
-      "[class*='actions'] button"
-    )[1];
+    const dialogSignupBtn = getByRole("button", {
+      name: data.signupLabel
+    });
+
     expect(dialogSignupBtn).toBeEnabled();
   });
   it("disables sign up button on invalid email but both legal check boxes checked ", () => {
-    render(
+    const { getByRole } = render(
       <ThemeProvider>
         <SignupBlock data={data} />
       </ThemeProvider>
@@ -203,14 +209,14 @@ describe("SignupBlock component", () => {
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
 
-    const dialogSignupBtn = document.querySelectorAll(
-      "[class*='actions'] button"
-    )[1];
+    const dialogSignupBtn = getByRole("button", {
+      name: data.signupLabel
+    });
     expect(dialogSignupBtn).toBeDisabled();
   });
 
   it("disables sign up button on valid email but legal check boxes not checked ", () => {
-    render(
+    const { getByRole } = render(
       <ThemeProvider>
         <SignupBlock data={data} />
       </ThemeProvider>
@@ -224,14 +230,13 @@ describe("SignupBlock component", () => {
 
     fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
 
-    const dialogSignupBtn = document.querySelectorAll(
-      "[class*='actions'] button"
-    )[1];
-    expect(dialogSignupBtn).toBeDisabled();
+    const closeDialogButton = getByRole("button", { name: data.signupLabel });
+
+    expect(closeDialogButton).toBeDisabled();
   });
 
   it("renders correctly when clicked on close button once the form is submitted", () => {
-    render(
+    const { getByTestId } = render(
       <ThemeProvider>
         <SignupBlock data={data} />
       </ThemeProvider>
@@ -253,19 +258,9 @@ describe("SignupBlock component", () => {
     fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
-
-    const dialogSignupBtn = document.querySelectorAll(
-      "[class*='actions'] button"
-    )[1];
-
+    const dialogSignupBtn = getByTestId("signup-button");
     fireEvent.click(dialogSignupBtn);
-
-    expect(document.querySelectorAll("[class*='actions'] button").length).toBe(
-      1
-    );
-    const cancelButton = screen.getByRole("button", {
-      name: `MC: ${microCopy.DIALOG_CLOSE}`
-    });
+    const cancelButton = getByTestId("dialog-action-button-cancel");
     fireEvent.click(cancelButton);
     expect(document.querySelector("[class*='Dialog']")).toBeFalsy();
   });

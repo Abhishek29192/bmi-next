@@ -10,32 +10,32 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
       class="section"
     >
       <h1
-        class="MuiTypography-root MuiTypography-h1 header Typography-root-1 Typography-underline-3 css-1dzrhei-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 header Typography-underline css-1stz9tq-MuiTypography-root"
         data-testid="typography"
       >
         SBS Bitumen Estimator
       </h1>
       <p
-        class="MuiTypography-root MuiTypography-body1 Typography-root-1 css-1j4w0hh-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
         data-testid="typography"
       >
         SBS-Bitumen is our premium product, offered in three colour ways, supported by a 15 or 20 year guarantee. Suitable for combustible and non combustible decks.
       </p>
     </div>
     <form
-      class="Form-root-9"
+      class=" css-5f0zb2"
     >
       <div
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 Typography-root-1 Typography-underline-3 css-15gavhz-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 Typography-underline css-d7brak-MuiTypography-root"
           data-testid="typography"
         >
           Input your project details
         </h3>
         <p
-          class="MuiTypography-root MuiTypography-body1 description Typography-root-1 css-1j4w0hh-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 description css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           To select the right system, please tell us a little bit more about your project.
@@ -48,20 +48,22 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               >
                 Product guarantee
               </h5>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item-14 css-xhuwmc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription Typography-root-1 css-1j4w0hh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the guarantee length that you require for this project.
@@ -69,64 +71,58 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="RadioGroup-root-16"
+              class="css-1tsi7v7"
             >
               <div
-                class="RadioGroup-container-17"
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
               >
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                <input
+                  checked=""
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-guarantee-20"
+                  id="radio-guarantee-20"
+                  name="guarantee"
+                  type="radio"
+                  value="20"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-guarantee-20"
+                  for="radio-guarantee-20"
                 >
-                  <input
-                    checked=""
-                    class="RadioButton-input-21"
-                    id="radio-guarantee-20"
-                    name="guarantee"
-                    type="radio"
-                    value="20"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-guarantee-20"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      20 year System
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                    20 year System
+                  </div>
+                </label>
+              </div>
+              <div
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
+              >
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-guarantee-15"
+                  id="radio-guarantee-15"
+                  name="guarantee"
+                  type="radio"
+                  value="15"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-guarantee-15"
+                  for="radio-guarantee-15"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-guarantee-15"
-                    name="guarantee"
-                    type="radio"
-                    value="15"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-guarantee-15"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      15 Year System
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
+                    15 Year System
+                  </div>
+                </label>
               </div>
             </div>
           </div>
@@ -137,20 +133,22 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               >
                 Roof substrate
               </h5>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item-14 css-xhuwmc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription Typography-root-1 css-1j4w0hh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the roof substrate for your project. We recommend torch-safe roofing systems for combustible substrate types such as timber, plywood and OSB.
@@ -158,63 +156,57 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="RadioGroup-root-16"
+              class="css-1tsi7v7"
             >
               <div
-                class="RadioGroup-container-17"
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
               >
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-combustible-Yes"
+                  id="radio-combustible-Yes"
+                  name="combustible"
+                  type="radio"
+                  value="Yes"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-combustible-Yes"
+                  for="radio-combustible-Yes"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-combustible-Yes"
-                    name="combustible"
-                    type="radio"
-                    value="Yes"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-combustible-Yes"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Combustible (timber/plywood)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                    Combustible (timber/plywood)
+                  </div>
+                </label>
+              </div>
+              <div
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
+              >
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-combustible-No"
+                  id="radio-combustible-No"
+                  name="combustible"
+                  type="radio"
+                  value="No"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-combustible-No"
+                  for="radio-combustible-No"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-combustible-No"
-                    name="combustible"
-                    type="radio"
-                    value="No"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-combustible-No"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Non-combustible (metal/concrete)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
+                    Non-combustible (metal/concrete)
+                  </div>
+                </label>
               </div>
             </div>
           </div>
@@ -225,20 +217,22 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               >
                 Roof insulation
               </h5>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item-14 css-xhuwmc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription Typography-root-1 css-1j4w0hh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select if this roof is insulated or uninsulated.
@@ -246,63 +240,57 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="RadioGroup-root-16"
+              class="css-1tsi7v7"
             >
               <div
-                class="RadioGroup-container-17"
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
               >
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-insulated-No"
+                  id="radio-insulated-No"
+                  name="insulated"
+                  type="radio"
+                  value="No"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-insulated-No"
+                  for="radio-insulated-No"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-insulated-No"
-                    name="insulated"
-                    type="radio"
-                    value="No"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-insulated-No"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Uninsulated (Cold-roof)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                    Uninsulated (Cold-roof)
+                  </div>
+                </label>
+              </div>
+              <div
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
+              >
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-insulated-Yes"
+                  id="radio-insulated-Yes"
+                  name="insulated"
+                  type="radio"
+                  value="Yes"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-insulated-Yes"
+                  for="radio-insulated-Yes"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-insulated-Yes"
-                    name="insulated"
-                    type="radio"
-                    value="Yes"
-                  />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-insulated-Yes"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Insulated (Warm roof)
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
+                    Insulated (Warm roof)
+                  </div>
+                </label>
               </div>
             </div>
           </div>
@@ -313,24 +301,25 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               class="fieldHeader"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               >
                 Capsheet colour
               </h5>
               <button
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-34 iconButton IconButton-extra-small-38 IconButton-text-36 MuiIconButton-sizeLarge iconButton css-mf1cb5-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="-1"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="HelpIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
                   />
                 </svg>
                 <span
@@ -339,13 +328,15 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item-14 css-xhuwmc-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 fieldDescription Typography-root-1 css-1j4w0hh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 fieldDescription css-87ejlm-MuiTypography-root"
                   data-testid="typography"
                 >
                   Please select the desired colour finish of the system.
@@ -353,98 +344,91 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="RadioGroup-root-16"
+              class="css-1tsi7v7"
             >
               <div
-                class="RadioGroup-container-17"
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
               >
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-color-Blue/Grey"
+                  id="radio-color-Blue/Grey"
+                  name="color"
+                  type="radio"
+                  value="Blue/Grey"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-color-Blue/Grey"
+                  for="radio-color-Blue/Grey"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-color-Blue/Grey"
-                    name="color"
-                    type="radio"
-                    value="Blue/Grey"
+                  <div
+                    style="min-height: 100%; min-width: 72px; background-color: rgb(102, 153, 204);"
                   />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-color-Blue/Grey"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      style="min-height: 100%; min-width: 72px; background-color: rgb(102, 153, 204);"
-                    />
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Blue/Grey
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                    Blue/Grey
+                  </div>
+                </label>
+              </div>
+              <div
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
+              >
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-color-Charcoal"
+                  id="radio-color-Charcoal"
+                  name="color"
+                  type="radio"
+                  value="Charcoal"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-color-Charcoal"
+                  for="radio-color-Charcoal"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-color-Charcoal"
-                    name="color"
-                    type="radio"
-                    value="Charcoal"
+                  <div
+                    style="min-height: 100%; min-width: 72px; background-color: rgb(54, 69, 79);"
                   />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-color-Charcoal"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      style="min-height: 100%; min-width: 72px; background-color: rgb(54, 69, 79);"
-                    />
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Charcoal
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
-                <div
-                  class="RadioButton-root-19 RadioGroup-item-18"
+                    Charcoal
+                  </div>
+                </label>
+              </div>
+              <div
+                class="RadioGroup-item css-i4okxo"
+                data-testid="radio-button-root"
+              >
+                <input
+                  class="css-b1hnog"
+                  data-testid="radio-button-input-color-Green"
+                  id="radio-color-Green"
+                  name="color"
+                  type="radio"
+                  value="Green"
+                />
+                <label
+                  class="RadioButton-label"
+                  data-testid="radio-button-label-color-Green"
+                  for="radio-color-Green"
                 >
-                  <input
-                    class="RadioButton-input-21"
-                    id="radio-color-Green"
-                    name="color"
-                    type="radio"
-                    value="Green"
+                  <div
+                    style="min-height: 100%; min-width: 72px; background-color: rgb(97, 157, 102);"
                   />
-                  <label
-                    class="RadioButton-label-22"
-                    for="radio-color-Green"
+                  <div
+                    class="css-144vio9"
+                    tabindex="-1"
                   >
-                    <div
-                      style="min-height: 100%; min-width: 72px; background-color: rgb(97, 157, 102);"
-                    />
-                    <div
-                      class="MuiButtonBase-root RadioButton-text-23 css-10d1a0h-MuiButtonBase-root"
-                      role="button"
-                      tabindex="-1"
-                    >
-                      Green
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </div>
-                  </label>
-                </div>
+                    Green
+                  </div>
+                </label>
               </div>
             </div>
           </div>
@@ -454,7 +438,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-root-1 Typography-underline-3 css-15gavhz-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-d7brak-MuiTypography-root"
           data-testid="typography"
         >
           Your roofing measurements
@@ -466,24 +450,25 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Field area
             </h5>
             <button
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-34 iconButton IconButton-extra-small-38 IconButton-text-36 MuiIconButton-sizeLarge iconButton css-mf1cb5-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="HelpIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
                 />
               </svg>
               <span
@@ -492,16 +477,16 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -567,24 +552,25 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Upstand (optional)
             </h5>
             <button
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-34 iconButton IconButton-extra-small-38 IconButton-text-36 MuiIconButton-sizeLarge iconButton css-mf1cb5-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-text MuiIconButton-sizeLarge iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="HelpIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
                 />
               </svg>
               <span
@@ -593,16 +579,16 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -654,13 +640,12 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -720,23 +705,23 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Kerb / verge / drip detail (optional)
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -788,13 +773,12 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -854,23 +838,23 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Additional detailing (optional)
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -922,13 +906,12 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -988,23 +971,23 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             class="fieldHeader"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 Typography-root-1 css-1sdzjpz-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Additional detailing (optional)
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -1056,13 +1039,12 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item-14 css-lhhe6t-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
+              data-testid="grid-item"
             >
-              <div
-                class="Form-row-13"
-              >
+              <div>
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -1120,22 +1102,22 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-root-1 Typography-underline-3 css-15gavhz-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 header3 header3--extra-margin Typography-underline css-d7brak-MuiTypography-root"
           data-testid="typography"
         >
           Project information (optional)
         </h3>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 Grid-item-14 css-11rta4g-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 Grid-item css-1x1y58o-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="Form-row-13"
-            >
+            <div>
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -1174,16 +1156,16 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 Grid-item-14 css-11rta4g-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 Grid-item css-1x1y58o-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <div
-              class="Form-row-13"
-            >
+            <div>
               <div
-                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-root-58 css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1nnycoi-MuiFormControl-root-MuiTextField-root"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -1226,13 +1208,13 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         class="section"
       >
         <h5
-          class="MuiTypography-root MuiTypography-h5 helpHeader Typography-root-1 css-1sdzjpz-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 helpHeader css-10q7alf-MuiTypography-root"
           data-testid="typography"
         >
           Need some help?
         </h5>
         <p
-          class="MuiTypography-root MuiTypography-body1 Typography-root-1 css-1j4w0hh-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           Your local BMI Area Sales Manager can support you with step by step guidance in using this tool.
@@ -1243,22 +1225,23 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         </p>
       </div>
       <hr
-        class="MuiDivider-root divider"
+        class="MuiDivider-root MuiDivider-fullWidth divider css-9mgopn-MuiDivider-root"
       />
       <div
         class="spaceBetween"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root-24 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium item css-1cky9px-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium item css-1ga0prt-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon Button-startIcon-27 MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ArrowBackIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -1273,7 +1256,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium item css-lz19te-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium item css-11nrv4h-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="submit"
         >
@@ -1283,12 +1266,13 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ArrowForwardIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
               />
             </svg>
           </span>

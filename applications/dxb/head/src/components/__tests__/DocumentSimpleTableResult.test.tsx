@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { ProductDocument as PIMDocument } from "../../types/pim";
@@ -11,8 +11,8 @@ import DocumentSimpleTableResults, {
   Props
 } from "../DocumentSimpleTableResults";
 
-jest.mock("@material-ui/core", () => ({
-  ...(jest.requireActual("@material-ui/core") as any),
+jest.mock("@mui/material", () => ({
+  ...(jest.requireActual("@mui/material") as any),
   useMediaQuery: jest.fn()
 }));
 

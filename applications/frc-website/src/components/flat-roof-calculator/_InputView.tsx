@@ -1,7 +1,7 @@
 import { Button, Form, FormProps, Typography } from "@bmi-digital/components";
-import Divider from "@material-ui/core/Divider";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Divider from "@mui/material/Divider";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import React from "react";
 import styles from "./FlatRoofCalculator.module.scss";
 import { Tree as CalculatorDataTree } from "./types/CalculatorData";

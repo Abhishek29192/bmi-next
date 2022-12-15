@@ -93,6 +93,7 @@ const IntegratedSignupBlock = ({
               action: "sign up started"
             }}
             {...props}
+            data-testid="signup-button"
           />
         )}
         onSubmit={() => {

@@ -1,4 +1,4 @@
-import { Button, HeroItem } from "@bmi-digital/components";
+import { Button, CarouselHeroItem } from "@bmi-digital/components";
 import React from "react";
 import { renderImage } from "../../components/Image";
 import Link from "../../components/Link";
@@ -9,7 +9,7 @@ import type { HomepageData } from "../home-page";
 export const getHeroItemsWithContext = (
   { getMicroCopy },
   slides: HomepageData["slides"]
-): HeroItem[] => {
+): CarouselHeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       const callToAction =

@@ -2,15 +2,15 @@
 import {
   AnchorLink,
   AnchorLinkProps,
-  transformHyphens,
-  Typography
+  Typography,
+  transformHyphens
 } from "@bmi-digital/components";
 import { Options } from "@contentful/rich-text-react-renderer";
 import {
-  Block,
   BLOCKS,
-  Inline,
+  Block,
   INLINES,
+  Inline,
   MARKS
 } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
@@ -21,7 +21,7 @@ import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedInline from "./EmbeddedInline";
 import InlineHyperlink from "./InlineHyperlink";
-import { useStyles } from "./styles/RichTextStyles";
+import { StyledRichText, classes } from "./styles/RichTextStyles";
 
 export type RichTextData = Parameters<typeof renderRichText>[0];
 
@@ -37,7 +37,6 @@ const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const getOptions = (settings: Settings): Options => {
   const { underlineHeadings = [], gtmLabel } = settings;
-  const classes = useStyles();
 
   return {
     renderNode: {
@@ -162,12 +161,11 @@ const RichText = ({
   if (!document) {
     return null;
   }
-  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <StyledRichText className={classes.root}>
       {renderRichText(document, getOptions(rest))}
-    </div>
+    </StyledRichText>
   );
 };
 

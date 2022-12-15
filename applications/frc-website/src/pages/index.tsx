@@ -1,6 +1,6 @@
 import { Button, Grid, Hero, Typography } from "@bmi-digital/components";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { Link } from "gatsby";
 import {
   parse as queryString,

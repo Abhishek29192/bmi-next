@@ -1,9 +1,9 @@
 import { PimProductDocument } from "@bmi/elasticsearch-types";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useMemo } from "react";
 import fileIconsMap from "../../../components/FileIconsMap";
-import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
+import { Root } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { groupDistinctBy } from "../../../utils/product-filters";
 import { AssetType } from "../types";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
@@ -23,7 +23,6 @@ export const groupDocuments = (
 };
 
 const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
-  const classes = useStyles();
   const allDocumentsGrouped = useMemo(
     () => groupDocuments(documents),
     [documents]
@@ -37,7 +36,7 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
-    <div className={classes.root}>
+    <Root data-testid="tech-results-table">
       {matches ? (
         <DesktopDocumentTechnicalTableResults
           documentsByProduct={allDocumentsGrouped}
@@ -51,7 +50,7 @@ const DocumentTechnicalTableResults = ({ documents, assetTypes }: Props) => {
           fileIconsMap={fileIconsMap}
         />
       )}
-    </div>
+    </Root>
   );
 };
 

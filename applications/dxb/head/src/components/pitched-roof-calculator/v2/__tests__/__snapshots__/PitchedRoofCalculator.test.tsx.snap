@@ -16,30 +16,32 @@ Array [
 
 exports[`PitchedRoofCalculator component renders closed 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ContainerDialog-root-33 ContainerDialog-bg-pearl-39 ContainerDialog-width-xl-44 PitchedRoofCalculator"
+      class="ContainerDialog-bg-pearl ContainerDialog-width-xl PitchedRoofCalculator css-1gk6eu2"
+      data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-header-34 ModalHeader"
+        class="ModalHeader css-1wp1i2i"
       >
         <svg
           class="logo"
@@ -58,45 +60,42 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
             />
           </g>
         </svg>
-        <div
+        <span
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="13"
-          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary progressBar MuiLinearProgress-determinate"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate progressBar css-vgehtg-MuiLinearProgress-root"
           role="progressbar"
         >
-          <div
-            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate"
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1jrfcpe-MuiLinearProgress-bar1"
             style="transform: translateX(-87.5%);"
           />
-        </div>
+        </span>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-56 iconButton IconButton-medium-62 IconButton-text-58 ContainerDialog-iconButton-35"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <div
-        class="dialogContent ContainerDialog-content-36"
+        class="dialogContent ContainerDialog-content"
       >
         <div
           class="dialogBody"
@@ -108,7 +107,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -117,30 +116,32 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
 
 exports[`PitchedRoofCalculator component renders correctly 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ContainerDialog-root-1 ContainerDialog-bg-pearl-7 ContainerDialog-width-xl-12 PitchedRoofCalculator"
+      class="ContainerDialog-bg-pearl ContainerDialog-width-xl PitchedRoofCalculator css-1gk6eu2"
+      data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-header-2 ModalHeader"
+        class="ModalHeader css-1wp1i2i"
       >
         <svg
           class="logo"
@@ -159,45 +160,42 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
             />
           </g>
         </svg>
-        <div
+        <span
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="13"
-          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary progressBar MuiLinearProgress-determinate"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate progressBar css-vgehtg-MuiLinearProgress-root"
           role="progressbar"
         >
-          <div
-            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate"
+          <span
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-1jrfcpe-MuiLinearProgress-bar1"
             style="transform: translateX(-87.5%);"
           />
-        </div>
+        </span>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-24 iconButton IconButton-medium-30 IconButton-text-26 ContainerDialog-iconButton-3"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <div
-        class="dialogContent ContainerDialog-content-4"
+        class="dialogContent ContainerDialog-content"
       >
         <div
           class="dialogBody"
@@ -209,7 +207,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>

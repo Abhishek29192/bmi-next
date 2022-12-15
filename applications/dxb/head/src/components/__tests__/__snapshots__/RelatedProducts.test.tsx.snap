@@ -5,16 +5,16 @@ exports[`RelatedProducts component renders correctly with no related products 1`
 exports[`RelatedProducts component renders correctly with related products 1`] = `
 <div>
   <div
-    class="Section-root-1 Section-alabaster-3"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.relatedProducts.title
@@ -23,27 +23,28 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
           class="RelatedProducts"
         >
           <div
-            class="Tabs-root-19 Tabs-secondary-26"
+            class="Tabs-secondary css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-25"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-9"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-20 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-21"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -52,26 +53,26 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-group"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-22 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
                           data-testid="tab-group"
                           id="tab-group"
@@ -79,28 +80,24 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           tabindex="0"
                           type="button"
                         >
+                          group
                           <span
-                            class="MuiTab-wrapper"
-                          >
-                            group
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-29 PrivateTabIndicator-colorPrimary-30 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -109,7 +106,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -118,51 +115,52 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
             </div>
             <div
               aria-labelledby="tab-group"
-              class="MuiGrid-root Tabs-TabPanel-23 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-35 Tabs-TabPanelBox-24"
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+                  data-testid="grid"
                 >
                   <div
-                    class="MuiGrid-root Grid-item-33 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 Grid-item css-1res5k5-MuiGrid-root"
+                    data-testid="grid-item"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-root-36 OverviewCard-clickable-39"
+                      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-testid="GTMOverviewCard"
                       href="/en/path/"
-                      role="button"
                       tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture-42 Media-root-51 Media-contain-52"
+                        class="OverviewCard-headerPicture css-10hd0hb-Media"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body-43"
+                        class="OverviewCard-body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-title-44 OverviewCard-noBrandLogo-45 Typography-root-11 MuiTypography-h5"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                          data-testid="overview-card-body-title"
                         >
                           name
                         </h5>
                         <h6
-                          class="MuiTypography-root OverviewCard-text-46 Typography-root-11 MuiTypography-h6"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                          data-testid="overview-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
-                          class="OverviewCard-children-47 OverviewCard-text-46"
+                          class="OverviewCard-text css-fm25tm"
                         >
                           MC: pdp.nobb.label
                           :
@@ -172,10 +170,12 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-footer-49"
+                          class="css-1tho2wt"
+                          data-testid="overview-card-body-footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-53 Anchorlink MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
                             type="button"
                           >
                             <span>
@@ -183,7 +183,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-icon-57"
+                              class=" css-em5iqk"
                               data-testid="internal"
                               focusable="false"
                               viewBox="0 0 16 16"
@@ -197,7 +197,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         </div>
                       </div>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
@@ -217,16 +217,16 @@ exports[`RelatedProducts component renders correctly with related products witho
 exports[`RelatedProducts component renders correctly without Brand and External Product code on related products 1`] = `
 <div>
   <div
-    class="Section-root-59 Section-alabaster-61"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-67"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-66 Typography-root-69 Typography-underline-71 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: pdp.relatedProducts.title
@@ -235,27 +235,28 @@ exports[`RelatedProducts component renders correctly without Brand and External 
           class="RelatedProducts"
         >
           <div
-            class="Tabs-root-77 Tabs-secondary-84"
+            class="Tabs-secondary css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-83"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-67"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-78 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-79"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -264,26 +265,26 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-group"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-80 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
                           data-testid="tab-group"
                           id="tab-group"
@@ -291,28 +292,24 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           tabindex="0"
                           type="button"
                         >
+                          group
                           <span
-                            class="MuiTab-wrapper"
-                          >
-                            group
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-87 PrivateTabIndicator-colorPrimary-88 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -321,7 +318,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -330,51 +327,52 @@ exports[`RelatedProducts component renders correctly without Brand and External 
             </div>
             <div
               aria-labelledby="tab-group"
-              class="MuiGrid-root Tabs-TabPanel-81 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
               data-testid="tabpanel-group"
               heading="group"
               id="tabpanel-group"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-93 Tabs-TabPanelBox-82"
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+                  data-testid="grid"
                 >
                   <div
-                    class="MuiGrid-root Grid-item-91 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 Grid-item css-1res5k5-MuiGrid-root"
+                    data-testid="grid-item"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-root-94 OverviewCard-clickable-97"
+                      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-testid="GTMOverviewCard"
                       href="/en/path/"
-                      role="button"
                       tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture-100 Media-root-109 Media-contain-110"
+                        class="OverviewCard-headerPicture css-10hd0hb-Media"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body-101"
+                        class="OverviewCard-body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-title-102 OverviewCard-noBrandLogo-103 Typography-root-69 MuiTypography-h5"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                          data-testid="overview-card-body-title"
                         >
                           name
                         </h5>
                         <h6
-                          class="MuiTypography-root OverviewCard-text-104 Typography-root-69 MuiTypography-h6"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                          data-testid="overview-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
-                          class="OverviewCard-children-105 OverviewCard-text-104"
+                          class="OverviewCard-text css-fm25tm"
                         >
                           MC: pdp.nobb.label
                           :
@@ -384,10 +382,12 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                           </b>
                         </div>
                         <div
-                          class="OverviewCard-footer-107"
+                          class="css-1tho2wt"
+                          data-testid="overview-card-body-footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-111 Anchorlink MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
                             type="button"
                           >
                             <span>
@@ -395,7 +395,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-icon-115"
+                              class=" css-em5iqk"
                               data-testid="internal"
                               focusable="false"
                               viewBox="0 0 16 16"
@@ -409,49 +409,51 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         </div>
                       </div>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root Grid-item-91 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 Grid-item css-1res5k5-MuiGrid-root"
+                    data-testid="grid-item"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-root-94 OverviewCard-clickable-97"
+                      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-testid="GTMOverviewCard"
                       href="/en/path/"
-                      role="button"
                       tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture-100 Media-root-109 Media-contain-110"
+                        class="OverviewCard-headerPicture css-10hd0hb-Media"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body-101"
+                        class="OverviewCard-body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-title-102 OverviewCard-noBrandLogo-103 Typography-root-69 MuiTypography-h5"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                          data-testid="overview-card-body-title"
                         >
                           name
                         </h5>
                         <h6
-                          class="MuiTypography-root OverviewCard-text-104 Typography-root-69 MuiTypography-h6"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                          data-testid="overview-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
-                          class="OverviewCard-children-105 OverviewCard-text-104"
+                          class="OverviewCard-text css-fm25tm"
                         />
                         <div
-                          class="OverviewCard-footer-107"
+                          class="css-1tho2wt"
+                          data-testid="overview-card-body-footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-111 Anchorlink MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
                             type="button"
                           >
                             <span>
@@ -459,7 +461,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-icon-115"
+                              class=" css-em5iqk"
                               data-testid="internal"
                               focusable="false"
                               viewBox="0 0 16 16"
@@ -473,49 +475,51 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         </div>
                       </div>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <div
-                    class="MuiGrid-root Grid-item-91 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 Grid-item css-1res5k5-MuiGrid-root"
+                    data-testid="grid-item"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root OverviewCard-root-94 OverviewCard-clickable-97"
+                      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-testid="GTMOverviewCard"
                       href="/en/path/"
-                      role="button"
                       tabindex="0"
                     >
                       <img
                         alt="Shadow Black, Gloss, 6x7x8symbol name"
-                        class="OverviewCard-headerPicture-100 Media-root-109 Media-contain-110"
+                        class="OverviewCard-headerPicture css-10hd0hb-Media"
                         src="http://localhost:8000"
                       />
                       <div
-                        class="OverviewCard-body-101"
+                        class="OverviewCard-body"
                       >
                         <h5
-                          class="MuiTypography-root OverviewCard-title-102 OverviewCard-noBrandLogo-103 Typography-root-69 MuiTypography-h5"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                          data-testid="overview-card-body-title"
                         >
                           name
                         </h5>
                         <h6
-                          class="MuiTypography-root OverviewCard-text-104 Typography-root-69 MuiTypography-h6"
-                          data-testid="typography"
+                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                          data-testid="overview-card-body-subtitle"
                         >
                           Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
-                          class="OverviewCard-children-105 OverviewCard-text-104"
+                          class="OverviewCard-text css-fm25tm"
                         />
                         <div
-                          class="OverviewCard-footer-107"
+                          class="css-1tho2wt"
+                          data-testid="overview-card-body-footer"
                         >
                           <span
-                            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-111 Anchorlink MuiTypography-colorPrimary"
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
                             type="button"
                           >
                             <span>
@@ -523,7 +527,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                             </span>
                             <svg
                               aria-hidden="true"
-                              class="AnchorLink-icon-115"
+                              class=" css-em5iqk"
                               data-testid="internal"
                               focusable="false"
                               viewBox="0 0 16 16"
@@ -537,7 +541,217 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         </div>
                       </div>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
+<div>
+  <div
+    class="Section-root Section-alabaster css-cxq310"
+  >
+    <div
+      class=" css-ze8cyt"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
+          data-testid="typography"
+        >
+          MC: pdp.relatedProducts.title
+        </h2>
+        <div
+          class="RelatedProducts"
+        >
+          <div
+            class="Tabs-secondary css-jnrlck"
+            data-testid="tabs"
+          >
+            <div
+              class="Tabs-tabsBar"
+            >
+              <div
+                class=" css-ze8cyt"
+              >
+                <div
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                >
+                  <div
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  >
+                    <div
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                    <div
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
+                      style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                    />
+                    <div
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
+                      style="margin-bottom: 0px;"
+                    >
+                      <div
+                        aria-label="tabs"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
+                        role="tablist"
+                      >
+                        <button
+                          aria-controls="tabpanel-group"
+                          aria-selected="true"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
+                          data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"group\\",\\"action\\":\\"Filter – Related Products\\"}"
+                          data-testid="tab-group"
+                          id="tab-group"
+                          role="tab"
+                          tabindex="0"
+                          type="button"
+                        >
+                          group
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                      <span
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                        style="left: 0px; width: 0px;"
+                      />
+                    </div>
+                    <div
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-group"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
+              data-testid="tabpanel-group"
+              heading="group"
+              id="tabpanel-group"
+              role="tabpanel"
+            >
+              <div
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+                  data-testid="grid"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3 Grid-item css-1res5k5-MuiGrid-root"
+                    data-testid="grid-item"
+                  >
+                    <a
+                      class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-testid="GTMOverviewCard"
+                      href="/en/path/"
+                      tabindex="0"
+                    >
+                      <img
+                        alt="Shadow Black, Gloss, 6x7x8symbol name"
+                        class="OverviewCard-headerPicture css-10hd0hb-Media"
+                        src="http://localhost:8000"
+                      />
+                      <div
+                        class="OverviewCard-body"
+                      >
+                        <h5
+                          class="MuiTypography-root MuiTypography-h5 OverviewCard-title OverviewCard-noBrandLogo css-10q7alf-MuiTypography-root"
+                          data-testid="overview-card-body-title"
+                        >
+                          name
+                        </h5>
+                        <h6
+                          class="MuiTypography-root MuiTypography-h6 OverviewCard-text css-1le86ss-MuiTypography-root"
+                          data-testid="overview-card-body-subtitle"
+                        >
+                          Shadow Black, Gloss, 6x7x8symbol
+                        </h6>
+                        <div
+                          class="OverviewCard-text css-fm25tm"
+                        >
+                          MC: pdp.nobb.label
+                          :
+                           
+                          <b>
+                            external-product-code
+                          </b>
+                        </div>
+                        <div
+                          class="css-1tho2wt"
+                          data-testid="overview-card-body-footer"
+                        >
+                          <span
+                            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                            data-testid="anchor-link"
+                            type="button"
+                          >
+                            <span>
+                              MC: pdp.relatedProducts.viewDetails
+                            </span>
+                            <svg
+                              aria-hidden="true"
+                              class=" css-em5iqk"
+                              data-testid="internal"
+                              focusable="false"
+                              viewBox="0 0 16 16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>

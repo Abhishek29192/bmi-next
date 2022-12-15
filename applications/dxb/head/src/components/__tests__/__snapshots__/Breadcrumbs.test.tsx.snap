@@ -4,10 +4,10 @@ exports[`Breadcrumbs component renders correctly 1`] = `
 <div>
   <nav
     aria-label="breadcrumbs"
-    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs-root-1 MuiTypography-body1 MuiTypography-colorTextSecondary"
+    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
   >
     <ol
-      class="MuiBreadcrumbs-ol"
+      class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
     />
   </nav>
 </div>
@@ -17,10 +17,10 @@ exports[`Breadcrumbs component renders correctly only one item 1`] = `
 <div>
   <nav
     aria-label="breadcrumbs"
-    class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs-root-9 MuiTypography-body1 MuiTypography-colorTextSecondary"
+    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root  css-1ksgnjt-MuiTypography-root-MuiBreadcrumbs-root"
   >
     <ol
-      class="MuiBreadcrumbs-ol"
+      class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
     />
   </nav>
 </div>

@@ -18,7 +18,7 @@ const OptionCard = ({ title, description, children }: any) => (
         md={6}
         direction={"column"}
         spacing={2}
-        justify="center"
+        justifyContent="center"
         alignItems="center"
       >
         {children}

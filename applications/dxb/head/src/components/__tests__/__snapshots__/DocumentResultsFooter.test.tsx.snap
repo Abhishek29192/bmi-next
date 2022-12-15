@@ -7,22 +7,23 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
   >
     <nav
       aria-label="pagination navigation"
-      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-1"
+      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
     >
       <ul
-        class="MuiPagination-ul"
+        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
       >
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateBeforeIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -36,27 +37,28 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             tabindex="0"
             type="button"
           >
             1
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </li>
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateNextIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -69,7 +71,8 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </ul>
     </nav>
     <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+      data-testid="anchor-link"
       type="button"
     >
       <span>
@@ -77,27 +80,24 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </span>
     </a>
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root-11 MuiButton-contained Button-contained-13 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (4)\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >
+      MC: downloadList.download (4)
       <span
-        class="MuiButton-label Button-label-14"
-      >
-        MC: downloadList.download (4)
-      </span>
-      <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
     <p
-      class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-31 MuiTypography-body1"
+      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
       data-testid="typography"
     >
       This site is protected by reCAPTCHA and the Google 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        data-testid="anchor-link"
         href="https://policies.google.com/privacy"
         rel="noreferrer noopener"
         target="_blank"
@@ -108,7 +108,8 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </a>
        and 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        data-testid="anchor-link"
         href="https://policies.google.com/terms"
         rel="noreferrer noopener"
         target="_blank"
@@ -130,22 +131,23 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
   >
     <nav
       aria-label="pagination navigation"
-      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-39"
+      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
     >
       <ul
-        class="MuiPagination-ul"
+        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
       >
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateBeforeIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -159,27 +161,28 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             tabindex="0"
             type="button"
           >
             1
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </li>
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateNextIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -192,7 +195,8 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </ul>
     </nav>
     <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+      data-testid="anchor-link"
       type="button"
     >
       <span>
@@ -200,27 +204,24 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </span>
     </a>
     <button
-      class="MuiButtonBase-root MuiButton-root Button-root-49 MuiButton-contained Button-contained-51 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (2)\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >
+      MC: downloadList.download (2)
       <span
-        class="MuiButton-label Button-label-52"
-      >
-        MC: downloadList.download (2)
-      </span>
-      <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
     <p
-      class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-69 MuiTypography-body1"
+      class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
       data-testid="typography"
     >
       This site is protected by reCAPTCHA and the Google 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        data-testid="anchor-link"
         href="https://policies.google.com/privacy"
         rel="noreferrer noopener"
         target="_blank"
@@ -231,7 +232,8 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </a>
        and 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        data-testid="anchor-link"
         href="https://policies.google.com/terms"
         rel="noreferrer noopener"
         target="_blank"
@@ -253,22 +255,23 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
   >
     <nav
       aria-label="pagination navigation"
-      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-77"
+      class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
     >
       <ul
-        class="MuiPagination-ul"
+        class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
       >
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateBeforeIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -282,27 +285,28 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             tabindex="0"
             type="button"
           >
             1
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </li>
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiPaginationItem-icon"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+              data-testid="NavigateNextIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >

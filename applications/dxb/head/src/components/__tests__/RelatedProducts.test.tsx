@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { render } from "@testing-library/react";
 import React from "react";
-import { RelatedProduct } from "../../types/pim";
 import createRelatedProduct from "../../__tests__/helpers/RelatedProductHelper";
+import { RelatedProduct } from "../../types/pim";
 import RelatedProducts from "../RelatedProducts";
 
 describe("RelatedProducts component", () => {
@@ -57,11 +57,12 @@ describe("RelatedProducts component", () => {
   it("renders with correct gtmLabel", () => {
     const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
 
-    const { container } = render(
+    const { container, getByTestId } = render(
       <ThemeProvider>
         <RelatedProducts countryCode="en" products={relatedProducts} />
       </ThemeProvider>
     );
+    expect(container).toMatchSnapshot();
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
       label:
@@ -69,10 +70,8 @@ describe("RelatedProducts component", () => {
       action: "/en/path/"
     });
 
-    const elemsWithGTM = container.querySelectorAll(
-      "[class*='OverviewCard-root']"
+    expect(getByTestId("GTMOverviewCard").getAttribute("data-gtm")).toEqual(
+      expectedDataGtm
     );
-    expect(elemsWithGTM).toHaveLength(1);
-    expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
   });
 });

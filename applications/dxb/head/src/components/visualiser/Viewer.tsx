@@ -1,5 +1,5 @@
 import { Icon, Tooltip } from "@bmi-digital/components";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import {
   Add,
   ArrowBack,
@@ -9,7 +9,7 @@ import {
   Home,
   Remove,
   ThreeDRotation
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import clamp from "lodash/clamp";
 import React from "react";
 import {

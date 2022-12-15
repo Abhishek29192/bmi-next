@@ -85,6 +85,7 @@ describe("generateHeroProps test", () => {
   it("generate props with image", () => {
     const result = generateHeroProps(
       "heroTitle",
+      1,
       "heroSubtitle",
       null,
       featuredMedia,
@@ -93,6 +94,7 @@ describe("generateHeroProps test", () => {
     expect(result).toEqual(
       expect.objectContaining({
         title: "heroTitle",
+        level: 1,
         children: "heroSubtitle"
       })
     );
@@ -114,6 +116,7 @@ describe("generateHeroProps test", () => {
   it("generate props with video", () => {
     const result = generateHeroProps(
       "heroTitle",
+      1,
       "heroSubtitle",
       featureVideo,
       null,
@@ -122,6 +125,7 @@ describe("generateHeroProps test", () => {
     expect(result).toEqual(
       expect.objectContaining({
         title: "heroTitle",
+        level: 1,
         children: "heroSubtitle"
       })
     );

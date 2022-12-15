@@ -6,9 +6,9 @@ import {
   Icon
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import Fade from "@material-ui/core/Fade";
-import Modal, { ModalProps } from "@material-ui/core/Modal";
-import CloseIcon from "@material-ui/icons/Close";
+import Fade from "@mui/material/Fade";
+import Modal, { ModalProps } from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
 import classnames from "classnames";
 import React, { useContext } from "react";
 import styles from "./CalculatorModal.module.scss";

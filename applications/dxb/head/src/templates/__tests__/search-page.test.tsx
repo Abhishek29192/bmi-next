@@ -44,14 +44,13 @@ describe("Search Page Template", () => {
     jest.clearAllMocks();
   });
 
-  it("render correctly", () => {
+  it("render correctly", async () => {
     const { container, getByTestId, getByText } = renderWithRouter(
       <ThemeProvider>
         <SearchPage data={data} pageContext={null} />
       </ThemeProvider>
     );
 
-    // expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
     expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -68,7 +67,7 @@ describe("Search Page Template", () => {
     ).toBeTruthy();
     expect(container.querySelector(".SearchBlock")).toBeTruthy();
     expect(
-      container.querySelector("[type='submit'] .MuiButton-label").textContent
+      container.querySelector("[type='submit'].MuiButton-root").textContent
     ).toBe("MC: searchPage.title");
     expect(getByText("MC: searchPage.helperText")).toBeTruthy();
     expect(getByText("MC: searchPage.placeholder")).toBeTruthy();
@@ -326,12 +325,11 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: searchPage.title.withQuery")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
+
     expect(container.querySelectorAll("[role=tabpanel]").length).toBe(3);
     expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy();
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
-    // expect(elasticSearchSpy).toHaveBeenCalledTimes();
   });
 
   it("should not render tab when result count is null", async () => {
@@ -369,7 +367,7 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: search.tabHeadings.documents (2)")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
+
     expect(container.querySelectorAll("[role=tabpanel]").length).toBe(2);
     expect(getByText("MC: search.tabHeadings.pages (1)")).toBeTruthy();
   });
@@ -400,7 +398,6 @@ describe("Search Page Template", () => {
       expect(getByText("MC: searchPage.noResultsTitle")).toBeTruthy()
     );
 
-    // expect(container).toMatchSnapshot();
     expect(container.querySelector(".Tab")).toBeFalsy();
     expect(container.querySelectorAll("[role=tabpanel]").length).toBe(0);
   });
@@ -413,7 +410,7 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(1);
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(1);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
-    const { container, getByText } = renderWithRouter(
+    const { container, getByText, getByTestId } = renderWithRouter(
       <ThemeProvider>
         <SearchPage
           data={data}
@@ -430,7 +427,7 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
-    const documentTabButton = container.querySelector("#tab-documents");
+    const documentTabButton = getByTestId("tab-documents");
 
     fireEvent.click(documentTabButton);
     expect(
@@ -466,8 +463,6 @@ describe("Search Page Template", () => {
       expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
     );
 
-    // expect(container).toMatchSnapshot();
-
     const elasticSearchSpy = jest
       .spyOn(elasticSearch, "queryElasticSearch")
       .mockResolvedValueOnce({
@@ -501,7 +496,7 @@ describe("Search Page Template", () => {
     jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(null);
     jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(2);
     jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(1);
-    const { container, getByText } = renderWithRouter(
+    const { getByText, getByTestId } = renderWithRouter(
       <ThemeProvider>
         <ConfigProvider configObject={{ isPreviewMode: true }}>
           <SearchPage
@@ -523,7 +518,7 @@ describe("Search Page Template", () => {
       expect(getByText("MC: searchPage.helperText")).toBeTruthy()
     );
 
-    const form = container.querySelector("form[class*='Search']");
+    const form = getByTestId("search-form");
 
     fireEvent.submit(form);
     expect(alertSpy).toHaveBeenCalledWith(
@@ -663,7 +658,6 @@ describe("Search Page Template", () => {
       </ThemeProvider>
     );
 
-    // expect(container).toMatchSnapshot();
     await waitFor(() =>
       expect(queryByText("searchPageNextBestActionsTitle")).toBeTruthy()
     );
@@ -699,6 +693,5 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(queryByText("searchPageExploreBarTitle")).toBeTruthy()
     );
-    // expect(container).toMatchSnapshot();
   });
 });

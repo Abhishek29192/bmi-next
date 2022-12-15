@@ -9,4 +9,4 @@ export const All_FORMATS = [
   "text/plain",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 ] as const;
-export type Format = typeof All_FORMATS[number];
+export type Format = (typeof All_FORMATS)[number];

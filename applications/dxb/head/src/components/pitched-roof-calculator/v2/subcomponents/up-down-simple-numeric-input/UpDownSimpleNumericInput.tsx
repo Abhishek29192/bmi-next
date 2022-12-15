@@ -1,10 +1,10 @@
 import { Button, Icon, withFormControl } from "@bmi-digital/components";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import classnames from "classnames";
 import React, { useState } from "react";
 import RawTextField from "../raw-text-field/RawTextField";
-import { useStyles } from "./styles";
+import { StyledComponentWithButtons, classes } from "./styles";
 
 type Props = {
   name: string;
@@ -31,7 +31,6 @@ const UpDownSimpleNumericInput = ({
   buttonPlacement = "sides",
   lockBreakpoint = "xs"
 }: Props) => {
-  const classes = useStyles();
   const [count, setCount] = useState(() =>
     getValidValue(defaultValue, min, max)
   );
@@ -88,7 +87,7 @@ const UpDownSimpleNumericInput = ({
   );
 
   const ComponentWithButtonsOnEitherSide = (
-    <div
+    <StyledComponentWithButtons
       className={classnames(
         classes.root,
         lockBreakpoint && `locked-${lockBreakpoint}`
@@ -97,11 +96,11 @@ const UpDownSimpleNumericInput = ({
       {DownButton}
       {InputComponent}
       {UpButton}
-    </div>
+    </StyledComponentWithButtons>
   );
 
   const ComponentWithButtonsOnTheRight = (
-    <div
+    <StyledComponentWithButtons
       className={classnames(
         classes.root,
         lockBreakpoint && `locked-${lockBreakpoint}`
@@ -110,7 +109,7 @@ const UpDownSimpleNumericInput = ({
       {InputComponent}
       {DownButton}
       {UpButton}
-    </div>
+    </StyledComponentWithButtons>
   );
 
   const CounterComponent =

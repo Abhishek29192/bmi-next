@@ -7,7 +7,7 @@ import {
   transformHyphens,
   withClickable
 } from "@bmi-digital/components";
-import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
+import ButtonBase, { ButtonBaseProps } from "@mui/material/ButtonBase";
 import { graphql } from "gatsby";
 import React from "react";
 import { Data as PageInfoData } from "../components/PageInfo";

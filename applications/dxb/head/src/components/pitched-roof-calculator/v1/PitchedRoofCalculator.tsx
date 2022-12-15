@@ -1,5 +1,5 @@
 import { ContainerDialog } from "@bmi-digital/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { Data } from "../types";

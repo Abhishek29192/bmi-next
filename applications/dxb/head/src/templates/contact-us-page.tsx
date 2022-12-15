@@ -1,4 +1,4 @@
-import { Hero, HeroItem, Section, Typography } from "@bmi-digital/components";
+import { Hero, Section, Typography } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import BackToResults from "../components/BackToResults";
@@ -71,13 +71,6 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     breadcrumbs,
     breadcrumbTitle
   );
-  const heroProps: HeroItem = {
-    title,
-    children: subtitle,
-    media: featuredVideo
-      ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" })
-  };
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     signupBlock,
@@ -95,13 +88,20 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     >
       <Hero
         level={1}
-        {...heroProps}
+        title={title}
+        media={
+          featuredVideo
+            ? renderVideo(featuredVideo)
+            : renderImage(featuredMedia, { size: "cover" })
+        }
         breadcrumbs={
           <BackToResults isDarkThemed>
             <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
           </BackToResults>
         }
-      />
+      >
+        {subtitle}
+      </Hero>
       <Section backgroundColor="pearl" overflowVisible>
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">

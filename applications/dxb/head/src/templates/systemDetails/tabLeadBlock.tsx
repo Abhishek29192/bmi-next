@@ -1,5 +1,5 @@
 import { LeadBlock, Section, Tabs, Typography } from "@bmi-digital/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
+import Tab, { TabProps } from "@mui/material/Tab";
 import React from "react";
 import AssetsIframe from "../../components/AssetsIframe";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";

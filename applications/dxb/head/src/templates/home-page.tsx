@@ -1,4 +1,9 @@
-import { Button, ButtonProps, Hero, Search } from "@bmi-digital/components";
+import {
+  Button,
+  ButtonProps,
+  CarouselHero,
+  Search
+} from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Brands, { Data as BrandData } from "../components/Brands";
@@ -79,7 +84,7 @@ const HomePage = ({ data, pageContext }: Props) => {
 
         return (
           <>
-            <Hero level={0} heroes={heroItems} hasSpaceBottom>
+            <CarouselHero heroes={heroItems} hasSpaceBottom>
               {!isGatsbyDisabledElasticSearch && (
                 <Search
                   buttonComponent={(props) => (
@@ -96,7 +101,7 @@ const HomePage = ({ data, pageContext }: Props) => {
                   placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
                 />
               )}
-            </Hero>
+            </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {spaBrands?.length ? (
               <Brands data={spaBrands} spaBrand />

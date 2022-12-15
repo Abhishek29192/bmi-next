@@ -3,71 +3,63 @@
 exports[`General Error render correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-2 Header-headersmall-4 Header-headermedium-5 Header-headerlarge-6 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-7"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-8"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Header-utilitiesButton-9 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-8"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Header-utilitiesButton-9 Header-languageSelectionButton-10 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt="Norge"
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/no.svg"
+                  width="20px"
+                />
+                NO
                 <span
-                  class="MuiButton-label Button-label-49"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt="Norge"
-                    class="Header-languageIcon-14"
-                    height="16px"
-                    src="/icons/flags/no.svg"
-                    width="20px"
-                  />
-                  NO
-                  <span
-                    class="Header-downArrow-11"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -76,138 +68,120 @@ exports[`General Error render correctly 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-15 Header-languageDrawer-16"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-extra-small-61 IconButton-contained-58 Header-closeButton-17"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-44 Header-languageContainer-22"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-66"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-68 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-67 Typography-root-75 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-69"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Norge\\",\\"action\\":\\"/no/\\"}"
                     href="/no"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/no.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Norge
+                      <img
+                        alt="Norge flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/no.svg"
+                        width="20px"
+                      />
                     </span>
+                    Norge
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -218,24 +192,24 @@ exports[`General Error render correctly 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-23"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-24"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-25"
+              class="Header-logoLink"
               href="/no/"
             >
               <svg
-                class="Header-logo-26"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -254,101 +228,90 @@ exports[`General Error render correctly 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-27"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-8 Header-navItemNoChildren-28"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-140 PrivateTabIndicator-colorSecondary-142 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-30"
+              class="Header-navigationBarButtons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-searchButton-32"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-text-59 Header-burgerButton-34"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -358,49 +321,46 @@ exports[`General Error render correctly 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-35 Header-backdrop-43"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-15 Header-navDrawer-36"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-closeButton-17"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-83"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-89 Navigation-offset0-84"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-97 Typography-root-75 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -408,84 +368,71 @@ exports[`General Error render correctly 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-101"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="https://www.external.co.uk"
                   tabindex="0"
                 >
+                  string
                   <span
-                    class="MuiButton-label Button-label-49"
-                  >
-                    string
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-49"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-102"
-                  >
-                    <img
-                      alt="Norge"
-                      class="Navigation-languageIcon-103"
-                      height="16px"
-                      src="/icons/flags/no.svg"
-                      width="20px"
-                    />
-                    NO
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-95"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt="Norge"
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/no.svg"
+                    width="20px"
+                  />
+                  NO
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -494,39 +441,36 @@ exports[`General Error render correctly 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-37"
+      class="Header-searchDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-15 Header-searchDrawer-39"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-closeButton-17"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-75 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -539,43 +483,46 @@ exports[`General Error render correctly 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="PromoSection-root-107 Section-root-114 Section-white-118"
+      class=" Section-root Section-white css-25z9ir"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root PromoSection-grid-113 MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 PromoSection-grid css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 Grid-item css-15yu7r1-MuiGrid-root"
+              data-testid="grid-item"
             >
               <div
-                class="PromoSection-content-110"
+                class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root PromoSection-title-108 Typography-root-75 Typography-underline-77 MuiTypography-h2"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
                   data-testid="typography"
                 >
                   errorGeneralTitle
                 </h2>
                 <h3
-                  class="MuiTypography-root PromoSection-subtitle-109 Typography-root-75 MuiTypography-h3"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
                   data-testid="typography"
                 >
                   errorGeneralTitle
                 </h3>
                 <p
-                  class="MuiTypography-root Typography-root-75 MuiTypography-body2 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-jy6nst-MuiTypography-root"
                   data-testid="typography"
                 />
               </div>
             </div>
             <div
-              class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 Grid-item css-15yu7r1-MuiGrid-root"
+              data-testid="grid-item"
             />
           </div>
         </div>
@@ -583,26 +530,28 @@ exports[`General Error render correctly 1`] = `
     </div>
   </div>
   <div
-    class="HidePrint-root-1"
+    class=" css-bnck4c-HidePrint"
   >
     <div
-      class="Footer-root-124"
+      class=" css-1djs9y8"
       data-testid="footer"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-130wd3m-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-73 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-75 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 string
@@ -610,10 +559,10 @@ exports[`General Error render correctly 1`] = `
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-131"
+            class="Footer-secondaryNavigation"
           >
             <div
-              class="Footer-logo-132"
+              class="css-5shjl0"
             >
               <svg
                 viewBox="0 0 250 250"
@@ -633,54 +582,43 @@ exports[`General Error render correctly 1`] = `
               </svg>
             </div>
             <ul
-              class="Footer-list-130 Footer-listInline-133"
+              class="Footer-listInline css-p4h7lm"
             >
               <li
-                class="Footer-listItem-125"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Button-textDarkBg-51 Footer-link-129 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                   href="https://www.external.co.uk"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
                 >
+                  string
                   <span
-                    class="MuiButton-label Button-label-49"
-                  >
-                    string
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
               <li
-                class="Footer-listItem-125"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Button-textDarkBg-51 Footer-link-129 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
                   href="/no/sitemap/"
-                  role="button"
                   tabindex="0"
                 >
+                  MC: global.sitemap
                   <span
-                    class="MuiButton-label Button-label-49"
-                  >
-                    MC: global.sitemap
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-134"
+              class="css-p15bbt"
             >
               <svg
                 data-name="logo Standard Centred"
@@ -803,31 +741,28 @@ exports[`General Error render correctly 1`] = `
     </div>
   </div>
   <div
-    class="BackToTop-root-136 BackToTop-hidden-137"
+    class="BackToTop-hidden css-1dj4jmd"
   >
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-contained Button-contained-48 BackToTop-button-138 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
       tabindex="-1"
       type="button"
     >
-      <span
-        class="MuiButton-label Button-label-49"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lhftkz-MuiSvgIcon-root"
+        data-testid="ExpandLessIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root BackToTop-icon-139"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-          />
-        </svg>
-      </span>
+        <path
+          d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
   </div>
@@ -838,71 +773,63 @@ exports[`General Error render correctly 1`] = `
 exports[`General Error render correctly when errorGeneral is falsy 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-145 Header-headersmall-147 Header-headermedium-148 Header-headerlarge-149 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-150"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-187"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-151"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Header-utilitiesButton-152 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-192"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-151"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Header-utilitiesButton-152 Header-languageSelectionButton-153 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt="Norge"
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/no.svg"
+                  width="20px"
+                />
+                NO
                 <span
-                  class="MuiButton-label Button-label-192"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt="Norge"
-                    class="Header-languageIcon-157"
-                    height="16px"
-                    src="/icons/flags/no.svg"
-                    width="20px"
-                  />
-                  NO
-                  <span
-                    class="Header-downArrow-154"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -911,138 +838,120 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-158 Header-languageDrawer-159"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-200 iconButton IconButton-extra-small-204 IconButton-contained-201 Header-closeButton-160"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-187 Header-languageContainer-165"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-209"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-211 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-216 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-216 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-210 Typography-root-218 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-212"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 LanguageSelection-link-214 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-192"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-193 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-215"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 LanguageSelection-link-214 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-192"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-193 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-215"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 LanguageSelection-link-214 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Norge\\",\\"action\\":\\"/no/\\"}"
                     href="/no"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-192"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-193 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-215"
-                          height="16px"
-                          src="/icons/flags/no.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Norge
+                      <img
+                        alt="Norge flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/no.svg"
+                        width="20px"
+                      />
                     </span>
+                    Norge
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -1053,24 +962,24 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-166"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-187"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-167"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-168"
+              class="Header-logoLink"
               href="/no/"
             >
               <svg
-                class="Header-logo-169"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1089,101 +998,90 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-170"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-151 Header-navItemNoChildren-171"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-283 PrivateTabIndicator-colorSecondary-285 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-173"
+              class="Header-navigationBarButtons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-200 iconButton IconButton-medium-206 IconButton-contained-201 Header-searchButton-175"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-200 iconButton IconButton-medium-206 IconButton-text-202 Header-burgerButton-177"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -1193,49 +1091,46 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-178 Header-backdrop-186"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-158 Header-navDrawer-179"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-200 iconButton IconButton-medium-206 IconButton-contained-201 Header-closeButton-160"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-226"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-232 Navigation-offset0-227"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-240 Typography-root-218 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -1243,84 +1138,71 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-192"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-244"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="https://www.external.co.uk"
                   tabindex="0"
                 >
+                  string
                   <span
-                    class="MuiButton-label Button-label-192"
-                  >
-                    string
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Navigation-navigationListButton-247 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-192"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-245"
-                  >
-                    <img
-                      alt="Norge"
-                      class="Navigation-languageIcon-246"
-                      height="16px"
-                      src="/icons/flags/no.svg"
-                      width="20px"
-                    />
-                    NO
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-238"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt="Norge"
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/no.svg"
+                    width="20px"
+                  />
+                  NO
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -1329,39 +1211,36 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-180"
+      class="Header-searchDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-158 Header-searchDrawer-182"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-200 iconButton IconButton-medium-206 IconButton-contained-201 Header-closeButton-160"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-218 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -1374,59 +1253,58 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     data-testid="brand-colors-provider"
   >
     <div
-      class="PromoSection-root-250 Section-root-257 Section-white-261"
+      class=" Section-root Section-white css-25z9ir"
     >
       <div
-        class="Container-root-187"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root PromoSection-grid-256 MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 PromoSection-grid css-mrmosm-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-216 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 Grid-item css-15yu7r1-MuiGrid-root"
+              data-testid="grid-item"
             >
               <div
-                class="PromoSection-content-253"
+                class="PromoSection-content"
               >
                 <h2
-                  class="MuiTypography-root PromoSection-title-251 Typography-root-218 Typography-underline-220 MuiTypography-h2"
+                  class="MuiTypography-root MuiTypography-h2 PromoSection-title Typography-underline css-ta8c5q-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:General.title
                 </h2>
                 <h3
-                  class="MuiTypography-root PromoSection-subtitle-252 Typography-root-218 MuiTypography-h3"
+                  class="MuiTypography-root MuiTypography-h3 PromoSection-subtitle css-d7brak-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:General.title
                 </h3>
                 <p
-                  class="MuiTypography-root Typography-root-218 MuiTypography-body2 MuiTypography-gutterBottom"
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom  css-jy6nst-MuiTypography-root"
                   data-testid="typography"
                 >
                   Error:General.subtitle
                 </p>
                 <button
-                  class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-contained Button-contained-191 MuiButton-containedPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                   tabindex="0"
                   type="button"
                 >
+                  Error:General.cta.label
                   <span
-                    class="MuiButton-label Button-label-192"
-                  >
-                    Error:General.cta.label
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
               </div>
             </div>
             <div
-              class="MuiGrid-root Grid-item-216 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 Grid-item css-15yu7r1-MuiGrid-root"
+              data-testid="grid-item"
             />
           </div>
         </div>
@@ -1434,26 +1312,28 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
   </div>
   <div
-    class="HidePrint-root-144"
+    class=" css-bnck4c-HidePrint"
   >
     <div
-      class="Footer-root-267"
+      class=" css-1djs9y8"
       data-testid="footer"
     >
       <div
-        class="Container-root-187"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-130wd3m-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-216 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-218 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 string
@@ -1461,10 +1341,10 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-274"
+            class="Footer-secondaryNavigation"
           >
             <div
-              class="Footer-logo-275"
+              class="css-5shjl0"
             >
               <svg
                 viewBox="0 0 250 250"
@@ -1484,54 +1364,43 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </svg>
             </div>
             <ul
-              class="Footer-list-273 Footer-listInline-276"
+              class="Footer-listInline css-p4h7lm"
             >
               <li
-                class="Footer-listItem-268"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Button-textDarkBg-194 Footer-link-272 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                   href="https://www.external.co.uk"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
                 >
+                  string
                   <span
-                    class="MuiButton-label Button-label-192"
-                  >
-                    string
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
               <li
-                class="Footer-listItem-268"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-text Button-text-190 Button-textDarkBg-194 Footer-link-272 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
                   href="/no/sitemap/"
-                  role="button"
                   tabindex="0"
                 >
+                  MC: global.sitemap
                   <span
-                    class="MuiButton-label Button-label-192"
-                  >
-                    MC: global.sitemap
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-277"
+              class="css-p15bbt"
             >
               <svg
                 data-name="logo Standard Centred"
@@ -1654,31 +1523,28 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     </div>
   </div>
   <div
-    class="BackToTop-root-279 BackToTop-hidden-280"
+    class="BackToTop-hidden css-1dj4jmd"
   >
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-contained Button-contained-191 BackToTop-button-281 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-15xs9gd-MuiButtonBase-root-MuiButton-root"
       tabindex="-1"
       type="button"
     >
-      <span
-        class="MuiButton-label Button-label-192"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lhftkz-MuiSvgIcon-root"
+        data-testid="ExpandLessIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root BackToTop-icon-282"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-          />
-        </svg>
-      </span>
+        <path
+          d="m12 8-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
   </div>

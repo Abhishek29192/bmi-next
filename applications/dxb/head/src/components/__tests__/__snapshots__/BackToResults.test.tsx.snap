@@ -17,33 +17,29 @@ exports[`BackToResults component renders correctly 1`] = `
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-101 MuiButton-text Button-text-102 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
     href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-104"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-105 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div
@@ -60,33 +56,29 @@ exports[`BackToResults component renders cta if url query params includes filter
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-21 MuiButton-text Button-text-22 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D\\"}"
     href="/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-24"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-25 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div
@@ -103,33 +95,29 @@ exports[`BackToResults component renders cta if url query params includes previo
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-41 MuiButton-text Button-text-42 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page\\"}"
     href="/en/plp-page"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-44"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-45 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div
@@ -146,33 +134,29 @@ exports[`BackToResults component renders cta if url query params includes search
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?q=query\\"}"
     href="/en/search/?q=query"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-4"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-5 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div
@@ -189,33 +173,29 @@ exports[`BackToResults component renders cta if url query params includes search
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-81 MuiButton-text Button-text-82 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?tab=pages\\"}"
     href="/en/search/?tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-84"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-85 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div
@@ -232,33 +212,29 @@ exports[`BackToResults component renders cta without children if mobile 1`] = `
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-121 MuiButton-text Button-text-122 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
     href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-124"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-125 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
 </div>
@@ -269,33 +245,29 @@ exports[`BackToResults component when url search param has more than one paramet
   class="BackToResults"
 >
   <a
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root Button-root-61 MuiButton-text Button-text-62 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page?tab=pages\\"}"
     href="/en/plp-page?tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label Button-label-64"
+      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
     >
-      <span
-        class="MuiButton-startIcon Button-startIcon-65 MuiButton-iconSizeMedium"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowBackIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-          />
-        </svg>
-      </span>
-      MC: searchPage.backToResults
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
     </span>
+    MC: searchPage.backToResults
     <span
-      class="MuiTouchRipple-root"
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
     />
   </a>
   <div

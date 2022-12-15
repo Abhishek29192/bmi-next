@@ -9,6 +9,11 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/applications/frc-website/src/**/*.{ts,tsx,js}"
   ],
+  setupFilesAfterEnv: [
+    ...sharedConfig.setupFilesAfterEnv,
+    "<rootDir>/applications/frc-website/jest/setupTests.ts"
+  ],
+  testEnvironment: "jsdom",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,

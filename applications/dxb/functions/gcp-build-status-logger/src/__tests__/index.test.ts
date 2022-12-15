@@ -22,7 +22,7 @@ jest.mock("../db", () => ({
 
 jest.useFakeTimers().setSystemTime(new Date("10/10/2022"));
 
-const date = new Date("10/10/2022").toDateString();
+jest.useFakeTimers().setSystemTime(new Date(Date.UTC(2022, 9, 10, 0, 0, 0)));
 
 beforeAll(() => {
   mockConsole();
@@ -90,7 +90,12 @@ describe("buildStatusLogger", () => {
       "POST",
       { "x-contentful-webhook-name": "webhookName" },
       "/",
-      { sys: { updatedBy: { sys: { id: "userID" } }, updatedAt: date } }
+      {
+        sys: {
+          updatedBy: { sys: { id: "userID" } },
+          updatedAt: "2022-10-11T00:00:00.000Z"
+        }
+      }
     );
     const res = mockResponse();
 
@@ -98,8 +103,8 @@ describe("buildStatusLogger", () => {
 
     expect(res.status).toHaveBeenCalledWith(201);
     expect(res.send).toHaveBeenCalledWith({
-      event: "BUILD TRIGGRED",
-      timestamp: "10/10/2022, 12:00:00 AM",
+      event: "BUILD TRIGGERED",
+      timestamp: 1665446400000,
       userId: "userID"
     });
   });
@@ -107,7 +112,7 @@ describe("buildStatusLogger", () => {
   it("should write build status event to firestore", async () => {
     const req = mockRequest("POST", {}, "/", {
       body: "some body",
-      event: "BUILD_SUCCEDED"
+      event: "BUILD_SUCCEEDED"
     });
     const res = mockResponse();
 
@@ -115,8 +120,8 @@ describe("buildStatusLogger", () => {
 
     expect(res.status).toHaveBeenCalledWith(201);
     expect(res.send).toHaveBeenCalledWith({
-      event: "BUILD SUCCEDED",
-      timestamp: "10/10/2022, 12:00:00 AM",
+      event: "BUILD SUCCEEDED",
+      timestamp: 1665360000000,
       body: "some body",
       isError: false
     });
@@ -146,7 +151,7 @@ describe("buildStatusLogger", () => {
     );
     const mockedData = [
       {
-        event: "BUILD SUCCEDED",
+        event: "BUILD SUCCEEDED",
         timestamp: "10/10/2022, 12:00:00 AM",
         body: "some body",
         isError: false
@@ -169,7 +174,7 @@ describe("buildStatusLogger", () => {
     );
     const mockedData = [
       {
-        event: "BUILD SUCCEDED",
+        event: "BUILD SUCCEEDED",
         timestamp: "10/10/2022, 12:00:00 AM",
         body: "some body",
         isError: false

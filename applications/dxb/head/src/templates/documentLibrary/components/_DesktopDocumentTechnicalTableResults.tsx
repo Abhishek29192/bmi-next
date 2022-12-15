@@ -5,8 +5,8 @@ import {
   DownloadList,
   Icon,
   IconButtonProps,
-  iconMap,
-  Table
+  Table,
+  iconMap
 } from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
@@ -15,11 +15,14 @@ import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
-  generateFilenameByRealFileName,
-  generateFileNamebyTitle
+  generateFileNamebyTitle,
+  generateFilenameByRealFileName
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
-import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
+import {
+  Root,
+  classes
+} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
@@ -39,7 +42,6 @@ const DesktopDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
-  const classes = useStyles();
   const {
     config: { documentDownloadEndpoint }
   } = useConfig();
@@ -170,7 +172,7 @@ const DesktopDocumentTechnicalTableResults = ({
   };
 
   return (
-    <div>
+    <Root data-testid="desktop-tech-results-table">
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row className={classes.headerRow}>
@@ -269,7 +271,7 @@ const DesktopDocumentTechnicalTableResults = ({
           })}
         </Table.Body>
       </Table>
-    </div>
+    </Root>
   );
 };
 

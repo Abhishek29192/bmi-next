@@ -3,48 +3,52 @@
 exports[`DocumentsLeadBlock tests should render correctly 1`] = `
 <div>
   <div
-    class="PostItCard-section-2"
+    class="css-wepxue"
   >
     <div
-      class="PostItCard-content-3"
+      class="css-1xaekgw"
     >
       <div>
         <div
           class="tableContainer"
         >
           <div
-            class="DocumentSimpleTableResults-root-5 DocumentSimpleTableResults"
+            class="DocumentSimpleTableResults css-1en66qf"
           >
-            <div>
+            <div
+              class="css-46e850"
+            >
               <table
-                class="MuiTable-root Table-root-14 Table-rowNoColor-18"
+                class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
+                data-testid="table"
               >
                 <thead
-                  class="MuiTableHead-root ColorPair-root-26 ColorPair-pearl-28"
+                  class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                  data-testid="table-head"
                 >
                   <tr
-                    class="MuiTableRow-root MuiTableRow-head"
+                    class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
                       MC: documentLibrary.headers.type
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
                       MC: documentLibrary.headers.title
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-6"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
                       MC: documentLibrary.headers.download
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-6"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
                       scope="col"
                     >
                       MC: documentLibrary.headers.add
@@ -52,57 +56,52 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                   </tr>
                 </thead>
                 <tbody
-                  class="MuiTableBody-root"
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                 >
                   <tr
-                    class="MuiTableRow-root DocumentSimpleTableResults-row-9 row"
+                    class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-7"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
                     >
                       asset-name
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-7"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
                     >
                       <p>
                         pim-link-document-title
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-7 MuiTableCell-alignLeft"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
                     >
                       <a
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root IconButton-root-63 iconButton IconButton-medium-69 IconButton-text-65"
+                        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                         href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
-                        <span
-                          class="MuiIconButton-label"
+                        <svg
+                          class="documentSimpleTableResultsStyles-externalLinkIcon"
+                          viewBox="0 0 32 32"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            class="DocumentSimpleTableResults-externalLinkIcon-11"
-                            viewBox="0 0 32 32"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
-                            />
-                          </svg>
-                        </span>
+                          <path
+                            d="M28 2H10l-8 8v18a2.006 2.006 0 0 0 2 2h24a2.006 2.006 0 0 0 2-2V4a2.006 2.006 0 0 0-2-2Zm-4.12 8.54-6.96 6.96-2.41-2.41 6.96-6.96L18.34 5l8.65.01.01 8.65Z"
+                          />
+                        </svg>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </a>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-7 MuiTableCell-alignCenter"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
                     >
                       <span
-                        class="DocumentSimpleTableResults-noDocumentIcon-12"
+                        class="documentSimpleTableResultsStyles-noDocumentIcon"
                       >
                         -
                       </span>
@@ -118,22 +117,23 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         >
           <nav
             aria-label="pagination navigation"
-            class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-72"
+            class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
           >
             <ul
-              class="MuiPagination-ul"
+              class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
             >
               <li>
                 <button
                   aria-label="Go to previous page"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
                   disabled=""
                   tabindex="-1"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiPaginationItem-icon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+                    data-testid="NavigateBeforeIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -147,27 +147,28 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                 <button
                   aria-current="true"
                   aria-label="page 1"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
+                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
                   tabindex="0"
                   type="button"
                 >
                   1
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </button>
               </li>
               <li>
                 <button
                   aria-label="Go to next page"
-                  class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+                  class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
                   disabled=""
                   tabindex="-1"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiPaginationItem-icon"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon css-g2z002-MuiSvgIcon-root-MuiPaginationItem-icon"
+                    data-testid="NavigateNextIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -180,7 +181,8 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </ul>
           </nav>
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-root-76 Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            data-testid="anchor-link"
             type="button"
           >
             <span>
@@ -188,27 +190,24 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </span>
           </a>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-52 MuiButton-contained Button-contained-54 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
             tabindex="0"
             type="button"
           >
+            MC: downloadList.download (0)
             <span
-              class="MuiButton-label Button-label-55"
-            >
-              MC: downloadList.download (0)
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <p
-            class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-82 MuiTypography-body1"
+            class="MuiTypography-root MuiTypography-body1 RecaptchaPrivacyLinks css-87ejlm-MuiTypography-root"
             data-testid="typography"
           >
             This site is protected by reCAPTCHA and the Google 
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-76 Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              data-testid="anchor-link"
               href="https://policies.google.com/privacy"
               rel="noreferrer noopener"
               target="_blank"
@@ -219,7 +218,8 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
             </a>
              and 
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-76 Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              data-testid="anchor-link"
               href="https://policies.google.com/terms"
               rel="noreferrer noopener"
               target="_blank"

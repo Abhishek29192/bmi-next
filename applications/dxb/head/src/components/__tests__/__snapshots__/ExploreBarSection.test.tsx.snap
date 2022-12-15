@@ -3,51 +3,43 @@
 exports[`ExploreBarSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root-1"
+    class="Section-root css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <nav
           aria-labelledby="explore-bar"
-          class="ExploreBar-root-11"
+          class="css-v7bjwn"
         >
           <h2
-            class="MuiTypography-root ExploreBar-heading-12 Typography-root-14 MuiTypography-h6"
+            class="MuiTypography-root MuiTypography-h6 css-jlrilz-MuiTypography-root"
             data-testid="typography"
             id="explore-bar"
           >
             Lorem ipsum
           </h2>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-22 MuiButton-outlined Button-opaqueOutlined-29 ExploreBar-link-13 MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
+            String
             <span
-              class="MuiButton-label Button-label-25"
-            >
-              String
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-22 MuiButton-outlined Button-opaqueOutlined-29 ExploreBar-link-13 MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined Button-opaqueOutlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1clvr55-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
+            Another string
             <span
-              class="MuiButton-label Button-label-25"
-            >
-              Another string
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </nav>

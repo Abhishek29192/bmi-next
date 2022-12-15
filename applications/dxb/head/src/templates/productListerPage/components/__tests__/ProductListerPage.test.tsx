@@ -3,14 +3,14 @@ import * as all from "@bmi-digital/use-dimensions";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
+  LocationProvider,
   createHistory,
-  createMemorySource,
-  LocationProvider
+  createMemorySource
 } from "@reach/router";
 import {
+  RenderResult,
   fireEvent,
   render,
-  RenderResult,
   waitFor
 } from "@testing-library/react";
 import React from "react";
@@ -20,8 +20,8 @@ import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider
 import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
 import * as elasticSearch from "../../../../utils/elasticSearch";
 import ProductListerPage, {
-  Data as PlpPageInfoData,
   PageContextType,
+  Data as PlpPageInfoData,
   Props
 } from "../product-lister-page";
 
@@ -187,6 +187,7 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
@@ -360,15 +361,11 @@ describe("ProductListerPage template", () => {
         pageData.initialProducts = [productWithVariantAndBase];
         pageData.contentfulProductListerPage.heroType = "Level 1";
 
-        const { container } = renderWithStylesAndLocationProvider(
+        const { container, getByTestId } = renderWithStylesAndLocationProvider(
           pageData,
           pageContext
         );
-        await waitFor(() =>
-          expect(
-            container.querySelectorAll("[class*='Hero--lvl-1']").length
-          ).toBe(1)
-        );
+        await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
@@ -408,15 +405,9 @@ describe("ProductListerPage template", () => {
           pageData.initialProducts = [productWithVariantAndBase];
           pageData.contentfulProductListerPage.heroType = "Level 1";
 
-          const { container } = renderWithStylesAndLocationProvider(
-            pageData,
-            pageContext
-          );
-          await waitFor(() =>
-            expect(
-              container.querySelectorAll("[class*='Hero--lvl-1']").length
-            ).toBe(1)
-          );
+          const { container, getByTestId } =
+            renderWithStylesAndLocationProvider(pageData, pageContext);
+          await waitFor(() => expect(getByTestId("hero")).toBeInTheDocument());
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()
           );

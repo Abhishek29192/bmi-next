@@ -9,7 +9,6 @@ import { navigate, useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import fetch, { Response } from "node-fetch";
 import React, {
-  ChangeEvent,
   createContext,
   useCallback,
   useContext,
@@ -223,10 +222,7 @@ const SystemConfiguratorQuestion = ({
     }
   }, [selectedAnswer, locale, isReload]);
 
-  const handleOnChange = (
-    event: ChangeEvent<Record<string, unknown>>,
-    isExpanded: boolean
-  ) => {
+  const handleOnChange = (event: React.SyntheticEvent, isExpanded: boolean) => {
     if (!isExpanded) {
       setState((state) => ({ ...state, openIndex: null }));
       return;

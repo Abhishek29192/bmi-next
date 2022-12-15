@@ -7,8 +7,8 @@ export const IntegratedLinkCard = ({
   isOpen,
   ...rest
 }: LinkCardProps): JSX.Element => {
-  const linkCardElement = useRef<HTMLElement>(null);
-  const [setCardExpansionCompleted] = useScrollTo(!!isOpen, linkCardElement);
+  const linkCardElement = useRef<HTMLDivElement>(null);
+  const [setCardExpansionCompleted] = useScrollTo(isOpen, linkCardElement);
 
   return (
     <LinkCard

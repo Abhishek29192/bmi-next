@@ -1,5 +1,5 @@
 import { QUERY_KEY, ThemeProvider } from "@bmi-digital/components";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import { render } from "@testing-library/react";
 import QueryString from "query-string";
 import React from "react";
@@ -21,8 +21,8 @@ const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
   }
 });
 
-jest.mock("@material-ui/core", () => ({
-  ...(jest.requireActual("@material-ui/core") as any),
+jest.mock("@mui/material", () => ({
+  ...(jest.requireActual("@mui/material") as any),
   useMediaQuery: jest.fn()
 }));
 

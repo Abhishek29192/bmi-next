@@ -3,10 +3,10 @@
 exports[`RawTextField component does not display rightAdornment if provided and error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-33 RawTextField-error-35"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -14,22 +14,23 @@ exports[`RawTextField component does not display rightAdornment if provided and 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="true"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root RawTextField-Error-34"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rawTextFieldStyles-Error css-i4bv87-MuiSvgIcon-root"
+          data-testid="ErrorRoundedIcon"
           focusable="false"
           style="color: red;"
           viewBox="0 0 24 24"
@@ -41,10 +42,10 @@ exports[`RawTextField component does not display rightAdornment if provided and 
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-37 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-39"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -59,10 +60,10 @@ exports[`RawTextField component does not display rightAdornment if provided and 
 exports[`RawTextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-1"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -70,11 +71,11 @@ exports[`RawTextField component renders correctly 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -82,10 +83,10 @@ exports[`RawTextField component renders correctly 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-7"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -100,10 +101,10 @@ exports[`RawTextField component renders correctly 1`] = `
 exports[`RawTextField component renders correctly if error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-9 RawTextField-error-11"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -111,22 +112,23 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="true"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root RawTextField-Error-10"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rawTextFieldStyles-Error css-i4bv87-MuiSvgIcon-root"
+          data-testid="ErrorRoundedIcon"
           focusable="false"
           style="color: red;"
           viewBox="0 0 24 24"
@@ -138,10 +140,10 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-15"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -156,10 +158,10 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
 exports[`RawTextField component renders correctly if errorText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-77 RawTextField-error-79"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -167,23 +169,24 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-describedby="email-helper-text"
         aria-invalid="true"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root RawTextField-Error-78"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rawTextFieldStyles-Error css-i4bv87-MuiSvgIcon-root"
+          data-testid="ErrorRoundedIcon"
           focusable="false"
           style="color: red;"
           viewBox="0 0 24 24"
@@ -195,10 +198,10 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-81 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-83"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -207,7 +210,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
       </fieldset>
     </div>
     <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error"
+      class="MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
       id="email-helper-text"
     >
       errorText
@@ -219,10 +222,10 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
 exports[`RawTextField component renders correctly if helperText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-69"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -230,12 +233,12 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-describedby="email-helper-text"
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -243,10 +246,10 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-75"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -255,7 +258,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
       </fieldset>
     </div>
     <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained"
+      class="MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-t5lzr8-MuiFormHelperText-root"
       id="email-helper-text"
     >
       helperText
@@ -267,10 +270,10 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
 exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-61"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -278,11 +281,11 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -290,10 +293,10 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-65 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-67"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -308,10 +311,10 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-53"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -319,29 +322,28 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-multiline css-fo3cea-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <textarea
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
-        rows="1"
         style="height: 0px; overflow: hidden;"
       />
       <textarea
         aria-hidden="true"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input"
         readonly=""
-        style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+        style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding: 0px; width: 100%;"
         tabindex="-1"
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-59"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -356,10 +358,10 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-41"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -367,11 +369,11 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiFilledInput-input"
+        class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -385,10 +387,10 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 exports[`RawTextField component renders correctly if variant === outlined 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-45"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -396,11 +398,11 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-1oq2j99-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
@@ -408,10 +410,10 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-51"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -426,10 +428,10 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
 exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-17 RawTextField-leftAdornment-20"
+    class="MuiFormControl-root MuiTextField-root rawTextFieldStyles-leftAdornment css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -437,18 +439,18 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
       >
         <div>
           leftAdornment
@@ -456,10 +458,10 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-23"
+          class="css-yjsfm1"
         >
           <span>
             Email address
@@ -474,10 +476,10 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 exports[`RawTextField component renders correctly with rightAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root RawTextField-root-25"
+    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
   >
     <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink="false"
       for="email"
       id="email-label"
@@ -485,18 +487,18 @@ exports[`RawTextField component renders correctly with rightAdornment 1`] = `
       Email address
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1w5v8j3-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
         id="email"
         placeholder="e.g. lorem@ipsum.com"
         type="text"
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
       >
         <div>
           rightAdornment
@@ -504,10 +506,10 @@ exports[`RawTextField component renders correctly with rightAdornment 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-31"
+          class="css-yjsfm1"
         >
           <span>
             Email address

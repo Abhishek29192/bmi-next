@@ -3,24 +3,26 @@
 exports[`DownloadListAlertBanner should render correctly 1`] = `
 <div>
   <div
-    class="AlertBanner-root-1 ColorPair-root-8 ColorPair-alabaster-17"
+    class="ColorPair-alabaster css-18zndtv"
+    data-testid="alert-banner"
   >
     <div
-      class="AlertBanner-actions-5"
+      class="css-1lz8t7d"
     />
     <div
-      class="Container-root-34"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h5
-          class="MuiTypography-root AlertBanner-title-6 Typography-root-36 MuiTypography-h5"
-          data-testid="typography"
+          class="MuiTypography-root MuiTypography-h5 css-16m68f8-MuiTypography-root"
+          data-testid="alert-banner-title"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root AlertBanner-icon-7"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium AlertBanner-icon css-i4bv87-MuiSvgIcon-root"
+            data-testid="alert-banner-title-icon"
             focusable="false"
             viewBox="0 0 24 24"
           >

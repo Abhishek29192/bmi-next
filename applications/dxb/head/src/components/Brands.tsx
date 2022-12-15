@@ -34,7 +34,7 @@ const Brands = ({
   return (
     <Section backgroundColor={"pearl"} className={styles["Brands"]}>
       <Section.Title> {getMicroCopy(microCopy.HOMEPAGE_BRANDS)}</Section.Title>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((brand, index) => {
           const buttonLabel = getMicroCopy(microCopy.HOMEPAGE_BRANDS_LEARN, {
             title: brand.title

@@ -1,9 +1,9 @@
 import { Icon, Table, Typography } from "@bmi-digital/components";
-import { Delete } from "@material-ui/icons";
+import { Delete } from "@mui/icons-material";
 import classnames from "classnames";
 import React from "react";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
-import { useStyles } from "./styles";
+import { StyledQuantityTable, classes } from "./styles";
 
 type RowProps = {
   image: string;
@@ -61,7 +61,6 @@ const MediumHeader = ({
   quantity,
   remove
 }: HeaderProps) => {
-  const classes = useStyles();
   return (
     <Table.Row>
       <Table.Cell className={classes.firstHeader}>
@@ -90,7 +89,6 @@ const BuildSmallViewRows = ({
   packSize,
   externalProductCode
 }: BuildRowProps) => {
-  const classes = useStyles();
   return (
     <>
       {rows.map((row, iterator) => (
@@ -150,7 +148,6 @@ const BuildMediumViewRows = ({
   onChangeQuantity,
   rows
 }: BuildRowProps) => {
-  const classes = useStyles();
   return (
     <>
       {rows.map((row, iterator) => (
@@ -212,9 +209,8 @@ const QuantityTable = ({
   quantity,
   remove
 }: Props) => {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <StyledQuantityTable className={classes.root}>
       <Table className={classes.displayIfSmall}>
         <Table.Head>
           <SmallHeader title={title} />
@@ -249,7 +245,7 @@ const QuantityTable = ({
           />
         </Table.Body>
       </Table>
-    </div>
+    </StyledQuantityTable>
   );
 };
 

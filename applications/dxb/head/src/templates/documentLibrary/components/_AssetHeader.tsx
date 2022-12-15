@@ -5,12 +5,15 @@ import {
   Icon,
   Tooltip
 } from "@bmi-digital/components";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import InfoIcon from "@material-ui/icons/Info";
+import InfoIcon from "@mui/icons-material/Info";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import React, { useState } from "react";
 import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
-import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
+import {
+  Root,
+  classes
+} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
 
@@ -19,10 +22,9 @@ const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const { getMicroCopy } = useSiteContext();
-  const classes = useStyles();
 
   return (
-    <>
+    <Root data-testid="asset-header-tech-results-table">
       {description && (
         <Dialog open={isDialogOpen} onCloseClick={() => setIsDialogOpen(false)}>
           <Dialog.Title>
@@ -63,7 +65,7 @@ const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
             </>
           }
           open={isTooltipActive}
-          interactive={!!description}
+          disableInteractive={!description}
         >
           <div>
             <Button
@@ -81,7 +83,7 @@ const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
           </div>
         </Tooltip>
       </ClickAwayListener>
-    </>
+    </Root>
   );
 };
 

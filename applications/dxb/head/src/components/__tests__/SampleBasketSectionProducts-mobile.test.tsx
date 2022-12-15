@@ -38,7 +38,7 @@ const samples: Sample[] = [
     image: createImage().mainSource
   }
 ];
-jest.mock("@material-ui/core/useMediaQuery", () => () => true);
+jest.mock("@mui/material/useMediaQuery", () => () => true);
 describe("SampleBasketSectionProducts component render correctly on mobile devices", () => {
   beforeAll(() => {
     jest.spyOn(local, "getItem").mockReturnValue(JSON.stringify(samples));

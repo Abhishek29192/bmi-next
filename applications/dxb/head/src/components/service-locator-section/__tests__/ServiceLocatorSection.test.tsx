@@ -1519,7 +1519,7 @@ describe("ServiceLocatorSection component", () => {
         </ThemeProvider>
       );
 
-      const googleAutoCompleteInput = (await screen.findByRole("textbox", {
+      const googleAutoCompleteInput = (await screen.findByRole("combobox", {
         name: "MC: findARoofer.locationFieldLabel"
       })) as HTMLInputElement;
       act(() => {

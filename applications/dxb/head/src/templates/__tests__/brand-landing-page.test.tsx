@@ -375,9 +375,7 @@ describe("Brand Landing Page Template", () => {
     fireEvent.click(button);
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".cta .MuiButton-label").textContent).toBe(
-      ""
-    );
+    expect(container.querySelector(".cta.MuiButton-root").textContent).toBe("");
   });
 
   it("render no context for firstslide when no description", () => {

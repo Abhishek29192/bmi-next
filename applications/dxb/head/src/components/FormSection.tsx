@@ -5,7 +5,6 @@ import {
   ButtonProps,
   Checkbox,
   Form,
-  getFileSizeString,
   Grid,
   InputValue,
   RadioGroup,
@@ -14,11 +13,12 @@ import {
   SelectMenuItem,
   TextField,
   Typography,
-  Upload
+  Upload,
+  getFileSizeString
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CircularProgress from "@mui/material/CircularProgress";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";
@@ -37,7 +37,7 @@ import { Data as LinkData, isExternalUrl } from "./Link";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import { useStyles } from "./styles/FormSectionStyles";
+import { StyledForm, classes } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 
 export type Data = {
@@ -72,7 +72,7 @@ export type InputType = {
   name: string;
   options?: string;
   required?: boolean;
-  type: typeof InputTypes[number];
+  type: (typeof InputTypes)[number];
   width?: InputWidthType;
   accept?: string;
   maxSize?: number;
@@ -354,7 +354,6 @@ const HubspotForm = ({
   const {
     config: { hubSpotId }
   } = useConfig();
-  const classes = useStyles();
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -494,7 +493,6 @@ const FormSection = ({
     label: "aria-label",
     action: "data-action"
   });
-  const classes = useStyles();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -706,14 +704,13 @@ const FormSection = ({
         </>
       )}
       {inputs ? (
-        <Form
+        <StyledForm
           onSubmit={
             // TODO Handle/remove after HubSpot mapping has been decided
             source === SourceType.HubSpot && hubSpotFormGuid
               ? handleHubSpotSubmit
               : handleSubmit
           }
-          className={classes.root}
           rightAlignButton
         >
           <Grid container spacing={3}>
@@ -753,7 +750,7 @@ const FormSection = ({
               {submitText || getMicroCopy(microCopy.FORM_SUBMIT)}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
-        </Form>
+        </StyledForm>
       ) : (
         "Form contains no fields"
       )}

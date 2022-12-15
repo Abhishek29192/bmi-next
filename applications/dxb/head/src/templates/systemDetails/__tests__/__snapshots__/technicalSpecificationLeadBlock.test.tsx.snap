@@ -3,112 +3,110 @@
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With more than one feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-131 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-133"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="Accordion-root-136 Accordion-noInnerPadding-139"
+            class="Accordion-noInnerPadding css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-137 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-140 Mui-expanded Accordion-summaryExpanded-141"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-142 Mui-expanded Accordion-summaryExpanded-141"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-146 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-141 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-155 Table-evenColor-157 Table-noBorder-156"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -123,97 +121,92 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-137 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-140 Mui-expanded Accordion-summaryExpanded-141"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-142 Mui-expanded Accordion-summaryExpanded-141"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-146 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-141 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-155 Table-evenColor-157 Table-noBorder-156"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -229,7 +222,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             </div>
           </div>
         </div>
-      </div>
+      </p>
     </div>
   </div>
 </div>
@@ -238,98 +231,96 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-92 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-94"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="Accordion-root-97 Accordion-noInnerPadding-100"
+            class="Accordion-noInnerPadding css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-98 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-101 Mui-expanded Accordion-summaryExpanded-102"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-103 Mui-expanded Accordion-summaryExpanded-102"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-107 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-102 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-116 Table-evenColor-118 Table-noBorder-117"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -344,83 +335,78 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-98 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-101 Mui-expanded Accordion-summaryExpanded-102"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-103 Mui-expanded Accordion-summaryExpanded-102"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-107 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-102 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-116 Table-evenColor-118 Table-noBorder-117"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -436,7 +422,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             </div>
           </div>
         </div>
-      </div>
+      </p>
     </div>
   </div>
 </div>
@@ -445,52 +431,59 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With a feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-49 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-51"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
-          <div>
+          <div
+            class="css-46e850"
+          >
             <table
-              class="MuiTable-root Table-root-54 Table-evenColor-56"
+              class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+              data-testid="table"
             >
               <thead
-                class="MuiTableHead-root ColorPair-root-66 ColorPair-pearl-68"
+                class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                data-testid="table-head"
               >
                 <tr
-                  class="MuiTableRow-root MuiTableRow-head"
+                  class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                     scope="col"
                   >
                     systemAttributes
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
               </thead>
               <tbody
-                class="MuiTableBody-root"
+                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root"
+                  class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                   >
                     feature1
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                   >
                     200
                   </td>
@@ -499,7 +492,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
             </table>
           </div>
         </div>
-      </div>
+      </p>
     </div>
   </div>
 </div>
@@ -508,52 +501,59 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-6 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-8"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
-          <div>
+          <div
+            class="css-46e850"
+          >
             <table
-              class="MuiTable-root Table-root-11 Table-evenColor-13"
+              class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
+              data-testid="table"
             >
               <thead
-                class="MuiTableHead-root ColorPair-root-23 ColorPair-pearl-25"
+                class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+                data-testid="table-head"
               >
                 <tr
-                  class="MuiTableRow-root MuiTableRow-head"
+                  class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
                 >
                   <th
-                    class="MuiTableCell-root MuiTableCell-head"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                     scope="col"
                   >
                     systemAttributes
                   </th>
                   <th
-                    class="MuiTableCell-root MuiTableCell-head"
+                    class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
                     scope="col"
                   />
                 </tr>
               </thead>
               <tbody
-                class="MuiTableBody-root"
+                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  class="MuiTableRow-root"
+                  class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                 >
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                   >
                     feature1
                   </td>
                   <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                   >
                     200
                   </td>
@@ -562,7 +562,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
             </table>
           </div>
         </div>
-      </div>
+      </p>
     </div>
   </div>
 </div>
@@ -571,13 +571,16 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when no classifications provided With tech spec an empty set 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-1 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-3"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       />
     </div>
   </div>
@@ -587,98 +590,96 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With no specification 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-261 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-263"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="Accordion-root-266 Accordion-noInnerPadding-269"
+            class="Accordion-noInnerPadding css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-267 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-270 Mui-expanded Accordion-summaryExpanded-271"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-272 Mui-expanded Accordion-summaryExpanded-271"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-276 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-271 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-285 Table-evenColor-287 Table-noBorder-286"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -693,83 +694,78 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-267 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-270 Mui-expanded Accordion-summaryExpanded-271"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-272 Mui-expanded Accordion-summaryExpanded-271"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-276 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-271 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-285 Table-evenColor-287 Table-noBorder-286"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -785,7 +781,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             </div>
           </div>
         </div>
-      </div>
+      </p>
     </div>
   </div>
 </div>
@@ -794,98 +790,96 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With specification 1`] = `
 <div>
   <div
-    class="MuiGrid-root LeadBlock-root-170 MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      data-testid="grid-item"
     >
-      <div
-        class="LeadBlock-leadBlockContentSection-172"
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
+        data-testid="typography"
       >
         <div
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="Accordion-root-175 Accordion-noInnerPadding-178"
+            class="Accordion-noInnerPadding css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-176 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-179 Mui-expanded Accordion-summaryExpanded-180"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-181 Mui-expanded Accordion-summaryExpanded-180"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-185 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-180 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-194 Table-evenColor-196 Table-noBorder-195"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -900,83 +894,78 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-176 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-179 Mui-expanded Accordion-summaryExpanded-180"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-181 Mui-expanded Accordion-summaryExpanded-180"
+                  class="MuiAccordionSummary-content Accordion-summaryContent Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h6
-                    class="MuiTypography-root Typography-root-185 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     systemAttributes
                   </h6>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded Accordion-summaryExpanded-180 MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper Mui-expanded Accordion-summaryExpanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-entered"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details"
+                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
-                        <div>
+                        <div
+                          class="css-46e850"
+                        >
                           <table
-                            class="MuiTable-root Table-root-194 Table-evenColor-196 Table-noBorder-195"
+                            class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+                            data-testid="table"
                           >
                             <tbody
-                              class="MuiTableBody-root"
+                              class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root"
+                                class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
                                 >
                                   feature1
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
                                 >
                                   200
                                 </td>
@@ -992,35 +981,35 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             </div>
           </div>
         </div>
-      </div>
+      </p>
     </div>
     <div
-      class="MuiGrid-root Grid-item-173 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
       data-testid="specificationNotes"
     >
       <div
-        class="ColorPair-root-213 ColorPair-pearl-215"
+        class="ColorPair-pearl css-1pt14k0"
       >
         <div
-          class="PostItCard-root-209"
+          class="css-qtgtj9"
         >
           <div
-            class="PostItCard-section-210"
+            class="css-wepxue"
           >
             <h4
-              class="MuiTypography-root Typography-root-185 Typography-underline-187 MuiTypography-h4"
+              class="MuiTypography-root MuiTypography-h4 Typography-underline css-1ekntu4-MuiTypography-root"
               data-testid="typography"
             >
               specification notes title
             </h4>
             <div
-              class="PostItCard-content-211"
+              class="css-1xaekgw"
             >
               <div
-                class="RichText-root-239"
+                class="RichText-root css-qiddyp"
               >
                 <h3
-                  class="MuiTypography-root RichText-title-240 Typography-root-185 MuiTypography-h3"
+                  class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
                   data-testid="typography"
                 >
                   test rich text
@@ -1028,21 +1017,17 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
               </div>
             </div>
             <div
-              class="PostItCard-action-212"
+              class="css-1xaekgw"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-241 MuiButton-contained Button-contained-243 MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"specification notes title - ImALink\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
+                ImALink
                 <span
-                  class="MuiButton-label Button-label-244"
-                >
-                  ImALink
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>

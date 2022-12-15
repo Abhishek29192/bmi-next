@@ -2,76 +2,75 @@
 
 exports[`Visualiser component renders correctly 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ContainerDialog-root-19 ContainerDialog-bg-white-24 ContainerDialog-width-xl-30 Visualiser-root-1"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-header-20"
+        class="css-1wp1i2i"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-42 iconButton IconButton-medium-48 IconButton-text-44 ContainerDialog-iconButton-21"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <div
-        class="Visualiser-content-5 ContainerDialog-content-22"
+        class="VisualiserV2-content ContainerDialog-content"
       >
         <div
-          class="Visualiser-container-15 Visualiser-viewer-16"
+          class="VisualiserV2-container VisualiserV2-viewer"
         >
           <div
-            class="Visualiser-progressContainer-7"
+            class="VisualiserV2-progressContainer"
           >
-            <div
-              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+            <span
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
               <svg
-                class="MuiCircularProgress-svg"
+                class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
                 viewBox="22 22 44 44"
               >
                 <circle
-                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
                   cx="44"
                   cy="44"
                   fill="none"
@@ -79,13 +78,13 @@ exports[`Visualiser component renders correctly 1`] = `
                   stroke-width="3.6"
                 />
               </svg>
-            </div>
+            </span>
           </div>
           <div
-            class="Visualiser-details-8"
+            class="VisualiserV2-details"
           >
             <svg
-              class="Visualiser-detailsLogo-10"
+              class="VisualiserV2-detailsLogo"
               height="60"
               viewBox="0 0 250 250"
               width="60"
@@ -105,93 +104,85 @@ exports[`Visualiser component renders correctly 1`] = `
             </svg>
             <div>
               <h3
-                class="MuiTypography-root Visualiser-detailsTitle-11 Typography-root-51 MuiTypography-h5"
+                class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               />
               <p
-                class="MuiTypography-root Typography-root-51 MuiTypography-body1"
+                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
             <div
-              class="Visualiser-detailsActions-9"
+              class="VisualiserV2-detailsActions"
             />
           </div>
         </div>
         <nav
-          class="Visualiser-actions-13"
+          class="VisualiserV2-actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-31 MuiButton-text Button-text-32 Button-textDarkBg-36 MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-34"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-35 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-name="Layer 1"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
+                <path
+                  d="M0 0h24v24H0Z"
+                  fill="none"
+                />
+                <path
+                  d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
+                />
+                <path
+                  d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
                   data-name="Layer 1"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h24v24H0Z"
-                    fill="none"
-                  />
-                  <path
-                    d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
-                  />
-                  <path
-                    d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
-                    data-name="Layer 1"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.selectProduct
+                />
+              </svg>
             </span>
+            visualizer.actions.selectProduct
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-31 MuiButton-text Button-text-32 Button-textDarkBg-36 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-34"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-35 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xml:space="preserve"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.wallColor
+                <path
+                  d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
+                />
+              </svg>
             </span>
+            visualizer.actions.wallColor
           </button>
         </nav>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -200,76 +191,75 @@ exports[`Visualiser component renders correctly 1`] = `
 
 exports[`Visualiser component renders correctly when non-test asset url provided 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ContainerDialog-root-135 ContainerDialog-bg-white-140 ContainerDialog-width-xl-146 Visualiser-root-117"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-header-136"
+        class="css-1wp1i2i"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-158 iconButton IconButton-medium-164 IconButton-text-160 ContainerDialog-iconButton-137"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <div
-        class="Visualiser-content-121 ContainerDialog-content-138"
+        class="VisualiserV2-content ContainerDialog-content"
       >
         <div
-          class="Visualiser-container-131 Visualiser-viewer-132"
+          class="VisualiserV2-container VisualiserV2-viewer"
         >
           <div
-            class="Visualiser-progressContainer-123"
+            class="VisualiserV2-progressContainer"
           >
-            <div
-              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+            <span
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
               <svg
-                class="MuiCircularProgress-svg"
+                class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
                 viewBox="22 22 44 44"
               >
                 <circle
-                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
                   cx="44"
                   cy="44"
                   fill="none"
@@ -277,13 +267,13 @@ exports[`Visualiser component renders correctly when non-test asset url provided
                   stroke-width="3.6"
                 />
               </svg>
-            </div>
+            </span>
           </div>
           <div
-            class="Visualiser-details-124"
+            class="VisualiserV2-details"
           >
             <svg
-              class="Visualiser-detailsLogo-126"
+              class="VisualiserV2-detailsLogo"
               height="60"
               viewBox="0 0 250 250"
               width="60"
@@ -303,93 +293,85 @@ exports[`Visualiser component renders correctly when non-test asset url provided
             </svg>
             <div>
               <h3
-                class="MuiTypography-root Visualiser-detailsTitle-127 Typography-root-167 MuiTypography-h5"
+                class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               />
               <p
-                class="MuiTypography-root Typography-root-167 MuiTypography-body1"
+                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
             <div
-              class="Visualiser-detailsActions-125"
+              class="VisualiserV2-detailsActions"
             />
           </div>
         </div>
         <nav
-          class="Visualiser-actions-129"
+          class="VisualiserV2-actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-147 MuiButton-text Button-text-148 Button-textDarkBg-152 MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-150"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-151 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-name="Layer 1"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
+                <path
+                  d="M0 0h24v24H0Z"
+                  fill="none"
+                />
+                <path
+                  d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
+                />
+                <path
+                  d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
                   data-name="Layer 1"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h24v24H0Z"
-                    fill="none"
-                  />
-                  <path
-                    d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
-                  />
-                  <path
-                    d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
-                    data-name="Layer 1"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.selectProduct
+                />
+              </svg>
             </span>
+            visualizer.actions.selectProduct
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-147 MuiButton-text Button-text-148 Button-textDarkBg-152 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-150"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-151 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xml:space="preserve"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.wallColor
+                <path
+                  d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
+                />
+              </svg>
             </span>
+            visualizer.actions.wallColor
           </button>
         </nav>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -398,76 +380,75 @@ exports[`Visualiser component renders correctly when non-test asset url provided
 
 exports[`Visualiser component renders correctly when test asset url provided 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
-      class="ContainerDialog-root-77 ContainerDialog-bg-white-82 ContainerDialog-width-xl-88 Visualiser-root-59"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="ContainerDialog-header-78"
+        class="css-1wp1i2i"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-100 iconButton IconButton-medium-106 IconButton-text-102 ContainerDialog-iconButton-79"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-1o5d63j-MuiButtonBase-root-MuiIconButton-root"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
       </div>
       <div
-        class="Visualiser-content-63 ContainerDialog-content-80"
+        class="VisualiserV2-content ContainerDialog-content"
       >
         <div
-          class="Visualiser-container-73 Visualiser-viewer-74"
+          class="VisualiserV2-container VisualiserV2-viewer"
         >
           <div
-            class="Visualiser-progressContainer-65"
+            class="VisualiserV2-progressContainer"
           >
-            <div
-              class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+            <span
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
               <svg
-                class="MuiCircularProgress-svg"
+                class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
                 viewBox="22 22 44 44"
               >
                 <circle
-                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
                   cx="44"
                   cy="44"
                   fill="none"
@@ -475,13 +456,13 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
                   stroke-width="3.6"
                 />
               </svg>
-            </div>
+            </span>
           </div>
           <div
-            class="Visualiser-details-66"
+            class="VisualiserV2-details"
           >
             <svg
-              class="Visualiser-detailsLogo-68"
+              class="VisualiserV2-detailsLogo"
               height="60"
               viewBox="0 0 250 250"
               width="60"
@@ -501,93 +482,85 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
             </svg>
             <div>
               <h3
-                class="MuiTypography-root Visualiser-detailsTitle-69 Typography-root-109 MuiTypography-h5"
+                class="MuiTypography-root MuiTypography-h5 VisualiserV2-detailsTitle css-10q7alf-MuiTypography-root"
                 data-testid="typography"
               />
               <p
-                class="MuiTypography-root Typography-root-109 MuiTypography-body1"
+                class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
             <div
-              class="Visualiser-detailsActions-67"
+              class="VisualiserV2-detailsActions"
             />
           </div>
         </div>
         <nav
-          class="Visualiser-actions-71"
+          class="VisualiserV2-actions"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-89 MuiButton-text Button-text-90 Button-textDarkBg-94 MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-92"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-93 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-name="Layer 1"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
+                <path
+                  d="M0 0h24v24H0Z"
+                  fill="none"
+                />
+                <path
+                  d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
+                />
+                <path
+                  d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
                   data-name="Layer 1"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h24v24H0Z"
-                    fill="none"
-                  />
-                  <path
-                    d="M4.022 18.947a4.889 4.889 0 0 1 4.42-4.918L10 12.471V3H4v15.969a.212.212 0 0 0 .022-.022ZM18.586 3.886A2.998 2.998 0 0 1 20 3.094V3h-6v5.471ZM2 1a.945.945 0 0 0-1 1v20a.945.945 0 0 1 1-1 .945.945 0 0 1 1 1V2a.945.945 0 0 0-1-1ZM13 9.471V2a1 1 0 0 0-2 0v9.471ZM22.813 3.885 23 4.07V2a1 1 0 0 0-2 0v1.03a2.972 2.972 0 0 1 1.813.855Z"
-                  />
-                  <path
-                    d="M9 16a2.946 2.946 0 0 0-3 3 2.063 2.063 0 0 1-2 2 5.22 5.22 0 0 0 4 2 4.012 4.012 0 0 0 4-4 2.946 2.946 0 0 0-3-3Zm13.7-9.4-1.3-1.3a.967.967 0 0 0-1.4 0l-9 9 2.8 2.8 9-9a1.21 1.21 0 0 0-.1-1.5Z"
-                    data-name="Layer 1"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.selectProduct
+                />
+              </svg>
             </span>
+            visualizer.actions.selectProduct
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-89 MuiButton-text Button-text-90 Button-textDarkBg-94 MuiButton-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
             disabled=""
             tabindex="-1"
             type="button"
           >
             <span
-              class="MuiButton-label Button-label-92"
+              class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
             >
-              <span
-                class="MuiButton-startIcon Button-startIcon-93 MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  xml:space="preserve"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
-                  />
-                </svg>
-              </span>
-              visualizer.actions.wallColor
+                <path
+                  d="M0 0h7v4H0zM8 0h7v4H8zM0 5h3v4H0zM4 5h7v4H4zM17.4 5H12v4h1.4zM18.5 3.9c.6-.6 1.4-.9 2.2-.9s1.6.3 2.1.9l.1.1h.1V0h-7v4h2.4l.1-.1zM0 10h7v4H0zM12.4 10H8v4h.4zM0 15h3v4H0zM6 15H4v4c0-1.6.8-3.1 2-4zM2.4 22.2.7 20H0v4h4.4c-.7-.5-1.4-1.1-2-1.8zM9 16c-1.7 0-3 1.3-3 3 0 1.3-1.2 2-2 2 .9 1.2 2.5 2 4 2 2.2 0 4-1.8 4-4 0-1.7-1.3-3-3-3zm13.7-9.4-1.3-1.3c-.4-.4-1-.4-1.4 0l-9 9 2.8 2.8 9-9c.3-.4.3-1.1-.1-1.5z"
+                />
+              </svg>
             </span>
+            visualizer.actions.wallColor
           </button>
         </nav>
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
