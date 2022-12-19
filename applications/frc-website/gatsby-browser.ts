@@ -1,14 +1,11 @@
-/* eslint-disable no-undef */
-"use strict";
-
-require("cookieconsent");
-require("cookieconsent/build/cookieconsent.min.css");
+import "cookieconsent";
+import "cookieconsent/build/cookieconsent.min.css";
 
 const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;
 
 const acceptCookies = () => {
   if (!window.hasAppendedGtagElement) {
-    var gtagElement = document.createElement("script");
+    const gtagElement = document.createElement("script");
     gtagElement.async = true;
     gtagElement.src = `https://www.googletagmanager.com/gtag/js?id=${GATSBY_FRC_GA_CODE}`;
     document.head.appendChild(gtagElement);
@@ -23,7 +20,7 @@ const revokeCookies = () => {
   window[`ga-disable-${GATSBY_FRC_GA_CODE}`] = true;
 };
 
-exports.onInitialClientRender = () => {
+export const onInitialClientRender = () => {
   window.cookieconsent.initialise({
     type: "opt-in",
     container: document.getElementById("cookie-banner"),
@@ -62,7 +59,7 @@ exports.onInitialClientRender = () => {
   });
 };
 
-exports.onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = ({ location }) => {
   if (window.gtag) {
     window.gtag("config", process.env.GATSBY_FRC_GA_CODE, {
       page_path: location.pathname

@@ -1,9 +1,7 @@
-"use strict";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import findUp from "find-up";
 
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
-const findUp = require("find-up");
-
-exports.onCreateWebpackConfig = ({ actions }) => {
+export const onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       plugins: [

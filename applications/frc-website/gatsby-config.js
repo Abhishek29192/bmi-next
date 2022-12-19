@@ -1,6 +1,12 @@
 "use strict";
 
-require("dotenv").config({
+const dotenv = require("dotenv");
+
+/**
+ * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig
+ */
+
+dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
@@ -9,7 +15,10 @@ require("dotenv").config({
  * and they should be kept in sync as much as possible in case of any changes to the build process.
  */
 
-module.exports = {
+/**
+ * @type {GatsbyConfig}
+ */
+const config = {
   siteMetadata: {
     title: `BMI Flat Roof Calculator`,
     description: ``,
@@ -57,3 +66,5 @@ module.exports = {
     }
   ]
 };
+
+module.exports = config;
