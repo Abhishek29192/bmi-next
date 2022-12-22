@@ -3,7 +3,8 @@ import {
   ButtonProps,
   Header as HeaderComponent,
   HidePrint,
-  TabProps
+  TabProps,
+  RegionCode
 } from "@bmi-digital/components";
 import Tab from "@material-ui/core/Tab";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -154,6 +155,7 @@ const onCountrySelection = (label: string, code: string) =>
 
 export type Region = {
   label: string;
+  regionCode: RegionCode;
   menu: Array<{
     code: string;
     label: string;
@@ -428,6 +430,7 @@ export const query = graphql`
   }
   fragment RegionFragment on RegionJson {
     label
+    regionCode
     menu {
       code
       label

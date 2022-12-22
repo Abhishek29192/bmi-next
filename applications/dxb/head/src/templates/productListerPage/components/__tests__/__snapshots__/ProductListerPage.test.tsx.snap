@@ -82,7 +82,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -107,61 +107,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -189,10 +159,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -219,10 +185,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -397,7 +359,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -1344,7 +1306,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -1369,61 +1331,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -1451,10 +1383,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -1481,10 +1409,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -1659,7 +1583,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -2606,7 +2530,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -2628,58 +2552,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </span>
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -2704,10 +2601,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         Albania
                       </span>
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -2731,10 +2624,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         Österreich
                       </span>
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -2893,7 +2782,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -3985,7 +3874,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -4007,58 +3896,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           </span>
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -4083,10 +3945,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         Albania
                       </span>
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -4110,10 +3968,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         Österreich
                       </span>
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -4272,7 +4126,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -5364,7 +5218,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -5389,61 +5243,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -5471,10 +5295,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -5501,10 +5321,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -5679,7 +5495,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -6816,7 +6632,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -6841,61 +6657,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -6923,10 +6709,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -6953,10 +6735,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -7131,7 +6909,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -8009,7 +7787,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -8034,61 +7812,31 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -8116,10 +7864,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -8146,10 +7890,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -8324,7 +8064,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -9202,7 +8942,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -9227,61 +8967,31 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -9309,10 +9019,6 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -9339,10 +9045,6 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -9517,7 +9219,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -10446,7 +10148,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -10471,61 +10173,31 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -10553,10 +10225,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -10583,10 +10251,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -10761,7 +10425,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -11910,7 +11574,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -11935,61 +11599,31 @@ exports[`ProductListerPage template renders an default image if there is no imag
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -12017,10 +11651,6 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -12047,10 +11677,6 @@ exports[`ProductListerPage template renders an default image if there is no imag
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -12225,7 +11851,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -13374,7 +13000,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -13399,61 +13025,31 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -13481,10 +13077,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -13511,10 +13103,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -13689,7 +13277,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -14843,7 +14431,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -14868,61 +14456,31 @@ exports[`ProductListerPage template test handle change url by click on filters a
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -14950,10 +14508,6 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -14980,10 +14534,6 @@ exports[`ProductListerPage template test handle change url by click on filters a
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -15158,7 +14708,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -16323,7 +15873,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -16348,61 +15898,31 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -16430,10 +15950,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -16460,10 +15976,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -16638,7 +16150,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />
@@ -19576,7 +19088,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-medium IconButton-contained Header-closeButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root iconButton IconButton-extra-small IconButton-contained Header-closeButton"
           data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           data-testid="language-close-button"
           tabindex="0"
@@ -19601,61 +19113,31 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
           />
         </button>
         <div
-          class="Header-backNavigation"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton Header-backButton MuiButton-textPrimary"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label Button-label"
-            >
-              <span
-                class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root Header-chevronLeft"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                  />
-                </svg>
-              </span>
-              MC: menu.mainDefault
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <hr
-            class="Header-separator"
-          />
-        </div>
-        <div
           class="Container-root Header-languageContainer"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
           >
             <div
               class="LanguageSelection-root"
             >
-              <div>
-                <h6
-                  class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
-                  data-testid="typography"
-                >
-                  Europe
-                </h6>
+              <div
+                class="MuiGrid-root LanguageSelection-regionsWrapper MuiGrid-container"
+              >
                 <div
-                  class="MuiGrid-root LanguageSelection-container MuiGrid-container MuiGrid-align-items-xs-center"
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
+                />
+                <div
+                  class="MuiGrid-root Grid-item MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
                 >
+                  <h6
+                    class="MuiTypography-root LanguageSelection-heading Typography-root MuiTypography-h6"
+                    data-testid="typography"
+                  >
+                    Europe
+                  </h6>
                   <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
+                    class="LanguageSelection-container"
                   >
                     <a
                       aria-disabled="false"
@@ -19683,10 +19165,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -19713,10 +19191,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                         class="MuiTouchRipple-root"
                       />
                     </a>
-                  </div>
-                  <div
-                    class="MuiGrid-root LanguageSelection-item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3 MuiGrid-grid-xl-2"
-                  >
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Navigation-navigationListButton LanguageSelection-link MuiButton-textPrimary"
@@ -19891,7 +19365,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       </div>
       <div
         aria-hidden="true"
-        class="MuiBackdrop-root Header-backdrop"
+        class="MuiBackdrop-root Header-backdrop Header-backdrop"
         data-testid="backdrop"
         style="opacity: 0; visibility: hidden;"
       />

@@ -1138,6 +1138,7 @@ type CountryJSON @dontInfer {
 
 type RegionJson implements Node @dontInfer {
   label: String!
+  regionCode: String!
   menu: [CountryJSON]!
 }
 
