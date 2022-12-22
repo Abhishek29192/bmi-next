@@ -3,8 +3,4 @@ export type GeneratedObjectWithUrl = {
   variantCode: string;
   url: string;
 };
-export type PubSubMessage = {
-  type: string;
-  itemType: string;
-  item: GeneratedObjectWithUrl[];
-};
+export type PubSubMessage = GeneratedObjectWithUrl[];
