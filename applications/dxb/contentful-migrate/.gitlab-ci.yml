@@ -600,7 +600,17 @@ migrate_content_space_8:
     DXB_MARKET_ID: "space_8"
     ROOT_DIR: "applications/dxb/contentful-migrate"
 
-# TODO: Add India, Norway and Spain here when consolidated
+# TODO: Add Norway and Spain here when consolidated
+
+deploy_gatsby_cloud_india:
+  extends: .deploy_gatsby_cloud
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  needs:
+    - migrate_content_space_8
+  variables:
+    DXB_MARKET_ID: "IN"
+    ROOT_DIR: "applications/dxb/contentful-migrate"
 
 deploy_gatsby_cloud_slovenia:
   extends: .deploy_gatsby_cloud
