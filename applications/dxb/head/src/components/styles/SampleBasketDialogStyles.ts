@@ -27,7 +27,7 @@ export const useStyles = makeStyles(
         flexDirection: "column",
         justifyContent: "space-between"
       },
-      [theme.breakpoints!.up!("md")]: {
+      [theme.breakpoints!.up!("lg")]: {
         position: "inherit",
         height: "auto",
         top: "auto",
@@ -128,7 +128,7 @@ export const useStyles = makeStyles(
           marginLeft: "16px"
         }
       },
-      [theme.breakpoints!.up!("md")]: {
+      [theme.breakpoints!.up!("lg")]: {
         flexDirection: "column",
         "& > *": {
           width: "100%",

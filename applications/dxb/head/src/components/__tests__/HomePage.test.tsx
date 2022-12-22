@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import { RegionCode } from "@bmi-digital/components";
 import { Data as BrandData } from "../../components/Brands";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
 import { Data as PageData } from "../../components/Page";
@@ -229,6 +230,7 @@ const siteData: SiteData = {
   regions: [
     {
       label: "Europe",
+      regionCode: RegionCode.Europe,
       menu: [
         { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
         { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },

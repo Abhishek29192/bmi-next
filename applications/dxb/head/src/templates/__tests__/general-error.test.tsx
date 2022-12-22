@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import React from "react";
 import { Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";
@@ -104,6 +104,7 @@ describe("General Error", () => {
       regions: [
         {
           label: "Europe",
+          regionCode: RegionCode.Europe,
           menu: [
             { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
             { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },

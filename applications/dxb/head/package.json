@@ -37,7 +37,7 @@
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
-    "@bmi-digital/components": "^1.5.2",
+    "@bmi-digital/components": "^1.7.0",
     "@bmi-digital/react-pdf-maker": "^1.4.0",
     "@bmi-digital/styles": "^1.3.3",
     "@bmi-digital/svg-import": "^1.3.3",

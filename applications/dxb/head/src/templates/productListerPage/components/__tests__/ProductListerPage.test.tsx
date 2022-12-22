@@ -1,4 +1,4 @@
-import { Filter, ThemeProvider } from "@bmi-digital/components";
+import { Filter, RegionCode, ThemeProvider } from "@bmi-digital/components";
 import * as all from "@bmi-digital/use-dimensions";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
@@ -134,6 +134,7 @@ const siteData: SiteData = {
   regions: [
     {
       label: "Europe",
+      regionCode: RegionCode.Europe,
       menu: [
         { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
         { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },

@@ -1,6 +1,7 @@
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
+import { RegionCode } from "@bmi-digital/components";
 import { DataTypeEnum, NavigationData } from "../Link";
 import Page, { Data } from "../Page";
 import { Data as SiteData } from "../Site";
@@ -105,6 +106,7 @@ const siteData: SiteData = {
   regions: [
     {
       label: "Europe",
+      regionCode: RegionCode.Europe,
       menu: [
         { code: "al", label: "Albania", icon: "/icons/flags/al.svg" },
         { code: "at", label: "Österreich", icon: "/icons/flags/at.svg" },
