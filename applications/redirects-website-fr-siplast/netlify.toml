@@ -1207,11 +1207,6 @@
  force=true
 
 [[redirects]]
- from="/profil/particuliers/service-annuaire-negoce"
- to="https://www.bmigroup.com/fr/trouver-un-distributeur/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/profil/particuliers/rechercher-pro-pour-maison"
  to="https://www.bmigroup.com/fr/trouver-un-distributeur/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -2717,11 +2712,6 @@
  force=true
 
 [[redirects]]
- from="/profil/genie-civil/art-pont-route-solution-siplast"
- to="https://www.bmigroup.com/fr/etancheite-ponts-routes/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/profil/genie-civil/art-pont-route-solution-resine"
  to="https://www.bmigroup.com/fr/professionnels/vous-avez-un-projet-en-genie-civil/dossiers-thematiques-genie-civil/ponts-routes/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -3489,11 +3479,6 @@
 [[redirects]]
  from="/profil/artisans-poseurs/service-selection-siplast"
  to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/profil/artisans-poseurs/service-formation"
- to="https://www.bmigroup.com/fr/professionnels/vous-former-bmi-academy/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
@@ -4542,11 +4527,6 @@
  force=true
 
 [[redirects]]
- from="/index_sitemap.xml"
- to="https://www.bmigroup.com/fr/sitemap/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/image_sitemap.xml"
  to="https://www.bmigroup.com/fr/sitemap/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -4717,11 +4697,6 @@
  force=true
 
 [[redirects]]
- from="/documents/verecran-biecran-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/veral-veralocre-notice-produit.pdf"
  to="https://www.bmigroup.com/fr/p/veralocre-2975727334/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -4763,11 +4738,6 @@
 
 [[redirects]]
  from="/documents/toitures-terrasses-parking-cahier-des-charges-de-pose-asphalte.pdf"
- to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/toitures-terrasses-parking-cahier-des-charges-de-pose-asphalte"
  to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -5572,11 +5542,6 @@
  force=true
 
 [[redirects]]
- from="/documents/soft-green-notice-produit"
- to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/siplast-au-service-de-la-protection-du-bati-fascicule.pdf"
  to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -5832,11 +5797,6 @@
  force=true
 
 [[redirects]]
- from="/documents/procede-canopia-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/procede-adx-etn.pdf"
  to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -6072,18 +6032,8 @@
  force=true
 
 [[redirects]]
- from="/documents/parastyrene-fm-js-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/parasteel-fascicule.pdf"
  to="https://www.bmigroup.com/fr/documentation/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/parasteel-fascicule"
- to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
@@ -6232,11 +6182,6 @@
  force=true
 
 [[redirects]]
- from="/documents/parafor-solo-notice-produit"
- to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/parafor-solo-gs-notice-produit.pdf"
  to="https://www.bmigroup.com/fr/p/parafor-solo-gs-581107241/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -6362,17 +6307,7 @@
  force=true
 
 [[redirects]]
- from="/documents/paradiene-js-r4-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/paradiene-fm-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/paradiene-fm-notice-produit"
  to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -6404,11 +6339,6 @@
 [[redirects]]
  from="/documents/paradial-s-notice-produit"
  to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/paracoating-eco-activ-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/p/paracoating-eco-activ-4089836525/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
@@ -6752,11 +6682,6 @@
  force=true
 
 [[redirects]]
- from="/documents/monarplan-fm-notice-produit"
- to="https://www.bmigroup.com/fr/p/monarplan-fm-1-2-mm-1092172059/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/monarplan-fm-etn.pdf"
  to="https://www.bmigroup.com/fr/documentation/certifications/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -7022,11 +6947,6 @@
  force=true
 
 [[redirects]]
- from="/documents/gamme-silver-fascicule"
- to="https://www.bmigroup.com/fr/documentation/brochures-commerciales/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/gamme-silver-cp.pdf"
  to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -7052,27 +6972,12 @@
  force=true
 
 [[redirects]]
- from="/documents/gamme-paradiene-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/gamme-paradial-notice-produit.pdf"
  to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
- from="/documents/gamme-paradial-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/gamme-paracier-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/gamme-paracier-notice-produit"
  to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -7682,11 +7587,6 @@
  force=true
 
 [[redirects]]
- from="/documents/enduits-impregnation-a-froid-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/ecran-de-sous-toiture-sous-capteurs-photovoltaiques-notice-de-pose.pdf"
  to="https://www.bmigroup.com/fr/documentation/notices-de-pose/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -7872,11 +7772,6 @@
  force=true
 
 [[redirects]]
- from="/documents/dalle-ipe-50-notice-produit-2"
- to="https://www.bmigroup.com/fr/p/dalle-ipe-5-lames-713754073/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/dalle-ipe-50-cp.pdf"
  to="https://www.bmigroup.com/fr/presse-actualites/communiques-de-presse/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -7888,11 +7783,6 @@
 
 [[redirects]]
  from="/documents/dalle-essensia-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/dalle-essensia-notice-produit"
  to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -8138,11 +8028,6 @@
 
 [[redirects]]
  from="/documents/canopia-naturapente-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/canopia-naturapente-notice-produit"
  to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -8842,11 +8727,6 @@
  force=true
 
 [[redirects]]
- from="/documents/adealu-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/documents/ade-mps-notice-produit.pdf"
  to="https://www.bmigroup.com/fr/p/ade-mps-2370951986/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
@@ -8858,11 +8738,6 @@
 
 [[redirects]]
  from="/documents/accessoires-etancheite-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/accessoires-etancheite-notice-produit"
  to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
@@ -8919,16 +8794,6 @@
 [[redirects]]
  from="/documentations"
  to="https://www.bmigroup.com/fr/documentation/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/standard-industries-code-conduct"
- to="https://www.bmigroup.com/fr/a-propos/code-de-conduite/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/documents/anti-corruption-policy"
- to="https://www.bmigroup.com/fr/a-propos/code-de-conduite/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
@@ -9027,23 +8892,8 @@
  force=true
 
 [[redirects]]
- from="/sites/default/files/newsletter/lettre/etancheite50.pdf"
- to="https://www.bmigroup.com/fr/professionnels/solutions-bim/bibliotheque-des-objets-bim-toit-plat/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/service-solutions-bim"
- to="https://www.bmigroup.com/fr/professionnels/solutions-bim/bibliotheque-des-objets-bim-toit-plat/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
  from="/profil/particuliers/service-annuaire-negoce"
  to="https://www.bmigroup.com/fr/trouver-un-distributeur/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
- force=true
-
-[[redirects]]
- from="/profil/entreprises-etancheite/service-alerte-mail"
- to="https://www.bmigroup.com/fr/bmi-siplast/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
  force=true
 
 [[redirects]]
@@ -9064,6 +8914,121 @@
  [[redirects]]
  from="/profil/maitres-ouvrage-maitres-oeuvre/une-approche-environnementale-de-la-gestion-des-eaux-pour-le"
  to="https://www.bmigroup.com/fr/inspirations/dossiers-thematiques/gestion-de-l-eau-et-amenagement-de-terrasse/"
+ force=true
+
+[[redirects]]
+ from="/documents/verecran-biecran-notice-produit"
+ to="/fr/p/verecran-100-1478034713/?pathname=%2Ffr%2Fsearch%2F&q=verecran%24"
+ force=true
+
+[[redirects]]
+ from="/documents/toitures-terrasses-parking-cahier-des-charges-de-pose-asphalte"
+ to="/fr/documentation/manuels-de-pose/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/documents/soft-green-notice-produit"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/documents/procede-canopia-notice-produit"
+ to="/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/documents/parastyrene-fm-js-notice-produit"
+ to="/fr/p/parastyrene-fm-js-2365739014/?pathname=%2Ffr%2Fsearch%2F&q=parastyrene"
+ force=true
+
+[[redirects]]
+ from="/documents/parasteel-fascicule"
+ to="/fr/documentation/guides-solutions/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/documents/parafor-solo-notice-produit"
+ to="/fr/p/parafor-solo-fegs-1090343408/?pathname=%2Ffr%2Fsearch%2F&q=parafor%20solo"
+ force=true
+
+[[redirects]]
+ from="/documents/paradiene-js-r4-notice-produit"
+ to="/fr/p/paradiene-js-r4-3695644613/?pathname=%2Ffr%2Fsearch%2F&q=paradiene"
+ force=true
+
+[[redirects]]
+ from="/documents/paradiene-fm-notice-produit"
+ to="/fr/p/paradiene-fm-592955017/?pathname=%2Ffr%2Fsearch%2F&q=paradiene%20fm"
+ force=true
+
+[[redirects]]
+ from="/documents/monarplan-fm-notice-produit"
+ to="/fr/p/monarplan-fm-gris-1092172059/?pathname=%2Ffr%2Fsearch%2F&q=monarplan%20fm"
+ force=true
+
+[[redirects]]
+ from="/documents/lame-bamboo-notice-produit"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/documents/gamme-silver-fascicule"
+ to="/fr/documentation/guides-solutions/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/documents/gamme-paradiene-notice-produit"
+ to="/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/documents/gamme-paradial-notice-produit"
+ to="/fr/p/paradial-s-193929486/?pathname=%2Ffr%2Fsearch%2F&q=paradial"
+ force=true
+
+[[redirects]]
+ from="/documents/gamme-paracier-notice-produit"
+ to="/fr/p/paracier-g-4057145996/?pathname=%2Ffr%2Fsearch%2F&q=paracier%20g"
+ force=true
+
+[[redirects]]
+ from="/documents/enduits-impregnation-a-froid-notice-produit"
+ to="/fr/p/siplast-primer-1399171276/?pathname=%2Ffr%2Fsearch%2F&q=siplast%20primer"
+ force=true
+
+[[redirects]]
+ from="/documents/dalle-ipe-50-notice-produit-2"
+ to="/fr/p/dalle-ipe-713754073/?pathname=%2Ffr%2Fsearch%2F&q=ipe%2050"
+ force=true
+
+[[redirects]]
+ from="/documents/dalle-essensia-notice-produit"
+ to="/fr/p/dalle-essensia-uni-gris-moyen-2087967852/?pathname=%2Ffr%2Fsearch%2F&q=essensia"
+ force=true
+
+[[redirects]]
+ from="/documents/dalle-dimensia-notice-produit"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/documents/dalle-boise-hr-56-notice-produit-2"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/documents/canopia-naturapente-notice-produit"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/documents/adealu-notice-produit"
+ to="/fr/p/bande-adealu-3689550277/?pathname=%2Ffr%2Fsearch%2F&q=adealu"
+ force=true
+
+[[redirects]]
+ from="/documents/accessoires-etancheite-notice-produit"
+ to="/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
  force=true
 
 # if no redirects are found, fall back to relevant brand page
