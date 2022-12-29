@@ -58,7 +58,9 @@ export const transformProduct = (
       const transformedProduct: GeneratedObjectWithUrl = {
         variantCode: variant.code,
         catalog: process.env.PIM_CATALOG_NAME,
-        url: `/p/${generateProductUrl(
+        url: `${process.env.GATSBY_SITE_URL}/${
+          process.env.COUNTRY_CODE
+        }/p/${generateProductUrl(
           name,
           hashedCode,
           colour,

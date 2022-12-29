@@ -7,6 +7,10 @@ import {
 import { transformSystem } from "../systemTransformer";
 
 jest.mock("@bmi-digital/functions-logger");
+beforeEach(() => {
+  process.env.GATSBY_SITE_URL = "http://localhost:8000";
+  process.env.COUNTRY_CODE = "no";
+});
 
 describe("transformSystem", () => {
   it("transforms a system with minimal data", () => {
@@ -29,7 +33,7 @@ describe("transformSystem", () => {
     expect(transformedSystems).toEqual([
       {
         catalog: "pim-catalog-name",
-        url: "/s/name-1853176582",
+        url: "http://localhost:8000/no/s/name-1853176582",
         variantCode: "code"
       }
     ]);
@@ -42,7 +46,7 @@ describe("transformSystem", () => {
       Array [
         Object {
           "catalog": "pim-catalog-name",
-          "url": "/s/name-1853176582",
+          "url": "http://localhost:8000/no/s/name-1853176582",
           "variantCode": "code",
         },
       ]
@@ -61,7 +65,7 @@ describe("transformSystem", () => {
       Array [
         Object {
           "catalog": "pim-catalog-name",
-          "url": "/s/name-1853176582",
+          "url": "http://localhost:8000/no/s/name-1853176582",
           "variantCode": "code",
         },
       ]
