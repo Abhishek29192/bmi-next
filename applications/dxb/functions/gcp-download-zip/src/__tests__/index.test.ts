@@ -573,6 +573,43 @@ describe("Making a POST request", () => {
     deleteTemporaryFile(temporaryFile);
   });
 
+  it("returns status code 400 when the qaAuthToken is invalid", async () => {
+    const temporaryFile = createTemporaryFilename();
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": undefined,
+        authorization: "Bearer qaAuthTokenFailed"
+      },
+      "/",
+      {
+        documents: [mockDocument()]
+      }
+    );
+    const res = mockResponse();
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith("QaAuthToken failed.");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file).toBeCalledTimes(0);
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
+      { method: "POST" }
+    );
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+    expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
+
+    deleteTemporaryFile(temporaryFile);
+    process.env.QA_AUTH_TOKEN = undefined;
+  });
+
   it("returns status code 500 when document fetch request fails", async () => {
     const temporaryFile = createTemporaryFilename();
 
@@ -631,7 +668,7 @@ describe("Making a POST request", () => {
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(0);
-    expect(temporaryFileContents(temporaryFile)).toStrictEqual("");
+    expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
 
     deleteTemporaryFile(temporaryFile);
   });
@@ -1024,5 +1061,56 @@ describe("Making a POST request", () => {
 
     deleteTemporaryFile(temporaryFile);
     process.env.DXB_VALID_HOSTS = dxbValidHosts;
+  });
+
+  it("returns status code 200 when successfully created zip file when authorization header is used", async () => {
+    const temporaryFile = createTemporaryFilename();
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+
+    const req = mockRequest(
+      "POST",
+      {
+        "x-recaptcha-token": undefined,
+        authorization: "Bearer qaAuthToken"
+      },
+      "/",
+      {
+        documents: [mockDocument()]
+      }
+    );
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+      method: "GET",
+      body: "Some value"
+    });
+    createWriteStream.mockImplementation(() =>
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
+      fs.createWriteStream(temporaryFile)
+    );
+    publicUrl.mockImplementation(() => "https://somewhere/file.zip");
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledTimes(0);
+    expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
+    expect(createWriteStream).toBeCalledTimes(1);
+    expect(fetchMock).toHaveFetched(
+      `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
+    );
+    expect(publicUrl).toBeCalledTimes(1);
+    expect(temporaryFileContents(temporaryFile)!.length).toBeGreaterThan(0);
+
+    deleteTemporaryFile(temporaryFile);
+    process.env.QA_AUTH_TOKEN = undefined;
   });
 });

@@ -559,6 +559,37 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
+  it("returns status code 400 when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(
+      {
+        locale: "nb-NO",
+        recipients: "email@email.com",
+        values: { files: [], a: "b" }
+      },
+      {
+        "X-Recaptcha-Token": undefined,
+        authorization: "Bearer qaAuthTokenFailed"
+      }
+    );
+    const res = mockResponse();
+
+    await submit(req, res);
+
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
+      { method: "POST" }
+    );
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+    process.env.QA_AUTH_TOKEN = undefined;
+  });
+
   it("returns status code 500 when an error is returned trying to get the space from Contentful", async () => {
     const req = mockRequest();
     const res = mockResponse();
@@ -1297,6 +1328,54 @@ describe("Making a POST request", () => {
         uploadedAssets: ["https://localhost"]
       }),
       html: '<ul><li><b>a</b>: "b"</li><li><b>name</b>: "first-name"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
+  it("returns status 200 when successfully sends email when the authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = mockRequest(
+      {
+        title: "Form title",
+        locale: locale,
+        recipients: "email@email.com",
+        values: { files: ["path/to/file"], a: "b" }
+      },
+      { "x-recaptcha-token": undefined, authorization: "Bearer qaAuthToken" }
+    );
+    const res = mockResponse();
+
+    processForAllLocales.mockResolvedValueOnce({
+      fields: { file: { "en-UK": { url: "https://localhost" } } }
+    });
+
+    await submit(req, res);
+
+    expect(fetchMock).not.toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
+      { method: "POST" }
+    );
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(setApiKey).toBeCalledWith(sendGridSecret);
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(send).toBeCalledWith({
+      to: ["email@email.com"],
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Form title",
+      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
+      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);

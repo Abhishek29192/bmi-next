@@ -330,6 +330,32 @@ describe("HTTP function:", () => {
     expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
   });
 
+  it("nextStep: returns a 400 response when the qaAuthToken is invalid", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: undefined,
+        authorization: "Bearer qaAuthTokenFailed"
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
+    expect(fetchMock).not.toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).not.toHaveFetched("begin:https://graphql.contentful.com");
+    process.env.QA_AUTH_TOKEN = undefined;
+  });
+
   it("nextStep: returns a 400 response when the recaptcha score is less than minimum score", async () => {
     const req = getMockReq({
       headers: {
@@ -2421,5 +2447,164 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
     );
 
     process.env.PREVIEW_API = originalPreviewApi;
+  });
+
+  it("nextStep: returns a 200 response status when the authorization header is used", async () => {
+    process.env.QA_AUTH_TOKEN = "qaAuthToken";
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: undefined,
+        authorization: "Bearer qaAuthToken"
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorAnswer: {
+            __typename: "SystemConfiguratorAnswer",
+            sys: {
+              id: "id"
+            },
+            title: "title",
+            description: {
+              json: { data: {}, content: [], nodeType: "document" },
+              links: {
+                assets: {
+                  block: []
+                }
+              }
+            },
+            nextStep: {
+              __typename: "SystemConfiguratorQuestion",
+              sys: {
+                id: "question2"
+              },
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: [
+                      {
+                        __typename: "Asset",
+                        sys: {
+                          id: "block1"
+                        },
+                        title: "Image title",
+                        url: "/image",
+                        contentType: "image/jpg"
+                      }
+                    ]
+                  }
+                }
+              },
+              answersCollection: {
+                total: 1,
+                items: [answer as Omit<Answer, "nextStep">]
+              }
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorQuestion",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: [
+          {
+            __typename: "ContentfulAsset",
+            contentful_id: "block1",
+            id: "block1",
+            title: "Image title",
+            file: {
+              url: "/image",
+              contentType: "image/jpg"
+            }
+          }
+        ]
+      },
+      answers: [answerResponse]
+    });
+    expect(fetchMock).not.toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
+    );
+    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
   });
 });
