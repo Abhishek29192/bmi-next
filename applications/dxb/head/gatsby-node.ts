@@ -123,7 +123,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
         }
       }
-      allContentfulSite {
+      allContentfulSite(filter: {countryCode: {eq: "${process.env.SPACE_MARKET_CODE}"}}) {
         nodes {
           id
           countryCode
