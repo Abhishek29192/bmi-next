@@ -81,3 +81,5 @@ log-error.txt
 log-success.txt
 
 *-dump.json
+
+deploy_head
