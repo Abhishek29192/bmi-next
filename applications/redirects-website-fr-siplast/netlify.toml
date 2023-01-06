@@ -9896,27 +9896,6 @@
  to="https://www.bmigroup.com/fr/professionnels/configurez-votre-systeme-d-etancheite/"
  force=true
 
-# tests
-[[redirects]]
- from="/documents/test-space-partial"
- to="https://www.bmigroup.com/fr/p/adepar-js-r4-silver-1942632845/?pathname=%2Ffr/search/&q=test n1"
- force=true
-
-[[redirects]]
- from="/documents/test-space-none"
- to="https://www.bmigroup.com/fr/p/adepar-js-r4-silver-1942632845/?pathname=/fr/search/&q=test n2"
- force=true
-
-[[redirects]]
- from="/documents/test-filter-partial"
- to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B{"name":"Brand","value":["Monier"]}]'
- force=true
-
-[[redirects]]
- from="/documents/test-filter-none"
- to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=[{"name":"Brand","value":["Siplast"]}]'
- force=true
-
 # if no redirects are found, fall back to relevant brand page
 
 [[redirects]]
