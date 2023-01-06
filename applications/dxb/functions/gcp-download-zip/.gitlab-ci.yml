@@ -2,7 +2,7 @@ test_gcp-download-zip:
   extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-download-zip"
-    ROOT_DIR: "applications/functions/gcp-download-zip"
+    ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
 
 build_gcp-download-zip:
   extends: .build_function

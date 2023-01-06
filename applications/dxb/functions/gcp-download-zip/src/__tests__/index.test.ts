@@ -668,7 +668,7 @@ describe("Making a POST request", () => {
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(0);
-    expect(temporaryFileContents(temporaryFile)).toStrictEqual(undefined);
+    expect(temporaryFileContents(temporaryFile)).toStrictEqual("");
 
     deleteTemporaryFile(temporaryFile);
   });

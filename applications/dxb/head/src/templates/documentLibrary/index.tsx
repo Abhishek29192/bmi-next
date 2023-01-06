@@ -1,5 +1,4 @@
 import {
-  AlertBanner,
   DownloadList,
   DownloadListContext,
   Filter,
@@ -17,9 +16,7 @@ import Page, { Data as PageData } from "../../components/Page";
 import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText from "../../components/RichText";
 import Scrim from "../../components/Scrim";
-import { useSiteContext } from "../../components/Site";
 import filterStyles from "../../components/styles/Filters.module.scss";
-import { microCopy } from "../../constants/microCopies";
 import { useConfig } from "../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
@@ -43,12 +40,12 @@ import {
   resultTypeFormatMap
 } from "./helpers/documentsLibraryHelpers";
 import { DocumentLibraryProps, QueryParams } from "./types";
+import { DownloadListAlertBanner } from "./components/DownloadListAlertBanner";
 
 export const PAGE_SIZE = 24;
 
 const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   const location = useLocation();
-  const { getMicroCopy } = useSiteContext();
   const [documents, setDocuments] = useState([]);
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(true);
@@ -231,73 +228,64 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
     >
-      <>
-        {isLoading ? (
-          <Scrim theme="light">
-            <ProgressIndicator theme="light" />
-          </Scrim>
-        ) : null}
-        <Hero
-          level={2}
-          title={title}
-          breadcrumbs={
-            <BackToResults isDarkThemed>
-              <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
-            </BackToResults>
-          }
-        />
-        {description && (
-          <Section backgroundColor="white">
-            <RichText document={description} />
-          </Section>
-        )}
-        <DownloadList maxSize={maxSize}>
-          <DownloadListContext.Consumer>
-            {({ count }) => {
-              if (count === 0) {
-                return null;
-              }
-
-              return (
-                <AlertBanner severity="info">
-                  <AlertBanner.Title>
-                    {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_TITLE)}
-                  </AlertBanner.Title>
-                  {getMicroCopy(microCopy.DOWNLOAD_LIST_INFO_MESSAGE)}
-                </AlertBanner>
-              );
-            }}
-          </DownloadListContext.Consumer>
-          <Section backgroundColor="white">
-            <div className={filterStyles["Filters"]}>
-              <Grid container spacing={3} ref={resultsElement}>
-                <Grid item xs={12} md={12} lg={3}>
-                  <FilterSection
-                    filters={filters}
-                    handleFiltersChange={handleFiltersChange}
-                    clearFilters={handleClearFilters}
-                  />
-                </Grid>
-                <Grid item xs={12} md={12} lg={9}>
-                  {!initialLoading ? (
-                    <ResultSection
-                      results={documents}
-                      assetTypes={contentfulAssetTypes}
-                      format={format}
-                      page={page}
-                      pageCount={pageCount}
-                      handlePageChange={handlePageChange}
-                    />
-                  ) : null}
-                </Grid>
-              </Grid>
-            </div>
-          </Section>
-        </DownloadList>
-        <Section backgroundColor="alabaster" isSlim>
-          <Breadcrumbs data={enhancedBreadcrumbs} />
+      {isLoading ? (
+        <Scrim theme="light">
+          <ProgressIndicator theme="light" />
+        </Scrim>
+      ) : null}
+      <Hero
+        level={2}
+        title={title}
+        breadcrumbs={
+          <BackToResults isDarkThemed>
+            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          </BackToResults>
+        }
+      />
+      {description && (
+        <Section backgroundColor="white">
+          <RichText document={description} />
         </Section>
-      </>
+      )}
+      <DownloadList maxSize={maxSize}>
+        <DownloadListContext.Consumer>
+          {({ count }) => {
+            if (count === 0) {
+              return null;
+            }
+
+            return <DownloadListAlertBanner />;
+          }}
+        </DownloadListContext.Consumer>
+        <Section backgroundColor="white">
+          <div className={filterStyles["Filters"]}>
+            <Grid container spacing={3} ref={resultsElement}>
+              <Grid item xs={12} md={12} lg={3}>
+                <FilterSection
+                  filters={filters}
+                  handleFiltersChange={handleFiltersChange}
+                  clearFilters={handleClearFilters}
+                />
+              </Grid>
+              <Grid item xs={12} md={12} lg={9}>
+                {!initialLoading ? (
+                  <ResultSection
+                    results={documents}
+                    assetTypes={contentfulAssetTypes}
+                    format={format}
+                    page={page}
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                  />
+                ) : null}
+              </Grid>
+            </Grid>
+          </div>
+        </Section>
+      </DownloadList>
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs data={enhancedBreadcrumbs} />
+      </Section>
     </Page>
   );
 };
