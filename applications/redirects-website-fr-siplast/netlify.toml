@@ -6308,7 +6308,7 @@
 
 [[redirects]]
  from="/documents/paradiene-fm-notice-produit.pdf"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?utm_source=siplast.fr&utm_medium=+referral-redirect&utm_campaign=dxb-redirects"
+ to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
@@ -8923,7 +8923,7 @@
 
 [[redirects]]
  from="/documents/toitures-terrasses-parking-cahier-des-charges-de-pose-asphalte"
- to="https://www.bmigroup.com/fr/documentation/manuels-de-pose/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/manuels-de-pose/?filters=%5B%7Bname"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
@@ -8933,7 +8933,7 @@
 
 [[redirects]]
  from="/documents/procede-canopia-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
@@ -8943,7 +8943,7 @@
 
 [[redirects]]
  from="/documents/parasteel-fascicule"
- to="https://www.bmigroup.com/fr/documentation/guides-solutions/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/guides-solutions/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
@@ -8973,12 +8973,12 @@
 
 [[redirects]]
  from="/documents/gamme-silver-fascicule"
- to="https://www.bmigroup.com/fr/documentation/guides-solutions/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/guides-solutions/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
  from="/documents/gamme-paradiene-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
@@ -9028,7 +9028,7 @@
 
 [[redirects]]
  from="/documents/accessoires-etancheite-notice-produit"
- to="https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Siplast%22%5D%7D%5D"
+ to='https://www.bmigroup.com/fr/documentation/fiches-produits/?filters=%5B%7B"name"%3A"Brand"%2C"value"%3A%5B"Siplast"%5D%7D%5D'
  force=true
 
 [[redirects]]
