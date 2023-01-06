@@ -8,10 +8,11 @@ export const useScrollTo = (
     useState(false);
   useEffect(() => {
     if (isOpen && htmlElement.current && hasElementExpansionCompleted) {
-      htmlElement.current.parentElement.scrollTo({
-        top: htmlElement.current.offsetTop + 1,
-        behavior: "smooth"
-      });
+      htmlElement.current.parentElement &&
+        htmlElement.current.parentElement.scrollTo({
+          top: htmlElement.current.offsetTop + 1,
+          behavior: "smooth"
+        });
     }
   }, [isOpen, hasElementExpansionCompleted, htmlElement.current]);
   return [setElementExpansionCompleted];

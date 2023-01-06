@@ -183,7 +183,7 @@ const Header = ({
   countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
   sampleBasketLink?: PageInfoData;
-  maximumSamples?: number;
+  maximumSamples: number | null;
   lastNavigationLabel?: string;
 }) => {
   const languages = useMemo(

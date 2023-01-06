@@ -28,7 +28,7 @@ const SampleBasketDialog = ({
 }: {
   title?: string;
   basketAction?: ClickableAction;
-  maximumSamples?: number;
+  maximumSamples: number | null;
   toggleCart?: () => void;
 }) => {
   const {
@@ -65,7 +65,7 @@ const SampleBasketDialog = ({
 
         <div className={classnames(classes.cartInfo, "cart-info")}>
           <p>
-            {productsInBasket.length < maximumSamples
+            {productsInBasket.length < (maximumSamples || 0)
               ? getMicroCopy(
                   microCopy.PDP_OVERVIEW_SAMPLE_DIALOG_MESSAGE
                 ).replace(":N", `${maximumSamples}`)
@@ -119,9 +119,11 @@ const SampleBasketDialog = ({
         <Button action={basketAction} endIcon={<ArrowForwardIcon />}>
           {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
         </Button>
-        <Button variant="outlined" onClick={() => toggleCart()}>
-          {getMicroCopy(microCopy.PDP_OVERVIEW_CONTINUE_BROWSING)}
-        </Button>
+        {toggleCart && (
+          <Button variant="outlined" onClick={() => toggleCart()}>
+            {getMicroCopy(microCopy.PDP_OVERVIEW_CONTINUE_BROWSING)}
+          </Button>
+        )}
       </div>
     </div>
   ) : null;

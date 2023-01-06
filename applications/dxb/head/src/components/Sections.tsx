@@ -175,7 +175,7 @@ const Sections = ({
             position={startIndex + index}
             theme={
               // eslint-disable-next-line security/detect-object-injection
-              pageTypenameToThemeMap[pageTypename] || {}
+              (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={`section-${index}`}
           />

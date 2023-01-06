@@ -2278,7 +2278,7 @@ exports[`Header component shows sample basket icon 1`] = `
             class="SampleBasketDialog-cartInfo-464 cart-info"
           >
             <p>
-              MC: pdp.overview.sampleLimitReachedMessage
+              MC: pdp.overview.sampleDialogMessage
             </p>
             <p>
               MC: pdp.overview.sampleDeliveryDialogMessage

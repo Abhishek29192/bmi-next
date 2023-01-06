@@ -1,13 +1,13 @@
 test_head:
   extends: .test_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - jest/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - jest/**/*
@@ -19,11 +19,11 @@ test_head:
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
   variables:
@@ -33,12 +33,12 @@ test_mr_coverage_head:
 compile_head_mr:
   extends: .compile_yarn_workspace
   rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
+    - !reference [ .ingore_release_mrs, rules ]
+    - if: !reference [ .run_for_changes_on_main, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
+    - if: !reference [ .run_for_changes_on_mr, rules, if ]
       changes:
         - applications/dxb/head/**/*
         - yarn.lock
@@ -48,9 +48,9 @@ compile_head_mr:
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
-  image: !reference [.node-full-image, image]
+  image: !reference [ .node-full-image, image ]
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -58,8 +58,8 @@ wait_until_head_deployed_to_gatsby:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
-  needs: []
-  cache: {}
+  needs: [ ]
+  cache: { }
   timeout: 15m
   script:
     - |
@@ -92,8 +92,8 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [.owasp-image, image]
-  cache: {}
+  image: !reference [ .owasp-image, image ]
+  cache: { }
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -113,9 +113,9 @@ wait_until_head_deployed_to_gatsby:
   stage: post deploy
   rules:
     - when: never
-  image: !reference [.owasp-image, image]
+  image: !reference [ .owasp-image, image ]
   timeout: 3h
-  cache: {}
+  cache: { }
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -136,7 +136,7 @@ wait_until_head_deployed_to_gatsby:
 baseline_scan_head_preview:
   extends: .base_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -191,7 +191,7 @@ baseline_scan_head_prod:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: !reference [.cypress-image, image]
+  image: !reference [ .cypress-image, image ]
   script:
     - |
       params="--collect.settings.pwd=${NETLIFY_PWD}"
@@ -208,7 +208,7 @@ baseline_scan_head_prod:
 lighthouseci_scan_head_preview:
   extends: .lighthouse_scan
   rules:
-    - !reference [.ingore_release_mrs, rules]
+    - !reference [ .ingore_release_mrs, rules ]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - "applications/dxb/contentful-migrate/**/*"
@@ -234,8 +234,8 @@ lighthouseci_scan_head_preview:
         "${base_url}/no/metal-tiles/"
         "${base_url}/no/roof-products/"
         "${base_url}/no/p/zanda-arktis-normalstein-svart-betong-289333998/"
-        "${base_url}/no/s/test-no-zanda-system-282193240/"
-        "${base_url}/no/documentation-landing-page/technical-product-catalogues/"
+        "${base_url}/no/s/tradition-plus-takpanne-13759858/"
+        "${base_url}/no/documentation-landing-page/technical-product-catalogues-for-automation/"
         "${base_url}/no/find-a-merchant/"
         "${base_url}/no/search/?q=zanda"
       )

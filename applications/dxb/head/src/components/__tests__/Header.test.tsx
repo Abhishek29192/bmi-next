@@ -272,6 +272,7 @@ describe("Header component", () => {
           navigationData={navigationData}
           utilitiesData={utilitiesData}
           regions={regions}
+          maximumSamples={3}
         />
       </ThemeProvider>
     );
@@ -286,6 +287,7 @@ describe("Header component", () => {
           navigationData={navigationData}
           utilitiesData={utilitiesData}
           regions={regions}
+          maximumSamples={3}
         />
       </ThemeProvider>
     );
@@ -300,6 +302,7 @@ describe("Header component", () => {
           navigationData={null}
           utilitiesData={null}
           regions={regions}
+          maximumSamples={3}
         />
       </ThemeProvider>
     );
@@ -314,6 +317,7 @@ describe("Header component", () => {
           navigationData={navigationData}
           utilitiesData={utilitiesData}
           regions={regions}
+          maximumSamples={3}
         />
       </ThemeProvider>
     );
@@ -340,6 +344,7 @@ describe("Header component", () => {
             utilitiesData={utilitiesData}
             regions={regions}
             sampleBasketLink={sampleBasketLinkInfo}
+            maximumSamples={3}
           />
         </BasketContext.Provider>
       </ThemeProvider>
@@ -361,6 +366,7 @@ describe("Header component", () => {
             navigationData={navigationData}
             utilitiesData={utilitiesData}
             regions={regions}
+            maximumSamples={3}
             sampleBasketLink={sampleBasketLinkInfo}
           />
         </ThemeProvider>
