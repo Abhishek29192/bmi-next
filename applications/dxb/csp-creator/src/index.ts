@@ -120,7 +120,7 @@ const main = async (market?: string, environment?: string) => {
   let frameSrc = `frame-src ${gatsbyHost} ${
     marketOptions.frameSrcExtras || ""
   }`;
-  let fontSrc = `font-src 'self' ${gatsbyHost} https:`;
+  let fontSrc = `font-src 'self' ${gatsbyHost} https: data:`;
   let childSrc = `child-src 'self' ${gatsbyHost}`;
   let workerSrc = `worker-src 'self' ${gatsbyHost}`;
 
