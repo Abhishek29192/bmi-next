@@ -16,6 +16,7 @@ import createProduct from "./ProductHelper";
 import createRelatedVariant from "./RelatedVariantHelper";
 import createSystem from "./SystemHelper";
 import type {
+  ApprovalStatus,
   Asset,
   AssetAssetType,
   BIM,
@@ -51,6 +52,7 @@ import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
 
 export type {
+  ApprovalStatus,
   Asset,
   AssetAssetType,
   BIM,

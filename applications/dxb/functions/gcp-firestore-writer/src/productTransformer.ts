@@ -1,5 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
 import type {
+  ApprovalStatus,
   CategoryGroup,
   Classification,
   Filter,
@@ -20,7 +21,6 @@ import type {
   Feature,
   Product as PimProduct
 } from "@bmi/pim-types";
-import { Category } from "@bmi/pim-types";
 import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   productIgnorableAttributes,
@@ -42,15 +42,20 @@ import {
 } from "./transformerUtils";
 
 export const transformProduct = (product: PimProduct): Product[] => {
-  if (product.approvalStatus !== "approved" || !product.name) {
+  if (
+    !product.name ||
+    (product.approvalStatus !== "approved" &&
+      product.approvalStatus !== "discontinued")
+  ) {
     return [];
   }
   return (product.variantOptions || [])
+    .filter(
+      (variant) =>
+        variant.approvalStatus === "approved" ||
+        variant.approvalStatus === "discontinued"
+    )
     .map((variant) => {
-      if (variant.approvalStatus !== "approved") {
-        return undefined;
-      }
-
       const groupedImages = groupImages([
         ...(variant.images || []),
         ...(product.images || [])
@@ -236,6 +241,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
       });
 
       const transformedProduct: Product = {
+        approvalStatus: product.approvalStatus as ApprovalStatus,
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
           product.assets
@@ -339,8 +345,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
         }
       };
       return transformedProduct;
-    })
-    .filter(isDefined);
+    });
 };
 
 const mergeClassifications = (
@@ -460,9 +465,9 @@ const getFilters = (
   return [...classificationFilters, ...categoryFilters];
 };
 
-export type CategoryWithName = Category & { name: string };
+export type CategoryWithName = PimCategory & { name: string };
 
-const getGroups = (categories: readonly Category[]): CategoryGroup[] => {
+const getGroups = (categories: readonly PimCategory[]): CategoryGroup[] => {
   const categoryTypeCategories = categories.filter(
     ({ categoryType }) => categoryType === "Category"
   );

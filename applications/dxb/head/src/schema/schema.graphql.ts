@@ -811,6 +811,7 @@ type PIMDocumentWithPseudoZip @dontInfer {
 union ProductDocumentResponse = PIMDocument | PIMDocumentWithPseudoZip
 
 type Product implements Node @dontInfer {
+  approvalStatus: String!
   awardsAndCertificateDocuments: [PIMAsset]!
   awardsAndCertificateImages: [PIMAsset]!
   baseCode: String!

@@ -245,6 +245,36 @@ describe("updateItems", () => {
     expect(deleteByQuery).not.toBeCalled();
   });
 
+  it("should delete product if approval status is discontinued", async () => {
+    const esProducts = [createEsProduct({ approvalStatus: "discontinued" })];
+    const index = `${process.env.ES_INDEX_PREFIX}_products`;
+    const bulkOperations = [
+      {
+        delete: {
+          _index: index,
+          _id: esProducts[0].code
+        }
+      }
+    ];
+    getChunks.mockReturnValueOnce([esProducts]);
+    getDeleteOperation.mockReturnValueOnce(bulkOperations);
+    count.mockResolvedValueOnce({ body: { count: 1 } });
+
+    await updateItems("PRODUCTS", esProducts);
+
+    expect(getEsClient).toBeCalled();
+    expect(getChunks).toBeCalledWith(esProducts);
+    expect(getIndexOperation).not.toBeCalled();
+    expect(getDeleteOperation).toBeCalledWith(index, esProducts[0].code);
+    expect(performBulkOperations).toBeCalledWith(
+      mockClient,
+      [bulkOperations],
+      index
+    );
+    expect(count).toBeCalledWith({ index });
+    expect(deleteByQuery).not.toBeCalled();
+  });
+
   it("should index system if approval status is approved", async () => {
     const esSystems = [createEsSystem({ approvalStatus: "approved" })];
     const index = `${process.env.ES_INDEX_PREFIX}_systems`;

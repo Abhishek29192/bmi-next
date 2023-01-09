@@ -72,7 +72,10 @@ export enum AwardAndCertificateAssetType {
   Images
 }
 
+export type ApprovalStatus = "approved" | "discontinued";
+
 export type Product = {
+  approvalStatus: ApprovalStatus;
   awardsAndCertificateDocuments: readonly Asset[];
   awardsAndCertificateImages: readonly Asset[];
   baseCode: string;
