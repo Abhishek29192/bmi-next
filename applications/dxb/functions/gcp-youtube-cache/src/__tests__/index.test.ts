@@ -1,10 +1,10 @@
 import { mockResponse } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { youtube_v3 } from "googleapis";
 import mockConsole from "jest-mock-console";
 import { Method, Status } from "simple-http-status";
 import { getById, getYoutubeDetails, saveById } from "../db";
+import createYoutubeVideoListResponse from "./YoutubeVideoListResponseHelper";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -18,28 +18,6 @@ const youtubeCache = async (
     request as Request,
     response as Response
   );
-
-const mockYoutubeDetails: youtube_v3.Schema$VideoListResponse = {
-  kind: "youtube#videoListResponse",
-  etag: "MMuVhAEYSs0q8gWTpwuMBPKW-_g",
-  items: [
-    {
-      kind: "youtube#video",
-      etag: "fI4i9Q2cKMlrkWD8ZND74_pHBmA",
-      id: "dQw4w9WgXcQ",
-      player: {
-        embedHtml:
-          '<iframe width="17776" height="9999" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-        embedHeight: "9999",
-        embedWidth: "17776"
-      }
-    }
-  ],
-  pageInfo: {
-    totalResults: 1,
-    resultsPerPage: 1
-  }
-};
 
 const youtubeId = "foo";
 const bearerToken = "valid-token";
@@ -73,7 +51,7 @@ beforeEach(() => {
 });
 
 describe("youtubeCache", function () {
-  test("should return 500 if FIRESTORE_ROOT_COLLECTION is not set", async () => {
+  it("should return 500 if FIRESTORE_ROOT_COLLECTION is not set", async () => {
     const firestoreRootCollection = process.env.FIRESTORE_ROOT_COLLECTION;
     delete process.env.FIRESTORE_ROOT_COLLECTION;
 
@@ -89,7 +67,7 @@ describe("youtubeCache", function () {
     process.env.FIRESTORE_ROOT_COLLECTION = firestoreRootCollection;
   });
 
-  test("should return 500 if BEARER_TOKEN is not set", async () => {
+  it("should return 500 if BEARER_TOKEN is not set", async () => {
     const bearerTokenSecret = process.env.BEARER_TOKEN;
     delete process.env.BEARER_TOKEN;
 
@@ -105,7 +83,7 @@ describe("youtubeCache", function () {
     process.env.BEARER_TOKEN = bearerTokenSecret;
   });
 
-  test("should return 500 if GOOGLE_YOUTUBE_API_KEY is not set", async () => {
+  it("should return 500 if GOOGLE_YOUTUBE_API_KEY is not set", async () => {
     const googleYoutubeApiKeySecret = process.env.GOOGLE_YOUTUBE_API_KEY;
     delete process.env.GOOGLE_YOUTUBE_API_KEY;
 
@@ -121,7 +99,7 @@ describe("youtubeCache", function () {
     process.env.GOOGLE_YOUTUBE_API_KEY = googleYoutubeApiKeySecret;
   });
 
-  test("should ask for a defaultYoutubeId", async () => {
+  it("should ask for a defaultYoutubeId", async () => {
     const { res } = await createRequest(undefined, bearerToken);
 
     expect(res.status).toBeCalledWith(Status.HTTP_400_BAD_REQUEST);
@@ -133,7 +111,7 @@ describe("youtubeCache", function () {
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
-  test("should ask for a valid token", async () => {
+  it("should ask for a valid token", async () => {
     const { res } = await createRequest(youtubeId, "invalid-token");
 
     expect(res.status).toBeCalledWith(Status.HTTP_401_UNAUTHORIZED);
@@ -145,38 +123,37 @@ describe("youtubeCache", function () {
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
-  test("should return the cached youtube details", async () => {
-    (getById as jest.Mock).mockImplementation(async () => mockYoutubeDetails);
+  it("should return the cached youtube details", async () => {
+    const mockYoutubeResponse = createYoutubeVideoListResponse();
+    (getById as jest.Mock).mockImplementation(async () => mockYoutubeResponse);
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
     expect(res.status).toBeCalledWith(Status.HTTP_200_OK);
-    expect(res.send).toBeCalledWith(mockYoutubeDetails);
+    expect(res.send).toBeCalledWith(mockYoutubeResponse);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(0);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(0);
   });
 
-  test("should cache and then return the details", async () => {
+  it("should cache and then return the details", async () => {
+    const mockYoutubeResponse = createYoutubeVideoListResponse();
     (getById as jest.Mock).mockImplementation(async () => undefined);
     (getYoutubeDetails as jest.Mock).mockImplementation(
-      async () => mockYoutubeDetails
+      async () => mockYoutubeResponse
     );
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
     expect(res.status).toBeCalledWith(Status.HTTP_201_CREATED);
-    expect(res.send).toBeCalledWith(mockYoutubeDetails);
+    expect(res.send).toBeCalledWith(mockYoutubeResponse);
     expect(getById).toHaveBeenCalledTimes(1);
     expect(getYoutubeDetails).toHaveBeenCalledTimes(1);
     expect(saveById).toHaveBeenCalledTimes(1);
   });
 
-  test("should not find the youtube video details", async () => {
-    (getYoutubeDetails as jest.Mock).mockImplementation(async () => ({
-      ...mockYoutubeDetails,
-      items: []
-    }));
+  it("should not find the youtube video details", async () => {
+    (getYoutubeDetails as jest.Mock).mockImplementation(async () => undefined);
 
     const { res } = await createRequest(youtubeId, bearerToken);
 
@@ -189,7 +166,7 @@ describe("youtubeCache", function () {
     expect(saveById).toHaveBeenCalledTimes(0);
   });
 
-  test("should return 500 error", async () => {
+  it("should return 500 error", async () => {
     (getById as jest.Mock).mockImplementation(async () => {
       throw new Error("random error");
     });

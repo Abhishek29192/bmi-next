@@ -42,7 +42,8 @@ import type {
   SystemReference,
   UnitValue,
   Video,
-  Weight
+  Weight,
+  YoutubeDetails
 } from "./types";
 import {
   AwardAndCertificateAssetType,
@@ -50,6 +51,7 @@ import {
 } from "./types";
 import createVideo from "./VideoHelper";
 import createWeight from "./WeightHelper";
+import createYoutubeDetails from "./YoutubeDetailsHelper";
 
 export type {
   ApprovalStatus,
@@ -78,7 +80,8 @@ export type {
   UnitValue,
   Weight,
   Video,
-  CategoryGroup
+  CategoryGroup,
+  YoutubeDetails
 };
 export {
   AwardAndCertificateAssetType,
@@ -100,5 +103,6 @@ export {
   createSystemDocument,
   createVideo,
   createWeight,
+  createYoutubeDetails,
   GuaranteesAndWarrantiesAssetType
 };
