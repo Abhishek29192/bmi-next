@@ -799,3 +799,9 @@
     :why: Our own project
     :versions: []
     :when: 2022-12-19 11:51:38.147478000 Z
+- - :approve
+  - "@bmi/functions-recaptcha"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2023-01-09 18:37:26.085415000 Z

@@ -1,9 +1,9 @@
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
-import fetch from "node-fetch";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -152,40 +152,26 @@ export const submit: HttpFunction = async (request, response) => {
         // eslint-disable-next-line security/detect-object-injection
         request.headers[recaptchaTokenHeader] ||
         request.headers[recaptchaTokenHeader.toLowerCase()];
-      if (!authorizationToken && !recaptchaToken) {
+      if (
+        (!authorizationToken && !recaptchaToken) ||
+        Array.isArray(recaptchaToken)
+      ) {
         logger.error({ message: "Token not provided." });
         return response.status(400).send(Error("Token not provided."));
       }
 
       if (!authorizationToken && recaptchaToken) {
         try {
-          logger.info({ message: "Starting Recaptcha check" });
-          const recaptchaResponse = await fetch(
-            `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
-            { method: "POST" }
+          await verifyRecaptchaToken(
+            recaptchaToken,
+            RECAPTCHA_KEY,
+            minimumScore
           );
-          if (!recaptchaResponse.ok) {
-            logger.error({
-              message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
-            });
-            return response.status(400).send(Error("Recaptcha check failed."));
-          }
-          const json = await recaptchaResponse.json();
-          if (!json.success || json.score < minimumScore) {
-            logger.error({
-              message: `Recaptcha check failed with error ${JSON.stringify(
-                json
-              )}.`
-            });
-            return response.status(400).send(Error("Recaptcha check failed."));
-          }
-          logger.info({ message: "Recaptcha check successful" });
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (error: any) {
+        } catch (error) {
           logger.error({
-            message: `Recaptcha request failed with error ${error}.`
+            message: `Recaptcha check failed with error ${error}.`
           });
-          return response.status(500).send(Error("Recaptcha request failed."));
+          return response.status(400).send(Error("Recaptcha check failed."));
         }
       }
 

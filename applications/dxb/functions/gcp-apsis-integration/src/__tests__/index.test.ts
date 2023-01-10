@@ -49,6 +49,11 @@ const getCreateSubscriptionEndpoint = (payloadEmail: string): string => {
   }/subscriptions`;
 };
 
+const verifyRecaptchaToken = jest.fn();
+jest.mock("@bmi/functions-recaptcha", () => ({
+  verifyRecaptchaToken: verifyRecaptchaToken
+}));
+
 const optInEmailMarketing = async (
   request: Partial<Request>,
   response: Partial<Response>
@@ -77,6 +82,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -91,6 +97,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -106,6 +113,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
@@ -122,6 +130,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
@@ -137,6 +146,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
@@ -200,18 +210,11 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
     await optInEmailMarketing(req, res);
+
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Invalid input received."));
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
   });
 
   it("returns status code 400 when both gdpr fields are false", async () => {
@@ -223,8 +226,10 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     await optInEmailMarketing(req, res);
+
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Invalid input received."));
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
   });
 
   it("returns status code 400 when the token is missing", async () => {
@@ -239,122 +244,21 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
-  });
-
-  it("returns status code 500 when the recaptcha request fails", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      error: new Error("Expected Error")
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
-  it("returns status code 400 when the recaptcha request returns a non-ok response", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: "{}",
-      status: 400
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
   });
 
   it("returns status code 400 when the recaptcha check fails", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
+    verifyRecaptchaToken.mockRejectedValueOnce(Error("Expected error"));
 
     await optInEmailMarketing(req, res);
 
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-  });
-
-  it("returns status code 400 when the recaptcha score is less than minimum score", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: true,
-        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
-      })
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-  });
-
-  it("returns status code 400 when the token is invalid", async () => {
-    const req = mockRequest(
-      { email: "a@a.com", gdpr_1: true, gdpr_2: true },
-      {
-        "X-Recaptcha-Token": "invalid-token"
-      }
-    );
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
-      method: "POST",
-      body: JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
@@ -374,69 +278,33 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(fetchMock).not.toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
-      { method: "POST" }
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("QaAuthToken failed."));
-  });
-
-  it("returns status code 500 when an error is returned from Secret Manager", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    mockResponses(fetchMock, {
-      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      method: "POST",
-      body: JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 500 when an error is returned from Oauth", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses(
-      fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
-      {
-        method: "POST",
-        url: oAuthEndpoint,
-        body: "",
-        status: 500
-      }
-    );
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: oAuthEndpoint,
+      body: "",
+      status: 500
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(2);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(1);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -461,16 +329,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -490,11 +352,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(3);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -528,16 +391,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -562,11 +419,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(4);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(3);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -619,14 +477,6 @@ describe("Making a POST request", () => {
       fetchMock,
       {
         method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
-      {
-        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
@@ -654,11 +504,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(5);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -723,16 +574,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -760,11 +605,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(5);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -829,16 +675,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -867,11 +707,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toHaveFetchedTimes(5);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -939,16 +780,10 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -977,11 +812,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toHaveFetchedTimes(5);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1046,16 +882,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -1084,11 +914,12 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toHaveFetchedTimes(5);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-      { method: "POST" }
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!)
     );
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1149,34 +980,11 @@ describe("Making a POST request", () => {
 
     const payloadEmail = "a@a.com";
     const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
-    const failReq = mockRequest(
-      {
-        email: payloadEmail,
-        gdpr_1: true,
-        gdpr_2: true
-      },
-      { "X-Recaptcha-Token": `${validToken}0.9` }
-    );
+    const req = mockRequest();
     const res = mockResponse();
 
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
-        body: JSON.stringify({
-          success: true,
-          score: 0.9
-        })
-      },
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
-        body: JSON.stringify({
-          success: true,
-          score: 1.0
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -1201,29 +1009,17 @@ describe("Making a POST request", () => {
       }
     );
 
-    await optInEmailMarketing(failReq, res);
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
 
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-    expect(fetchMock).toHaveFetchedTimes(1);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
-      { method: "POST" }
-    );
-
-    const passReq = mockRequest(failReq.body, {
-      "X-Recaptcha-Token": `${validToken}1.0`
-    });
-
-    await optInEmailMarketing(passReq, res);
+    await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toHaveFetchedTimes(6);
-    expect(fetchMock).toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
-      { method: "POST" }
+    expect(fetchMock).toHaveFetchedTimes(4);
+    expect(verifyRecaptchaToken).toHaveBeenCalledWith(
+      validToken,
+      recaptchaSecret,
+      1.0
     );
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
@@ -1293,16 +1089,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -1355,16 +1145,10 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
+    verifyRecaptchaToken.mockResolvedValueOnce(undefined);
+
     mockResponses(
       fetchMock,
-      {
-        method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=recaptcha-secret&response=valid-token`,
-        body: JSON.stringify({
-          success: true,
-          score: process.env.RECAPTCHA_MINIMUM_SCORE
-        })
-      },
       {
         method: "POST",
         url: oAuthEndpoint,
@@ -1451,10 +1235,7 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(4);
-    expect(fetchMock).not.toHaveFetched(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=undefined`,
-      { method: "POST" }
-    );
+    expect(verifyRecaptchaToken).not.toHaveBeenCalled();
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
