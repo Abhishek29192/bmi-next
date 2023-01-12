@@ -318,6 +318,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);
@@ -331,6 +332,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);
@@ -344,6 +346,7 @@ describe("helpers functions", () => {
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`
         } - selected`,
+        event: "dxb.button_click",
         action: "Expanded company details"
       };
       expect(result).toEqual(expectResult);
