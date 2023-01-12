@@ -1,5 +1,7 @@
 # gatsby-plugin-sitemap
 
+N.B. Only required until https://github.com/gatsbyjs/gatsby/pull/35428 is merged in.
+
 Create a sitemap for your Gatsby site.
 
 _NOTE: This plugin only generates output when run in `production` mode! To test your sitemap, run: `gatsby build && gatsby serve`_
