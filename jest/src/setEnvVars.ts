@@ -53,7 +53,7 @@ process.env.DXB_FIRESTORE_HANDLER_FUNCTION = "handler_function";
 process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID = "handler_subscription_id";
 process.env.NETLIFY_BUILD_HOOK = "http://localhost:9090";
 process.env.TIMEOUT_LIMIT = "3000";
-process.env.DELAY_MILLISECONDS = "1000";
+process.env.DELAY_MILLISECONDS = "0";
 process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
 
 process.env.BUILD_TRIGGER_ENDPOINT = "http://localhost:9057";
