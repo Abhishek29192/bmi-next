@@ -1580,6 +1580,7 @@ describe("ServiceLocatorSection component", () => {
       {
         action: "Expanded company details",
         id: "selector-cards6-map-pin",
+        event: "dxb.button_click",
         label: "roofer 2 - address 1 - Roofer - selected"
       }
     ]);

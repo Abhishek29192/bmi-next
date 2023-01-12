@@ -145,7 +145,7 @@ export const getResultDataGtm = (
   service: Service,
   matches: boolean,
   isMarker = false
-): { id: string; label: string; action: string } => {
+): { id: string; label: string; action: string; event: string } => {
   const { name, address, certification, serviceTypes, entryType } = service;
   const label = `${name} - ${address}${
     matches && certification ? ` - ${certification}` : ""
@@ -158,6 +158,7 @@ export const getResultDataGtm = (
     id: isMarker
       ? EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN
       : EVENT_CAT_ID_SELECTOR_CARDS,
+    event: "dxb.button_click",
     label: label,
     action: "Expanded company details"
   };
