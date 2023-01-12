@@ -1,5 +1,7 @@
 # gatsby-plugin-google-tagmanager
 
+N.B. Only required until https://github.com/gatsbyjs/gatsby/pull/37450 is merged in.
+
 Easily add Google Tagmanager to your Gatsby site.
 
 ## Install
