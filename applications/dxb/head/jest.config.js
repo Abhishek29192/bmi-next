@@ -7,6 +7,11 @@ module.exports = {
   rootDir: "../../../",
   roots: ["<rootDir>/applications/dxb/head/src"],
   collectCoverageFrom: ["<rootDir>/applications/dxb/head/src/**/*.{ts,tsx,js}"],
+  setupFilesAfterEnv: [
+    ...sharedConfig.setupFilesAfterEnv,
+    "<rootDir>/applications/dxb/head/jest/setupTests.ts"
+  ],
+  testEnvironment: "jsdom",
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,

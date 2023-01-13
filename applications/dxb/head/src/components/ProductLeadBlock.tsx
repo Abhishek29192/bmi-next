@@ -8,13 +8,12 @@ import {
   LeadBlock,
   MediaGallery,
   Tabs,
-  ThemeOptions,
   Typography
 } from "@bmi-digital/components";
-import Tab, { TabProps } from "@material-ui/core/Tab";
-import { Launch } from "@material-ui/icons";
-import CheckIcon from "@material-ui/icons/Check";
-import { makeStyles } from "@material-ui/styles";
+import { Launch } from "@mui/icons-material";
+import CheckIcon from "@mui/icons-material/Check";
+import Tab, { TabProps } from "@mui/material/Tab";
+import { styled } from "@mui/material/styles";
 import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -31,18 +30,12 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ProductLeadBlock.module.scss";
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      color: theme.colours.accent300
-    }
-  }),
-  { name: "BlueCheckIcon" }
-);
+const StyledBlueCheckIcon = styled(Icon)(({ theme }) => ({
+  color: theme.colours.accent300
+}));
 
 const BlueCheckIcon = () => {
-  const classes = useStyles();
-  return <Icon source={CheckIcon} className={classes.root} />;
+  return <StyledBlueCheckIcon source={CheckIcon} />;
 };
 type Props = {
   product: Product;

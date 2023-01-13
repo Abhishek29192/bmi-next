@@ -1,9 +1,9 @@
-import InputAdornment from "@material-ui/core/InputAdornment";
-import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
-import ErrorRounded from "@material-ui/icons/ErrorRounded";
+import ErrorRounded from "@mui/icons-material/ErrorRounded";
+import InputAdornment from "@mui/material/InputAdornment";
+import { TextFieldProps } from "@mui/material/TextField";
 import classnames from "classnames";
 import React, { ChangeEvent } from "react";
-import { useStyles } from "./styles";
+import { StyledMaterialTextField, classes } from "./styles";
 
 type AdornmentProps =
   | {
@@ -41,7 +41,6 @@ const RawTextField = ({
   onChange,
   ...props
 }: Props) => {
-  const classes = useStyles();
   const hasAdornment = error || leftAdornment || rightAdornment;
   const inputProps = hasAdornment
     ? {
@@ -64,7 +63,7 @@ const RawTextField = ({
     event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => onChange(event.target.value);
   return (
-    <MaterialTextField
+    <StyledMaterialTextField
       {...props}
       helperText={error ? errorText : helperText}
       id={id}
@@ -72,12 +71,7 @@ const RawTextField = ({
       multiline={isTextArea}
       onChange={handleChange}
       variant={variant === "hybrid" ? "filled" : "outlined"}
-      className={classnames(
-        classes.root,
-        leftAdornment && classes.leftAdornment,
-        error && classes.error,
-        className
-      )}
+      className={classnames(leftAdornment && classes.leftAdornment, className)}
       InputProps={inputProps}
     />
   );

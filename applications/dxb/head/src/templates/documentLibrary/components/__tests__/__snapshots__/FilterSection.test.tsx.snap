@@ -9,136 +9,119 @@ exports[`FilterSection render correctly 1`] = `
       class="box"
     >
       <h5
-        class="MuiTypography-root Typography-root-1 MuiTypography-h5"
+        class="MuiTypography-root MuiTypography-h5  css-10q7alf-MuiTypography-root"
         data-testid="typography"
       >
         MC: documentLibrary.filters.title
       </h5>
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root-9 MuiButton-text Button-text-10 MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
         data-testid="filters-clear-all"
         tabindex="0"
         type="button"
       >
+        MC: documentLibrary.filters.clearAll
         <span
-          class="MuiButton-label Button-label-12"
-        >
-          MC: documentLibrary.filters.clearAll
-        </span>
-        <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>
     <div>
       <div
-        class="Accordion-root-30 Accordion-noInnerPadding-33"
+        class="Accordion-noInnerPadding css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root Accordion-item-31 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
         >
           <div
-            aria-disabled="false"
             aria-expanded="false"
             aria-label="filter1"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-34"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{\\"id\\":\\"filter1\\",\\"label\\":\\"filter1\\",\\"action\\":\\"Selector – Filter\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Accordion-summaryContent-36"
+              class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
             >
               <h6
-                class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 filter1
               </h6>
             </div>
             <div
-              aria-disabled="false"
-              aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ExpandMoreIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
+                <path
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
             >
               <div
-                class="MuiCollapse-wrapperInner"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
               >
                 <div
+                  class="MuiAccordion-region"
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root Accordion-details-32 Accordion-details-40"
+                    class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-glpxpj-MuiAccordionDetails-root"
                   >
                     <div
-                      class="Filters-list-29"
+                      class="css-2mmt6q"
                     >
                       <div>
                         <div
-                          class="MuiFormControl-root Checkbox-root-41"
+                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
                         >
                           <label
-                            class="MuiFormControlLabel-root"
+                            class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                           >
                             <span
-                              aria-disabled="false"
-                              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-43 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                              class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                               data-gtm="{\\"id\\":\\"filter2\\",\\"label\\":\\"filterLabel\\",\\"action\\":\\"Selector – Filter\\"}"
                               data-testid="filter-checkbox"
                             >
-                              <span
-                                class="MuiIconButton-label"
+                              <input
+                                class="PrivateSwitchBase-input css-1m9pwf3"
+                                data-indeterminate="false"
+                                name="value"
+                                type="checkbox"
+                              />
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                data-testid="CheckBoxOutlineBlankIcon"
+                                focusable="false"
+                                viewBox="0 0 24 24"
                               >
-                                <input
-                                  class="PrivateSwitchBase-input-46"
-                                  data-indeterminate="false"
-                                  name="value"
-                                  type="checkbox"
-                                  value=""
+                                <path
+                                  d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                 />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
+                              </svg>
                               <span
-                                class="MuiTouchRipple-root"
+                                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                               />
                             </span>
                             <span
-                              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                              class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
                             >
                               filterLabel
                             </span>

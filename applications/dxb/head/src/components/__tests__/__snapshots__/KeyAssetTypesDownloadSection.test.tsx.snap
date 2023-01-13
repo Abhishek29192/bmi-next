@@ -7,55 +7,50 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
   >
     <div>
       <button
-        class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
         data-testid="SATDownload"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label Button-label-4"
+          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
-          <span
-            class="MuiButton-startIcon Button-startIcon-5 MuiButton-iconSizeMedium"
+          <svg
+            data-name="Ico 24 Folder Zip"
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              data-name="Ico 24 Folder Zip"
-              height="24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <g
+              data-name="Group 1778"
             >
-              <g
-                data-name="Group 1778"
-              >
-                <path
-                  d="M0 0h24v24H0z"
-                  data-name="Rectangle 3041"
-                  fill="none"
-                />
-              </g>
-              <g
-                data-name="Group 1779"
-              >
-                <path
-                  d="M20 6h-8l-2-2H4a2 2 0 0 0-1.99 2L2 18a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V8a2.006 2.006 0 0 0-2-2Zm-2 6h-2v2h2v2h-2v2h-2v-2h2v-2h-2v-2h2v-2h-2V8h2v2h2Z"
-                  data-name="Path 2117"
-                  fill="#0072b0"
-                />
-              </g>
-            </svg>
-          </span>
-          Some Asset Type
+              <path
+                d="M0 0h24v24H0z"
+                data-name="Rectangle 3041"
+                fill="none"
+              />
+            </g>
+            <g
+              data-name="Group 1779"
+            >
+              <path
+                d="M20 6h-8l-2-2H4a2 2 0 0 0-1.99 2L2 18a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V8a2.006 2.006 0 0 0-2-2Zm-2 6h-2v2h2v2h-2v2h-2v-2h2v-2h-2v-2h2v-2h-2V8h2v2h2Z"
+                data-name="Path 2117"
+                fill="#0072b0"
+              />
+            </g>
+          </svg>
         </span>
+        Some Asset Type
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>
     <div>
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\"]\\"}"
         data-testid="AATDownload"
         href="http://pimdocument/"
@@ -64,26 +59,23 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
         target="_blank"
       >
         <span
-          class="MuiButton-label Button-label-4"
+          class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
         >
-          <span
-            class="MuiButton-startIcon Button-startIcon-5 MuiButton-iconSizeMedium"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="GetAppIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-              />
-            </svg>
-          </span>
-          Another Asset Type
+            <path
+              d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+            />
+          </svg>
         </span>
+        Another Asset Type
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>

@@ -17,102 +17,103 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         class="FieldContainer fieldsContainer"
       >
         <div
-          class="MuiGrid-root Grid-justifyContent-2 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 Grid-justifyContent css-1ap6rk6-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2 card css-3agqgo-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="CardInput-root-3"
+              class="css-tmrmui"
             >
               <label>
                 <input
-                  class="CardInput-input-4"
+                  class="CardInput-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion01"
                 />
                 <div
-                  aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard-root-6 CardInput-card-5"
+                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root ToggleCard-body-7 MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
                   >
                     <svg
                       preserveAspectRatio="xMidYMid"
                     />
                   </div>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </label>
             </div>
           </div>
           <div
-            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2 card css-3agqgo-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="CardInput-root-3"
+              class="css-tmrmui"
             >
               <label>
                 <input
-                  class="CardInput-input-4"
+                  class="CardInput-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion02"
                 />
                 <div
-                  aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard-root-6 CardInput-card-5"
+                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root ToggleCard-body-7 MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
                   >
                     <svg
                       preserveAspectRatio="xMidYMid"
                     />
                   </div>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </label>
             </div>
           </div>
           <div
-            class="MuiGrid-root card MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-lg-2 card css-3agqgo-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="CardInput-root-3"
+              class="css-tmrmui"
             >
               <label>
                 <input
-                  class="CardInput-input-4"
+                  class="CardInput-input"
                   name="select-protrusion-0"
                   type="radio"
                   value="protrusion03"
                 />
                 <div
-                  aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard-root-6 CardInput-card-5"
+                  class="MuiButtonBase-root CardInput-card css-13lto1c-MuiButtonBase-root"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root ToggleCard-body-7 MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ToggleCard-body css-6erhqq-MuiPaper-root-MuiCard-root"
                   >
                     <svg
                       preserveAspectRatio="xMidYMid"
                     />
                   </div>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </div>
               </label>

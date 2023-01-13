@@ -1,5 +1,6 @@
 import "cookieconsent";
 import "cookieconsent/build/cookieconsent.min.css";
+import { GatsbyBrowser } from "gatsby";
 
 const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;
 
@@ -59,9 +60,9 @@ export const onInitialClientRender = () => {
   });
 };
 
-export const onRouteUpdate = ({ location }) => {
+export const onRouteUpdate: GatsbyBrowser["onRouteUpdate"] = ({ location }) => {
   if (window.gtag) {
-    window.gtag("config", process.env.GATSBY_FRC_GA_CODE, {
+    window.gtag("config", process.env.GATSBY_FRC_GA_CODE!, {
       page_path: location.pathname
     });
   }

@@ -1,13 +1,13 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import {
+  LocationProvider,
   createHistory,
-  createMemorySource,
-  LocationProvider
+  createMemorySource
 } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
 import { iconMap } from "../../../components/Icon";
-import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import { DataTypeEnum, Data as LinkData } from "../../../components/Link";
 import LeadBlockSection from "../leadBlockSection";
 
 const leadBlockSectionName = "lead Block section";
@@ -123,9 +123,9 @@ describe("LeadBlockSection tests", () => {
       expect(setionName).toBeInTheDocument();
       expect(ctaLabelElement).toBeInTheDocument();
       expect(backToYourSelectionBtn).toBeInTheDocument();
-      expect(
-        (backToYourSelectionBtn!.parentElement as HTMLAnchorElement).href
-      ).toContain("system-configurator-page?referer=sys_details");
+      expect((backToYourSelectionBtn as HTMLAnchorElement).href).toContain(
+        "system-configurator-page?referer=sys_details"
+      );
     });
   });
 });

@@ -7,7 +7,7 @@ import {
   TableOfContent
 } from "@bmi-digital/components";
 import { BLOCKS } from "@contentful/rich-text-types";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { graphql } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";

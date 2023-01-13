@@ -8,7 +8,7 @@ import {
   ArrowForward as ArrowForwardIcon,
   Close,
   Delete as DeleteIcon
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -18,7 +18,10 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { useSiteContext } from "./Site";
-import { useStyles } from "./styles/SampleBasketDialogStyles";
+import {
+  StyledBasketDialogContainer,
+  classes
+} from "./styles/SampleBasketDialogStyles";
 
 const SampleBasketDialog = ({
   title,
@@ -46,10 +49,10 @@ const SampleBasketDialog = ({
     });
   };
 
-  const classes = useStyles();
-
   return title && productsInBasket.length > 0 ? (
-    <div className={classnames(classes.cartDrawer, "cart-drawer")}>
+    <StyledBasketDialogContainer
+      className={classnames(classes.cartDrawer, "cart-drawer")}
+    >
       <div className={classnames("pad", "pad-b-24")}>
         <Button
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
@@ -125,7 +128,7 @@ const SampleBasketDialog = ({
           </Button>
         )}
       </div>
-    </div>
+    </StyledBasketDialogContainer>
   ) : null;
 };
 

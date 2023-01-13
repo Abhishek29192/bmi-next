@@ -1,28 +1,22 @@
-import { ThemeOptions } from "@bmi-digital/components";
-import { makeStyles } from "@material-ui/styles";
+import { styled } from "@mui/material/styles";
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      margin: "24px 0",
+export const StyledEmbeddedTableContainer = styled("div")(({ theme }) => ({
+  margin: "24px 0",
 
-      "&:last-child": {
-        marginBottom: 0
-      },
+  "&:last-child": {
+    marginBottom: 0
+  },
 
-      "&:hover": {
-        color: theme.colours.focus,
-        transition: "text-decoration-color 250ms ease-out, color 250ms ease-out"
-      },
+  "&:hover": {
+    color: theme.colours.focus,
+    transition: "text-decoration-color 250ms ease-out, color 250ms ease-out"
+  },
 
-      "& a": {
-        color: theme.colours.inter,
-        textDecoration: "underline",
-        textDecorationColor: "currentColor",
-        fontSize: "inherit",
-        cursor: "pointer"
-      }
-    }
-  }),
-  { name: "EmbeddedTable" }
-);
+  "& a": {
+    color: theme.colours.inter,
+    textDecoration: "underline",
+    textDecorationColor: "currentColor",
+    fontSize: "inherit",
+    cursor: "pointer"
+  }
+}));

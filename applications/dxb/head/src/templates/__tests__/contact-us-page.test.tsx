@@ -342,7 +342,7 @@ describe("Contact us page", () => {
   });
 
   it("render location correctly", () => {
-    const { container, getByText } = renderWithRouter(
+    const { container, getByText, getByTestId } = renderWithRouter(
       <ThemeProvider>
         <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
       </ThemeProvider>
@@ -351,11 +351,9 @@ describe("Contact us page", () => {
     expect(container).toMatchSnapshot();
     expect(container.querySelector("[class*='white']")).toBeTruthy();
     expect(getByText("Locations")).toBeTruthy();
-    expect(
-      container.querySelectorAll(
-        "[class*='Locations'] address[class*='LocationCard']"
-      ).length
-    ).toBe(3);
+    data.contentfulContactUsPage.locations.forEach((item, index) => {
+      expect(getByTestId(`locations-card-${index}`)).toBeInTheDocument();
+    });
   });
 
   it("render NextBestActions correctly", () => {
@@ -367,9 +365,8 @@ describe("Contact us page", () => {
 
     expect(container).toMatchSnapshot();
     expect(getByText("Mer informasjon")).toBeTruthy();
-    expect(
-      container.querySelectorAll("[class*='NBACard'][type='button']").length
-    ).toBe(2);
+    expect(getByText("Action 1")).toBeTruthy();
+    expect(getByText("Action 2")).toBeTruthy();
   });
 
   it("render firstslide featuredMedia instead when no featuredVideo", () => {

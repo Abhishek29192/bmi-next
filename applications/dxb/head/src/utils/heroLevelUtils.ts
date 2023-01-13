@@ -1,4 +1,9 @@
-import { Button, HeroItem, transformHyphens } from "@bmi-digital/components";
+import {
+  Button,
+  HeroProps,
+  SpotlightHeroProps,
+  transformHyphens
+} from "@bmi-digital/components";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
 import { Data as ImageData, renderImage } from "../components/Image";
@@ -8,34 +13,33 @@ import { Data as VideoData, renderVideo } from "../components/Video";
 export const generateHeroLevel = (
   heroType: string,
   enhancedBreadcrumbs: BreadcrumbsData
-) => {
-  let heroLevel;
+): 1 | 2 | 3 => {
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
-    heroLevel = (Math.min(
+    return (Math.min(
       enhancedBreadcrumbs.filter(({ slug }) => slug).length,
       3
     ) || 1) as 1 | 2 | 3;
-  } else {
-    const levelMap = {
-      "Level 1": 1,
-      "Level 2": 2,
-      "Level 3": 3
-    };
-    // eslint-disable-next-line security/detect-object-injection
-    heroLevel = levelMap[heroType] as 1 | 2 | 3;
   }
-  return heroLevel;
+  const levelMap = {
+    "Level 1": 1,
+    "Level 2": 2,
+    "Level 3": 3
+  };
+  // eslint-disable-next-line security/detect-object-injection
+  return levelMap[heroType];
 };
 
 export const generateHeroProps = (
   title: string,
+  level: 1 | 2 | 3,
   subtitle: string,
   featuredVideo: VideoData,
   featuredMedia: ImageData,
   cta: LinkData
-): HeroItem => {
+): HeroProps | SpotlightHeroProps => {
   return {
     title: transformHyphens(title),
+    level,
     children: subtitle,
     media: featuredVideo
       ? renderVideo(featuredVideo)

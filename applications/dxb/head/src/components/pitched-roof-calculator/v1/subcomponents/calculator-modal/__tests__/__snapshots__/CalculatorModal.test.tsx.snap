@@ -2,21 +2,22 @@
 
 exports[`CalculatorModal component renders closed 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -28,10 +29,10 @@ exports[`CalculatorModal component renders closed 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-45 Container-fullWidth-46"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -43,26 +44,23 @@ exports[`CalculatorModal component renders closed 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-58 iconButton IconButton-medium-64 IconButton-text-60 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -72,10 +70,10 @@ exports[`CalculatorModal component renders closed 1`] = `
         class="content"
       >
         <div
-          class="Container-root-45"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -83,7 +81,7 @@ exports[`CalculatorModal component renders closed 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -92,21 +90,22 @@ exports[`CalculatorModal component renders closed 1`] = `
 
 exports[`CalculatorModal component renders correctly 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -118,10 +117,10 @@ exports[`CalculatorModal component renders correctly 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-1 Container-fullWidth-2"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -133,26 +132,23 @@ exports[`CalculatorModal component renders correctly 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-14 iconButton IconButton-medium-20 IconButton-text-16 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -162,10 +158,10 @@ exports[`CalculatorModal component renders correctly 1`] = `
         class="content"
       >
         <div
-          class="Container-root-1"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -173,7 +169,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -182,22 +178,23 @@ exports[`CalculatorModal component renders correctly 1`] = `
 
 exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
     aria-describedby="modal-test"
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -209,10 +206,10 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-177 Container-fullWidth-178"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -236,26 +233,23 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-190 iconButton IconButton-medium-196 IconButton-text-192 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -265,10 +259,10 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
         class="content"
       >
         <div
-          class="Container-root-177"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -276,7 +270,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -285,22 +279,23 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
 
 exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
     aria-labelledby="modal-test"
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -312,10 +307,10 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-155 Container-fullWidth-156"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -339,26 +334,23 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-168 iconButton IconButton-medium-174 IconButton-text-170 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -368,10 +360,10 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
         class="content"
       >
         <div
-          class="Container-root-155"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -379,7 +371,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -388,22 +380,22 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
 
 exports[`CalculatorModal component renders with backdropProps 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      class="test-backdrop"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root test-backdrop MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -415,10 +407,10 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-133 Container-fullWidth-134"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -442,26 +434,23 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-146 iconButton IconButton-medium-152 IconButton-text-148 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -471,10 +460,10 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
         class="content"
       >
         <div
-          class="Container-root-133"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -482,7 +471,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -491,21 +480,22 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
 
 exports[`CalculatorModal component renders with className 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -517,10 +507,10 @@ exports[`CalculatorModal component renders with className 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-199 Container-fullWidth-200"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -544,26 +534,23 @@ exports[`CalculatorModal component renders with className 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-212 iconButton IconButton-medium-218 IconButton-text-214 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -573,10 +560,10 @@ exports[`CalculatorModal component renders with className 1`] = `
         class="content custom-class-name"
       >
         <div
-          class="Container-root-199"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -584,7 +571,7 @@ exports[`CalculatorModal component renders with className 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -593,21 +580,22 @@ exports[`CalculatorModal component renders with className 1`] = `
 
 exports[`CalculatorModal component renders with disablePortal 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -619,10 +607,10 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-221 Container-fullWidth-222"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -646,26 +634,23 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-234 iconButton IconButton-medium-240 IconButton-text-236 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -675,10 +660,10 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
         class="content"
       >
         <div
-          class="Container-root-221"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -686,7 +671,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -695,21 +680,22 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
 
 exports[`CalculatorModal component renders with no logo 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -721,10 +707,10 @@ exports[`CalculatorModal component renders with no logo 1`] = `
         class="header pearl"
       >
         <div
-          class="Container-root-89 Container-fullWidth-90"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -750,26 +736,23 @@ exports[`CalculatorModal component renders with no logo 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-102 iconButton IconButton-medium-108 IconButton-text-104 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -779,10 +762,10 @@ exports[`CalculatorModal component renders with no logo 1`] = `
         class="content"
       >
         <div
-          class="Container-root-89"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -790,7 +773,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>
@@ -799,21 +782,22 @@ exports[`CalculatorModal component renders with no logo 1`] = `
 
 exports[`CalculatorModal component renders with pearl background 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style="padding-right: 1024px; overflow: hidden;"
 >
   <div
     aria-hidden="true"
   />
   <div
+    class="MuiModal-root css-79ws1d-MuiModal-root"
     role="presentation"
-    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
     <div
       aria-hidden="true"
-      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.5);"
+      class="MuiBackdrop-root MuiModal-backdrop css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      data-test="sentinelStart"
+      data-testid="sentinelStart"
       tabindex="0"
     />
     <div
@@ -825,10 +809,10 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         class="header white"
       >
         <div
-          class="Container-root-23 Container-fullWidth-24"
+          class="Container-fullWidth css-ze8cyt"
         >
           <div
-            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl headerContainer css-15p7r21-MuiContainer-root"
           >
             <svg
               class="headerSide logo"
@@ -840,26 +824,23 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-36 iconButton IconButton-medium-42 IconButton-text-38 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge headerSide iconButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CloseIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>
@@ -869,10 +850,10 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         class="content"
       >
         <div
-          class="Container-root-23"
+          class=" css-ze8cyt"
         >
           <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
+            class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             Some content
           </div>
@@ -880,7 +861,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
       </div>
     </div>
     <div
-      data-test="sentinelEnd"
+      data-testid="sentinelEnd"
       tabindex="0"
     />
   </div>

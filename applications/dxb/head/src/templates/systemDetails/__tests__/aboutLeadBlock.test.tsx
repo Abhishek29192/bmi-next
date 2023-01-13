@@ -1,8 +1,8 @@
 import { ThemeProvider } from "@bmi-digital/components";
 import { cleanup, render } from "@testing-library/react";
 import React from "react";
-import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 import createSystem from "../../../__tests__/helpers/SystemHelper";
+import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 import AboutLeadBlock from "../aboutLeadBlock";
 
 const guaranteesWarrantiesMicroCopy = "pdp.leadBlock.guaranteesWarranties";
@@ -222,7 +222,7 @@ describe("AboutLeadBlock tests", () => {
       systemDetailsMockData.guaranteesAndWarrantiesLinks = null;
       systemDetailsMockData.awardsAndCertificateImages = null;
       systemDetailsMockData.awardsAndCertificateDocuments = null;
-      const { container, queryByText } = render(
+      const { container, getByTestId, queryByTestId } = render(
         <ThemeProvider>
           <AboutLeadBlock
             system={systemDetailsMockData}
@@ -231,14 +231,15 @@ describe("AboutLeadBlock tests", () => {
         </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
-      const leadBlockSections = container.querySelectorAll(
-        "[class*='leadBlockContentSection']"
-      );
-
-      const specificationSection = queryByText(specificationMicroCopy, {
-        exact: false
-      }).closest("[class*='leadBlockContentSection']");
-      expect(leadBlockSections[1]).toBe(specificationSection);
+      //
+      const leadBlockGridItem = getByTestId("grid-item");
+      expect(leadBlockGridItem).toBeInTheDocument();
+      const guarenteesSection = queryByTestId("guarentees-section");
+      expect(guarenteesSection).toBeNull();
+      const awardsSection = queryByTestId("awards-section");
+      expect(awardsSection).toBeNull();
+      const leadBlockSection = getByTestId("specification-section");
+      expect(leadBlockSection).toBeInTheDocument();
     });
   });
 });

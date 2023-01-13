@@ -11,12 +11,12 @@ import {
   ToggleCard,
   Typography
 } from "@bmi-digital/components";
-import { useMediaQuery } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Popover from "@material-ui/core/Popover";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ShareIcon from "@material-ui/icons/Share";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ShareIcon from "@mui/icons-material/Share";
+import { useMediaQuery } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import Popover from "@mui/material/Popover";
+import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
 import React, {
   Dispatch,
@@ -31,15 +31,15 @@ import React, {
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
-import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
+import HouseViewer from "./HouseViewer";
+import TileViewer from "./TileViewer";
+import { Category, HouseType, PIMTile, Siding } from "./Types";
+import { microCopy } from "./constants/microCopy";
 import { getProductsQuery } from "./helpers/esQuery";
 import { prepareProducts } from "./helpers/products";
 import { useMicroCopy } from "./helpers/useMicroCopy";
-import HouseViewer from "./HouseViewer";
-import { useStyles } from "./styles/VisualiserStyles";
-import TileViewer from "./TileViewer";
-import { Category, HouseType, PIMTile, Siding } from "./Types";
+import { StyledContainerDialog, classes } from "./styles/VisualiserStyles";
 
 export type Parameters = {
   tileId?: string | number;
@@ -91,7 +91,6 @@ const Actions = ({
 }) => {
   const isXsMobile = useMediaQuery("(max-width: 376px)");
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
   return (
     <nav className={classes.actions}>
       <Button
@@ -177,7 +176,6 @@ const SelectionOptions = ({
   onClick: (data: { tileId: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
 
   return (
     <div>
@@ -224,7 +222,6 @@ const TileSectorDialog = ({
   tiles
 }: TileSectorDialogProps) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
 
   const categories = Object.values(Category);
 
@@ -292,7 +289,7 @@ const SidingsSelectorDialog = ({
   onClick: (event: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
+
   return (
     <ContainerDialog
       open={open}
@@ -357,7 +354,6 @@ const SharePopover = ({
     null
   );
   const { getMicroCopy } = useMicroCopy();
-  const classes = useStyles();
 
   const handlePopoverClick = () => {
     setAnchorElement(anchorRef.current);
@@ -528,10 +524,9 @@ const Visualiser = ({
   };
 
   const Viewer = viewerComponentMap[state.viewMode || "tile"];
-  const classes = useStyles();
 
   return (
-    <ContainerDialog
+    <StyledContainerDialog
       open={open}
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
@@ -618,7 +613,7 @@ const Visualiser = ({
         setViewMode={setState}
         onButtonClick={handleOnClick}
       />
-    </ContainerDialog>
+    </StyledContainerDialog>
   );
 };
 

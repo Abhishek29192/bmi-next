@@ -3,131 +3,143 @@
 exports[`NextBestActions component renders correctly 1`] = `
 <div>
   <div
-    class="Section-root-1 Section-alabaster-3"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-19 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard-root-21 NBACard-clickable-22 ColorPair-root-26 ColorPair-secondary1-48"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
-              href="/en/somewhere/"
-              role="button"
-              tabindex="0"
+            <div
+              class="ColorPair-secondary1 css-1pt14k0"
             >
-              <h4
-                class="MuiTypography-root NBACard-title-23 Typography-root-11 MuiTypography-h4"
-                data-testid="typography"
+              <a
+                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
+                href="/en/somewhere/"
+                tabindex="0"
+                type="button"
               >
-                test
-              </h4>
-              <div
-                class="NBACard-body-24"
-              />
-              <div
-                class="NBACard-footer-25"
-              >
-                <div
-                  style="font-size: 1rem;"
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-52 Anchorlink AnchorLink-white-54 MuiTypography-colorPrimary"
-                    type="button"
+                  test
+                </h4>
+                <div
+                  class="css-4osezd"
+                />
+                <div
+                  class="css-8xl60i"
+                >
+                  <div
+                    style="font-size: 1rem;"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="AnchorLink-icon-56"
-                      data-testid="internal"
-                      focusable="false"
-                      viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="anchor-link"
+                      type="button"
                     >
-                      <path
-                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                      />
-                    </svg>
-                    <span>
-                      test
+                      <svg
+                        aria-hidden="true"
+                        class=" css-em5iqk"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                        />
+                      </svg>
+                      <span>
+                        test
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
           <div
-            class="MuiGrid-root Grid-item-19 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard-root-21 NBACard-clickable-22 ColorPair-root-26 ColorPair-secondary2-49"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
-              href="https://www.external.co.uk"
-              rel="noopener noreferrer"
-              tabindex="0"
-              target="_blank"
+            <div
+              class="ColorPair-secondary2 css-1pt14k0"
             >
-              <h4
-                class="MuiTypography-root NBACard-title-23 Typography-root-11 MuiTypography-h4"
-                data-testid="typography"
+              <a
+                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+                href="https://www.external.co.uk"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                test
-              </h4>
-              <div
-                class="NBACard-body-24"
-              >
-                I am a subtitle
-              </div>
-              <div
-                class="NBACard-footer-25"
-              >
-                <div
-                  style="font-size: 1rem;"
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-52 Anchorlink AnchorLink-white-54 MuiTypography-colorPrimary"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="AnchorLink-icon-56"
-                      data-testid="internal"
-                      focusable="false"
-                      viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                      />
-                    </svg>
-                    <span>
-                      string
-                    </span>
-                  </span>
+                  test
+                </h4>
+                <div
+                  class="css-4osezd"
+                >
+                  I am a subtitle
                 </div>
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+                <div
+                  class="css-8xl60i"
+                >
+                  <div
+                    style="font-size: 1rem;"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="anchor-link"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=" css-em5iqk"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                        />
+                      </svg>
+                      <span>
+                        string
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -139,78 +151,85 @@ exports[`NextBestActions component renders correctly 1`] = `
 exports[`NextBestActions component renders name with no title 1`] = `
 <div>
   <div
-    class="Section-root-160 Section-alabaster-162"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-168"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-167 Typography-root-170 Typography-underline-172 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-178 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard-root-180 NBACard-clickable-181 ColorPair-root-185 ColorPair-secondary1-207"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
-              href="https://www.external.co.uk"
-              rel="noopener noreferrer"
-              tabindex="0"
-              target="_blank"
+            <div
+              class="ColorPair-secondary1 css-1pt14k0"
             >
-              <h4
-                class="MuiTypography-root NBACard-title-182 Typography-root-170 MuiTypography-h4"
-                data-testid="typography"
+              <a
+                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+                href="https://www.external.co.uk"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                test name
-              </h4>
-              <div
-                class="NBACard-body-183"
-              >
-                I am a subtitle
-              </div>
-              <div
-                class="NBACard-footer-184"
-              >
-                <div
-                  style="font-size: 1rem;"
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <span
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-211 Anchorlink AnchorLink-white-213 MuiTypography-colorPrimary"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="AnchorLink-icon-215"
-                      data-testid="internal"
-                      focusable="false"
-                      viewBox="0 0 16 16"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                      />
-                    </svg>
-                    <span>
-                      string
-                    </span>
-                  </span>
+                  test name
+                </h4>
+                <div
+                  class="css-4osezd"
+                >
+                  I am a subtitle
                 </div>
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+                <div
+                  class="css-8xl60i"
+                >
+                  <div
+                    style="font-size: 1rem;"
+                  >
+                    <span
+                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                      data-testid="anchor-link"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=" css-em5iqk"
+                        data-testid="internal"
+                        focusable="false"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                        />
+                      </svg>
+                      <span>
+                        string
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -222,40 +241,46 @@ exports[`NextBestActions component renders name with no title 1`] = `
 exports[`NextBestActions component renders with no promo cta 1`] = `
 <div>
   <div
-    class="Section-root-58 Section-alabaster-60"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-66"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-65 Typography-root-68 Typography-underline-70 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-76 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="NBACard-root-78 ColorPair-root-83 ColorPair-secondary1-105"
-              type="button"
+              class="ColorPair-secondary1 css-1pt14k0"
             >
-              <h4
-                class="MuiTypography-root NBACard-title-80 Typography-root-68 MuiTypography-h4"
-                data-testid="typography"
-              >
-                test
-              </h4>
               <div
-                class="NBACard-body-81"
+                class=" css-g23xpu"
+                type="button"
               >
-                I am a subtitle
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  test
+                </h4>
+                <div
+                  class="css-4osezd"
+                >
+                  I am a subtitle
+                </div>
               </div>
             </div>
           </div>
@@ -269,50 +294,56 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
 exports[`NextBestActions component renders with no promo cta label 1`] = `
 <div>
   <div
-    class="Section-root-109 Section-alabaster-111"
+    class="Section-root Section-alabaster css-cxq310"
   >
     <div
-      class="Container-root-117"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-116 Typography-root-119 Typography-underline-121 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-127 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            data-testid="grid-item"
           >
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root NBACard-root-129 NBACard-clickable-130 ColorPair-root-134 ColorPair-secondary1-156"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
-              href="https://www.external.co.uk"
-              rel="noopener noreferrer"
-              tabindex="0"
-              target="_blank"
+            <div
+              class="ColorPair-secondary1 css-1pt14k0"
             >
-              <h4
-                class="MuiTypography-root NBACard-title-131 Typography-root-119 MuiTypography-h4"
-                data-testid="typography"
+              <a
+                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
+                href="https://www.external.co.uk"
+                rel="noopener noreferrer"
+                tabindex="0"
+                target="_blank"
+                type="button"
               >
-                test
-              </h4>
-              <div
-                class="NBACard-body-132"
-              >
-                I am a subtitle
-              </div>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
+                >
+                  test
+                </h4>
+                <div
+                  class="css-4osezd"
+                >
+                  I am a subtitle
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

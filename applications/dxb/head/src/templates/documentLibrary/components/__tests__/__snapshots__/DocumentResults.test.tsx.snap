@@ -3,38 +3,42 @@
 exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 <div>
   <div
-    class="DocumentSimpleTableResults-root-1 DocumentSimpleTableResults"
+    class="DocumentSimpleTableResults css-1en66qf"
   >
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-10 Table-rowNoColor-14"
+        class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-root-22 ColorPair-pearl-24"
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
           <tr
-            class="MuiTableRow-root MuiTableRow-head"
+            class="MuiTableRow-root MuiTableRow-head css-47w8l6-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               MC: documentLibrary.headers.typeCode
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               MC: documentLibrary.headers.title
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-2"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               MC: documentLibrary.headers.download
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-2"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableHeader css-1tbee56-MuiTableCell-root"
               scope="col"
             >
               MC: documentLibrary.headers.add
@@ -42,13 +46,13 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
           </tr>
         </thead>
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root DocumentSimpleTableResults-row-5 row"
+            class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             >
               <abbr
                 title="contentful asset type name"
@@ -57,18 +61,17 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             >
               <p>
                 contentful document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-48 MuiButton-text Button-text-49 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
                 href="http://localhost:9000/asset-filename.jpg"
                 rel="noopener noreferrer"
@@ -76,110 +79,100 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
                 target="_blank"
               >
                 <span
-                  class="MuiButton-label Button-label-51"
+                  class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
-                  <span
-                    class="MuiButton-startIcon Button-startIcon-52 MuiButton-iconSizeMedium"
+                  <svg
+                    class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      class="DocumentSimpleTableResults-downloadIcon-6 download-icon"
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <path
+                      d="M0 0h32v32H0z"
+                      fill="none"
+                    />
+                    <path
+                      d="M21 2H8v28h21V10Z"
+                      fill="#aeb1b1"
+                    />
+                    <path
+                      d="M9 29V3h12v7h7v19Z"
+                      fill="#fff"
+                    />
+                    <rect
+                      fill="#8e00ea"
+                      height="10"
+                      rx="1"
+                      width="23"
+                      x="3"
+                      y="15"
+                    />
+                    <g
+                      fill="#fff"
                     >
                       <path
-                        d="M0 0h32v32H0z"
-                        fill="none"
+                        d="M10 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2h-1v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM22 21v-1h2v2.1a1.56 1.56 0 0 1-.7.627 3.233 3.233 0 0 1-1.4.271 3.1 3.1 0 0 1-1.566-.382 2.422 2.422 0 0 1-1-1.092A3.571 3.571 0 0 1 19 19.98a3.378 3.378 0 0 1 .375-1.611 2.545 2.545 0 0 1 1.1-1.08A2.92 2.92 0 0 1 21.843 17a2.706 2.706 0 0 1 1.666.453 2.043 2.043 0 0 1 .772 1.253l-1.149.217a1.222 1.222 0 0 0-.455-.674 1.36 1.36 0 0 0-.834-.249 1.556 1.556 0 0 0-1.2.487 2.066 2.066 0 0 0-.448 1.445 2.287 2.287 0 0 0 .454 1.549 1.5 1.5 0 0 0 1.183.519 1.81 1.81 0 0 0 .728-.145A1.493 1.493 0 0 0 23 21.5V21ZM8 17h1v3.734a3.669 3.669 0 0 1-.136 1.127 1.624 1.624 0 0 1-.666.827A2.309 2.309 0 0 1 6.927 23a1.952 1.952 0 0 1-1.427-.489 1.937 1.937 0 0 1-.5-1.435l1.19-.128a1.493 1.493 0 0 0 .157.716.691.691 0 0 0 .623.318c.822 0 1.03-.538 1.03-1.171Z"
                       />
                       <path
-                        d="M21 2H8v28h21V10Z"
-                        fill="#aeb1b1"
+                        d="M15 23v-6h4v1h-3v1h2v1h-2v2h3v1Z"
                       />
-                      <path
-                        d="M9 29V3h12v7h7v19Z"
-                        fill="#fff"
-                      />
-                      <rect
-                        fill="#8e00ea"
-                        height="10"
-                        rx="1"
-                        width="23"
-                        x="3"
-                        y="15"
-                      />
-                      <g
-                        fill="#fff"
-                      >
-                        <path
-                          d="M10 23v-6h1.944c.737 0 2.556.132 2.556 2 0 1.9-1.95 2-2.5 2h-1v2Zm1-5v2h.874c.672 0 1.474-.121 1.474-1 0-.814-.7-1-1.551-1ZM22 21v-1h2v2.1a1.56 1.56 0 0 1-.7.627 3.233 3.233 0 0 1-1.4.271 3.1 3.1 0 0 1-1.566-.382 2.422 2.422 0 0 1-1-1.092A3.571 3.571 0 0 1 19 19.98a3.378 3.378 0 0 1 .375-1.611 2.545 2.545 0 0 1 1.1-1.08A2.92 2.92 0 0 1 21.843 17a2.706 2.706 0 0 1 1.666.453 2.043 2.043 0 0 1 .772 1.253l-1.149.217a1.222 1.222 0 0 0-.455-.674 1.36 1.36 0 0 0-.834-.249 1.556 1.556 0 0 0-1.2.487 2.066 2.066 0 0 0-.448 1.445 2.287 2.287 0 0 0 .454 1.549 1.5 1.5 0 0 0 1.183.519 1.81 1.81 0 0 0 .728-.145A1.493 1.493 0 0 0 23 21.5V21ZM8 17h1v3.734a3.669 3.669 0 0 1-.136 1.127 1.624 1.624 0 0 1-.666.827A2.309 2.309 0 0 1 6.927 23a1.952 1.952 0 0 1-1.427-.489 1.937 1.937 0 0 1-.5-1.435l1.19-.128a1.493 1.493 0 0 0 .157.716.691.691 0 0 0 .623.318c.822 0 1.03-.538 1.03-1.171Z"
-                        />
-                        <path
-                          d="M15 23v-6h4v1h-3v1h2v1h-2v2h3v1Z"
-                        />
-                      </g>
-                    </svg>
-                  </span>
-                  1 B
+                    </g>
+                  </svg>
                 </span>
+                1 B
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignCenter"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
             >
               <span
+                aria-label="MC: documents.download.maxReached"
                 class=""
+                data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root Checkbox-root-68"
+                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormControlLabel-root"
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-70 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
-                      <span
-                        class="MuiIconButton-label"
+                      <input
+                        aria-label="MC: documentLibrary.download contentful document title"
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        name="contentful-document-id-contentful_document_title"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <input
-                          aria-label="MC: documentLibrary.download contentful document title"
-                          class="PrivateSwitchBase-input-73"
-                          data-indeterminate="false"
-                          name="contentful-document-id-contentful_document_title"
-                          type="checkbox"
-                          value=""
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                         />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
+                      </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    />
                   </label>
                 </div>
               </span>
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root DocumentSimpleTableResults-row-5 row"
+            class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             >
               <abbr
                 title="asset type name"
@@ -188,60 +181,54 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             >
               <p>
                 pim document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignCenter"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
             >
               <span
+                aria-label="MC: documents.download.maxReached"
                 class=""
+                data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root Checkbox-root-68"
+                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
                 >
                   <label
-                    class="MuiFormControlLabel-root"
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
                     <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-70 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
                     >
-                      <span
-                        class="MuiIconButton-label"
+                      <input
+                        aria-label="MC: documentLibrary.download pim document title"
+                        class="PrivateSwitchBase-input css-1m9pwf3"
+                        data-indeterminate="false"
+                        name="pim-document-id-pim_document_title"
+                        type="checkbox"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                        data-testid="CheckBoxOutlineBlankIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
                       >
-                        <input
-                          aria-label="MC: documentLibrary.download pim document title"
-                          class="PrivateSwitchBase-input-73"
-                          data-indeterminate="false"
-                          name="pim-document-id-pim_document_title"
-                          type="checkbox"
-                          value=""
+                        <path
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                         />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                          />
-                        </svg>
-                      </span>
+                      </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    />
                   </label>
                 </div>
               </span>
@@ -257,14 +244,15 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+    data-testid="grid"
   >
     <div
-      class="MuiGrid-root Grid-item-137 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      data-testid="grid-item"
     >
       <a
-        aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard-root-139 OverviewCard-clickable-142"
+        class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -272,39 +260,36 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
         target="_blank"
       >
         <div
-          class="OverviewCard-body-146"
+          class="OverviewCard-body"
         >
           <h4
-            class="MuiTypography-root OverviewCard-title-147 OverviewCard-noBrandLogo-148 Typography-root-156 MuiTypography-h4"
-            data-testid="typography"
+            class="MuiTypography-root MuiTypography-h4 OverviewCard-title OverviewCard-noBrandLogo css-1ekntu4-MuiTypography-root"
+            data-testid="overview-card-body-title"
           >
             contentful document title
           </h4>
           <div
-            class="OverviewCard-children-150 OverviewCard-text-149"
+            class="OverviewCard-text css-fm25tm"
           />
           <div
-            class="OverviewCard-footer-152"
+            class="css-1tho2wt"
+            data-testid="overview-card-body-footer"
           >
             <span
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root Button-root-164 MuiButton-contained Button-contained-166 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               role="button"
               tabindex="0"
+              type="button"
             >
+              MC: documentLibrary.card.download
               <span
-                class="MuiButton-label Button-label-167"
-              >
-                MC: documentLibrary.card.download
-              </span>
-              <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </span>
           </div>
         </div>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </a>
     </div>
@@ -315,73 +300,69 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="DocumentTechnicalTableResults-root-74"
+    class="css-1fxw3xf"
+    data-testid="tech-results-table"
   >
-    <div>
+    <div
+      class="css-1fxw3xf"
+      data-testid="mobile-tech-results-table"
+    >
       <div
-        class="Accordion-root-91"
+        class=" css-1u48ai"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root Accordion-item-92 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
         >
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-95"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content Accordion-summaryContent-97"
+              class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
             >
               product name
             </div>
             <div
-              aria-disabled="false"
-              aria-hidden="true"
-              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+              class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ExpandMoreIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
+                <path
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
             </div>
           </div>
           <div
-            class="MuiCollapse-root MuiCollapse-hidden"
+            class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
             style="min-height: 0px;"
           >
             <div
-              class="MuiCollapse-wrapper"
+              class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
             >
               <div
-                class="MuiCollapse-wrapperInner"
+                class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
               >
                 <div
+                  class="MuiAccordion-region"
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails-84"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-glpxpj-MuiAccordionDetails-root"
                   >
                     <div
-                      class="DocumentTechnicalTableResults-iconContainer-82"
+                      class="DocumentTechnicalTableResults-iconContainer"
                     >
                       <svg
-                        class="DocumentTechnicalTableResults-formatIcon-79 format-icon"
+                        class="DocumentTechnicalTableResults-formatIcon format-icon"
                         data-name="Layer 2"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
@@ -393,27 +374,30 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       </svg>
                     </div>
                     <div
-                      class="DocumentTechnicalTableResults-iconContainer-82"
+                      class="DocumentTechnicalTableResults-iconContainer"
                     >
                       asset-type-code
                     </div>
                     <div
-                      class="DocumentTechnicalTableResults-infoIconContainer-81"
+                      class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="Tooltip-root-116"
+                        class="css-1fxw3xf"
+                        data-testid="asset-header-tech-results-table"
                       >
-                        <button
-                          class="MuiButtonBase-root MuiIconButton-root IconButton-root-128 iconButton IconButton-42-127 IconButton-text-130"
-                          tabindex="0"
-                          type="button"
+                        <div
+                          class=""
+                          data-mui-internal-clone-element="true"
                         >
-                          <span
-                            class="MuiIconButton-label"
+                          <button
+                            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-42 Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                            tabindex="0"
+                            type="button"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-78"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium DocumentTechnicalTableResults-tooltipIcon css-i4bv87-MuiSvgIcon-root"
+                              data-testid="InfoIcon"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -421,15 +405,15 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                               />
                             </svg>
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
-                        </button>
+                            <span
+                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="DocumentTechnicalTableResults-downloadIconContainer-83"
+                      class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"

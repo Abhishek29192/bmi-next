@@ -2,17 +2,17 @@ import {
   AnchorLink,
   AnchorLinkProps,
   Grid,
-  HeroItem,
+  HeroProps,
   IconList,
   LeadBlock,
   PLPFilterResponse,
   Section,
-  ThemeOptions,
+  SpotlightHeroProps,
   Typography
 } from "@bmi-digital/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
-import CheckIcon from "@material-ui/icons/Check";
-import { makeStyles } from "@material-ui/styles";
+import CheckIcon from "@mui/icons-material/Check";
+import { styled } from "@mui/material/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
@@ -107,18 +107,12 @@ export type Props = {
   };
 };
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      color: theme.colours.inter
-    }
-  }),
-  { name: "BlueCheckIcon" }
-);
+const StyledBlueCheckIcon = styled(CheckIcon)(({ theme }) => ({
+  color: theme.colours.inter
+}));
 
 const BlueCheckIcon = () => {
-  const classes = useStyles();
-  return <CheckIcon className={classes.root} />;
+  return <StyledBlueCheckIcon />;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
@@ -150,8 +144,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     config: { isPreviewMode, isBrandProviderEnabled }
   } = useConfig();
 
-  const heroProps: HeroItem = generateHeroProps(
+  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
+  const heroProps: HeroProps | SpotlightHeroProps = generateHeroProps(
     title,
+    heroLevel,
     subtitle,
     featuredVideo,
     featuredMedia,
@@ -362,8 +358,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     path: data.contentfulProductListerPage.path
   };
 
-  const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
-
   const breadcrumbsNode = (
     <Breadcrumbs
       data={enhancedBreadcrumbs}
@@ -390,7 +384,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <ProgressIndicator theme="light" />
             </Scrim>
           ) : null}
-          {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+          {renderHero(heroProps, breadcrumbsNode, heroType, {
             isHeroKeyLine: isHeroKeyLine,
             isSpotlightHeroKeyLine: isHeroKeyLine
           })}

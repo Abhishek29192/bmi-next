@@ -3,12 +3,15 @@
 exports[`ProductFeaturesTable component Renders correctly When no features provided 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-1 Table-oddColor-4 Table-noBorder-2"
+        class="MuiTable-root Table-oddColor Table-noBorder css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         />
       </table>
     </div>
@@ -19,37 +22,40 @@ exports[`ProductFeaturesTable component Renders correctly When no features provi
 exports[`ProductFeaturesTable component Renders correctly With default row pattern color 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-13 Table-oddColor-16 Table-noBorder-14"
+        class="MuiTable-root Table-oddColor Table-noBorder css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature-2
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               300
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature1
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               200
             </td>
@@ -64,37 +70,40 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
 exports[`ProductFeaturesTable component Renders correctly With default row pattern color and with border 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-25 Table-oddColor-28"
+        class="MuiTable-root Table-oddColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature-2
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               300
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature1
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               200
             </td>
@@ -109,37 +118,40 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
 exports[`ProductFeaturesTable component Renders correctly With even row pattern color 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-75 Table-evenColor-77 Table-noBorder-76"
+        class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature-2
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               300
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature1
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               200
             </td>
@@ -154,44 +166,48 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
 exports[`ProductFeaturesTable component Renders correctly With header row 1`] = `
 <body>
   <div>
-    <div>
+    <div
+      class="css-46e850"
+    >
       <table
-        class="MuiTable-root Table-root-37 Table-oddColor-40"
+        class="MuiTable-root Table-oddColor css-wsrw3a-MuiTable-root"
+        data-testid="table"
       >
         <thead
-          class="MuiTableHead-root ColorPair-root-49 ColorPair-pearl-51"
+          class="MuiTableHead-root ColorPair-pearl css-tv3lba-MuiTableHead-root"
+          data-testid="table-head"
         >
           <div>
             Header Row
           </div>
         </thead>
         <tbody
-          class="MuiTableBody-root"
+          class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature-2
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               300
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root"
+            class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
             >
               feature1
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1y6h75i-MuiTableCell-root"
             >
               200
             </td>

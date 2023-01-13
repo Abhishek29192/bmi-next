@@ -44,14 +44,6 @@ const config = {
       }
     },
     {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-sass`,
       options: {
         cssLoaderOptions: {

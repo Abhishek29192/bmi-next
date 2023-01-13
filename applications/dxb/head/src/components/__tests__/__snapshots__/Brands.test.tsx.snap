@@ -3,99 +3,90 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section-root-1 Section-pearl-4"
+    class="Brands Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
            
           MC: homepage.brands
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 Grid-justifyContent css-1ap6rk6-MuiGrid-root"
+          data-testid="grid"
         >
           <div
-            class="MuiGrid-root Grid-item-19 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3 Grid-item css-1px1dp2-MuiGrid-root"
+            data-testid="grid-item"
           >
             <div
-              class="MuiPaper-root MuiCard-root BrandIntroCard-root-21 MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-qiur6r-MuiPaper-root-MuiCard-root"
             >
               <a
-                aria-disabled="false"
                 aria-label="BMI"
-                class="MuiButtonBase-root MuiButton-root Button-root-27 MuiButton-text Button-text-28 BrandIntroCard-brandLogoButton-22 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium BrandIntroCard-brandLogoButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 data-testid="brandLogoButton"
                 href="/smilex"
-                role="button"
                 tabindex="0"
               >
-                <span
-                  class="MuiButton-label Button-label-30"
+                <svg
+                  class="BrandIntroCard-brandLogo"
+                  data-testid="brandLogo"
+                  preserveAspectRatio="xMinYMin"
+                  viewBox="0 0 250 250"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    class="BrandIntroCard-brandLogo-23"
-                    data-testid="brandLogo"
-                    preserveAspectRatio="xMinYMin"
-                    viewBox="0 0 250 250"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    d="M0 0h250v250H0z"
+                    fill="#009fe3"
+                  />
+                  <g
+                    fill="#fff"
                   >
                     <path
-                      d="M0 0h250v250H0z"
-                      fill="#009fe3"
+                      d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
                     />
-                    <g
-                      fill="#fff"
-                    >
-                      <path
-                        d="M155.393 86.416 144.565 131h-.212l-10.829-44.584H100.3v50.634c-.76-9.718-6.732-14.589-13.079-16.771 5.626-3.078 9.342-7.218 9.342-14.862 0-7.749-4.247-19-24.2-19H30.848v75.8h42.994c12.786 0 25.368-7.183 26.455-21.075v21.075h22.081V113.6h.212l13.164 48.62h17.41l13.163-48.62h.213v48.62h22.081v-75.8ZM54.2 104.461h12.317c4.777 0 7.962 1.381 7.962 5.2 0 4.884-3.079 6.264-7.962 6.264H54.2Zm13.694 39.7H54.2v-14.115h14.652c5.521 0 8.174 2.442 8.174 6.9 0 5.839-4.246 7.219-9.126 7.219ZM195.798 86.416h23.355v75.797h-23.355z"
-                      />
-                    </g>
-                  </svg>
-                </span>
+                  </g>
+                </svg>
               </a>
               <h6
-                class="MuiTypography-root BrandIntroCard-description-24 Typography-root-11 MuiTypography-subtitle1"
+                class="MuiTypography-root MuiTypography-subtitle1 css-1329nyb-MuiTypography-root"
                 data-testid="brandLogoDescription"
               >
                 Uh-oh.  He don't look happy. He's been using brand X
               </h6>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-27 MuiButton-text Button-text-28 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"
-                role="button"
                 tabindex="0"
               >
+                MC: homepage.brands.learn
                 <span
-                  class="MuiButton-label Button-label-30"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
                 >
-                  MC: homepage.brands.learn
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ArrowForwardIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </div>

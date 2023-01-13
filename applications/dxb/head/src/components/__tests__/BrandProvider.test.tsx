@@ -1,4 +1,4 @@
-import { useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";

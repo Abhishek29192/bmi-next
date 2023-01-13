@@ -1,8 +1,7 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { RegionCode, ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
-import { RegionCode } from "@bmi-digital/components";
 import { microCopy } from "../../constants/microCopies";
 import BasketContext from "../../contexts/SampleBasketContext";
 import Header from "../Header";

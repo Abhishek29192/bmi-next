@@ -10,7 +10,7 @@ import {
   MarkerOptionsWithData,
   Typography
 } from "@bmi-digital/components";
-import CloseIcon from "@material-ui/icons/Close";
+import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";

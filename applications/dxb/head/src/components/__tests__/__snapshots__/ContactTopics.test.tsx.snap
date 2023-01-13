@@ -3,86 +3,86 @@
 exports[`ContactTopics component renders correctly 1`] = `
 <div>
   <div
-    class="ExpandableCardList-root-1 ContactTopics"
+    class="ContactTopics css-j2p4rx"
   >
     <div
-      class="ExpandableCardList-item-2"
+      class="ExpandableCard-expandableCardListCard"
     >
       <div
         aria-label="Did you know?1"
-        class="MuiPaper-root MuiCard-root ExpandableCard-root-3 ExpandableCard-collapsed-4 MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root ExpandableCard-collapsed css-1apbuks-MuiPaper-root-MuiCard-root"
         data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Did you know?1\\",\\"action\\":\\"Selector - Cards\\"}"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-26 iconButton IconButton-medium-32 IconButton-text-28 ExpandableCard-close-10"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge ExpandableCard-close css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <div
-          class="MuiCardContent-root ExpandableCard-content-13"
+          class="MuiCardContent-root ExpandableCard-content css-46bh2p-MuiCardContent-root"
         >
           <div
-            class="ExpandableCard-header-6"
+            class="css-nfbxtm"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ExpandableCard-icon-7"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium ExpandableCard-icon css-i4bv87-MuiSvgIcon-root"
+              data-testid="BuildIcon"
               focusable="false"
               viewBox="0 0 24 24"
             >
               <path
-                d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+                d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
               />
             </svg>
             <h5
-              class="MuiTypography-root ExpandableCard-title-8 ExpandableCard-titleStatic-9 Typography-root-35 MuiTypography-h5"
+              class="MuiTypography-root MuiTypography-h5 ExpandableCard-title ExpandableCard-titleStatic css-10q7alf-MuiTypography-root"
               data-testid="typography"
             >
               Did you know?1
             </h5>
           </div>
           <div
-            class="ExpandableCard-body-11"
+            class="ExpandableCard-body"
           >
             <h4
-              class="MuiTypography-root Typography-root-35 MuiTypography-h6"
+              class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
               data-testid="typography"
             >
               Did you know?2
             </h4>
             <ul
-              class="IconList-root-44"
+              class="css-1err4t"
             >
               <li
-                class="IconList-listItem-45"
+                class=" css-nggtm6"
               >
                 <div
-                  class="IconList-icon-47"
+                  class="IconList-icon"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root BlueCheckIcon-root-43"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1fe8hth-MuiSvgIcon-root"
+                    data-testid="EmojiObjectsOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -93,30 +93,30 @@ exports[`ContactTopics component renders correctly 1`] = `
                       d="M11.5 11h1v3h-1z"
                     />
                     <path
-                      d="M9.6724 9.5808l.7071-.707 2.1213 2.1212-.7071.7071z"
+                      d="m9.6724 9.5808.7071-.7071 2.1214 2.1213-.7071.7071z"
                     />
                     <path
-                      d="M12.2081 11.7123l-.7071-.7071 2.1213-2.1213.7071.707z"
+                      d="m12.2081 11.7124-.707-.7071 2.1212-2.1214.7071.7072z"
                     />
                   </svg>
                 </div>
                 <div
-                  class="IconList-content-48"
+                  class="css-1lg3fd1"
                 >
                   <h5
-                    class="MuiTypography-root Typography-root-35 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     Frequently Asked Questions
                   </h5>
                   <span
-                    class="IconList-description-49"
+                    class="IconList-description"
                   >
                     <div
-                      class="RichText-root-50"
+                      class="RichText-root css-qiddyp"
                     >
                       <p
-                        class="MuiTypography-root Typography-root-35 MuiTypography-body1 MuiTypography-gutterBottom"
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                         data-testid="typography"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -126,14 +126,15 @@ exports[`ContactTopics component renders correctly 1`] = `
                 </div>
               </li>
               <li
-                class="IconList-listItem-45"
+                class=" css-nggtm6"
               >
                 <div
-                  class="IconList-icon-47"
+                  class="IconList-icon"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root BlueCheckIcon-root-43"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1fe8hth-MuiSvgIcon-root"
+                    data-testid="EmojiObjectsOutlinedIcon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -144,30 +145,30 @@ exports[`ContactTopics component renders correctly 1`] = `
                       d="M11.5 11h1v3h-1z"
                     />
                     <path
-                      d="M9.6724 9.5808l.7071-.707 2.1213 2.1212-.7071.7071z"
+                      d="m9.6724 9.5808.7071-.7071 2.1214 2.1213-.7071.7071z"
                     />
                     <path
-                      d="M12.2081 11.7123l-.7071-.7071 2.1213-2.1213.7071.707z"
+                      d="m12.2081 11.7124-.707-.7071 2.1212-2.1214.7071.7072z"
                     />
                   </svg>
                 </div>
                 <div
-                  class="IconList-content-48"
+                  class="css-1lg3fd1"
                 >
                   <h5
-                    class="MuiTypography-root Typography-root-35 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     CloseDach
                   </h5>
                   <span
-                    class="IconList-description-49"
+                    class="IconList-description"
                   >
                     <div
-                      class="RichText-root-50"
+                      class="RichText-root css-qiddyp"
                     >
                       <p
-                        class="MuiTypography-root Typography-root-35 MuiTypography-body1 MuiTypography-gutterBottom"
+                        class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                         data-testid="typography"
                       >
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -179,36 +180,38 @@ exports[`ContactTopics component renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ExpandableCard-footer-12"
+            class="ExpandableCard-footer"
           >
             <div>
               <h6
-                class="MuiTypography-root Typography-root-35 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                 data-testid="typography"
                 style="margin-bottom: 42px;"
               >
                 footer title
               </h6>
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
+                data-testid="grid"
               >
                 <div
-                  class="MuiGrid-root Grid-item-52 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4 Grid-item css-1qe813r-MuiGrid-root"
+                  data-testid="grid-item"
                 >
                   <div
                     class="BorderedItem"
                   />
                   <h5
-                    class="MuiTypography-root heading Typography-root-35 MuiTypography-h5"
+                    class="MuiTypography-root MuiTypography-h5 heading css-10q7alf-MuiTypography-root"
                     data-testid="typography"
                   >
                     teste
                   </h5>
                   <div
-                    class="RichText-root-50"
+                    class="RichText-root css-qiddyp"
                   >
                     <p
-                      class="MuiTypography-root Typography-root-35 MuiTypography-body1 MuiTypography-gutterBottom"
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                       data-testid="typography"
                     >
                       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s

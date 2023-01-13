@@ -1,5 +1,5 @@
 import { Button, Section, Typography } from "@bmi-digital/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import React, {
   useCallback,
   useContext,

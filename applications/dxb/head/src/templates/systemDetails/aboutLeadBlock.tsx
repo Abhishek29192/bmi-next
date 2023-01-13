@@ -3,17 +3,15 @@ import {
   AnchorLinkProps,
   Button,
   ButtonProps,
-  Icon,
   IconList,
   LeadBlock,
-  ThemeOptions,
-  transformHyphens,
-  Typography
+  Typography,
+  transformHyphens
 } from "@bmi-digital/components";
-import { Launch } from "@material-ui/icons";
-import CheckIcon from "@material-ui/icons/Check";
-import { makeStyles } from "@material-ui/styles";
+import { Launch } from "@mui/icons-material";
+import CheckIcon from "@mui/icons-material/Check";
 import React from "react";
+import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import {
   getClickableActionFromUrl,
   isExternalUrl
@@ -24,7 +22,7 @@ import { Data as ContentfulTitleWithContent } from "../../components/TitleWithCo
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import { useStyles as useStylesAboutLeadBlock } from "./styles/aboutLeadBlockStyles";
+import { StyledLeadBlock, classes } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 
@@ -33,21 +31,8 @@ type Props = {
   sidebarItem?: ContentfulTitleWithContent;
 };
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      color: theme.colours.inter
-    },
-    dark: {
-      color: theme.colours.interDark
-    }
-  }),
-  { name: "BlueCheckIcon" }
-);
-
 const BlueCheckIcon = () => {
-  const classes = useStyles();
-  return <Icon source={CheckIcon} className={classes.root} />;
+  return <StyledBlueCheckIconInter source={CheckIcon} />;
 };
 
 const LeadBlockCardContent = ({
@@ -91,9 +76,9 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const guaranteesImages = system.guaranteesAndWarrantiesImages?.filter(
     (item) => isImageAsset(item)
   );
-  const classes = useStylesAboutLeadBlock();
+  // const classes = useStylesAboutLeadBlock();
   return (
-    <LeadBlock className={classes.root}>
+    <StyledLeadBlock>
       <LeadBlock.Content>
         <LeadBlock.Content.Section>
           <Typography
@@ -110,7 +95,10 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
           <LeadBlock.Content.Section
             className={classes.guaranteesAndAwardsAsset}
           >
-            <LeadBlock.Content.Heading variant="h6">
+            <LeadBlock.Content.Heading
+              variant="h6"
+              data-testid="guarentees-section"
+            >
               {getMicroCopy(microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES)}
             </LeadBlock.Content.Heading>
             {guaranteesImages?.map((item, i) => (
@@ -151,7 +139,10 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
             <LeadBlock.Content.Section
               className={classes.guaranteesAndAwardsAsset}
             >
-              <LeadBlock.Content.Heading variant="h6">
+              <LeadBlock.Content.Heading
+                variant="h6"
+                data-testid="awards-section"
+              >
                 {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
               </LeadBlock.Content.Heading>
               {system.awardsAndCertificateImages.map((item, i) => (
@@ -161,7 +152,10 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
           )}
         {system.specification && (
           <LeadBlock.Content.Section>
-            <LeadBlock.Content.Heading variant="h6">
+            <LeadBlock.Content.Heading
+              variant="h6"
+              data-testid="specification-section"
+            >
               {getMicroCopy(microCopy.SDP_LEAD_BLOCK_SPECIFICATION)}
             </LeadBlock.Content.Heading>
 
@@ -215,7 +209,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
           )}
         </LeadBlock.Card>
       )}
-    </LeadBlock>
+    </StyledLeadBlock>
   );
 };
 

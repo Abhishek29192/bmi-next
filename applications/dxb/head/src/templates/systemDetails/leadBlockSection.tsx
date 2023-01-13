@@ -4,16 +4,15 @@ import {
   IconList,
   LeadBlock,
   Section,
-  ThemeOptions,
   Typography
 } from "@bmi-digital/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import CheckIcon from "@material-ui/icons/Check";
-import { makeStyles } from "@material-ui/styles";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CheckIcon from "@mui/icons-material/Check";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
+import { StyledBlueCheckIconInter } from "../../components/CommonIcons";
 import Link, { Data as LinkData } from "../../components/Link";
 import { useSiteContext } from "../../components/Site";
 import { microCopy } from "../../constants/microCopies";
@@ -25,18 +24,8 @@ import {
 import withGTM from "../../utils/google-tag-manager";
 import styles from "./styles/leadBlockSection.module.scss";
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {
-      color: theme.colours.inter
-    }
-  }),
-  { name: "BlueCheckIcon" }
-);
-
 const BlueCheckIcon = () => {
-  const classes = useStyles();
-  return <CheckIcon className={classes.root} />;
+  return <StyledBlueCheckIconInter source={CheckIcon} />;
 };
 
 type Props = {

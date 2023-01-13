@@ -23,7 +23,6 @@ module.exports = {
     "!**/dist/**"
   ],
   preset: "ts-jest",
-  testEnvironment: "jsdom",
   roots: ["<rootDir>/applications"],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],

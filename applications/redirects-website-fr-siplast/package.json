@@ -19,15 +19,11 @@
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.1",
-    "cookieconsent": "^3.1.1",
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
     "gatsby": "^4.7.1",
     "gatsby-plugin-gatsby-cloud": "^4.9.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0",
     "toml": "^3.0.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "webpack": "^5.70.0"

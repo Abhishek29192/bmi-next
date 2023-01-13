@@ -3,7 +3,7 @@ import {
   iconMap as iconIconMap,
   logoIconMap
 } from "@bmi-digital/components";
-import QuestionMark from "@material-ui/icons/Help";
+import QuestionMark from "@mui/icons-material/Help";
 import React from "react";
 
 export const iconMap = {

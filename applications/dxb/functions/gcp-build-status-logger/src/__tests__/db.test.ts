@@ -1,4 +1,4 @@
-import { saveBuildStatus, getList } from "../db";
+import { getList, saveBuildStatus } from "../db";
 
 const set = jest.fn();
 const get = jest.fn();
@@ -20,7 +20,7 @@ jest.mock("@bmi/functions-firestore", () => ({
 
 describe("saveBuildStatus", () => {
   it("should save build data", async () => {
-    const data = { timestamp: "timestamp", event: "event", userId: "id" };
+    const data = { timestamp: 123456675, event: "event", userId: "id" };
     await saveBuildStatus(data, "collectionID");
     expect(set).toBeCalledWith(data);
   });
@@ -28,25 +28,25 @@ describe("saveBuildStatus", () => {
 describe("getList", () => {
   it("should return list of items from two collections", async () => {
     const triggeredBuildsData = {
-      timestamp: "timestamp",
+      timestamp: 123456675,
       event: "event",
       userId: "id"
     };
     const buildsData = [
       {
-        timestamp: "timestamp1",
+        timestamp: 123456675,
         event: "event",
         body: "body1",
         isError: false
       },
       {
-        timestamp: "timestamp2",
+        timestamp: 123456675,
         event: "event",
         body: "body2",
         isError: false
       },
       {
-        timestamp: "timestamp3",
+        timestamp: 123456675,
         event: "event",
         body: "body3",
         isError: false

@@ -14,9 +14,9 @@ import {
   PimProductDocument as EsPimDocument,
   PimSystemDocument as EsPimSystemDocument
 } from "@bmi/elasticsearch-types";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { GetApp } from "@material-ui/icons";
+import { GetApp } from "@mui/icons-material";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import filesize from "filesize";
 import fetch, { Response } from "node-fetch";
@@ -40,7 +40,10 @@ import createAssetFileCountMap, {
 import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
 import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
-import { useStyles } from "./styles/DocumentSimpleTableResultsStyles";
+import {
+  classes,
+  StyledSimpleTableResults
+} from "./styles/DocumentSimpleTableResultsStyles";
 
 export type AvailableHeader =
   | "typeCode"
@@ -247,7 +250,6 @@ export const MultipleAssetToFileDownload = ({
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const classes = useStyles();
   const downloadMultipleFiles = async () => {
     try {
       if (!documentDownloadEndpoint) {
@@ -365,7 +367,6 @@ export type FileDownloadButtonProps = {
 };
 
 const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
-  const classes = useStyles();
   return format && url ? (
     <GTMButton
       gtm={{ id: "download1", label: "Download", action: url }}
@@ -412,16 +413,17 @@ const DocumentSimpleTableResults = ({
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const { list } = useContext(DownloadListContext);
-  const classes = useStyles();
 
   if (isMobile) {
     return <DocumentSimpleTableResultsMobile documents={documents} />;
   }
 
   return (
-    <div className={classnames(classes.root, "DocumentSimpleTableResults")}>
+    <StyledSimpleTableResults
+      className={classnames("DocumentSimpleTableResults")}
+    >
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row>
@@ -462,7 +464,7 @@ const DocumentSimpleTableResults = ({
           })}
         </Table.Body>
       </Table>
-    </div>
+    </StyledSimpleTableResults>
   );
 };
 

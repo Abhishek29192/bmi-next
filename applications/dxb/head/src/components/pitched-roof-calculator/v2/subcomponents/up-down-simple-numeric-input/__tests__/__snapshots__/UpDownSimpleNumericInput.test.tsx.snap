@@ -3,41 +3,39 @@
 exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
 <div>
   <div
-    class="UpDownSimpleNumericInput-root-1 locked-xs"
+    class="upDownSimpleNumericInputStyles-root locked-xs css-54c19a"
   >
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-16 iconButton IconButton-medium-22 IconButton-contained-17 button-sides"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="RemoveIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13H5v-2h14v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13H5v-2h14v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root RawTextField-root-25 input in-middle"
+      class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input MuiFilledInput-input"
+          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+          id="mui-1"
           type="text"
           value="0"
         />
@@ -45,26 +43,23 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
     </div>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-16 iconButton IconButton-medium-22 IconButton-contained-17 button"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="AddIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
   </div>
@@ -74,17 +69,18 @@ exports[`UpDownSimpleNumericInput component renders correctly 1`] = `
 exports[`UpDownSimpleNumericInput component renders variant with buttons on the side 1`] = `
 <div>
   <div
-    class="UpDownSimpleNumericInput-root-29 locked-xs"
+    class="upDownSimpleNumericInputStyles-root locked-xs css-54c19a"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root RawTextField-root-33 input"
+      class="MuiFormControl-root MuiTextField-root input css-1xgljuk-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input MuiFilledInput-input"
+          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+          id="mui-2"
           type="text"
           value="0"
         />
@@ -92,50 +88,44 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
     </div>
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-48 iconButton IconButton-medium-54 IconButton-contained-49 button-right"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-right css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="RemoveIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13H5v-2h14v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13H5v-2h14v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-48 iconButton IconButton-medium-54 IconButton-contained-49 button"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="AddIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
   </div>
@@ -145,41 +135,39 @@ exports[`UpDownSimpleNumericInput component renders variant with buttons on the 
 exports[`UpDownSimpleNumericInput component renders variant with step set to a pre-defined value 1`] = `
 <div>
   <div
-    class="UpDownSimpleNumericInput-root-57 locked-xs"
+    class="upDownSimpleNumericInputStyles-root locked-xs css-54c19a"
   >
     <button
       aria-label="Down"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-72 iconButton IconButton-medium-78 IconButton-contained-73 button-sides"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button-sides css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="RemoveIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13H5v-2h14v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13H5v-2h14v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
     <div
-      class="MuiFormControl-root MuiTextField-root RawTextField-root-81 input in-middle"
+      class="MuiFormControl-root MuiTextField-root input in-middle css-1xgljuk-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+        class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input MuiFilledInput-input"
+          class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+          id="mui-3"
           type="text"
           value="0"
         />
@@ -187,26 +175,23 @@ exports[`UpDownSimpleNumericInput component renders variant with step set to a p
     </div>
     <button
       aria-label="Up"
-      class="MuiButtonBase-root MuiIconButton-root IconButton-root-72 iconButton IconButton-medium-78 IconButton-contained-73 button"
+      class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-label"
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="AddIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-          />
-        </svg>
-      </span>
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
       <span
-        class="MuiTouchRipple-root"
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
       />
     </button>
   </div>

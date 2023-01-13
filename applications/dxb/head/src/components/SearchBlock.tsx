@@ -10,8 +10,8 @@ import classnames from "classnames";
 import React, { FormEvent, useEffect, useState } from "react";
 import RichText from "../components/RichText";
 import { getPathWithCountryCode } from "../utils/path";
-import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
+import styles from "./styles/SearchBlock.module.scss";
 
 export type QueryInput = Extract<string, InputValue>;
 
@@ -71,6 +71,7 @@ const SearchPageBlock = ({
             placeholder={placeholder}
             onChange={handleInputOnChange}
             isSubmitDisabled={!isInputValueValid(internalQueryState)}
+            data-testid="search-form"
           />
         </div>
         {!isLoading && !hasResults && searchPageSearchTips && (

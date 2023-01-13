@@ -3,65 +3,63 @@
 exports[`Footer component renders correctly 1`] = `
 <div>
   <div
-    class="HidePrint-root-1"
+    class=" css-bnck4c-HidePrint"
   >
     <div
-      class="Footer-root-2"
+      class=" css-1djs9y8"
       data-testid="footer"
     >
       <div
-        class="Container-root-14"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-130wd3m-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-16 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-18 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 Get in touch
               </h4>
               <nav>
                 <ul
-                  class="Footer-list-8"
+                  class="css-p4h7lm"
                 >
                   <li
-                    class="Footer-listItem-3"
+                    class="Footer-listItem"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label Button-label-29"
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon-30 MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PhoneIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                            />
-                          </svg>
-                        </span>
-                        +44 (0) 1234567890
+                          <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          />
+                        </svg>
                       </span>
+                      +44 (0) 1234567890
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </li>
@@ -69,36 +67,31 @@ exports[`Footer component renders correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid-root Grid-item-16 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-18 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
               </h4>
               <nav>
                 <ul
-                  class="Footer-list-8"
+                  class="css-p4h7lm"
                 >
                   <li
-                    class="Footer-listItem-3"
+                    class="Footer-listItem"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                       href="/uk/landing-page/"
-                      role="button"
                       tabindex="0"
                     >
+                      Our story
                       <span
-                        class="MuiButton-label Button-label-29"
-                      >
-                        Our story
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </li>
@@ -107,10 +100,10 @@ exports[`Footer component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-9"
+            class="Footer-secondaryNavigation"
           >
             <div
-              class="Footer-logo-10"
+              class="css-5shjl0"
             >
               <svg
                 viewBox="0 0 250 250"
@@ -130,53 +123,41 @@ exports[`Footer component renders correctly 1`] = `
               </svg>
             </div>
             <ul
-              class="Footer-list-8 Footer-listInline-11"
+              class="Footer-listInline css-p4h7lm"
             >
               <li
-                class="Footer-listItem-3"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                   href="/uk/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Our story
                   <span
-                    class="MuiButton-label Button-label-29"
-                  >
-                    Our story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
               <li
-                class="Footer-listItem-3"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
                   href="/uk/sitemap/"
-                  role="button"
                   tabindex="0"
                 >
+                  global.sitemap
                   <span
-                    class="MuiButton-label Button-label-29"
-                  >
-                    global.sitemap
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-12"
+              class="css-p15bbt"
             >
               <svg
                 data-name="logo Standard Centred"
@@ -304,65 +285,63 @@ exports[`Footer component renders correctly 1`] = `
 exports[`Footer component renders without brand logo Icon if it is presented in link 1`] = `
 <div>
   <div
-    class="HidePrint-root-46"
+    class=" css-bnck4c-HidePrint"
   >
     <div
-      class="Footer-root-47"
+      class=" css-1djs9y8"
       data-testid="footer"
     >
       <div
-        class="Container-root-59"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-130wd3m-MuiGrid-root"
+            data-testid="grid"
           >
             <div
-              class="MuiGrid-root Grid-item-61 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-63 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 Get in touch
               </h4>
               <nav>
                 <ul
-                  class="Footer-list-53"
+                  class="css-p4h7lm"
                 >
                   <li
-                    class="Footer-listItem-48"
+                    class="Footer-listItem"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label Button-label-74"
+                        class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                       >
-                        <span
-                          class="MuiButton-startIcon Button-startIcon-75 MuiButton-iconSizeMedium"
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                          data-testid="PhoneIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                            />
-                          </svg>
-                        </span>
-                        +44 (0) 1234567890
+                          <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          />
+                        </svg>
                       </span>
+                      +44 (0) 1234567890
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </li>
@@ -370,36 +349,31 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </nav>
             </div>
             <div
-              class="MuiGrid-root Grid-item-61 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Grid-item css-j7mgek-MuiGrid-root"
+              data-testid="grid-item"
             >
               <h4
-                class="MuiTypography-root Typography-root-63 MuiTypography-h4"
+                class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
                 data-testid="typography"
               >
                 About BMI
               </h4>
               <nav>
                 <ul
-                  class="Footer-list-53"
+                  class="css-p4h7lm"
                 >
                   <li
-                    class="Footer-listItem-48"
+                    class="Footer-listItem"
                   >
                     <a
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                       href="/uk/landing-page/"
-                      role="button"
                       tabindex="0"
                     >
+                      Our story
                       <span
-                        class="MuiButton-label Button-label-74"
-                      >
-                        Our story
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </li>
@@ -408,10 +382,10 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             </div>
           </div>
           <div
-            class="Footer-secondaryNavigation-54"
+            class="Footer-secondaryNavigation"
           >
             <div
-              class="Footer-logo-55"
+              class="css-5shjl0"
             >
               <svg
                 viewBox="0 0 250 250"
@@ -431,53 +405,41 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </svg>
             </div>
             <ul
-              class="Footer-list-53 Footer-listInline-56"
+              class="Footer-listInline css-p4h7lm"
             >
               <li
-                class="Footer-listItem-48"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Icopal brand\\",\\"action\\":\\"/uk/landing-page/\\"}"
                   href="/uk/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Icopal brand
                   <span
-                    class="MuiButton-label Button-label-74"
-                  >
-                    Icopal brand
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
               <li
-                class="Footer-listItem-48"
+                class="Footer-listItem"
               >
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Footer-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
                   href="/uk/sitemap/"
-                  role="button"
                   tabindex="0"
                 >
+                  global.sitemap
                   <span
-                    class="MuiButton-label Button-label-74"
-                  >
-                    global.sitemap
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <div
-              class="Footer-standardLogo-57"
+              class="css-p15bbt"
             >
               <svg
                 data-name="logo Standard Centred"

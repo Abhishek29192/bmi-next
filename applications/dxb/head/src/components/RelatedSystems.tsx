@@ -7,7 +7,7 @@ import {
   SectionBackgroundColor
 } from "@bmi-digital/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
-import { Add as AddIcon } from "@material-ui/icons";
+import { Add as AddIcon } from "@mui/icons-material";
 import { graphql, Link } from "gatsby";
 import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";

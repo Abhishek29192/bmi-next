@@ -1,15 +1,11 @@
+import { Typography, withFormControl } from "@bmi-digital/components";
 import {
-  checkboxStyles,
-  Typography,
-  withFormControl
-} from "@bmi-digital/components";
-import {
-  Checkbox as MuiCheckbox,
   CheckboxProps,
   FormControl,
   FormControlLabel,
-  FormHelperText
-} from "@material-ui/core";
+  FormHelperText,
+  Checkbox as MuiCheckbox
+} from "@mui/material";
 import React, { useState } from "react";
 import { convertMarkdownLinksToAnchorLinks } from "./FormSection";
 import styles from "./styles/CheckboxGroup.module.scss";
@@ -34,17 +30,16 @@ const CheckboxGroup = ({
   ...props
 }: Props) => {
   const [selected, setSelected] = useState([]);
-  const handleOnChange = (v: React.ChangeEvent<Record<string, unknown>>) => {
+  const handleOnChange = (v: React.SyntheticEvent) => {
     let val = [];
-    if (v.target.checked) {
-      val = [...selected, v.target.name];
+    if ((v.target as HTMLInputElement).checked) {
+      val = [...selected, (v.target as HTMLInputElement).name];
     } else {
-      val = selected.filter((el) => el !== v.target.name);
+      val = selected.filter((el) => el !== (v.target as HTMLInputElement).name);
     }
     setSelected(val);
     onChange && onChange(val as string[]);
   };
-  const classes = checkboxStyles();
   return (
     <FormControl error={!!error}>
       <Typography className={styles["CheckboxGroup-heading"]}>
@@ -52,12 +47,7 @@ const CheckboxGroup = ({
         {groupName}
       </Typography>
       {options.split(/, |,/).map((option: string, $i: number) => (
-        <FormControl
-          key={$i}
-          disabled={disabled}
-          className={classes.root}
-          fullWidth
-        >
+        <FormControl key={$i} disabled={disabled} fullWidth>
           <FormControlLabel
             control={<MuiCheckbox color="primary" {...props} name={option} />}
             label={convertMarkdownLinksToAnchorLinks(option)}

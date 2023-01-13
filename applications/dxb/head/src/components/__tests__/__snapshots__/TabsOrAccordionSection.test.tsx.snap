@@ -3,22 +3,22 @@
 exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] = `
 <div>
   <div
-    class="Section-root-106 Section-white-110"
+    class="Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-114"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-113 Typography-root-116 Typography-underline-118 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-116 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -27,74 +27,66 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
           style="margin-top: 40px;"
         >
           <div
-            class="Accordion-root-124"
+            class=" css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-125 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-128"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-130"
+                  class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h3
-                    class="MuiTypography-root Typography-root-116 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     name
                   </h3>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-hidden"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root Accordion-details-126 Accordion-details-134"
+                        class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root-135"
+                          class="RichText-root css-qiddyp"
                         >
                           <p
-                            class="MuiTypography-root Typography-root-116 MuiTypography-body1 MuiTypography-gutterBottom"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -117,22 +109,22 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
 exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 <div>
   <div
-    class="Section-root-1 Section-white-5"
+    class="Section-root Section-white css-cxq310"
   >
     <div
-      class="Container-root-9"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-11 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -141,74 +133,66 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="Accordion-root-19"
+            class=" css-1u48ai"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root Accordion-item-20 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1g8jyxy-MuiPaper-root-MuiAccordion-root"
             >
               <div
-                aria-disabled="false"
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-23"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content Accordion-summaryContent-25"
+                  class="MuiAccordionSummary-content Accordion-summaryContent MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                 >
                   <h3
-                    class="MuiTypography-root Typography-root-11 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6  css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     hello
                   </h3>
                 </div>
                 <div
-                  aria-disabled="false"
-                  aria-hidden="true"
-                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
                 >
-                  <span
-                    class="MuiIconButton-label"
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ExpandMoreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
+                    <path
+                      d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div
-                class="MuiCollapse-root MuiCollapse-hidden"
+                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
                 style="min-height: 0px;"
               >
                 <div
-                  class="MuiCollapse-wrapper"
+                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
                 >
                   <div
-                    class="MuiCollapse-wrapperInner"
+                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
                   >
                     <div
+                      class="MuiAccordion-region"
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root Accordion-details-21 Accordion-details-29"
+                        class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root-30"
+                          class="RichText-root css-qiddyp"
                         >
                           <p
-                            class="MuiTypography-root Typography-root-11 MuiTypography-body1 MuiTypography-gutterBottom"
+                            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                             data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -231,22 +215,22 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 <div>
   <div
-    class="Section-root-69 Section-pearl-72"
+    class="Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-77"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-76 Typography-root-79 Typography-underline-81 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-79 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -255,27 +239,28 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs-root-87"
+            class=" css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-93"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-77"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-88 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-89"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -284,26 +269,26 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-90 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-name"
                           id="tab-name"
@@ -311,28 +296,24 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                           tabindex="0"
                           type="button"
                         >
+                          name
                           <span
-                            class="MuiTab-wrapper"
-                          >
-                            name
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-97 PrivateTabIndicator-colorPrimary-98 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -341,7 +322,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -350,20 +331,20 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
             </div>
             <div
               aria-labelledby="tab-name"
-              class="MuiGrid-root Tabs-TabPanel-91 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
               data-testid="tabpanel-name"
               heading="name"
               id="tabpanel-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-103 Tabs-TabPanelBox-92"
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               >
                 <div
-                  class="RichText-root-104"
+                  class="RichText-root css-qiddyp"
                 >
                   <p
-                    class="MuiTypography-root Typography-root-79 MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -382,22 +363,22 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 <div>
   <div
-    class="Section-root-32 Section-pearl-35"
+    class="Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-40"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-39 Typography-root-42 Typography-underline-44 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-42 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -406,27 +387,28 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs-root-50"
+            class=" css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-56"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-40"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-51 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-52"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -435,26 +417,26 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-hello"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-53 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-hello"
                           id="tab-hello"
@@ -462,28 +444,24 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                           tabindex="0"
                           type="button"
                         >
+                          hello
                           <span
-                            class="MuiTab-wrapper"
-                          >
-                            hello
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-60 PrivateTabIndicator-colorPrimary-61 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -492,7 +470,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -501,20 +479,20 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
             </div>
             <div
               aria-labelledby="tab-hello"
-              class="MuiGrid-root Tabs-TabPanel-54 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
               data-testid="tabpanel-hello"
               heading="hello"
               id="tabpanel-hello"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-66 Tabs-TabPanelBox-55"
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               >
                 <div
-                  class="RichText-root-67"
+                  class="RichText-root css-qiddyp"
                 >
                   <p
-                    class="MuiTypography-root Typography-root-42 MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
@@ -533,22 +511,22 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] = `
 <div>
   <div
-    class="Section-root-174 Section-pearl-177"
+    class="Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-182"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-181 Typography-root-184 Typography-underline-186 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-184 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -557,27 +535,28 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs-root-192"
+            class=" css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-198"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-182"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-193 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-194"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -586,34 +565,34 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       />
                       <span
-                        class="PrivateTabIndicator-root-202 PrivateTabIndicator-colorPrimary-203 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -622,7 +601,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -640,22 +619,22 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
 exports[`TabsOrAccordionSection title attribute is rendered if both name and title exists for tab panels 1`] = `
 <div>
   <div
-    class="Section-root-137 Section-pearl-140"
+    class="Section-root Section-pearl css-cxq310"
   >
     <div
-      class="Container-root-145"
+      class=" css-ze8cyt"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <h2
-          class="MuiTypography-root Section-title-144 Typography-root-147 Typography-underline-149 MuiTypography-h2"
+          class="MuiTypography-root MuiTypography-h2 Typography-underline css-je89nd-MuiTypography-root"
           data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography-root-147 MuiTypography-body1"
+          class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
           data-testid="typography"
         >
           string
@@ -664,27 +643,28 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs-root-155"
+            class=" css-jnrlck"
+            data-testid="tabs"
           >
             <div
-              class="Tabs-TabsBar-161"
+              class="Tabs-tabsBar"
             >
               <div
-                class="Container-root-145"
+                class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root Tabs-ContainerRoot-156 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root Tabs-TabsRoot-157"
+                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
                   >
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowLeftIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -693,26 +673,26 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-title"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-158 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected Tabs-tabRoot css-15jz8p0-MuiButtonBase-root-MuiTab-root"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"title\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-title"
                           id="tab-title"
@@ -720,28 +700,24 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                           tabindex="0"
                           type="button"
                         >
+                          title
                           <span
-                            class="MuiTab-wrapper"
-                          >
-                            title
-                          </span>
-                          <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-165 PrivateTabIndicator-colorPrimary-166 MuiTabs-indicator"
+                        class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="KeyboardArrowRightIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -750,7 +726,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </div>
                   </div>
@@ -759,20 +735,20 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
             </div>
             <div
               aria-labelledby="tab-title"
-              class="MuiGrid-root Tabs-TabPanel-159 MuiGrid-item"
+              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
               data-testid="tabpanel-title"
               heading="title"
               id="tabpanel-title"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-171 Tabs-TabPanelBox-160"
+                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               >
                 <div
-                  class="RichText-root-172"
+                  class="RichText-root css-qiddyp"
                 >
                   <p
-                    class="MuiTypography-root Typography-root-147 MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
                     data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s

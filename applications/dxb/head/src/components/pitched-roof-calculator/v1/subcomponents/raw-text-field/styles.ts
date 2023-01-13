@@ -1,15 +1,18 @@
-import { ThemeOptions } from "@bmi-digital/components";
-import { makeStyles } from "@material-ui/styles";
+import MaterialTextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
 
-export const useStyles = makeStyles(
-  (theme: ThemeOptions) => ({
-    root: {},
-    Error: {
-      position: "absolute",
-      right: "10px"
-    },
+const PREFIX = "rawTextFieldStyles";
+export const classes = {
+  Error: `${PREFIX}-Error`,
+  leftAdornment: `${PREFIX}-leftAdornment`,
+  "@global": "@global"
+};
 
-    "@global": {
+export const StyledMaterialTextField = styled(MaterialTextField)(
+  ({ theme }) => ({
+    [`&.${classes.Error}`]: { position: "absolute", right: "10px" },
+    [`&.${classes.leftAdornment}`]: {},
+    [`&.${classes["@global"]}`]: {
       "[class*=MuiFilledInput-root]": {
         backgroundColor: "white",
         borderRadius: "4px",
@@ -111,9 +114,6 @@ export const useStyles = makeStyles(
           paddingRight: "20px"
         }
       }
-    },
-    error: {},
-    leftAdornment: {}
-  }),
-  { name: "RawTextField" }
+    }
+  })
 );

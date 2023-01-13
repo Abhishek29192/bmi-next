@@ -3,72 +3,63 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-2 Header-headersmall-4 Header-headermedium-5 Header-headerlarge-6 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-7"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-8"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Header-utilitiesButton-9 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                Our story
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  Our story
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-8"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Header-utilitiesButton-9 Header-languageSelectionButton-10 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt="United Kingdom"
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/uk.svg"
+                  width="20px"
+                />
+                GB
                 <span
-                  class="MuiButton-label Button-label-49"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt="United Kingdom"
-                    class="Header-languageIcon-14"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  GB
-                  <span
-                    class="Header-downArrow-11"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -77,138 +68,120 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-15 Header-languageDrawer-16"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-extra-small-61 IconButton-contained-58 Header-closeButton-17"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-44 Header-languageContainer-22"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-66"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-68 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-73 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-67 Typography-root-75 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-69"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 LanguageSelection-link-71 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-49"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-50 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-72"
-                          height="16px"
-                          src="/icons/flags/uk.svg"
-                          width="20px"
-                        />
-                      </span>
-                      United Kingdom
+                      <img
+                        alt="United Kingdom flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
                     </span>
+                    United Kingdom
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -219,24 +192,24 @@ exports[`Header component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-23"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-44"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-24"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-25"
+              class="Header-logoLink"
               href="/gb/"
             >
               <svg
-                class="Header-logo-26"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -255,137 +228,116 @@ exports[`Header component renders correctly 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-27"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-8 Header-navItemNoChildren-28"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      Get in touch
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        Get in touch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-8 Header-navItemNoChildren-28"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
                     >
+                      About BMI
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        About BMI
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-8 Header-navItemNoChildren-28"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-107 PrivateTabIndicator-colorSecondary-109 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-30"
+              class="Header-navigationBarButtons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-searchButton-32"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-text-59 Header-burgerButton-34"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -395,49 +347,46 @@ exports[`Header component renders correctly 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-35 Header-backdrop-43"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-15 Header-navDrawer-36"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-closeButton-17"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-83"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-89 Navigation-offset0-84"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-97 Typography-root-75 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -445,28 +394,23 @@ exports[`Header component renders correctly 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
               >
+                Get in touch
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  Get in touch
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <hr
-                class="Navigation-separator-96"
+                class="Navigation-separator"
               />
             </li>
             <div
-              class="Navigation-navigationList-89 Navigation-footer-90"
+              class="Navigation-navigationList Navigation-footer"
             >
               <ul>
                 <li>
@@ -514,13 +458,13 @@ exports[`Header component renders correctly 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-98 Typography-root-75 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -571,13 +515,13 @@ exports[`Header component renders correctly 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-98 Typography-root-75 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -587,105 +531,85 @@ exports[`Header component renders correctly 1`] = `
             </div>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                About BMI
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  About BMI
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-49"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-101"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                   href="/gb/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Our story
                   <span
-                    class="MuiButton-label Button-label-49"
-                  >
-                    Our story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-46 MuiButton-text Button-text-47 Navigation-navigationListButton-104 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-49"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-102"
-                  >
-                    <img
-                      alt="United Kingdom"
-                      class="Navigation-languageIcon-103"
-                      height="16px"
-                      src="/icons/flags/uk.svg"
-                      width="20px"
-                    />
-                    GB
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-95"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt="United Kingdom"
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/uk.svg"
+                    width="20px"
+                  />
+                  GB
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -694,39 +618,36 @@ exports[`Header component renders correctly 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-37"
+      class="Header-searchDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-15 Header-searchDrawer-39"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-57 iconButton IconButton-medium-63 IconButton-contained-58 Header-closeButton-17"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-75 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -740,72 +661,63 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-112 Header-headersmall-114 Header-headermedium-115 Header-headerlarge-116 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-117"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-154"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-118"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Header-utilitiesButton-119 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
                 href="/grp/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                Our story
                 <span
-                  class="MuiButton-label Button-label-159"
-                >
-                  Our story
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-118"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Header-utilitiesButton-119 Header-languageSelectionButton-120 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt=""
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/globe.svg"
+                  width="20px"
+                />
+                EN
                 <span
-                  class="MuiButton-label Button-label-159"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt=""
-                    class="Header-languageIcon-124"
-                    height="16px"
-                    src="/icons/flags/globe.svg"
-                    width="20px"
-                  />
-                  EN
-                  <span
-                    class="Header-downArrow-121"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -814,138 +726,120 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-125 Header-languageDrawer-126"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-167 iconButton IconButton-extra-small-171 IconButton-contained-168 Header-closeButton-127"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-154 Header-languageContainer-132"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-176"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-178 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-183 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-183 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-177 Typography-root-185 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-179"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 LanguageSelection-link-181 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-159"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-160 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-182"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 LanguageSelection-link-181 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-159"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-160 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-182"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 LanguageSelection-link-181 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-159"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-160 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-182"
-                          height="16px"
-                          src="/icons/flags/uk.svg"
-                          width="20px"
-                        />
-                      </span>
-                      United Kingdom
+                      <img
+                        alt="United Kingdom flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
                     </span>
+                    United Kingdom
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -956,24 +850,24 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-133"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-154"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-134"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-135"
+              class="Header-logoLink"
               href="/grp/"
             >
               <svg
-                class="Header-logo-136"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -992,137 +886,116 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-137"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-118 Header-navItemNoChildren-138"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      Get in touch
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        Get in touch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-118 Header-navItemNoChildren-138"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/grp/landing-page/"
                       role="tab"
                       tabindex="-1"
                     >
+                      About BMI
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        About BMI
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-118 Header-navItemNoChildren-138"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-217 PrivateTabIndicator-colorSecondary-219 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-140"
+              class="Header-navigationBarButtons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-167 iconButton IconButton-medium-173 IconButton-contained-168 Header-searchButton-142"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-167 iconButton IconButton-medium-173 IconButton-text-169 Header-burgerButton-144"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -1132,49 +1005,46 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-145 Header-backdrop-153"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-125 Header-navDrawer-146"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-167 iconButton IconButton-medium-173 IconButton-contained-168 Header-closeButton-127"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-193"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-199 Navigation-offset0-194"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-207 Typography-root-185 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -1182,28 +1052,23 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
               >
+                Get in touch
                 <span
-                  class="MuiButton-label Button-label-159"
-                >
-                  Get in touch
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <hr
-                class="Navigation-separator-206"
+                class="Navigation-separator"
               />
             </li>
             <div
-              class="Navigation-navigationList-199 Navigation-footer-200"
+              class="Navigation-navigationList Navigation-footer"
             >
               <ul>
                 <li>
@@ -1251,13 +1116,13 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-208 Typography-root-185 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -1308,13 +1173,13 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-208 Typography-root-185 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -1324,105 +1189,85 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </div>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/grp/landing-page/\\"}"
                 href="/grp/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                About BMI
                 <span
-                  class="MuiButton-label Button-label-159"
-                >
-                  About BMI
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-159"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-211"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/grp/landing-page/\\"}"
                   href="/grp/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Our story
                   <span
-                    class="MuiButton-label Button-label-159"
-                  >
-                    Our story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-156 MuiButton-text Button-text-157 Navigation-navigationListButton-214 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-159"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-212"
-                  >
-                    <img
-                      alt=""
-                      class="Navigation-languageIcon-213"
-                      height="16px"
-                      src="/icons/flags/globe.svg"
-                      width="20px"
-                    />
-                    EN
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-205"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt=""
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/globe.svg"
+                    width="20px"
+                  />
+                  EN
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -1431,39 +1276,36 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-147"
+      class="Header-searchDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-125 Header-searchDrawer-149"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-167 iconButton IconButton-medium-173 IconButton-contained-168 Header-closeButton-127"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-185 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -1479,72 +1321,63 @@ exports[`Header component renders without navigation props 1`] = `<div />`;
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-351 Header-headersmall-353 Header-headermedium-354 Header-headerlarge-355 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-356"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-393"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-357"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Header-utilitiesButton-358 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                Our story
                 <span
-                  class="MuiButton-label Button-label-398"
-                >
-                  Our story
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-357"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Header-utilitiesButton-358 Header-languageSelectionButton-359 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt="United Kingdom"
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/uk.svg"
+                  width="20px"
+                />
+                GB
                 <span
-                  class="MuiButton-label Button-label-398"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt="United Kingdom"
-                    class="Header-languageIcon-363"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  GB
-                  <span
-                    class="Header-downArrow-360"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -1553,138 +1386,120 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-364 Header-languageDrawer-365"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-extra-small-410 IconButton-contained-407 Header-closeButton-366"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-393 Header-languageContainer-371"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-415"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-417 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-422 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-422 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-416 Typography-root-424 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-418"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 LanguageSelection-link-420 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-398"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-399 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-421"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 LanguageSelection-link-420 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-398"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-399 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-421"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 LanguageSelection-link-420 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-398"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-399 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-421"
-                          height="16px"
-                          src="/icons/flags/uk.svg"
-                          width="20px"
-                        />
-                      </span>
-                      United Kingdom
+                      <img
+                        alt="United Kingdom flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
                     </span>
+                    United Kingdom
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -1695,24 +1510,24 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-372"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-393"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-373"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-374"
+              class="Header-logoLink"
               href="/gb/"
             >
               <svg
-                class="Header-logo-375"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -1731,162 +1546,138 @@ exports[`Header component shows sample basket icon 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-376"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-357 Header-navItemNoChildren-377"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      Get in touch
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        Get in touch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-357 Header-navItemNoChildren-377"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
                     >
+                      About BMI
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        About BMI
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-357 Header-navItemNoChildren-377"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-467 PrivateTabIndicator-colorSecondary-469 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-379"
+              class="Header-navigationBarButtons"
             >
               <a
-                aria-disabled="false"
                 aria-label="MC: basket.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-contained-407 Header-basketButton-380"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-basketButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 role="button"
                 tabindex="0"
+                type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="ShoppingCartOutlinedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-contained-407 Header-searchButton-381"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-text-408 Header-burgerButton-383"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -1896,49 +1687,46 @@ exports[`Header component shows sample basket icon 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-384 Header-backdrop-392"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 0; visibility: hidden;"
     />
     <div
-      class="Header-drawer-364 Header-navDrawer-385"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-contained-407 Header-closeButton-366"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-432"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-438 Navigation-offset0-433"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-446 Typography-root-424 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -1946,28 +1734,23 @@ exports[`Header component shows sample basket icon 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
               >
+                Get in touch
                 <span
-                  class="MuiButton-label Button-label-398"
-                >
-                  Get in touch
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <hr
-                class="Navigation-separator-445"
+                class="Navigation-separator"
               />
             </li>
             <div
-              class="Navigation-navigationList-438 Navigation-footer-439"
+              class="Navigation-navigationList Navigation-footer"
             >
               <ul>
                 <li>
@@ -2015,13 +1798,13 @@ exports[`Header component shows sample basket icon 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-447 Typography-root-424 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -2072,13 +1855,13 @@ exports[`Header component shows sample basket icon 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-447 Typography-root-424 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -2088,105 +1871,85 @@ exports[`Header component shows sample basket icon 1`] = `
             </div>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                About BMI
                 <span
-                  class="MuiButton-label Button-label-398"
-                >
-                  About BMI
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-398"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-450"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                   href="/gb/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Our story
                   <span
-                    class="MuiButton-label Button-label-398"
-                  >
-                    Our story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-text Button-text-396 Navigation-navigationListButton-453 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-398"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-451"
-                  >
-                    <img
-                      alt="United Kingdom"
-                      class="Navigation-languageIcon-452"
-                      height="16px"
-                      src="/icons/flags/uk.svg"
-                      width="20px"
-                    />
-                    GB
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-444"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt="United Kingdom"
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/uk.svg"
+                    width="20px"
+                  />
+                  GB
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -2195,39 +1958,36 @@ exports[`Header component shows sample basket icon 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-386"
+      class="Header-searchDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="Header-drawer-364 Header-searchDrawer-388"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-contained-407 Header-closeButton-366"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-424 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
@@ -2235,47 +1995,44 @@ exports[`Header component shows sample basket icon 1`] = `
       </div>
     </div>
     <div
-      class="Header-cartDrawerContainer-389"
+      class="Header-cartDrawerContainer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="SampleBasketDialog-cartDrawer-457 cart-drawer"
+        class="SampleBasketDialog-cartDrawer cart-drawer css-y989ae"
       >
         <div
           class="pad pad-b-24"
         >
           <button
             aria-label="MC: dialog.close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-contained-407 SampleBasketDialog-closeButton-466"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge SampleBasketDialog-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             type="button"
           >
-            <span
-              class="MuiIconButton-label"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
           <h3
-            class="MuiTypography-root Typography-root-424 Typography-underline-426 MuiTypography-h3"
+            class="MuiTypography-root MuiTypography-h3 Typography-underline css-d7brak-MuiTypography-root"
             data-testid="typography"
           >
             Basket title
           </h3>
           <div
-            class="SampleBasketDialog-cartInfo-464 cart-info"
+            class="SampleBasketDialog-cartInfo cart-info"
           >
             <p>
               MC: pdp.overview.sampleDialogMessage
@@ -2286,113 +2043,101 @@ exports[`Header component shows sample basket icon 1`] = `
           </div>
         </div>
         <div
-          class="SampleBasketDialog-productList-458"
+          class="SampleBasketDialog-productList"
         >
           <div
-            class="SampleBasketDialog-row-459 row"
+            class="SampleBasketDialog-row row"
           >
             <div
-              class="SampleBasketDialog-imageContainer-460"
+              class="SampleBasketDialog-imageContainer"
             >
               <img
-                class="SampleBasketDialog-cartImage-463"
+                class="SampleBasketDialog-cartImage"
                 src="S"
               />
             </div>
             <div
-              class="SampleBasketDialog-infoContainer-461"
+              class="SampleBasketDialog-infoContainer"
             >
               <h6
-                class="MuiTypography-root product-title Typography-root-424 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 product-title css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 test product
               </h6>
               <h6
-                class="MuiTypography-root product-color Typography-root-424 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 product-color css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               />
               <p
-                class="MuiTypography-root product-size Typography-root-424 MuiTypography-body1"
+                class="MuiTypography-root MuiTypography-body1 product-size css-87ejlm-MuiTypography-root"
                 data-testid="typography"
               />
             </div>
             <div
-              class="SampleBasketDialog-buttonContainer-462"
+              class="SampleBasketDialog-buttonContainer"
             >
               <button
                 aria-label="MC: pdp.overview.removeSample"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-406 iconButton IconButton-medium-412 IconButton-text-408"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
           </div>
         </div>
         <div
-          class="SampleBasketDialog-cartActions-465 pad"
+          class="SampleBasketDialog-cartActions pad"
         >
           <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-contained Button-contained-397 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
             href="/gb/sample-basket/"
-            role="button"
             tabindex="0"
           >
+            MC: pdp.overview.completeSampleOrder
             <span
-              class="MuiButton-label Button-label-398"
+              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
             >
-              MC: pdp.overview.completeSampleOrder
-              <span
-                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowForwardIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
             </span>
             <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </a>
           <button
-            class="MuiButtonBase-root MuiButton-root Button-root-395 MuiButton-outlined MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
+            MC: pdp.overview.continueBrowsing
             <span
-              class="MuiButton-label Button-label-398"
-            >
-              MC: pdp.overview.continueBrowsing
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
           </button>
         </div>
@@ -2405,72 +2150,63 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="MuiPaper-root Header-root-222 Header-headersmall-224 Header-headermedium-225 Header-headerlarge-226 MuiPaper-elevation3"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    elevation="3"
   >
     <nav
       aria-label="Utilities"
-      class="Header-utilitiesBar-227"
+      class="Header-utilitiesBar"
       role="navigation"
     >
       <div
-        class="Container-root-264"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <ul>
             <li
-              class="Header-navItem-228"
+              class="Header-navItem"
             >
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Header-utilitiesButton-229 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                Our story
                 <span
-                  class="MuiButton-label Button-label-269"
-                >
-                  Our story
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li
-              class="Header-navItem-228"
+              class="Header-navItem"
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Header-utilitiesButton-229 Header-languageSelectionButton-230 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton Header-languageSelectionButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 data-testid="language-button"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  alt="United Kingdom"
+                  class="Header-languageIcon"
+                  height="16px"
+                  src="/icons/flags/uk.svg"
+                  width="20px"
+                />
+                GB
                 <span
-                  class="MuiButton-label Button-label-269"
+                  class="Header-downArrow"
                 >
-                  <img
-                    alt="United Kingdom"
-                    class="Header-languageIcon-234"
-                    height="16px"
-                    src="/icons/flags/uk.svg"
-                    width="20px"
-                  />
-                  GB
-                  <span
-                    class="Header-downArrow-231"
-                  >
-                    ▾
-                  </span>
+                  ▾
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -2479,138 +2215,120 @@ exports[`Header component toggles search 1`] = `
       </div>
     </nav>
     <div
-      class="Header-drawer-235 Header-languageDrawer-236"
+      class="Header-drawer Header-languageDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-extra-small-281 IconButton-contained-278 Header-closeButton-237"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-extra-small Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         data-testid="language-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <div
-        class="Container-root-264 Header-languageContainer-242"
+        class="Header-languageContainer css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl MuiContainer-disableGutters css-1xfmbiw-MuiContainer-root"
         >
-          <div
-            class="LanguageSelection-root-286"
-          >
+          <div>
             <div
-              class="MuiGrid-root LanguageSelection-regionsWrapper-288 MuiGrid-container"
+              class="MuiGrid-root MuiGrid-container css-v2898w-MuiGrid-root"
+              data-testid="grid"
             >
               <div
-                class="MuiGrid-root Grid-item-293 MuiGrid-item MuiGrid-grid-lg-3 MuiGrid-grid-xl-3"
-              />
-              <div
-                class="MuiGrid-root Grid-item-293 MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9 MuiGrid-grid-xl-9 Grid-item css-1wxf6a8-MuiGrid-root"
+                data-testid="grid-item"
               >
                 <h6
-                  class="MuiTypography-root LanguageSelection-heading-287 Typography-root-295 MuiTypography-h6"
+                  class="MuiTypography-root MuiTypography-h6 css-8200kz-MuiTypography-root"
                   data-testid="typography"
                 >
                   Europe
                 </h6>
                 <div
-                  class="LanguageSelection-container-289"
+                  class="css-1vqzkso"
                 >
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 LanguageSelection-link-291 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-269"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-270 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-292"
-                          height="16px"
-                          src="/icons/flags/al.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Albania
+                      <img
+                        alt="Albania flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/al.svg"
+                        width="20px"
+                      />
                     </span>
+                    Albania
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 LanguageSelection-link-291 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-269"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-270 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-292"
-                          height="16px"
-                          src="/icons/flags/at.svg"
-                          width="20px"
-                        />
-                      </span>
-                      Österreich
+                      <img
+                        alt="Österreich flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/at.svg"
+                        width="20px"
+                      />
                     </span>
+                    Österreich
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                   <a
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 LanguageSelection-link-291 MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
                     data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label Button-label-269"
+                      class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
-                      <span
-                        class="MuiButton-startIcon Button-startIcon-270 MuiButton-iconSizeMedium"
-                      >
-                        <img
-                          class="LanguageSelection-languageIcon-292"
-                          height="16px"
-                          src="/icons/flags/uk.svg"
-                          width="20px"
-                        />
-                      </span>
-                      United Kingdom
+                      <img
+                        alt="United Kingdom flag"
+                        class="LanguageSelection-languageIcon"
+                        height="16px"
+                        src="/icons/flags/uk.svg"
+                        width="20px"
+                      />
                     </span>
+                    United Kingdom
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                     />
                   </a>
                 </div>
@@ -2621,24 +2339,24 @@ exports[`Header component toggles search 1`] = `
       </div>
     </div>
     <div
-      class="Header-navigationBar-243"
+      class="Header-navigationBar"
     >
       <div
-        class="Container-root-264"
+        class=" css-ze8cyt"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="Header-navigationBarContent-244"
+            class="Header-navigationBarContent"
           >
             <a
               aria-label="MC: global.logoLabel"
-              class="Header-logoLink-245"
+              class="Header-logoLink"
               href="/gb/"
             >
               <svg
-                class="Header-logo-246"
+                class="Header-logo"
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -2657,137 +2375,116 @@ exports[`Header component toggles search 1`] = `
             </a>
             <nav
               aria-label="Navigation"
-              class="Header-navigation-247"
+              class="Header-navigation"
               role="navigation"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiTabs-root css-1ujnqem-MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
+                  class="MuiTabs-scrollableX MuiTabs-hideScrollbar css-agdkjh-MuiTabs-scrollbarSize"
                   style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                 />
                 <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
                   style="margin-bottom: 0px;"
                 >
                   <div
-                    class="MuiTabs-flexContainer"
+                    class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
                     role="tablist"
                   >
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-228 Header-navItemNoChildren-248"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
                       role="tab"
-                      tabindex="-1"
+                      tabindex="0"
                     >
+                      Get in touch
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        Get in touch
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-228 Header-navItemNoChildren-248"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
                     >
+                      About BMI
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        About BMI
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                     <a
-                      aria-disabled="false"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Header-navItem-228 Header-navItemNoChildren-248"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
                     >
+                      string
                       <span
-                        class="MuiTab-wrapper"
-                      >
-                        string
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                       />
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-327 PrivateTabIndicator-colorSecondary-329 MuiTabs-indicator"
+                    class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
               </div>
             </nav>
             <div
-              class="Header-navigationBarButtons-250"
+              class="Header-navigationBarButtons"
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-medium-283 IconButton-contained-278 Header-searchButton-252"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-searchButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="search-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="SearchIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-medium-283 IconButton-text-279 Header-burgerButton-254"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
               >
-                <span
-                  class="MuiIconButton-label"
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="MenuIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                  />
+                </svg>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
@@ -2797,49 +2494,46 @@ exports[`Header component toggles search 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="MuiBackdrop-root Header-backdrop-255 Header-backdrop-263"
+      class="MuiBackdrop-root Header-backdrop css-sox5kk-MuiBackdrop-root"
       data-testid="backdrop"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
     />
     <div
-      class="Header-drawer-235 Header-navDrawer-256"
+      class="Header-drawer Header-navDrawer"
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-medium-283 IconButton-contained-278 Header-closeButton-237"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-label"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-testid="CloseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-            />
-          </svg>
-        </span>
+          <path
+            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
         <span
-          class="MuiTouchRipple-root"
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
       <nav
-        class="Navigation-root-303"
+        class="css-1q3sjsb"
       >
         <div
-          class="Navigation-navigationList-309 Navigation-offset0-304"
+          class="Navigation-navigationList Navigation-offset0"
         >
           <ul>
             <li>
               <h6
-                class="MuiTypography-root Navigation-mainMenuTitle-317 Typography-root-295 MuiTypography-h6"
+                class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
                 data-testid="typography"
               >
                 MC: menu.mainTitle
@@ -2847,28 +2541,23 @@ exports[`Header component toggles search 1`] = `
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
                 target="_blank"
               >
+                Get in touch
                 <span
-                  class="MuiButton-label Button-label-269"
-                >
-                  Get in touch
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
               <hr
-                class="Navigation-separator-316"
+                class="Navigation-separator"
               />
             </li>
             <div
-              class="Navigation-navigationList-309 Navigation-footer-310"
+              class="Navigation-navigationList Navigation-footer"
             >
               <ul>
                 <li>
@@ -2916,13 +2605,13 @@ exports[`Header component toggles search 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-318 Typography-root-295 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardTitle1
@@ -2973,13 +2662,13 @@ exports[`Header component toggles search 1`] = `
                     <script
                       type="module"
                     >
-                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}
+                      const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}
                     </script>
                   </div>
                 </li>
                 <li>
                   <h6
-                    class="MuiTypography-root Navigation-navigationListType-318 Typography-root-295 MuiTypography-h6"
+                    class="MuiTypography-root MuiTypography-h6 Navigation-navigationListType css-1le86ss-MuiTypography-root"
                     data-testid="typography"
                   >
                     cardName2
@@ -2989,105 +2678,85 @@ exports[`Header component toggles search 1`] = `
             </div>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/gb/landing-page/\\"}"
                 href="/gb/landing-page/"
-                role="button"
                 tabindex="0"
                 target="_blank"
               >
+                About BMI
                 <span
-                  class="MuiButton-label Button-label-269"
-                >
-                  About BMI
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <li>
               <a
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
                 target="_blank"
               >
+                string
                 <span
-                  class="MuiButton-label Button-label-269"
-                >
-                  string
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </a>
             </li>
             <ul
-              class="Navigation-utilities-321"
+              class="Navigation-utilities"
             >
               <li>
                 <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/gb/landing-page/\\"}"
                   href="/gb/landing-page/"
-                  role="button"
                   tabindex="0"
                 >
+                  Our story
                   <span
-                    class="MuiButton-label Button-label-269"
-                  >
-                    Our story
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </a>
               </li>
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root Button-root-266 MuiButton-text Button-text-267 Navigation-navigationListButton-324 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"GB\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label Button-label-269"
+                  class="Navigation-languageButtonContent"
                 >
-                  <span
-                    class="Navigation-languageButtonContent-322"
-                  >
-                    <img
-                      alt="United Kingdom"
-                      class="Navigation-languageIcon-323"
-                      height="16px"
-                      src="/icons/flags/uk.svg"
-                      width="20px"
-                    />
-                    GB
-                  </span>
-                  <span
-                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root Navigation-chevronRight-315"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                  </span>
+                  <img
+                    alt="United Kingdom"
+                    class="Navigation-languageIcon"
+                    height="16px"
+                    src="/icons/flags/uk.svg"
+                    width="20px"
+                  />
+                  GB
                 </span>
                 <span
-                  class="MuiTouchRipple-root"
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium Navigation-chevronRight css-i4bv87-MuiSvgIcon-root"
+                    data-testid="ChevronRightIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </li>
@@ -3096,65 +2765,65 @@ exports[`Header component toggles search 1`] = `
       </nav>
     </div>
     <div
-      class="Header-searchDrawerContainer-257"
+      class="Header-searchDrawerContainer"
       style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
     >
       <div
-        class="Header-drawer-235 Header-searchDrawer-259"
+        class="Header-drawer Header-searchDrawer"
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-medium-283 IconButton-contained-278 Header-closeButton-237"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="search-close-button"
           tabindex="0"
           type="button"
         >
-          <span
-            class="MuiIconButton-label"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="CloseIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
           <span
-            class="MuiTouchRipple-root"
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
           />
         </button>
         <h4
-          class="MuiTypography-root Typography-root-295 MuiTypography-h4"
+          class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
           data-testid="typography"
         >
           MC: search.title
         </h4>
         <form
           action="/gb/search/"
-          class="Form-root-334 Search-root-331"
+          class="css-1mhzmpj"
         >
           <div
-            class="InputGroup-root-339 InputGroup-lockedxs-341"
+            class="InputGroup-lockedxs css-14zqdme"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField-root-347 InputGroup-input-340"
+              class="MuiFormControl-root MuiTextField-root InputGroup-input css-156zrl9-MuiFormControl-root-MuiTextField-root"
             >
               <label
-                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
                 data-shrink="false"
+                for="mui-1"
+                id="mui-1-label"
               >
                 MC: search.placeholder.header
               </label>
               <div
-                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-climad-MuiInputBase-root-MuiFilledInput-root"
               >
                 <input
                   aria-invalid="false"
-                  class="MuiInputBase-input MuiFilledInput-input"
+                  class="MuiInputBase-input MuiFilledInput-input css-10botns-MuiInputBase-input-MuiFilledInput-input"
+                  id="mui-1"
                   name="q"
                   type="text"
                   value=""
@@ -3163,27 +2832,24 @@ exports[`Header component toggles search 1`] = `
             </div>
             <button
               aria-label="MC: search.label"
-              class="MuiButtonBase-root MuiIconButton-root IconButton-root-277 iconButton IconButton-medium-283 IconButton-contained-278 InputGroup-button-345"
+              class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
               tabindex="0"
               type="submit"
             >
-              <span
-                class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="SearchIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                />
+              </svg>
               <span
-                class="MuiTouchRipple-root"
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
             </button>
           </div>

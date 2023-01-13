@@ -24,7 +24,7 @@ describe("Brands component", () => {
   });
 
   it("renders correctly for mobile", () => {
-    jest.mock("@material-ui/core", () => ({
+    jest.mock("@mui/material", () => ({
       useMediaQuery: jest.fn().mockRejectedValue(true)
     }));
     const { container } = render(

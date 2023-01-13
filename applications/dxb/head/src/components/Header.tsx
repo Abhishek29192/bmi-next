@@ -3,26 +3,26 @@ import {
   ButtonProps,
   Header as HeaderComponent,
   HidePrint,
-  TabProps,
-  RegionCode
+  RegionCode,
+  TabProps
 } from "@bmi-digital/components";
-import Tab from "@material-ui/core/Tab";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { graphql, Link, withPrefix } from "gatsby";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Tab from "@mui/material/Tab";
+import { Link, graphql, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import Image from "../components/Image";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { checkIfActiveLabelInParentNode } from "../utils/breadcrumbUtils";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
-  getCTA,
   NavigationData,
-  NavigationItem
+  NavigationItem,
+  getCTA
 } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
