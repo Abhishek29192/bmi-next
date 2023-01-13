@@ -26,7 +26,7 @@ const config = {
   },
   pathPrefix: process.env.GATSBY_FRC_URL_PREFIX,
   plugins: [
-    `gatsby-plugin-material-ui`,
+    `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typescript`,

@@ -11,7 +11,7 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   return (
     /*providers with static data*/
     <ConfigProvider>
-      <ThemeProvider includeCssBaseline={false}>
+      <ThemeProvider>
         <HubspotProvider async={false} addToHead={true}>
           {element}
         </HubspotProvider>

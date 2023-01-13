@@ -4,7 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -270,6 +270,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -332,7 +333,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -1160,7 +1161,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -1426,6 +1427,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -1488,7 +1490,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -2322,7 +2324,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -2563,6 +2565,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -2619,7 +2622,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -3582,7 +3585,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -3823,6 +3826,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -3879,7 +3883,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -4836,7 +4840,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -5102,6 +5106,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -5164,7 +5169,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -6163,7 +6168,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -6429,6 +6434,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -6491,7 +6497,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -7249,7 +7255,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -7515,6 +7521,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -7577,7 +7584,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -8335,7 +8342,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -8601,6 +8608,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -8663,7 +8671,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -9475,7 +9483,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -9741,6 +9749,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -9803,7 +9812,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -10812,7 +10821,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -11078,6 +11087,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -11140,7 +11150,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -12149,7 +12159,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -12415,6 +12425,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -12477,7 +12488,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -13493,7 +13504,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -13759,6 +13770,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -13821,7 +13833,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -14848,7 +14860,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -15114,6 +15126,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -15176,7 +15189,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"
@@ -18005,7 +18018,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
       elevation="3"
     >
       <nav
@@ -18271,6 +18284,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
               </nav>
               <div
                 class="Header-navigationBarButtons"
+                data-testid="navigationBar-buttons"
               >
                 <button
                   aria-label="MC: search.label"
@@ -18333,7 +18347,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
           data-testid="nav-close-button"
           tabindex="0"
           type="button"

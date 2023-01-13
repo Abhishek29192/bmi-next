@@ -159,7 +159,7 @@ const config = {
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
-    `gatsby-plugin-material-ui`,
+    `@bmi/gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-canonical-urls",

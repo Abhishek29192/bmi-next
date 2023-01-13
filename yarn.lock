@@ -1162,40 +1162,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bmi-digital/components@^1.12.0":
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.12.0.tgz#9283c41e3d42bcf9238e083818f304af1937a461"
-  integrity sha512-PFJXj9CrOex16/Pgqo0DlIc4mU1Yfwgt4goQkoCgMJrG++fEbQKPSdf4ULKT5bc9IAvbG9CjiJvypco2tp23dQ==
-  dependencies:
-    "@bmi-digital/styles" "^1.4.0"
-    "@bmi-digital/svg-import" "^1.4.0"
-    "@bmi-digital/use-dimensions" "^1.4.0"
-    "@emotion/react" "^11.10.5"
-    "@emotion/styled" "^11.10.5"
-    "@googlemaps/js-api-loader" "^1.15.1"
-    "@googlemaps/markerclusterer" "^1.0.27"
-    "@mui/icons-material" "^5.11.0"
-    "@mui/lab" "^5.0.0-alpha.113"
-    "@mui/material" "^5.11.1"
-    "@mui/styles" "^5.11.1"
-    "@mui/system" "^5.11.1"
-    autosuggest-highlight "^3.1.1"
-    axios "^0.26.0"
-    classnames "^2.2.6"
-    csstype "^3.0.7"
-    escape-string-regexp "^4.0.0"
-    react-is "^16.13.1"
-    react-lines-ellipsis "^0.14.1"
-    react-masonry-css "^1.0.14"
-    react-player "^2.9.0"
-    react-swipeable-views "^0.14.0"
-    react-swipeable-views-core "^0.14.0"
-    react-swipeable-views-utils "^0.14.0"
-
-"@bmi-digital/components@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.12.1.tgz#ba905878270696c7be0cbb9df11671670959daec"
-  integrity sha512-ZQk9eGSpCqL1IEUBOAAamdyGCxIFKVDUnX1ohh10tQNGfM0uzR4FQ+PiV71eDM7CT0jayZsX1NJdm8WY/c1S/w==
+"@bmi-digital/components@^1.12.3":
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.12.3.tgz#8104f88f3e9ede696d36bd271b8421c858ecbb50"
+  integrity sha512-bInOnaXR+vZSfyuI6q2T+SHe5zfRt90Rk9ismwPq+lodWjlPMyg7z4MiVaHiilWL8Jt5ZuLsDM3Ym1SNtVIZrw==
   dependencies:
     "@bmi-digital/styles" "^1.4.0"
     "@bmi-digital/svg-import" "^1.4.0"
@@ -1547,7 +1517,7 @@
     source-map "^0.5.7"
     stylis "4.1.3"
 
-"@emotion/cache@^11.10.5", "@emotion/cache@^11.4.0":
+"@emotion/cache@^11.10.5":
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.10.5.tgz#c142da9351f94e47527ed458f7bbbbe40bb13c12"
   integrity sha512-dGYHWyzTdmK+f2+EnIGBpkz1lKc4Zbj2KHd4cX3Wi8/OWr5pKslNjc3yABKH4adRGCvSX4VDC0i04mrrq0aiRA==
@@ -1600,7 +1570,7 @@
     "@emotion/utils" "^1.2.0"
     csstype "^3.0.2"
 
-"@emotion/server@^11.4.0":
+"@emotion/server@^11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/server/-/server-11.10.0.tgz#3edc075b672c75426f682d56aadc6404fb1f6648"
   integrity sha512-MTvJ21JPo9aS02GdjFW4nhdwOi2tNNpMmAM/YED0pkxzjDNi5WbiTwXqaCnvLc2Lr8NFtjhT0az1vTJyLIHYcw==
@@ -11230,7 +11200,7 @@ gatsby-plugin-canonical-urls@^4.10.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-plugin-gatsby-cloud@^4.10.0, gatsby-plugin-gatsby-cloud@^4.9.1:
+gatsby-plugin-gatsby-cloud@^4.10.1:
   version "4.25.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.25.0.tgz#e2a66de27558a61a8ead36abc2cd57e62254c6f4"
   integrity sha512-rDrkbiRkC2AlsUQFBylc07ll49FXNmpqFMH87KoImC/jf17gIkF/+rJJpeH7BSM3PNEaSyZ7C5kFkQ1/mmrIig==
@@ -11280,14 +11250,6 @@ gatsby-plugin-manifest@^4.10.1:
     gatsby-plugin-utils "^3.19.0"
     semver "^7.3.7"
     sharp "^0.30.7"
-
-gatsby-plugin-material-ui@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-material-ui/-/gatsby-plugin-material-ui-4.1.0.tgz#068b3c9318fd0539d647a55e5108377695e8a602"
-  integrity sha512-g43jWiH/05tqdeCXVzPSe/L/98nPYfVANGmdilSTvfLshNPTppnls/Zs98TXmhbdHV/Bgov0hQsYIrBgcKWHbQ==
-  dependencies:
-    "@emotion/cache" "^11.4.0"
-    "@emotion/server" "^11.4.0"
 
 gatsby-plugin-no-sourcemaps@^4.10.0:
   version "4.25.0"
@@ -11553,7 +11515,7 @@ gatsby-worker@^1.25.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.10.1, gatsby@^4.7.1:
+gatsby@^4.10.1:
   version "4.25.2"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.25.2.tgz#d5c7aeb14ee4825e4d58a9539874077c36b4767b"
   integrity sha512-HKSWRdTOK5IBFDDgCKiPXiyszfdTTGZ+pple6My6dQ5a5U+Gn1PpjBIiYj4Me9WJAveQzC7tChsqBVVt7r6few==

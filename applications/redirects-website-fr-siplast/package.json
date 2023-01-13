@@ -21,8 +21,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
-    "gatsby": "^4.7.1",
-    "gatsby-plugin-gatsby-cloud": "^4.9.1",
+    "gatsby": "^4.10.1",
+    "gatsby-plugin-gatsby-cloud": "^4.10.1",
     "react": "^16.13.1",
     "toml": "^3.0.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",

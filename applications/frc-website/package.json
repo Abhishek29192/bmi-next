@@ -20,9 +20,10 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "@bmi-digital/components": "^1.12.0",
+    "@bmi-digital/components": "^1.12.3",
     "@bmi-digital/react-pdf-maker": "^1.4.0",
     "@bmi-digital/styles": "^1.3.3",
+    "@bmi/gatsby-plugin-material-ui": "^0.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.0",
@@ -31,7 +32,7 @@
     "cookieconsent": "^3.1.1",
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
-    "gatsby": "^4.7.1",
+    "gatsby": "^4.10.1",
     "gatsby-plugin-react-helmet": "^5.7.0",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sass": "^5.7.0",

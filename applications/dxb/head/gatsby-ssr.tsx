@@ -9,7 +9,7 @@ export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return (
     /*providers with static data*/
     <ConfigProvider>
-      <ThemeProvider includeCssBaseline={false}>
+      <ThemeProvider>
         <HubspotProvider async={false} addToHead={true}>
           {element}
         </HubspotProvider>
