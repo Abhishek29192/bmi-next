@@ -14,6 +14,6 @@ module.exports = {
     "@babel/preset-react"
   ],
   plugins: [
-    ["react-remove-properties", { properties: ["data-test", "data-testid"] }]
+    ["@babel/plugin-proposal-private-property-in-object", { loose: true }]
   ]
 };
