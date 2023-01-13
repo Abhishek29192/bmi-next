@@ -330,6 +330,9 @@ export const microCopy = {
   FILTER_LABELS_COLOUR: "filterLabels.colour",
   FILTER_LABELS_PRODUCT_FAMILY: "filterLabels.ProductFamily",
   FILTER_LABELS_CATEGORY: "filterLabels.Category",
+  FILTER_LABELS_AVAILABILITY_HEADING: "filterLabels.Availability.Heading",
+  FILTER_LABELS_SUMMERY_ACCORDION_AVAILABILITY:
+    "filterLabels.Summery.Accordion.Availability",
 
   FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
   UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",

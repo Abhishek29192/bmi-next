@@ -243,7 +243,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-1"
                   type="button"
@@ -267,7 +267,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link-link-2"
                   type="button"
@@ -1029,7 +1029,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-results-footer"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               type="button"
             >
@@ -1055,7 +1055,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               This site is protected by reCAPTCHA and the Google 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
@@ -1067,7 +1067,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </a>
                and 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
@@ -1416,7 +1416,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -1438,7 +1438,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -1960,7 +1960,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             data-testid="document-results-footer"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
               data-testid="anchor-link"
               type="button"
             >
@@ -1986,7 +1986,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             >
               This site is protected by reCAPTCHA and the Google 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-privacy-policy-link"
                 href="https://policies.google.com/privacy"
                 rel="noreferrer noopener"
@@ -1998,7 +1998,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </a>
                and 
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                 data-testid="recaptcha-terms-of-service-link"
                 href="https://policies.google.com/terms"
                 rel="noreferrer noopener"
@@ -2331,7 +2331,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               />
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -2353,7 +2353,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
               <div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
                   data-gtm="{"id":"cta-click1","action":"http://localhost:8000/"}"
                   data-testid="guarantee-inline-link"
                   type="button"
@@ -3189,7 +3189,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       data-testid="document-results-footer"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
         data-testid="anchor-link"
         type="button"
       >
@@ -3215,7 +3215,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -3227,7 +3227,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"
@@ -3296,7 +3296,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         />
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-1","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-1"
             type="button"
@@ -3320,7 +3320,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
         <div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
             data-gtm="{"id":"cta-click1","label":"link-2","action":"http://localhost:8000/"}"
             data-testid="guarantee-inline-link-link-2"
             type="button"
@@ -3999,7 +3999,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       data-testid="document-results-footer"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways clear-downloads Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
         data-testid="anchor-link"
         type="button"
       >
@@ -4025,7 +4025,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       >
         This site is protected by reCAPTCHA and the Google 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-privacy-policy-link"
           href="https://policies.google.com/privacy"
           rel="noreferrer noopener"
@@ -4037,7 +4037,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-kan2f7-MuiTypography-root-MuiLink-root"
           data-testid="recaptcha-terms-of-service-link"
           href="https://policies.google.com/terms"
           rel="noreferrer noopener"

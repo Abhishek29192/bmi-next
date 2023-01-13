@@ -27,6 +27,7 @@ jest.mock("react-google-recaptcha-v3", () => {
 });
 
 const fetchMock = jest.fn();
+
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
