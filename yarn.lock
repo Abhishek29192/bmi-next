@@ -1192,6 +1192,36 @@
     react-swipeable-views-core "^0.14.0"
     react-swipeable-views-utils "^0.14.0"
 
+"@bmi-digital/components@^1.12.1":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/components/-/components-1.12.1.tgz#ba905878270696c7be0cbb9df11671670959daec"
+  integrity sha512-ZQk9eGSpCqL1IEUBOAAamdyGCxIFKVDUnX1ohh10tQNGfM0uzR4FQ+PiV71eDM7CT0jayZsX1NJdm8WY/c1S/w==
+  dependencies:
+    "@bmi-digital/styles" "^1.4.0"
+    "@bmi-digital/svg-import" "^1.4.0"
+    "@bmi-digital/use-dimensions" "^1.4.0"
+    "@emotion/react" "^11.10.5"
+    "@emotion/styled" "^11.10.5"
+    "@googlemaps/js-api-loader" "^1.15.1"
+    "@googlemaps/markerclusterer" "^1.0.27"
+    "@mui/icons-material" "^5.11.0"
+    "@mui/lab" "^5.0.0-alpha.113"
+    "@mui/material" "^5.11.1"
+    "@mui/styles" "^5.11.1"
+    "@mui/system" "^5.11.1"
+    autosuggest-highlight "^3.1.1"
+    axios "^0.26.0"
+    classnames "^2.2.6"
+    csstype "^3.0.7"
+    escape-string-regexp "^4.0.0"
+    react-is "^16.13.1"
+    react-lines-ellipsis "^0.14.1"
+    react-masonry-css "^1.0.14"
+    react-player "^2.9.0"
+    react-swipeable-views "^0.14.0"
+    react-swipeable-views-core "^0.14.0"
+    react-swipeable-views-utils "^0.14.0"
+
 "@bmi-digital/contentful-migration@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@bmi-digital/contentful-migration/-/contentful-migration-1.2.0.tgz#72348605928d2ce6f793745cfd511aa48026ec0b"

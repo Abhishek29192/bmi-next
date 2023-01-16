@@ -77,13 +77,13 @@
         "icon": "/icons/flags/at.svg"
       },
       {
-        "code": "be",
-        "label": "Belgium | België",
+        "code": "be/fr-be",
+        "label": "Belgium | Belgique",
         "icon": "/icons/flags/be.svg"
       },
       {
-        "code": "be/fr-be",
-        "label": "Belgium | Belgique",
+        "code": "be",
+        "label": "Belgium | België",
         "icon": "/icons/flags/be.svg"
       },
       {

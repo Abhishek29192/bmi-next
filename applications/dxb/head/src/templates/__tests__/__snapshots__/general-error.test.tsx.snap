@@ -3,7 +3,7 @@
 exports[`General Error render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -773,7 +773,7 @@ exports[`General Error render correctly 1`] = `
 exports[`General Error render correctly when errorGeneral is falsy 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
     elevation="3"
   >
     <nav

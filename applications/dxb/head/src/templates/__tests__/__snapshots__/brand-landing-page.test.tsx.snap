@@ -3,7 +3,7 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -3456,7 +3456,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -6664,7 +6664,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -10098,7 +10098,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -13501,7 +13501,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no context for firstslide when no description 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -16933,7 +16933,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -20342,7 +20342,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -23780,7 +23780,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -27214,7 +27214,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav

@@ -3,7 +3,7 @@
 exports[`404 page tests When error page data is partially populated renders place holder content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -2948,7 +2948,7 @@ exports[`404 page tests When error page data is partially populated renders plac
 exports[`404 page tests When site data and error page data are fully populated renders page content and FourOFour content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav

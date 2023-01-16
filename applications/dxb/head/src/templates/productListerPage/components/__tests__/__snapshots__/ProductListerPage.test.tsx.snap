@@ -4,7 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -1160,7 +1160,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -2322,7 +2322,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -3582,7 +3582,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -4836,7 +4836,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -6163,7 +6163,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -7249,7 +7249,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -8335,7 +8335,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -9475,7 +9475,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -10812,7 +10812,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -12149,7 +12149,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -13493,7 +13493,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -14848,7 +14848,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
@@ -18005,7 +18005,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-hzks49"
+      class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
       elevation="3"
     >
       <nav
