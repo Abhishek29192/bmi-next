@@ -3,7 +3,7 @@
 exports[`Simple page renders correctly when no feature media 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -3272,7 +3272,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
 exports[`Simple page renders correctly with full data 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav

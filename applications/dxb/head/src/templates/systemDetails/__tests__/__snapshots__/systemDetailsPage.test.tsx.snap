@@ -3,7 +3,7 @@
 exports[`SystemDetailsPage template component gtm on landing on sdp from sc run pushtogtm data layer if selected_system in query param 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -4073,7 +4073,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
 exports[`SystemDetailsPage template component should render 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -8116,7 +8116,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
 exports[`SystemDetailsPage template component should render without Brand logo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -12164,7 +12164,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
 exports[`SystemDetailsPage template component should render without BrandProvider 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -16207,7 +16207,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
 exports[`SystemDetailsPage template component should render without specifications 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -20211,7 +20211,7 @@ exports[`SystemDetailsPage template component should render without specificatio
 exports[`SystemDetailsPage template component should render without systemLayers 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -24254,7 +24254,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
 exports[`SystemDetailsPage template component systemLayers tests should NOT render duplicate products in related products and optional related products 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
@@ -28422,7 +28422,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
 exports[`SystemDetailsPage template component systemLayers tests should render with all systemLayers 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-hzks49"
+    class="Header-headersmall Header-headermedium css-1ds2dvn"
     elevation="3"
   >
     <nav
