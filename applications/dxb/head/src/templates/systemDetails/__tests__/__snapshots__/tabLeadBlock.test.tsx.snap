@@ -114,7 +114,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -395,7 +395,7 @@ exports[`TabLeadBlock tests should render 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div

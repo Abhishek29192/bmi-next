@@ -5,8 +5,8 @@ import {
   ButtonProps,
   IconList,
   LeadBlock,
-  Typography,
-  transformHyphens
+  transformHyphens,
+  Typography
 } from "@bmi-digital/components";
 import { Launch } from "@mui/icons-material";
 import CheckIcon from "@mui/icons-material/Check";
@@ -22,7 +22,7 @@ import { Data as ContentfulTitleWithContent } from "../../components/TitleWithCo
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import { StyledLeadBlock, classes } from "./styles/aboutLeadBlockStyles";
+import { classes, StyledLeadBlock } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 
@@ -76,7 +76,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const guaranteesImages = system.guaranteesAndWarrantiesImages?.filter(
     (item) => isImageAsset(item)
   );
-  // const classes = useStylesAboutLeadBlock();
+
   return (
     <StyledLeadBlock>
       <LeadBlock.Content>

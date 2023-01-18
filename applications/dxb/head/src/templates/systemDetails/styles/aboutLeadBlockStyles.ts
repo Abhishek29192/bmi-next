@@ -8,13 +8,12 @@ export const classes = {
 };
 
 export const StyledLeadBlock = styled(LeadBlock)(({ theme }) => ({
-  color: theme.colours.inter,
   [`& .${classes.guaranteesAndAwardsAsset}`]: {
     "& .image": {
       height: "80px",
       paddingRight: "10px"
     },
-    "&.inline-link": {
+    "& .inline-link": {
       paddingTop: "10px",
       color: "#0072b0",
       "&:hover": {
