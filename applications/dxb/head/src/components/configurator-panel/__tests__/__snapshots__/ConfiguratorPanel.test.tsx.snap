@@ -3,14 +3,16 @@
 exports[`ConfiguratorPanel component renders collapsed 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-expanded="false"
-        class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
       >
@@ -19,7 +21,7 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
           </h3>
@@ -55,7 +57,8 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               />
             </div>
           </div>
@@ -69,14 +72,16 @@ exports[`ConfiguratorPanel component renders collapsed 1`] = `
 exports[`ConfiguratorPanel component renders correctly 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
       >
@@ -85,7 +90,7 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
           </h3>
@@ -121,7 +126,8 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               />
             </div>
           </div>
@@ -135,15 +141,17 @@ exports[`ConfiguratorPanel component renders correctly 1`] = `
 exports[`ConfiguratorPanel component renders disabled 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-disabled="true"
         aria-expanded="true"
-        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="-1"
       >
@@ -152,7 +160,7 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
           </h3>
@@ -188,10 +196,12 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               >
                 <div
-                  class="configuratorPanelStyles-content"
+                  class="css-uewl2b"
+                  data-testid="configurator-panel-accordion-details-content"
                 >
                   Expanded with child content
                 </div>
@@ -217,14 +227,16 @@ exports[`ConfiguratorPanel component renders disabled 1`] = `
 exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
       >
@@ -233,7 +245,7 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
           </h3>
@@ -269,10 +281,12 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               >
                 <div
-                  class="configuratorPanelStyles-content"
+                  class="css-uewl2b"
+                  data-testid="configurator-panel-accordion-details-content"
                 >
                   Expanded with child content
                 </div>
@@ -289,14 +303,16 @@ exports[`ConfiguratorPanel component renders expanded with child content 1`] = `
 exports[`ConfiguratorPanel component renders expanded with child content and options 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="0"
       >
@@ -305,7 +321,7 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question One
           </h3>
@@ -341,10 +357,12 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               >
                 <div
-                  class="configuratorPanelStyles-content"
+                  class="css-uewl2b"
+                  data-testid="configurator-panel-accordion-details-content"
                 >
                   Expanded with child content
                 </div>
@@ -370,15 +388,17 @@ exports[`ConfiguratorPanel component renders expanded with child content and opt
 exports[`ConfiguratorPanel component renders with title with selected option title 1`] = `
 <div>
   <div
-    class="configuratorPanelStyles-root css-1avf3zd"
+    class="css-1rikofx"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+      data-testid="configurator-panel-accordion"
     >
       <div
         aria-disabled="true"
         aria-expanded="true"
-        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+        class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+        data-testid="configurator-panel-accordion-summary"
         role="button"
         tabindex="-1"
       >
@@ -387,7 +407,7 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-            data-testid="typography"
+            data-testid="configurator-panel-accordion-summary-title"
           >
             Question one: 
             <span
@@ -428,10 +448,12 @@ exports[`ConfiguratorPanel component renders with title with selected option tit
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                data-testid="configurator-panel-accordion-details"
               >
                 <div
-                  class="configuratorPanelStyles-content"
+                  class="css-uewl2b"
+                  data-testid="configurator-panel-accordion-details-content"
                 >
                   Expanded with child content
                 </div>
