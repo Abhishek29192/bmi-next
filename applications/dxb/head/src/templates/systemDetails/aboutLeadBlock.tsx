@@ -180,7 +180,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
         )}
       </LeadBlock.Content>
       {(system.keyFeatures || system.systemBenefits || sidebarItem) && (
-        <LeadBlock.Card theme="pearl" data-testid="sidebar">
+        <LeadBlock.Card color="pearl" data-testid="sidebar">
           {system.keyFeatures && (
             <LeadBlockCardContent
               title={system.keyFeatures.name}

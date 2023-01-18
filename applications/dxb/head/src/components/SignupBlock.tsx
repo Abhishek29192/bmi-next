@@ -1,10 +1,9 @@
-/* eslint-disable no-unreachable */
 import {
   Button,
   ButtonProps,
   Dialog,
   SignupBlock,
-  SignupBlockTheme
+  SignupBlockColor
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
@@ -29,7 +28,7 @@ const IntegratedSignupBlock = ({
   theme
 }: {
   data?: Data;
-  theme?: SignupBlockTheme;
+  theme?: SignupBlockColor;
 }) => {
   if (!data) {
     return null;
@@ -84,7 +83,7 @@ const IntegratedSignupBlock = ({
         title={title}
         description={description?.description}
         inputCallToAction={signupLabel}
-        theme={theme || "blue800"}
+        color={theme || "blue800"}
         buttonComponent={(props: ButtonProps) => (
           <GTMButton
             gtm={{

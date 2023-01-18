@@ -99,7 +99,7 @@ const TechnicalSpecificationLeadBlock = ({
       </LeadBlock.Content>
       {specificationNotes && (
         <Grid item lg={4} xs={12} data-testid="specificationNotes">
-          <PostItCard theme="pearl">
+          <PostItCard color="pearl">
             <PostItCard.Section>
               <PostItCard.Heading hasUnderline>
                 {specificationNotes.title}

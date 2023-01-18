@@ -9,6 +9,9 @@ module.exports = {
         args: ["--no-sandbox"]
       },
       settings: {
+        extraHeaders: JSON.stringify({
+          Authorization: process.env.LIGHTHOUSE_AUTHORIZATION
+        }),
         pwd: ""
       }
     },

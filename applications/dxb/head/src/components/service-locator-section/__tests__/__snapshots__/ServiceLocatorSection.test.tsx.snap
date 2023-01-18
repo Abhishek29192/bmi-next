@@ -160,7 +160,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -175,7 +175,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -190,7 +190,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Country Offices\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -205,7 +205,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Headquarters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -220,7 +220,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"BMI Icopal Merchant 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1488,7 +1488,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-rxvc1s-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1500,7 +1500,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1512,7 +1512,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 3\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1524,7 +1524,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 4\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -1536,7 +1536,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 5\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -3632,7 +3632,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                   MC: findABranch.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-rxvc1s-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Country Offices\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -3644,7 +3644,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Headquarters\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -4255,7 +4255,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                   MC: findAMerchant.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"BMI Icopal Flat Roof Systems\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -4267,7 +4267,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-rxvc1s-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Merchant type 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -4836,7 +4836,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-rxvc1s-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -4848,7 +4848,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8452,7 +8452,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8467,7 +8467,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8482,7 +8482,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8497,7 +8497,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8512,7 +8512,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 3\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8527,7 +8527,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 4\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8542,7 +8542,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 5\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -8557,7 +8557,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 6\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -9785,7 +9785,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -9800,7 +9800,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -9815,7 +9815,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -9830,7 +9830,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -11938,7 +11938,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -11953,7 +11953,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15404,7 +15404,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                   MC: findARoofer.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15416,7 +15416,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                   </span>
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15736,7 +15736,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   MC: findAMerchant.filtersLabel
                 </h6>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15751,7 +15751,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15766,7 +15766,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flachdach system\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"
@@ -15781,7 +15781,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                   />
                 </div>
                 <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched roof Bitumen roofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                   role="button"
                   tabindex="0"

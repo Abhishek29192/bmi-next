@@ -137,7 +137,7 @@ const LeadBlockSection = ({
         {uniqueSellingPropositions && uniqueSellingPropositions.length > 0 && (
           <LeadBlock.Card
             className={styles["card"]}
-            theme="pearl"
+            color="pearl"
             data-testid="system-attributes-card"
           >
             <LeadBlock.Card.Section>
