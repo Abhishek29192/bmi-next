@@ -2901,7 +2901,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -6945,7 +6945,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -10993,7 +10993,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                   data-testid="grid"
                 >
                   <div
@@ -15038,7 +15038,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -19082,7 +19082,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -23087,7 +23087,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -27256,7 +27256,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
@@ -31425,7 +31425,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1jnx7rv-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
                 data-testid="grid"
               >
                 <div
