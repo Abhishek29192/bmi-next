@@ -4,7 +4,6 @@ import {
   ClickableAction,
   DownloadList,
   DownloadListContext,
-  Icon,
   iconMap,
   Table
 } from "@bmi-digital/components";
@@ -42,7 +41,12 @@ import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
 import {
   classes,
-  StyledSimpleTableResults
+  DocumentRow,
+  DownloadIcon,
+  ExternalLinkIcon,
+  NoDocumentIcon,
+  StyledSimpleTableResults,
+  StyledTableCell
 } from "./styles/DocumentSimpleTableResultsStyles";
 
 export type AvailableHeader =
@@ -79,11 +83,7 @@ const isLinkDocument = (document: Document): boolean =>
 const getUniqueId = (document: Document): string =>
   `${document.id}-${document.title}`.replace(/ /g, "_");
 
-const getDocument = (
-  document: Document,
-  headers: AvailableHeader[],
-  classes: any
-) => {
+const getDocument = (document: Document, headers: AvailableHeader[]) => {
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
   return headers.map((header) => {
@@ -91,17 +91,15 @@ const getDocument = (
 
     if (header === "typeCode") {
       return (
-        <Table.Cell className={classes.tableCell} key={key}>
+        <StyledTableCell key={key}>
           <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
     if (header === "type") {
       return (
-        <Table.Cell className={classes.tableCell} key={key}>
-          {document.assetType.name}
-        </Table.Cell>
+        <StyledTableCell key={key}>{document.assetType.name}</StyledTableCell>
       );
     }
 
@@ -110,25 +108,21 @@ const getDocument = (
         document.__typename === "PIMDocument" ||
         document.__typename === "PIMSystemDocument"
       ) {
-        return (
-          <Table.Cell className={classes.tableCell} key={key}>
-            {document.title}
-          </Table.Cell>
-        );
+        return <StyledTableCell key={key}>{document.title}</StyledTableCell>;
       }
     }
 
     if (header === "title") {
       return (
-        <Table.Cell className={classes.tableCell} key={key}>
-          <p className={classes.title}>{document.title}</p>
-        </Table.Cell>
+        <StyledTableCell key={key}>
+          <p>{document.title}</p>
+        </StyledTableCell>
       );
     }
 
     if (header === "download") {
       return (
-        <Table.Cell className={classes.tableCell} align="left" key={key}>
+        <StyledTableCell align="left" key={key}>
           {!isLinkDocument(document) ? (
             document.__typename === "PIMDocumentWithPseudoZip" ? (
               <MultipleAssetToFileDownload document={document} />
@@ -146,19 +140,16 @@ const getDocument = (
                 rel: "noopener noreferrer"
               }}
             >
-              <Icon
-                source={iconMap.External}
-                className={classes.externalLinkIcon}
-              />
+              <ExternalLinkIcon source={iconMap.External} />
             </Button>
           )}
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
     if (header === "add") {
       return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
-        <Table.Cell className={classes.tableCell} align="center" key={key}>
+        <StyledTableCell align="center" key={key}>
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
               name={getUniqueId(document)}
@@ -172,11 +163,11 @@ const getDocument = (
               fileSize={document[typenameToSizeMap[document.__typename]] || 0}
             />
           ) : (
-            <span className={classes.noDocumentIcon}>-</span>
+            <NoDocumentIcon>-</NoDocumentIcon>
           )}
-        </Table.Cell>
+        </StyledTableCell>
       ) : (
-        <Table.Cell className={classes.tableCell} align="center" key={key}>
+        <StyledTableCell align="center" key={key}>
           <DownloadList.Checkbox
             name={getUniqueId(document)}
             maxLimitReachedLabel={getMicroCopy(
@@ -188,15 +179,11 @@ const getDocument = (
             value={document.documentList}
             fileSize={document.fileSize}
           />
-        </Table.Cell>
+        </StyledTableCell>
       );
     }
 
-    return (
-      <Table.Cell className={classes.tableCell} key={key}>
-        n/d
-      </Table.Cell>
-    );
+    return <StyledTableCell key={key}>n/d</StyledTableCell>;
   });
 };
 
@@ -344,10 +331,10 @@ export const MultipleAssetToFileDownload = ({
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
         document.format && (
-          <Icon
+          <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[document.format] || iconMap.FileUniversal}
-            className={classnames(classes.downloadIcon, "download-icon")}
+            className={"download-icon"}
           />
         )
       }
@@ -378,10 +365,10 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
         format && (
-          <Icon
+          <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[format] || iconMap.FileUniversal}
-            className={classnames(classes.downloadIcon, "download-icon")}
+            className={"download-icon"}
           />
         )
       }
@@ -447,10 +434,9 @@ const DocumentSimpleTableResults = ({
             const { __typename } = document;
 
             return (
-              <Table.Row
+              <DocumentRow
                 key={`${__typename}-${index}`}
                 className={classnames(
-                  classes.row,
                   "row",
                   // eslint-disable-next-line security/detect-object-injection
                   !!list[getUniqueId(document)] && classes.checked
@@ -458,8 +444,8 @@ const DocumentSimpleTableResults = ({
                 // eslint-disable-next-line security/detect-object-injection
                 selected={!!list[getUniqueId(document)]}
               >
-                {getDocument(document, headers, classes)}
-              </Table.Row>
+                {getDocument(document, headers)}
+              </DocumentRow>
             );
           })}
         </Table.Body>
