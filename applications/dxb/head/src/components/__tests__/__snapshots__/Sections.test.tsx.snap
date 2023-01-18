@@ -1545,7 +1545,7 @@ HTMLCollection [
                     findARoofer.filtersLabel
                   </h6>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"
@@ -1560,7 +1560,7 @@ HTMLCollection [
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-1gbb1v1-MuiButtonBase-root-MuiChip-root"
+                    class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"

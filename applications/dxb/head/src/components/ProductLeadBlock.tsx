@@ -200,7 +200,7 @@ const ProductLeadBlock = ({
               )}
             </LeadBlock.Content>
             {(product.productBenefits || sidebarItems?.length) && (
-              <LeadBlock.Card theme="blue900">
+              <LeadBlock.Card color="blue900">
                 {product.productBenefits ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
@@ -257,7 +257,7 @@ const ProductLeadBlock = ({
               <ProductTechnicalSpec product={product} />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
-              <LeadBlock.Card theme="blue900">
+              <LeadBlock.Card color="blue900">
                 {sidebarItems.slice(1).map(({ title, content }, index) => {
                   return (
                     <LeadBlock.Card.Section key={`sidebar-item-${index}`}>

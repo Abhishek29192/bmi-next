@@ -88,7 +88,7 @@ const SearchPageBlock = ({
           xs={12}
           className={classnames(styles["content"], styles["content--card"])}
         >
-          <PostItCard theme="pearl">
+          <PostItCard color="pearl">
             <PostItCard.Section>
               <PostItCard.Heading hasUnderline>
                 {searchPageSidebarItems.title}

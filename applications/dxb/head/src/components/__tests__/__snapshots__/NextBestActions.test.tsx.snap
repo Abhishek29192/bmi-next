@@ -25,121 +25,113 @@ exports[`NextBestActions component renders correctly 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
             data-testid="grid-item"
           >
-            <div
-              class="ColorPair-secondary1 css-1pt14k0"
+            <a
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
+              href="/en/somewhere/"
+              tabindex="0"
+              type="button"
             >
-              <a
-                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere/\\",\\"label\\":\\"test\\"}"
-                href="/en/somewhere/"
-                tabindex="0"
-                type="button"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  test
-                </h4>
+                test
+              </h4>
+              <div
+                class="css-4osezd"
+              />
+              <div
+                class="css-8xl60i"
+              >
                 <div
-                  class="css-4osezd"
-                />
-                <div
-                  class="css-8xl60i"
+                  style="font-size: 1rem;"
                 >
-                  <div
-                    style="font-size: 1rem;"
+                  <span
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
+                    type="button"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      class=" css-em5iqk"
+                      data-testid="internal"
+                      focusable="false"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=" css-em5iqk"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                        />
-                      </svg>
-                      <span>
-                        test
-                      </span>
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
+                    <span>
+                      test
                     </span>
-                  </div>
+                  </span>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
             data-testid="grid-item"
           >
-            <div
-              class="ColorPair-secondary2 css-1pt14k0"
+            <a
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary2 css-bkdr6q-MuiButtonBase-root"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+              type="button"
             >
-              <a
-                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
-                href="https://www.external.co.uk"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                type="button"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  test
-                </h4>
+                test
+              </h4>
+              <div
+                class="css-4osezd"
+              >
+                I am a subtitle
+              </div>
+              <div
+                class="css-8xl60i"
+              >
                 <div
-                  class="css-4osezd"
+                  style="font-size: 1rem;"
                 >
-                  I am a subtitle
-                </div>
-                <div
-                  class="css-8xl60i"
-                >
-                  <div
-                    style="font-size: 1rem;"
+                  <span
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
+                    type="button"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      class=" css-em5iqk"
+                      data-testid="internal"
+                      focusable="false"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=" css-em5iqk"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                        />
-                      </svg>
-                      <span>
-                        string
-                      </span>
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
+                    <span>
+                      string
                     </span>
-                  </div>
+                  </span>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -173,63 +165,59 @@ exports[`NextBestActions component renders name with no title 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
             data-testid="grid-item"
           >
-            <div
-              class="ColorPair-secondary1 css-1pt14k0"
+            <a
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+              type="button"
             >
-              <a
-                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
-                href="https://www.external.co.uk"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                type="button"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  test name
-                </h4>
+                test name
+              </h4>
+              <div
+                class="css-4osezd"
+              >
+                I am a subtitle
+              </div>
+              <div
+                class="css-8xl60i"
+              >
                 <div
-                  class="css-4osezd"
+                  style="font-size: 1rem;"
                 >
-                  I am a subtitle
-                </div>
-                <div
-                  class="css-8xl60i"
-                >
-                  <div
-                    style="font-size: 1rem;"
+                  <span
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
+                    data-testid="anchor-link"
+                    type="button"
                   >
-                    <span
-                      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink AnchorLink-white css-1m0txtt-MuiTypography-root-MuiLink-root"
-                      data-testid="anchor-link"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      class=" css-em5iqk"
+                      data-testid="internal"
+                      focusable="false"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class=" css-em5iqk"
-                        data-testid="internal"
-                        focusable="false"
-                        viewBox="0 0 16 16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
-                        />
-                      </svg>
-                      <span>
-                        string
-                      </span>
+                      <path
+                        d="m8.654 2.686-1.41 1.419L10.182 7H2v2h8.162L7.3 11.903l1.419 1.411L14 7.968 8.654 2.686z"
+                      />
+                    </svg>
+                    <span>
+                      string
                     </span>
-                  </div>
+                  </span>
                 </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+              </div>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -264,23 +252,19 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
             data-testid="grid-item"
           >
             <div
-              class="ColorPair-secondary1 css-1pt14k0"
+              class=" ColorPair-secondary1 css-137fghv"
+              type="button"
             >
-              <div
-                class=" css-g23xpu"
-                type="button"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  test
-                </h4>
-                <div
-                  class="css-4osezd"
-                >
-                  I am a subtitle
-                </div>
+                test
+              </h4>
+              <div
+                class="css-4osezd"
+              >
+                I am a subtitle
               </div>
             </div>
           </div>
@@ -316,34 +300,30 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
             data-testid="grid-item"
           >
-            <div
-              class="ColorPair-secondary1 css-1pt14k0"
+            <a
+              class="MuiButtonBase-root NBACard-clickable ColorPair-secondary1 css-bkdr6q-MuiButtonBase-root"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+              type="button"
             >
-              <a
-                class="MuiButtonBase-root NBACard-clickable css-dz0mu4-MuiButtonBase-root"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":null}"
-                href="https://www.external.co.uk"
-                rel="noopener noreferrer"
-                tabindex="0"
-                target="_blank"
-                type="button"
+              <h4
+                class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                data-testid="typography"
               >
-                <h4
-                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  test
-                </h4>
-                <div
-                  class="css-4osezd"
-                >
-                  I am a subtitle
-                </div>
-                <span
-                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                />
-              </a>
-            </div>
+                test
+              </h4>
+              <div
+                class="css-4osezd"
+              >
+                I am a subtitle
+              </div>
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </a>
           </div>
         </div>
       </div>

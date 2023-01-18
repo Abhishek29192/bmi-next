@@ -397,7 +397,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 />
               </LeadBlock.Content>
               {isKeyFeatureBlockVisible ? (
-                <LeadBlock.Card theme="pearl">
+                <LeadBlock.Card color="pearl">
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy(microCopy.PLP_KEY_FEATURES_TITLE)}

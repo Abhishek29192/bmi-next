@@ -40,7 +40,7 @@ const IntegratedPostItCard = ({
   const { countryCode } = useSiteContext();
 
   return (
-    <Component theme={cardTheme}>
+    <Component color={cardTheme}>
       {cardSections.map(
         ({
           id,

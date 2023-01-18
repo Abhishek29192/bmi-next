@@ -2630,22 +2630,18 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="ColorPair-secondary1 css-1pt14k0"
+                class=" ColorPair-secondary1 css-137fghv"
+                type="button"
               >
-                <div
-                  class=" css-g23xpu"
-                  type="button"
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <h4
-                    class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    Action 1
-                  </h4>
-                  <div
-                    class="css-4osezd"
-                  />
-                </div>
+                  Action 1
+                </h4>
+                <div
+                  class="css-4osezd"
+                />
               </div>
             </div>
           </div>
@@ -6112,22 +6108,18 @@ exports[`Simple page renders correctly with full data 1`] = `
               data-testid="grid-item"
             >
               <div
-                class="ColorPair-secondary1 css-1pt14k0"
+                class=" ColorPair-secondary1 css-137fghv"
+                type="button"
               >
-                <div
-                  class=" css-g23xpu"
-                  type="button"
+                <h4
+                  class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <h4
-                    class="MuiTypography-root MuiTypography-h4 css-xmpqba-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    Action 1
-                  </h4>
-                  <div
-                    class="css-4osezd"
-                  />
-                </div>
+                  Action 1
+                </h4>
+                <div
+                  class="css-4osezd"
+                />
               </div>
             </div>
           </div>

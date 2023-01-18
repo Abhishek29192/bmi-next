@@ -333,7 +333,7 @@ const CardCollectionSection = ({
                       type="selectable"
                       // eslint-disable-next-line security/detect-object-injection
                       isSelected={activeGroups[tagTitle]}
-                      theme={cardType === "Story Card" ? "pearl" : "white"}
+                      color={cardType === "Story Card" ? "pearl" : "white"}
                       gtm={{
                         id: "selector-cards1",
                         label,
