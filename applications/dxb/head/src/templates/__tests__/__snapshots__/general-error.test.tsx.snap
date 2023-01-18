@@ -3,7 +3,7 @@
 exports[`General Error render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -269,6 +269,7 @@ exports[`General Error render correctly 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -331,7 +332,7 @@ exports[`General Error render correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -773,7 +774,7 @@ exports[`General Error render correctly 1`] = `
 exports[`General Error render correctly when errorGeneral is falsy 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -1039,6 +1040,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -1101,7 +1103,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"

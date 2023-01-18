@@ -3,7 +3,7 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -295,6 +295,7 @@ exports[`Header component renders correctly 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -357,7 +358,7 @@ exports[`Header component renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -661,7 +662,7 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -953,6 +954,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -1015,7 +1017,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -1321,7 +1323,7 @@ exports[`Header component renders without navigation props 1`] = `<div />`;
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -1613,10 +1615,12 @@ exports[`Header component shows sample basket icon 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <a
                 aria-label="MC: basket.label"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-basketButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="shoppingCart-button"
                 role="button"
                 tabindex="0"
                 type="button"
@@ -1697,7 +1701,7 @@ exports[`Header component shows sample basket icon 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -2150,7 +2154,7 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1ds2dvn"
+    class="Header-headersmall Header-headermedium Header-headerlarge css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -2442,6 +2446,7 @@ exports[`Header component toggles search 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -2504,7 +2509,7 @@ exports[`Header component toggles search 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"

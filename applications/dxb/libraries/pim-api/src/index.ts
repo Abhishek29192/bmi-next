@@ -54,9 +54,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     );
   }
 
-  const data = (await response.json()) as AuthResponse;
-
-  return data;
+  return (await response.json()) as AuthResponse;
 };
 
 export const fetchData = async (
@@ -103,11 +101,7 @@ export const fetchData = async (
     );
   }
 
-  const data = (await response.json()) as
-    | ProductsApiResponse
-    | SystemsApiResponse;
-
-  return data;
+  return (await response.json()) as ProductsApiResponse | SystemsApiResponse;
 };
 
 const fetchDataByMessageId = async (
@@ -156,11 +150,7 @@ const fetchDataByMessageId = async (
     );
   }
 
-  const data = (await response.json()) as
-    | ProductsApiResponse
-    | SystemsApiResponse;
-
-  return data;
+  return (await response.json()) as ProductsApiResponse | SystemsApiResponse;
 };
 
 export const getProductsByMessageId = async (

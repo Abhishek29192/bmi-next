@@ -3,7 +3,7 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -498,6 +498,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -560,7 +561,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -3456,7 +3457,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -3951,6 +3952,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -4013,7 +4015,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -6664,7 +6666,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -7159,6 +7161,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -7221,7 +7224,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -10098,7 +10101,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -10593,6 +10596,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -10655,7 +10659,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -13501,7 +13505,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no context for firstslide when no description 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -13996,6 +14000,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -14058,7 +14063,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -16933,7 +16938,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -17428,6 +17433,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -17490,7 +17496,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -20342,7 +20348,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -20837,6 +20843,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -20899,7 +20906,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -23780,7 +23787,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -24275,6 +24282,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -24337,7 +24345,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -27214,7 +27222,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1ds2dvn"
+    class="Header-headersmall Header-headermedium css-zmhcp4"
     elevation="3"
   >
     <nav
@@ -27709,6 +27717,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             </nav>
             <div
               class="Header-navigationBarButtons"
+              data-testid="navigationBar-buttons"
             >
               <button
                 aria-label="MC: search.label"
@@ -27771,7 +27780,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"

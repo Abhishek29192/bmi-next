@@ -7,13 +7,11 @@ exports.onPreInit = function (args, options) {
       type: typeof options.defaultDataLayer,
       value: options.defaultDataLayer
     };
-
     if (options.defaultDataLayer.type === "function") {
       options.defaultDataLayer.value = options.defaultDataLayer.value.toString();
     }
   }
 };
-
 exports.pluginOptionsSchema = function (_ref) {
   var Joi = _ref.Joi;
   return Joi.object({

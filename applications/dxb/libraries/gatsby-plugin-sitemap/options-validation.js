@@ -1,20 +1,13 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 exports.__esModule = true;
 exports.pluginOptionsSchema = void 0;
-
 var _taggedTemplateLiteralLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteralLoose"));
-
 var _graphql = require("gatsby/graphql");
-
 var _commonTags = require("common-tags");
-
 var _internals = require("./internals");
-
 var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
-
 var pluginOptionsSchema = function pluginOptionsSchema(_ref) {
   var Joi = _ref.Joi;
   return Joi.object({
@@ -25,7 +18,6 @@ var pluginOptionsSchema = function pluginOptionsSchema(_ref) {
     .description("Number of entries per sitemap file, a sitemap index and multiple sitemaps are created if you have more entries."),
     query: Joi.string().default((0, _commonTags.oneLine)(_templateObject || (_templateObject = (0, _taggedTemplateLiteralLoose2.default)(["{\n          site {\n            siteMetadata {\n              siteUrl\n            }\n          }\n\n          allSitePage {\n            nodes {\n              path\n            }\n          }\n        }"])))).external(function (pluginOptions) {
       var query = pluginOptions === null || pluginOptions === void 0 ? void 0 : pluginOptions.query;
-
       if (query) {
         try {
           (0, _graphql.parse)(query);
@@ -53,5 +45,4 @@ var pluginOptionsSchema = function pluginOptionsSchema(_ref) {
     ignoreSitemapPathPrefix: Joi.boolean().default(false).description("Whether to ignores the path prefix when setting the sitemap public path.")
   });
 };
-
 exports.pluginOptionsSchema = pluginOptionsSchema;
