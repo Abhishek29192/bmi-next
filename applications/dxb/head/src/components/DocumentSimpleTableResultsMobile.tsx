@@ -2,9 +2,11 @@ import {
   Button,
   ButtonProps,
   ClickableAction,
+  External,
+  ExternalMobile,
+  FileZIP,
   Icon,
-  Typography,
-  iconMap
+  Typography
 } from "@bmi-digital/components";
 import { GetApp } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
@@ -17,8 +19,8 @@ import withGTM from "../utils/google-tag-manager";
 import {
   Document,
   FileDownloadButtonProps,
-  MultipleAssetToFileDownload,
-  mapAssetToFileDownload
+  mapAssetToFileDownload,
+  MultipleAssetToFileDownload
 } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
 
@@ -110,7 +112,7 @@ const MultipleDocumentsToZipFile = ({
         <StyledListIcon>
           <StyledDownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={iconMap.FileZIP}
+            source={FileZIP}
             className={classnames("download-icon")}
           />
         </StyledListIcon>
@@ -131,7 +133,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
         {!asset.isLinkDocument && (
           <StyledListIcon>
             <StyledDownloadIcon
-              source={fileIconsMap[asset.format] || iconMap.External}
+              source={fileIconsMap[asset.format] || External}
               className={classnames("download-icon")}
             />
           </StyledListIcon>
@@ -168,7 +170,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
               rel: "noopener noreferrer"
             }}
           >
-            <StyledExternalLinkIcon source={iconMap.ExternalMobile} />
+            <StyledExternalLinkIcon source={ExternalMobile} />
           </Button>
         )}
       </StyledListDownloadRow>

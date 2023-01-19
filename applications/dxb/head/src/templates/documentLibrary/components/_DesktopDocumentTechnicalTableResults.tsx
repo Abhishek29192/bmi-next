@@ -2,11 +2,15 @@ import {
   Button,
   Clickable,
   ClickableProps,
+  Cross,
+  Download,
   DownloadList,
+  External,
+  FileUniversal,
+  FileZIP,
   Icon,
   IconButtonProps,
-  Table,
-  iconMap
+  Table
 } from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
@@ -15,13 +19,13 @@ import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
-  generateFileNamebyTitle,
-  generateFilenameByRealFileName
+  generateFilenameByRealFileName,
+  generateFileNamebyTitle
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
 import {
-  Root,
-  classes
+  classes,
+  Root
 } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import { microCopy } from "../../../constants/microCopies";
@@ -64,7 +68,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format] || iconMap.FileUniversal}
+          source={fileIconsMap[asset.format] || FileUniversal}
           className={classnames(classes.formatIcon, "format-icon")}
         />
       </GTMClickable>
@@ -87,7 +91,7 @@ const DesktopDocumentTechnicalTableResults = ({
         className={classes.externalDownloadButton}
         disableTouchRipple={true}
       >
-        <Icon source={iconMap.External} className={classes.externalLinkIcon} />
+        <Icon source={External} className={classes.externalLinkIcon} />
       </GTMButton>
     );
 
@@ -166,7 +170,7 @@ const DesktopDocumentTechnicalTableResults = ({
         disableTouchRipple={true}
         className={classes.externalDownloadButton}
       >
-        <Icon source={iconMap.FileZIP} className={classes.formatIcon} />
+        <Icon source={FileZIP} className={classes.formatIcon} />
       </GTMButton>
     );
   };
@@ -192,10 +196,7 @@ const DesktopDocumentTechnicalTableResults = ({
             })}
             <Table.Cell className={classes.allFilesHeader}>
               <span className={classes.allFilesHeaderWrapper}>
-                <Icon
-                  source={iconMap.Download}
-                  className={classes.allFilesIcon}
-                />
+                <Icon source={Download} className={classes.allFilesIcon} />
                 <span>
                   {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_ALL_FILES)}
                 </span>
@@ -228,7 +229,7 @@ const DesktopDocumentTechnicalTableResults = ({
                         className={classes.alignCenter}
                       >
                         <Icon
-                          source={iconMap.Cross}
+                          source={Cross}
                           className={classes.noDocumentIcon}
                         />
                       </Table.Cell>

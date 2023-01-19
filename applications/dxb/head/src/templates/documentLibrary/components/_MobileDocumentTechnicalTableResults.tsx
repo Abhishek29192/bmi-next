@@ -4,16 +4,18 @@ import {
   Button,
   Clickable,
   ClickableProps,
+  Download,
+  External,
+  FileUniversal,
   Icon,
-  IconButtonProps,
-  iconMap
+  IconButtonProps
 } from "@bmi-digital/components";
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import React from "react";
 import {
-  Root,
-  classes
+  classes,
+  Root
 } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import withGTM from "../../../utils/google-tag-manager";
@@ -77,9 +79,7 @@ const MobileDocumentTechnicalTableResults = ({
                     <div className={classes.iconContainer}>
                       {!asset.isLinkDocument ? (
                         <Icon
-                          source={
-                            fileIconsMap[asset.format] || iconMap.FileUniversal
-                          }
+                          source={fileIconsMap[asset.format] || FileUniversal}
                           className={classnames(
                             classes.formatIcon,
                             "format-icon"
@@ -87,7 +87,7 @@ const MobileDocumentTechnicalTableResults = ({
                         />
                       ) : (
                         <Icon
-                          source={iconMap.External}
+                          source={External}
                           className={classes.externalLinkIcon}
                         />
                       )}
@@ -111,7 +111,7 @@ const MobileDocumentTechnicalTableResults = ({
                           }}
                         >
                           <Icon
-                            source={iconMap.Download}
+                            source={Download}
                             className={classes["all-files-icon"]}
                           />
                         </GTMClickable>
@@ -133,7 +133,7 @@ const MobileDocumentTechnicalTableResults = ({
                           }}
                         >
                           <Icon
-                            source={iconMap.Download}
+                            source={Download}
                             className={classes.allFilesIcon}
                           />
                         </GTMButton>
