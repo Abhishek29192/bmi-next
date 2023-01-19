@@ -39,8 +39,8 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import {
   classes,
-  StyledForm,
-  StyledHubSpotContainer
+  HubspotFormWrapper,
+  StyledForm
 } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 
@@ -319,7 +319,7 @@ export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (
-        <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+        <Grid container key={$i} xs={12} md={width === "full" ? 12 : 6}>
           <Input {...props} />
         </Grid>
       ))}
@@ -437,9 +437,9 @@ const HubspotForm = ({
           )}
         </>
       )}
-      <StyledHubSpotContainer
+      <HubspotFormWrapper
         id={hubSpotFormID}
-        className={classNames(classes.hubSpot, isDialog && classes.dialog)}
+        className={classNames(isDialog && classes.dialog)}
       />
     </Section>
   );

@@ -405,7 +405,6 @@ const CardCollectionSection = ({
               const cardIsVisible = i >= numberOfCardsToShow;
               return (
                 <Grid
-                  item
                   key={`${id}-${i}`}
                   xs={12}
                   sm={6}
@@ -428,7 +427,7 @@ const CardCollectionSection = ({
               );
             })}
             {sortedIterableCards.length > numberOfCardsToShow && (
-              <Grid item xs={12} className={styles["show-more-block"]}>
+              <Grid xs={12} className={styles["show-more-block"]}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
                   {getMicroCopy(microCopy.GLOBAL_SHOW_MORE)}
                 </Button>

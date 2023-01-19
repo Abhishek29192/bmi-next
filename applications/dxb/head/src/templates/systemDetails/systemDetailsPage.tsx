@@ -96,7 +96,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         className={styles["imageGallery-systemLayers-section"]}
       >
         <Grid container spacing={3}>
-          <Grid item xs={12} md={12} lg={8}>
+          <Grid xs={12} md={12} lg={8}>
             <MediaGallery
               className={styles["gallery"]}
               media={media}
@@ -107,7 +107,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
             />
           </Grid>
           {system && system.systemLayers && system.systemLayers.length > 0 && (
-            <Grid item xs={12} md={12} lg={4}>
+            <Grid xs={12} md={12} lg={4}>
               <SystemLayersSection systemLayers={system.systemLayers} />
             </Grid>
           )}

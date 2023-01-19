@@ -57,7 +57,6 @@ export const renderProducts = (
       getMicroCopy("plp.product.moreOptionsAvailable");
     return (
       <Grid
-        item
         key={`${product.code}-${variant.code}`}
         xs={12}
         md={6}

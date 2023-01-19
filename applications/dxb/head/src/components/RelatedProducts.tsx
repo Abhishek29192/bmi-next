@@ -78,7 +78,6 @@ const ProductListing = ({
 
           return (
             <Grid
-              item
               key={`${product.baseCode}-${product.code}`}
               xs={12}
               md={6}

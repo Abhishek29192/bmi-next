@@ -23,7 +23,7 @@ export const ServiceLocatorChips = ({
   const GTMChip = withGTM<ChipProps>(Chip);
 
   return (
-    <Grid item xs={12} md={6} lg={8}>
+    <Grid xs={12} md={6} lg={8}>
       <div className={styles["filters"]}>
         <div className={styles["chips"]}>
           <Typography variant="h6" className={styles["chips-label"]}>

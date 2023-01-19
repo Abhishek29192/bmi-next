@@ -237,14 +237,14 @@ const SearchTabPanelProducts = (props: Props) => {
 
   return (
     <Grid container spacing={3} ref={resultsElement}>
-      <Grid item xs={12} md={12} lg={3}>
+      <Grid xs={12} md={12} lg={3}>
         <FiltersSidebar
           filters={filters}
           onFiltersChange={handleFiltersChange}
           onClearFilters={clearFilters}
         />
       </Grid>
-      <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+      <Grid xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
         <Grid container spacing={3}>
           <ProductsGridView
             isLoading={isLoading}

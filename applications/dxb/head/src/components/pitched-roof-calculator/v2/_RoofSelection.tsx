@@ -41,7 +41,7 @@ const RoofSelectionRow = ({
           });
 
           return (
-            <Grid item xs={6} md={4} lg={2} key={roof.id}>
+            <Grid xs={6} md={4} lg={2} key={roof.id}>
               <CardRadioGroup.Item
                 value={roof.id}
                 checked={values.roof === roof.id}

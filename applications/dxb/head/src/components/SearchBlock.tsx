@@ -59,7 +59,7 @@ const SearchPageBlock = ({
 
   return (
     <Grid container spacing={3} className={styles["SearchBlock"]}>
-      <Grid item lg={8} xs={12}>
+      <Grid lg={8} xs={12}>
         <div
           className={classnames(styles["content"], styles["content--search"])}
         >
@@ -85,7 +85,6 @@ const SearchPageBlock = ({
       </Grid>
       {!isLoading && !hasResults && searchPageSidebarItems && (
         <Grid
-          item
           lg={4}
           xs={12}
           className={classnames(styles["content"], styles["content--card"])}

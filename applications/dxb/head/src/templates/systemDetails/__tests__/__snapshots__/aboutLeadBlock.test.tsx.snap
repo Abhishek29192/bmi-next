@@ -3,11 +3,11 @@
 exports[`AboutLeadBlock tests should not render if no awardsAndCertificate images and document assets are provided 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -78,7 +78,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -131,11 +131,11 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
 exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -206,7 +206,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -259,11 +259,11 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
 exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -355,7 +355,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -408,11 +408,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -504,7 +504,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -540,11 +540,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
 exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -642,11 +642,11 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
 exports[`AboutLeadBlock tests should not render if no specification asset 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -699,7 +699,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -752,11 +752,11 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
 exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -848,7 +848,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -884,11 +884,11 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 exports[`AboutLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -980,7 +980,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div
@@ -1033,11 +1033,11 @@ exports[`AboutLeadBlock tests should render 1`] = `
 exports[`AboutLeadBlock tests specification section move up if no guaranteesAndWarranties assets and awardsAndCertificates assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1ti04yy-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -1092,7 +1092,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="sidebar"
     >
       <div

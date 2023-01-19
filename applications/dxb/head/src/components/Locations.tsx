@@ -20,7 +20,7 @@ const Locations = ({ data }: { data: Data }) => {
       {data.slice(0, numberVisible).map((data, index) => {
         const locationKey = `locations-card-${index}`;
         return (
-          <Grid item key={locationKey} xs={12} lg={6} data-testid={locationKey}>
+          <Grid key={locationKey} xs={12} lg={6} data-testid={locationKey}>
             <ContactDetails data={data} gtmLabel={data.title} />
           </Grid>
         );

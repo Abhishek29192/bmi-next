@@ -18,11 +18,11 @@ exports[`NextBestActions component renders correctly 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -76,7 +76,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -158,11 +158,11 @@ exports[`NextBestActions component renders name with no title 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a
@@ -244,11 +244,11 @@ exports[`NextBestActions component renders with no promo cta 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
             data-testid="grid-item"
           >
             <div
@@ -293,11 +293,11 @@ exports[`NextBestActions component renders with no promo cta label 1`] = `
           MC: nba.title
         </h2>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 Grid-item css-1v5zc7h-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 MuiGrid2-grid-lg-3 Grid-item css-4oasfm-MuiGrid2-root"
             data-testid="grid-item"
           >
             <a

@@ -40,7 +40,7 @@ const TeamList = ({ data }: { data: Data | null }) => {
             const { name, jobTitle, profileImage, links } = teamMember;
 
             return (
-              <Grid item xs={12} sm={6} lg={3} key={index}>
+              <Grid xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
                   imageSource={profileImage && <Image data={profileImage} />}
                   body={

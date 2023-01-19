@@ -64,7 +64,7 @@ const Field = ({
       </div>
       {description ? (
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography variant="body1" className={styles["fieldDescription"]}>
               {description}
             </Typography>

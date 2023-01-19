@@ -191,7 +191,7 @@ const SelectionOptions = ({
       </Typography>
       <Grid container spacing={2}>
         {products.map((tile) => (
-          <Grid key={tile.code} item xs={6} md={4} lg={2}>
+          <Grid key={tile.code} xs={6} md={4} lg={2}>
             <ToggleCard
               component="button"
               title={tile.name}
@@ -327,7 +327,7 @@ const SidingsSelectorDialog = ({
       </Typography>
       <Grid container spacing={2}>
         {sidings.map(({ id, name, diffuseMapRef }) => (
-          <Grid key={id} item xs={6} md={4} lg={2}>
+          <Grid key={id} xs={6} md={4} lg={2}>
             <ToggleCard
               component="button"
               title={name}

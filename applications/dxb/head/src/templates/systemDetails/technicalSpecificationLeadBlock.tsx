@@ -98,7 +98,7 @@ const TechnicalSpecificationLeadBlock = ({
         </LeadBlock.Content.Section>
       </LeadBlock.Content>
       {specificationNotes && (
-        <Grid item lg={4} xs={12} data-testid="specificationNotes">
+        <Grid lg={4} xs={12} data-testid="specificationNotes">
           <PostItCard color="pearl">
             <PostItCard.Section>
               <PostItCard.Heading hasUnderline>

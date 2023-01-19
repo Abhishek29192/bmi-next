@@ -34,7 +34,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
       className={styles["MediaGallerySection"]}
     >
       <Grid container>
-        <Grid item xs={12} lg={8}>
+        <Grid xs={12} lg={8}>
           {title && (
             <Typography variant="h2" hasUnderline>
               {title}
@@ -46,7 +46,7 @@ const IntegratedMediaGallerySection = ({ data }: { data: Data }) => {
             </div>
           )}
         </Grid>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <MediaGallery
             media={transformMediaSrc(medias)}
             mediaSize="cover"

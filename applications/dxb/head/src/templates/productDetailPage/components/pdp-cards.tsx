@@ -24,7 +24,6 @@ export const PdpCardsSection = ({
           const cta = getCTA(data, countryCode, title);
           return (
             <Grid
-              item
               key={`card-${index}`}
               xs={12}
               sm={6}

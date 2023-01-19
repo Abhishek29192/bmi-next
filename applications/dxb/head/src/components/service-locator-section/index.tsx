@@ -47,6 +47,7 @@ import {
   sortServices
 } from "./helpers";
 import styles from "./styles/ServiceLocatorSection.module.scss";
+import { MapTabPanel, ResultListTabPanel } from "./styles/styles";
 
 export type Service = ServiceData & {
   distance?: number;
@@ -388,13 +389,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           initialValue="list"
           className={styles["tabs"]}
           theme="secondary"
-          visibleUntil="md"
+          visibleUntil="lg"
           variant="fullWidth"
         >
           {showResultList && (
-            <Tabs.TabPanel
-              md={12}
-              lg={4}
+            <ResultListTabPanel
               className={styles["tab-panel"]}
               heading={getMicroCopy(microCopy.FIND_A_ROOFER_LIST_LABEL)}
               index="list"
@@ -410,11 +409,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 shouldListCertification={shouldListCertification}
                 selectedRoofer={selectedRoofer}
               />
-            </Tabs.TabPanel>
+            </ResultListTabPanel>
           )}
-          <Tabs.TabPanel
-            md={12}
-            lg={showResultList ? 8 : 12}
+          <MapTabPanel
             className={styles["tab-panel"]}
             heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
@@ -429,7 +426,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               zoom={zoom}
               getCompanyDetails={getCompanyDetails}
             />
-          </Tabs.TabPanel>
+          </MapTabPanel>
         </Tabs>
       </GoogleApi.Provider>
     </Section>

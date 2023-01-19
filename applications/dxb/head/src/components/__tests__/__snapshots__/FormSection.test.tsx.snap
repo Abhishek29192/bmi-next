@@ -12,7 +12,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot css-m3jx4s"
+          class=" css-djsjkg"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -33,7 +33,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot css-m3jx4s"
+          class=" css-djsjkg"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -54,7 +54,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot css-m3jx4s"
+          class=" css-djsjkg"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -75,15 +75,15 @@ exports[`FormSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -123,8 +123,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -171,8 +171,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -222,8 +222,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -264,8 +264,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
@@ -390,8 +390,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div>
                 <p
@@ -483,8 +483,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
@@ -550,8 +550,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 Grid-item css-3hhl5-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
@@ -602,8 +602,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
@@ -626,8 +626,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiInputBase-root MuiInputBase-colorPrimary css-1nsbbih-MuiInputBase-root"
@@ -642,8 +642,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -686,8 +686,8 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -809,7 +809,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot FormSection-dialog css-m3jx4s"
+          class="FormSection-dialog css-djsjkg"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -830,15 +830,15 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -891,8 +891,8 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               </div>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -1025,15 +1025,15 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
@@ -1150,15 +1150,15 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1289,15 +1289,15 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 Grid-item css-3hhl5-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -1449,15 +1449,15 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root css-1nrlq1o-MuiFormControl-root"
@@ -1663,15 +1663,15 @@ exports[`FormSection component test upload input with large file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
@@ -1858,15 +1858,15 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
@@ -1998,15 +1998,15 @@ exports[`FormSection component test upload input with small file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"

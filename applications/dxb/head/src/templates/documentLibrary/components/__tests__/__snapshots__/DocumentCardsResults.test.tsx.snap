@@ -3,11 +3,11 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
@@ -59,7 +59,7 @@ exports[`Brands component renders correctly 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
@@ -111,11 +111,11 @@ exports[`Brands component renders correctly 1`] = `
 exports[`Brands component renders correctly for mobile 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
@@ -167,7 +167,7 @@ exports[`Brands component renders correctly for mobile 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a

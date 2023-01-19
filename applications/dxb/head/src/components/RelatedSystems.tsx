@@ -49,7 +49,7 @@ export const SystemCard = ({
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
-    <Grid item xs={12} md={6} lg={3}>
+    <Grid xs={12} md={6} lg={3}>
       <GTMOverviewCard
         title={system.name}
         titleVariant="h5"

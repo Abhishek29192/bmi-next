@@ -49,7 +49,7 @@ const Home = () => (
           "BMI Icopal SBS Bitumen Systems are suitable for new build and refurbishment projects, they are available in a variety of colours finishes and offer 15 and 20 year guarantee options."
         }
       >
-        <Grid item>
+        <Grid>
           <Link
             to={getLink("sbs", { guarantee: "20" })}
             className={pageStyles.link}
@@ -57,7 +57,7 @@ const Home = () => (
             <Button>20 Year System</Button>
           </Link>
         </Grid>
-        <Grid item>
+        <Grid>
           <Link
             to={getLink("sbs", { guarantee: "15" })}
             className={pageStyles.link}

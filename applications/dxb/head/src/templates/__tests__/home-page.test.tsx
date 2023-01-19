@@ -343,12 +343,12 @@ describe("Home Page Template", () => {
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
     expect(
       container.querySelectorAll(
-        ".OverlapCards .MuiGrid-container [class*=Grid-item]"
+        ".OverlapCards .MuiGrid2-container .MuiGrid2-root"
       ).length
     ).toBe(3);
     expect(container.querySelector(".Brands")).toBeInTheDocument();
     expect(
-      container.querySelectorAll(".Brands .MuiGrid-container").length
+      container.querySelectorAll(".Brands .MuiGrid2-container").length
     ).toBe(1);
     expect(
       container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
@@ -474,7 +474,7 @@ describe("Home Page Template", () => {
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
     expect(
       container.querySelectorAll(
-        ".OverlapCards .MuiGrid-container [class*=Grid-item]"
+        ".OverlapCards .MuiGrid2-container .MuiGrid2-root"
       ).length
     ).toBe(3);
   });

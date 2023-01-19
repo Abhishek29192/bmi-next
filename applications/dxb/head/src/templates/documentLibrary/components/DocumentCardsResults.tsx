@@ -26,7 +26,6 @@ const DocumentCardsResults = ({ documents }: Props) => {
       {documents.map((document, index) => {
         return (
           <Grid
-            item
             key={`${document.title}-${index}`}
             xs={12}
             sm={12}

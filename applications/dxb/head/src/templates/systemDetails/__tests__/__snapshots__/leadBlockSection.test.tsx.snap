@@ -12,11 +12,11 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -127,11 +127,11 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -215,11 +215,11 @@ exports[`LeadBlockSection tests should render 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -303,11 +303,11 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-          data-testid="grid"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+          data-testid="grid-container"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
             data-testid="grid-item"
           >
             <p
@@ -373,7 +373,7 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             </p>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 card css-5ynyu1-MuiGrid-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 card css-abxfb-MuiGrid2-root"
             data-testid="system-attributes-card"
           >
             <div

@@ -7,7 +7,7 @@ import FormSection from "./_FormSection";
 export const ProjectInformationSection = ({ header, defaultValues }: any) => (
   <FormSection header={header}>
     <Grid container spacing={3}>
-      <Grid item xs={6}>
+      <Grid xs={6}>
         <Form.Row>
           <TextField
             name="companyName"
@@ -22,7 +22,7 @@ export const ProjectInformationSection = ({ header, defaultValues }: any) => (
       </Grid>
     </Grid>
     <Grid container spacing={3}>
-      <Grid item xs={6}>
+      <Grid xs={6}>
         <Form.Row>
           <TextField
             name="projectName"

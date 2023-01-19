@@ -36,7 +36,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
           {data.map(({ title, featuredMedia, featuredVideo, ...rest }, key) => {
             const cta = getCTA(rest, countryCode);
             return (
-              <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
+              <Grid key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
                   title={title}
                   buttonComponent={(props: ButtonBaseProps) => (

@@ -446,7 +446,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             )}
             <Grid container spacing={3}>
               {filters && filters.length ? (
-                <Grid item xs={12} md={12} lg={3}>
+                <Grid xs={12} md={12} lg={3}>
                   <FiltersSidebar
                     filters={filters}
                     onFiltersChange={handleFiltersChange}
@@ -455,7 +455,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Grid>
               ) : null}
               <Grid
-                item
                 xs={12}
                 md={12}
                 lg={filters.length ? 9 : 12}
