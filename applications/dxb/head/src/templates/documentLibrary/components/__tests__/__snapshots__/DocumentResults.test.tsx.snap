@@ -3,7 +3,7 @@
 exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 <div>
   <div
-    class="DocumentSimpleTableResults css-1en66qf"
+    class="DocumentSimpleTableResults css-1iwuinm"
   >
     <div
       class="css-46e850"
@@ -49,10 +49,10 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
           class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+            class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             >
               <abbr
                 title="contentful asset type name"
@@ -61,14 +61,14 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             >
               <p>
                 contentful document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -82,7 +82,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
                   class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                 >
                   <svg
-                    class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                    class="download-icon css-x3wokz"
                     viewBox="0 0 32 32"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -125,7 +125,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
             >
               <span
                 aria-label="MC: documents.download.maxReached"
@@ -169,10 +169,10 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+            class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             >
               <abbr
                 title="asset type name"
@@ -181,17 +181,17 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             >
               <p>
                 pim document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
             >
               <span
                 aria-label="MC: documents.download.maxReached"

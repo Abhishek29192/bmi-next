@@ -525,7 +525,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="document-library"
           >
             <div
-              class="DocumentSimpleTableResults css-1en66qf"
+              class="DocumentSimpleTableResults css-1iwuinm"
             >
               <div
                 class="css-46e850"
@@ -565,17 +565,17 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                   >
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <p>
                           Pim Document
                         </p>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -589,7 +589,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -629,7 +629,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -673,17 +673,17 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       </td>
                     </tr>
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <p>
                           Pim Document
                         </p>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -697,7 +697,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -737,7 +737,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -781,17 +781,17 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       </td>
                     </tr>
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <p>
                           Pim Document
                         </p>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -805,7 +805,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -845,7 +845,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -889,17 +889,17 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       </td>
                     </tr>
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <p>
                           Pim Document
                         </p>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -913,7 +913,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -953,7 +953,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -1738,7 +1738,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             class="document-library"
           >
             <div
-              class="DocumentSimpleTableResults css-1en66qf"
+              class="DocumentSimpleTableResults css-1iwuinm"
             >
               <div
                 class="css-46e850"
@@ -1778,15 +1778,15 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                   >
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         Assembley Instructions
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1800,7 +1800,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1840,7 +1840,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -1884,15 +1884,15 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                       </td>
                     </tr>
                     <tr
-                      class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                      class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                     >
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         Assembley Instructions
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                       >
                         <a
                           class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1906,7 +1906,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                             class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                           >
                             <svg
-                              class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                              class="download-icon css-x3wokz"
                               viewBox="0 0 32 32"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -1946,7 +1946,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         </a>
                       </td>
                       <td
-                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                       >
                         <span
                           aria-label="MC: documents.download.maxReached"
@@ -2820,7 +2820,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       class="document-library"
     >
       <div
-        class="DocumentSimpleTableResults css-1en66qf"
+        class="DocumentSimpleTableResults css-1iwuinm"
       >
         <div
           class="css-46e850"
@@ -2860,15 +2860,15 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
             >
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2882,7 +2882,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -2922,7 +2922,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -2966,15 +2966,15 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2988,7 +2988,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3028,7 +3028,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -3072,15 +3072,15 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3094,7 +3094,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3134,7 +3134,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -3178,15 +3178,15 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3200,7 +3200,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3240,7 +3240,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -3661,7 +3661,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       class="document-library"
     >
       <div
-        class="DocumentSimpleTableResults css-1en66qf"
+        class="DocumentSimpleTableResults css-1iwuinm"
       >
         <div
           class="css-46e850"
@@ -3701,15 +3701,15 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
             >
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3723,7 +3723,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3763,7 +3763,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -3807,15 +3807,15 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3829,7 +3829,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3869,7 +3869,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -3913,15 +3913,15 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3935,7 +3935,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -3975,7 +3975,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"
@@ -4019,15 +4019,15 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                 </td>
               </tr>
               <tr
-                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
               >
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   asset-name
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                 >
                   <a
                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -4041,7 +4041,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                     >
                       <svg
-                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                        class="download-icon css-x3wokz"
                         viewBox="0 0 32 32"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -4081,7 +4081,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   </a>
                 </td>
                 <td
-                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                 >
                   <span
                     aria-label="MC: documents.download.maxReached"

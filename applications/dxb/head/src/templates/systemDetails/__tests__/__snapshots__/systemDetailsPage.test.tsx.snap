@@ -3155,7 +3155,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -3201,22 +3201,22 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3230,7 +3230,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -3270,7 +3270,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -3314,22 +3314,22 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -3339,7 +3339,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -3353,10 +3353,10 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -7199,7 +7199,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -7245,22 +7245,22 @@ exports[`SystemDetailsPage template component should render 1`] = `
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -7274,7 +7274,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -7314,7 +7314,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -7358,22 +7358,22 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -7383,7 +7383,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -7397,10 +7397,10 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -11247,7 +11247,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                         class="tableContainer"
                       >
                         <div
-                          class="DocumentSimpleTableResults css-1en66qf"
+                          class="DocumentSimpleTableResults css-1iwuinm"
                         >
                           <div
                             class="css-46e850"
@@ -11293,22 +11293,22 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                               >
                                 <tr
-                                  class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                  class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     <p>
                                       pim-link-document-title
                                     </p>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     <a
                                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -11322,7 +11322,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                         class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                       >
                                         <svg
-                                          class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                          class="download-icon css-x3wokz"
                                           viewBox="0 0 32 32"
                                           xmlns="http://www.w3.org/2000/svg"
                                         >
@@ -11362,7 +11362,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                     </a>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                   >
                                     <span
                                       aria-label="MC: documents.download.maxReached"
@@ -11406,22 +11406,22 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                   </td>
                                 </tr>
                                 <tr
-                                  class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                  class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                                 >
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     asset-name
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     <p>
                                       pim-link-document-title
                                     </p>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                   >
                                     <a
                                       class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -11431,7 +11431,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                       target="_blank"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                        class="css-154ktap"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -11445,10 +11445,10 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                     </a>
                                   </td>
                                   <td
-                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                   >
                                     <span
-                                      class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                      class="css-1ytj21s"
                                     >
                                       -
                                     </span>
@@ -15292,7 +15292,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -15338,22 +15338,22 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -15367,7 +15367,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -15407,7 +15407,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -15451,22 +15451,22 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -15476,7 +15476,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -15490,10 +15490,10 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -19297,7 +19297,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -19343,22 +19343,22 @@ exports[`SystemDetailsPage template component should render without specificatio
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -19372,7 +19372,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -19412,7 +19412,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -19456,22 +19456,22 @@ exports[`SystemDetailsPage template component should render without specificatio
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -19481,7 +19481,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -19495,10 +19495,10 @@ exports[`SystemDetailsPage template component should render without specificatio
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -23341,7 +23341,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -23387,22 +23387,22 @@ exports[`SystemDetailsPage template component should render without systemLayers
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -23416,7 +23416,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -23456,7 +23456,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -23500,22 +23500,22 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -23525,7 +23525,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -23539,10 +23539,10 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -27510,7 +27510,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -27556,22 +27556,22 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -27585,7 +27585,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -27625,7 +27625,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -27669,22 +27669,22 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -27694,7 +27694,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -27708,10 +27708,10 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>
@@ -31679,7 +31679,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                       class="tableContainer"
                     >
                       <div
-                        class="DocumentSimpleTableResults css-1en66qf"
+                        class="DocumentSimpleTableResults css-1iwuinm"
                       >
                         <div
                           class="css-46e850"
@@ -31725,22 +31725,22 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                               class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                             >
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -31754,7 +31754,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                       class="MuiButton-startIcon Button-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
                                     >
                                       <svg
-                                        class="documentSimpleTableResultsStyles-downloadIcon download-icon"
+                                        class="download-icon css-x3wokz"
                                         viewBox="0 0 32 32"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
@@ -31794,7 +31794,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
                                     aria-label="MC: documents.download.maxReached"
@@ -31838,22 +31838,22 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                 </td>
                               </tr>
                               <tr
-                                class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                                class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                               >
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   asset-name
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <p>
                                     pim-link-document-title
                                   </p>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                                 >
                                   <a
                                     class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -31863,7 +31863,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                     target="_blank"
                                   >
                                     <svg
-                                      class="documentSimpleTableResultsStyles-externalLinkIcon"
+                                      class="css-154ktap"
                                       viewBox="0 0 32 32"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -31877,10 +31877,10 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                                   </a>
                                 </td>
                                 <td
-                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                                 >
                                   <span
-                                    class="documentSimpleTableResultsStyles-noDocumentIcon"
+                                    class="css-1ytj21s"
                                   >
                                     -
                                   </span>

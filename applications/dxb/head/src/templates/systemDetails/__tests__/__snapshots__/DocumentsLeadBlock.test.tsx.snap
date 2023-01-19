@@ -13,7 +13,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           class="tableContainer"
         >
           <div
-            class="DocumentSimpleTableResults css-1en66qf"
+            class="DocumentSimpleTableResults css-1iwuinm"
           >
             <div
               class="css-46e850"
@@ -59,22 +59,22 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                   class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                 >
                   <tr
-                    class="MuiTableRow-root documentSimpleTableResultsStyles-row row css-wgfdj2-MuiTableRow-root"
+                    class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                     >
                       asset-name
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                     >
                       <p>
                         pim-link-document-title
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1xv4y7i-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -84,7 +84,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                         target="_blank"
                       >
                         <svg
-                          class="documentSimpleTableResultsStyles-externalLinkIcon"
+                          class="css-154ktap"
                           viewBox="0 0 32 32"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -98,10 +98,10 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       </a>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium documentSimpleTableResultsStyles-tableCell css-1pzqasn-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
                     >
                       <span
-                        class="documentSimpleTableResultsStyles-noDocumentIcon"
+                        class="css-1ytj21s"
                       >
                         -
                       </span>
