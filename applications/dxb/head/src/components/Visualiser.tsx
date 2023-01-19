@@ -3,10 +3,11 @@ import { MicroCopy } from "@bmi-digital/components";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { graphql, navigate } from "gatsby";
 import queryString from "query-string";
-import React, { createContext, Suspense, useState } from "react";
+import React, { createContext, Suspense, useState, useMemo } from "react";
 import { devLog } from "../utils/devLog";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
@@ -17,12 +18,8 @@ import tilesSetData from "./visualiser/data/tiles.json";
 import { HouseType, Tile } from "./visualiser/Types";
 import { Parameters } from "./visualiser/Visualiser";
 
-const isVisualiserV2Enabled =
-  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true";
-
-const Visualiser = isVisualiserV2Enabled
-  ? React.lazy(() => import("./visualiser/Visualiser"))
-  : React.lazy(() => import("./visualiser/VisualiserOld"));
+const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
+const VisualiserOld = React.lazy(() => import("./visualiser/VisualiserOld"));
 
 type Context = {
   isOpen: boolean;
@@ -88,6 +85,9 @@ const VisualiserProvider = ({
   shareWidgetData,
   houseTypes
 }: Props) => {
+  const {
+    config: { isV2VisualiserEnabled }
+  } = useConfig();
   const location = useLocation();
 
   const parsedQueryParameters = mapParameters(
@@ -99,6 +99,9 @@ const VisualiserProvider = ({
   );
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const { countryCode } = useSiteContext();
+  const Component = useMemo(() => {
+    return isV2VisualiserEnabled ? Visualiser : VisualiserOld;
+  }, [isV2VisualiserEnabled]);
 
   if (!contentSource) {
     return (
@@ -162,16 +165,8 @@ const VisualiserProvider = ({
     return location.pathname + (query ? `?${query}` : "");
   };
 
-  //TODO: improve/remove this going forwards - currently the visualiser context
-  //      crashes and messes up all the test responses. This works around the
-  //      issue until we can figure out why. Already spent a fair bit of time
-  //      attempting to debug this one.
-  if (process.env.GATSBY_VISUALISER_ASSETS_URL === "jest-test-page") {
-    return <>{children}</>;
-  }
-
   const VisualizerComponent = (
-    <Visualiser
+    <Component
       open={isOpen}
       contentSource={contentSource}
       onChange={(params) => handleOnChange(params)}
@@ -195,7 +190,7 @@ const VisualiserProvider = ({
 
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          {isVisualiserV2Enabled ? (
+          {isV2VisualiserEnabled ? (
             VisualizerComponent
           ) : (
             <MicroCopy.Provider values={no}>
