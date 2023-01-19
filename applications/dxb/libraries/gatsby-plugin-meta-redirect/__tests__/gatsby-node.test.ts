@@ -1,4 +1,6 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import { existsSync, readFileSync, rmSync } from "fs";
+import { BuildArgs } from "gatsby";
 import { onPostBuild } from "../gatsby-node";
 
 describe("onPostBuild", () => {
@@ -9,16 +11,21 @@ describe("onPostBuild", () => {
     expectedPath: string,
     expectedContent: string
   ) => {
-    await onPostBuild({
-      store: {
-        getState: () => ({
-          redirects,
-          program: {
-            directory: "./"
-          }
-        })
-      }
-    });
+    await onPostBuild!(
+      {
+        store: {
+          getState: () => ({
+            redirects,
+            program: {
+              directory: "./"
+            }
+          })
+        }
+      } as unknown as BuildArgs,
+      { plugins: [] },
+      () => {}
+    );
+
     expect(readFileSync(expectedPath, "utf-8")).toStrictEqual(expectedContent);
   };
 
@@ -35,17 +42,21 @@ describe("onPostBuild", () => {
     }
   });
 
-  it("does nothing if no redirects provided", async () => {
-    await onPostBuild({
-      store: {
-        getState: () => ({
-          redirects: [],
-          program: {
-            directory: "./"
-          }
-        })
-      }
-    });
+  it("does nothing if no redirects provided", () => {
+    onPostBuild!(
+      {
+        store: {
+          getState: () => ({
+            redirects: [],
+            program: {
+              directory: "./"
+            }
+          })
+        }
+      } as unknown as BuildArgs,
+      { plugins: [] },
+      () => {}
+    );
 
     expect(existsSync(tempFolderPath)).toBeFalsy();
   });
@@ -125,27 +136,31 @@ describe("onPostBuild", () => {
     );
   });
 
-  it("handles prefix paths", async () => {
-    await onPostBuild({
-      store: {
-        getState: () => ({
-          config: {
-            pathPrefix: "prefix"
-          },
-          redirects: [
-            {
-              fromPath: "/prefix/",
-              toPath: "/hello",
-              isPermanent: true
+  it("handles prefix paths", () => {
+    onPostBuild!(
+      {
+        store: {
+          getState: () => ({
+            config: {
+              pathPrefix: "prefix"
+            },
+            redirects: [
+              {
+                fromPath: "/prefix/",
+                toPath: "/hello",
+                isPermanent: true
+              }
+            ],
+            program: {
+              directory: "./",
+              prefixPaths: true
             }
-          ],
-          program: {
-            directory: "./",
-            prefixPaths: true
-          }
-        })
-      }
-    });
+          })
+        }
+      } as unknown as BuildArgs,
+      { plugins: [] },
+      () => {}
+    );
 
     expect(readFileSync(`${tempFolderPath}/index.html`, "utf-8")).toStrictEqual(
       '<meta http-equiv="refresh" content="0; URL=\'/hello/\'" />'

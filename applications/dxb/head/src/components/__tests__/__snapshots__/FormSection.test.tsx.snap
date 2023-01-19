@@ -12,7 +12,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot"
+          class="FormSection-hubSpot css-m3jx4s"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -33,7 +33,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot"
+          class="FormSection-hubSpot css-m3jx4s"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -54,7 +54,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot"
+          class="FormSection-hubSpot css-m3jx4s"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -75,7 +75,7 @@ exports[`FormSection component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -809,7 +809,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <div
-          class="FormSection-hubSpot FormSection-dialog"
+          class="FormSection-hubSpot FormSection-dialog css-m3jx4s"
           id="bmi-hubspot-form-no-id"
         />
       </div>
@@ -830,7 +830,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1025,7 +1025,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1150,7 +1150,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1289,7 +1289,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1449,7 +1449,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1663,7 +1663,7 @@ exports[`FormSection component test upload input with large file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1858,7 +1858,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
@@ -1998,7 +1998,7 @@ exports[`FormSection component test upload input with small file 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
       >
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"

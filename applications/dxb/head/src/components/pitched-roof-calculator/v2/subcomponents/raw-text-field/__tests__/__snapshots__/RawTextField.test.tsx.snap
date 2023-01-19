@@ -3,7 +3,7 @@
 exports[`RawTextField component does not display rightAdornment if provided and error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -25,7 +25,7 @@ exports[`RawTextField component does not display rightAdornment if provided and 
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1yd8f5z-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
@@ -60,7 +60,7 @@ exports[`RawTextField component does not display rightAdornment if provided and 
 exports[`RawTextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -101,7 +101,7 @@ exports[`RawTextField component renders correctly 1`] = `
 exports[`RawTextField component renders correctly if error is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -123,7 +123,7 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1yd8f5z-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
@@ -158,7 +158,7 @@ exports[`RawTextField component renders correctly if error is true 1`] = `
 exports[`RawTextField component renders correctly if errorText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -181,7 +181,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1yd8f5z-MuiInputAdornment-root"
       >
         <svg
           aria-hidden="true"
@@ -222,7 +222,7 @@ exports[`RawTextField component renders correctly if errorText is populated 1`] 
 exports[`RawTextField component renders correctly if helperText is populated 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -270,7 +270,7 @@ exports[`RawTextField component renders correctly if helperText is populated 1`]
 exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -311,7 +311,7 @@ exports[`RawTextField component renders correctly if isRequired is true 1`] = `
 exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -358,7 +358,7 @@ exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
 exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"
@@ -387,7 +387,7 @@ exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
 exports[`RawTextField component renders correctly if variant === outlined 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -428,7 +428,7 @@ exports[`RawTextField component renders correctly if variant === outlined 1`] = 
 exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root rawTextFieldStyles-leftAdornment css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root rawTextFieldStyles-leftAdornment css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -450,7 +450,7 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1yd8f5z-MuiInputAdornment-root"
       >
         <div>
           leftAdornment
@@ -476,7 +476,7 @@ exports[`RawTextField component renders correctly with leftAdornment 1`] = `
 exports[`RawTextField component renders correctly with rightAdornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root  css-1xgljuk-MuiFormControl-root-MuiTextField-root"
+    class="MuiFormControl-root MuiTextField-root  css-1n1g7x3-MuiFormControl-root-MuiTextField-root"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -498,7 +498,7 @@ exports[`RawTextField component renders correctly with rightAdornment 1`] = `
         value=""
       />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1yd8f5z-MuiInputAdornment-root"
       >
         <div>
           rightAdornment

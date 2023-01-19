@@ -1,9 +1,12 @@
 import ErrorRounded from "@mui/icons-material/ErrorRounded";
-import InputAdornment from "@mui/material/InputAdornment";
 import { TextFieldProps } from "@mui/material/TextField";
 import classnames from "classnames";
 import React, { ChangeEvent } from "react";
-import { StyledMaterialTextField, classes } from "./styles";
+import {
+  classes,
+  StyledInputAdornment,
+  StyledMaterialTextField
+} from "./styles";
 
 type AdornmentProps =
   | {
@@ -45,7 +48,7 @@ const RawTextField = ({
   const inputProps = hasAdornment
     ? {
         endAdornment: (
-          <InputAdornment position="end">
+          <StyledInputAdornment position="end">
             {error ? (
               <ErrorRounded
                 style={{ color: "red" }}
@@ -54,7 +57,7 @@ const RawTextField = ({
             ) : null}
             {leftAdornment}
             {!error ? rightAdornment : null}
-          </InputAdornment>
+          </StyledInputAdornment>
         )
       }
     : {};

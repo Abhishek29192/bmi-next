@@ -10,6 +10,8 @@ export const classes = {
   checkboxBlock: `${PREFIX}-checkboxBlock`,
   requiredMarkTitle: `${PREFIX}-requiredMarkTitle`
 };
+
+//TODO: check the hubspot form on the site.. and change/remove/keep specific classes
 export const StyledForm = styled(Form)(({ theme }) => ({
   backgroundColor: theme.colours.white,
   border: `1px solid ${theme.colours.alabaster}`,
@@ -17,32 +19,6 @@ export const StyledForm = styled(Form)(({ theme }) => ({
   padding: "2rem",
   maxWidth: "920px",
   marginBottom: "1rem",
-  [`.${classes.hubSpot}`]: {
-    backgroundColor: "#ffffff",
-    border: "1px solid #f0f0f0",
-    color: theme.colours.charcoal,
-    fontSize: "1rem",
-    marginTop: "1rem",
-    padding: "1rem 2rem 2rem",
-    maxWidth: "920px"
-  },
-  [`.${classes.dialog}`]: {
-    border: "none",
-    padding: 0,
-    margin: 0,
-    "& input[type=submit]": {
-      display: "none"
-    }
-  },
-  [`.${classes.checkboxBlock}`]: {
-    position: "relative",
-
-    "&$requiredMarkTitle": {
-      position: "absolute",
-      top: 0,
-      left: "-15px"
-    }
-  },
   [`.${classes.requiredMarkTitle}`]: {}
   // ["@global"]: {
   //   ".hs-form fieldset": {
@@ -303,4 +279,24 @@ export const StyledForm = styled(Form)(({ theme }) => ({
   //     color: theme.colours.charcoal
   //   }
   // }
+}));
+
+export const StyledHubSpotContainer = styled("div")(({ theme }) => ({
+  [`.${classes.hubSpot}`]: {
+    backgroundColor: "#ffffff",
+    border: "1px solid #f0f0f0",
+    color: theme.colours.charcoal,
+    fontSize: "1rem",
+    marginTop: "1rem",
+    padding: "1rem 2rem 2rem",
+    maxWidth: "920px"
+  },
+  [`.${classes.dialog}`]: {
+    border: "none",
+    padding: 0,
+    margin: 0,
+    "& input[type=submit]": {
+      display: "none"
+    }
+  }
 }));

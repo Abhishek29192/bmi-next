@@ -1,4 +1,8 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 "use strict";
+/**
+ * @typedef { import("gatsby").GatsbyNode } GatsbyNode
+ */
 
 const path = require("path");
 const { existsSync, writeFileSync, mkdirSync } = require("fs");
@@ -31,6 +35,9 @@ async function writeRedirectsFile(redirects, folder, pathPrefix) {
   }
 }
 
+/**
+ * @type {GatasbyNode.onPostBuild}
+ */
 exports.onPostBuild = ({ store }) => {
   const { redirects, program, config } = store.getState();
 

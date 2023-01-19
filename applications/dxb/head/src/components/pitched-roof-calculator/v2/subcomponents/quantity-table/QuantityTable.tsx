@@ -1,11 +1,18 @@
 import { Icon, Table, Typography } from "@bmi-digital/components";
 import { Delete } from "@mui/icons-material";
-
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import classnames from "classnames";
 import React from "react";
 import { ResultsRow } from "../../../types";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
-import { StyledQuantityTable, classes } from "./styles";
+import {
+  classes,
+  StyledQuantityTable,
+  StyledQuantityTableLarge,
+  StyledQuantityTableMedium,
+  StyledQuantityTableSmall
+} from "./styles";
 
 type BuildRowProps = {
   onDelete: (item: ResultsRow) => void;
@@ -104,7 +111,7 @@ export const BuildSmallViewRows = ({
   externalProductCode
 }: BuildRowProps) => {
   return (
-    <>
+    <StyledQuantityTableSmall>
       {rows.map((row, iterator) => (
         <Table.Row
           key={`small-row-${row.externalProductCode}`}
@@ -153,7 +160,7 @@ export const BuildSmallViewRows = ({
           </Table.Cell>
         </Table.Row>
       ))}
-    </>
+    </StyledQuantityTableSmall>
   );
 };
 
@@ -163,7 +170,7 @@ export const BuildMediumViewRows = ({
   onChangeQuantity
 }: BuildRowProps) => {
   return (
-    <>
+    <StyledQuantityTableMedium>
       {rows.map((row, index) => (
         <Table.Row
           key={`medium-row-${row.externalProductCode}`}
@@ -203,7 +210,7 @@ export const BuildMediumViewRows = ({
           </Table.Cell>
         </Table.Row>
       ))}
-    </>
+    </StyledQuantityTableMedium>
   );
 };
 
@@ -212,8 +219,11 @@ export const BuildLargeViewRows = ({
   onChangeQuantity,
   rows
 }: BuildRowProps) => {
+  const theme = useTheme();
+
+  const displayIfDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   return (
-    <>
+    <StyledQuantityTableLarge>
       {rows.map((row, iterator) => (
         <Table.Row
           key={`large-row-${row.externalProductCode}`}
@@ -222,9 +232,11 @@ export const BuildLargeViewRows = ({
           <Table.Cell>
             <div className={classes.cellRow}>
               <img src={row.image} className={classes.picture} />
-              <Typography className={classes.largeDescription}>
-                {row.description}
-              </Typography>
+              {displayIfDesktop && (
+                <Typography className={classes.largeDescription}>
+                  {row.description}
+                </Typography>
+              )}
             </div>
           </Table.Cell>
           <Table.Cell className={classes.largeCell}>
@@ -256,7 +268,7 @@ export const BuildLargeViewRows = ({
           </Table.Cell>
         </Table.Row>
       ))}
-    </>
+    </StyledQuantityTableLarge>
   );
 };
 
@@ -270,58 +282,69 @@ const QuantityTable = ({
   quantity,
   remove
 }: Props) => {
+  const theme = useTheme();
+  const displayIfSmall = useMediaQuery(theme.breakpoints.between("xs", "sm"));
+  const displayIfMedium = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const displayIfLarge = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <StyledQuantityTable>
-      <Table className={classes.displayIfSmall}>
-        <Table.Head>
-          <SmallHeader title={title} />
-        </Table.Head>
-        <Table.Body>
-          <BuildSmallViewRows
-            onDelete={onDelete}
-            onChangeQuantity={onChangeQuantity}
-            rows={rows}
-            packSize={packSize}
-            externalProductCode={externalProductCode}
-            quantity={quantity}
-            remove={remove}
-          />
-        </Table.Body>
-      </Table>
-      <Table className={classes.displayIfMedium}>
-        <Table.Head>
-          <MediumHeader
-            title={title}
-            packSize={packSize}
-            externalProductCode={externalProductCode}
-          />
-        </Table.Head>
-        <Table.Body>
-          <BuildMediumViewRows
-            onDelete={onDelete}
-            onChangeQuantity={onChangeQuantity}
-            rows={rows}
-          />
-        </Table.Body>
-      </Table>
-      <Table className={classes.displayIfLarge}>
-        <Table.Head>
-          <LargeHeader
-            title={title}
-            packSize={packSize}
-            externalProductCode={externalProductCode}
-            quantity={quantity}
-            remove={remove}
-          />
-        </Table.Head>
-        <Table.Body>
-          <BuildLargeViewRows
-            onDelete={onDelete}
-            onChangeQuantity={onChangeQuantity}
-            rows={rows}
-          />
-        </Table.Body>
-      </Table>
+      {displayIfSmall && (
+        <Table>
+          <Table.Head>
+            <SmallHeader title={title} />
+          </Table.Head>
+          <Table.Body>
+            <BuildSmallViewRows
+              onDelete={onDelete}
+              onChangeQuantity={onChangeQuantity}
+              rows={rows}
+              packSize={packSize}
+              externalProductCode={externalProductCode}
+              quantity={quantity}
+              remove={remove}
+            />
+          </Table.Body>
+        </Table>
+      )}
+      {displayIfMedium && (
+        <Table>
+          <Table.Head>
+            <MediumHeader
+              title={title}
+              packSize={packSize}
+              externalProductCode={externalProductCode}
+            />
+          </Table.Head>
+          <Table.Body>
+            <BuildMediumViewRows
+              onDelete={onDelete}
+              onChangeQuantity={onChangeQuantity}
+              rows={rows}
+            />
+          </Table.Body>
+        </Table>
+      )}
+      {displayIfLarge && (
+        <Table>
+          <Table.Head>
+            <LargeHeader
+              title={title}
+              packSize={packSize}
+              externalProductCode={externalProductCode}
+              quantity={quantity}
+              remove={remove}
+            />
+          </Table.Head>
+          <Table.Body>
+            <BuildLargeViewRows
+              onDelete={onDelete}
+              onChangeQuantity={onChangeQuantity}
+              rows={rows}
+            />
+          </Table.Body>
+        </Table>
+      )}
     </StyledQuantityTable>
   );
 };

@@ -16,6 +16,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import { useMediaQuery } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import Popover from "@mui/material/Popover";
+import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
 import React, {
@@ -31,15 +32,21 @@ import React, {
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
-import getRef from "./GetRef";
-import HouseViewer from "./HouseViewer";
-import TileViewer from "./TileViewer";
-import { Category, HouseType, PIMTile, Siding } from "./Types";
 import { microCopy } from "./constants/microCopy";
+import getRef from "./GetRef";
 import { getProductsQuery } from "./helpers/esQuery";
 import { prepareProducts } from "./helpers/products";
 import { useMicroCopy } from "./helpers/useMicroCopy";
-import { StyledContainerDialog, classes } from "./styles/VisualiserStyles";
+import HouseViewer from "./HouseViewer";
+import {
+  classes,
+  StyledActions,
+  StyledContainerDialog,
+  StyledShareButton,
+  StyledSharePopover
+} from "./styles/VisualiserStyles";
+import TileViewer from "./TileViewer";
+import { Category, HouseType, PIMTile, Siding } from "./Types";
 
 export type Parameters = {
   tileId?: string | number;
@@ -92,7 +99,7 @@ const Actions = ({
   const isXsMobile = useMediaQuery("(max-width: 376px)");
   const { getMicroCopy } = useMicroCopy();
   return (
-    <nav className={classes.actions}>
+    <StyledActions>
       <Button
         hasDarkBackground
         variant="text"
@@ -159,7 +166,7 @@ const Actions = ({
           {!isXsMobile && getMicroCopy(microCopy.actions.tileMode)}
         </Button>
       )}
-    </nav>
+    </StyledActions>
   );
 };
 
@@ -226,7 +233,7 @@ const TileSectorDialog = ({
   const categories = Object.values(Category);
 
   return (
-    <ContainerDialog
+    <StyledTileSectorDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
       maxWidth="xl"
@@ -267,9 +274,18 @@ const TileSectorDialog = ({
           />
         );
       })}
-    </ContainerDialog>
+    </StyledTileSectorDialog>
   );
 };
+
+export const StyledTileSectorDialog = styled(ContainerDialog)(({ theme }) => ({
+  height: "100vh",
+  width: "100vw",
+  [`& .VisualiserV2.secondary`]: {
+    backgroundColor: "red",
+    boxShadow: "none"
+  }
+}));
 
 const SidingsSelectorDialog = ({
   open,
@@ -364,11 +380,11 @@ const SharePopover = ({
   };
 
   return (
-    <>
-      <Button
+    <StyledSharePopover>
+      <StyledShareButton
         isIconButton
+        variant="text"
         className={classes.shareButton}
-        variant="outlined"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
         )}
@@ -376,7 +392,7 @@ const SharePopover = ({
         onClick={handlePopoverClick}
       >
         <ShareIcon />
-      </Button>
+      </StyledShareButton>
       <Popover
         id="share-popover"
         className={classes.VisualiserPopover}
@@ -395,7 +411,7 @@ const SharePopover = ({
       >
         {shareWidget}
       </Popover>
-    </>
+    </StyledSharePopover>
   );
 };
 
@@ -531,15 +547,20 @@ const Visualiser = ({
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
       maxWidth="xl"
-      className={classes.root}
       containerClassName={classes.content}
     >
+      <ContainerDialog.Header>
+        {shareWidget && (
+          <SharePopover shareWidget={shareWidget} anchorRef={shareAnchor} />
+        )}
+      </ContainerDialog.Header>
       <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
           <div className={classes.progressContainer}>
             <CircularProgress />
           </div>
         )}
+
         <div className={classes.details}>
           <Logo
             source={BMI}
@@ -578,9 +599,6 @@ const Visualiser = ({
                 </span>
               </Button>
             )}
-            {shareWidget && (
-              <SharePopover shareWidget={shareWidget} anchorRef={shareAnchor} />
-            )}
           </div>
         </div>
         {viewMode && activeTile && <Viewer {...viewerProps} />}
@@ -606,6 +624,7 @@ const Visualiser = ({
           onClick={handleOnClick}
         />
       </div>
+
       <Actions
         toggleTileSelector={setIsTileSelectorOpen}
         toggleSidingsSelector={setIsSidingsSelectorOpen}

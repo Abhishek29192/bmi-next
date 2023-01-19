@@ -51,7 +51,7 @@ const StyledListItem = styled("div")(({ theme }) => ({
       right: "-20px",
       bottom: 0,
       top: 0,
-      backgroundColor: theme.colours.perl
+      "background-color": theme.colours.pearl
     }
   }
 }));

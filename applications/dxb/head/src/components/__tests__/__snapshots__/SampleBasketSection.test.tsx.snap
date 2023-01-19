@@ -270,7 +270,7 @@ exports[`SampleBasketSection component should render form after complete button 
           Complete form
         </h2>
         <form
-          class="Form-rightAlignButton css-1gipo4t"
+          class="Form-rightAlignButton css-17fi9g1"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
