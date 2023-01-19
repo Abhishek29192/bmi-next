@@ -8,7 +8,7 @@ import {
 } from "@bmi-digital/components";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Tab from "@mui/material/Tab";
-import { Link, graphql, withPrefix } from "gatsby";
+import { graphql, Link, withPrefix } from "gatsby";
 import React, { useMemo } from "react";
 import Image from "../components/Image";
 import { microCopy } from "../constants/microCopies";
@@ -20,9 +20,9 @@ import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
+  getCTA,
   NavigationData,
-  NavigationItem,
-  getCTA
+  NavigationItem
 } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
@@ -273,6 +273,7 @@ const Header = ({
             />
           )}
           isBasketEmpty={productsInBasket.length === 0}
+          shoppingCartCount={productsInBasket.length}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           SampleBasketDialog={(props: () => void) => (
             <SampleBasketDialog
