@@ -1,10 +1,15 @@
 import { Typography } from "@bmi-digital/components";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Accordion, { AccordionProps } from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import { AccordionProps } from "@mui/material";
 import React, { ReactNode } from "react";
-import { Root, classes } from "./styles";
+import {
+  classes,
+  Content,
+  Root,
+  StyledAccordion,
+  StyledAccordionDetails,
+  StyledAccordionSummary
+} from "./styles";
 
 export type ConfiguratorPanelProps = {
   title: string;
@@ -28,24 +33,25 @@ const ConfiguratorPanel = (
   forwardedRef?: React.Ref<HTMLDivElement>
 ) => {
   return (
-    <Root ref={forwardedRef} className={classes.root}>
-      <Accordion
+    <Root ref={forwardedRef}>
+      <StyledAccordion
         square
-        className={classes.panel}
         elevation={0}
         expanded={isExpanded}
         onChange={handleOnChange}
+        data-testid="configurator-panel-accordion"
         {...rest}
       >
-        <AccordionSummary
-          className={classes.summary}
+        <StyledAccordionSummary
           expandIcon={<ExpandMoreIcon />}
+          data-testid="configurator-panel-accordion-summary"
         >
           <Typography
             color="inherit"
             component="h3"
             variant="h3"
             className={classes.title}
+            data-testid="configurator-panel-accordion-summary-title"
           >
             {selectedOptionTitle ? (
               <>
@@ -58,12 +64,16 @@ const ConfiguratorPanel = (
               title
             )}
           </Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.details}>
-          {children && <div className={classes.content}>{children}</div>}
+        </StyledAccordionSummary>
+        <StyledAccordionDetails data-testid="configurator-panel-accordion-details">
+          {children && (
+            <Content data-testid="configurator-panel-accordion-details-content">
+              {children}
+            </Content>
+          )}
           {options}
-        </AccordionDetails>
-      </Accordion>
+        </StyledAccordionDetails>
+      </StyledAccordion>
     </Root>
   );
 };

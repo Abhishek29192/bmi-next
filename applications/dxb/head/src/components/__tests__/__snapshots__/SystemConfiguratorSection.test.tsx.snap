@@ -18,14 +18,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -34,7 +36,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -75,7 +77,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -304,14 +307,16 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -320,7 +325,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -361,7 +366,8 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -590,14 +596,16 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -606,7 +614,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -647,7 +655,8 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -825,15 +834,17 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -842,7 +853,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
                 </h3>
@@ -878,7 +889,8 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -1015,14 +1027,16 @@ exports[`SystemConfiguratorSection component renders a no result section when an
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -1031,7 +1045,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -1072,7 +1086,8 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -1246,14 +1261,16 @@ exports[`SystemConfiguratorSection component renders a result section when answe
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -1262,7 +1279,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -1303,7 +1320,8 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -1532,14 +1550,16 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="true"
-              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -1548,7 +1568,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -1589,7 +1609,8 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -1704,15 +1725,17 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
           </div>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -1721,7 +1744,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
                 </h3>
@@ -1757,7 +1780,8 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -1894,15 +1918,17 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -1911,7 +1937,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
                 </h3>
@@ -1947,7 +1973,8 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -2084,14 +2111,16 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -2100,7 +2129,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -2141,7 +2170,8 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -2256,15 +2286,17 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
           </div>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -2273,7 +2305,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
                 </h3>
@@ -2309,7 +2341,8 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -2446,14 +2479,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -2462,7 +2497,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -2503,7 +2538,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -2664,14 +2700,16 @@ exports[`SystemConfiguratorSection component renders no result section while ign
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -2680,7 +2718,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -2721,7 +2759,8 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -2882,14 +2921,16 @@ exports[`SystemConfiguratorSection component renders no result section with the 
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -2898,7 +2939,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -2939,7 +2980,8 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -3106,14 +3148,16 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -3122,7 +3166,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -3163,7 +3207,8 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -3550,14 +3595,16 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -3566,7 +3613,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -3607,7 +3654,8 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -3892,14 +3940,16 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -3908,7 +3958,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -3949,7 +3999,8 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -4064,14 +4115,16 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           </div>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -4080,7 +4133,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Skipped Title: 
                   <span
@@ -4121,7 +4174,8 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -4184,15 +4238,17 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
           </div>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -4201,7 +4257,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
                 </h3>
@@ -4237,7 +4293,8 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -4374,14 +4431,16 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
           System Configurator Section Title
         </h2>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="0"
             >
@@ -4390,7 +4449,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One: 
                   <span
@@ -4431,7 +4490,8 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -4546,15 +4606,17 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
           </div>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -4563,7 +4625,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Next Question Title
                 </h3>
@@ -4599,7 +4661,8 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
@@ -4752,15 +4815,17 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           </p>
         </div>
         <div
-          class="configuratorPanelStyles-root css-1avf3zd"
+          class="css-1rikofx"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters configuratorPanelStyles-panel css-1cdkcju-MuiPaper-root-MuiAccordion-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAccordion-root Mui-expanded Mui-disabled MuiAccordion-gutters css-1ye2a6x-MuiPaper-root-MuiAccordion-root"
+            data-testid="configurator-panel-accordion"
           >
             <div
               aria-disabled="true"
               aria-expanded="true"
-              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters configuratorPanelStyles-summary css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+              class="MuiButtonBase-root Mui-disabled MuiAccordionSummary-root Mui-expanded Mui-disabled MuiAccordionSummary-gutters css-17dbip5-MuiButtonBase-root-MuiAccordionSummary-root"
+              data-testid="configurator-panel-accordion-summary"
               role="button"
               tabindex="-1"
             >
@@ -4769,7 +4834,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 configuratorPanelStyles-title css-1584e46-MuiTypography-root"
-                  data-testid="typography"
+                  data-testid="configurator-panel-accordion-summary-title"
                 >
                   Question One
                 </h3>
@@ -4805,7 +4870,8 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                     role="region"
                   >
                     <div
-                      class="MuiAccordionDetails-root configuratorPanelStyles-details css-15v22id-MuiAccordionDetails-root"
+                      class="MuiAccordionDetails-root css-1n6v6h4-MuiAccordionDetails-root"
+                      data-testid="configurator-panel-accordion-details"
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"

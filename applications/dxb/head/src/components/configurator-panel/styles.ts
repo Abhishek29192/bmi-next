@@ -1,73 +1,73 @@
 import { styled } from "@mui/material/styles";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  accordionSummaryClasses
+} from "@mui/material";
 
 const PREFIX = "configuratorPanelStyles";
 export const classes = {
-  root: `${PREFIX}-root`,
-  panel: `${PREFIX}-panel`,
   selectedTitle: `${PREFIX}-selectedTitle`,
-  "@global": "@global",
   title: `${PREFIX}-title`,
-  summary: `${PREFIX}-summary`,
-  details: `${PREFIX}-details`,
-  content: `${PREFIX}-content`
+  summary: `${PREFIX}-summary`
 };
 
 export const Root = styled("div")(({ theme }) => ({
-  [`&.${classes.root}`]: {
-    "& + &": {
-      marginTop: "16px"
-    },
-    "& $summary": {
-      paddingLeft: "32px",
-      paddingRight: "42px",
-      color: theme.colours.slate,
-      opacity: 1,
-      "&:hover": {
-        color: theme.colours.charcoal,
-        "& $title": {
-          "& > $selectedTitle": {
-            color: theme.colours.focus
-          }
-        }
-      }
-    }
-  },
-  [`&.${classes.panel}`]: {
+  "& + &": {
+    marginTop: "16px"
+  }
+}));
+
+export const StyledAccordion = styled(Accordion)(({ theme }) => ({
+  backgroundColor: theme.colours.alabaster,
+  [`&.Mui-disabled`]: {
     backgroundColor: theme.colours.alabaster
-  },
-  [`&.${classes.selectedTitle}`]: {},
-  [`&.${classes["@global"]}`]: {
-    "[class*=MuiAccordionSummary-content]": {
-      marginTop: "32px",
-      marginBottom: "32px"
-    },
-    "[class*=MuiAccordionSummary-expandIcon]": {
-      fontSize: "1.33rem"
-    },
-    "[class*=MuiAccordionSummary-root].Mui-disabled": {
-      opacity: 1,
-      "&[class*=MuiAccordionSummary-expandIcon]": {
-        display: "none"
+  }
+}));
+
+export const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+  paddingLeft: "32px",
+  paddingRight: "42px",
+  color: theme.colours.slate,
+  opacity: 1,
+  "&:hover": {
+    color: theme.colours.charcoal,
+    [`& .${classes.title}`]: {
+      [`& > .${classes.selectedTitle}`]: {
+        color: theme.colours.focus
       }
-    },
-    "[class*=MuiAccordionDetails-root]": {
-      flexFlow: "column"
     }
   },
-  [`&.${classes.title}`]: {
-    "& > $selectedTitle": {
+  [`& .${classes.title}`]: {
+    [`& > .${classes.selectedTitle}`]: {
       color: theme.colours.inter,
       [theme.breakpoints!.up!("sm")]: {
         fontSize: "1.6875rem"
       }
     }
   },
-  [`&.${classes.summary}`]: {},
-  [`&.${classes.details}`]: {
-    padding: "0 32px 32px",
-    flexFlow: "column"
+  [`&.Mui-disabled`]: {
+    opacity: 1,
+    [`& .${accordionSummaryClasses.expandIconWrapper}`]: {
+      display: "none"
+    }
   },
-  [`&.${classes.content}`]: {
-    marginBottom: "20px"
+  [`& .${accordionSummaryClasses.content}`]: {
+    marginTop: "32px",
+    marginBottom: "32px"
+  },
+  [`& .${accordionSummaryClasses.expandIconWrapper}`]: {
+    fontSize: "1.33rem"
   }
 }));
+
+export const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+  backgroundColor: theme.colours.alabaster,
+  padding: "0 32px 32px",
+  flexFlow: "column"
+}));
+
+export const Content = styled("div")({
+  marginBottom: "20px"
+});
