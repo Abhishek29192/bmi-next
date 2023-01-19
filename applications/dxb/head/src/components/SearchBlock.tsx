@@ -42,17 +42,19 @@ const SearchPageBlock = ({
   isLoading,
   helperText,
   placeholder,
-  query = null,
+  query,
   searchPageSearchTips,
   searchPageSidebarItems
 }: Props) => {
-  const [internalQueryState, setInternalQueryState] = useState(query);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(
+    !isInputValueValid(query)
+  );
   useEffect(() => {
-    setInternalQueryState(query);
+    setIsSubmitDisabled(!isInputValueValid(query));
   }, [query]);
 
   const handleInputOnChange = (value) => {
-    setInternalQueryState(value);
+    setIsSubmitDisabled(!isInputValueValid(value));
   };
 
   return (
@@ -64,13 +66,13 @@ const SearchPageBlock = ({
           <Search
             action={getPathWithCountryCode(countryCode, "search")}
             buttonText={buttonText}
-            value={internalQueryState}
+            value={query}
             fieldName={QUERY_KEY}
             onSubmit={handleSubmit}
             helperText={helperText}
             placeholder={placeholder}
             onChange={handleInputOnChange}
-            isSubmitDisabled={!isInputValueValid(internalQueryState)}
+            isSubmitDisabled={isSubmitDisabled}
             data-testid="search-form"
           />
         </div>

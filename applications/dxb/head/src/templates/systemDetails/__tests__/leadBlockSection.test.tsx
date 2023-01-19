@@ -1,13 +1,12 @@
-import { ThemeProvider } from "@bmi-digital/components";
+import { Icopal, ThemeProvider } from "@bmi-digital/components";
 import {
-  LocationProvider,
   createHistory,
-  createMemorySource
+  createMemorySource,
+  LocationProvider
 } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
-import { iconMap } from "../../../components/Icon";
-import { DataTypeEnum, Data as LinkData } from "../../../components/Link";
+import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
 import LeadBlockSection from "../leadBlockSection";
 
 const leadBlockSectionName = "lead Block section";
@@ -37,7 +36,7 @@ describe("LeadBlockSection tests", () => {
           <LeadBlockSection
             name={leadBlockSectionName}
             cta={linkData}
-            brandLogo={iconMap.Icopal}
+            brandLogo={Icopal}
           />
         </LocationProvider>
       </ThemeProvider>
@@ -58,7 +57,7 @@ describe("LeadBlockSection tests", () => {
             name={leadBlockSectionName}
             cta={linkData}
             uniqueSellingPropositions={uniqueSellingPropositions}
-            brandLogo={iconMap.Icopal}
+            brandLogo={Icopal}
           />
         </LocationProvider>
       </ThemeProvider>
@@ -82,7 +81,7 @@ describe("LeadBlockSection tests", () => {
           <LeadBlockSection
             name={leadBlockSectionName}
             cta={linkData}
-            brandLogo={iconMap.Icopal}
+            brandLogo={Icopal}
             uniqueSellingPropositions={[]}
           />
         </LocationProvider>
@@ -109,7 +108,7 @@ describe("LeadBlockSection tests", () => {
             <LeadBlockSection
               name={leadBlockSectionName}
               cta={linkData}
-              brandLogo={iconMap.Icopal}
+              brandLogo={Icopal}
             />
           </LocationProvider>
         </ThemeProvider>

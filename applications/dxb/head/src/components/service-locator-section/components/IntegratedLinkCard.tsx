@@ -5,6 +5,7 @@ import { useScrollTo } from "./useScrollTo";
 
 export const IntegratedLinkCard = ({
   isOpen,
+  children,
   ...rest
 }: LinkCardProps): JSX.Element => {
   const linkCardElement = useRef<HTMLDivElement>(null);
@@ -18,7 +19,9 @@ export const IntegratedLinkCard = ({
       onExpandCompleted={() => {
         setCardExpansionCompleted(true);
       }}
-    />
+    >
+      {children}
+    </LinkCard>
   );
 };
 

@@ -4,7 +4,8 @@ import {
   ClickableAction,
   DownloadList,
   DownloadListContext,
-  iconMap,
+  External,
+  FileUniversal,
   Table
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
@@ -140,7 +141,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
                 rel: "noopener noreferrer"
               }}
             >
-              <ExternalLinkIcon source={iconMap.External} />
+              <ExternalLinkIcon source={External} />
             </Button>
           )}
         </StyledTableCell>
@@ -333,7 +334,7 @@ export const MultipleAssetToFileDownload = ({
         document.format && (
           <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[document.format] || iconMap.FileUniversal}
+            source={fileIconsMap[document.format] || FileUniversal}
             className={"download-icon"}
           />
         )
@@ -367,7 +368,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
         format && (
           <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format] || iconMap.FileUniversal}
+            source={fileIconsMap[format] || FileUniversal}
             className={"download-icon"}
           />
         )
