@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
 import path from "path";

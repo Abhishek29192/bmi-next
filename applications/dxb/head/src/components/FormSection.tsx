@@ -5,6 +5,7 @@ import {
   ButtonProps,
   Checkbox,
   Form,
+  getFileSizeString,
   Grid,
   InputValue,
   RadioGroup,
@@ -13,8 +14,7 @@ import {
   SelectMenuItem,
   TextField,
   Typography,
-  Upload,
-  getFileSizeString
+  Upload
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -37,7 +37,11 @@ import { Data as LinkData, isExternalUrl } from "./Link";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import { StyledForm, classes } from "./styles/FormSectionStyles";
+import {
+  classes,
+  StyledForm,
+  StyledHubSpotContainer
+} from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 
 export type Data = {
@@ -433,7 +437,7 @@ const HubspotForm = ({
           )}
         </>
       )}
-      <div
+      <StyledHubSpotContainer
         id={hubSpotFormID}
         className={classNames(classes.hubSpot, isDialog && classes.dialog)}
       />

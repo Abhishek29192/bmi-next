@@ -23,34 +23,32 @@ export const classes = {
 };
 
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
-  [`& .${classes.root}`]: {
-    height: "100vh",
-    width: "100vw",
-    [theme.breakpoints!.up!("md")]: {
-      "& $detailsLogo": {
-        marginBottom: "1rem"
-      },
+  height: "100vh",
+  width: "100vw",
+  [theme.breakpoints!.up!("md")]: {
+    "& $detailsLogo": {
+      marginBottom: "1rem"
+    },
 
-      "& $detailsTitle": {
-        marginBottom: "1rem"
-      }
+    "& $detailsTitle": {
+      marginBottom: "1rem"
     }
   },
-  [`& .${classes.secondary}`]: {
+  [`&.${classes.secondary}`]: {
     boxShadow: "none"
   },
-  [`& .${classes.groupTitle}`]: {
+  [`&.${classes.groupTitle}`]: {
     marginTop: "24px",
     marginBottom: "24px"
   },
-  [`& .${classes.shareButton}`]: {
+  [`&.${classes.shareButton}`]: {
     margin: "6px 0"
   },
-  [`& .${classes.content}`]: {
+  [`&.${classes.content}`]: {
     overflowY: "auto",
     height: "100%"
   },
-  [`& .${classes.progressContainer}`]: {
+  [`&.${classes.progressContainer}`]: {
     position: "absolute",
     top: "70px",
     bottom: 0,
@@ -63,26 +61,26 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     backgroundColor: "rgba(255, 255, 255, 0.65)",
     borderRadius: "3px"
   },
-  [`& .${classes.details}`]: {
+  [`&.${classes.details}`]: {
     position: "absolute",
     top: "70px",
     left: "30px",
     pointerEvents: "none",
     right: "30px"
   },
-  [`& .${classes.detailsLogo}`]: {
+  [`&.${classes.detailsLogo}`]: {
     marginBottom: "0.5rem"
   },
-  [`& .${classes.detailsTitle}`]: {
+  [`&.${classes.detailsTitle}`]: {
     marginBottom: "0.5rem",
     [theme.breakpoints!.up!("md")]: {
       marginBottom: "1rem"
     }
   },
-  [`& .${classes.detailsText}`]: {
+  [`&.${classes.detailsText}`]: {
     marginBottom: "0.5rem"
   },
-  [`& .${classes.actions}`]: {
+  [`&.${classes.actions}`]: {
     position: "absolute",
     border: 0,
     left: 0,
@@ -95,25 +93,25 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     minHeight: "5rem",
     padding: "0.875rem"
   },
-  [`& .${classes.icon}`]: {
+  [`&.${classes.icon}`]: {
     fill: "rgba(255, 255, 255, 0.8)"
   },
-  [`& .${classes.container}`]: {
+  [`&.${classes.container}`]: {
     [theme.breakpoints!.up!("sm")]: {
       padding: "0px 20px 20px"
     }
   },
-  [`& .${classes.viewer}`]: {
+  [`&.${classes.viewer}`]: {
     display: "flex",
     height: "100%",
     alignItems: "center",
     justifyContent: "center"
   },
-  [`& .${classes.activeSelectionOption}`]: {
+  [`&.${classes.activeSelectionOption}`]: {
     padding: "0px",
     border: `2px solid ${theme.colours.accent}`
   },
-  [`& .${classes.VisualiserPopover}`]: {}
+  [`&.${classes.VisualiserPopover}`]: {}
   // "@:global": {
   //   "& $VisualiserPopover": {
   //     "[class*=MuiPopover-paper]": {

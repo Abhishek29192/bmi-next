@@ -21,7 +21,7 @@ exports[`Visualiser component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl css-10rdlnc"
       data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
@@ -118,7 +118,7 @@ exports[`Visualiser component renders correctly 1`] = `
           </div>
         </div>
         <nav
-          class="VisualiserV2-actions"
+          class="css-mpjrc9"
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -210,7 +210,7 @@ exports[`Visualiser component renders correctly when non-test asset url provided
       tabindex="0"
     />
     <div
-      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl css-10rdlnc"
       data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
@@ -307,7 +307,7 @@ exports[`Visualiser component renders correctly when non-test asset url provided
           </div>
         </div>
         <nav
-          class="VisualiserV2-actions"
+          class="css-mpjrc9"
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -399,7 +399,7 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
       tabindex="0"
     />
     <div
-      class="ContainerDialog-bg-white ContainerDialog-width-xl VisualiserV2-root css-xppzm9"
+      class="ContainerDialog-bg-white ContainerDialog-width-xl css-10rdlnc"
       data-testid="container-dialog-root"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
@@ -496,7 +496,7 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
           </div>
         </div>
         <nav
-          class="VisualiserV2-actions"
+          class="css-mpjrc9"
         >
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
