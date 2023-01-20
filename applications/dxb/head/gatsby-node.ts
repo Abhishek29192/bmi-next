@@ -6,7 +6,7 @@ import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
 import resolvers from "./src/schema/resolvers";
 import typeDefs from "./src/schema/schema.graphql";
-import { getRedirects } from "./src/utils/get-redirects";
+import { getRedirects, Redirect } from "./src/utils/get-redirects";
 import { getPathWithCountryCode } from "./src/utils/path";
 
 dotenv.config({
@@ -61,11 +61,14 @@ const createProductPages = async (
         (product.oldPath || "") !== (product.path || "")
       ) {
         const oldPath = getPathWithCountryCode(countryCode, product.oldPath);
-        createRedirect({
-          fromPath: oldPath,
-          toPath: path,
+        const redirect = {
+          ...getRedirectConfig({
+            from: oldPath,
+            to: path
+          }),
           isPermanent: true
-        });
+        };
+        createRedirect(redirect);
       }
       await createPage({
         path,
@@ -292,14 +295,43 @@ export const createPages: GatsbyNode["createPages"] = async ({
   );
 
   await Promise.all(
-    redirects.map((redirect) =>
-      createRedirect({
-        fromPath: redirect.from,
-        toPath: redirect.to,
-        isPermanent: redirect.status === "301"
-      })
-    )
+    redirects.map((redirect) => createRedirect(getRedirectConfig(redirect)))
   );
+};
+
+const getRedirectConfig = (
+  redirect: Redirect
+): { fromPath: string; toPath: string; isPermanent: boolean } => {
+  const isPermanent = redirect.status === "301";
+  let toPath = redirect.to.endsWith("/") ? redirect.to : `${redirect.to}/`;
+
+  //If we use wildcard redirects on production users will be redirected to gatsby domain
+  //Such approach allows us to prevent users from being redirected to Gatsby domain
+  if (!redirect.to.startsWith("https://")) {
+    toPath = `${process.env.GATSBY_SITE_URL}${toPath}`;
+  }
+
+  if (redirect.from === "/" || redirect.from.endsWith("*")) {
+    return {
+      fromPath: redirect.from,
+      toPath,
+      isPermanent
+    };
+  }
+
+  return {
+    isPermanent,
+    fromPath: addSplatToUrl(redirect.from),
+    toPath: toPath
+  };
+};
+
+const addSplatToUrl = (url: string): string => {
+  if (url.endsWith("/")) {
+    return `${url}*`;
+  }
+
+  return `${url}/*`;
 };
 
 const areValuesEqual = (a, b) => {

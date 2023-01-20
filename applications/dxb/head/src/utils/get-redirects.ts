@@ -2,7 +2,7 @@ import fs from "fs";
 import fetch from "node-fetch";
 import toml from "toml";
 
-type Redirects = {
+export type Redirect = {
   from: string;
   to: string;
   force?: boolean;
@@ -12,7 +12,7 @@ type Redirects = {
 export const getRedirects = async (
   redirectsFileName: string,
   contentfulRedirectsFileUrl?: string
-): Promise<Redirects[]> => {
+): Promise<Redirect[]> => {
   if (contentfulRedirectsFileUrl) {
     try {
       const result = await fetch(`https:${contentfulRedirectsFileUrl}`);
