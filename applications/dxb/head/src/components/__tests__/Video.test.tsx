@@ -1,7 +1,7 @@
 import { YoutubeVideoProps } from "@bmi-digital/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { ContentfulImageData } from "../Image";
+import { Data as ContentfulImageData } from "../Image";
 import * as Video from "../Video";
 
 const VideoRenderComponent = Video.renderVideo;

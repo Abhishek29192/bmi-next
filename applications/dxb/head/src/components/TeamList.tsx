@@ -11,14 +11,14 @@ import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import Image, { ContentfulImageData } from "./Image";
+import Image, { Data as ImageData } from "./Image";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { useSiteContext } from "./Site";
 
 export type Data = {
   name: string;
   jobTitle: string;
-  profileImage: ContentfulImageData | null;
+  profileImage: ImageData | null;
   links: LinkData[];
 }[];
 

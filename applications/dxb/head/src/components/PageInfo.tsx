@@ -1,11 +1,11 @@
 import { graphql } from "gatsby";
 import { Data as LinkData } from "../components/Link";
-import { ContentfulImageData } from "./Image";
+import { Data as ImageData } from "./Image";
 import { Data as SampleBasketSectionData } from "./SampleBasketBase";
 import { TagData } from "./Tag";
 import { ContentfulVideoData } from "./Video";
 
-export type ImageWithThumbnail = ContentfulImageData & {
+export type ImageWithThumbnail = ImageData & {
   thumbnail: {
     src: string;
   };

@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentfulImageData } from "../../components/Image";
+import { Data as ContentfulImageData } from "../../components/Image";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import {
   ContentfulVideoData,

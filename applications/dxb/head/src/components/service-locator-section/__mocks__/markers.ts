@@ -1,4 +1,4 @@
-import { ContentfulImageData } from "../../Image";
+import { Data as ContentfulImageData } from "../../Image";
 import { EntryTypeEnum } from "../../Service";
 import { Service } from "../index";
 

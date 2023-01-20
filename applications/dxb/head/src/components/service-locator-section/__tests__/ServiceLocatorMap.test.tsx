@@ -2,7 +2,7 @@ import { ThemeProvider } from "@bmi-digital/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
-import { imageData, selectedRooferMock } from "../__mocks__/mocks";
+import { imageData, selectedRooferMock } from "../__mocks__/markers";
 
 jest.mock("@bmi-digital/components", () => {
   const originalModule = jest.requireActual("@bmi-digital/components");

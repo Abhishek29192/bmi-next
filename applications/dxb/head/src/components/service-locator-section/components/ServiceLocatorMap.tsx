@@ -11,6 +11,7 @@ import {
   Typography
 } from "@bmi-digital/components";
 import CloseIcon from "@mui/icons-material/Close";
+import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
 import Image from "../../Image";
@@ -55,7 +56,7 @@ export const ServiceLocatorMap = ({
       >
         {selectedRoofer && (
           <Card
-            className={classNames(styles["product-details-card"], {
+            className={classnames(styles["product-details-card"], {
               // eslint-disable-next-line security/detect-object-injection
               [styles["product-details-card--with_logo"]]:
                 selectedRoofer.companyLogo
