@@ -5,9 +5,7 @@ const PREFIX = "FormSection";
 
 export const classes = {
   root: `${PREFIX}-root`,
-  dialog: `${PREFIX}-dialog`,
-  checkboxBlock: `${PREFIX}-checkboxBlock`,
-  requiredMarkTitle: `${PREFIX}-requiredMarkTitle`
+  dialog: `${PREFIX}-dialog`
 };
 
 export const StyledForm = styled(Form)(({ theme }) => ({
@@ -16,24 +14,7 @@ export const StyledForm = styled(Form)(({ theme }) => ({
   marginTop: "1rem",
   padding: "2rem",
   maxWidth: "920px",
-  marginBottom: "1rem",
-  [`.${classes.dialog}`]: {
-    border: "none",
-    padding: 0,
-    margin: 0,
-    "& input[type=submit]": {
-      display: "none"
-    }
-  },
-  [`.${classes.checkboxBlock}`]: {
-    position: "relative",
-
-    [`&.${classes.requiredMarkTitle}`]: {
-      position: "absolute",
-      top: 0,
-      left: "-15px"
-    }
-  }
+  marginBottom: "1rem"
 }));
 
 export const HubspotFormWrapper = styled("div")(({ theme }) => ({
@@ -44,6 +25,14 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
   marginTop: "1rem",
   padding: "1rem 2rem 2rem",
   maxWidth: "920px",
+  [`.${classes.dialog}`]: {
+    border: "none",
+    padding: 0,
+    margin: 0,
+    "& input[type=submit]": {
+      display: "none"
+    }
+  },
   ".hs-form fieldset": {
     maxWidth: "none"
   },
