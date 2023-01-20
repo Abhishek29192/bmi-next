@@ -73,7 +73,7 @@ const MeasurementsSection = ({
   <FormSection {...{ header, description }}>
     <Field label={"Field area"} helpContent={help.fieldArea}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="fieldArea"
@@ -96,7 +96,7 @@ const MeasurementsSection = ({
     </Field>
     <Field label={"Upstand (optional)"} helpContent={help.upstand}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="upstandHeight"
@@ -115,7 +115,7 @@ const MeasurementsSection = ({
             />
           </Form.Row>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="upstandLength"
@@ -141,7 +141,7 @@ const MeasurementsSection = ({
       helpContent={help.kerb}
     >
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="kerbHeight"
@@ -160,7 +160,7 @@ const MeasurementsSection = ({
             />
           </Form.Row>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="kerbLength"
@@ -183,7 +183,7 @@ const MeasurementsSection = ({
     </Field>
     <Field label={"Additional detailing (optional)"} helpContent={help.details}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="detailHeight1"
@@ -203,7 +203,7 @@ const MeasurementsSection = ({
             />
           </Form.Row>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="detailLength1"
@@ -227,7 +227,7 @@ const MeasurementsSection = ({
     </Field>
     <Field label={"Additional detailing (optional)"} helpContent={help.details}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="detailHeight2"
@@ -247,7 +247,7 @@ const MeasurementsSection = ({
             />
           </Form.Row>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid xs={12} md={6}>
           <Form.Row>
             <TextField
               name="detailLength2"

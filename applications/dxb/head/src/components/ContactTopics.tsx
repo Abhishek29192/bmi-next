@@ -114,8 +114,7 @@ const Footer = ({
             const gridItemProps: GridProps = {
               xs: 12,
               sm: 6,
-              lg: 4,
-              item: true
+              lg: 4
             };
 
             const gtmLabel = `${parentSectionTitle}${

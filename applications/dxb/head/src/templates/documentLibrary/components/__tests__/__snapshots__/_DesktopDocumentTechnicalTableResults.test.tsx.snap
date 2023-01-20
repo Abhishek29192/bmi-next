@@ -8,7 +8,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
       data-testid="desktop-tech-results-table"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -206,7 +206,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
       data-testid="desktop-tech-results-table"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -486,7 +486,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
       data-testid="desktop-tech-results-table"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"

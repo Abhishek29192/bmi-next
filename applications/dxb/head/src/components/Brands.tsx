@@ -40,7 +40,7 @@ const Brands = ({
             title: brand.title
           });
           return (
-            <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
+            <Grid xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
               {brand.path ? (
                 <BrandIntroCard
                   name={brand.brandLogo}

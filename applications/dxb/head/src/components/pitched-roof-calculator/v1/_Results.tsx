@@ -145,7 +145,7 @@ const EmailAddressCollection = ({
         {getMicroCopy(copy, "results.email.title")}
       </Typography>
       <Grid container className={styles["help"]}>
-        <Grid item xs={12} lg={6}>
+        <Grid xs={12} lg={6}>
           <Typography>{getMicroCopy(copy, "results.email.help")}</Typography>
         </Grid>
       </Grid>
@@ -155,7 +155,7 @@ const EmailAddressCollection = ({
         direction="column"
         className={styles["fieldsContainer"]}
       >
-        <Grid item xs={12} lg={3}>
+        <Grid xs={12} lg={3}>
           <TextField
             name="name"
             variant="outlined"
@@ -165,7 +165,7 @@ const EmailAddressCollection = ({
             fullWidth
           />
         </Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid xs={12} lg={3}>
           <TextField
             name="email"
             variant="outlined"
@@ -187,7 +187,7 @@ const EmailAddressCollection = ({
         direction="column"
         className={styles["gdprContainer"]}
       >
-        <Grid item xs={12} lg={6}>
+        <Grid xs={12} lg={6}>
           <Checkbox
             name="gdpr_1"
             label={getMicroCopy(copy, "results.email.gdpr_1Label")}
@@ -198,7 +198,7 @@ const EmailAddressCollection = ({
             )}
           />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid xs={12} lg={6}>
           <Checkbox
             name="gdpr_2"
             label={getMicroCopy(copy, "results.email.gdpr_2Label")}
@@ -209,7 +209,7 @@ const EmailAddressCollection = ({
             )}
           />
         </Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid xs={12} lg={3}>
           <Form.SubmitButton className={styles["submit"]} disabled={loading}>
             {getMicroCopy(copy, "results.email.print")}
           </Form.SubmitButton>

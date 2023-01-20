@@ -260,14 +260,14 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         <Section backgroundColor="white">
           <div className={filterStyles["Filters"]}>
             <Grid container spacing={3} ref={resultsElement}>
-              <Grid item xs={12} md={12} lg={3}>
+              <Grid xs={12} md={12} lg={3}>
                 <FilterSection
                   filters={filters}
                   handleFiltersChange={handleFiltersChange}
                   clearFilters={handleClearFilters}
                 />
               </Grid>
-              <Grid item xs={12} md={12} lg={9}>
+              <Grid xs={12} md={12} lg={9}>
                 {!initialLoading ? (
                   <ResultSection
                     results={documents}

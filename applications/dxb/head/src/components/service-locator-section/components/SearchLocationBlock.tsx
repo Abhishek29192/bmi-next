@@ -37,7 +37,7 @@ export const SearchLocationBlock = ({
   const { getMicroCopy, countryCode } = useSiteContext();
 
   return (
-    <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
+    <Grid xs={12} md={6} lg={4} className={styles["search"]}>
       <>
         <Autocomplete
           id="company-autocomplete"

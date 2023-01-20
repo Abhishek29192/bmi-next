@@ -68,7 +68,7 @@ const ResultsView = ({
           {systemName}
         </Typography>
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography>{resultsContent.systemDescription}</Typography>
           </Grid>
         </Grid>
@@ -78,7 +78,7 @@ const ResultsView = ({
           ))}
         </Bullets>
         <Grid container>
-          <Grid item md={8}>
+          <Grid md={8}>
             <img
               src={`${urlPrefix}${encodeURIComponent(
                 systemName
@@ -158,7 +158,7 @@ const ResultsView = ({
           {resultsContent.extraItemsHeader}
         </Typography>
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography
               variant="body1"
               className={classnames(
@@ -181,14 +181,14 @@ const ResultsView = ({
           {resultsContent.inputHeader}
         </Typography>
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography variant="body1" className={styles["description"]}>
               {resultsContent.inputDescription}
             </Typography>
           </Grid>
         </Grid>
         <Grid container>
-          <Grid item lg={6}>
+          <Grid lg={6}>
             <InputTable
               submittedValues={submittedValues}
               treeFieldsDisplay={treeFieldsDisplay}
@@ -201,7 +201,7 @@ const ResultsView = ({
           {resultsContent.disclaimerHeader}
         </Typography>
         <Grid container>
-          <Grid item lg={9}>
+          <Grid lg={9}>
             <Typography variant="body1">{resultsContent.disclaimer}</Typography>
           </Grid>
         </Grid>
@@ -213,7 +213,7 @@ const ResultsView = ({
             {resultsContent.projectInformationHeader}
           </Typography>
           <Grid container>
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid xs={12} sm={6} lg={4}>
               <TableContainer component={"div"}>
                 <Table className={styles.Table}>
                   <TableBody>

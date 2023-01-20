@@ -14,7 +14,7 @@ exports[`ProductsGridView component renders correctly when empty 1`] = `
 exports[`ProductsGridView component renders correctly when not empty 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 Grid-item css-j7mgek-MuiGrid-root"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 Grid-item css-1uqv6el-MuiGrid2-root"
     data-testid="grid-item"
   >
     <a
@@ -81,7 +81,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
 exports[`ProductsGridView component renders correctly when not empty with filters from url 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 Grid-item css-j7mgek-MuiGrid-root"
+    class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-4 Grid-item css-1uqv6el-MuiGrid2-root"
     data-testid="grid-item"
   >
     <a

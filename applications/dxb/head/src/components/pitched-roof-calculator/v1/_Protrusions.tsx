@@ -44,7 +44,7 @@ const SelectProtrusion = ({
     <FieldContainer>
       <Grid container>
         {Object.entries(protrusionTypes).map(([type, { illustration }]) => (
-          <Grid key={type} item xs={6} lg={2}>
+          <Grid key={type} xs={6} lg={2}>
             <CardInput
               name={`select-protrusion-${id}`}
               value={type}
@@ -159,14 +159,14 @@ const ProtrusionDimensions = ({
       title={getMicroCopy(copy, "roofDimensions.protrusions.prompt")}
     >
       <Grid container className={styles["dimensions"]}>
-        <Grid item xs={12} lg={3}>
+        <Grid xs={12} lg={3}>
           <DimensionsIllustration />
         </Grid>
-        <Grid item md={1} className={styles["showOnLarge"]}></Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid md={1} className={styles["showOnLarge"]}></Grid>
+        <Grid xs={12} lg={3}>
           <Grid container>
             {fields.map(({ name, type }: { name: string; type: Type }) => (
-              <Grid key={`protrusion-${id}-${name}`} item xs={12}>
+              <Grid key={`protrusion-${id}-${name}`} xs={12}>
                 <Input
                   key={`${protrusionType}-${name}`} // make sure to reset the state everytime the protrusionType changes
                   label={name}
@@ -177,7 +177,7 @@ const ProtrusionDimensions = ({
                 />
               </Grid>
             ))}
-            <Grid item xs={12}>
+            <Grid xs={12}>
               {onAddAnother ? (
                 <Button
                   variant="text"

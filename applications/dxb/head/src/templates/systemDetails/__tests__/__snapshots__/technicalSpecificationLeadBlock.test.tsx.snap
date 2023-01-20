@@ -3,11 +3,11 @@
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With more than one feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -25,7 +25,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -74,7 +74,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -125,7 +125,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -174,7 +174,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -231,11 +231,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when Multiple classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -253,7 +253,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -302,7 +302,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -339,7 +339,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -388,7 +388,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -431,11 +431,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With a feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -446,7 +446,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="css-46e850"
+            class="css-ya57aw"
           >
             <table
               class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -501,11 +501,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when One classifications provided With no feature units 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -516,7 +516,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
           class="SystemDetailsTechnicalSpec"
         >
           <div
-            class="css-46e850"
+            class="css-ya57aw"
           >
             <table
               class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -571,11 +571,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when One 
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when no classifications provided With tech spec an empty set 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -590,11 +590,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With no specification 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -612,7 +612,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -661,7 +661,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -698,7 +698,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -747,7 +747,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -790,11 +790,11 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
 exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With specification 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1kfapdf-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-3mvoze-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-8 MuiGrid2-grid-xs-12 css-vhjime-MuiGrid2-root"
       data-testid="grid-item"
     >
       <p
@@ -812,7 +812,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -861,7 +861,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -898,7 +898,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
             >
               <div
                 aria-expanded="true"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot Mui-expanded Accordion-summaryExpanded MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -947,7 +947,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                         class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="css-46e850"
+                          class="css-ya57aw"
                         >
                           <table
                             class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -984,7 +984,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
       </p>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 Grid-item css-5ynyu1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
       data-testid="specificationNotes"
     >
       <div

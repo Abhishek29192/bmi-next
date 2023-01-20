@@ -43,7 +43,7 @@ const TeamSection = ({ data, className }: Props) => {
       )}
     >
       <Grid container spacing={3} className={styles["grid"]}>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           {data.title && (
             <Section.Title className={styles["title"]}>
               {data.title}

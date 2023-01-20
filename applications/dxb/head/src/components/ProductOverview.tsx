@@ -122,7 +122,7 @@ const ProductOverview = ({
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={12} lg={8}>
+        <Grid xs={12} md={12} lg={8}>
           <MediaGallery
             media={media}
             thumbnailComponent={(props: ThumbnailProps) => (
@@ -131,7 +131,7 @@ const ProductOverview = ({
             layout="short"
           />
         </Grid>
-        <Grid item xs={12} md={12} lg={4}>
+        <Grid xs={12} md={12} lg={4}>
           <ProductOverviewPane
             // eslint-disable-next-line security/detect-object-injection
             brandLogo={iconMap[brandCode]}

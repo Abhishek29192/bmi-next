@@ -270,15 +270,15 @@ exports[`SampleBasketSection component should render form after complete button 
           Complete form
         </h2>
         <form
-          class="Form-rightAlignButton css-17fi9g1"
+          class="Form-rightAlignButton css-1sghjuf"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-            data-testid="grid"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+            data-testid="grid-container"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 Grid-item css-14il24d-MuiGrid-root"
-              data-testid="grid-item"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
+              data-testid="grid-container"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"

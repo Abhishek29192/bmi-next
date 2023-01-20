@@ -52,7 +52,7 @@ const TileSelectionRow = ({
           }`;
 
           return (
-            <Grid item xs={6} md={4} lg={2} key={tile.code}>
+            <Grid xs={6} md={4} lg={2} key={tile.code}>
               <CardRadioGroup.Item
                 value={tile.baseProduct.code}
                 title={tile.baseProduct.name || tile.name}

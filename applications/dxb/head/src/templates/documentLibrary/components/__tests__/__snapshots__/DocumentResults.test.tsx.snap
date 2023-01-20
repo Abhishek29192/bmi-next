@@ -6,7 +6,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
     class="DocumentSimpleTableResults css-1iwuinm"
   >
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-rowNoColor css-wsrw3a-MuiTable-root"
@@ -244,11 +244,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3  css-mrmosm-MuiGrid-root"
-    data-testid="grid"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
+    data-testid="grid-container"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4 Grid-item css-13gfyc5-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 MuiGrid2-grid-lg-6 MuiGrid2-grid-xl-4 Grid-item css-kslbn3-MuiGrid2-root"
       data-testid="grid-item"
     >
       <a
@@ -315,7 +315,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
         >
           <div
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"

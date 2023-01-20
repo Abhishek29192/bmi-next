@@ -13,7 +13,7 @@ type Props = {
 const TitleWithContentSection = ({ data }: Props) => {
   return (
     <Section backgroundColor="white">
-      <Grid container item lg={8} xs={12}>
+      <Grid container lg={8} xs={12}>
         {data.title && <Section.Title>{data.title}</Section.Title>}
         <RichText document={data.content} />
       </Grid>

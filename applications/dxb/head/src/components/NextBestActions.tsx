@@ -47,7 +47,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
               : undefined;
 
           return (
-            <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
+            <Grid xs={12} md={4} lg={3} key={`nba-${index}`}>
               <NBACard
                 // eslint-disable-next-line security/detect-object-injection
                 color={indexToBackgroundMap[index]}

@@ -34,7 +34,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -140,7 +140,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-3y7fi4-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -239,7 +239,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-jnrlck"
+            class=" css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -331,25 +331,21 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
             </div>
             <div
               aria-labelledby="tab-name"
-              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               data-testid="tabpanel-name"
               heading="name"
               id="tabpanel-name"
               role="tabpanel"
             >
               <div
-                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="RichText-root css-qiddyp"
               >
-                <div
-                  class="RichText-root css-qiddyp"
+                <p
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                  </p>
-                </div>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                </p>
               </div>
             </div>
           </div>
@@ -387,7 +383,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class=" css-jnrlck"
+            class=" css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -479,25 +475,21 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
             </div>
             <div
               aria-labelledby="tab-hello"
-              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               data-testid="tabpanel-hello"
               heading="hello"
               id="tabpanel-hello"
               role="tabpanel"
             >
               <div
-                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="RichText-root css-qiddyp"
               >
-                <div
-                  class="RichText-root css-qiddyp"
+                <p
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                  </p>
-                </div>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                </p>
               </div>
             </div>
           </div>
@@ -535,7 +527,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class=" css-jnrlck"
+            class=" css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -643,7 +635,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class=" css-jnrlck"
+            class=" css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -735,25 +727,21 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
             </div>
             <div
               aria-labelledby="tab-title"
-              class="MuiGrid-root MuiGrid-item Tabs-tabPanel css-j7mgek-MuiGrid-root"
+              class="Tabs-tabPanel Tabs-tabPanelBox MuiBox-root css-19kzrtu"
               data-testid="tabpanel-title"
               heading="title"
               id="tabpanel-title"
               role="tabpanel"
             >
               <div
-                class="Tabs-tabPanelBox MuiBox-root css-19kzrtu"
+                class="RichText-root css-qiddyp"
               >
-                <div
-                  class="RichText-root css-qiddyp"
+                <p
+                  class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
+                  data-testid="typography"
                 >
-                  <p
-                    class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
-                    data-testid="typography"
-                  >
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                  </p>
-                </div>
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                </p>
               </div>
             </div>
           </div>

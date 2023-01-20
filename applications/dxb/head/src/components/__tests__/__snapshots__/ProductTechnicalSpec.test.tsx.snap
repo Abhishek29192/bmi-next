@@ -7,7 +7,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
       class="ProductTechnicalSpec"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -78,7 +78,7 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
       class="ProductTechnicalSpec"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -149,7 +149,7 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
       class="ProductTechnicalSpec"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"
@@ -206,7 +206,7 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
       class="ProductTechnicalSpec"
     >
       <div
-        class="css-46e850"
+        class="css-ya57aw"
       >
         <table
           class="MuiTable-root Table-evenColor css-wsrw3a-MuiTable-root"

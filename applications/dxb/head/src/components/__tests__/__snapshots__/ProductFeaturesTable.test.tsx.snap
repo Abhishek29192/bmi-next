@@ -4,7 +4,7 @@ exports[`ProductFeaturesTable component Renders correctly When no features provi
 <body>
   <div>
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-oddColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -23,7 +23,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
 <body>
   <div>
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-oddColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -71,7 +71,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
 <body>
   <div>
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-oddColor css-wsrw3a-MuiTable-root"
@@ -119,7 +119,7 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
 <body>
   <div>
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-evenColor Table-noBorder css-wsrw3a-MuiTable-root"
@@ -167,7 +167,7 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
 <body>
   <div>
     <div
-      class="css-46e850"
+      class="css-ya57aw"
     >
       <table
         class="MuiTable-root Table-oddColor css-wsrw3a-MuiTable-root"

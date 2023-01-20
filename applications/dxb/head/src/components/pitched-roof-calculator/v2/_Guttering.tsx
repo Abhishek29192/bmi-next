@@ -191,7 +191,7 @@ const DownPipeSelection = ({
           title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE)}
         >
           <Grid container justifyContent="center">
-            <Grid item xs={12} md={3}>
+            <Grid xs={12} md={3}>
               <NumericInput
                 name="downPipes"
                 defaultValue={downPipes}
@@ -214,7 +214,7 @@ const DownPipeSelection = ({
           title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE)}
         >
           <Grid container justifyContent="center">
-            <Grid item xs={12} md={3}>
+            <Grid xs={12} md={3}>
               <NumericInput
                 name="downPipeConnectors"
                 defaultValue={downPipeConnectors}

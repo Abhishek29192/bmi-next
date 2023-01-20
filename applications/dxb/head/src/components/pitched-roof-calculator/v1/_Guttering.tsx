@@ -158,7 +158,7 @@ const DownPipeSelection = ({
     <>
       <FieldContainer title={getMicroCopy(copy, "guttering.downPipe.title")}>
         <Grid container>
-          <Grid item xs={12} md={3}>
+          <Grid xs={12} md={3}>
             <NumericInput
               name="downPipes"
               defaultValue={downPipes}
@@ -178,7 +178,7 @@ const DownPipeSelection = ({
         title={getMicroCopy(copy, "guttering.downPipeConnectors.title")}
       >
         <Grid container>
-          <Grid item xs={12} md={3}>
+          <Grid xs={12} md={3}>
             <NumericInput
               name="downPipeConnectors"
               defaultValue={downPipeConnectors}
