@@ -428,4 +428,21 @@ describe("Brand Landing Page Template", () => {
     expect(queryByText("firstSlideCTA")).not.toBeNull();
     expect(container).toMatchSnapshot();
   });
+
+  it("render with Search form on hero section", async () => {
+    const { container, getByTestId } = renderWithRouter(
+      <ThemeProvider>
+        <BrandLandingPage data={data} pageContext={null} />
+      </ThemeProvider>
+    );
+
+    expect(container.querySelector("header")).toBeTruthy();
+    expect(getByTestId("footer")).toBeTruthy();
+    expect(getByTestId("brand-colors-provider")).toBeTruthy();
+    expect(getByTestId("brand-search-form")).toBeTruthy();
+    const formAction = getByTestId("brand-search-form").getAttribute("action");
+    expect(formAction).toEqual(`/${data.contentfulSite.countryCode}/search/`);
+    expect(getByTestId("brand-search-button")).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
 });

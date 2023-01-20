@@ -1,7 +1,9 @@
 import {
   Button,
+  ButtonProps,
   CarouselHero,
   CarouselHeroItem,
+  Search,
   Section
 } from "@bmi-digital/components";
 import { graphql } from "gatsby";
@@ -25,6 +27,8 @@ import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -104,6 +108,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     config: { isBrandProviderEnabled }
   } = useConfig();
 
+  const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
     title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
     children: description?.description,
@@ -129,6 +134,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     >
       {({ siteContext }) => {
         const heroItems = getHeroItemsWithContext(siteContext, slides);
+        const { countryCode, getMicroCopy } = siteContext;
 
         return (
           <>
@@ -141,8 +147,24 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
               isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
-            />
-
+            >
+              <Search
+                buttonComponent={(props) => (
+                  <GTMButton
+                    gtm={{
+                      id: "search2",
+                      label: getMicroCopy(microCopy.SEARCH_LABEL)
+                    }}
+                    {...props}
+                    data-testid={"brand-search-button"}
+                  />
+                )}
+                action={getPathWithCountryCode(countryCode, "search")}
+                label={getMicroCopy(microCopy.SEARCH_LABEL)}
+                placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
+                data-testid={"brand-search-form"}
+              />
+            </CarouselHero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {sections && <Sections data={sections} />}
             <Section backgroundColor="alabaster" isSlim>
