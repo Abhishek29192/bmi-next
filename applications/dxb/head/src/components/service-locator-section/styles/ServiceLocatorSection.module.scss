@@ -25,6 +25,20 @@
       }
     }
 
+    &--with_logo {
+      :global {
+        [class*="MuiCardHeader-root"] {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+      
+        [class*="MuiCardHeader-content"] {
+          order: 3;
+          width: 100%;
+        }
+      }
+    }
+
     .product-details-card__close-button {
       color: $color-slate;
 
@@ -167,6 +181,22 @@
   .tab-panel + .tab-panel .map {
     @media (min-width: $breakpoint-lg) {
       margin: 0 0 0 24px;
+    }
+  }
+
+  .company-logo {
+    margin-bottom: 16px;
+
+    img {
+      height: 40px;
+    }
+
+    &--card {
+      margin-bottom: 24px;
+      
+      img {
+        height: 60px;
+      }
     }
   }
 }

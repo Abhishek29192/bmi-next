@@ -6,7 +6,7 @@ import {
 } from "@bmi-digital/components";
 import React from "react";
 import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import { Data as ImageData, renderImage } from "../components/Image";
+import { Data as ContentfulImageData, renderImage } from "../components/Image";
 import Link, { Data as LinkData } from "../components/Link";
 import { Data as VideoData, renderVideo } from "../components/Video";
 
@@ -34,7 +34,7 @@ export const generateHeroProps = (
   level: 1 | 2 | 3,
   subtitle: string,
   featuredVideo: VideoData,
-  featuredMedia: ImageData,
+  featuredMedia: ContentfulImageData,
   cta: LinkData
 ): HeroProps | SpotlightHeroProps => {
   return {

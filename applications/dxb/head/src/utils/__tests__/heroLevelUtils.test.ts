@@ -1,5 +1,5 @@
 import React from "react";
-import { Data as ImageData } from "../../components/Image";
+import { Data as ContentfulImageData } from "../../components/Image";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
 import {
   ContentfulVideoData,
@@ -30,7 +30,7 @@ const cta: LinkData = {
   hubSpotCTAID: null
 };
 
-const featuredMedia: ImageData = {
+const featuredMedia: ContentfulImageData = {
   type: null,
   altText: "Lorem ipsum",
   focalPoint: null,

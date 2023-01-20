@@ -15,6 +15,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../../../constants/microCopies";
+import Image from "../../Image";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
 import { Service } from "../index";
@@ -71,6 +72,12 @@ export const ServiceLocatorResultList = ({
             onCloseClick={onCloseCard}
             isOpen={selectedRoofer && selectedRoofer.id === service.id}
             title={service.name}
+            logo={
+              <Image
+                data={service.companyLogo}
+                className={styles["company-logo"]}
+              />
+            }
             gtm={getResultDataGtm(service, matches)}
             data-testid={"GTMIntegratedLinkCard-test-id"}
             subtitle={

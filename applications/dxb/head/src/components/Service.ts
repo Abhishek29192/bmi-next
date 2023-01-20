@@ -1,5 +1,6 @@
 import { RoofProLevel } from "@bmi-digital/components";
 import { graphql } from "gatsby";
+import { Data as ContentfulImageData } from "./Image";
 import { Data as ServiceType } from "./ServiceType";
 
 export enum EntryTypeEnum {
@@ -30,6 +31,7 @@ export type Data = {
   website: string | null;
   websiteLinkAsLabel: boolean | null;
   fax: string | null;
+  companyLogo: ContentfulImageData | null;
   serviceTypes: ServiceType[] | null;
   certification: RoofProLevel | null;
   summary: string | null;
@@ -50,6 +52,9 @@ export const query = graphql`
     email
     website
     websiteLinkAsLabel
+    companyLogo {
+      ...ImageCardFragment
+    }
     fax
     serviceTypes {
       ...ServiceTypeFragment

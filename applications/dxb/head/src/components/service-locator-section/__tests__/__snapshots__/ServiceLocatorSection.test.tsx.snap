@@ -1095,10 +1095,13 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                         class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                       >
                         <div
+                          class="MuiCardHeader-avatar css-1ssile9-MuiCardHeader-avatar"
+                        />
+                        <div
                           class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                         >
                           <span
-                            class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-steqmq-MuiTypography-root"
+                            class="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-e4iuyj-MuiTypography-root"
                           >
                             roofer 2
                           </span>
@@ -14421,10 +14424,13 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                       class="MuiCardHeader-root css-185gdzj-MuiCardHeader-root"
                     >
                       <div
+                        class="MuiCardHeader-avatar css-1ssile9-MuiCardHeader-avatar"
+                      />
+                      <div
                         class="MuiCardHeader-content css-1qbkelo-MuiCardHeader-content"
                       >
                         <span
-                          class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-steqmq-MuiTypography-root"
+                          class="MuiTypography-root MuiTypography-body2 MuiCardHeader-title css-e4iuyj-MuiTypography-root"
                         >
                           roofer 1
                         </span>
@@ -15499,85 +15505,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               MC: findARoofer.geolocationButton
             </button>
           </div>
-          <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-grid-lg-8 Grid-item css-13kpa5n-MuiGrid2-root"
-            data-testid="grid-item"
-          >
-            <div
-              class="filters"
-            >
-              <div
-                class="chips"
-              >
-                <h6
-                  class="MuiTypography-root MuiTypography-h6 chips-label css-1le86ss-MuiTypography-root"
-                  data-testid="typography"
-                >
-                  MC: findAMerchant.filtersLabel
-                </h6>
-                <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-                  >
-                    Flat Roof
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-                  >
-                    Pitched Roof
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flachdach system\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-                  >
-                    Flachdach system
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched roof Bitumen roofs\\",\\"action\\":\\"Selector - Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-                  >
-                    Pitched roof Bitumen roofs
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
@@ -15728,7 +15655,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  41102177
+                                  phone 1
                                 </dd>
                               </div>
                               <div
@@ -15747,7 +15674,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  post@fasade-teknikk.no
+                                  test@test.com
                                 </dd>
                               </div>
                               <div
@@ -15766,7 +15693,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  www.fkbygg.no
+                                  www.test.com
                                 </dd>
                               </div>
                               <div
@@ -15787,7 +15714,9 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             <p
                               class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                               data-testid="typography"
-                            />
+                            >
+                              roofer summary
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -15796,7 +15725,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norway - Flachdach system - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Lundvegen 8, 2316 Hamar, Norwa - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -15813,7 +15742,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
                       data-testid="typography"
                     >
-                      Lundvegen 8, 2316 Hamar, Norway
+                      Lundvegen 8, 2316 Hamar, Norwa
                     </p>
                   </div>
                   <div
@@ -15864,7 +15793,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  91757971
+                                  phone 1
                                 </dd>
                               </div>
                               <div
@@ -15883,7 +15812,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  ole@glbygg.no
+                                  test@test.com
                                 </dd>
                               </div>
                               <div
@@ -15902,7 +15831,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  www.glbygg.no
+                                  www.test.com
                                 </dd>
                               </div>
                               <div
@@ -15924,7 +15853,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                               data-testid="typography"
                             >
-                              GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder
+                              roofer summary
                             </p>
                           </div>
                         </div>
@@ -15934,7 +15863,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 </div>
                 <div
                   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root  css-13gj853-MuiPaper-root-MuiCard-root"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"Harviken Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Pitched roof Bitumen roofs - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"GL Bygg AS - Vindheiavegen 27, 2406 Elverum, Norway - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
                   data-testid="GTMIntegratedLinkCard-test-id"
                 >
                   <div
@@ -15945,7 +15874,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                       class="MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom  css-1vyiy8g-MuiTypography-root"
                       data-testid="typography"
                     >
-                      Harviken Bygg AS
+                      GL Bygg AS
                     </h6>
                     <p
                       class="MuiTypography-root MuiTypography-body1 css-sd7cbl-MuiTypography-root"
@@ -16002,7 +15931,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  93092064
+                                  phone 1
                                 </dd>
                               </div>
                               <div
@@ -16021,7 +15950,26 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                 <dd
                                   class="css-bp47jm"
                                 >
-                                  post@harviken-bygg.no
+                                  test@test.com
+                                </dd>
+                              </div>
+                              <div
+                                class="CompanyDetails-row"
+                              >
+                                <dt
+                                  class="css-10edjq1"
+                                >
+                                  <span
+                                    class="MuiTypography-root MuiTypography-body1 CompanyDetails-label css-87ejlm-MuiTypography-root"
+                                    data-testid="typography"
+                                  >
+                                    MC: global.website
+                                  </span>
+                                </dt>
+                                <dd
+                                  class="css-bp47jm"
+                                >
+                                  www.test.com
                                 </dd>
                               </div>
                               <div
@@ -16042,7 +15990,9 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             <p
                               class="MuiTypography-root MuiTypography-body1  css-87ejlm-MuiTypography-root"
                               data-testid="typography"
-                            />
+                            >
+                              roofer summary
+                            </p>
                           </div>
                         </div>
                       </div>
