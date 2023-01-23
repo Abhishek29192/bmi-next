@@ -34,7 +34,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
@@ -140,7 +140,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
             >
               <div
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1v3wlld-MuiButtonBase-root-MuiAccordionSummary-root"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot MuiAccordionSummary-gutters css-1b94k5e-MuiButtonBase-root-MuiAccordionSummary-root"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
