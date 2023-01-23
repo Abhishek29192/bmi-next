@@ -4,8 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1066,8 +1065,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2134,8 +2132,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2160,6 +2157,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </a>
               </li>
               <li
@@ -2186,6 +2186,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   >
                     ▾
                   </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </li>
             </ul>
@@ -2194,7 +2197,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -2215,6 +2218,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
             />
           </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
         </button>
         <div
           class="Header-languageContainer css-ze8cyt"
@@ -2258,6 +2264,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       Albania
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
@@ -2277,6 +2286,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       Österreich
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
@@ -2296,6 +2308,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       United Kingdom
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -2353,7 +2368,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   />
                   <div
                     class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                    style="overflow: hidden; margin-bottom: 0px;"
+                    style="margin-bottom: 0px;"
                   >
                     <div
                       class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -2368,8 +2383,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         tabindex="0"
                       >
                         string
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
+                    <span
+                      class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
                   </div>
                 </div>
               </nav>
@@ -2395,6 +2417,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
                 <button
                   aria-label="MC: menu.open"
@@ -2414,6 +2439,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </div>
@@ -2428,7 +2456,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       />
       <div
         class="Header-drawer Header-navDrawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -2448,6 +2476,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
             />
           </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
         </button>
         <nav
           class="css-1q3sjsb"
@@ -2473,6 +2504,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </a>
               </li>
               <ul
@@ -2486,6 +2520,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     string
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -2523,6 +2560,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </svg>
                   </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </li>
             </ul>
@@ -2531,7 +2571,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class="Header-searchDrawerContainer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
           class="Header-drawer Header-searchDrawer"
@@ -2554,6 +2594,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
           <h4
             class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
@@ -2568,6 +2611,29 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       class=""
       data-testid="brand-colors-provider"
     >
+      <div
+        class="Scrim Scrim--light"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 72px; height: 72px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.5"
+              stroke-width="3"
+            />
+          </svg>
+        </span>
+      </div>
       <div
         class="Hero-lvl1 css-104w4lq"
         data-testid="hero"
@@ -2617,6 +2683,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       >
                         Home page title
                       </span>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </li>
                 </ol>
@@ -2897,6 +2966,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                                 d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                               />
                                             </svg>
+                                            <span
+                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                            />
                                           </span>
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
@@ -2938,6 +3010,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                                 d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                               />
                                             </svg>
+                                            <span
+                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                            />
                                           </span>
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
@@ -3027,6 +3102,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           </a>
                         </div>
                       </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -3149,6 +3227,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     >
                       Home page title
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ol>
@@ -3222,6 +3303,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     string
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
                 <li
@@ -3234,6 +3318,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     MC: global.sitemap
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -3300,8 +3387,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3326,6 +3412,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </a>
               </li>
               <li
@@ -3352,6 +3441,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   >
                     ▾
                   </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </li>
             </ul>
@@ -3360,7 +3452,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </nav>
       <div
         class="Header-drawer Header-languageDrawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -3381,6 +3473,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
             />
           </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
         </button>
         <div
           class="Header-languageContainer css-ze8cyt"
@@ -3424,6 +3519,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       Albania
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
@@ -3443,6 +3541,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       Österreich
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                     <a
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-14y27jn-MuiButtonBase-root-MuiButton-root"
@@ -3462,6 +3563,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         />
                       </span>
                       United Kingdom
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -3519,7 +3623,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   />
                   <div
                     class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX css-69z67c-MuiTabs-scroller"
-                    style="overflow: hidden; margin-bottom: 0px;"
+                    style="margin-bottom: 0px;"
                   >
                     <div
                       class="MuiTabs-flexContainer css-heg063-MuiTabs-flexContainer"
@@ -3534,8 +3638,15 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                         tabindex="0"
                       >
                         string
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
                       </a>
                     </div>
+                    <span
+                      class="MuiTabs-indicator css-tv859c-MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
                   </div>
                 </div>
               </nav>
@@ -3561,6 +3672,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
                 <button
                   aria-label="MC: menu.open"
@@ -3580,6 +3694,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
                     />
                   </svg>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </div>
@@ -3594,7 +3711,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       />
       <div
         class="Header-drawer Header-navDrawer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <button
           aria-label="MC: global.close"
@@ -3614,6 +3731,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
             />
           </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
         </button>
         <nav
           class="css-1q3sjsb"
@@ -3639,6 +3759,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   target="_blank"
                 >
                   string
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </a>
               </li>
               <ul
@@ -3652,6 +3775,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     string
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -3689,6 +3815,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       />
                     </svg>
                   </span>
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </li>
             </ul>
@@ -3697,7 +3826,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       </div>
       <div
         class="Header-searchDrawerContainer"
-        style="visibility: hidden;"
+        style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
       >
         <div
           class="Header-drawer Header-searchDrawer"
@@ -3720,6 +3849,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               />
             </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
           </button>
           <h4
             class="MuiTypography-root MuiTypography-h4  css-1ekntu4-MuiTypography-root"
@@ -3734,6 +3866,29 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
       class=""
       data-testid="brand-colors-provider"
     >
+      <div
+        class="Scrim Scrim--light"
+      >
+        <span
+          class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator ProgressIndicator--light css-1kcdtbk-MuiCircularProgress-root"
+          role="progressbar"
+          style="width: 72px; height: 72px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.5"
+              stroke-width="3"
+            />
+          </svg>
+        </span>
+      </div>
       <div
         class="Hero-lvl1 css-104w4lq"
         data-testid="hero"
@@ -3783,6 +3938,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       >
                         Home page title
                       </span>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </li>
                 </ol>
@@ -4063,6 +4221,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                                 d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                               />
                                             </svg>
+                                            <span
+                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                            />
                                           </span>
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
@@ -4101,6 +4262,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                                 d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                                               />
                                             </svg>
+                                            <span
+                                              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                            />
                                           </span>
                                           <span
                                             class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
@@ -4187,6 +4351,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                           </a>
                         </div>
                       </div>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
                     </a>
                   </div>
                 </div>
@@ -4309,6 +4476,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     >
                       Home page title
                     </span>
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ol>
@@ -4382,6 +4552,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     string
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
                 <li
@@ -4394,6 +4567,9 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     tabindex="0"
                   >
                     MC: global.sitemap
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
                   </a>
                 </li>
               </ul>
@@ -4460,8 +4636,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -5693,8 +5868,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -6685,8 +6859,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7677,8 +7850,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -8723,8 +8895,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9966,8 +10137,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11209,8 +11379,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12459,8 +12628,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -13720,8 +13888,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -16783,8 +16950,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-      elevation="3"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"

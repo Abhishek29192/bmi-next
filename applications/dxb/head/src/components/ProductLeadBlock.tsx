@@ -123,10 +123,13 @@ const ProductLeadBlock = ({
                   {product.guaranteesAndWarrantiesImages.length > 0 &&
                     product.guaranteesAndWarrantiesImages.map((item, i) => (
                       <img
-                        key={`guarentee-img-${i}`}
+                        key={`guarantee-img-${i}`}
                         src={item.url}
                         alt={item.name}
                         className={styles["image"]}
+                        data-testid={`guarantee-image${
+                          item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                        }`}
                       />
                     ))}
                   {product.guaranteesAndWarrantiesLinks.length > 0 &&
@@ -148,6 +151,9 @@ const ProductLeadBlock = ({
                           iconEnd
                           isExternal={isExternalUrl(item.url)}
                           className={styles["inline-link"]}
+                          data-testid={`guarantee-inline-link${
+                            item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                          }`}
                         >
                           {item.name}
                         </GTMAnchorLink>

@@ -3,8 +3,7 @@
 exports[`Simple page renders correctly when no feature media 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -3174,8 +3173,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
 exports[`Simple page renders correctly with full data 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"

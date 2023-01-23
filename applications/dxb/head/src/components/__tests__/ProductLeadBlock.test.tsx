@@ -42,15 +42,12 @@ describe("ProductLeadBlock tests", () => {
     expect(title).not.toBeNull();
     //expect two images
     expect(
-      container
-        .getElementsByClassName("GuaranteesAndAwardsAsset")[0]
-        .getElementsByClassName("image").length
+      container.querySelectorAll("img[data-testid*='guarantee-image']").length
     ).toBe(2);
     //expect two links
     expect(
-      container
-        .getElementsByClassName("GuaranteesAndAwardsAsset")[0]
-        .getElementsByTagName("a").length
+      container.querySelectorAll("a[data-testid*='guarantee-inline-link']")
+        .length
     ).toBe(2);
 
     expect(aboutTab).toMatchSnapshot();
@@ -214,10 +211,10 @@ describe("ProductLeadBlock tests", () => {
           product={createProduct({
             productDocuments: [
               createPimDocument({
-                assetType: createAssetType({ name: "Assembley Instructions" })
+                assetType: createAssetType({ name: "Assembly Instructions" })
               }),
               createPimDocument({
-                assetType: createAssetType({ name: "Assembley Instructions" })
+                assetType: createAssetType({ name: "Assembly Instructions" })
               })
             ]
           })}
