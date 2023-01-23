@@ -114,9 +114,7 @@ const ProductLeadBlock = ({
 
               {(product.guaranteesAndWarrantiesImages.length > 0 ||
                 product.guaranteesAndWarrantiesLinks.length > 0) && (
-                <LeadBlock.Content.Section
-                  className={styles["GuaranteesAndAwardsAsset"]}
-                >
+                <LeadBlock.Content.Section>
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
@@ -159,9 +157,7 @@ const ProductLeadBlock = ({
               )}
               {(product.awardsAndCertificateDocuments.length > 0 ||
                 product.awardsAndCertificateImages.length > 0) && (
-                <LeadBlock.Content.Section
-                  className={styles["GuaranteesAndAwardsAsset"]}
-                >
+                <LeadBlock.Content.Section>
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
