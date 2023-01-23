@@ -3,7 +3,7 @@
 exports[`404 page tests When error page data is partially populated renders place holder content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -561,7 +561,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -2854,7 +2854,7 @@ exports[`404 page tests When error page data is partially populated renders plac
 exports[`404 page tests When site data and error page data are fully populated renders page content and FourOFour content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -3412,7 +3412,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"

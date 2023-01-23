@@ -3,7 +3,7 @@
 exports[`Contact us page render NextBestActions correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -561,7 +561,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -4242,7 +4242,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
 exports[`Contact us page render Sections correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -4800,7 +4800,7 @@ exports[`Contact us page render Sections correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -8481,7 +8481,7 @@ exports[`Contact us page render Sections correctly 1`] = `
 exports[`Contact us page render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -9039,7 +9039,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -12716,7 +12716,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
 exports[`Contact us page render iframe correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -13274,7 +13274,7 @@ exports[`Contact us page render iframe correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -16955,7 +16955,7 @@ exports[`Contact us page render iframe correctly 1`] = `
 exports[`Contact us page render location correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -17513,7 +17513,7 @@ exports[`Contact us page render location correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
@@ -21194,7 +21194,7 @@ exports[`Contact us page render location correctly 1`] = `
 exports[`Contact us page renders correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-zmhcp4"
+    class="Header-headersmall Header-headermedium css-1qfocz8"
     elevation="3"
   >
     <nav
@@ -21752,7 +21752,7 @@ exports[`Contact us page renders correctly 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+        class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
         data-testid="nav-close-button"
         tabindex="0"
         type="button"
