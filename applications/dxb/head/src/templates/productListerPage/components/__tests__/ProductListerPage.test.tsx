@@ -3,14 +3,14 @@ import * as all from "@bmi-digital/use-dimensions";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
-  LocationProvider,
   createHistory,
-  createMemorySource
+  createMemorySource,
+  LocationProvider
 } from "@reach/router";
 import {
-  RenderResult,
   fireEvent,
   render,
+  RenderResult,
   waitFor
 } from "@testing-library/react";
 import React from "react";
@@ -20,8 +20,8 @@ import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider
 import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
 import * as elasticSearch from "../../../../utils/elasticSearch";
 import ProductListerPage, {
-  PageContextType,
   Data as PlpPageInfoData,
+  PageContextType,
   Props
 } from "../product-lister-page";
 
@@ -606,7 +606,7 @@ describe("ProductListerPage template", () => {
     };
     const { container, queryByText, getByText } =
       renderWithStylesAndLocationProvider(pageData, pageContext);
-    expect(container.parentElement).toMatchSnapshot();
+    await waitFor(() => expect(container.parentElement).toMatchSnapshot());
     fireEvent.click(queryByText(color2Label));
     expect(window.history.replaceState).toHaveBeenCalledTimes(1);
     fireEvent.click(getByText("MC: plp.filters.clearAll"));
@@ -637,7 +637,7 @@ describe("ProductListerPage template", () => {
       pageData,
       pageContext
     );
-    expect(container.parentElement).toMatchSnapshot();
+    await waitFor(() => expect(container.parentElement).toMatchSnapshot());
   });
 
   it("should prevent fetch products on GATSBY_PREVIEW", async () => {
