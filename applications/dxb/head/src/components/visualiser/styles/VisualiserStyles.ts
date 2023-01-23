@@ -6,13 +6,14 @@ const PREFIX = "VisualiserV2";
 
 export const classes = {
   root: `${PREFIX}-root`,
+  header: `${PREFIX}-header`,
   secondary: `${PREFIX}-secondary`,
   groupTitle: `${PREFIX}-groupTitle`,
-  shareButton: `${PREFIX}-shareButton`,
   content: `${PREFIX}-content`,
   contentTitle: `${PREFIX}-contentTitle`,
   progressContainer: `${PREFIX}-progressContainer`,
   details: `${PREFIX}-details`,
+  detailsContainer: `${PREFIX}-detailsContainer`,
   detailsActions: `${PREFIX}-detailsActions`,
   detailsLogo: `${PREFIX}-detailsLogo`,
   detailsTitle: `${PREFIX}-detailsTitle`,
@@ -28,38 +29,23 @@ export const classes = {
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
   height: "100vh",
   width: "100vw",
-  // "& >div:first-child": {
-  //   "& button": {
-  //     margin: "10px 6px 10px 16px"
-  //   },
-  //   [theme.breakpoints!.up!("md")]: {
-  //     "& $detailsLogo": {
-  //       marginBottom: "1rem"
-  //     },
-
-  //     "& $detailsTitle": {
-  //       marginBottom: "1rem"
-  //     }
-  //   }
-  // },
-  // [`&.${classes.secondary}`]: {
-  //   boxShadow: "none"
-  // },
+  [`& .${classes.header}`]: {
+    margin: "16px"
+  },
+  [`& .${iconButtonClasses.root}`]: {
+    margin: "0px"
+  },
   [`&.${classes.groupTitle}`]: {
     marginTop: "24px",
     marginBottom: "24px"
   },
 
-  [`&.${classes.content}`]: {
+  [`& .${classes.content}`]: {
     overflowY: "auto",
     height: "100%",
     backgroundColor: theme.colours.pearl,
     padding: 0
   },
-  // [`&.${classes.contentTitle}`]: {
-  //   margin: "6px auto 16px 30px",
-  //   alignSelf: "center"
-  // },
   [`& .${classes.progressContainer}`]: {
     position: "absolute",
     top: "70px",
@@ -78,23 +64,28 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     gap: "40px",
     alignItems: "center",
     margin: "18px 10px",
+    zIndex: 99,
+    position: "absolute",
+    width: "33.33%",
+    padding: "12px",
+    backgroundColor: "rgba(255, 255, 255, 0.65)",
+    [theme.breakpoints!.up!("xs")]: {
+      width: "auto"
+    },
     [theme.breakpoints!.up!("sm")]: {
       flexDirection: "column",
       gap: "12px",
       alignItems: "flex-start",
-
+      width: "33.33%",
       "& $detailsActions": {
         marginLeft: "unset"
       }
     }
   },
-  [`& .${classes.detailsActions}`]: {
+  [`& .${classes.detailsContainer}`]: {
     display: "flex",
     gap: "12px",
-    maxWidth: "33.33%",
-    [theme.breakpoints!.up!("sm")]: {
-      width: "100%"
-    },
+    flexDirection: "column",
 
     "& button": {
       "&:first-child": {
@@ -102,36 +93,24 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
       }
     }
   },
-  [`&.${classes.detailsLogo}`]: {
+  [`& .${classes.detailsLogo}`]: {
     marginBottom: "0.5rem",
     [theme.breakpoints!.up!("md")]: {
       marginBottom: "1rem"
     }
   },
-  [`&.${classes.detailsTitle}`]: {
+  [`& .${classes.detailsTitle}`]: {
     marginBottom: "0.5rem",
     [theme.breakpoints!.up!("md")]: {
       marginBottom: "1rem"
     }
   },
-  [`&.${classes.detailsText}`]: {
+  [`& .${classes.detailsText}`]: {
     textOverflow: "ellipsis",
     overflow: "hidden",
     whiteSpace: "nowrap"
   },
-  // [`&.${classes.actions}`]: {
-  //   width: "100%",
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   backgroundColor: theme.colours.blue800,
-  //   minHeight: "5rem",
-  //   padding: "0.875rem"
-  // },
-  [`&.${classes.icon}`]: {
-    fill: "rgba(255, 255, 255, 0.8)"
-  },
-  [`&.${classes.container}`]: {
+  [`& .${classes.container}`]: {
     [theme.breakpoints!.up!("sm")]: {
       padding: "0px 20px"
     }
@@ -143,28 +122,22 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     minHeight: 0,
     height: "100%"
   },
-  [`&.${classes.activeSelectionOption}`]: {
+  [`& .${classes.activeSelectionOption}`]: {
     padding: "0px",
     border: `2px solid ${theme.colours.accent}`
-  },
-  [`&.${classes.VisualiserPopover}`]: {}
+  }
 }));
-
-export const StyledSharePopover = styled("div")(({ theme }) => ({}));
 
 export const StyledShareButton = styled(Button)(({ theme }) => ({
   width: "48px",
   height: "48px",
-  minWidth: "unset",
-  [`&.${iconButtonClasses.root}`]: {
-    backgroundColor: theme.colours.white
-  },
-  [`&.${iconButtonClasses.root}:hover`]: {
-    backgroundColor: theme.colours.focus
-  }
+  minWidth: "unset"
 }));
 
 export const StyledActions = styled("nav")(({ theme }) => ({
+  border: 0,
+  left: 0,
+  bottom: 0,
   width: "100%",
   display: "flex",
   alignItems: "center",
@@ -173,3 +146,5 @@ export const StyledActions = styled("nav")(({ theme }) => ({
   minHeight: "5rem",
   padding: "0.875rem"
 }));
+
+export const StyledSharePopover = styled("div")(({ theme }) => ({}));

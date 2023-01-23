@@ -22,7 +22,6 @@ import classnames from "classnames";
 import React, {
   Dispatch,
   ReactNode,
-  RefObject,
   useCallback,
   useEffect,
   useMemo,
@@ -359,20 +358,15 @@ const SidingsSelectorDialog = ({
   );
 };
 
-const SharePopover = ({
-  shareWidget,
-  anchorRef
-}: {
-  shareWidget: ReactNode;
-  anchorRef: RefObject<HTMLDivElement>;
-}) => {
+const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
+  const shareAnchor = useRef<HTMLDivElement>(null);
   const [anchorElement, setAnchorElement] = useState<HTMLDivElement | null>(
     null
   );
   const { getMicroCopy } = useMicroCopy();
 
   const handlePopoverClick = () => {
-    setAnchorElement(anchorRef.current);
+    setAnchorElement(shareAnchor.current);
   };
 
   const handlePopoverClose = () => {
@@ -380,11 +374,10 @@ const SharePopover = ({
   };
 
   return (
-    <StyledSharePopover>
+    <StyledSharePopover ref={shareAnchor}>
       <StyledShareButton
         isIconButton
         variant="text"
-        className={classes.shareButton}
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
         )}
@@ -440,7 +433,6 @@ const Visualiser = ({
   const {
     config: { esIndexNameProduct }
   } = useConfig();
-  const shareAnchor = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, sidingId, viewMode });
   const [tiles, setTiles] = useState<PIMTile[]>([]);
   const { getMicroCopy } = useMicroCopy();
@@ -549,10 +541,8 @@ const Visualiser = ({
       maxWidth="xl"
       containerClassName={classes.content}
     >
-      <ContainerDialog.Header>
-        {shareWidget && (
-          <SharePopover shareWidget={shareWidget} anchorRef={shareAnchor} />
-        )}
+      <ContainerDialog.Header className={classes.header}>
+        {shareWidget && <SharePopover shareWidget={shareWidget} />}
       </ContainerDialog.Header>
       <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
@@ -560,45 +550,46 @@ const Visualiser = ({
             <CircularProgress />
           </div>
         )}
-
         <div className={classes.details}>
-          <Logo
-            source={BMI}
-            width="60"
-            height="60"
-            className={classes.detailsLogo}
-          />
-          <div>
-            <Typography
-              variant="h5"
-              component="h3"
-              className={classes.detailsTitle}
-            >
-              {activeTile?.name || ""}
-            </Typography>
-            <Typography>{activeTile?.colour || ""}</Typography>
-          </div>
-          <div className={classes.detailsActions} ref={shareAnchor}>
-            {activeTile && (
-              <Button
-                variant="outlined"
-                endIcon={<ArrowForwardIcon />}
-                onClick={() => {
-                  handleOnClick({
-                    type: "product-link",
-                    label: getMicroCopy(microCopy.readMore),
-                    data: {
-                      variantCode: activeTile.code,
-                      productPath: activeTile.path
-                    }
-                  });
-                }}
+          <div className={classes.detailsContainer}>
+            <Logo
+              source={BMI}
+              width="60"
+              height="60"
+              className={classes.detailsLogo}
+            />
+            <div>
+              <Typography
+                variant="h5"
+                component="h3"
+                className={classes.detailsTitle}
               >
-                <span className={classes.detailsText}>
-                  {getMicroCopy(microCopy.readMore)}
-                </span>
-              </Button>
-            )}
+                {activeTile?.name || ""}
+              </Typography>
+              <Typography>{activeTile?.colour || ""}</Typography>
+            </div>
+            <div>
+              {activeTile && (
+                <Button
+                  variant="outlined"
+                  endIcon={<ArrowForwardIcon />}
+                  onClick={() => {
+                    handleOnClick({
+                      type: "product-link",
+                      label: getMicroCopy(microCopy.readMore),
+                      data: {
+                        variantCode: activeTile.code,
+                        productPath: activeTile.path
+                      }
+                    });
+                  }}
+                >
+                  <span className={classes.detailsText}>
+                    {getMicroCopy(microCopy.readMore)}
+                  </span>
+                </Button>
+              )}
+            </div>
           </div>
         </div>
         {viewMode && activeTile && <Viewer {...viewerProps} />}
