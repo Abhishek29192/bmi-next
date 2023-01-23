@@ -220,7 +220,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -232,18 +232,20 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -265,7 +267,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -285,7 +287,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -1405,7 +1407,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -1417,18 +1419,20 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -1450,7 +1454,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -1470,7 +1474,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -1744,7 +1748,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                     >
-                      Assembley Instructions
+                      Assembly Instructions
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
@@ -1850,7 +1854,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
                     >
-                      Assembley Instructions
+                      Assembly Instructions
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
@@ -2354,7 +2358,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -2366,18 +2370,20 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <img
                 alt="asset-name"
                 class="image"
+                data-testid="guarantee-image-asset-name"
                 src="http://localhost:8000/asset-real-file-name.jpg"
               />
               <div>
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -2399,7 +2405,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-                  data-testid="anchor-link"
+                  data-testid="guarantee-inline-link"
                   type="button"
                 >
                   <span />
@@ -2419,7 +2425,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
               </div>
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
               data-testid="typography"
             >
               <h5
@@ -3343,7 +3349,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
       </p>
       <p
-        class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
         data-testid="typography"
       >
         <h5
@@ -3355,18 +3361,20 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         <img
           alt="asset-name"
           class="image"
+          data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.jpg"
         />
         <img
           alt="asset-name"
           class="image"
+          data-testid="guarantee-image-asset-name"
           src="http://localhost:8000/asset-real-file-name.jpg"
         />
         <div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
             data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-            data-testid="anchor-link"
+            data-testid="guarantee-inline-link"
             type="button"
           >
             <span />
@@ -3388,7 +3396,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways inline-link Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
             data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost:8000/\\"}"
-            data-testid="anchor-link"
+            data-testid="guarantee-inline-link"
             type="button"
           >
             <span />
@@ -3408,7 +3416,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
         </div>
       </p>
       <p
-        class="MuiTypography-root MuiTypography-body1 GuaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
         data-testid="typography"
       >
         <h5

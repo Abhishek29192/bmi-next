@@ -3,8 +3,7 @@
 exports[`Header component renders correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -662,8 +661,7 @@ exports[`Header component renders correctly 1`] = `
 exports[`Header component renders correctly when flag doesn't exist 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -1323,8 +1321,7 @@ exports[`Header component renders without navigation props 1`] = `<div />`;
 exports[`Header component shows sample basket icon 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -2011,7 +2008,7 @@ exports[`Header component shows sample basket icon 1`] = `
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="SampleBasketDialog-cartDrawer cart-drawer css-y989ae"
+        class="SampleBasketDialog-cartDrawer cart-drawer css-rblm8r"
       >
         <div
           class="pad pad-b-24"
@@ -2162,8 +2159,7 @@ exports[`Header component shows sample basket icon 1`] = `
 exports[`Header component toggles search 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"

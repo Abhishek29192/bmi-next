@@ -3,8 +3,7 @@
 exports[`404 page tests When error page data is partially populated renders place holder content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -2854,8 +2853,7 @@ exports[`404 page tests When error page data is partially populated renders plac
 exports[`404 page tests When site data and error page data are fully populated renders page content and FourOFour content 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"

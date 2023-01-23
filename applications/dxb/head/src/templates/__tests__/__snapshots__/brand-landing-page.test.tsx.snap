@@ -3,8 +3,7 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -3420,8 +3419,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -6592,8 +6590,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -9990,8 +9987,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -13357,8 +13353,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no context for firstslide when no description 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -16753,8 +16748,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -20126,8 +20120,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -23528,8 +23521,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -26926,8 +26918,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template render with Search form on hero section 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -30334,8 +30325,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"

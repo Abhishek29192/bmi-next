@@ -394,7 +394,7 @@ describe("ProductListerPage template", () => {
           };
           const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
-          await getByLabelText(color1Label);
+          getByLabelText(color1Label);
           expect(queryByText(color2Label)).not.toBeNull();
           expect(container.parentElement).toMatchSnapshot();
         });
@@ -434,7 +434,7 @@ describe("ProductListerPage template", () => {
           pageData.plpFilters.filters = productFilters;
           const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
-          await getByLabelText(size1Label);
+          getByLabelText(size1Label);
           expect(queryByText(size2Label)).not.toBeNull();
           expect(container.parentElement).toMatchSnapshot();
         });

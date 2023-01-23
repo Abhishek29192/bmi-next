@@ -3,8 +3,7 @@
 exports[`Contact us page render NextBestActions correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -4242,8 +4241,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
 exports[`Contact us page render Sections correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -8481,8 +8479,7 @@ exports[`Contact us page render Sections correctly 1`] = `
 exports[`Contact us page render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -12716,8 +12713,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
 exports[`Contact us page render iframe correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -16955,8 +16951,7 @@ exports[`Contact us page render iframe correctly 1`] = `
 exports[`Contact us page render location correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -21194,8 +21189,7 @@ exports[`Contact us page render location correctly 1`] = `
 exports[`Contact us page renders correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"

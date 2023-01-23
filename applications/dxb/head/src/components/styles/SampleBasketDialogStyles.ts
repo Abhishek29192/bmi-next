@@ -16,7 +16,7 @@ export const classes = {
 };
 
 export const StyledBasketDialogContainer = styled("div")(({ theme }) => ({
-  [`& .${classes.cartDrawer}`]: {
+  [`&.${classes.cartDrawer}`]: {
     backgroundColor: theme.colours.white,
     border: `1px solid ${theme.colours.storm}`,
     height: "100vh",

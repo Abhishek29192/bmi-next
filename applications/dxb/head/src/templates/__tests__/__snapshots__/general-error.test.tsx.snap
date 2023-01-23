@@ -3,8 +3,7 @@
 exports[`General Error render correctly 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -679,8 +678,7 @@ exports[`General Error render correctly 1`] = `
 exports[`General Error render correctly when errorGeneral is falsy 1`] = `
 <div>
   <header
-    class="Header-headersmall Header-headermedium Header-headerlarge css-1qfocz8"
-    elevation="3"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
