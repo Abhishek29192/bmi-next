@@ -22,8 +22,7 @@ export const classes = {
   icon: `${PREFIX}-icon`,
   container: `${PREFIX}-container`,
   viewer: `${PREFIX}-viewer`,
-  activeSelectionOption: `${PREFIX}-activeSelectionOption`,
-  VisualiserPopover: `${PREFIX}-VisualiserPopover`
+  activeSelectionOption: `${PREFIX}-activeSelectionOption`
 };
 
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({

@@ -408,7 +408,6 @@ const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
       </StyledShareButton>
       <Popover
         id="share-popover"
-        className={classes.VisualiserPopover}
         open={Boolean(anchorElement)}
         anchorEl={anchorElement}
         onClose={handlePopoverClose}

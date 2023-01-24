@@ -20,8 +20,7 @@ export const classes = {
   icon: `${PREFIX}-icon`,
   container: `${PREFIX}-container`,
   viewer: `${PREFIX}-viewer`,
-  activeSelectionOption: `${PREFIX}-activeSelectionOption`,
-  VisualiserPopover: `${PREFIX}-VisualiserPopover`
+  activeSelectionOption: `${PREFIX}-activeSelectionOption`
 };
 
 export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
@@ -103,7 +102,6 @@ export const StyledContainerDialog = styled(ContainerDialog)(({ theme }) => ({
     padding: "0px",
     border: `2px solid ${theme.colours.accent}`
   },
-  [`& .${classes.VisualiserPopover}`]: {},
   "& $VisualiserPopover": {
     "[class*=MuiPopover-paper]": {
       padding: "0 10px",
