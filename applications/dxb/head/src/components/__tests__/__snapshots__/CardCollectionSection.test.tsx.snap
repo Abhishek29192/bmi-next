@@ -21,7 +21,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
             test title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -121,7 +121,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
             test title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -254,7 +254,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -430,7 +430,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -608,7 +608,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               test rich text
             </div>
@@ -753,7 +753,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h2
                 class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
@@ -903,7 +903,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -1053,7 +1053,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h4
                 class="MuiTypography-root MuiTypography-h4 RichText-title css-1ekntu4-MuiTypography-root"
@@ -1203,7 +1203,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h5
                 class="MuiTypography-root MuiTypography-h5 RichText-title css-10q7alf-MuiTypography-root"
@@ -1353,7 +1353,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h6
                 class="MuiTypography-root MuiTypography-h6 RichText-title css-1le86ss-MuiTypography-root"
@@ -1503,7 +1503,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
               test title
             </h2>
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"

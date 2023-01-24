@@ -118,7 +118,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -247,7 +247,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -397,7 +397,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -530,7 +530,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -744,7 +744,7 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -877,7 +877,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -1027,7 +1027,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>
@@ -1139,7 +1139,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
               class="css-1xaekgw"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               />
             </div>
           </div>

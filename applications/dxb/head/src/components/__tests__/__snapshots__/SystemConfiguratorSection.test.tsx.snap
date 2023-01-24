@@ -215,7 +215,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -504,7 +504,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -793,7 +793,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -1221,7 +1221,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
             No Result Title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           >
             <h3
               class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -1458,7 +1458,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -2673,7 +2673,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
             No Result Title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           />
         </div>
       </div>
@@ -2894,7 +2894,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
             No Result Title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           />
         </div>
       </div>
@@ -3115,7 +3115,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
             No Result Title
           </h2>
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           >
             <img
               alt="image 2"
@@ -3345,7 +3345,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -3792,7 +3792,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
             class="description"
           >
             <div
-              class="RichText-root css-qiddyp"
+              class="RichText-root css-17t4j5c"
             >
               <h3
                 class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"
@@ -4799,7 +4799,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
           System Configurator Section Title
         </h2>
         <div
-          class="RichText-root css-qiddyp"
+          class="RichText-root css-17t4j5c"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"

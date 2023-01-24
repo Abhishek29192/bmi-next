@@ -76,7 +76,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
               class="body body--with-brand"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -232,7 +232,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
               class="body body--with-brand"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"

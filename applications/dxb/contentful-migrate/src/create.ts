@@ -1,7 +1,7 @@
+import "dotenv/config";
 import path from "path";
 import { argv } from "process";
 import { migrateCreate } from "@bmi-digital/contentful-migration";
-import "dotenv/config";
 
 const { MIGRATION_DRY_RUN } = process.env;
 
@@ -13,7 +13,7 @@ export const main = async (script?: string) => {
   return await migrateCreate(
     script,
     "scripts",
-    path.join(__dirname, "..", "src"),
+    path.join(__dirname, "..", "..", "..", "src"),
     MIGRATION_DRY_RUN === "true"
   );
 };

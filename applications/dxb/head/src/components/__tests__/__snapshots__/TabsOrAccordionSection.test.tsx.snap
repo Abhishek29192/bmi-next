@@ -83,7 +83,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                         class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root css-qiddyp"
+                          class="RichText-root css-17t4j5c"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -189,7 +189,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                         class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
                       >
                         <div
-                          class="RichText-root css-qiddyp"
+                          class="RichText-root css-17t4j5c"
                         >
                           <p
                             class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -338,7 +338,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -482,7 +482,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
               role="tabpanel"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -734,7 +734,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
               role="tabpanel"
             >
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"

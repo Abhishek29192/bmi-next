@@ -38,7 +38,7 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, ".."),
+      path.join(__dirname, "..", "..", "..", "..", "src"),
       false
     );
   });
@@ -49,7 +49,7 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, ".."),
+      path.join(__dirname, "..", "..", "..", "..", "src"),
       false
     );
   });
@@ -62,7 +62,7 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, ".."),
+      path.join(__dirname, "..", "..", "..", "..", "src"),
       false
     );
   });
@@ -75,7 +75,7 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, ".."),
+      path.join(__dirname, "..", "..", "..", "..", "src"),
       false
     );
   });
@@ -88,7 +88,7 @@ describe("main", () => {
     expect(mockMigrateCreate).toHaveBeenCalledWith(
       "some-script.js",
       "scripts",
-      path.join(__dirname, ".."),
+      path.join(__dirname, "..", "..", "..", "..", "src"),
       true
     );
   });
