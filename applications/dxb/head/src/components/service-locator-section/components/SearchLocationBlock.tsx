@@ -35,7 +35,7 @@ export const SearchLocationBlock = ({
   userPosition
 }: SearchLocationBlockProps) => {
   const { getMicroCopy, countryCode } = useSiteContext();
-
+  const formattedCountryCode = countryCode.split("/")[0];
   return (
     <Grid xs={12} md={6} lg={4} className={styles["search"]}>
       <>
@@ -62,12 +62,16 @@ export const SearchLocationBlock = ({
           freeSolo
           startAdornmentIcon="LocationOn"
           controlledValue={userPosition}
-          googleAutocompleteOptions={{
-            componentRestrictions: {
-              // eslint-disable-next-line security/detect-object-injection
-              country: AutoCompleteCountryMap[countryCode] || [countryCode]
+          googleAutocompleteOptions={
+            countryCode !== "grp" && {
+              componentRestrictions: {
+                // eslint-disable-next-line security/detect-object-injection
+                country: AutoCompleteCountryMap[formattedCountryCode] || [
+                  formattedCountryCode
+                ]
+              }
             }
-          }}
+          }
         />
         <GeolocationButton onPosition={getPosition()}>
           {getMicroCopy(microCopy.FIND_A_ROOFER_GEOLOCATION_BUTTON)}
