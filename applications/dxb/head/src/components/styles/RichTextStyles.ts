@@ -61,7 +61,7 @@ export const StyledRichText = styled("div")(({ theme }) => ({
       marginLeft: "10px"
     }
   },
-  [`&.${classes.title}`]: {
+  [`& .${classes.title}`]: {
     marginBottom: "28px"
   }
 }));
