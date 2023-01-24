@@ -30,7 +30,7 @@ exports[`IEDialog component renders correctly 1`] = `
           class="IEDialog-body css-96lqid"
         >
           <div
-            class="RichText-root css-qiddyp"
+            class="RichText-root css-17t4j5c"
           >
             <h3
               class="MuiTypography-root MuiTypography-h3 RichText-title css-d7brak-MuiTypography-root"

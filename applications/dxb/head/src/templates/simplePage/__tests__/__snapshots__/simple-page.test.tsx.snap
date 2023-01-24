@@ -5732,7 +5732,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 data-testid="typography"
               >
                 <div
-                  class="RichText-root css-qiddyp"
+                  class="RichText-root css-17t4j5c"
                 >
                   <p
                     class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -5813,7 +5813,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 ContentfulCardCollectionSectionTitle
               </h2>
               <div
-                class="RichText-root css-qiddyp"
+                class="RichText-root css-17t4j5c"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"

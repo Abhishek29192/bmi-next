@@ -3,7 +3,7 @@
 exports[`RichText component closes dialog 1`] = `
 <div>
   <div
-    class="RichText-root css-qiddyp"
+    class="RichText-root css-17t4j5c"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
@@ -180,7 +180,7 @@ exports[`RichText component closes dialog 1`] = `
 exports[`RichText component falls back with incorrect data 1`] = `
 <div>
   <div
-    class="RichText-root css-qiddyp"
+    class="RichText-root css-17t4j5c"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom  css-abi5v8-MuiTypography-root"
@@ -193,7 +193,7 @@ exports[`RichText component falls back with incorrect data 1`] = `
 exports[`RichText component renders correctly 1`] = `
 <div>
   <div
-    class="RichText-root css-qiddyp"
+    class="RichText-root css-17t4j5c"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
@@ -372,7 +372,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
   aria-hidden="true"
 >
   <div
-    class="RichText-root css-qiddyp"
+    class="RichText-root css-17t4j5c"
   >
     <h2
       class="MuiTypography-root MuiTypography-h2 RichText-title css-ta8c5q-MuiTypography-root"
