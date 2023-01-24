@@ -25,7 +25,7 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
   marginTop: "1rem",
   padding: "1rem 2rem 2rem",
   maxWidth: "920px",
-  [`.${classes.dialog}`]: {
+  [`&.${classes.dialog}`]: {
     border: "none",
     padding: 0,
     margin: 0,
