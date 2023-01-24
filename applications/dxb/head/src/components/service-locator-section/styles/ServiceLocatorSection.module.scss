@@ -31,7 +31,7 @@
           flex-wrap: wrap;
           justify-content: space-between;
         }
-      
+
         [class*="MuiCardHeader-content"] {
           order: 3;
           width: 100%;
@@ -186,14 +186,14 @@
 
   .company-logo {
     margin-bottom: 16px;
-
+    height: 40px;
     img {
       height: 40px;
     }
 
     &--card {
       margin-bottom: 24px;
-      
+      height: 60px;
       img {
         height: 60px;
       }
