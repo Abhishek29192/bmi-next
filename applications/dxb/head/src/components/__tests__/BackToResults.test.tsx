@@ -22,7 +22,7 @@ const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
 });
 
 jest.mock("@mui/material", () => ({
-  ...(jest.requireActual("@mui/material") as any),
+  ...jest.requireActual("@mui/material"),
   useMediaQuery: jest.fn()
 }));
 

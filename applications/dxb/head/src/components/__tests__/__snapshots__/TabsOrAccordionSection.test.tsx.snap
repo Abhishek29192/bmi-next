@@ -249,7 +249,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -393,7 +393,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -537,7 +537,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -645,7 +645,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
