@@ -102,14 +102,15 @@ const IntegratedSignupBlock = ({
       {dialogOpen && (
         <Dialog open={dialogOpen} onCloseClick={handleDialogClose}>
           <Dialog.Title hasUnderline> {title} </Dialog.Title>
-          <FormSection
-            data={signupDialogContent}
-            backgroundColor="white"
-            isDialog
-            onSuccess={onSuccess}
-            onFormReady={onFormReady}
-          />
-
+          <Dialog.Content>
+            <FormSection
+              data={signupDialogContent}
+              backgroundColor="white"
+              isDialog
+              onSuccess={onSuccess}
+              onFormReady={onFormReady}
+            />
+          </Dialog.Content>
           <Dialog.Actions
             cancelLabel={
               !formSubmitted

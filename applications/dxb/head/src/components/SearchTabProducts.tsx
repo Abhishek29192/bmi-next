@@ -19,6 +19,7 @@ import {
 } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
+import { ProductListWrapperGrid } from "./styles/SearchTabProductsStyles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -245,13 +246,13 @@ const SearchTabPanelProducts = (props: Props) => {
         />
       </Grid>
       <Grid xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
-        <Grid container spacing={3}>
+        <ProductListWrapperGrid container spacing={3}>
           <ProductsGridView
             isLoading={isLoading}
             products={products}
             pageContext={pageContext}
           />
-        </Grid>
+        </ProductListWrapperGrid>
         <div style={{ marginTop: 48, marginBottom: 48 }}>
           <ResultsPagination
             page={page + 1}

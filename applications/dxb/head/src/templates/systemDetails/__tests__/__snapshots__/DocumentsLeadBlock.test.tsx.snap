@@ -62,19 +62,19 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
                     >
                       asset-name
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
                     >
                       <p>
                         pim-link-document-title
                       </p>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
                     >
                       <a
                         class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
@@ -98,7 +98,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       </a>
                     </td>
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
                     >
                       <span
                         class="css-1ytj21s"

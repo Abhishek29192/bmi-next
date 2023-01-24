@@ -33,7 +33,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -241,7 +241,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -579,7 +579,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"

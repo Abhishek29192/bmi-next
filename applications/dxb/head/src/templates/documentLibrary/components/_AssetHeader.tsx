@@ -10,12 +10,9 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import React, { useState } from "react";
 import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
-import {
-  Root,
-  classes
-} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
+import { Root, classes } from "./DocumentTechnicalTableResultsStyles";
 
 const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
   const { name, code, description } = assetType;

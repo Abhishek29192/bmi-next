@@ -249,7 +249,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -682,7 +682,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -1549,7 +1549,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -2693,7 +2693,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -3288,7 +3288,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -3633,7 +3633,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -4248,7 +4248,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -4821,7 +4821,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -5588,7 +5588,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -5727,7 +5727,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -6176,7 +6176,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -6748,7 +6748,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -7278,7 +7278,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -7808,7 +7808,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -8477,7 +8477,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -9087,7 +9087,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -9734,7 +9734,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -10344,7 +10344,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -10954,7 +10954,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -11365,7 +11365,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -11825,7 +11825,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -12257,7 +12257,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -12716,7 +12716,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -13157,7 +13157,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -13757,7 +13757,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -14168,7 +14168,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -14777,7 +14777,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 class=" css-ze8cyt"
               >
                 <div
-                  class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                  class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -15232,7 +15232,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -15517,7 +15517,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -16222,7 +16222,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
@@ -16484,7 +16484,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               class=" css-ze8cyt"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl css-3rblw7-MuiContainer-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"

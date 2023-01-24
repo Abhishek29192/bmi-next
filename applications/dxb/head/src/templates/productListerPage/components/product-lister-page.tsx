@@ -61,6 +61,7 @@ import {
   renderProducts,
   resolveFilters
 } from "../utils/productListerPageUtils";
+import { ProductListWrapperGrid } from "../styles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -461,7 +462,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 style={{ paddingTop: 60 }}
                 ref={resultsElement}
               >
-                <Grid container spacing={3}>
+                <ProductListWrapperGrid container spacing={3}>
                   {!isLoading && products.length === 0 && (
                     <Typography>
                       {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
@@ -474,7 +475,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     getMicroCopy,
                     filters
                   )}
-                </Grid>
+                </ProductListWrapperGrid>
                 <ResultsPagination
                   page={page + 1}
                   onPageChange={handlePageChange}

@@ -52,7 +52,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             >
               <abbr
                 title="contentful asset type name"
@@ -61,14 +61,14 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             >
               <p>
                 contentful document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -125,7 +125,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
             >
               <span
                 aria-label="MC: documents.download.maxReached"
@@ -172,7 +172,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             >
               <abbr
                 title="asset type name"
@@ -181,17 +181,17 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             >
               <p>
                 pim document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rf00xl-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1igsm02-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
             >
               <span
                 aria-label="MC: documents.download.maxReached"
@@ -300,11 +300,11 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="css-1fxw3xf"
+    class="css-ft346i"
     data-testid="tech-results-table"
   >
     <div
-      class="css-1fxw3xf"
+      class="css-ft346i"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -382,7 +382,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-1fxw3xf"
+                        class="css-ft346i"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -423,6 +423,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         target="_blank"
                       >
                         <svg
+                          class="DocumentTechnicalTableResults-allFilesIcon"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >

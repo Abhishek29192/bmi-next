@@ -2518,7 +2518,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class=" css-17gv7lq"
+            class=" css-l4m2qs"
           >
             <h6
               class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
@@ -2589,7 +2589,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class=" css-17gv7lq"
+            class=" css-l4m2qs"
           >
             <h6
               class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
@@ -5694,7 +5694,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class=" css-17gv7lq"
+            class=" css-l4m2qs"
           >
             <h6
               class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"
@@ -5971,7 +5971,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class=" css-17gv7lq"
+            class=" css-l4m2qs"
           >
             <h6
               class="MuiTypography-root MuiTypography-h6 css-ggwmjd-MuiTypography-root"

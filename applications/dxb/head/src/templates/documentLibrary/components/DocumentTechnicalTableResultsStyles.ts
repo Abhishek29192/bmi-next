@@ -1,10 +1,13 @@
 import { styled } from "@mui/material/styles";
+import {
+  accordionDetailsClasses,
+  formControlLabelClasses
+} from "@mui/material";
 
 const PREFIX = "DocumentTechnicalTableResults";
 export const classes = {
   headerRow: `${PREFIX}-headerRow`,
   bodyRow: `${PREFIX}-bodyRow`,
-  "@global": `@global`,
   assetTypeCell: `${PREFIX}-assetTypeCell`,
   tooltipIcon: `${PREFIX}-tooltipIcon`,
   formatIcon: `${PREFIX}-formatIcon`,
@@ -29,13 +32,11 @@ export const Root = styled("div")(({ theme }) => ({
   [`.${classes.bodyRow}`]: {
     verticalAlign: "middle"
   },
-  "@global": {
-    "[class*=MuiFormControlLabel-root]": {
-      marginRight: 0
-    },
-    "[class*=MuiAccordionDetails-root]": {
-      padding: "0px 15px"
-    }
+  [`.${formControlLabelClasses.root}`]: {
+    marginRight: 0
+  },
+  [`.${accordionDetailsClasses.root}`]: {
+    padding: "0px 15px"
   },
   [`.${classes.assetTypeCell}`]: {
     textAlign: "center",
@@ -54,10 +55,8 @@ export const Root = styled("div")(({ theme }) => ({
     textAlign: "center",
     verticalAlign: "middle"
   },
-  [`.${classes.infoIconContainer}`]: {},
-  [`.${classes.iconContainer}`]: {},
-  [`.${classes.downloadIconContainer}`]: {},
   [`.${classes.accordionDetails}`]: {
+    display: "flex",
     padding: "0px 15px",
     minHeight: "56px",
     textAlign: "center",
@@ -67,23 +66,22 @@ export const Root = styled("div")(({ theme }) => ({
     "&:last-child": {
       borderBottom: "none"
     },
-    "& $iconContainer": {
+    [`& .${classes.iconContainer}`]: {
       width: "37px",
       marginTop: "12px",
       marginRight: "15px"
     },
-    "& $infoIconContainer": {
+    [`& .${classes.infoIconContainer}`]: {
       width: "37px",
       marginTop: "7px",
       marginRight: "15px"
     },
-    "& $downloadIconContainer": {
+    [`& .${classes.downloadIconContainer}`]: {
       width: "100%",
       marginTop: "15px",
       display: "flex",
       justifyContent: "flex-end",
-
-      "& $allFilesIcon": {
+      [`& .${classes.allFilesIcon}`]: {
         color: theme.colours.inter
       }
     }
