@@ -41,7 +41,7 @@ export const DocumentRow = styled(Table.Row)(({ theme }) => ({
 }));
 
 export const StyledTableCell = styled(Table.Cell)({
-  verticalAlign: "middle",
+  verticalAlign: "middle !important",
   whiteSpace: "nowrap"
 });
 
