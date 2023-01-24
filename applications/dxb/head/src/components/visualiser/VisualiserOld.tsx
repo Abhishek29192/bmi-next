@@ -23,20 +23,25 @@ import classnames from "classnames";
 import React, {
   Dispatch,
   ReactNode,
-  RefObject,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState
 } from "react";
+import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
+import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewerOld from "./HouseViewerOld";
+import {
+  classes,
+  StyledActions,
+  StyledContainerDialog,
+  StyledShareButton,
+  StyledSharePopover
+} from "./styles/VisualiserStylesOld";
 import TileViewer from "./TileViewerOld";
 import { Colour, Material, Siding, Tile } from "./Types";
-import { microCopy } from "./constants/microCopy";
-import { useMicroCopy } from "./helpers/useMicroCopy";
-import { StyledContainerDialog, classes } from "./styles/VisualiserStylesOld";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;
@@ -104,7 +109,7 @@ const Actions = ({
   const { getMicroCopy } = useMicroCopy();
 
   return (
-    <nav className={classes.actions}>
+    <StyledActions>
       <Button
         hasDarkBackground
         variant="text"
@@ -171,7 +176,7 @@ const Actions = ({
           {getMicroCopy(microCopy.actions.tileMode)}
         </Button>
       )}
-    </nav>
+    </StyledActions>
   );
 };
 
@@ -373,20 +378,15 @@ const SidingsSelectorDialog = ({
   );
 };
 
-const SharePopover = ({
-  shareWidget,
-  anchorRef
-}: {
-  shareWidget: ReactNode;
-  anchorRef: RefObject<HTMLDivElement>;
-}) => {
+const SharePopover = ({ shareWidget }: { shareWidget: ReactNode }) => {
+  const shareAnchor = useRef<HTMLDivElement | null>(null);
   const [anchorElement, setAnchorElement] = useState<HTMLDivElement | null>(
     null
   );
   const { getMicroCopy } = useMicroCopy();
 
   const handlePopoverClick = () => {
-    setAnchorElement(anchorRef.current);
+    setAnchorElement(shareAnchor.current);
   };
 
   const handlePopoverClose = () => {
@@ -394,10 +394,9 @@ const SharePopover = ({
   };
 
   return (
-    <div>
-      <Button
+    <StyledSharePopover ref={shareAnchor}>
+      <StyledShareButton
         isIconButton
-        className={classes.shareButton}
         variant="text"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -406,10 +405,9 @@ const SharePopover = ({
         onClick={handlePopoverClick}
       >
         <ShareIcon />
-      </Button>
+      </StyledShareButton>
       <Popover
         id="share-popover"
-        className={classes.VisualiserPopover}
         open={Boolean(anchorElement)}
         anchorEl={anchorElement}
         onClose={handlePopoverClose}
@@ -425,7 +423,7 @@ const SharePopover = ({
       >
         {shareWidget}
       </Popover>
-    </div>
+    </StyledSharePopover>
   );
 };
 
@@ -452,7 +450,6 @@ const Visualiser = ({
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
   const { getMicroCopy } = useMicroCopy();
 
@@ -541,8 +538,8 @@ const Visualiser = ({
       containerClassName={classes.content}
     >
       {shareWidget && (
-        <ContainerDialog.Header ref={header}>
-          <SharePopover shareWidget={shareWidget} anchorRef={header} />
+        <ContainerDialog.Header className={classes.header}>
+          <SharePopover shareWidget={shareWidget} />
         </ContainerDialog.Header>
       )}
       <div className={classnames(classes.container, classes.viewer)}>
