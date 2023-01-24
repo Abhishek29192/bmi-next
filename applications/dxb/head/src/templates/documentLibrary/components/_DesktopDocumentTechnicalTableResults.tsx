@@ -23,16 +23,13 @@ import createAssetFileCountMap, {
   generateFileNamebyTitle
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
-import {
-  classes,
-  Root
-} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { downloadAs } from "../../../utils/client-download";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
+import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {

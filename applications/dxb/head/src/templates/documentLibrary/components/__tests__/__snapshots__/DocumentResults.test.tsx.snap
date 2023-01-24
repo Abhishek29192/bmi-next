@@ -300,11 +300,11 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="css-1fxw3xf"
+    class="css-ft346i"
     data-testid="tech-results-table"
   >
     <div
-      class="css-1fxw3xf"
+      class="css-ft346i"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -382,7 +382,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-1fxw3xf"
+                        class="css-ft346i"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -423,6 +423,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         target="_blank"
                       >
                         <svg
+                          class="DocumentTechnicalTableResults-allFilesIcon"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >

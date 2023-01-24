@@ -3,9 +3,9 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import React, { useMemo } from "react";
 import fileIconsMap from "../../../components/FileIconsMap";
-import { Root } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { groupDistinctBy } from "../../../utils/product-filters";
 import { AssetType } from "../types";
+import { Root } from "./DocumentTechnicalTableResultsStyles";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
 

@@ -92,9 +92,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
           system.guaranteesAndWarrantiesImages.length > 0) ||
           (system.guaranteesAndWarrantiesLinks &&
             system.guaranteesAndWarrantiesLinks.length > 0)) && (
-          <LeadBlock.Content.Section
-            className={classes.guaranteesAndAwardsAsset}
-          >
+          <LeadBlock.Content.Section>
             <LeadBlock.Content.Heading
               variant="h6"
               data-testid="guarentees-section"
@@ -103,10 +101,13 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
             </LeadBlock.Content.Heading>
             {guaranteesImages?.map((item, i) => (
               <img
-                key={`guarentee-img-${i}`}
+                key={`guarantee-img-${i}`}
                 src={item.url}
                 alt={item.name}
-                className="image"
+                className={classes.image}
+                data-testid={`guarantee-image${
+                  item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                }`}
               />
             ))}
             {guaranteesAndWarrantiesLinks?.map((item, i) => (
@@ -126,7 +127,10 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                   }}
                   iconEnd
                   {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
-                  className="inline-link"
+                  className={classes.inlineLink}
+                  data-testid={`guarantee-inline-link${
+                    item.name ? `-${item.name.replace(/ /g, "-")}` : ""
+                  }`}
                 >
                   {item.name}
                 </GTMAnchorLink>
@@ -136,9 +140,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
         )}
         {system.awardsAndCertificateImages &&
           system.awardsAndCertificateImages.length > 0 && (
-            <LeadBlock.Content.Section
-              className={classes.guaranteesAndAwardsAsset}
-            >
+            <LeadBlock.Content.Section>
               <LeadBlock.Content.Heading
                 variant="h6"
                 data-testid="awards-section"
@@ -146,7 +148,12 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
               </LeadBlock.Content.Heading>
               {system.awardsAndCertificateImages.map((item, i) => (
-                <img key={i} src={item.url} alt={item.name} className="image" />
+                <img
+                  key={i}
+                  src={item.url}
+                  alt={item.name}
+                  className={classes.image}
+                />
               ))}
             </LeadBlock.Content.Section>
           )}

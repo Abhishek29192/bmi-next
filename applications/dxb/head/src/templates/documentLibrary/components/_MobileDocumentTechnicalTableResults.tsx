@@ -13,13 +13,10 @@ import {
 import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import React from "react";
-import {
-  classes,
-  Root
-} from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
+import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -112,7 +109,7 @@ const MobileDocumentTechnicalTableResults = ({
                         >
                           <Icon
                             source={Download}
-                            className={classes["all-files-icon"]}
+                            className={classes.allFilesIcon}
                           />
                         </GTMClickable>
                       ) : (

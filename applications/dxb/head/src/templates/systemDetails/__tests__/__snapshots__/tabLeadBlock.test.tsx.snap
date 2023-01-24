@@ -111,7 +111,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -130,7 +130,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-guaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
@@ -141,12 +141,13 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   </h6>
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
+                    data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-guaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
@@ -157,12 +158,12 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
                   </h6>
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                 </p>
@@ -388,7 +389,7 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
           >
             <div
-              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-1fk0zeh-MuiGrid2-root"
+              class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-11fgxps-MuiGrid2-root"
               data-testid="grid-container"
             >
               <div
@@ -407,7 +408,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </div>
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-guaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
@@ -418,12 +419,13 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </h6>
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
+                    data-testid="guarantee-image-asset-name"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                 </p>
                 <p
-                  class="MuiTypography-root MuiTypography-body1 AboutLeadBlock-guaranteesAndAwardsAsset css-131kag5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-131kag5-MuiTypography-root"
                   data-testid="typography"
                 >
                   <h6
@@ -434,12 +436,12 @@ exports[`TabLeadBlock tests should render 1`] = `
                   </h6>
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                   <img
                     alt="asset-name"
-                    class="image"
+                    class="AboutLeadBlock-image"
                     src="http://localhost:8000/asset-real-file-name.pdf"
                   />
                 </p>

@@ -3,11 +3,11 @@
 exports[`DocumentTechnicalTableResults component in desktop view renders correctly 1`] = `
 <div>
   <div
-    class="css-1fxw3xf"
+    class="css-ft346i"
     data-testid="tech-results-table"
   >
     <div
-      class="css-1fxw3xf"
+      class="css-ft346i"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -85,7 +85,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-1fxw3xf"
+                        class="css-ft346i"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -126,6 +126,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                         target="_blank"
                       >
                         <svg
+                          class="DocumentTechnicalTableResults-allFilesIcon"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -151,11 +152,11 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
 exports[`DocumentTechnicalTableResults component in mobile view renders correctly 1`] = `
 <div>
   <div
-    class="css-1fxw3xf"
+    class="css-ft346i"
     data-testid="tech-results-table"
   >
     <div
-      class="css-1fxw3xf"
+      class="css-ft346i"
       data-testid="mobile-tech-results-table"
     >
       <div
@@ -233,7 +234,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                       class="DocumentTechnicalTableResults-infoIconContainer"
                     >
                       <div
-                        class="css-1fxw3xf"
+                        class="css-ft346i"
                         data-testid="asset-header-tech-results-table"
                       >
                         <div
@@ -274,6 +275,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                         target="_blank"
                       >
                         <svg
+                          class="DocumentTechnicalTableResults-allFilesIcon"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
