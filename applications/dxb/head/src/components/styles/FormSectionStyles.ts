@@ -131,7 +131,7 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
         width: "24px",
         height: "24px",
         content: "''",
-        webkitMask: "url(/icons/checkbox_outline.svg) no-repeat center center",
+        WebkitMask: "url(/icons/checkbox_outline.svg) no-repeat center center",
         mask: "url(/icons/checkbox_outline.svg) no-repeat center center",
         backgroundColor: theme.colours.inter
         // This would be preferable, but I can't get this to work unfortunately.
@@ -139,7 +139,7 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
       },
       "& .hs-input:checked + span::after": {
         content: "''",
-        webkitMask: "url(/icons/checkbox.svg) no-repeat center center",
+        WebkitMask: "url(/icons/checkbox.svg) no-repeat center center",
         mask: "url(/icons/checkbox.svg) no-repeat center center"
         // content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0072b0"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
       }
@@ -195,12 +195,12 @@ export const HubspotFormWrapper = styled("div")(({ theme }) => ({
         content: "''",
         width: "24px",
         height: "24px",
-        webkitMask: "url(/icons/radio_outline.svg) no-repeat center center",
+        WebkitMask: "url(/icons/radio_outline.svg) no-repeat center center",
         mask: "url(/icons/radio_outline.svg) no-repeat center center",
         backgroundColor: theme.colours.inter
       },
       "& .hs-input:checked + span::after": {
-        webkitMask: "url(/icons/radio.svg) no-repeat center center",
+        WebkitMask: "url(/icons/radio.svg) no-repeat center center",
         mask: "url(/icons/radio.svg) no-repeat center center"
       }
     },

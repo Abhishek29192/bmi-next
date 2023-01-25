@@ -45,6 +45,18 @@ export const StyledTableCell = styled(Table.Cell)({
   whiteSpace: "nowrap"
 });
 
+export const StyledTitleTableCell = styled(Table.Cell)({
+  verticalAlign: "middle !important"
+});
+
+export const Title = styled("p")({
+  WebkitLineClamp: "3",
+  WebkitBoxOrient: "vertical",
+  display: "-webkit-box",
+  margin: 0,
+  overflow: "hidden"
+});
+
 export const ExternalLinkIcon = styled(Icon)(({ theme }) => ({
   fill: theme.colours.inter,
   width: "24px",

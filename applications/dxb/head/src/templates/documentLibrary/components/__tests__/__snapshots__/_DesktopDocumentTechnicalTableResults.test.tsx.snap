@@ -93,11 +93,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product name
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -163,11 +163,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product3
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -327,11 +327,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product name
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -425,11 +425,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product3
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -571,11 +571,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product name
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -641,11 +641,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1xv4y7i-MuiTableCell-root"
+              <p
+                class="css-1d9wl9h"
               >
                 product3
-              </td>
+              </p>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >

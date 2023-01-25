@@ -29,7 +29,7 @@ import { useConfig } from "../../../contexts/ConfigProvider";
 import { downloadAs } from "../../../utils/client-download";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
-import { classes, Root } from "./DocumentTechnicalTableResultsStyles";
+import { classes, Root, Title } from "./DocumentTechnicalTableResultsStyles";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -211,9 +211,9 @@ const DesktopDocumentTechnicalTableResults = ({
             );
             return (
               <Table.Row key={key}>
-                <Table.Cell>
+                <Title>
                   {assets.length > 0 ? assets[0].productName : productName}
-                </Table.Cell>
+                </Title>
                 {assetTypes.map((assetType, index) => {
                   const filteredAssets = assets.filter(
                     ({ assetType: { code } }) => code === assetType.code
