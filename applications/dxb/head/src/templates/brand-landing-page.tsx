@@ -111,7 +111,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   const GTMButton = withGTM<ButtonProps>(Button);
   const firstSlide: CarouselHeroItem = {
     title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
-    children: description?.description,
+    //DXB-2102 truncate description to 400 characters
+    children: description?.description
+      ? `${description?.description.substring(0, 400)}${
+          description?.description.length > 400 ? "..." : ""
+        }`
+      : null,
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),

@@ -429,6 +429,84 @@ describe("Brand Landing Page Template", () => {
     expect(container).toMatchSnapshot();
   });
 
+  describe("when description is NOT more than 400 characters", () => {
+    it("renders description without elipsis", () => {
+      const newData = {
+        ...data
+      };
+      newData.contentfulBrandLandingPage.description = {
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui"
+      };
+      newData.contentfulBrandLandingPage.cta = {
+        __typename: "ContentfulLink",
+        id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
+        label: "firstSlideCTA",
+        icon: null,
+        isLabelHidden: null,
+        url: null,
+        type: DataTypeEnum.Internal,
+        linkedPage: {
+          path: "roof-tiles/"
+        },
+        asset: null,
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: null
+      };
+      const { container, queryByText, getByTestId } = renderWithRouter(
+        <ThemeProvider>
+          <BrandLandingPage
+            data={newData}
+            pageContext={{ variantCodeToPathMap: {} }}
+          />
+        </ThemeProvider>
+      );
+      expect(queryByText("firstSlideCTA")).not.toBeNull();
+      expect(getByTestId("hero-text").textContent.endsWith("...")).toBeFalsy();
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe("when description is more than 400 characters", () => {
+    it("renders description with elipsis", () => {
+      const newData = {
+        ...data
+      };
+      newData.contentfulBrandLandingPage.description = {
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      };
+      newData.contentfulBrandLandingPage.cta = {
+        __typename: "ContentfulLink",
+        id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
+        label: "firstSlideCTA",
+        icon: null,
+        isLabelHidden: null,
+        url: null,
+        type: DataTypeEnum.Internal,
+        linkedPage: {
+          path: "roof-tiles/"
+        },
+        asset: null,
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: null
+      };
+      const { container, queryByText, getByTestId } = renderWithRouter(
+        <ThemeProvider>
+          <BrandLandingPage
+            data={newData}
+            pageContext={{ variantCodeToPathMap: {} }}
+          />
+        </ThemeProvider>
+      );
+      expect(queryByText("firstSlideCTA")).not.toBeNull();
+      expect(getByTestId("hero-text").textContent.endsWith("...")).toBeTruthy();
+      expect(container).toMatchSnapshot();
+    });
+  });
+
   it("render with Search form on hero section", async () => {
     const { container, getByTestId } = renderWithRouter(
       <ThemeProvider>
