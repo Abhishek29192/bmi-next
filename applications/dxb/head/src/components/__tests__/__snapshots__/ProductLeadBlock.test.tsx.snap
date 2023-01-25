@@ -559,9 +559,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                     >
-                      <p>
+                      <p
+                        class="css-1d9wl9h"
+                      >
                         Pim Document
                       </p>
                     </td>
@@ -667,9 +669,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                     >
-                      <p>
+                      <p
+                        class="css-1d9wl9h"
+                      >
                         Pim Document
                       </p>
                     </td>
@@ -775,9 +779,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                     >
-                      <p>
+                      <p
+                        class="css-1d9wl9h"
+                      >
                         Pim Document
                       </p>
                     </td>
@@ -883,9 +889,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
                   >
                     <td
-                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
                     >
-                      <p>
+                      <p
+                        class="css-1d9wl9h"
+                      >
                         Pim Document
                       </p>
                     </td>

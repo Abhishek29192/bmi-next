@@ -47,7 +47,9 @@ import {
   ExternalLinkIcon,
   NoDocumentIcon,
   StyledSimpleTableResults,
-  StyledTableCell
+  StyledTableCell,
+  StyledTitleTableCell,
+  Title
 } from "./styles/DocumentSimpleTableResultsStyles";
 
 export type AvailableHeader =
@@ -115,9 +117,9 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "title") {
       return (
-        <StyledTableCell key={key}>
-          <p>{document.title}</p>
-        </StyledTableCell>
+        <StyledTitleTableCell key={key}>
+          <Title>{document.title}</Title>
+        </StyledTitleTableCell>
       );
     }
 

@@ -35,5 +35,6 @@ Then the script needs to be executed, passing in the `host` (the source of the r
 full path of the redirects file to use).
 
 ```bash
-yarn workspace @bmi/redirects-checker prod https://www.bmigroup.com /path/to/dxb/applications/dxb/head/redirects_en.toml
+yarn workspace @bmi/redirects-checker start https://www.bmigroup.com /path/to/dxb/applications/dxb/head/redirects_en.toml
+
 ```

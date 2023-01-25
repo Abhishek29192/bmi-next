@@ -47,7 +47,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly 1`] = `
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
@@ -143,7 +143,7 @@ exports[`DocumentSimpleTableResultsMobile component renders correctly when valid
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
           data-testid="typography"
         >
           contentful-document-title
@@ -239,7 +239,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document
@@ -332,7 +332,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
           </svg>
         </div>
         <p
-          class="MuiTypography-root MuiTypography-body1 css-w3v684-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-eoy3ls-MuiTypography-root"
           data-testid="typography"
         >
           Pim Document

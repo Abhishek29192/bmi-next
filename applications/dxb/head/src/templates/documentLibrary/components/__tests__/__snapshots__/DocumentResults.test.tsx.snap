@@ -61,9 +61,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
             >
-              <p>
+              <p
+                class="css-1d9wl9h"
+              >
                 contentful document title
               </p>
             </td>
@@ -181,9 +183,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
             >
-              <p>
+              <p
+                class="css-1d9wl9h"
+              >
                 pim document title
               </p>
             </td>

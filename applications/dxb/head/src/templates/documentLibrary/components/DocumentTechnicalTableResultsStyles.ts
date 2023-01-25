@@ -116,3 +116,11 @@ export const Root = styled("div")(({ theme }) => ({
     marginRight: "2px"
   }
 }));
+
+export const Title = styled("p")({
+  WebkitLineClamp: "3",
+  WebkitBoxOrient: "vertical",
+  display: "-webkit-box",
+  margin: 0,
+  overflow: "hidden"
+});
