@@ -166,7 +166,7 @@ const RelatedProducts = ({ countryCode, products }: Props) => {
       </Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs
-          theme="secondary"
+          color="secondary"
           initialValue={Object.keys(productGroups)[0]}
           tabComponent={(props: TabProps) => (
             <GTMTab

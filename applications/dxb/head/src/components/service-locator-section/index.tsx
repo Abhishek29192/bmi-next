@@ -388,7 +388,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         <Tabs
           initialValue="list"
           className={styles["tabs"]}
-          theme="secondary"
+          color="secondary"
           visibleUntil="lg"
           variant="fullWidth"
         >
