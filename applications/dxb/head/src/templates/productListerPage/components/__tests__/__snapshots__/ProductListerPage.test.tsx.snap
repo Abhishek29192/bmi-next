@@ -562,7 +562,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>
@@ -1623,7 +1623,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>
@@ -6426,7 +6426,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>
@@ -7417,7 +7417,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>
@@ -9453,7 +9453,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>
@@ -10695,7 +10695,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
               class="css-j3u0w2"
             >
               <div
-                class="css-6ly8jh"
+                class="css-1oko92u"
               />
             </div>
           </div>

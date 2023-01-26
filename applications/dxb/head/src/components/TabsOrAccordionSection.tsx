@@ -69,7 +69,7 @@ const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
           {...props}
         />
       )}
-      theme="primary"
+      color="primary"
       initialValue={items.length > 0 ? items[0].title || items[0].name : null}
     >
       {items.length > 0 &&

@@ -329,7 +329,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       {pageHasResults && !pageIsLoading ? (
         <Tabs
           initialValue={initialTabKey}
-          theme="secondary"
+          color="secondary"
           onChange={handleTabChange}
         >
           {renderTabs()}
