@@ -2853,9 +2853,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -4108,9 +4106,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -5334,9 +5330,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -9609,9 +9603,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -10851,9 +10843,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -12100,9 +12090,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -13349,9 +13337,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -14609,9 +14595,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >
@@ -17671,9 +17655,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-grid-lg-3 Grid-item css-89vusc-MuiGrid2-root"
                 data-testid="grid-item"
               >
-                <div
-                  style="position: sticky; top: 180px; max-height: calc(100vh - 200px); overflow: hidden auto;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"
                   >

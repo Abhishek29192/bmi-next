@@ -37,15 +37,7 @@ const FiltersSidebar = ({
   );
 
   return (
-    <div
-      style={{
-        position: "sticky",
-        top: "180px",
-        maxHeight: "calc(100vh - 200px)",
-        overflow: "hidden auto",
-        touchAction: "auto"
-      }}
-    >
+    <div>
       <div
         style={{
           display: "flex",

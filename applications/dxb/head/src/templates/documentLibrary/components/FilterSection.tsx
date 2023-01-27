@@ -34,7 +34,7 @@ const DocumentLibraryFilter = ({
   const { getMicroCopy } = useSiteContext();
 
   return (
-    <div className={filterStyles["scroll-bar"]}>
+    <div data-testid="filter-section">
       <div className={filterStyles["box"]}>
         <Typography variant="h5">
           {getMicroCopy("documentLibrary.filters.title")}
