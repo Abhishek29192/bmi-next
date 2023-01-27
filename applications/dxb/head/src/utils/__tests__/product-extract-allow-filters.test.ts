@@ -1,6 +1,6 @@
 import {
-  extractAllowedFeatures,
-  extractAllowedCategories
+  extractAllowedCategories,
+  extractAllowedFeatures
 } from "../product-filters";
 
 describe("extract allowed filters tests", () => {
@@ -35,12 +35,35 @@ describe("extract allowed filters tests", () => {
           [
             "CATEGORY|CATEGORY_1",
             "CATEGORY|CATEGORY_2",
-            "NEW_CATEGORY", //if main category is already specified then ignore child categories
+            "NEW_CATEGORY", //if main category is specified and child category is also specified
             "NEW_CATEGORY| CHILD_CATEGORY"
           ],
           new Map()
             .set("CATEGORY", ["CATEGORY_1", "CATEGORY_2"])
-            .set("NEW_CATEGORY", [])
+            .set("NEW_CATEGORY", ["CHILD_CATEGORY"]) //return child category ( more restrictive wins i.e "Category" and "Category | SUB_CATEGORY" is specified then "Category | SUB_CATEGORY" wins)
+        ],
+        [
+          [
+            // Main category and child category specified in any order
+            "CATEGORY|CATEGORY_1",
+            "CATEGORY|CATEGORY_2",
+            "CATEGORY" //if main category is specified and NO child category is specified
+          ],
+          new Map().set("CATEGORY", ["CATEGORY_1", "CATEGORY_2"]) //return child category ( more restrictive wins i.e "Category" and "Category | SUB_CATEGORY" is specified then "Category | SUB_CATEGORY" wins)
+        ],
+        [
+          [
+            // Main category only root category is specified
+            "PITCHED_ROOF_NO|SUB_PITCHED_ROOF_NO_1",
+            "PITCHED_ROOF_NO|SUB_PITCHED_ROOF_NO_2",
+            "CATEGORY" //only root category is specified
+          ],
+          new Map()
+            .set("CATEGORY", [])
+            .set("PITCHED_ROOF_NO", [
+              "SUB_PITCHED_ROOF_NO_1",
+              "SUB_PITCHED_ROOF_NO_2"
+            ]) //return child category ( more restrictive wins i.e "Category" and "Category | SUB_CATEGORY" is specified then "Category | SUB_CATEGORY" wins)
         ],
         [
           //category filters are case sensitive
