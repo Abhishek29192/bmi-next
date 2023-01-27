@@ -23,7 +23,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
           class="RelatedProducts"
         >
           <div
-            class=" css-fpjlvn"
+            class="Tabs-secondary css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -37,7 +37,6 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
-                    color="secondary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -232,7 +231,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
           class="RelatedProducts"
         >
           <div
-            class=" css-fpjlvn"
+            class="Tabs-secondary css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -246,7 +245,6 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
-                    color="secondary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -571,7 +569,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
           class="RelatedProducts"
         >
           <div
-            class=" css-fpjlvn"
+            class="Tabs-secondary css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -585,7 +583,6 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
-                    color="secondary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
