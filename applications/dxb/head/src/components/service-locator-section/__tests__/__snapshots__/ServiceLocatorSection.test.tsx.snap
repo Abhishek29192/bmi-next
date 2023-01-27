@@ -239,7 +239,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -253,6 +253,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -672,7 +673,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -686,6 +687,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1539,7 +1541,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -1553,6 +1555,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -2683,7 +2686,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -2697,6 +2700,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -3278,7 +3282,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -3292,6 +3296,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -3623,7 +3628,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -3637,6 +3642,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -4238,7 +4244,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -4252,6 +4258,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -4811,7 +4818,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -4825,6 +4832,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -5578,7 +5586,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -5592,6 +5600,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -5717,7 +5726,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           data-testid="grid-container"
         />
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -5731,6 +5740,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -6166,7 +6176,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
           data-testid="grid-container"
         />
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -6180,6 +6190,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -6738,7 +6749,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -6752,6 +6763,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -7268,7 +7280,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -7282,6 +7294,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -7798,7 +7811,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -7812,6 +7825,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -8467,7 +8481,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -8481,6 +8495,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -9077,7 +9092,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -9091,6 +9106,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -9724,7 +9740,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -9738,6 +9754,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -10334,7 +10351,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -10348,6 +10365,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -10944,7 +10962,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -10958,6 +10976,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -11355,7 +11374,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -11369,6 +11388,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -11815,7 +11835,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -11829,6 +11849,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -12247,7 +12268,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -12261,6 +12282,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -12706,7 +12728,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -12720,6 +12742,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -13147,7 +13170,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -13161,6 +13184,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -13747,7 +13771,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -13761,6 +13785,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -14158,7 +14183,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -14172,6 +14197,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -14767,7 +14793,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -14781,6 +14807,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -15222,7 +15249,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -15236,6 +15263,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -15507,7 +15535,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -15521,6 +15549,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -16212,7 +16241,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -16226,6 +16255,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -16474,7 +16504,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -16488,6 +16518,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"

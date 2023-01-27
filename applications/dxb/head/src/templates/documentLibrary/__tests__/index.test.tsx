@@ -1,6 +1,6 @@
 /* eslint-disable prefer-spread */
 import { ThemeProvider } from "@bmi-digital/components";
-import { RenderResult, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
@@ -8,13 +8,13 @@ import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import * as elasticSearch from "../../../utils/elasticSearch";
 import { FILTER_KEY } from "../../../utils/filters";
+import { DocumentLibraryPageContext } from "../types";
 import {
   createCollapseData,
   createData,
   createESDocumentHitResponseMock,
   filtersMock
 } from "../__mocks__/index.mock";
-import { DocumentLibraryPageContext } from "../types";
 
 const count = PAGE_SIZE;
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -95,9 +95,7 @@ describe("Document Library page", () => {
     expect(
       container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
     ).toBeTruthy();
-    expect(
-      container.querySelector("[class*='white'] .Filters .scroll-bar")
-    ).toBeTruthy();
+    expect(getByTestId("filter-section")).toBeInTheDocument();
     expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
     expect(mockQueryES).toBeCalled();

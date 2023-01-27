@@ -3,7 +3,7 @@
 exports[`FilterSection render correctly 1`] = `
 <div>
   <div
-    class="scroll-bar"
+    data-testid="filter-section"
   >
     <div
       class="box"

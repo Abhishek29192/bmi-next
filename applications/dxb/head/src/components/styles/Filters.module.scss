@@ -1,15 +1,6 @@
 @import "~@bmi-digital/styles";
 
 .Filters {
-  .scroll-bar {
-    @media (min-width: $breakpoint-lg) {
-      position: sticky;
-      max-height: calc(100vh - 200px);
-      overflow: hidden auto;
-      touch-action: auto;
-    }
-  }
-
   .box {
     display: flex;
     align-items: center;

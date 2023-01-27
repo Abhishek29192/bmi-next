@@ -307,6 +307,7 @@ HTMLCollection [
                   >
                     <div
                       class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      color="primary"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -1242,7 +1243,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -1256,6 +1257,7 @@ HTMLCollection [
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1567,7 +1569,7 @@ HTMLCollection [
             </div>
           </div>
           <div
-            class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+            class="Tabs-visibleUntillg tabs css-fpjlvn"
             data-testid="tabs"
           >
             <div
@@ -1581,6 +1583,7 @@ HTMLCollection [
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="secondary"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -3643,6 +3646,7 @@ HTMLCollection [
                   >
                     <div
                       class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      color="primary"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -3909,6 +3913,7 @@ HTMLCollection [
                   >
                     <div
                       class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      color="primary"
                     >
                       <div
                         class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"

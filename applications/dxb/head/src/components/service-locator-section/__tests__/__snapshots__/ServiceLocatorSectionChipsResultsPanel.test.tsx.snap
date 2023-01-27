@@ -224,7 +224,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
           </div>
         </div>
         <div
-          class="Tabs-secondary Tabs-visibleUntillg tabs css-fpjlvn"
+          class="Tabs-visibleUntillg tabs css-fpjlvn"
           data-testid="tabs"
         >
           <div
@@ -238,6 +238,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               >
                 <div
                   class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  color="secondary"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"

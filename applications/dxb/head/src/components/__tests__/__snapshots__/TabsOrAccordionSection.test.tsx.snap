@@ -253,6 +253,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="primary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -397,6 +398,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="primary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -541,6 +543,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="primary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
@@ -649,6 +652,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                 >
                   <div
                     class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    color="primary"
                   >
                     <div
                       class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
