@@ -256,10 +256,8 @@ export const extractAllowedCategories = (
   }
   const exclusiveAllowedFilterWithPipe = Array.from(
     new Set(
-      allowedFilters
-        .filter((allowedFilter) => allowedFilter.indexOf("|") > -1)
-        .map((allowedFilter) => allowedFilter)
-    ).keys()
+      allowedFilters.filter((allowedFilter) => allowedFilter.indexOf("|") > -1)
+    )
   );
 
   // );
@@ -268,16 +266,14 @@ export const extractAllowedCategories = (
   // i.e remove any full categories from the allowed filters if it has been already
   // specified with piped version!
   const allowedCategoryFiltersWithoutPipe = new Set(
-    allowedFilters
-      .filter(
-        (allowedFilter) =>
-          allowedFilter.indexOf("|") === -1 &&
-          allowedFilter.indexOf(QUERY_FILTER_DELIMITER) === -1 &&
-          !exclusiveAllowedFilterWithPipe.some((value: string) =>
-            value.startsWith(allowedFilter)
-          )
-      )
-      .map((filter) => filter)
+    allowedFilters.filter(
+      (allowedFilter) =>
+        allowedFilter.indexOf("|") === -1 &&
+        allowedFilter.indexOf(QUERY_FILTER_DELIMITER) === -1 &&
+        !exclusiveAllowedFilterWithPipe.some((value: string) =>
+          value.startsWith(allowedFilter)
+        )
+    )
   );
 
   const eligibleFilterCategories = new Map<string, string[]>();
