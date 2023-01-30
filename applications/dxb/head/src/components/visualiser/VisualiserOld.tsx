@@ -16,7 +16,6 @@ import {
 } from "@bmi-digital/components";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ShareIcon from "@mui/icons-material/Share";
-import CircularProgress from "@mui/material/CircularProgress";
 import Popover from "@mui/material/Popover";
 import SvgIcon from "@mui/material/SvgIcon";
 import classnames from "classnames";
@@ -29,6 +28,7 @@ import React, {
   useRef,
   useState
 } from "react";
+import ProgressIndicator from "../ProgressIndicator";
 import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
 import { useMicroCopy } from "./helpers/useMicroCopy";
@@ -545,7 +545,7 @@ const Visualiser = ({
       <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
           <div className={classes.progressContainer}>
-            <CircularProgress />
+            <ProgressIndicator size={40} />
           </div>
         )}
         <div className={classes.details}>

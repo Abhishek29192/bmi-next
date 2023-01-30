@@ -119,6 +119,7 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
   >
     <form
       class=" css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"
@@ -256,6 +257,7 @@ exports[`CalculatorStepper component renders correctly 1`] = `
   >
     <form
       class=" css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 step-title css-1ekntu4-MuiTypography-root"

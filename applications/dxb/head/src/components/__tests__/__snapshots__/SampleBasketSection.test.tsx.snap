@@ -26,6 +26,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
         >
           <button
             class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
+            data-testid="shopping-cart-product"
             tabindex="0"
             type="button"
           >
@@ -169,6 +170,7 @@ exports[`SampleBasketSection component should render form after complete button 
         >
           <button
             class="MuiButtonBase-root OverviewCard-clickable product-wrapper MuiBox-root css-c35yjo-MuiButtonBase-root"
+            data-testid="shopping-cart-product"
             tabindex="0"
             type="button"
           >
@@ -271,6 +273,7 @@ exports[`SampleBasketSection component should render form after complete button 
         </h2>
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"

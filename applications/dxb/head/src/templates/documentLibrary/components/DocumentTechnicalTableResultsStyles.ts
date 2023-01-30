@@ -3,6 +3,7 @@ import {
   accordionDetailsClasses,
   formControlLabelClasses
 } from "@mui/material";
+import { Table } from "@bmi-digital/components";
 
 const PREFIX = "DocumentTechnicalTableResults";
 export const classes = {
@@ -117,7 +118,7 @@ export const Root = styled("div")(({ theme }) => ({
   }
 }));
 
-export const Title = styled("p")({
+export const Title = styled(Table.Cell)({
   WebkitLineClamp: "3",
   WebkitBoxOrient: "vertical",
   display: "-webkit-box",

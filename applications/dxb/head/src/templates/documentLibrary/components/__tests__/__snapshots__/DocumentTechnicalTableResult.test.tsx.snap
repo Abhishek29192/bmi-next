@@ -59,7 +59,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-glpxpj-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
                   >
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -119,22 +119,25 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        type="button"
                       >
-                        <svg
-                          class="DocumentTechnicalTableResults-allFilesIcon"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                            fill="currentColor"
-                          />
-                        </svg>
+                        <span>
+                          <svg
+                            class="DocumentTechnicalTableResults-allFilesIcon"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
                       </a>
                     </div>
                   </div>
@@ -208,7 +211,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-glpxpj-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
                   >
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -268,22 +271,25 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        type="button"
                       >
-                        <svg
-                          class="DocumentTechnicalTableResults-allFilesIcon"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                            fill="currentColor"
-                          />
-                        </svg>
+                        <span>
+                          <svg
+                            class="DocumentTechnicalTableResults-allFilesIcon"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
                       </a>
                     </div>
                   </div>

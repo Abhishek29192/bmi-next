@@ -16,6 +16,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           <button
             aria-label="Go to previous page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-0-button"
             disabled=""
             tabindex="-1"
             type="button"
@@ -38,6 +39,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
             aria-current="true"
             aria-label="page 1"
             class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-1-button"
             tabindex="0"
             type="button"
           >
@@ -51,6 +53,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           <button
             aria-label="Go to next page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-2-button"
             disabled=""
             tabindex="-1"
             type="button"
@@ -82,6 +85,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
     <button
       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (4)\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
+      data-testid="document-table-download-button"
       tabindex="0"
       type="button"
     >
@@ -140,6 +144,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           <button
             aria-label="Go to previous page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-0-button"
             disabled=""
             tabindex="-1"
             type="button"
@@ -162,6 +167,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
             aria-current="true"
             aria-label="page 1"
             class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-1-button"
             tabindex="0"
             type="button"
           >
@@ -175,6 +181,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           <button
             aria-label="Go to next page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-2-button"
             disabled=""
             tabindex="-1"
             type="button"
@@ -206,6 +213,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
     <button
       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (2)\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
+      data-testid="document-table-download-button"
       tabindex="0"
       type="button"
     >
@@ -264,6 +272,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
           <button
             aria-label="Go to previous page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-0-button"
             disabled=""
             tabindex="-1"
             type="button"
@@ -286,6 +295,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
             aria-current="true"
             aria-label="page 1"
             class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-selected MuiPaginationItem-page Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-1-button"
             tabindex="0"
             type="button"
           >
@@ -299,6 +309,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
           <button
             aria-label="Go to next page"
             class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+            data-testid="pagination-2-button"
             disabled=""
             tabindex="-1"
             type="button"

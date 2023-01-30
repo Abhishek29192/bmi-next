@@ -56,6 +56,7 @@ const IntegratedBreadcrumbs = ({
           null,
           homePage.title
         )}
+        data-testid={`breadcrumb-${homePage.title.replace(/ /g, "-")}`}
       >
         {homePage.title}
       </Breadcrumbs.Item>
@@ -69,6 +70,7 @@ const IntegratedBreadcrumbs = ({
             null,
             label
           )}
+          data-testid={`breadcrumb-${label.replace(/ /g, "-")}`}
         >
           {label}
         </Breadcrumbs.Item>

@@ -60,6 +60,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                   }`,
                   action: "Selector - Accordion"
                 }}
+                data-testid="system-layer-summary"
               >
                 <Typography variant="default">
                   {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
@@ -68,7 +69,11 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
               {hasAccordionItemDetailsData && (
                 <Accordion.Details>
-                  <Grid container spacing={3}>
+                  <Grid
+                    container
+                    spacing={3}
+                    data-testid="system-layer-details"
+                  >
                     {relatedProduct && (
                       <Grid xs={12} md={12} lg={12}>
                         <GTMAnchorLink

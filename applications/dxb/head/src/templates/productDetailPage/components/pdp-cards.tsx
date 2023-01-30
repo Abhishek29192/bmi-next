@@ -16,7 +16,11 @@ export const PdpCardsSection = ({
   resources: { pdpCards, pdpCardsTitle },
   countryCode
 }: PdpCardsProps) => (
-  <Section backgroundColor="alabaster" className="PdpCardsSection">
+  <Section
+    backgroundColor="alabaster"
+    className="PdpCardsSection"
+    data-testid="pdp-cards-section"
+  >
     <Section.Title>{pdpCardsTitle}</Section.Title>
     <Grid container spacing={3}>
       {pdpCards.map(

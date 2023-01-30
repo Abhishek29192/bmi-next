@@ -73,6 +73,10 @@ const Brands = ({
                           linkComponent: Link
                         }
                   }
+                  data-testid={`brand-intro-card-${brand.title.replace(
+                    / /g,
+                    "-"
+                  )}`}
                 />
               ) : (
                 <BrandIntroCard

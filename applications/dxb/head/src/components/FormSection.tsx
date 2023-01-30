@@ -18,7 +18,6 @@ import {
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import CircularProgress from "@mui/material/CircularProgress";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import fetch from "node-fetch";
@@ -43,6 +42,7 @@ import {
   StyledForm
 } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
+import ProgressIndicator from "./ProgressIndicator";
 
 export type Data = {
   __typename: "ContentfulFormSection";
@@ -740,10 +740,15 @@ const FormSection = ({
               }}
               endIcon={
                 isSubmitting ? (
-                  <CircularProgress
+                  <ProgressIndicator
                     size={24}
                     color="inherit"
-                    style={{ marginLeft: "0.5rem" }}
+                    style={{
+                      position: "relative",
+                      left: 0,
+                      right: 0,
+                      marginLeft: "0.5rem"
+                    }}
                   />
                 ) : (
                   <ArrowForwardIcon />

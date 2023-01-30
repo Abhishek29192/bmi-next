@@ -61,7 +61,8 @@ exports[`Visualiser component renders correctly 1`] = `
             class="VisualiserV2-progressContainer"
           >
             <span
-              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator css-1kcdtbk-MuiCircularProgress-root"
+              data-testid="progress-indicator"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
@@ -74,8 +75,8 @@ exports[`Visualiser component renders correctly 1`] = `
                   cx="44"
                   cy="44"
                   fill="none"
-                  r="20.2"
-                  stroke-width="3.6"
+                  r="20.5"
+                  stroke-width="3"
                 />
               </svg>
             </span>
@@ -252,7 +253,8 @@ exports[`Visualiser component renders correctly when non-test asset url provided
             class="VisualiserV2-progressContainer"
           >
             <span
-              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator css-1kcdtbk-MuiCircularProgress-root"
+              data-testid="progress-indicator"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
@@ -265,8 +267,8 @@ exports[`Visualiser component renders correctly when non-test asset url provided
                   cx="44"
                   cy="44"
                   fill="none"
-                  r="20.2"
-                  stroke-width="3.6"
+                  r="20.5"
+                  stroke-width="3"
                 />
               </svg>
             </span>
@@ -443,7 +445,8 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
             class="VisualiserV2-progressContainer"
           >
             <span
-              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1kcdtbk-MuiCircularProgress-root"
+              class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary ProgressIndicator css-1kcdtbk-MuiCircularProgress-root"
+              data-testid="progress-indicator"
               role="progressbar"
               style="width: 40px; height: 40px;"
             >
@@ -456,8 +459,8 @@ exports[`Visualiser component renders correctly when test asset url provided 1`]
                   cx="44"
                   cy="44"
                   fill="none"
-                  r="20.2"
-                  stroke-width="3.6"
+                  r="20.5"
+                  stroke-width="3"
                 />
               </svg>
             </span>

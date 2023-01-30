@@ -1,5 +1,4 @@
 import { Button, Section, Typography } from "@bmi-digital/components";
-import CircularProgress from "@mui/material/CircularProgress";
 import React, {
   useCallback,
   useContext,
@@ -24,6 +23,7 @@ import {
   TileOptionSelections,
   Underlay
 } from "../types/v2";
+import ProgressIndicator from "../../ProgressIndicator";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -366,7 +366,7 @@ const Results = ({
     <>
       {loading && (
         <div className={styles["spinnerContainer"]}>
-          <CircularProgress />
+          <ProgressIndicator size={40} />
         </div>
       )}
       <div className={styles["Results"]}>

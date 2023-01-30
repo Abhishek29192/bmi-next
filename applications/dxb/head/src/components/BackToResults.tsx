@@ -56,6 +56,7 @@ const BackToResults: FC<Props> = ({
           action: getBackToResultsPath(countryCode),
           label: getMicroCopy(microCopy.SEARCH_BACK_TO_RESULTS)
         }}
+        data-testid="back-to-results-button"
       >
         {getMicroCopy(microCopy.SEARCH_BACK_TO_RESULTS)}
       </CTABackToResults>

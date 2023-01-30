@@ -214,6 +214,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -271,6 +272,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="menuNavigationLink"
                       role="tab"
                       tabindex="0"
@@ -378,12 +380,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -1047,6 +1050,7 @@ exports[`Sitemap renders correctly 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -1104,6 +1108,7 @@ exports[`Sitemap renders correctly 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="menuNavigationLink"
                       role="tab"
                       tabindex="0"
@@ -1211,12 +1216,13 @@ exports[`Sitemap renders correctly 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -1880,6 +1886,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -1937,6 +1944,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="menuNavigationLink"
                       role="tab"
                       tabindex="0"
@@ -2044,12 +2052,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -2651,6 +2660,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -2708,6 +2718,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="menuNavigationLink"
                       role="tab"
                       tabindex="0"
@@ -2815,12 +2826,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>

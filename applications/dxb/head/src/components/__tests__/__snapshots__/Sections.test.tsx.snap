@@ -240,7 +240,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root css-17t4j5c"
@@ -499,6 +499,7 @@ HTMLCollection [
   >
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-card-collection-section-title"
     >
       <div
         class="Section-root Section-white css-cxq310"
@@ -554,6 +555,7 @@ HTMLCollection [
                       <a
                         class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us/\\"}"
+                        data-testid="card-collection-section-item-promo-title"
                         href="/uk/contact-us/"
                         tabindex="0"
                         type="button"
@@ -642,6 +644,7 @@ HTMLCollection [
   >
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-card-section-title-2"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -669,6 +672,7 @@ HTMLCollection [
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path/\\"}"
+                  data-testid="card-collection-section-item-page-title"
                   href="/uk/path/"
                   tabindex="0"
                   type="button"
@@ -1535,6 +1539,7 @@ HTMLCollection [
                   <div
                     class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                    data-testid="service-locator-chip-Pitched-Roof"
                     role="button"
                     tabindex="0"
                   >
@@ -1550,6 +1555,7 @@ HTMLCollection [
                   <div
                     class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                     data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                    data-testid="service-locator-chip-Flat-Roof"
                     role="button"
                     tabindex="0"
                   >
@@ -1694,6 +1700,7 @@ HTMLCollection [
                         >
                           <div
                             class="css-hvci11"
+                            data-testid="company-details-root"
                           >
                             <div>
                               <dl
@@ -1701,6 +1708,7 @@ HTMLCollection [
                               >
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-phone"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1740,6 +1748,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-email"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1779,6 +1788,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-website"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1820,6 +1830,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-content"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1901,6 +1912,7 @@ HTMLCollection [
                         >
                           <div
                             class="css-hvci11"
+                            data-testid="company-details-root"
                           >
                             <div>
                               <dl
@@ -1908,6 +1920,7 @@ HTMLCollection [
                               >
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-phone"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1947,6 +1960,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-email"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -1986,6 +2000,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-website"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -2027,6 +2042,7 @@ HTMLCollection [
                                 </div>
                                 <div
                                   class="CompanyDetails-row"
+                                  data-testid="company-details-content"
                                 >
                                   <dt
                                     class="css-10edjq1"
@@ -2808,6 +2824,7 @@ HTMLCollection [
           </h2>
           <form
             class="Form-rightAlignButton css-yp4v13"
+            data-testid="form"
           >
             <div
               class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -3240,7 +3257,7 @@ HTMLCollection [
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3282,7 +3299,7 @@ HTMLCollection [
                 data-testid="grid-container"
               >
                 <div
-                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3327,7 +3344,7 @@ HTMLCollection [
                   class="css-k1g0xu"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3385,7 +3402,7 @@ HTMLCollection [
                   class="css-k1g0xu"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3576,7 +3593,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root css-17t4j5c"
@@ -3842,7 +3859,7 @@ HTMLCollection [
                         role="region"
                       >
                         <div
-                          class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
+                          class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                         >
                           <div
                             class="RichText-root css-17t4j5c"

@@ -179,6 +179,7 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
       items={items}
       className={styles["ContactTopics"]}
       cardComponent={(props) => <GTMCard {...props} />}
+      data-testid={"contact-topics"}
     />
   );
 };

@@ -1,7 +1,7 @@
 import {
+  AnchorLink,
+  AnchorLinkProps,
   Button,
-  Clickable,
-  ClickableProps,
   Cross,
   Download,
   DownloadList,
@@ -49,13 +49,12 @@ const DesktopDocumentTechnicalTableResults = ({
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const GTMClickable = withGTM<ClickableProps>(Clickable);
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
   const GTMButton = withGTM<IconButtonProps>(Button);
 
   const singleDocument = (asset: PimProductDocument) =>
     !asset.isLinkDocument ? (
-      <GTMClickable
-        model="download"
+      <GTMAnchorLink
         href={asset.url}
         download={asset.title}
         gtm={{
@@ -68,7 +67,7 @@ const DesktopDocumentTechnicalTableResults = ({
           source={fileIconsMap[asset.format] || FileUniversal}
           className={classnames(classes.formatIcon, "format-icon")}
         />
-      </GTMClickable>
+      </GTMAnchorLink>
     ) : (
       <GTMButton
         isIconButton

@@ -94,6 +94,7 @@ const DocumentDownloadSection = ({
                           style={iconStyle}
                         />
                       }
+                      data-testid="docment-download-section-download-button"
                     >
                       {filesize(details.size)}
                     </GTMButton>

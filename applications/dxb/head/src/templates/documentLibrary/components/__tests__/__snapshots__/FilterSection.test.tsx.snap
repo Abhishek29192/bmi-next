@@ -3,7 +3,7 @@
 exports[`FilterSection render correctly 1`] = `
 <div>
   <div
-    data-testid="filter-section"
+    data-testid="document-library-filters"
   >
     <div
       class="box"
@@ -82,14 +82,14 @@ exports[`FilterSection render correctly 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-glpxpj-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                   >
                     <div
                       class="css-2mmt6q"
                     >
                       <div>
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

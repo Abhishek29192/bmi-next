@@ -71,7 +71,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -171,7 +171,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -299,7 +299,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -385,7 +385,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when Mult
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -658,7 +658,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -744,7 +744,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -858,7 +858,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"
@@ -944,7 +944,7 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when spec
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordion-details css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root accordion-details css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="css-ya57aw"

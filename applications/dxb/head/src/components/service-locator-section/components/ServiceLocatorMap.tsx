@@ -61,6 +61,7 @@ export const ServiceLocatorMap = ({
               [styles["product-details-card--with_logo"]]:
                 selectedRoofer.companyLogo
             })}
+            data-testid={`service-locator-service-details-card-${selectedRoofer.id}`}
           >
             <CardHeader
               avatar={

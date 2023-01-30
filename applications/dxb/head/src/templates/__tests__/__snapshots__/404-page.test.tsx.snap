@@ -278,6 +278,7 @@ exports[`404 page tests When error page data is partially populated renders plac
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -336,6 +337,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
+                      data-testid="header-navigation-tab-0"
                       id="navigation-tab-0"
                       role="tab"
                       tabindex="0"
@@ -362,6 +364,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
+                      data-testid="header-navigation-tab-1"
                       id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
@@ -388,6 +391,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
+                      data-testid="header-navigation-tab-2"
                       id="navigation-tab-2"
                       role="tab"
                       tabindex="-1"
@@ -414,6 +418,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
+                      data-testid="header-navigation-tab-3"
                       id="navigation-tab-3"
                       role="tab"
                       tabindex="-1"
@@ -440,6 +445,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
+                      data-testid="header-navigation-tab-4"
                       id="navigation-tab-4"
                       role="tab"
                       tabindex="-1"
@@ -466,6 +472,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
+                      data-testid="header-navigation-tab-5"
                       id="navigation-tab-5"
                       role="tab"
                       tabindex="-1"
@@ -585,12 +592,13 @@ exports[`404 page tests When error page data is partially populated renders plac
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -599,6 +607,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
+                data-testid="navigation-list-button-Products"
                 tabindex="0"
                 type="button"
               >
@@ -624,6 +633,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -632,6 +642,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -671,6 +682,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof\\"}"
+                      data-testid="navigation-list-button-Roof"
                       tabindex="0"
                       type="button"
                     >
@@ -696,6 +708,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -704,6 +717,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Select category\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -735,6 +749,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Stone Roofs\\"}"
+                            data-testid="navigation-list-button-Stone-Roofs"
                             tabindex="0"
                             type="button"
                           >
@@ -760,6 +775,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -768,6 +784,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -886,6 +903,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Steel Roof Tiles\\"}"
+                            data-testid="navigation-list-button-Steel-Roof-Tiles"
                             tabindex="0"
                             type="button"
                           >
@@ -911,6 +929,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -919,6 +938,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -988,6 +1008,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Shingle\\"}"
+                            data-testid="navigation-list-button-Shingle"
                             tabindex="0"
                             type="button"
                           >
@@ -1013,6 +1034,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -1021,6 +1043,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1104,6 +1127,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat Roof Accessories\\"}"
+                            data-testid="navigation-list-button-Flat-Roof-Accessories"
                             tabindex="0"
                             type="button"
                           >
@@ -1129,6 +1153,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -1137,6 +1162,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -1322,6 +1348,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
+                data-testid="navigation-list-button-Systems"
                 tabindex="0"
                 type="button"
               >
@@ -1347,6 +1374,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -1355,6 +1383,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -1445,6 +1474,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
+                data-testid="navigation-list-button-Brands"
                 tabindex="0"
                 type="button"
               >
@@ -1470,6 +1500,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -1478,6 +1509,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -1617,6 +1649,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
+                data-testid="navigation-list-button-Tips-and-Inspiration"
                 tabindex="0"
                 type="button"
               >
@@ -1642,6 +1675,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -1650,6 +1684,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -1681,6 +1716,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Inspiration\\"}"
+                      data-testid="navigation-list-button-Inspiration"
                       tabindex="0"
                       type="button"
                     >
@@ -1706,6 +1742,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -1714,6 +1751,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -1818,6 +1856,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Construction tips\\"}"
+                      data-testid="navigation-list-button-Construction-tips"
                       tabindex="0"
                       type="button"
                     >
@@ -1843,6 +1882,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -1851,6 +1891,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -1896,6 +1937,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For the self-builder\\"}"
+                            data-testid="navigation-list-button-For-the-self-builder"
                             tabindex="0"
                             type="button"
                           >
@@ -1921,6 +1963,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -1929,6 +1972,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -2053,6 +2097,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
+                data-testid="navigation-list-button-Support"
                 tabindex="0"
                 type="button"
               >
@@ -2078,6 +2123,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -2086,6 +2132,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -2162,6 +2209,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
+                data-testid="navigation-list-button-Documentation"
                 tabindex="0"
                 type="button"
               >
@@ -2187,6 +2235,7 @@ exports[`404 page tests When error page data is partially populated renders plac
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -2195,6 +2244,7 @@ exports[`404 page tests When error page data is partially populated renders plac
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -3128,6 +3178,7 @@ exports[`404 page tests When site data and error page data are fully populated r
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -3186,6 +3237,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
+                      data-testid="header-navigation-tab-0"
                       id="navigation-tab-0"
                       role="tab"
                       tabindex="0"
@@ -3212,6 +3264,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
+                      data-testid="header-navigation-tab-1"
                       id="navigation-tab-1"
                       role="tab"
                       tabindex="-1"
@@ -3238,6 +3291,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
+                      data-testid="header-navigation-tab-2"
                       id="navigation-tab-2"
                       role="tab"
                       tabindex="-1"
@@ -3264,6 +3318,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
+                      data-testid="header-navigation-tab-3"
                       id="navigation-tab-3"
                       role="tab"
                       tabindex="-1"
@@ -3290,6 +3345,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
+                      data-testid="header-navigation-tab-4"
                       id="navigation-tab-4"
                       role="tab"
                       tabindex="-1"
@@ -3316,6 +3372,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Header-navItem css-1674q4i-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
+                      data-testid="header-navigation-tab-5"
                       id="navigation-tab-5"
                       role="tab"
                       tabindex="-1"
@@ -3435,12 +3492,13 @@ exports[`404 page tests When site data and error page data are fully populated r
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -3449,6 +3507,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Products\\"}"
+                data-testid="navigation-list-button-Products"
                 tabindex="0"
                 type="button"
               >
@@ -3474,6 +3533,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -3482,6 +3542,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -3521,6 +3582,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof\\"}"
+                      data-testid="navigation-list-button-Roof"
                       tabindex="0"
                       type="button"
                     >
@@ -3546,6 +3608,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -3554,6 +3617,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Select category\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -3585,6 +3649,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Stone Roofs\\"}"
+                            data-testid="navigation-list-button-Stone-Roofs"
                             tabindex="0"
                             type="button"
                           >
@@ -3610,6 +3675,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -3618,6 +3684,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -3736,6 +3803,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Steel Roof Tiles\\"}"
+                            data-testid="navigation-list-button-Steel-Roof-Tiles"
                             tabindex="0"
                             type="button"
                           >
@@ -3761,6 +3829,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -3769,6 +3838,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -3838,6 +3908,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Shingle\\"}"
+                            data-testid="navigation-list-button-Shingle"
                             tabindex="0"
                             type="button"
                           >
@@ -3863,6 +3934,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -3871,6 +3943,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -3954,6 +4027,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat Roof Accessories\\"}"
+                            data-testid="navigation-list-button-Flat-Roof-Accessories"
                             tabindex="0"
                             type="button"
                           >
@@ -3979,6 +4053,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -3987,6 +4062,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4172,6 +4248,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Systems\\"}"
+                data-testid="navigation-list-button-Systems"
                 tabindex="0"
                 type="button"
               >
@@ -4197,6 +4274,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -4205,6 +4283,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -4295,6 +4374,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Brands\\"}"
+                data-testid="navigation-list-button-Brands"
                 tabindex="0"
                 type="button"
               >
@@ -4320,6 +4400,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -4328,6 +4409,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -4467,6 +4549,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Tips and Inspiration\\"}"
+                data-testid="navigation-list-button-Tips-and-Inspiration"
                 tabindex="0"
                 type="button"
               >
@@ -4492,6 +4575,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -4500,6 +4584,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -4531,6 +4616,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Inspiration\\"}"
+                      data-testid="navigation-list-button-Inspiration"
                       tabindex="0"
                       type="button"
                     >
@@ -4556,6 +4642,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -4564,6 +4651,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -4668,6 +4756,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Construction tips\\"}"
+                      data-testid="navigation-list-button-Construction-tips"
                       tabindex="0"
                       type="button"
                     >
@@ -4693,6 +4782,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     </button>
                     <div
                       class="Navigation-navigationList"
+                      data-testid="navigation-list-root"
                     >
                       <ul>
                         <li
@@ -4701,6 +4791,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                            data-testid="navigation-list-button-back"
                             tabindex="0"
                             type="button"
                           >
@@ -4746,6 +4837,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           <button
                             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For the self-builder\\"}"
+                            data-testid="navigation-list-button-For-the-self-builder"
                             tabindex="0"
                             type="button"
                           >
@@ -4771,6 +4863,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                           </button>
                           <div
                             class="Navigation-navigationList"
+                            data-testid="navigation-list-root"
                           >
                             <ul>
                               <li
@@ -4779,6 +4872,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                                 <button
                                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                                  data-testid="navigation-list-button-back"
                                   tabindex="0"
                                   type="button"
                                 >
@@ -4903,6 +4997,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Support\\"}"
+                data-testid="navigation-list-button-Support"
                 tabindex="0"
                 type="button"
               >
@@ -4928,6 +5023,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -4936,6 +5032,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >
@@ -5012,6 +5109,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Documentation\\"}"
+                data-testid="navigation-list-button-Documentation"
                 tabindex="0"
                 type="button"
               >
@@ -5037,6 +5135,7 @@ exports[`404 page tests When site data and error page data are fully populated r
               </button>
               <div
                 class="Navigation-navigationList"
+                data-testid="navigation-list-root"
               >
                 <ul>
                   <li
@@ -5045,6 +5144,7 @@ exports[`404 page tests When site data and error page data are fully populated r
                     <button
                       class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Navigation-navigationListButton Navigation-backButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"MC: menu.mainDefault\\"}"
+                      data-testid="navigation-list-button-back"
                       tabindex="0"
                       type="button"
                     >

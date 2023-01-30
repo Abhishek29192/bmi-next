@@ -4,11 +4,11 @@ import {
   Icon
 } from "@bmi-digital/components";
 import { LinearProgress } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 import { graphql } from "gatsby";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { CalculatorConfig, CalculatorSteps } from "../types";
+import ProgressIndicator from "../../ProgressIndicator";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(
@@ -65,7 +65,7 @@ const PitchedRoofCalculator = ({
 
   const loading = (
     <div className={styles["spinnerContainer"]}>
-      <CircularProgress className={styles["spinner"]} />
+      <ProgressIndicator size={40} className={styles["spinner"]} />
     </div>
   );
 
