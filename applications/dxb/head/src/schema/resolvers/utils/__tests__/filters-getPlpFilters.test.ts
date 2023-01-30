@@ -289,7 +289,7 @@ describe("filters tests", () => {
           }
         ]);
       });
-      it("should return the whole Category options when Category filter with mixed options of Category and Category option", () => {
+      it("should returns narrowed down Category options when Category filter with mixed options of Category and Category option", () => {
         const baseProduct = createProduct();
         baseProduct.filters = [
           createFilter({
@@ -353,29 +353,9 @@ describe("filters tests", () => {
             value: [],
             options: [
               {
-                label: "Produkter",
-                value: "PRODUCTS_NO",
-                sortValue: "Produkter"
-              },
-              {
                 label: "Skråtak",
                 value: "PITCHEDROOF_NO",
                 sortValue: "Skråtak"
-              },
-              {
-                label: "Ståltak produkter",
-                value: "TILES_STEELROOF_NO",
-                sortValue: "Ståltak produkter"
-              },
-              {
-                label: "Takpanne stål",
-                value: "MAINTILE_STEELROOF_NO",
-                sortValue: "Takpanne stål"
-              },
-              {
-                label: "Takprodukter",
-                value: "ROOF_NO",
-                sortValue: "Takprodukter"
               }
             ]
           }
@@ -395,9 +375,81 @@ describe("filters tests", () => {
             value: [],
             options: [
               {
+                label: "Skråtak",
+                value: "PITCHEDROOF_NO",
+                sortValue: "Skråtak"
+              }
+            ]
+          }
+        ]);
+      });
+      it("should returns full list of Category options when only main Category filter is configured", () => {
+        const baseProduct = createProduct();
+        baseProduct.filters = [
+          createFilter({
+            filterCode: "Category",
+            groupLabel: "Ståltak produkter",
+            code: "MAINTILE_STEELROOF_NO",
+            value: "MAINTILE_STEELROOF_NO",
+            name: "Takpanne stål",
+            unit: "",
+            isCategory: true
+          }),
+          createFilter({
+            filterCode: "Category",
+            groupLabel: undefined,
+            code: "PRODUCTS_NO",
+            value: "PRODUCTS_NO",
+            name: "Produkter",
+            unit: "",
+            isCategory: true
+          }),
+          createFilter({
+            filterCode: "Category",
+            groupLabel: "Produkter",
+            code: "ROOF_NO",
+            value: "ROOF_NO",
+            name: "Takprodukter",
+            unit: "",
+            isCategory: true
+          }),
+          createFilter({
+            filterCode: "Category",
+            groupLabel: "Skråtak",
+            code: "TILES_STEELROOF_NO",
+            value: "TILES_STEELROOF_NO",
+            name: "Ståltak produkter",
+            unit: "",
+            isCategory: true
+          }),
+          createFilter({
+            filterCode: "Category",
+            groupLabel: "Takprodukter",
+            code: "PITCHEDROOF_NO",
+            value: "PITCHEDROOF_NO",
+            name: "Skråtak",
+            unit: "",
+            isCategory: true
+          })
+        ];
+
+        expect(
+          getPlpFilters({
+            products: [baseProduct],
+            allowedFilters: ["Category"],
+            microCopies: new Map()
+          })
+        ).toStrictEqual([
+          {
+            name: "Category",
+            filterCode: "Category",
+            label: "MC:filterLabels.Category",
+            value: [],
+            options: [
+              {
                 label: "Produkter",
-                value: "PRODUCTS_NO",
-                sortValue: "Produkter"
+                sortValue: "Produkter",
+                value: "PRODUCTS_NO"
               },
               {
                 label: "Skråtak",
@@ -406,25 +458,47 @@ describe("filters tests", () => {
               },
               {
                 label: "Ståltak produkter",
-                value: "TILES_STEELROOF_NO",
-                sortValue: "Ståltak produkter"
+                sortValue: "Ståltak produkter",
+                value: "TILES_STEELROOF_NO"
               },
               {
                 label: "Takpanne stål",
-                value: "MAINTILE_STEELROOF_NO",
-                sortValue: "Takpanne stål"
+                sortValue: "Takpanne stål",
+                value: "MAINTILE_STEELROOF_NO"
               },
               {
                 label: "Takprodukter",
-                value: "ROOF_NO",
-                sortValue: "Takprodukter"
+                sortValue: "Takprodukter",
+                value: "ROOF_NO"
+              }
+            ]
+          }
+        ]);
+
+        expect(
+          getPlpFilters({
+            products: [baseProduct],
+            allowedFilters: ["Category", "Category | PITCHEDROOF_NO"],
+            microCopies: new Map()
+          })
+        ).toStrictEqual([
+          {
+            name: "Category",
+            filterCode: "Category",
+            label: "MC:filterLabels.Category",
+            value: [],
+            options: [
+              {
+                label: "Skråtak",
+                value: "PITCHEDROOF_NO",
+                sortValue: "Skråtak"
               }
             ]
           }
         ]);
       });
       describe("multiple products with multiple categories tests", () => {
-        it("should return the whole Category options when Category filter with mixed options of Category and Category option", () => {
+        it("should return the narrowed list of Category options when Category filter with mixed options of Category and Category option", () => {
           const baseProduct = createProduct();
           baseProduct.filters = [
             createFilter({
@@ -536,44 +610,9 @@ describe("filters tests", () => {
               value: [],
               options: [
                 {
-                  label: "Produkter",
-                  value: "PRODUCTS_NO",
-                  sortValue: "Produkter"
-                },
-                {
                   label: "Skråtak",
                   value: "PITCHEDROOF_NO",
                   sortValue: "Skråtak"
-                },
-                {
-                  label: "Skråtak_2",
-                  value: "PITCHEDROOF_NO_2",
-                  sortValue: "Skråtak_2"
-                },
-                {
-                  label: "Ståltak produkter",
-                  value: "TILES_STEELROOF_NO",
-                  sortValue: "Ståltak produkter"
-                },
-                {
-                  label: "Ståltak produkter_2",
-                  value: "TILES_STEELROOF_NO_2",
-                  sortValue: "Ståltak produkter_2"
-                },
-                {
-                  label: "Takpanne stål",
-                  value: "MAINTILE_STEELROOF_NO",
-                  sortValue: "Takpanne stål"
-                },
-                {
-                  label: "Takprodukter",
-                  value: "ROOF_NO",
-                  sortValue: "Takprodukter"
-                },
-                {
-                  label: "Takprodukter_2",
-                  value: "ROOF_NO_2",
-                  sortValue: "Takprodukter_2"
                 }
               ]
             }
@@ -593,9 +632,130 @@ describe("filters tests", () => {
               value: [],
               options: [
                 {
+                  label: "Skråtak",
+                  value: "PITCHEDROOF_NO",
+                  sortValue: "Skråtak"
+                }
+              ]
+            }
+          ]);
+        });
+
+        it("should return the whole Category options when Category filter configured", () => {
+          const baseProduct = createProduct();
+          baseProduct.filters = [
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Ståltak produkter",
+              code: "MAINTILE_STEELROOF_NO",
+              value: "MAINTILE_STEELROOF_NO",
+              name: "Takpanne stål",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: undefined,
+              code: "PRODUCTS_NO",
+              value: "PRODUCTS_NO",
+              name: "Produkter",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Produkter",
+              code: "ROOF_NO",
+              value: "ROOF_NO",
+              name: "Takprodukter",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Skråtak",
+              code: "TILES_STEELROOF_NO",
+              value: "TILES_STEELROOF_NO",
+              name: "Ståltak produkter",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Takprodukter",
+              code: "PITCHEDROOF_NO",
+              value: "PITCHEDROOF_NO",
+              name: "Skråtak",
+              unit: "",
+              isCategory: true
+            })
+          ];
+          const baseProduct2 = createProduct();
+          baseProduct2.filters = [
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Ståltak produkter_2",
+              code: "MAINTILE_STEELROOF_NO",
+              value: "MAINTILE_STEELROOF_NO",
+              name: "Takpanne stål",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: undefined,
+              code: "PRODUCTS_NO",
+              value: "PRODUCTS_NO",
+              name: "Produkter",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Produkter",
+              code: "ROOF_NO_2",
+              value: "ROOF_NO_2",
+              name: "Takprodukter_2",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Skråtak_2",
+              code: "TILES_STEELROOF_NO_2",
+              value: "TILES_STEELROOF_NO_2",
+              name: "Ståltak produkter_2",
+              unit: "",
+              isCategory: true
+            }),
+            createFilter({
+              filterCode: "Category",
+              groupLabel: "Takprodukter_2",
+              code: "PITCHEDROOF_NO_2",
+              value: "PITCHEDROOF_NO_2",
+              name: "Skråtak_2",
+              unit: "",
+              isCategory: true
+            })
+          ];
+
+          expect(
+            getPlpFilters({
+              products: [baseProduct, baseProduct2],
+              allowedFilters: ["Category"],
+              microCopies: new Map()
+            })
+          ).toEqual([
+            {
+              name: "Category",
+              filterCode: "Category",
+              label: "MC:filterLabels.Category",
+              value: [],
+              options: [
+                {
                   label: "Produkter",
-                  value: "PRODUCTS_NO",
-                  sortValue: "Produkter"
+                  sortValue: "Produkter",
+                  value: "PRODUCTS_NO"
                 },
                 {
                   label: "Skråtak",
@@ -604,33 +764,55 @@ describe("filters tests", () => {
                 },
                 {
                   label: "Skråtak_2",
-                  value: "PITCHEDROOF_NO_2",
-                  sortValue: "Skråtak_2"
+                  sortValue: "Skråtak_2",
+                  value: "PITCHEDROOF_NO_2"
                 },
                 {
                   label: "Ståltak produkter",
-                  value: "TILES_STEELROOF_NO",
-                  sortValue: "Ståltak produkter"
+                  sortValue: "Ståltak produkter",
+                  value: "TILES_STEELROOF_NO"
                 },
                 {
                   label: "Ståltak produkter_2",
-                  value: "TILES_STEELROOF_NO_2",
-                  sortValue: "Ståltak produkter_2"
+                  sortValue: "Ståltak produkter_2",
+                  value: "TILES_STEELROOF_NO_2"
                 },
                 {
                   label: "Takpanne stål",
-                  value: "MAINTILE_STEELROOF_NO",
-                  sortValue: "Takpanne stål"
+                  sortValue: "Takpanne stål",
+                  value: "MAINTILE_STEELROOF_NO"
                 },
                 {
                   label: "Takprodukter",
-                  value: "ROOF_NO",
-                  sortValue: "Takprodukter"
+                  sortValue: "Takprodukter",
+                  value: "ROOF_NO"
                 },
                 {
                   label: "Takprodukter_2",
-                  value: "ROOF_NO_2",
-                  sortValue: "Takprodukter_2"
+                  sortValue: "Takprodukter_2",
+                  value: "ROOF_NO_2"
+                }
+              ]
+            }
+          ]);
+
+          expect(
+            getPlpFilters({
+              products: [baseProduct, baseProduct2],
+              allowedFilters: ["Category", "Category | PITCHEDROOF_NO"],
+              microCopies: new Map()
+            })
+          ).toStrictEqual([
+            {
+              name: "Category",
+              filterCode: "Category",
+              label: "MC:filterLabels.Category",
+              value: [],
+              options: [
+                {
+                  label: "Skråtak",
+                  value: "PITCHEDROOF_NO",
+                  sortValue: "Skråtak"
                 }
               ]
             }
