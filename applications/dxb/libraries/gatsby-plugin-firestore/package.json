@@ -21,7 +21,7 @@
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "firebase-admin": "^10.0.2"
+    "firebase-admin": "^11.4.1"
   },
   "peerDependencies": {
     "gatsby-cli": "^4.10.1"
