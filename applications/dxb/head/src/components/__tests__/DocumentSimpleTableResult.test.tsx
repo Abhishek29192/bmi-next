@@ -1,17 +1,23 @@
 import { ThemeProvider } from "@bmi-digital/components";
+import { createPimProductDocument as createESPimProductDocument } from "@bmi/elasticsearch-types";
 import { useMediaQuery } from "@mui/material";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { createPimProductDocument as createESPimProductDocument } from "@bmi/elasticsearch-types";
 import { ProductDocument as PIMDocument } from "../../types/pim";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import createPimDocument, {
   createPseudoZipDocument
 } from "../../__tests__/helpers/PimDocumentHelper";
+import createPimSystemDocument from "../../__tests__/helpers/PimSystemDocumentHelper";
 import DocumentSimpleTableResults, {
-  Props,
+  formatDate,
   getProductStatus,
-  formatDate
+  getUniqueId,
+  isLinkDocument,
+  isPIMDocument,
+  mapAssetToFileDownload,
+  Props
 } from "../DocumentSimpleTableResults";
 
 jest.mock("@mui/material", () => ({
@@ -36,7 +42,7 @@ const mockUseMediaQuery = useMediaQuery as jest.Mock<
   ReturnType<typeof useMediaQuery>
 >;
 
-function renderDocumentResults(props?: Partial<Props>) {
+const renderDocumentResults = (props?: Partial<Props>) => {
   const defaultProps: Props = {
     documents: []
   };
@@ -45,7 +51,56 @@ function renderDocumentResults(props?: Partial<Props>) {
       <DocumentSimpleTableResults {...defaultProps} {...props} />
     </ThemeProvider>
   );
-}
+};
+
+describe("isLinkDocument", () => {
+  it("should return true if the document has the 'isLinkDocument' property and its value is true", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({
+      isLinkDocument: true
+    });
+    expect(isLinkDocument(pimLinkDocument)).toBe(true);
+  });
+
+  it("should return false if the document does not have the 'isLinkDocument' property", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({});
+    expect(isLinkDocument(pimLinkDocument)).toBe(false);
+  });
+
+  it("should return false if the 'isLinkDocument' property is present but its value is false", () => {
+    const pimLinkDocument: PIMDocument = createPimDocument({
+      isLinkDocument: false
+    });
+    expect(isLinkDocument(pimLinkDocument)).toBe(false);
+  });
+});
+
+describe("isPimDocument", () => {
+  it("should return true for PimDocument", () => {
+    const document = createPimDocument();
+    expect(isPIMDocument(document)).toBe(true);
+  });
+
+  test("returns true for a PIM system document", () => {
+    const document = createPimSystemDocument();
+    expect(isPIMDocument(document)).toBe(true);
+  });
+
+  test("returns false for a non-PIM document", () => {
+    const document: any = createContentfulDocument();
+    expect(isPIMDocument(document)).toBe(false);
+  });
+});
+
+describe("getUniqueID", () => {
+  it("should return a concatenated string with spaces between words replaced with underscores", () => {
+    const document: PIMDocument = createPimDocument({
+      id: "123",
+      title: "This is a Test Document"
+    });
+    const expectedID = "123-This_is_a_Test_Document";
+    expect(getUniqueId(document)).toBe(expectedID);
+  });
+});
 
 describe("DocumentSimpleTableResult", () => {
   afterEach(() => {
@@ -64,9 +119,7 @@ describe("DocumentSimpleTableResult", () => {
         expect(link).toBeInTheDocument();
         expect(link).toHaveAttribute("href", pimLinkDocument.url);
       });
-    });
 
-    describe("when there are PIMDocuments", () => {
       it("should render checkboxes for selection", () => {
         renderDocumentResults({ documents: [pimDocument] });
         expect(
@@ -210,5 +263,38 @@ describe("formatDate", () => {
     });
     const formattedDate = formatDate(document);
     expect(formattedDate).toBe("03.08.2023");
+  });
+});
+
+describe("mapAssetToFileDownload", () => {
+  it("should map PIMDocument types to FileDownloadButtonProps correctly", () => {
+    const document = createPimDocument();
+    const getMicroCopy = jest.fn();
+    const expected = {
+      url: "http://pimDocument",
+      format: "application/pdf",
+      size: 10,
+      assetTypeName: "asset-name",
+      title: "Pim Document",
+      isLinkDocument: false,
+      productStatus: "-",
+      validUntil: "-"
+    };
+    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual(expected);
+  });
+  it("should map PIMSystemDocument types to FileDownloadButtonProps correctly", () => {
+    const document = createPimSystemDocument();
+    const getMicroCopy = jest.fn();
+    const expected = {
+      url: "http://localhost/pim-link-document-id",
+      format: "application/pdf",
+      size: 10,
+      assetTypeName: "asset-name",
+      title: "pim-link-document-title",
+      isLinkDocument: true,
+      productStatus: "-",
+      validUntil: "-"
+    };
+    expect(mapAssetToFileDownload(document, getMicroCopy)).toEqual(expected);
   });
 });

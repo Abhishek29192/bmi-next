@@ -92,13 +92,10 @@ const getDocumentTypes = (
     case "Simple":
       // eslint-disable-next-line security/detect-object-injection
       return sourceMapToDocumentType[source];
-      break;
     case "Simple Archive":
       return ["PIMSystemDocument", "PIMDocument"];
-      break;
     case "Technical":
       return ["PIMDocument"];
-      break;
     default:
       return ["ContentfulDocument"];
   }

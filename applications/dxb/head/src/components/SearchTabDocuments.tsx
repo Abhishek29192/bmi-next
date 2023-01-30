@@ -253,7 +253,17 @@ const SearchTabPanelDocuments = (props: Props) => {
           </DownloadListContext.Consumer>
         </Grid>
         <Grid xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
-          <DocumentSimpleTableResults documents={results} />
+          <DocumentSimpleTableResults
+            documents={results}
+            headers={[
+              "typeCode",
+              "title",
+              "productStatus",
+              "validityDate",
+              "download",
+              "add"
+            ]}
+          />
           <div>
             <DocumentResultsFooter
               page={page + 1}
