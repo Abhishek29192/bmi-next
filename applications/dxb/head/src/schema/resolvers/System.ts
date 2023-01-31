@@ -129,7 +129,7 @@ export default {
   },
   videos: {
     type: ["PimVideo"],
-    async resolve(source: Product, args: ResolveArgs, context: Context) {
+    async resolve(source: System, args: ResolveArgs, context: Context) {
       return await Promise.all(
         source.videos.map(async (video) => {
           const defaultYouTubePreviewImage =
