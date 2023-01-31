@@ -199,6 +199,7 @@ const DocumentResultsFooter = ({
 
               await handleDownloadClick(list, token, config, resetList);
             }}
+            data-testid="document-table-download-button"
           />
           <RecaptchaPrivacyLinks />
         </>

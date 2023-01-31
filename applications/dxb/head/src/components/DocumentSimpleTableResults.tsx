@@ -6,6 +6,7 @@ import {
   DownloadListContext,
   External,
   FileUniversal,
+  FileZIP,
   Table
 } from "@bmi-digital/components";
 import logger from "@bmi-digital/functions-logger";
@@ -94,7 +95,10 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "typeCode") {
       return (
-        <StyledTableCell key={key}>
+        <StyledTableCell
+          key={key}
+          data-testid={`document-table-title-${document.id}`}
+        >
           <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
         </StyledTableCell>
       );
@@ -102,7 +106,12 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "type") {
       return (
-        <StyledTableCell key={key}>{document.assetType.name}</StyledTableCell>
+        <StyledTableCell
+          key={key}
+          data-testid={`document-table-type-${document.id}`}
+        >
+          {document.assetType.name}
+        </StyledTableCell>
       );
     }
 
@@ -111,13 +120,23 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         document.__typename === "PIMDocument" ||
         document.__typename === "PIMSystemDocument"
       ) {
-        return <StyledTableCell key={key}>{document.title}</StyledTableCell>;
+        return (
+          <StyledTableCell
+            key={key}
+            data-testid={`document-table-name-${document.id}`}
+          >
+            {document.title}
+          </StyledTableCell>
+        );
       }
     }
 
     if (header === "title") {
       return (
-        <StyledTitleTableCell key={key}>
+        <StyledTitleTableCell
+          key={key}
+          data-testid={`document-table-title-${document.id}`}
+        >
           <Title>{document.title}</Title>
         </StyledTitleTableCell>
       );
@@ -125,7 +144,11 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "download") {
       return (
-        <StyledTableCell align="left" key={key}>
+        <StyledTableCell
+          align="left"
+          key={key}
+          data-testid={`document-table-download-${document.id}`}
+        >
           {!isLinkDocument(document) ? (
             document.__typename === "PIMDocumentWithPseudoZip" ? (
               <MultipleAssetToFileDownload document={document} />
@@ -142,6 +165,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
                 target: "_blank",
                 rel: "noopener noreferrer"
               }}
+              data-testid="document-table-external-link-button"
             >
               <ExternalLinkIcon source={External} />
             </Button>
@@ -152,7 +176,11 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "add") {
       return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
-        <StyledTableCell align="center" key={key}>
+        <StyledTableCell
+          align="center"
+          key={key}
+          data-testid={`document-table-add-${document.id}`}
+        >
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
               name={getUniqueId(document)}
@@ -170,7 +198,11 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
           )}
         </StyledTableCell>
       ) : (
-        <StyledTableCell align="center" key={key}>
+        <StyledTableCell
+          align="center"
+          key={key}
+          data-testid={`document-table-add-${document.id}`}
+        >
           <DownloadList.Checkbox
             name={getUniqueId(document)}
             maxLimitReachedLabel={getMicroCopy(
@@ -186,7 +218,14 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
       );
     }
 
-    return <StyledTableCell key={key}>n/d</StyledTableCell>;
+    return (
+      <StyledTableCell
+        key={key}
+        data-testid={`document-table-unknown-${document.id}`}
+      >
+        n/d
+      </StyledTableCell>
+    );
   });
 };
 
@@ -310,6 +349,7 @@ export const MultipleAssetToFileDownload = ({
           model: "default",
           onClick: downloadMultipleFiles
         }}
+        data-testid={`document-table-download-zip-button`}
       >
         {filesize(document.fileSize)}
       </GTMButton>
@@ -336,11 +376,12 @@ export const MultipleAssetToFileDownload = ({
         document.format && (
           <DownloadIcon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[document.format] || FileUniversal}
+            source={FileZIP}
             className={"download-icon"}
           />
         )
       }
+      data-testid={`document-table-download-zip-button`}
     >
       {filesize(document.fileSize)}
     </GTMButton>
@@ -375,6 +416,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
           />
         )
       }
+      data-testid={`document-table-download-${format}-button`}
     >
       {filesize(size)}
     </GTMButton>
@@ -446,6 +488,7 @@ const DocumentSimpleTableResults = ({
                 )}
                 // eslint-disable-next-line security/detect-object-injection
                 selected={!!list[getUniqueId(document)]}
+                data-test-id={`document-table-row-${document.id}`}
               >
                 {getDocument(document, headers)}
               </DocumentRow>

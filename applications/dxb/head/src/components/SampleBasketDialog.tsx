@@ -9,7 +9,6 @@ import {
   Close,
   Delete as DeleteIcon
 } from "@mui/icons-material";
-import classnames from "classnames";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -19,8 +18,20 @@ import {
 } from "../contexts/SampleBasketContext";
 import { useSiteContext } from "./Site";
 import {
+  CartActions,
+  CartImage,
+  CartInfo,
+  CloseButton,
+  ImageContainer,
+  InfoContainer,
+  Product,
+  ProductButtonContainer,
+  ProductColour,
+  ProductList,
+  ProductSize,
+  ProductTitle,
   StyledBasketDialogContainer,
-  classes
+  TopContainer
 } from "./styles/SampleBasketDialogStyles";
 
 const SampleBasketDialog = ({
@@ -50,23 +61,21 @@ const SampleBasketDialog = ({
   };
 
   return title && productsInBasket.length > 0 ? (
-    <StyledBasketDialogContainer
-      className={classnames(classes.cartDrawer, "cart-drawer")}
-    >
-      <div className={classnames("pad", "pad-b-24")}>
-        <Button
+    <StyledBasketDialogContainer data-testid={"shopping-cart-dialog"}>
+      <TopContainer>
+        <CloseButton
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
-          className={classes.closeButton}
           isIconButton
           onClick={toggleCart}
+          data-testid={"shopping-cart-dialog-close-button"}
         >
           <Icon source={Close} />
-        </Button>
+        </CloseButton>
         <Typography variant="h3" hasUnderline>
           {title}
         </Typography>
 
-        <div className={classnames(classes.cartInfo, "cart-info")}>
+        <CartInfo data-testid={"shopping-cart-dialog-info"}>
           <p>
             {productsInBasket.length < (maximumSamples || 0)
               ? getMicroCopy(
@@ -81,29 +90,46 @@ const SampleBasketDialog = ({
               microCopy.PDP_OVERVIEW_SAMPLE_DELIVERY_DIALOG_MESSAGE
             )}
           </p>
-        </div>
-      </div>
+        </CartInfo>
+      </TopContainer>
 
       {/*Product List */}
 
-      <div className={classes.productList}>
+      <ProductList data-testid={"shopping-cart-dialog-product-list"}>
         {productsInBasket.map((product) => (
-          <div key={product.code} className={classnames(classes.row, "row")}>
-            <div className={classes.imageContainer}>
-              <img src={product.image} className={classes.cartImage} />
-            </div>
-            <div className={classes.infoContainer}>
-              <Typography variant="h6" className="product-title">
+          <Product key={product.code}>
+            <ImageContainer>
+              <CartImage src={product.image} />
+            </ImageContainer>
+            <InfoContainer>
+              <ProductTitle
+                variant="h6"
+                data-testid={`shopping-cart-dialog-product-title-${product.name.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.name}
-              </Typography>
-              <Typography variant="h6" className="product-color">
+              </ProductTitle>
+              <ProductColour
+                variant="h6"
+                data-testid={`shopping-cart-dialog-product-colour-${product.colour?.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.colour}
-              </Typography>
-              <Typography className="product-size">
+              </ProductColour>
+              <ProductSize
+                data-testid={`shopping-cart-dialog-product-size-${product.measurements?.replace(
+                  / /g,
+                  "-"
+                )}`}
+              >
                 {product.measurements}
-              </Typography>
-            </div>
-            <div className={classes.buttonContainer}>
+              </ProductSize>
+            </InfoContainer>
+            <ProductButtonContainer>
               <Button
                 accessibilityLabel={getMicroCopy(
                   microCopy.PDP_OVERVIEW_REMOVE_SAMPLE
@@ -111,23 +137,35 @@ const SampleBasketDialog = ({
                 variant="text"
                 isIconButton
                 onClick={(event: Event) => removeFromBasket(event, product)}
+                data-testid={`shopping-cart-dialog-remove-product-${product.name.replace(
+                  / /g,
+                  "-"
+                )}`}
               >
                 <Icon source={DeleteIcon} />
               </Button>
-            </div>
-          </div>
+            </ProductButtonContainer>
+          </Product>
         ))}
-      </div>
-      <div className={classnames(classes.cartActions, "pad")}>
-        <Button action={basketAction} endIcon={<ArrowForwardIcon />}>
+      </ProductList>
+      <CartActions data-testid={"shopping-cart-dialog-actions"}>
+        <Button
+          action={basketAction}
+          endIcon={<ArrowForwardIcon />}
+          data-testid={"shopping-cart-dialog-complete-order-button"}
+        >
           {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
         </Button>
         {toggleCart && (
-          <Button variant="outlined" onClick={() => toggleCart()}>
+          <Button
+            variant="outlined"
+            onClick={() => toggleCart()}
+            data-testid={"shopping-cart-dialog-continue-browsing-button"}
+          >
             {getMicroCopy(microCopy.PDP_OVERVIEW_CONTINUE_BROWSING)}
           </Button>
         )}
-      </div>
+      </CartActions>
     </StyledBasketDialogContainer>
   ) : null;
 };

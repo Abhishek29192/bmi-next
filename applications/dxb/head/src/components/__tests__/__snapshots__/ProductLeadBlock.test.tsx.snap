@@ -557,9 +557,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-id-1"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                      data-testid="document-table-title-id-1"
                     >
                       <p
                         class="css-1d9wl9h"
@@ -569,10 +571,12 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-id-1"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -623,6 +627,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-id-1"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -630,7 +635,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -667,9 +672,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-id-2"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                      data-testid="document-table-title-id-2"
                     >
                       <p
                         class="css-1d9wl9h"
@@ -679,10 +686,12 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-id-2"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -733,6 +742,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-id-2"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -740,7 +750,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -777,9 +787,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-id-3"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                      data-testid="document-table-title-id-3"
                     >
                       <p
                         class="css-1d9wl9h"
@@ -789,10 +801,12 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-id-3"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -843,6 +857,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-id-3"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -850,7 +865,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -887,9 +902,11 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-id-3"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+                      data-testid="document-table-title-id-3"
                     >
                       <p
                         class="css-1d9wl9h"
@@ -899,10 +916,12 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-id-3"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -953,6 +972,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-id-3"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -960,7 +980,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1013,6 +1033,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-label="Go to previous page"
                     class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+                    data-testid="pagination-0-button"
                     disabled=""
                     tabindex="-1"
                     type="button"
@@ -1035,6 +1056,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-label="Go to next page"
                     class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+                    data-testid="pagination-2-button"
                     disabled=""
                     tabindex="-1"
                     type="button"
@@ -1066,6 +1088,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+              data-testid="document-table-download-button"
               tabindex="0"
               type="button"
             >
@@ -1752,18 +1775,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                 >
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-pim-document"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-type-pim-document"
                     >
                       Assembly Instructions
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-pim-document"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -1814,6 +1841,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-pim-document"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -1821,7 +1849,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1858,18 +1886,22 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   </tr>
                   <tr
                     class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+                    data-test-id="document-table-row-pim-document"
                   >
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-type-pim-document"
                     >
                       Assembly Instructions
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                      data-testid="document-table-download-pim-document"
                     >
                       <a
                         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        data-testid="document-table-download-application/pdf-button"
                         href="http://pimdocument/"
                         rel="noopener noreferrer"
                         tabindex="0"
@@ -1920,6 +1952,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                      data-testid="document-table-add-pim-document"
                     >
                       <span
                         aria-label="MC: documents.download.maxReached"
@@ -1927,7 +1960,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                         data-mui-internal-clone-element="true"
                       >
                         <div
-                          class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1980,6 +2013,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-label="Go to previous page"
                     class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+                    data-testid="pagination-0-button"
                     disabled=""
                     tabindex="-1"
                     type="button"
@@ -2002,6 +2036,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                   <button
                     aria-label="Go to next page"
                     class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+                    data-testid="pagination-2-button"
                     disabled=""
                     tabindex="-1"
                     type="button"
@@ -2033,6 +2068,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             <button
               class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
               data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+              data-testid="document-table-download-button"
               tabindex="0"
               type="button"
             >
@@ -2792,18 +2828,22 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
           >
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-1"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-1"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-1"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -2854,6 +2894,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-1"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -2861,7 +2902,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -2898,18 +2939,22 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-2"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-2"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-2"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -2960,6 +3005,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-2"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -2967,7 +3013,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3004,18 +3050,22 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-3"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-3"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -3066,6 +3116,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-3"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -3073,7 +3124,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3110,18 +3161,22 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-3"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-3"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -3172,6 +3227,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-3"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -3179,7 +3235,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3232,6 +3288,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             <button
               aria-label="Go to previous page"
               class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+              data-testid="pagination-0-button"
               disabled=""
               tabindex="-1"
               type="button"
@@ -3254,6 +3311,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
             <button
               aria-label="Go to next page"
               class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+              data-testid="pagination-2-button"
               disabled=""
               tabindex="-1"
               type="button"
@@ -3285,6 +3343,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+        data-testid="document-table-download-button"
         tabindex="0"
         type="button"
       >
@@ -3627,18 +3686,22 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
           >
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-1"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-1"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-1"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -3689,6 +3752,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-1"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -3696,7 +3760,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3733,18 +3797,22 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-2"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-2"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-2"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -3795,6 +3863,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-2"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -3802,7 +3871,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3839,18 +3908,22 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-3"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-3"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -3901,6 +3974,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-3"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -3908,7 +3982,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3945,18 +4019,22 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             </tr>
             <tr
               class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+              data-test-id="document-table-row-id-3"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-type-id-3"
               >
                 asset-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+                data-testid="document-table-download-id-3"
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  data-testid="document-table-download-application/pdf-button"
                   href="http://pimdocument/"
                   rel="noopener noreferrer"
                   tabindex="0"
@@ -4007,6 +4085,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+                data-testid="document-table-add-id-3"
               >
                 <span
                   aria-label="MC: documents.download.maxReached"
@@ -4014,7 +4093,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -4067,6 +4146,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             <button
               aria-label="Go to previous page"
               class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+              data-testid="pagination-0-button"
               disabled=""
               tabindex="-1"
               type="button"
@@ -4089,6 +4169,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
             <button
               aria-label="Go to next page"
               class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-textPrimary Mui-disabled MuiPaginationItem-previousNext Pagination-root css-pwj54n-MuiButtonBase-root-MuiPaginationItem-root"
+              data-testid="pagination-2-button"
               disabled=""
               tabindex="-1"
               type="button"
@@ -4120,6 +4201,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       <button
         class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
         data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
+        data-testid="document-table-download-button"
         tabindex="0"
         type="button"
       >

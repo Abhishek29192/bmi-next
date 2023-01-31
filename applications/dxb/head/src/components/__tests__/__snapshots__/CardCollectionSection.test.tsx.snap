@@ -4,6 +4,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
 <div>
   <div
     class="CardCollectionSection"
+    data-testid="card-collection-section-test-title"
   >
     <div
       class="Section-root Section-pearl css-cxq310"
@@ -41,6 +42,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
               <button
                 class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test\\",\\"action\\":\\"visualiser\\"}"
+                data-testid="card-collection-section-item-test"
                 tabindex="0"
                 type="button"
               >
@@ -104,6 +106,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
 <div>
   <div
     class="CardCollectionSection"
+    data-testid="card-collection-section-test-title"
   >
     <div
       class="Section-root Section-white css-cxq310"
@@ -151,6 +154,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
                     <button
                       class="MuiButtonBase-root OverviewCard-clickableArea css-10d1a0h-MuiButtonBase-root"
                       data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test Name - a string\\",\\"action\\":\\"visualiser\\"}"
+                      data-testid="card-collection-section-item-test-Name"
                       tabindex="0"
                       type="button"
                     >
@@ -237,6 +241,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -325,6 +330,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                 data-testid="carousel"
               >
                 <div
+                  data-testid="carousel-component"
                   style="overflow-x: hidden;"
                 >
                   <div
@@ -349,6 +355,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                             data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                            data-testid="card-collection-section-item-test"
                             href="/en/"
                             tabindex="0"
                             type="button"
@@ -413,6 +420,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -504,6 +512,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -591,6 +600,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -677,6 +687,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -736,6 +747,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -827,6 +839,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -886,6 +899,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -977,6 +991,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1036,6 +1051,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -1127,6 +1143,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1186,6 +1203,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -1277,6 +1295,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1336,6 +1355,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -1427,6 +1447,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1486,6 +1507,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -1577,6 +1599,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/en/"
                   tabindex="0"
                   type="button"
@@ -1636,6 +1659,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -1746,6 +1770,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
               >
                 <div
                   class=" MuiBox-root css-i0obkw"
+                  data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
                   <div
@@ -1774,6 +1799,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -1826,6 +1852,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -1878,6 +1905,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -1937,6 +1965,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -2048,6 +2077,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2100,6 +2130,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2152,6 +2183,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2203,6 +2235,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
               >
                 <div
                   class=" MuiBox-root css-i0obkw"
+                  data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
                   <div
@@ -2238,6 +2271,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -2349,6 +2383,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2401,6 +2436,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2453,6 +2489,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2504,6 +2541,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
               >
                 <div
                   class=" MuiBox-root css-i0obkw"
+                  data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
                   <div
@@ -2539,6 +2577,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -2650,6 +2689,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2702,6 +2742,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2754,6 +2795,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -2805,6 +2847,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <div
                   class=" MuiBox-root css-i0obkw"
+                  data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
                   <div
@@ -2840,6 +2883,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -2951,6 +2995,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -3003,6 +3048,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-2"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -3055,6 +3101,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 <a
                   class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  data-testid="card-collection-section-item-test-3"
                   href="/no/"
                   tabindex="0"
                   type="button"
@@ -3106,6 +3153,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               >
                 <div
                   class=" MuiBox-root css-i0obkw"
+                  data-testid="card-collection-section-item-Villain-1"
                   type="button"
                 >
                   <div
@@ -3141,6 +3189,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
   <div>
     <div
       class="CardCollectionSection"
+      data-testid="card-collection-section-test-title"
     >
       <div
         class="Section-root Section-pearl css-cxq310"
@@ -3249,6 +3298,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="carousel"
               >
                 <div
+                  data-testid="carousel-component"
                   style="overflow-x: hidden;"
                 >
                   <div
@@ -3273,6 +3323,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                           <a
                             class="MuiButtonBase-root OverviewCard-clickable MuiBox-root css-c35yjo-MuiButtonBase-root"
                             data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                            data-testid="card-collection-section-item-test"
                             href="/no/"
                             tabindex="0"
                             type="button"

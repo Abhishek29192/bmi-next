@@ -192,6 +192,7 @@ exports[`Header component renders correctly 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -249,6 +250,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
                       tabindex="0"
@@ -262,6 +264,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
@@ -275,6 +278,7 @@ exports[`Header component renders correctly 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
@@ -382,12 +386,13 @@ exports[`Header component renders correctly 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -411,6 +416,7 @@ exports[`Header component renders correctly 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
+              data-testid="navigation-list-root"
             >
               <ul>
                 <li>
@@ -850,6 +856,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -907,6 +914,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
                       tabindex="0"
@@ -920,6 +928,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-1"
                       href="/grp/landing-page/"
                       role="tab"
                       tabindex="-1"
@@ -933,6 +942,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
@@ -1040,12 +1050,13 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -1069,6 +1080,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
+              data-testid="navigation-list-root"
             >
               <ul>
                 <li>
@@ -1510,6 +1522,7 @@ exports[`Header component shows sample basket icon 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -1567,6 +1580,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
                       tabindex="0"
@@ -1580,6 +1594,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
@@ -1593,6 +1608,7 @@ exports[`Header component shows sample basket icon 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
@@ -1617,6 +1633,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <a
                 aria-label="MC: basket.label"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge Header-basketButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="shopping-cart-button"
                 role="button"
                 tabindex="0"
                 type="button"
@@ -1731,12 +1748,13 @@ exports[`Header component shows sample basket icon 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -1760,6 +1778,7 @@ exports[`Header component shows sample basket icon 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
+              data-testid="navigation-list-root"
             >
               <ul>
                 <li>
@@ -2008,14 +2027,16 @@ exports[`Header component shows sample basket icon 1`] = `
       style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
     >
       <div
-        class="SampleBasketDialog-cartDrawer cart-drawer css-rblm8r"
+        class="css-1baqf78"
+        data-testid="shopping-cart-dialog"
       >
         <div
-          class="pad pad-b-24"
+          class="css-1g1g7av"
         >
           <button
             aria-label="MC: dialog.close"
-            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge SampleBasketDialog-closeButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge css-ljulll-MuiButtonBase-root-MuiIconButton-root"
+            data-testid="shopping-cart-dialog-close-button"
             tabindex="0"
             type="button"
           >
@@ -2041,7 +2062,8 @@ exports[`Header component shows sample basket icon 1`] = `
             Basket title
           </h3>
           <div
-            class="SampleBasketDialog-cartInfo cart-info"
+            class="css-1eavfav"
+            data-testid="shopping-cart-dialog-info"
           >
             <p>
               MC: pdp.overview.sampleDialogMessage
@@ -2052,43 +2074,45 @@ exports[`Header component shows sample basket icon 1`] = `
           </div>
         </div>
         <div
-          class="SampleBasketDialog-productList"
+          class="css-1043o2i"
+          data-testid="shopping-cart-dialog-product-list"
         >
           <div
-            class="SampleBasketDialog-row row"
+            class="css-oy3w3v"
           >
             <div
-              class="SampleBasketDialog-imageContainer"
+              class="css-1833v6z"
             >
               <img
-                class="SampleBasketDialog-cartImage"
+                class="css-1eq6imq"
                 src="S"
               />
             </div>
             <div
-              class="SampleBasketDialog-infoContainer"
+              class="css-1rr4qq7"
             >
               <h6
-                class="MuiTypography-root MuiTypography-h6 product-title css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                class="MuiTypography-root MuiTypography-h6 css-i3j6pb-MuiTypography-root"
+                data-testid="shopping-cart-dialog-product-title-test-product"
               >
                 test product
               </h6>
               <h6
-                class="MuiTypography-root MuiTypography-h6 product-color css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                class="MuiTypography-root MuiTypography-h6 css-1l4dji9-MuiTypography-root"
+                data-testid="shopping-cart-dialog-product-colour-undefined"
               />
               <p
-                class="MuiTypography-root MuiTypography-body1 product-size css-87ejlm-MuiTypography-root"
-                data-testid="typography"
+                class="MuiTypography-root MuiTypography-body1 css-oexxqj-MuiTypography-root"
+                data-testid="shopping-cart-dialog-product-size-undefined"
               />
             </div>
             <div
-              class="SampleBasketDialog-buttonContainer"
+              class="css-1s5g2fe"
             >
               <button
                 aria-label="MC: pdp.overview.removeSample"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="shopping-cart-dialog-remove-product-test-product"
                 tabindex="0"
                 type="button"
               >
@@ -2111,11 +2135,13 @@ exports[`Header component shows sample basket icon 1`] = `
           </div>
         </div>
         <div
-          class="SampleBasketDialog-cartActions pad"
+          class="css-vkdgoq"
+          data-testid="shopping-cart-dialog-actions"
         >
           <a
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root Button-root MuiButton-contained Button-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-11nrv4h-MuiButtonBase-root-MuiButton-root"
             data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/gb/sample-basket/\\",\\"label\\":\\"sample-basket\\"}"
+            data-testid="shopping-cart-dialog-complete-order-button"
             href="/gb/sample-basket/"
             tabindex="0"
           >
@@ -2141,6 +2167,7 @@ exports[`Header component shows sample basket icon 1`] = `
           </a>
           <button
             class="MuiButtonBase-root MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root Button-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1ga0prt-MuiButtonBase-root-MuiButton-root"
+            data-testid="shopping-cart-dialog-continue-browsing-button"
             tabindex="0"
             type="button"
           >
@@ -2348,6 +2375,7 @@ exports[`Header component toggles search 1`] = `
     </div>
     <div
       class="Header-navigationBar"
+      data-testid="header-navigation-bar"
     >
       <div
         class=" css-ze8cyt"
@@ -2405,6 +2433,7 @@ exports[`Header component toggles search 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-0"
                       href="tel:+4401234567890"
                       role="tab"
                       tabindex="0"
@@ -2418,6 +2447,7 @@ exports[`Header component toggles search 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-1"
                       href="/gb/landing-page/"
                       role="tab"
                       tabindex="-1"
@@ -2431,6 +2461,7 @@ exports[`Header component toggles search 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Header-navItem Header-navItemNoChildren css-5h2xo4-MuiButtonBase-root-MuiTab-root"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
+                      data-testid="header-navigation-tab-2"
                       href="https://www.external.co.uk"
                       role="tab"
                       tabindex="-1"
@@ -2538,12 +2569,13 @@ exports[`Header component toggles search 1`] = `
       >
         <div
           class="Navigation-navigationList Navigation-offset0"
+          data-testid="navigation-list-root"
         >
           <ul>
             <li>
               <h6
                 class="MuiTypography-root MuiTypography-h6 Navigation-mainMenuTitle css-1le86ss-MuiTypography-root"
-                data-testid="typography"
+                data-testid="navigation-list-footer"
               >
                 MC: menu.mainTitle
               </h6>
@@ -2567,6 +2599,7 @@ exports[`Header component toggles search 1`] = `
             </li>
             <div
               class="Navigation-navigationList Navigation-footer"
+              data-testid="navigation-list-root"
             >
               <ul>
                 <li>
@@ -2811,6 +2844,7 @@ exports[`Header component toggles search 1`] = `
         <form
           action="/gb/search/"
           class="css-1mhzmpj"
+          data-testid="form"
         >
           <div
             class="InputGroup-lockedxs css-14zqdme"
@@ -2843,6 +2877,7 @@ exports[`Header component toggles search 1`] = `
               aria-label="MC: search.label"
               class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge InputGroup-button css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
               data-gtm="{\\"id\\":\\"search1\\",\\"label\\":\\"MC: search.label\\"}"
+              data-testid="search-submit-button"
               tabindex="0"
               type="submit"
             >

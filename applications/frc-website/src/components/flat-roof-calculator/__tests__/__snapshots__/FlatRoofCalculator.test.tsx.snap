@@ -24,6 +24,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
     </div>
     <form
       class=" css-5f0zb2"
+      data-testid="form"
     >
       <div
         class="section"

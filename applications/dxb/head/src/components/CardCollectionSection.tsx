@@ -56,7 +56,7 @@ const CardCollectionItem = ({
   date
 }: {
   card: Card;
-  label: string;
+  label?: string;
   type: Data["cardType"];
   date?: string;
 }) => {
@@ -143,6 +143,10 @@ const CardCollectionItem = ({
           ) : undefined}
         </>
       }
+      data-testid={`card-collection-section-item-${(title || name)?.replace(
+        / /g,
+        "-"
+      )}`}
     >
       {subtitle}
     </OverviewCard>
@@ -306,7 +310,10 @@ const CardCollectionSection = ({
   });
 
   return (
-    <div className={styles["CardCollectionSection"]}>
+    <div
+      className={styles["CardCollectionSection"]}
+      data-testid={`card-collection-section-${title?.replace(/ /g, "-")}`}
+    >
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
         {title && (
           <Typography className={styles["title"]} variant="h2" hasUnderline>

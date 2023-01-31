@@ -42,6 +42,10 @@ export const ServiceLocatorChips = ({
                   label: serviceType.name,
                   action: "Selector - Cards Filter"
                 }}
+                data-testid={`service-locator-chip-${serviceType.name.replace(
+                  / /g,
+                  "-"
+                )}`}
               >
                 {serviceType.name}
               </GTMChip>

@@ -14,7 +14,6 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ShareIcon from "@mui/icons-material/Share";
 import { useMediaQuery } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 import Popover from "@mui/material/Popover";
 import { styled } from "@mui/material/styles";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -31,6 +30,7 @@ import React, {
 import { useConfig } from "../../contexts/ConfigProvider";
 import { devLog } from "../../utils/devLog";
 import { queryElasticSearch } from "../../utils/elasticSearch";
+import ProgressIndicator from "../ProgressIndicator";
 import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
 import { getProductsQuery } from "./helpers/esQuery";
@@ -546,7 +546,7 @@ const Visualiser = ({
       <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
           <div className={classes.progressContainer}>
-            <CircularProgress />
+            <ProgressIndicator size={40} />
           </div>
         )}
         <div className={classes.details}>

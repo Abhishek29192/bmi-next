@@ -4,6 +4,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
 <div>
   <div
     class="ProductOverview"
+    data-testid="product-overview"
   >
     <div
       class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -151,6 +152,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
       >
         <div
           class="css-bgwh3d"
+          data-testid="product-overview-pane"
         >
           <h1
             class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
@@ -160,6 +162,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </h1>
           <ul
             class="css-132h8yw"
+            data-testid="product-overview-pane-attributes"
           />
           <div>
             block
@@ -208,6 +211,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
 <div>
   <div
     class="ProductOverview"
+    data-testid="product-overview"
   >
     <div
       class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -355,6 +359,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
       >
         <div
           class="css-bgwh3d"
+          data-testid="product-overview-pane"
         >
           <h1
             class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
@@ -364,6 +369,7 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
           </h1>
           <ul
             class="css-132h8yw"
+            data-testid="product-overview-pane-attributes"
           />
           <div>
             block
@@ -382,6 +388,7 @@ exports[`ProductOverview component renders with default image if there are no im
 <div>
   <div
     class="ProductOverview"
+    data-testid="product-overview"
   >
     <div
       class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -409,6 +416,7 @@ exports[`ProductOverview component renders with default image if there are no im
       >
         <div
           class="css-bgwh3d"
+          data-testid="product-overview-pane"
         >
           <h1
             class="MuiTypography-root MuiTypography-h3 css-1uw45a9-MuiTypography-root"
@@ -418,6 +426,7 @@ exports[`ProductOverview component renders with default image if there are no im
           </h1>
           <ul
             class="css-132h8yw"
+            data-testid="product-overview-pane-attributes"
           />
           <div>
             block

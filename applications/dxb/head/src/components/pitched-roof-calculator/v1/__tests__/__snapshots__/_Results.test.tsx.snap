@@ -83,6 +83,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     </div>
     <form
       class="form css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
@@ -225,7 +226,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -271,7 +272,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -411,6 +412,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     </div>
     <form
       class="form css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
@@ -553,7 +555,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -599,7 +601,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -815,6 +817,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     </div>
     <form
       class="form css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
@@ -957,7 +960,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1003,7 +1006,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1143,6 +1146,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     </div>
     <form
       class="form css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
@@ -1285,7 +1289,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1331,7 +1335,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1471,6 +1475,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
     </div>
     <form
       class="form css-5f0zb2"
+      data-testid="form"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 title Typography-underline css-1ekntu4-MuiTypography-root"
@@ -1613,7 +1618,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1659,7 +1664,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             class="css-k1g0xu"
           >
             <div
-              class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
             >
               <label
                 class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

@@ -52,7 +52,7 @@ const title = "Document Downloads title";
 
 describe("DocumentDownloadSection component", () => {
   it("renders correctly with all data", () => {
-    const { container, getByText } = render(
+    const { container, getByText, getByTestId } = render(
       <ThemeProvider>
         <DocumentDownloadSection
           data={{
@@ -68,7 +68,10 @@ describe("DocumentDownloadSection component", () => {
       </ThemeProvider>
     );
 
-    const downloadButtons = container.querySelectorAll("table tbody button");
+    expect(container).toMatchSnapshot();
+    const downloadButtons = getByTestId(
+      "docment-download-section-download-button"
+    );
 
     expect(getByText(title)).toBeInTheDocument();
     expect(getByText(mockDescriptionText)).toBeInTheDocument();
@@ -79,9 +82,9 @@ describe("DocumentDownloadSection component", () => {
       getByText("MC: documentDownloadSection.download")
     ).toBeInTheDocument();
     expect(getByText(document.title)).toBeInTheDocument();
-    expect(downloadButtons.length).toBe(1);
+    expect(downloadButtons).toBeInTheDocument();
 
-    fireEvent.click(downloadButtons[0]);
+    fireEvent.click(getByTestId("docment-download-section-download-button"));
 
     expect(mockGetClickableActionFromUrl).toHaveBeenCalledWith(
       null,
@@ -123,7 +126,7 @@ describe("DocumentDownloadSection component", () => {
       },
       __typename: "ContentfulDocument"
     });
-    const { container } = render(
+    const { container, getByTestId } = render(
       <ThemeProvider>
         <DocumentDownloadSection
           data={{
@@ -136,7 +139,9 @@ describe("DocumentDownloadSection component", () => {
       </ThemeProvider>
     );
 
-    expect(container.querySelectorAll("table tbody button").length).toBe(1);
+    expect(
+      getByTestId("docment-download-section-download-button")
+    ).toBeInTheDocument();
     expect(container.querySelectorAll("table tbody svg").length).toBe(1);
   });
 });

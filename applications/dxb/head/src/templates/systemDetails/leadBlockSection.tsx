@@ -67,7 +67,11 @@ const LeadBlockSection = ({
   );
   const backToYourSelectionBtnHref = `${prevPagePath}?referer=${referer}`;
   return (
-    <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
+    <Section
+      backgroundColor="white"
+      className={styles["LeadBlockSection"]}
+      data-testid="system-lead-block-section"
+    >
       <LeadBlock>
         <LeadBlock.Content>
           {BrandLogo && (
@@ -77,14 +81,20 @@ const LeadBlockSection = ({
           )}
 
           <LeadBlock.Content.Section>
-            <Typography variant="h1" hasUnderline>
+            <Typography
+              variant="h1"
+              hasUnderline
+              data-testid="system-lead-block-title"
+            >
               {name}
             </Typography>
           </LeadBlock.Content.Section>
 
           {promotionalContent && (
             <LeadBlock.Content.Section>
-              <Typography variant="body2">{promotionalContent}</Typography>
+              <Typography variant="body2" data-testid="system-lead-block-desc">
+                {promotionalContent}
+              </Typography>
             </LeadBlock.Content.Section>
           )}
           <LeadBlock.Content.Section className={styles["ctaContainer"]}>
@@ -104,6 +114,7 @@ const LeadBlockSection = ({
                   action: backToYourSelectionBtnHref
                 }}
                 startIcon={<ArrowBackIcon />}
+                data-testid="system-lead-block-prev-page"
               >
                 {backToYourSelectionText}
               </GTMButton>
@@ -128,6 +139,7 @@ const LeadBlockSection = ({
                     {children}
                   </GTMButton>
                 )}
+                data-testid="system-lead-block-cta-action"
               >
                 {cta.label}
               </Link>

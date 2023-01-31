@@ -120,7 +120,7 @@ const ProductOverview = ({
   }
 
   return (
-    <div className={styles["ProductOverview"]}>
+    <div className={styles["ProductOverview"]} data-testid={"product-overview"}>
       <Grid container spacing={3}>
         <Grid xs={12} md={12} lg={8}>
           <MediaGallery

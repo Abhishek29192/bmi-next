@@ -95,7 +95,7 @@ describe("Document Library page", () => {
     expect(
       container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
     ).toBeTruthy();
-    expect(getByTestId("filter-section")).toBeInTheDocument();
+    expect(getByTestId("document-library-filters")).toBeInTheDocument();
     expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
     expect(mockQueryES).toBeCalled();

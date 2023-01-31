@@ -1,5 +1,5 @@
 import {
-  Clickable,
+  Button,
   ClickableAction,
   Dialog,
   transformHyphens
@@ -258,7 +258,7 @@ export const renderDialog = (
 };
 export const Link = ({
   children,
-  component: Component = Clickable,
+  component: Component = Button,
   data,
   onClick,
   ...rest

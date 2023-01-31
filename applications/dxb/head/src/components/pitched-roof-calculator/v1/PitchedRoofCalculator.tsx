@@ -1,9 +1,9 @@
 import { ContainerDialog } from "@bmi-digital/components";
-import CircularProgress from "@mui/material/CircularProgress";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
 import { Data } from "../types";
 import { EmailFormValues } from "../types/EmailFormValues";
+import ProgressIndicator from "../../ProgressIndicator";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(
@@ -62,7 +62,7 @@ const PitchedRoofCalculator = ({
 
   const loading = (
     <div className={styles["spinnerContainer"]}>
-      <CircularProgress className={styles["spinner"]} />
+      <ProgressIndicator size={40} className={styles["spinner"]} />
     </div>
   );
 

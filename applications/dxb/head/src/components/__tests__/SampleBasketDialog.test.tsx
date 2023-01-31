@@ -56,7 +56,7 @@ describe("SampleBasketDialog component", () => {
 
   it("renders correctly", () => {
     const toggleCart = jest.fn();
-    const { container, queryByRole } = render(
+    const { queryByRole, getByTestId } = render(
       <ThemeProvider>
         <BasketContextProvider>
           <SampleBasketDialog
@@ -67,13 +67,11 @@ describe("SampleBasketDialog component", () => {
         </BasketContextProvider>
       </ThemeProvider>
     );
+    expect(getByTestId("shopping-cart-dialog")).toBeInTheDocument();
     expect(
-      container.getElementsByClassName("cart-drawer")[0]
-    ).toBeInTheDocument();
-    expect(container.getElementsByClassName("row").length).toBe(3);
-    expect(
-      container.getElementsByClassName("cart-info")[0]
-    ).toBeInTheDocument();
+      getByTestId("shopping-cart-dialog-product-list").children.length
+    ).toBe(3);
+    expect(getByTestId("shopping-cart-dialog-info")).toBeInTheDocument();
     expect(
       queryByRole("button", { name: "MC: pdp.overview.completeSampleOrder" })
     ).toBeInTheDocument();

@@ -93,11 +93,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product name
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -125,7 +125,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -163,11 +163,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product3
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -327,55 +327,61 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product name
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
                 <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                  data-testid="anchor-link"
                   download="pim document title"
                   href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  type="button"
                 >
-                  <svg
-                    class="DocumentTechnicalTableResults-formatIcon format-icon"
-                    data-name="Layer 2"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                      style="fill: #aeb1b1;"
-                    />
-                  </svg>
+                  <span>
+                    <svg
+                      class="DocumentTechnicalTableResults-formatIcon format-icon"
+                      data-name="Layer 2"
+                      viewBox="0 0 32 32"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                        style="fill: #aeb1b1;"
+                      />
+                    </svg>
+                  </span>
                 </a>
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
                 <a
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                  data-testid="anchor-link"
                   download="pim document title"
                   href="http://localhost:9000/document.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  type="button"
                 >
-                  <svg
-                    class="DocumentTechnicalTableResults-formatIcon format-icon"
-                    data-name="Layer 2"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                      style="fill: #aeb1b1;"
-                    />
-                  </svg>
+                  <span>
+                    <svg
+                      class="DocumentTechnicalTableResults-formatIcon format-icon"
+                      data-name="Layer 2"
+                      viewBox="0 0 32 32"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                        style="fill: #aeb1b1;"
+                      />
+                    </svg>
+                  </span>
                 </a>
               </td>
               <td
@@ -387,7 +393,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -425,11 +431,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product3
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -571,11 +577,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product name
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
@@ -603,7 +609,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                   data-mui-internal-clone-element="true"
                 >
                   <div
-                    class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                   >
                     <label
                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -641,11 +647,11 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
             <tr
               class="MuiTableRow-root css-wgfdj2-MuiTableRow-root"
             >
-              <p
-                class="css-1d9wl9h"
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-lo7wil-MuiTableCell-root"
               >
                 product3
-              </p>
+              </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >

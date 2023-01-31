@@ -100,6 +100,7 @@ const SampleOrderSection = ({
                     endIcon={<Remove />}
                     onClick={() => removeFromBasket(product)}
                     variant="text"
+                    data-testid={"remove-from-basket-button"}
                   >
                     {getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
                   </Button>
@@ -113,6 +114,7 @@ const SampleOrderSection = ({
                       label: getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE),
                       action: gtmAction
                     }}
+                    data-testid={"add-to-basket-button"}
                   >
                     {getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE)}
                   </GTMButton>

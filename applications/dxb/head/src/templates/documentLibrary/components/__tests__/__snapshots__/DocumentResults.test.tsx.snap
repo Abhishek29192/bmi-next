@@ -50,9 +50,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
         >
           <tr
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+            data-test-id="document-table-row-contentful-document-id"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              data-testid="document-table-title-contentful-document-id"
             >
               <abbr
                 title="contentful asset type name"
@@ -62,6 +64,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+              data-testid="document-table-title-contentful-document-id"
             >
               <p
                 class="css-1d9wl9h"
@@ -71,10 +74,12 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              data-testid="document-table-download-contentful-document-id"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
+                data-testid="document-table-download-image/jpeg-button"
                 href="http://localhost:9000/asset-filename.jpg"
                 rel="noopener noreferrer"
                 tabindex="0"
@@ -128,6 +133,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+              data-testid="document-table-add-contentful-document-id"
             >
               <span
                 aria-label="MC: documents.download.maxReached"
@@ -135,7 +141,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
                 data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -172,9 +178,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
           </tr>
           <tr
             class="MuiTableRow-root row css-xy5ytf-MuiTableRow-root"
+            data-test-id="document-table-row-pim-document-id"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              data-testid="document-table-title-pim-document-id"
             >
               <abbr
                 title="asset type name"
@@ -184,6 +192,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-ggd0b4-MuiTableCell-root"
+              data-testid="document-table-title-pim-document-id"
             >
               <p
                 class="css-1d9wl9h"
@@ -193,9 +202,11 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1q1hfwv-MuiTableCell-root"
+              data-testid="document-table-download-pim-document-id"
             />
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignCenter MuiTableCell-sizeMedium css-1wzxo7t-MuiTableCell-root"
+              data-testid="document-table-add-pim-document-id"
             >
               <span
                 aria-label="MC: documents.download.maxReached"
@@ -203,7 +214,7 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
                 data-mui-internal-clone-element="true"
               >
                 <div
-                  class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -360,7 +371,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-glpxpj-MuiAccordionDetails-root"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails css-1r7u8wy-MuiAccordionDetails-root"
                   >
                     <div
                       class="DocumentTechnicalTableResults-iconContainer"
@@ -420,22 +431,25 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       class="DocumentTechnicalTableResults-downloadIconContainer"
                     >
                       <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
+                        data-testid="anchor-link"
                         download="pim document title"
                         href="http://localhost:9000/document.pdf"
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        type="button"
                       >
-                        <svg
-                          class="DocumentTechnicalTableResults-allFilesIcon"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
-                            fill="currentColor"
-                          />
-                        </svg>
+                        <span>
+                          <svg
+                            class="DocumentTechnicalTableResults-allFilesIcon"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 20v-2H5v2Zm0-10h-4V4H9v6H5l7 7Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        </span>
                       </a>
                     </div>
                   </div>

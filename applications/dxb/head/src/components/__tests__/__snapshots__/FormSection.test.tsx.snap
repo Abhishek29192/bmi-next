@@ -76,6 +76,7 @@ exports[`FormSection component renders correctly 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -226,7 +227,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -646,7 +647,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -690,7 +691,7 @@ exports[`FormSection component renders correctly 1`] = `
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -831,6 +832,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -841,7 +843,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -895,7 +897,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1026,6 +1028,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1036,7 +1039,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               data-testid="grid-container"
             >
               <div
-                class="MuiFormControl-root css-pqkqag-MuiFormControl-root"
+                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
               >
                 <label
                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1151,6 +1154,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1290,6 +1294,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1450,6 +1455,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1664,6 +1670,7 @@ exports[`FormSection component test upload input with large file 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1859,6 +1866,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
@@ -1999,6 +2007,7 @@ exports[`FormSection component test upload input with small file 1`] = `
       >
         <form
           class="Form-rightAlignButton css-yp4v13"
+          data-testid="form"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"

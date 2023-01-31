@@ -1,10 +1,10 @@
 import { Button, Form, Typography } from "@bmi-digital/components";
 import { useMediaQuery, useTheme } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
 import Divider from "@mui/material/Divider";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import classnames from "classnames";
 import React, { FormEvent } from "react";
+import ProgressIndicator from "../../../../ProgressIndicator";
 import styles from "./CalculatorStepper.module.scss";
 
 export type Props = {
@@ -31,7 +31,7 @@ const CalculatorStepper = ({ selected, children, loading }: Props) => {
     <div className={styles["CalculatorStepper"]}>
       {loading ? (
         <div className={styles["spinnerContainer"]}>
-          <CircularProgress className={styles["spinner"]} />
+          <ProgressIndicator size={40} className={styles["spinner"]} />
         </div>
       ) : (
         current

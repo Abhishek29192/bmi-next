@@ -162,6 +162,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Flat-Roof"
                   role="button"
                   tabindex="0"
                 >
@@ -177,6 +178,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary  css-1qhn9w6-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Pitched-Roof"
                   role="button"
                   tabindex="0"
                 >
@@ -192,6 +194,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof 1\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Flat-Roof-1"
                   role="button"
                   tabindex="0"
                 >
@@ -207,6 +210,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 <div
                   class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault Chip-default css-tjkzot-MuiButtonBase-root-MuiChip-root"
                   data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof 2\\",\\"action\\":\\"Selector - Cards Filter\\"}"
+                  data-testid="service-locator-chip-Pitched-Roof-2"
                   role="button"
                   tabindex="0"
                 >
@@ -351,6 +355,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                       >
                         <div
                           class="css-hvci11"
+                          data-testid="company-details-root"
                         >
                           <div>
                             <dl
@@ -358,6 +363,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                             >
                               <div
                                 class="CompanyDetails-row"
+                                data-testid="company-details-phone"
                               >
                                 <dt
                                   class="css-10edjq1"
@@ -388,6 +394,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                               <div
                                 class="CompanyDetails-row"
+                                data-testid="company-details-email"
                               >
                                 <dt
                                   class="css-10edjq1"
@@ -418,6 +425,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                               <div
                                 class="CompanyDetails-row"
+                                data-testid="company-details-website"
                               >
                                 <dt
                                   class="css-10edjq1"
@@ -448,6 +456,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               </div>
                               <div
                                 class="CompanyDetails-row"
+                                data-testid="company-details-content"
                               >
                                 <dt
                                   class="css-10edjq1"

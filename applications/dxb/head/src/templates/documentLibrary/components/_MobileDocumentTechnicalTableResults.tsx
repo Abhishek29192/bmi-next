@@ -1,9 +1,9 @@
 import {
   Accordion,
   AccordionSummaryProps,
+  AnchorLink,
+  AnchorLinkProps,
   Button,
-  Clickable,
-  ClickableProps,
   Download,
   External,
   FileUniversal,
@@ -26,7 +26,7 @@ interface Props {
 }
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
-const GTMClickable = withGTM<ClickableProps>(Clickable);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 const GTMButton = withGTM<IconButtonProps>(Button);
 
 const MobileDocumentTechnicalTableResults = ({
@@ -97,8 +97,7 @@ const MobileDocumentTechnicalTableResults = ({
                     </div>
                     <div className={classes.downloadIconContainer}>
                       {!asset.isLinkDocument ? (
-                        <GTMClickable
-                          model="download"
+                        <GTMAnchorLink
                           href={asset.url}
                           download={asset.title}
                           gtm={{
@@ -111,7 +110,7 @@ const MobileDocumentTechnicalTableResults = ({
                             source={Download}
                             className={classes.allFilesIcon}
                           />
-                        </GTMClickable>
+                        </GTMAnchorLink>
                       ) : (
                         <GTMButton
                           isIconButton

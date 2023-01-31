@@ -373,7 +373,7 @@ const SystemConfiguratorResult = ({
   }, [recommendedSystems]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} data-testid="system-config-result">
       <Section
         backgroundColor="pearl"
         className={styles["SystemConfigurator-result"]}

@@ -78,6 +78,7 @@ const SampleBasketSectionProducts = () => {
             </Button>
           )
         }
+        data-testid={"shopping-cart-product"}
       >
         <div className={styles["product"]}>
           <div className={styles["product-description"]}>

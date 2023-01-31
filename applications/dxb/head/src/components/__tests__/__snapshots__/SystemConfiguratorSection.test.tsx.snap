@@ -82,6 +82,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -134,6 +135,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -195,7 +197,9 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -371,6 +375,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -423,6 +428,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -484,7 +490,9 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -660,6 +668,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -712,6 +721,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -773,7 +783,9 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -894,6 +906,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -946,6 +959,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1091,6 +1105,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1143,6 +1158,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1325,6 +1341,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1378,6 +1395,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1438,7 +1456,9 @@ exports[`SystemConfiguratorSection component renders a result section when answe
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -1614,6 +1634,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1667,6 +1688,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1785,6 +1807,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1837,6 +1860,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -1978,6 +2002,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2030,6 +2055,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2175,6 +2201,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2228,6 +2255,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2346,6 +2374,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2398,6 +2427,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2543,6 +2573,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2595,6 +2626,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2764,6 +2796,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2816,6 +2849,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -2985,6 +3019,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3037,6 +3072,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3212,6 +3248,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3264,6 +3301,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3325,7 +3363,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -3659,6 +3699,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3711,6 +3752,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -3772,7 +3814,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
       </div>
     </div>
   </div>
-  <div>
+  <div
+    data-testid="system-config-result"
+  >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
     >
@@ -4004,6 +4048,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4056,6 +4101,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4179,6 +4225,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Skipped-Answer-Title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4298,6 +4345,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4350,6 +4398,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4495,6 +4544,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4547,6 +4597,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4666,6 +4717,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4718,6 +4770,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4875,6 +4928,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                     >
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1a-title"
                       >
                         <label
                           class="RadioPane-label"
@@ -4927,6 +4981,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
                       </div>
                       <div
                         class="RadioPane-collapseFeature css-i1lh26"
+                        data-testid="radio-pane-Answer-1b-title"
                       >
                         <label
                           class="RadioPane-label"

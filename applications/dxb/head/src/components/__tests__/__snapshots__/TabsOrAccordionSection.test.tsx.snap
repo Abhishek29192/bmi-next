@@ -80,7 +80,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="RichText-root css-17t4j5c"
@@ -186,7 +186,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root  css-glpxpj-MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root  css-1r7u8wy-MuiAccordionDetails-root"
                       >
                         <div
                           class="RichText-root css-17t4j5c"
