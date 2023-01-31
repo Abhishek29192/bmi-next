@@ -119,13 +119,6 @@ export const compileESQuery = (
               "__typename.keyword": documentType
             }
           },
-          {
-            term: {
-              noIndex: {
-                value: false
-              }
-            }
-          },
           assetTypeCodes.length && {
             terms: {
               "assetType.code.keyword": [...assetTypeCodes]

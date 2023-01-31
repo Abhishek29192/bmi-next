@@ -19,15 +19,7 @@ describe("compileESQuery tests", () => {
         from: 24,
         query: {
           bool: {
-            must: [
-              {
-                term: {
-                  noIndex: {
-                    value: false
-                  }
-                }
-              }
-            ]
+            must: []
           }
         },
         size: 24,
@@ -59,15 +51,7 @@ describe("compileESQuery tests", () => {
         from: 24,
         query: {
           bool: {
-            must: [
-              {
-                term: {
-                  noIndex: {
-                    value: false
-                  }
-                }
-              }
-            ]
+            must: []
           }
         },
         size: 24,
@@ -114,13 +98,6 @@ describe("compileESQuery tests", () => {
         query: {
           bool: {
             must: [
-              {
-                term: {
-                  noIndex: {
-                    value: false
-                  }
-                }
-              },
               {
                 terms: {
                   "assetType.code.keyword": ["CODE_1", "CODE_2"]
