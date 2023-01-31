@@ -330,7 +330,7 @@ export default {
         });
     }
   },
-  video: {
+  videos: {
     type: ["PimVideo"],
     async resolve(source: Product, args: ResolveArgs, context: Context) {
       return await Promise.all(

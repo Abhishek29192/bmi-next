@@ -973,6 +973,7 @@ type PimVideo @dontInfer {
   previewMedia: String # Always null
   videoRatio: String # Always null
   videoUrl: String
+  defaultYouTubePreviewImage: String
 }
 
 type Weight @dontInfer {
