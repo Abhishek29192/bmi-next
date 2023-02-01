@@ -42,6 +42,10 @@ export const microCopy = {
   DOCUMENT_LIBRARY_HEADERS_TITLE: "documentLibrary.headers.title",
   DOCUMENT_LIBRARY_HEADERS_DOWNLOAD: "documentLibrary.headers.download",
   DOCUMENT_LIBRARY_HEADERS_ADD: "documentLibrary.headers.add",
+  DOCUMENT_LIBRARY_HEADERS_PRODUCT_STATUS:
+    "documentLibrary.headers.productStatus",
+  DOCUMENT_LIBRARY_HEADERS_VALIDITY_DATE:
+    "documentLibrary.headers.validityDate",
   DOCUMENT_LIBRARY_DOWNLOAD: "documentLibrary.download",
   DOCUMENT_LIBRARY_CARD_DOWNLOAD: "documentLibrary.card.download",
   DOCUMENT_LIBRARY_FILTERS_TITLE: "documentLibrary.filters.title",
@@ -49,6 +53,8 @@ export const microCopy = {
   DOCUMENT_LIBRARY_NO_RESULTS: "documentLibrary.noResults",
 
   DOCUMENTS_DOWNLOAD_MAX_REACHED: "documents.download.maxReached",
+  DOCUMENT_STATUS_AVAILABLE: "document.status.available",
+  DOCUMENT_STATUS_DISCONTINUED: "document.status.discontinued",
 
   HOMEPAGE_BRANDS: "homepage.brands",
   HOMEPAGE_BRANDS_LEARN: "homepage.brands.learn",

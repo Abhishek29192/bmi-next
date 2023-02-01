@@ -80,6 +80,7 @@ export const transformDocuments = async (
           "variantOptions" in item ? "PIMDocument" : "PIMSystemDocument",
         id,
         title,
+        approvalStatus: item.approvalStatus,
         url: asset.url,
         assetType,
         isLinkDocument: isPimLinkDocument(asset),
@@ -92,6 +93,9 @@ export const transformDocuments = async (
           : "",
         realFileName: asset.realFileName ? asset.realFileName : "",
         titleAndSize: `${asset.name}_${asset.fileSize}`,
+        validUntil: asset.validUntil
+          ? new Date(asset.validUntil).getTime()
+          : undefined,
         ...categoryFilters,
         ...classificationFilters
       };

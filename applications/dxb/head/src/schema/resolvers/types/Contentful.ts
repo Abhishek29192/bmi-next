@@ -27,7 +27,11 @@ export type ContentfulAssetType = Node & {
 
 export type Source = "PIM" | "CMS" | "ALL";
 
-export type ResultsType = "Simple" | "Card Collection" | "Technical";
+export type ResultsType =
+  | "Simple"
+  | "Simple Archive"
+  | "Card Collection"
+  | "Technical";
 
 export type ContentfulDocumentLibraryPage = Node & {
   source: Source;

@@ -21,6 +21,7 @@ const getProductDocumentsFilters = async (
     let allowFilterBy = transformFilterKeys(source.allowFilterBy || []);
     switch (source.resultsType) {
       case "Simple":
+      case "Simple Archive":
         allowFilterBy = [
           "AssetType",
           "Brand",

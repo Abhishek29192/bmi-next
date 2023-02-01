@@ -208,6 +208,16 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
   }, [location]);
 
   useEffect(() => {
+    if (
+      //Should not fetch products if resultsType === "Simple Archive" && source === "CMS"
+      resultsType === "Simple Archive" &&
+      source === "CMS"
+    ) {
+      setInitialLoading(false);
+      setIsLoading(false);
+      return;
+    }
+
     if (documentsFilters.filters) {
       const { filters: initialFilters } = documentsFilters;
       if (queryParams?.filters?.length) {
@@ -219,7 +229,7 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
         fetchDocuments(initialFilters, 0);
       }
     }
-  }, [documentsFilters]);
+  }, [documentsFilters, resultsType, source]);
 
   return (
     <Page
@@ -257,31 +267,33 @@ const DocumentLibraryPage = ({ pageContext, data }: DocumentLibraryProps) => {
             return <DownloadListAlertBanner />;
           }}
         </DownloadListContext.Consumer>
-        <Section backgroundColor="white">
-          <div className={filterStyles["Filters"]}>
-            <Grid container spacing={3} ref={resultsElement}>
-              <Grid xs={12} md={12} lg={3}>
-                <FilterSection
-                  filters={filters}
-                  handleFiltersChange={handleFiltersChange}
-                  clearFilters={handleClearFilters}
-                />
-              </Grid>
-              <Grid xs={12} md={12} lg={9}>
-                {!initialLoading ? (
-                  <ResultSection
-                    results={documents}
-                    assetTypes={contentfulAssetTypes}
-                    format={format}
-                    page={page}
-                    pageCount={pageCount}
-                    handlePageChange={handlePageChange}
+        {!(resultsType === "Simple Archive" && source === "CMS") && (
+          <Section backgroundColor="white">
+            <div className={filterStyles["Filters"]}>
+              <Grid container spacing={3} ref={resultsElement}>
+                <Grid xs={12} md={12} lg={3}>
+                  <FilterSection
+                    filters={filters}
+                    handleFiltersChange={handleFiltersChange}
+                    clearFilters={handleClearFilters}
                   />
-                ) : null}
+                </Grid>
+                <Grid xs={12} md={12} lg={9}>
+                  {!initialLoading ? (
+                    <ResultSection
+                      results={documents}
+                      assetTypes={contentfulAssetTypes}
+                      format={format}
+                      page={page}
+                      pageCount={pageCount}
+                      handlePageChange={handlePageChange}
+                    />
+                  ) : null}
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-        </Section>
+            </div>
+          </Section>
+        )}
       </DownloadList>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={enhancedBreadcrumbs} />

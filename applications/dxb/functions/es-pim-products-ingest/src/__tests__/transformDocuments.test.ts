@@ -241,6 +241,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -258,6 +259,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -296,6 +298,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -313,6 +316,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_41943041",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -351,6 +355,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -368,6 +373,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_0",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -430,6 +436,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -447,6 +454,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -487,6 +495,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -502,6 +511,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -534,6 +544,7 @@ describe("transformDocuments", () => {
             "name": "red",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -551,6 +562,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -576,6 +588,7 @@ describe("transformDocuments", () => {
       Array [
         Object {
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -591,6 +604,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -623,6 +637,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -640,6 +655,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -672,6 +688,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -687,6 +704,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -807,6 +825,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -824,6 +843,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -862,6 +882,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -879,6 +900,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1068,6 +1090,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1083,6 +1106,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1115,6 +1139,7 @@ describe("transformDocuments", () => {
             "name": "red",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1132,6 +1157,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1157,6 +1183,7 @@ describe("transformDocuments", () => {
       Array [
         Object {
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1172,6 +1199,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1204,6 +1232,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1221,6 +1250,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1253,6 +1283,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMSystemDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1268,6 +1299,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1385,6 +1417,7 @@ describe("transformDocuments", () => {
             "name": "BMI",
           },
           "__typename": "PIMDocument",
+          "approvalStatus": "approved",
           "assetType": Object {
             "code": "contentful asset type code",
             "name": "contentful asset type name",
@@ -1402,6 +1435,7 @@ describe("transformDocuments", () => {
           "title": "name",
           "titleAndSize": "name_10",
           "url": "http://localhost:8000",
+          "validUntil": undefined,
         },
       ]
     `);
@@ -1409,5 +1443,24 @@ describe("transformDocuments", () => {
     expect(getProductDocumentNameMap).toHaveBeenCalledWith(locale, tag);
     expect(getCategoryFilters).toHaveBeenCalledWith(product.categories);
     expect(getClassificationsFilters).toHaveBeenCalledWith(product);
+  });
+
+  it("should return validUntil field as timestamp", async () => {
+    const locale = "en-US";
+    const pimCode = "ASSEMBLY_INSTRUCTIONS";
+    const assetType = createAssetType({ pimCode });
+    getAssetTypes.mockResolvedValueOnce([assetType]);
+    const product = createProduct({
+      assets: [
+        createAsset({
+          assetType: pimCode,
+          validUntil: "2023-08-03T08:23:59+0000"
+        })
+      ]
+    });
+
+    const expectedResult = new Date("2023-08-03T08:23:59+0000").getTime();
+    const transformedDocuments = await transformDocuments(product, locale);
+    expect(transformedDocuments[0].validUntil).toBe(expectedResult);
   });
 });
