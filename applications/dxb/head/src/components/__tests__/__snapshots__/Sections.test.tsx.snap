@@ -306,10 +306,10 @@ HTMLCollection [
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"
@@ -362,7 +362,7 @@ HTMLCollection [
                         />
                       </div>
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"
@@ -1259,7 +1259,7 @@ HTMLCollection [
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1586,7 +1586,7 @@ HTMLCollection [
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -2261,10 +2261,10 @@ HTMLCollection [
                         class=" css-ze8cyt"
                       >
                         <div
-                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1ckqsso-MuiContainer-root-MuiTabs-root"
+                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1ade2mn-MuiContainer-root-MuiTabs-root"
                         >
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -2317,7 +2317,7 @@ HTMLCollection [
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -2485,10 +2485,10 @@ HTMLCollection [
                         class=" css-ze8cyt"
                       >
                         <div
-                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1ckqsso-MuiContainer-root-MuiTabs-root"
+                          class="MuiContainer-root MuiContainer-maxWidthXl MuiTabs-root css-1ade2mn-MuiContainer-root-MuiTabs-root"
                         >
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -2557,7 +2557,7 @@ HTMLCollection [
                             />
                           </div>
                           <div
-                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                            class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                           >
                             <svg
                               aria-hidden="true"
@@ -2831,8 +2831,8 @@ HTMLCollection [
               data-testid="grid-container"
             >
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2882,8 +2882,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2933,8 +2933,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -2984,8 +2984,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3025,8 +3025,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3066,8 +3066,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 MuiGrid2-spacing-xs-3  css-ef0aub-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 Grid-item css-1l9c8tu-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth css-q8hpuo-MuiFormControl-root"
@@ -3143,8 +3143,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth css-1fycpue-MuiFormControl-root"
@@ -3195,8 +3195,8 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
@@ -3253,11 +3253,11 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3295,11 +3295,11 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
-                  class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                 >
                   <label
                     class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -3337,17 +3337,17 @@ HTMLCollection [
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
-                  class="css-k1g0xu"
+                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                 >
-                  <div
-                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                    <div
+                      class="css-o87bu0"
                     >
                       <span
                         class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -3356,6 +3356,7 @@ HTMLCollection [
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
                           name="data-protection"
+                          required=""
                           type="checkbox"
                         />
                         <svg
@@ -3373,39 +3374,39 @@ HTMLCollection [
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+                    </div>
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+                    >
+                      I agree with BMI's 
+                      <a
+                        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
+                        data-testid="anchor-link"
+                        href="https://google.co.uk"
+                        rel="noopener"
+                        target="_blank"
                       >
-                        I agree with BMI's 
-                        <a
-                          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
-                          data-testid="anchor-link"
-                          href="https://google.co.uk"
-                          rel="noopener"
-                          target="_blank"
-                        >
-                          <span>
-                            Data Protection Policy
-                          </span>
-                        </a>
-                        
-                      </span>
-                    </label>
-                  </div>
+                        <span>
+                          Data Protection Policy
+                        </span>
+                      </a>
+                      
+                    </span>
+                  </label>
                 </div>
               </div>
               <div
-                class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 MuiGrid2-spacing-xs-3  css-gk5f3o-MuiGrid2-root"
-                data-testid="grid-container"
+                class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-12 Grid-item css-1x80qc7-MuiGrid2-root"
+                data-testid="grid-item"
               >
                 <div
-                  class="css-k1g0xu"
+                  class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                 >
-                  <div
-                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                  <label
+                    class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
                   >
-                    <label
-                      class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+                    <div
+                      class="css-o87bu0"
                     >
                       <span
                         class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -3414,6 +3415,7 @@ HTMLCollection [
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
                           name="gdpr"
+                          required=""
                           type="checkbox"
                         />
                         <svg
@@ -3431,13 +3433,13 @@ HTMLCollection [
                           class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                         />
                       </span>
-                      <span
-                        class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                      >
-                        I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
-                      </span>
-                    </label>
-                  </div>
+                    </div>
+                    <span
+                      class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+                    >
+                      I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
+                    </span>
+                  </label>
                 </div>
               </div>
             </div>
@@ -3659,10 +3661,10 @@ HTMLCollection [
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"
@@ -3715,7 +3717,7 @@ HTMLCollection [
                         />
                       </div>
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"
@@ -3925,10 +3927,10 @@ HTMLCollection [
                     class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                   >
                     <div
-                      class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                      class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                     >
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"
@@ -3981,7 +3983,7 @@ HTMLCollection [
                         />
                       </div>
                       <div
-                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                        class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                       >
                         <svg
                           aria-hidden="true"

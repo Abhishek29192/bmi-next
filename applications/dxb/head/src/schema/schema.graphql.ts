@@ -489,7 +489,7 @@ type ContentfulMicroCopy implements ContentfulObject & Node @dontInfer {
 
 type ContentfulResources implements ContentfulObject & Node @dontInfer {
   metadata: ContentfulMetadata!
-  microCopy: [ContentfulMicroCopy] @link(by: "id", from: "microCopy___NODE")
+  microCopy: [ContentfulMicroCopy] @link(from: "microCopy___NODE")
   pdpSidebarItems: [ContentfulTitleWithContent] @link(from: "pdpSidebarItems___NODE")
   maximumSamples: Int
   pdpCardsTitle: String

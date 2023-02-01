@@ -89,7 +89,7 @@ exports[`FilterSection render correctly 1`] = `
                     >
                       <div>
                         <div
-                          class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                          class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                         >
                           <label
                             class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
