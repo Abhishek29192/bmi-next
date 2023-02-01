@@ -3,7 +3,7 @@
 exports[`Brand Landing Page Template not render cta link text when cta object is null 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -530,7 +530,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -3473,7 +3473,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
 exports[`Brand Landing Page Template render correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -4000,7 +4000,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -6698,7 +6698,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
 exports[`Brand Landing Page Template render firstslide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -7225,7 +7225,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -10149,7 +10149,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
 exports[`Brand Landing Page Template render linkLabel microcopy when slide is has other typename than ContentfulPromo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -10676,7 +10676,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -13569,7 +13569,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
 exports[`Brand Landing Page Template render no context for firstslide when no description 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -14096,7 +14096,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -17018,7 +17018,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
 exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -17545,7 +17545,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -20444,7 +20444,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
 exports[`Brand Landing Page Template render sections correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -20971,7 +20971,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -23899,7 +23899,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
 exports[`Brand Landing Page Template render slide featuredMedia instead when no featuredVideo 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -24426,7 +24426,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -27350,7 +27350,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
 exports[`Brand Landing Page Template render with Search form on hero section 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -27877,7 +27877,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -30813,7 +30813,7 @@ exports[`Brand Landing Page Template render with Search form on hero section 1`]
 exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -31340,7 +31340,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -34274,7 +34274,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
 exports[`Brand Landing Page Template when description is NOT more than 400 characters renders description without elipsis 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -34801,7 +34801,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"
@@ -37737,7 +37737,7 @@ exports[`Brand Landing Page Template when description is NOT more than 400 chara
 exports[`Brand Landing Page Template when description is more than 400 characters renders description with elipsis 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7oa9rz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium css-7ba4rv-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -38264,7 +38264,7 @@ exports[`Brand Landing Page Template when description is more than 400 character
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                 data-testid="open-button"
                 tabindex="0"
                 type="button"

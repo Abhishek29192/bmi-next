@@ -173,7 +173,7 @@ const Sections = ({
           <Component
             data={section}
             position={startIndex + index}
-            color={
+            theme={
               // eslint-disable-next-line security/detect-object-injection
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
