@@ -3,7 +3,7 @@
 exports[`Sitemap cover test for pageContext optional chaining 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -839,7 +839,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
 exports[`Sitemap renders correctly 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -1675,7 +1675,7 @@ exports[`Sitemap renders correctly 1`] = `
 exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
@@ -2449,7 +2449,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
 exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-1vmtas-MuiPaper-root"
   >
     <nav
       aria-label="Utilities"
