@@ -241,7 +241,7 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"

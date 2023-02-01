@@ -223,13 +223,13 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -238,6 +238,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_1"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -255,13 +256,13 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -269,13 +270,13 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -284,6 +285,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_2"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -301,13 +303,13 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -552,13 +554,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -567,6 +569,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_1"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -584,13 +587,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -598,13 +601,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -613,6 +616,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_2"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -630,13 +634,13 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -957,13 +961,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -972,6 +976,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_1"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -989,13 +994,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -1003,13 +1008,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -1018,6 +1023,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_2"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -1035,13 +1041,13 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -1286,13 +1292,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -1301,6 +1307,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_1"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -1318,13 +1325,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -1332,13 +1339,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -1347,6 +1354,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_2"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -1364,13 +1372,13 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -1615,13 +1623,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -1630,6 +1638,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_1"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -1647,13 +1656,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div
@@ -1661,13 +1670,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           data-testid="grid-item"
         >
           <div
-            class="css-k1g0xu"
+            class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
           >
-            <div
-              class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+            <label
+              class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
             >
-              <label
-                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              <div
+                class="css-o87bu0"
               >
                 <span
                   class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
@@ -1676,6 +1685,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                     class="PrivateSwitchBase-input css-1m9pwf3"
                     data-indeterminate="false"
                     name="gdpr_2"
+                    required=""
                     type="checkbox"
                   />
                   <svg
@@ -1693,13 +1703,13 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                     class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                   />
                 </span>
-                <span
-                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
-                >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
-                </span>
-              </label>
-            </div>
+              </div>
+              <span
+                class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-srszrw-MuiTypography-root"
+              >
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+              </span>
+            </label>
           </div>
         </div>
         <div

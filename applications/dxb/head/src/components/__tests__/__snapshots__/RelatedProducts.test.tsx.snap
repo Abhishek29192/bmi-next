@@ -36,10 +36,10 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -92,7 +92,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -244,10 +244,10 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -300,7 +300,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -582,10 +582,10 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -638,7 +638,7 @@ exports[`RelatedProducts component renders with correct gtmLabel 1`] = `
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"

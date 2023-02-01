@@ -16,10 +16,10 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
           class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
         >
           <div
-            class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+            class="MuiTabs-root css-10dbxbh-MuiTabs-root"
           >
             <div
-              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
             >
               <svg
                 aria-hidden="true"
@@ -72,7 +72,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
             >
               <svg
                 aria-hidden="true"
@@ -262,10 +262,10 @@ exports[`TabLeadBlock tests should render 1`] = `
           class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
         >
           <div
-            class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+            class="MuiTabs-root css-10dbxbh-MuiTabs-root"
           >
             <div
-              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
             >
               <svg
                 aria-hidden="true"
@@ -350,7 +350,7 @@ exports[`TabLeadBlock tests should render 1`] = `
               />
             </div>
             <div
-              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+              class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
             >
               <svg
                 aria-hidden="true"
@@ -767,7 +767,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                   data-mui-internal-clone-element="true"
                                 >
                                   <div
-                                    class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                                    class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                                   >
                                     <label
                                       class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
@@ -1159,7 +1159,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                               data-mui-internal-clone-element="true"
                             >
                               <div
-                                class="MuiFormControl-root css-11sio7-MuiFormControl-root"
+                                class="MuiFormControl-root css-1gluykh-MuiFormControl-root"
                               >
                                 <label
                                   class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"

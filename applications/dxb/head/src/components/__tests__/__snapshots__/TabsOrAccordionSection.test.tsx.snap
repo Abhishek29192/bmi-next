@@ -252,10 +252,10 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -308,7 +308,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -396,10 +396,10 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -452,7 +452,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -540,10 +540,10 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -579,7 +579,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -648,10 +648,10 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"
@@ -704,7 +704,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                       />
                     </div>
                     <div
-                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons MuiTabs-scrollButtonsHideMobile tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
+                      class="MuiButtonBase-root MuiTabScrollButton-root MuiTabScrollButton-horizontal Mui-disabled MuiTabs-scrollButtons tabsScrollBtn css-145v6pe-MuiButtonBase-root-MuiTabScrollButton-root"
                     >
                       <svg
                         aria-hidden="true"

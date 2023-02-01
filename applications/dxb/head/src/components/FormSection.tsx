@@ -319,7 +319,7 @@ export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (
-        <Grid container key={$i} xs={12} md={width === "full" ? 12 : 6}>
+        <Grid key={$i} xs={12} md={width === "full" ? 12 : 6}>
           <Input {...props} />
         </Grid>
       ))}

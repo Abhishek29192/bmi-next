@@ -257,7 +257,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -695,7 +695,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -1582,7 +1582,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -2751,7 +2751,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -3354,7 +3354,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -3705,7 +3705,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -4334,7 +4334,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -4919,7 +4919,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -5700,7 +5700,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -5839,7 +5839,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -6300,7 +6300,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -6884,7 +6884,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -7424,7 +7424,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -7964,7 +7964,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -8651,7 +8651,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -9271,7 +9271,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -9930,7 +9930,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -10550,7 +10550,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -11170,7 +11170,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -11585,7 +11585,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -12051,7 +12051,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -12488,7 +12488,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -12952,7 +12952,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -13397,7 +13397,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -14005,7 +14005,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -14420,7 +14420,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -15039,7 +15039,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                   class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
                 >
                   <div
-                    class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                    class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                   >
                     <div
                       class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -15500,7 +15500,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -15785,7 +15785,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -16505,7 +16505,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
@@ -16767,7 +16767,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                 class="MuiContainer-root MuiContainer-maxWidthXl css-1ozv57h-MuiContainer-root"
               >
                 <div
-                  class="MuiTabs-root css-7cgbzd-MuiTabs-root"
+                  class="MuiTabs-root css-10dbxbh-MuiTabs-root"
                 >
                   <div
                     class="MuiTabs-scroller MuiTabs-fixed css-jpln7h-MuiTabs-scroller"
