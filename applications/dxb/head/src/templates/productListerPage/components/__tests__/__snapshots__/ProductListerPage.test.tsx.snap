@@ -4,7 +4,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -297,7 +297,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -1071,7 +1071,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -1364,7 +1364,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -2144,7 +2144,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -2437,7 +2437,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -2949,7 +2949,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -3404,7 +3404,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -3697,7 +3697,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -4209,7 +4209,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -4658,7 +4658,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -4951,7 +4951,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -5439,7 +5439,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -5894,7 +5894,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -6187,7 +6187,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -6890,7 +6890,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -7183,7 +7183,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -7886,7 +7886,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -8179,7 +8179,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -8937,7 +8937,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -9230,7 +9230,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -9734,7 +9734,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -10183,7 +10183,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -10476,7 +10476,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -10980,7 +10980,7 @@ exports[`ProductListerPage template renders an default image if there is no imag
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -11429,7 +11429,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -11722,7 +11722,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -12234,7 +12234,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -12683,7 +12683,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -12976,7 +12976,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -13488,7 +13488,7 @@ exports[`ProductListerPage template test handle change url by click on filters a
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -13948,7 +13948,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -14241,7 +14241,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -14753,7 +14753,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div
@@ -17016,7 +17016,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
 <body>
   <div>
     <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7oa9rz-MuiPaper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation3 Header-headersmall Header-headermedium Header-headerlarge css-7ba4rv-MuiPaper-root"
     >
       <nav
         aria-label="Utilities"
@@ -17309,7 +17309,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                 </button>
                 <button
                   aria-label="MC: menu.open"
-                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge Header-burgerButton css-142qa0u-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-text MuiIconButton-sizeLarge css-hiqdti-MuiButtonBase-root-MuiIconButton-root"
                   data-testid="open-button"
                   tabindex="0"
                   type="button"
@@ -17821,7 +17821,7 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                                   class="MuiAccordionDetails-root Accordion-detailsNoInnerPadding css-1r7u8wy-MuiAccordionDetails-root"
                                 >
                                   <div
-                                    class="css-2mmt6q"
+                                    class="css-1r0p0eh"
                                   >
                                     <div>
                                       <div

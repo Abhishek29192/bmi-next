@@ -471,7 +471,7 @@ describe("Sections component", () => {
             ]
           }
         ],
-        backgroundColor: "alabaster"
+        backgroundColor: "Alabaster"
       },
       {
         __typename: "ContentfulTeamSection",
