@@ -336,52 +336,46 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
-                  data-testid="anchor-link"
                   download="pim document title"
                   href="http://localhost:9000/document.pdf"
-                  type="button"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  <span>
-                    <svg
-                      class="DocumentTechnicalTableResults-formatIcon format-icon"
-                      data-name="Layer 2"
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                        style="fill: #aeb1b1;"
-                      />
-                    </svg>
-                  </span>
+                  <svg
+                    class="DocumentTechnicalTableResults-formatIcon format-icon"
+                    data-name="Layer 2"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                      style="fill: #aeb1b1;"
+                    />
+                  </svg>
                 </a>
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways Anchorlink css-1m0txtt-MuiTypography-root-MuiLink-root"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
-                  data-testid="anchor-link"
                   download="pim document title"
                   href="http://localhost:9000/document.pdf"
-                  type="button"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  <span>
-                    <svg
-                      class="DocumentTechnicalTableResults-formatIcon format-icon"
-                      data-name="Layer 2"
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
-                        style="fill: #aeb1b1;"
-                      />
-                    </svg>
-                  </span>
+                  <svg
+                    class="DocumentTechnicalTableResults-formatIcon format-icon"
+                    data-name="Layer 2"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 2H6v28h21V10Zm7 27H7V3h12v7h7Z"
+                      style="fill: #aeb1b1;"
+                    />
+                  </svg>
                 </a>
               </td>
               <td

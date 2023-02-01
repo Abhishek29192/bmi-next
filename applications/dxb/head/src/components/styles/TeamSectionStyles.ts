@@ -34,25 +34,3 @@ export const StyledSection = styled(Section)(({ theme }) => ({
 export const Title = styled(Section.Title)(({ theme }) => ({
   marginBottom: 30
 }));
-
-// .team-section-white {
-//
-//   .tab-panel > div {
-//     background-color: $color-white;
-//   }
-//
-//   .tabs > div {
-//     background-color: $color-alabaster;
-//   }
-// }
-//
-// .team-section-alabaster {
-//
-//   .tab-panel > div {
-//     background-color: $color-alabaster;
-//   }
-//
-//   .tabs > div {
-//     background-color: $color-white;
-//   }
-// }
