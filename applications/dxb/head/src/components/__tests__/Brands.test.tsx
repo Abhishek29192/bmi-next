@@ -9,7 +9,7 @@ describe("Brands component", () => {
       title: "Smilex",
       path: "/smilex",
       subtitle: "Uh-oh.  He don't look happy. He's been using brand X",
-      brandLogo: "BMI"
+      brandLogo: "Icopal"
     }
   ];
   it("renders correctly", () => {
@@ -18,7 +18,7 @@ describe("Brands component", () => {
         title: "Smilex",
         path: "/smilex",
         subtitle: "Uh-oh.  He don't look happy. He's been using brand X",
-        brandLogo: "BMI"
+        brandLogo: "Icopal"
       }
     ];
 

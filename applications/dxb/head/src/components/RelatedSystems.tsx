@@ -42,7 +42,9 @@ export const SystemCard = ({
   // eslint-disable-next-line security/detect-object-injection
   const brandLogo =
     iconMap[
-      typeof system.brand === "string" ? system.brand : system.brand?.code
+      `${
+        typeof system.brand === "string" ? system.brand : system.brand?.code
+      }Isolated`
     ];
   const systemUrl = getSystemUrl(countryCode, path);
   const mainImage = system.images[0]?.mainSource;

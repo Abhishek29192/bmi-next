@@ -56,7 +56,7 @@ const Brands = ({
                       {...props}
                     />
                   )}
-                  logoIcon={logoIconMap[brand.brandLogo]}
+                  logoIcon={logoIconMap[`${brand.brandLogo}Isolated`]}
                   description={brand.subtitle ? brand.subtitle : undefined}
                   buttonLabel={buttonLabel}
                   action={
@@ -81,7 +81,7 @@ const Brands = ({
               ) : (
                 <BrandIntroCard
                   name={brand.brandLogo}
-                  logoIcon={logoIconMap[brand.brandLogo]}
+                  logoIcon={logoIconMap[`${brand.brandLogo}Isolated`]}
                   description={brand.subtitle ? brand.subtitle : undefined}
                   data-testid={`brand-intro-card-${brand.title.replace(
                     / /g,

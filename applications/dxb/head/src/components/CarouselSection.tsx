@@ -39,7 +39,8 @@ const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { label: "children" });
 const parseSlides = (
   slides: Slide[],
   countryCode: string,
-  linkLabel: string
+  linkLabel: string,
+  variant: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
     const {
@@ -51,11 +52,14 @@ const parseSlides = (
       ...rest
     } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
-
+    const brandLogoIcons =
+      brandLogo && variant === "vertical"
+        ? iconMap[`${brandLogo}Boxed`]
+        : iconMap[`${brandLogo}Isolated`];
     return {
       title,
       // eslint-disable-next-line security/detect-object-injection
-      brandIcon: brandLogo && iconMap[brandLogo],
+      brandIcon: brandLogoIcons,
       media: featuredVideo
         ? renderVideo(featuredVideo)
         : renderImage(featuredMedia),
@@ -85,7 +89,8 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+            getMicroCopy(microCopy.PAGE_LINK_LABEL),
+            variant
           )}
           rollerSectionComponent={(props: ButtonBaseProps) => (
             <GTMButton
@@ -103,7 +108,8 @@ const CarouselSection = ({
           slides={parseSlides(
             slides,
             countryCode,
-            getMicroCopy(microCopy.PAGE_LINK_LABEL)
+            getMicroCopy(microCopy.PAGE_LINK_LABEL),
+            variant
           )}
         />
       )}

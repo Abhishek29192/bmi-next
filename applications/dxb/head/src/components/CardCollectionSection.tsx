@@ -92,7 +92,6 @@ const CardCollectionItem = ({
   );
 
   const isFlat = type === "Story Card";
-
   return (
     <OverviewCard
       title={title || name}
@@ -105,7 +104,9 @@ const CardCollectionItem = ({
       }
       isFlat={isFlat}
       // eslint-disable-next-line security/detect-object-injection
-      brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
+      brandImageSource={
+        type !== "Text Card" ? iconMap[`${brandLogo}Boxed`] : undefined
+      }
       clickableArea={
         link
           ? type !== "Text Card" && featuredVideo

@@ -66,7 +66,7 @@ const ProductListing = ({
       <Grid container spacing={3}>
         {products.slice(0, numberShown).map((product) => {
           // eslint-disable-next-line security/detect-object-injection
-          const brandLogo = iconMap[product.brand?.code];
+          const brandLogo = iconMap[`${product.brand?.code}Isolated`];
           const productUrl = getPathWithCountryCode(countryCode, product.path);
 
           const uniqueClassifications = mapClassificationValues(product);
