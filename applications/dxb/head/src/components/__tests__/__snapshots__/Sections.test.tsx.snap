@@ -2222,7 +2222,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="team-section-alabaster Section-root css-cxq310"
+      class="TeamSection-alabaster Section-root css-irirzf"
     >
       <div
         class=" css-ze8cyt"
@@ -2231,7 +2231,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2239,13 +2239,13 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - alabaster
               </h2>
               <div
-                class="tabs css-fpjlvn"
+                class="TeamSection-tabs css-fpjlvn"
                 data-testid="tabs"
               >
                 <div
@@ -2341,7 +2341,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2446,7 +2446,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="team-section-white Section-root css-cxq310"
+      class="TeamSection-white Section-root css-irirzf"
     >
       <div
         class=" css-ze8cyt"
@@ -2455,7 +2455,7 @@ HTMLCollection [
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 grid css-1149tz3-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3  css-1149tz3-MuiGrid2-root"
             data-testid="grid-container"
           >
             <div
@@ -2463,13 +2463,13 @@ HTMLCollection [
               data-testid="grid-item"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 title Typography-underline css-je89nd-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 Typography-underline css-jpbsv5-MuiTypography-root"
                 data-testid="typography"
               >
                 Team Section - undefined colour (2 categories)
               </h2>
               <div
-                class="tabs css-fpjlvn"
+                class="TeamSection-tabs css-fpjlvn"
                 data-testid="tabs"
               >
                 <div
@@ -2581,7 +2581,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-0"
-                  class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
                   data-testid="tabpanel-0"
                   heading="Team Category 1"
                   id="tabpanel-0"
@@ -2676,7 +2676,7 @@ HTMLCollection [
                 </div>
                 <div
                   aria-labelledby="tab-1"
-                  class="Tabs-tabPanel Tabs-tabPanelBox tab-panel MuiBox-root css-19kzrtu"
+                  class="Tabs-tabPanel Tabs-tabPanelBox TeamSection-tabPanel MuiBox-root css-19kzrtu"
                   data-testid="tabpanel-1"
                   heading="Team Category 2"
                   hidden=""

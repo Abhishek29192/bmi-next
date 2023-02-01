@@ -1,10 +1,4 @@
-import {
-  Container,
-  Grid,
-  Section,
-  SectionBackgroundColor,
-  Tabs
-} from "@bmi-digital/components";
+import { Container, Grid, Tabs } from "@bmi-digital/components";
 import { Tab, TabProps } from "@mui/material";
 import classnames from "classnames";
 import { graphql } from "gatsby";
@@ -12,7 +6,7 @@ import React from "react";
 import RichText, { RichTextData } from "../components/RichText";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import withGTM from "../utils/google-tag-manager";
-import styles from "./styles/TeamSection.module.scss";
+import { classes, StyledSection, Title } from "./styles/TeamSectionStyles";
 
 export type Data = {
   __typename: "ContentfulTeamSection";
@@ -22,7 +16,7 @@ export type Data = {
     description: RichTextData | null;
     team_member: TeamMemberData;
   }[];
-  backgroundColor?: SectionBackgroundColor;
+  backgroundColor: "Alabaster" | "White" | null;
 };
 
 type Props = {
@@ -36,22 +30,18 @@ const GTMTab = withGTM<TabProps>(Tab, {
 
 const TeamSection = ({ data, className }: Props) => {
   return (
-    <Section
+    <StyledSection
       className={classnames(
         className,
-        styles[`team-section-${data.backgroundColor?.toLowerCase() || "white"}`]
+        classes[data.backgroundColor?.toLowerCase() || "white"]
       )}
     >
-      <Grid container spacing={3} className={styles["grid"]}>
+      <Grid container spacing={3}>
         <Grid xs={12}>
-          {data.title && (
-            <Section.Title className={styles["title"]}>
-              {data.title}
-            </Section.Title>
-          )}
+          {data.title && <Title>{data.title}</Title>}
           <Tabs
             component={Container}
-            className={styles["tabs"]}
+            className={classes.tabs}
             tabComponent={(props: TabProps) => (
               <GTMTab
                 gtm={{ id: "selector-tabs2", action: "Selector – Tabs" }}
@@ -61,7 +51,7 @@ const TeamSection = ({ data, className }: Props) => {
           >
             {data.teamCategories.map((category, index) => (
               <Tabs.TabPanel
-                className={styles["tab-panel"]}
+                className={classes.tabPanel}
                 key={`category-tab-${index}`}
                 heading={category.title}
                 index={index}
@@ -79,7 +69,7 @@ const TeamSection = ({ data, className }: Props) => {
           </Tabs>
         </Grid>
       </Grid>
-    </Section>
+    </StyledSection>
   );
 };
 
