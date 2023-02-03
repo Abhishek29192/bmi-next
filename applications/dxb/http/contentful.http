@@ -42,7 +42,7 @@ Authorization: Bearer {{contentfulToken}}
 ###
 
 # @name Get asset by ID
-@id=70GS3lLVmrS7k71kH3iSbq
+@id=fLLjny9mb7YYwMCX2nYXI
 GET https://api.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/assets/{{id}}
 Authorization: Bearer {{contentfulToken}}
 
@@ -143,3 +143,16 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   "locale": "{{locale}}",
   "preview": true
 }
+
+###
+
+# @name Sync all data initial
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?initial=true
+Authorization: Bearer {{contentfulDeliveryToken}}
+
+###
+
+# @name Sync all data from sync token
+@sync_token=wonDrcKnRgcSOF4-wrDCgcKefWzCgsOxXQhzISXDm3fCoMOIw5fDk8OTw6zDsTzCkcO9UHDDtcKKworDjDVpwrJ5wrXDtcOjw4oNNlZpwqLDm8O6wo94w7fCm1VKSk7CmsKZIsKjw59-wqPDvRBLaMK8Y8OLJEUiPCIow4XDuA7CtCYhAn_CtVHCrMKZf8KTw7AAwoHDuX0qacK1bcO9wqluw5PCsjzCusKuwrpRDDYfwoDCsUlGb2nDpMOuw6TCkknDs8OlwoM_LMOOwq_Co8KDwofCp2kzwpJ5
+GET https://cdn.contentful.com/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}/sync?sync_token={{sync_token}}
+Authorization: Bearer {{contentfulDeliveryToken}}
