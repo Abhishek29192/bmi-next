@@ -51,6 +51,7 @@
     "inspectpack": "^4.7.1",
     "jest": "^27.5.1",
     "jest-css-modules-transform": "^4.3.0",
+    "jest-environment-jsdom": "^27.5.1",
     "jest-junit": "^13.0.0",
     "jest-mock-console": "^1.2.3",
     "lint-staged": "^10.2.6",

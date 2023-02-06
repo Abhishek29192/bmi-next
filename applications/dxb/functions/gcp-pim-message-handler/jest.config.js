@@ -1,9 +1,12 @@
 "use strict";
 
-const sharedConfig = require("../jest.config");
+const sharedConfig = require("../../../../jest.config");
+
+// eslint-disable-next-line no-unused-vars
+const { projects, ...extendedConfig } = sharedConfig;
 
 module.exports = {
-  ...sharedConfig,
+  ...extendedConfig,
   rootDir: "../../../../",
   roots: ["<rootDir>/applications/dxb/functions/gcp-pim-message-handler/src"],
   collectCoverageFrom: [
