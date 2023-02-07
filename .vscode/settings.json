@@ -15,6 +15,8 @@
     "typescriptreact"
   ],
   "jest.jestCommandLine": "yarn jest --config=jest.config.js --maxWorkers=2",
+  "npm.fetchOnlinePackageInfo": true,
+  "npm.packageManager": "yarn",
   "shellformat.useEditorConfig": true,
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format",
