@@ -3,7 +3,12 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
-import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
+import FormSection, {
+  Data,
+  FormInputs,
+  InputType,
+  InputWidthType
+} from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
@@ -201,7 +206,7 @@ describe("FormSection component", () => {
   });
 
   it("test handleEmailValidation with incorrect email", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -227,7 +232,7 @@ describe("FormSection component", () => {
   });
 
   it("test handleEmailValidation with correct email", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -253,7 +258,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with large file", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -280,7 +285,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with small file", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -307,7 +312,7 @@ describe("FormSection component", () => {
   });
 
   it("test upload input with no maxSize", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -343,7 +348,7 @@ describe("FormSection component", () => {
   });
 
   it("test submit form with redirect url", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -411,7 +416,7 @@ describe("FormSection component", () => {
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -470,7 +475,7 @@ describe("FormSection component", () => {
   });
 
   it("test submit form with no redirect url", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -536,7 +541,7 @@ describe("FormSection component", () => {
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -594,7 +599,7 @@ describe("FormSection component", () => {
   });
 
   it("test submit form with error", async () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -625,7 +630,7 @@ describe("FormSection component", () => {
   });
 
   it("test convertMarkdownLinksToAnchorLinks function with no label", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -644,7 +649,7 @@ describe("FormSection component", () => {
   });
 
   it("test convertMarkdownLinksToAnchorLinks function with link in label", () => {
-    const specificData = {
+    const specificData: Data = {
       ...data,
       inputs: [
         {
@@ -678,7 +683,7 @@ describe("FormSection component", () => {
   });
 
   it("test options in a Select", () => {
-    const specificData = [
+    const specificData: InputType[] = [
       {
         label: "Select",
         name: "select",
@@ -701,7 +706,7 @@ describe("FormSection component", () => {
   });
 
   it("test multiply options in a checkbox group", async () => {
-    const specificData = [
+    const specificData: InputType[] = [
       {
         label: "Pizza",
         name: "pizza",
@@ -760,7 +765,7 @@ describe("FormSection component", () => {
     mockedWindowDocumentCookie.mockReturnValueOnce(
       `qaAuthToken=${qaAuthToken}`
     );
-    const specificData = [
+    const specificData: InputType[] = [
       {
         label: "Pizza",
         name: "pizza",
