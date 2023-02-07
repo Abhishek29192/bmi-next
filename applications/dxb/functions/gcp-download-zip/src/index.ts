@@ -1,10 +1,10 @@
 import { Writable } from "stream";
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
 import fetch from "node-fetch";
-import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import { verifyOrigins } from "./verify";
 
 const { GCS_NAME, DXB_VALID_HOSTS, RECAPTCHA_KEY, RECAPTCHA_MINIMUM_SCORE } =
@@ -40,6 +40,7 @@ export const download: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);

@@ -136,6 +136,7 @@ describe("Making an OPTIONS request as part of CORS", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       "X-Recaptcha-Token"
     ]);
