@@ -3,12 +3,7 @@
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary", "cobertura"],
-  coveragePathIgnorePatterns: [
-    "node_modules/",
-    "coverage/",
-    "coverage-ts/",
-    "__tests__/"
-  ],
+  coveragePathIgnorePatterns: ["node_modules/", "coverage/", "__tests__/"],
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
@@ -23,7 +18,7 @@ module.exports = {
     "!**/dist/**"
   ],
   preset: "ts-jest",
-  roots: ["<rootDir>/applications"],
+  projects: ["./applications/**/jest.config.js"],
   testMatch: ["**/__tests__/**/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {

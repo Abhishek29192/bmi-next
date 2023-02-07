@@ -7,10 +7,10 @@ const { projects, ...extendedConfig } = sharedConfig;
 
 module.exports = {
   ...extendedConfig,
+  testEnvironment: "jsdom",
   rootDir: "../../../../",
-  roots: ["<rootDir>/applications/dxb/functions/contentful-tagger/src"],
+  roots: ["<rootDir>/applications/dxb/libraries/gatsby-plugin-sitemap/src"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/functions/contentful-tagger/src/**/*.{ts,tsx,js}"
-  ],
-  testEnvironment: "node"
+    "<rootDir>/applications/dxb/libraries/gatsby-plugin-sitemap/src/**"
+  ]
 };
