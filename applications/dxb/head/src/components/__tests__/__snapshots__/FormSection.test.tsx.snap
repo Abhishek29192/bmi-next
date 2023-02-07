@@ -1676,6 +1676,7 @@ exports[`FormSection component test multiply options in a checkbox group without
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
