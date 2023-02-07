@@ -1,7 +1,7 @@
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import { Answer, NextStep, Response, TransformedAnswer } from "./types";
 
 const {
@@ -276,6 +276,7 @@ export const nextStep: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "GET");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);

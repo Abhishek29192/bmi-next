@@ -99,6 +99,7 @@ export const submit: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);

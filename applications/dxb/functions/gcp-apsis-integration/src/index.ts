@@ -1,8 +1,8 @@
 import { escape } from "querystring";
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 
 type RequestRedirect = "error" | "follow" | "manual";
 
@@ -205,6 +205,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);

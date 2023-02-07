@@ -1,9 +1,9 @@
 import logger from "@bmi-digital/functions-logger";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { createClient } from "contentful-management";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
 import { fromBuffer } from "file-type";
-import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -65,6 +65,7 @@ export const upload: HttpFunction = async (request, response) => {
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
+      "Authorization",
       "Content-Type",
       recaptchaTokenHeader
     ]);
