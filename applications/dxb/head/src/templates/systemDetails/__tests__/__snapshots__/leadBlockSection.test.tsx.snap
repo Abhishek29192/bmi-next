@@ -4,13 +4,13 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
 <div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -122,13 +122,13 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
 <div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -212,13 +212,13 @@ exports[`LeadBlockSection tests should render 1`] = `
 <div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -302,13 +302,13 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
 <div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"

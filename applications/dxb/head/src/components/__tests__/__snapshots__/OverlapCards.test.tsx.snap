@@ -22,6 +22,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             <a
               class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              data-testid="cta-card-wrapper"
               href="/uk/some-page/"
               tabindex="0"
             >
@@ -109,6 +110,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
             <a
               class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              data-testid="cta-card-wrapper"
               href="/uk/some-page/"
               tabindex="0"
             >
@@ -203,6 +205,7 @@ exports[`OverlapCards component IntegratedOverlapCards component renders correct
                 <a
                   class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page/\\"}"
+                  data-testid="cta-card-wrapper"
                   href="/uk/some-page/"
                   tabindex="0"
                 >
@@ -351,6 +354,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             <a
               class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              data-testid="cta-card-wrapper"
               href="/uk/some-page/"
               tabindex="0"
             >
@@ -438,6 +442,7 @@ exports[`OverlapCards component renders correctly 1`] = `
             <a
               class="MuiButtonBase-root css-1fc0ksh-MuiButtonBase-root"
               data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              data-testid="cta-card-wrapper"
               href="/uk/some-page/"
               tabindex="0"
             >
@@ -532,6 +537,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 <a
                   class="MuiButtonBase-root css-xpckir-MuiButtonBase-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page/\\"}"
+                  data-testid="cta-card-wrapper"
                   href="/uk/some-page/"
                   tabindex="0"
                 >

@@ -19,6 +19,7 @@ exports[`Header component renders correctly 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Our-story"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -683,6 +684,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Our-story"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1349,6 +1351,7 @@ exports[`Header component shows sample basket icon 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Our-story"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2202,6 +2205,7 @@ exports[`Header component toggles search 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Our-story"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2844,13 +2848,14 @@ exports[`Header component toggles search 1`] = `
         <form
           action="/gb/search/"
           class="css-1mhzmpj"
-          data-testid="form"
+          data-testid="search-form"
         >
           <div
             class="InputGroup-lockedxs css-14zqdme"
           >
             <div
               class="MuiFormControl-root MuiTextField-root InputGroup-input css-1tj5ndw-MuiFormControl-root-MuiTextField-root"
+              data-testid="search-input-text"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-1wb2lss-MuiFormLabel-root-MuiInputLabel-root"

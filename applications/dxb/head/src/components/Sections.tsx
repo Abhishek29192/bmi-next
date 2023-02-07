@@ -178,6 +178,7 @@ const Sections = ({
               (pageTypename && pageTypenameToThemeMap[pageTypename]) || {}
             }
             key={`section-${index}`}
+            data-testid={`section-${title.replace(/ /g, "-")}`}
           />
         );
 

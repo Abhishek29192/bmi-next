@@ -19,6 +19,7 @@ exports[`General Error render correctly 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-string"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -487,6 +488,7 @@ exports[`General Error render correctly 1`] = `
   >
     <div
       class=" Section-root Section-white css-25z9ir"
+      data-testid="promo-section"
     >
       <div
         class=" css-ze8cyt"
@@ -697,6 +699,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-string"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1165,6 +1168,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
   >
     <div
       class=" Section-root Section-white css-25z9ir"
+      data-testid="promo-section"
     >
       <div
         class=" css-ze8cyt"

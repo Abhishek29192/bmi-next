@@ -65,6 +65,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium DocumentTechnicalTableResults-allFilesHeader css-1tbee56-MuiTableCell-root"
+                data-testid="download-file"
                 scope="col"
               >
                 <span
@@ -100,6 +101,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product1-missing-asset-0"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"
@@ -132,6 +134,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                     >
                       <span
                         class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                        data-testid="download-file-checkbox-product-base-code-0"
                       >
                         <input
                           aria-label="MC: documentLibrary.download product1"
@@ -170,6 +173,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product3-missing-asset-0"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"
@@ -299,6 +303,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium DocumentTechnicalTableResults-allFilesHeader css-1tbee56-MuiTableCell-root"
+                data-testid="download-file"
                 scope="col"
               >
                 <span
@@ -334,6 +339,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="download-file-icon-product1-asset-asset-code"
               >
                 <a
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -357,6 +363,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="download-file-icon-product1-asset-asset-code"
               >
                 <a
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -394,6 +401,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                     >
                       <span
                         class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                        data-testid="download-file-checkbox-product-base-code-0"
                       >
                         <input
                           aria-label="MC: documentLibrary.download product1"
@@ -432,6 +440,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product3-missing-asset-0"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"
@@ -450,6 +459,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product3-missing-asset-1"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"
@@ -543,6 +553,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium DocumentTechnicalTableResults-allFilesHeader css-1tbee56-MuiTableCell-root"
+                data-testid="download-file"
                 scope="col"
               >
                 <span
@@ -578,6 +589,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product1-missing-asset-0"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"
@@ -610,6 +622,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                     >
                       <span
                         class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-17kltuc-MuiButtonBase-root-MuiCheckbox-root"
+                        data-testid="download-file-checkbox-product-base-code-0"
                       >
                         <input
                           aria-label="MC: documentLibrary.download product1"
@@ -648,6 +661,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium DocumentTechnicalTableResults-alignCenter css-1xv4y7i-MuiTableCell-root"
+                data-testid="file-does-not-exist-product3-missing-asset-0"
               >
                 <svg
                   class="DocumentTechnicalTableResults-noDocumentIcon"

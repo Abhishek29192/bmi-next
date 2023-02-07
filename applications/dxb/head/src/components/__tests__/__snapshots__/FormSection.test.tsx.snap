@@ -4,6 +4,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly 1
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -25,6 +26,7 @@ exports[`FormSection component Hubspot FormSection component renders correctly w
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -46,6 +48,7 @@ exports[`FormSection component Hubspot FormSection component test submit when pr
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -67,6 +70,7 @@ exports[`FormSection component renders correctly 1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -88,6 +92,7 @@ exports[`FormSection component renders correctly 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-text"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -129,6 +134,7 @@ exports[`FormSection component renders correctly 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-textarea"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -177,6 +183,7 @@ exports[`FormSection component renders correctly 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-email"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-15zab3-MuiFormLabel-root-MuiInputLabel-root"
@@ -802,6 +809,7 @@ exports[`FormSection component renders correctly for dialog 1`] = `
 <div>
   <div
     class="Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -823,6 +831,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1019,6 +1028,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1145,6 +1155,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1166,6 +1177,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-email"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -1285,6 +1297,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1306,6 +1319,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root TextField-textFieldError css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-email"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary Mui-error MuiFormLabel-filled Mui-required MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -1446,6 +1460,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1876,6 +1891,7 @@ exports[`FormSection component test upload input with large file 1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -2072,6 +2088,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -2213,6 +2230,7 @@ exports[`FormSection component test upload input with small file 1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

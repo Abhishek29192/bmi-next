@@ -218,7 +218,7 @@ describe("FormSection component", () => {
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const emailInput = container.querySelector(`input[name="email"]`);
+    const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test-email" }
     });
@@ -244,7 +244,7 @@ describe("FormSection component", () => {
         <FormSection data={specificData} backgroundColor="white" />
       </ThemeProvider>
     );
-    const emailInput = container.querySelector(`input[name="email"]`);
+    const emailInput = container.querySelector(`input[id="email"]`);
     fireEvent.change(emailInput, {
       target: { value: "test@gmail.com" }
     });
@@ -370,7 +370,7 @@ describe("FormSection component", () => {
       </ConfigProvider>
     );
 
-    const textInput = container.querySelector(`input[name="text"]`);
+    const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
@@ -498,7 +498,7 @@ describe("FormSection component", () => {
       </ConfigProvider>
     );
 
-    const textInput = container.querySelector(`input[name="text"]`);
+    const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });
@@ -611,7 +611,7 @@ describe("FormSection component", () => {
       </MockSiteContext>
     );
 
-    const textInput = container.querySelector(`input[name="text"]`);
+    const textInput = container.querySelector(`input[id="text"]`);
     fireEvent.change(textInput, {
       target: { value: "text value" }
     });

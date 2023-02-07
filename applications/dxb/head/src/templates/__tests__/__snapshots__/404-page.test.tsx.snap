@@ -19,6 +19,7 @@ exports[`404 page tests When error page data is partially populated renders plac
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -35,6 +36,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -51,6 +53,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -67,6 +70,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -83,6 +87,7 @@ exports[`404 page tests When error page data is partially populated renders plac
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2473,6 +2478,7 @@ exports[`404 page tests When error page data is partially populated renders plac
   >
     <div
       class=" Section-root Section-white css-25z9ir"
+      data-testid="promo-section"
     >
       <div
         class=" css-ze8cyt"
@@ -2919,6 +2925,7 @@ exports[`404 page tests When site data and error page data are fully populated r
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2935,6 +2942,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2951,6 +2959,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2967,6 +2976,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2983,6 +2993,7 @@ exports[`404 page tests When site data and error page data are fully populated r
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -5373,6 +5384,7 @@ exports[`404 page tests When site data and error page data are fully populated r
   >
     <div
       class=" Section-root Section-white css-25z9ir"
+      data-testid="promo-section"
     >
       <div
         class=" css-ze8cyt"

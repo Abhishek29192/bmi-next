@@ -373,7 +373,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
-            data-testid="grid-item"
+            data-testid="product-benefits-post-it-card"
           >
             <div
               class="ColorPair-blue900 css-1pt14k0"
@@ -1025,6 +1025,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             <nav
               aria-label="pagination navigation"
               class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+              data-testid="pagination-root"
             >
               <ul
                 class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -1591,7 +1592,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
-            data-testid="grid-item"
+            data-testid="product-benefits-post-it-card"
           >
             <div
               class="ColorPair-blue900 css-1pt14k0"
@@ -2005,6 +2006,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
             <nav
               aria-label="pagination navigation"
               class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+              data-testid="pagination-root"
             >
               <ul
                 class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -2555,7 +2557,7 @@ exports[`ProductLeadBlock tests renders correctly when productDocuments is empty
           </div>
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
-            data-testid="grid-item"
+            data-testid="product-benefits-post-it-card"
           >
             <div
               class="ColorPair-blue900 css-1pt14k0"
@@ -3280,6 +3282,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
       <nav
         aria-label="pagination navigation"
         class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+        data-testid="pagination-root"
       >
         <ul
           class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -3569,7 +3572,7 @@ exports[`ProductLeadBlock tests should render guarantees & warranties images & l
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
-      data-testid="grid-item"
+      data-testid="product-benefits-post-it-card"
     >
       <div
         class="ColorPair-blue900 css-1pt14k0"
@@ -4138,6 +4141,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
       <nav
         aria-label="pagination navigation"
         class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+        data-testid="pagination-root"
       >
         <ul
           class="MuiPagination-ul css-wjh20t-MuiPagination-ul"

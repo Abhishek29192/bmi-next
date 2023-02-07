@@ -4,6 +4,7 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -136,6 +137,7 @@ exports[`RelatedSystems component renders correctly with no systems 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -167,6 +169,7 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -299,6 +302,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -431,6 +435,7 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -563,6 +568,7 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -645,6 +651,7 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -727,6 +734,7 @@ exports[`RelatedSystems component renders systems correctly without classificati
 <div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

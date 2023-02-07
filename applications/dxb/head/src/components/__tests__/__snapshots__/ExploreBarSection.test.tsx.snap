@@ -4,6 +4,7 @@ exports[`ExploreBarSection component renders correctly 1`] = `
 <div>
   <div
     class="Section-root css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

@@ -4,6 +4,7 @@ exports[`DocumentDownloadSection component renders correctly with all data 1`] =
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

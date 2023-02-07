@@ -4,6 +4,7 @@ exports[`IframeSection component renders correctly 1`] = `
 <div>
   <div
     class="IframeSection Section-root Section-pearl css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

@@ -84,6 +84,7 @@ const SampleBasketSection = ({
       <Section
         backgroundColor="white"
         className={styles["SampleBasketSection"]}
+        data-testid="sample-basket-section"
       >
         <RichText document={description} />
         <SampleBasketSectionProducts />

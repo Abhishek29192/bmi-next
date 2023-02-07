@@ -4,6 +4,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -30,6 +31,7 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -541,6 +543,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
   <div>
     <div
       class="ServiceLocationSection Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -567,6 +570,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  data-testid="text-field-company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -1344,6 +1348,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1370,6 +1375,7 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -2597,6 +2603,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -2623,6 +2630,7 @@ exports[`ServiceLocatorSection component close button 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -3174,6 +3182,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
   <div>
     <div
       class="ServiceLocationSection Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3200,6 +3209,7 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  data-testid="text-field-company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -3628,6 +3638,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -4135,6 +4146,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -4161,6 +4173,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -4720,6 +4733,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -4746,6 +4760,7 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -5546,6 +5561,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -5572,6 +5588,7 @@ exports[`ServiceLocatorSection component renders correctly with NO service 1`] =
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -5808,6 +5825,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -6269,6 +6287,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -6730,6 +6749,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -6756,6 +6776,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -7270,6 +7291,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -7296,6 +7318,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -7810,6 +7833,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -7836,6 +7860,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -8350,6 +8375,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -8376,6 +8402,7 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -9117,6 +9144,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -9143,6 +9171,7 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -9693,6 +9722,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -9719,6 +9749,7 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -10396,6 +10427,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -10422,6 +10454,7 @@ exports[`ServiceLocatorSection component renders multiple services with single s
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -11016,6 +11049,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -11042,6 +11076,7 @@ exports[`ServiceLocatorSection component renders single service with No service 
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -11431,6 +11466,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -11457,6 +11493,7 @@ exports[`ServiceLocatorSection component renders single service with empty servi
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -11846,6 +11883,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -11872,6 +11910,7 @@ exports[`ServiceLocatorSection component renders single service with multiple se
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -12334,6 +12373,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -12360,6 +12400,7 @@ exports[`ServiceLocatorSection component renders single service with single serv
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -12772,6 +12813,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
   <div>
     <div
       class="ServiceLocationSection Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -12798,6 +12840,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  data-testid="text-field-company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -13215,6 +13258,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
   <div>
     <div
       class="ServiceLocationSection Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -13242,6 +13286,7 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  data-testid="text-field-company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -13851,6 +13896,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -13877,6 +13923,7 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -14266,6 +14313,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -14292,6 +14340,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -14877,6 +14926,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
   <div>
     <div
       class="ServiceLocationSection Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -14903,6 +14953,7 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                  data-testid="text-field-company-autocomplete"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -15301,6 +15352,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -15327,6 +15379,7 @@ exports[`ServiceLocatorSection component when showDefaultResultList is false sho
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -15568,6 +15621,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -15594,6 +15648,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -15665,6 +15720,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-location-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -16314,6 +16370,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -16340,6 +16397,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -16411,6 +16469,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-location-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"
@@ -16613,6 +16672,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
 <div>
   <div
     class="ServiceLocationSection Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -16639,6 +16699,7 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root  css-1qw86q1-MuiFormControl-root-MuiTextField-root"
+                data-testid="text-field-company-autocomplete"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-taxj8h-MuiFormLabel-root-MuiInputLabel-root"

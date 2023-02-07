@@ -103,6 +103,7 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -381,6 +382,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -531,6 +533,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -618,6 +621,7 @@ exports[`TabLeadBlock tests should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -870,6 +874,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -1010,6 +1015,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
 >
   <div
     class="section Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -1262,6 +1268,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                 <nav
                   aria-label="pagination navigation"
                   class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                  data-testid="pagination-root"
                 >
                   <ul
                     class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -1403,6 +1410,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
   >
     <div
       class="section Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"

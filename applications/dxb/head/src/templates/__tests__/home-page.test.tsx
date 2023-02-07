@@ -337,7 +337,10 @@ describe("Home Page Template", () => {
       container.querySelector("[class*=Hero-root] [class*=Breadcrumbs-root]")
     ).not.toBeInTheDocument();
 
-    expect(getAllByTestId("carousel-slide").length).toEqual(2);
+    expect(container).toMatchSnapshot();
+
+    expect(getAllByTestId("hero-content-slide-0").length).toEqual(1);
+    expect(getAllByTestId("hero-content-slide-text").length).toEqual(1);
     expect(getByTestId("search-button")).toBeInTheDocument();
     expect(getByText(slide.title)).toBeInTheDocument();
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();

@@ -4,6 +4,7 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -110,6 +111,7 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 <div>
   <div
     class="Section-root Section-white css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -216,6 +218,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 <div>
   <div
     class="Section-root Section-pearl css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -360,6 +363,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 <div>
   <div
     class="Section-root Section-pearl css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -504,6 +508,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
 <div>
   <div
     class="Section-root Section-pearl css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -612,6 +617,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
 <div>
   <div
     class="Section-root Section-pearl css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

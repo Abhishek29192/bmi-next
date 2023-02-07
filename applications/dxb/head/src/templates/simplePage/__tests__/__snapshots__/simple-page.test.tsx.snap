@@ -19,6 +19,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -35,6 +36,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -51,6 +53,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -67,6 +70,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -83,6 +87,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2493,6 +2498,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
@@ -2560,6 +2566,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
   <div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2586,6 +2593,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2631,6 +2639,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2657,6 +2666,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2699,6 +2709,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2723,6 +2734,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2743,6 +2755,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
@@ -3239,6 +3252,7 @@ exports[`Simple page renders correctly with full data 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3255,6 +3269,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3271,6 +3286,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3287,6 +3303,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -3303,6 +3320,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -5713,6 +5731,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text Button-textDarkBg MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
@@ -5786,6 +5805,7 @@ exports[`Simple page renders correctly with full data 1`] = `
   <div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -5812,6 +5832,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -5845,7 +5866,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             </div>
             <div
               class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-lg-4 MuiGrid2-grid-xs-12 Grid-item css-abxfb-MuiGrid2-root"
-              data-testid="grid-item"
+              data-testid="lead-block-card"
             >
               <div
                 class="ColorPair-pearl css-1pt14k0"
@@ -5900,6 +5921,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       >
         <div
           class="Section-root Section-pearl css-cxq310"
+          data-testid="section"
         >
           <div
             class=" css-ze8cyt"
@@ -6020,6 +6042,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -6065,6 +6088,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -6091,6 +6115,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -6133,6 +6158,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -6157,6 +6183,7 @@ exports[`Simple page renders correctly with full data 1`] = `
     </div>
     <div
       class="Section-root Section-alabaster Section-slim css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -6177,6 +6204,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
