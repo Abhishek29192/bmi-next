@@ -1,4 +1,4 @@
-test_functions-utils:
+test_functions-recaptcha:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
@@ -14,13 +14,13 @@ test_functions-utils:
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/functions-recaptcha"
-    ROOT_DIR: "applications/dxb/libraries/functions-utils"
+    ROOT_DIR: "applications/dxb/libraries/functions-recaptcha"
 
-build_functions-utils:
+build_functions-recaptcha:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:
     WORKSPACE: "@bmi/functions-recaptcha"
-    ROOT_DIR: "applications/dxb/libraries/functions-utils"
+    ROOT_DIR: "applications/dxb/libraries/functions-recaptcha"
