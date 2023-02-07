@@ -123,15 +123,18 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
 
         const token = qaAuthToken ? undefined : await executeRecaptcha();
 
+        let headers: HeadersInit = {
+          "Content-Type": "application/json",
+          "X-Recaptcha-Token": token
+        };
+        if (qaAuthToken) {
+          headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+        }
         try {
           const response = await fetch(webToolsCalculatorApsisEndpoint, {
             method: "POST",
             body: JSON.stringify(values),
-            headers: {
-              "X-Recaptcha-Token": token,
-              "Content-Type": "application/json",
-              authorization: qaAuthToken && `Bearer ${qaAuthToken}`
-            }
+            headers
           });
 
           if (!response.ok) {
