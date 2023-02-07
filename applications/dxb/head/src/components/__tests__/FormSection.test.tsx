@@ -153,7 +153,7 @@ jest.mock("react-google-recaptcha-v3", () => ({
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
 
-const fetchMock = jest.fn();
+const fetchMock = jest.fn().mockReturnValue({ ok: true });
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
@@ -376,8 +376,6 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
-    fetchMock.mockReturnValueOnce({ ok: true });
-
     await waitFor(() =>
       expect(fetchMock).toHaveBeenCalledWith(
         "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
@@ -392,7 +390,76 @@ describe("FormSection component", () => {
           }),
           headers: {
             "X-Recaptcha-Token": "RECAPTCHA",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            authorization: undefined
+          }
+        }
+      )
+    );
+
+    expect(onSuccess).toHaveBeenCalled();
+    expect(Gatsby.navigate).toBeCalledWith("link-to-page");
+  });
+
+  it("test submit form with redirect url without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData = {
+      ...data,
+      inputs: [
+        {
+          label: "Text",
+          name: "text",
+          type: "text"
+        }
+      ]
+    };
+    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={onSuccess}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const textInput = container.querySelector(`input[name="text"]`);
+    fireEvent.change(textInput, {
+      target: { value: "text value" }
+    });
+    fireEvent.submit(container.querySelector("form"));
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
           }
         }
       )
@@ -437,8 +504,6 @@ describe("FormSection component", () => {
     });
     fireEvent.submit(container.querySelector("form"));
 
-    fetchMock.mockReturnValueOnce({ ok: true });
-
     expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
       "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
       {
@@ -452,9 +517,77 @@ describe("FormSection component", () => {
         }),
         headers: {
           "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          authorization: undefined
         }
       }
+    );
+
+    expect(Gatsby.navigate).toBeCalledWith("/");
+  });
+
+  it("test submit form with no redirect url without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData = {
+      ...data,
+      inputs: [
+        {
+          label: "Text",
+          name: "text",
+          type: "text"
+        }
+      ],
+      successRedirect: null
+    };
+    jest.spyOn(Gatsby, "navigate").mockImplementation();
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const textInput = container.querySelector(`input[name="text"]`);
+    fireEvent.change(textInput, {
+      target: { value: "text value" }
+    });
+    fireEvent.submit(container.querySelector("form"));
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            locale: "en-GB",
+            title: "Test form",
+            recipients: "recipient@mail.com",
+            values: { text: "text value" },
+            emailSubjectFormat: "emailSubjectFormat"
+          }),
+          headers: {
+            "X-Recaptcha-Token": undefined,
+            "Content-Type": "application/json",
+            authorization: `Bearer ${qaAuthToken}`
+          }
+        }
+      )
     );
 
     expect(Gatsby.navigate).toBeCalledWith("/");
@@ -611,7 +744,67 @@ describe("FormSection component", () => {
         }),
         headers: {
           "X-Recaptcha-Token": "RECAPTCHA",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          authorization: undefined
+        }
+      }
+    );
+  });
+  it("test multiply options in a checkbox group without recaptcha call", async () => {
+    const mockedWindowDocumentCookie = jest.spyOn(
+      window.document,
+      "cookie",
+      "get"
+    );
+    const qaAuthToken = "qaAuthToken";
+    mockedWindowDocumentCookie.mockReturnValueOnce(
+      `qaAuthToken=${qaAuthToken}`
+    );
+    const specificData = [
+      {
+        label: "Pizza",
+        name: "pizza",
+        options: "Parma, Caprize, Margarita",
+        type: "checkboxGroup"
+      }
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={{ ...data, inputs: specificData }}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
+    expect(container).toMatchSnapshot();
+    fireEvent.click(checkboxes[2]);
+    fireEvent.click(checkboxes[0]);
+    fireEvent.submit(container.querySelector("form"));
+    expect(await waitFor(() => fetchMock)).toHaveBeenCalledWith(
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          locale: "en-GB",
+          title: "Test form",
+          recipients: "recipient@mail.com",
+          values: { pizza: ["Margarita", "Parma"] },
+          emailSubjectFormat: "emailSubjectFormat"
+        }),
+        headers: {
+          "X-Recaptcha-Token": undefined,
+          "Content-Type": "application/json",
+          authorization: `Bearer ${qaAuthToken}`
         }
       }
     );

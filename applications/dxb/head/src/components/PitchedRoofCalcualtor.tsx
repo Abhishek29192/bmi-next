@@ -9,8 +9,10 @@ import React, {
   useState
 } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
+import getCookie from "../utils/getCookie";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";
@@ -66,6 +68,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
   };
 
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   useEffect(() => {
     if (!isOpen) {
@@ -118,7 +121,7 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
           return;
         }
 
-        const token = await executeRecaptcha();
+        const token = qaAuthToken ? undefined : await executeRecaptcha();
 
         try {
           const response = await fetch(webToolsCalculatorApsisEndpoint, {
@@ -126,7 +129,8 @@ const CalculatorProvider = ({ children, onError, calculatorConfig }: Props) => {
             body: JSON.stringify(values),
             headers: {
               "X-Recaptcha-Token": token,
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              authorization: qaAuthToken && `Bearer ${qaAuthToken}`
             }
           });
 

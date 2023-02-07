@@ -4,6 +4,7 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
 import fetch from "node-fetch";
+import { verifyRecaptchaToken } from "@bmi/functions-recaptcha";
 import { verifyOrigins } from "./verify";
 
 const { GCS_NAME, DXB_VALID_HOSTS, RECAPTCHA_KEY, RECAPTCHA_MINIMUM_SCORE } =
@@ -68,7 +69,10 @@ export const download: HttpFunction = async (request, response) => {
       // eslint-disable-next-line security/detect-object-injection
       request.headers[recaptchaTokenHeader] ||
       request.headers[recaptchaTokenHeader.toLowerCase()];
-    if (!authorizationToken && !recaptchaToken) {
+    if (
+      (!authorizationToken && !recaptchaToken) ||
+      Array.isArray(recaptchaToken)
+    ) {
       logger.error({ message: "Token not provided." });
       return response.status(400).send("Token not provided.");
     }
@@ -94,31 +98,12 @@ export const download: HttpFunction = async (request, response) => {
     }
     if (!authorizationToken && recaptchaToken) {
       try {
-        const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
-          { method: "POST" }
-        );
-        if (!recaptchaResponse.ok) {
-          logger.error({
-            message: `Recaptcha check failed with status ${recaptchaResponse.status} ${recaptchaResponse.statusText}.`
-          });
-          return response.status(400).send("Recaptcha check failed.");
-        }
-        const json = await recaptchaResponse.json();
-        if (!json.success || json.score < minimumScore) {
-          logger.error({
-            message: `Recaptcha check failed with error ${JSON.stringify(
-              json
-            )}.`
-          });
-          return response.status(400).send("Recaptcha check failed.");
-        }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (error: any) {
+        await verifyRecaptchaToken(recaptchaToken, RECAPTCHA_KEY, minimumScore);
+      } catch (error) {
         logger.error({
-          message: `Recaptcha request failed with error ${error}.`
+          message: `Recaptcha check failed with error ${error}.`
         });
-        return response.status(500).send("Recaptcha request failed.");
+        return response.status(400).send("Recaptcha check failed.");
       }
     }
 
@@ -223,7 +208,7 @@ export const download: HttpFunction = async (request, response) => {
       });
       return response
         .status(500)
-        .send("Failed to add a doument to the zip file.");
+        .send("Failed to add a document to the zip file.");
     }
 
     logger.info({ message: "Appended all files to the zip file." });

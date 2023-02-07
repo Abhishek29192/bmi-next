@@ -23,6 +23,7 @@ import filesize from "filesize";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { ContentfulDocument } from "../types/Document";
@@ -32,6 +33,7 @@ import {
   SystemDocument as FsPimSystemDocument
 } from "../types/pim";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
+import getCookie from "../utils/getCookie";
 import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -279,6 +281,7 @@ export const MultipleAssetToFileDownload = ({
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const downloadMultipleFiles = async () => {
     try {
       if (!documentDownloadEndpoint) {
@@ -297,7 +300,7 @@ export const MultipleAssetToFileDownload = ({
         }${document.assetType.name}.zip`;
       }
 
-      const token = await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha();
       const assetFileCountMap: AssetUniqueFileCountMap =
         createAssetFileCountMap(document.documentList);
       const documents = document.documentList.map((asset, index) => ({
@@ -317,7 +320,8 @@ export const MultipleAssetToFileDownload = ({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Recaptcha-Token": token
+          "X-Recaptcha-Token": token,
+          authorization: qaAuthToken && `Bearer ${qaAuthToken}`
         },
         body: JSON.stringify({ documents })
       });

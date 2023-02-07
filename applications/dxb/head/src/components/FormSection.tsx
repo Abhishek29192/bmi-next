@@ -24,9 +24,11 @@ import fetch from "node-fetch";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
+import { QA_AUTH_TOKEN } from "../constants/cookieConstants";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { isValidEmail } from "../utils/emailUtils";
+import getCookie from "../utils/getCookie";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isRichText } from "../utils/isRichText";
 import { getPathWithCountryCode } from "../utils/path";
@@ -129,6 +131,7 @@ const Input = ({
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
 
   const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
@@ -190,11 +193,12 @@ const Input = ({
           mapBody={mapBody}
           mapValue={mapValue}
           onUploadRequest={async () => {
-            const token = await executeRecaptcha();
+            const token = qaAuthToken ? undefined : await executeRecaptcha();
 
             return {
               headers: {
-                "X-Recaptcha-Token": token
+                "X-Recaptcha-Token": token,
+                authorization: qaAuthToken && `Bearer ${qaAuthToken}`
               }
             };
           }}
@@ -493,6 +497,7 @@ const FormSection = ({
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const qaAuthToken = getCookie(QA_AUTH_TOKEN);
   const GTMButton = withGTM<ButtonProps>(Button, {
     label: "aria-label",
     action: "data-action"
@@ -524,7 +529,7 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const token = await executeRecaptcha();
+      const token = qaAuthToken ? undefined : await executeRecaptcha();
 
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(
@@ -548,7 +553,8 @@ const FormSection = ({
         }),
         headers: {
           "X-Recaptcha-Token": token,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          authorization: qaAuthToken && `Bearer ${qaAuthToken}`
         }
       });
 
