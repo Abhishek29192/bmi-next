@@ -198,14 +198,14 @@ const Input = ({
           mapValue={mapValue}
           onUploadRequest={async () => {
             const token = qaAuthToken ? undefined : await executeRecaptcha();
-
             let headers: HeadersInit = {
               "X-Recaptcha-Token": token
             };
             if (qaAuthToken) {
               headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
             }
-            return headers;
+
+            return { headers: { ...headers } };
           }}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
