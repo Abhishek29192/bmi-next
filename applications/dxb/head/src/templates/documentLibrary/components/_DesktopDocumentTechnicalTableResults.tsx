@@ -131,13 +131,16 @@ const DesktopDocumentTechnicalTableResults = ({
                 )
         }));
 
+        let headers: HeadersInit = {
+          "Content-Type": "application/json",
+          "X-Recaptcha-Token": token
+        };
+        if (qaAuthToken) {
+          headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+        }
         const response: Response = await fetch(documentDownloadEndpoint, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Recaptcha-Token": token,
-            authorization: qaAuthToken && `Bearer ${qaAuthToken}`
-          },
+          headers,
           body: JSON.stringify({ documents })
         });
 

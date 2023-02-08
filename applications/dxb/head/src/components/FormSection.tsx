@@ -35,6 +35,7 @@ import { getPathWithCountryCode } from "../utils/path";
 import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
 import { Data as LinkData, isExternalUrl } from "./Link";
+import ProgressIndicator from "./ProgressIndicator";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
@@ -44,7 +45,6 @@ import {
   StyledForm
 } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
-import ProgressIndicator from "./ProgressIndicator";
 
 export type Data = {
   __typename: "ContentfulFormSection";
@@ -61,15 +61,19 @@ export type Data = {
   emailSubjectFormat?: string;
 };
 
-const InputTypes = [
-  "text",
-  "email",
-  "phone",
-  "textarea",
-  "checkbox",
-  "select",
-  "upload"
-];
+type InputTypes =
+  | "text"
+  | "email"
+  | "phone"
+  | "textarea"
+  | "checkbox"
+  | "checkboxGroup"
+  | "radio"
+  | "select"
+  | "upload"
+  | "hubspot-text"
+  | "hubspot-checkbox"
+  | "hubspot-hidden";
 
 export type InputWidthType = "full" | "half";
 
@@ -78,7 +82,7 @@ export type InputType = {
   name: string;
   options?: string;
   required?: boolean;
-  type: (typeof InputTypes)[number];
+  type: InputTypes;
   width?: InputWidthType;
   accept?: string;
   maxSize?: number;
@@ -195,12 +199,13 @@ const Input = ({
           onUploadRequest={async () => {
             const token = qaAuthToken ? undefined : await executeRecaptcha();
 
-            return {
-              headers: {
-                "X-Recaptcha-Token": token,
-                authorization: qaAuthToken && `Bearer ${qaAuthToken}`
-              }
+            let headers: HeadersInit = {
+              "X-Recaptcha-Token": token
             };
+            if (qaAuthToken) {
+              headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+            }
+            return headers;
           }}
           microcopyProvider={{
             "upload.instructions.drop": getMicroCopy(
@@ -542,6 +547,13 @@ const FormSection = ({
         {}
       );
 
+      let headers: HeadersInit = {
+        "Content-Type": "application/json",
+        "X-Recaptcha-Token": token
+      };
+      if (qaAuthToken) {
+        headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+      }
       const response = await fetch(gcpFormSubmitEndpoint, {
         method: "POST",
         body: JSON.stringify({
@@ -551,11 +563,7 @@ const FormSection = ({
           values: valuesToSent,
           emailSubjectFormat
         }),
-        headers: {
-          "X-Recaptcha-Token": token,
-          "Content-Type": "application/json",
-          authorization: qaAuthToken && `Bearer ${qaAuthToken}`
-        }
+        headers
       });
 
       if (!response.ok) {

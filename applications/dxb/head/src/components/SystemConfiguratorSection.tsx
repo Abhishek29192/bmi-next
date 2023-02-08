@@ -152,15 +152,18 @@ const SystemConfiguratorQuestion = ({
 
     const recaptchaToken = qaAuthToken ? undefined : await executeRecaptcha();
 
+    let headers: HeadersInit = {
+      "X-Recaptcha-Token": recaptchaToken
+    };
+    if (qaAuthToken) {
+      headers = { ...headers, authorization: `Bearer ${qaAuthToken}` };
+    }
     try {
       const response: Response = await fetch(
         `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=${locale}`,
         {
           method: "GET",
-          headers: {
-            "X-Recaptcha-Token": recaptchaToken,
-            authorization: qaAuthToken && `Bearer ${qaAuthToken}`
-          },
+          headers,
           signal: controller.signal
         }
       );
