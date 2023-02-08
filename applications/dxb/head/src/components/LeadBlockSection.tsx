@@ -62,7 +62,7 @@ const LeadBlockSection = ({
             </LeadBlock.Content.Section>
           )}
         </LeadBlock.Content>
-        <LeadBlock.Card color="pearl">
+        <LeadBlock.Card color="pearl" data-testid="lead-block-card">
           <LeadBlock.Card.Section>
             {postItCard ? (
               <RichText

@@ -4,6 +4,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
     class="MediaGallerySection Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -235,6 +236,7 @@ exports[`MediaGallerySection component renders correctly with long description 1
 <div>
   <div
     class="MediaGallerySection Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"

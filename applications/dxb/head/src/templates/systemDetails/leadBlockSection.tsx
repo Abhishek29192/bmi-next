@@ -70,7 +70,7 @@ const LeadBlockSection = ({
     <Section
       backgroundColor="white"
       className={styles["LeadBlockSection"]}
-      data-testid="system-lead-block-section"
+      data-testid="system-details-lead-block-section"
     >
       <LeadBlock>
         <LeadBlock.Content>

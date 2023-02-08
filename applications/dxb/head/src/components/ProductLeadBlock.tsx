@@ -12,8 +12,8 @@ import {
 } from "@bmi-digital/components";
 import { Launch } from "@mui/icons-material";
 import CheckIcon from "@mui/icons-material/Check";
-import Tab, { TabProps } from "@mui/material/Tab";
 import { styled } from "@mui/material/styles";
+import Tab, { TabProps } from "@mui/material/Tab";
 import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -202,7 +202,10 @@ const ProductLeadBlock = ({
               )}
             </LeadBlock.Content>
             {(product.productBenefits || sidebarItems?.length) && (
-              <LeadBlock.Card color="blue900">
+              <LeadBlock.Card
+                color="blue900"
+                data-testid="product-benefits-post-it-card"
+              >
                 {product.productBenefits ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
@@ -259,7 +262,10 @@ const ProductLeadBlock = ({
               <ProductTechnicalSpec product={product} />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
-              <LeadBlock.Card color="blue900">
+              <LeadBlock.Card
+                color="blue900"
+                data-testid="technical-spec-post-it-card"
+              >
                 {sidebarItems.slice(1).map(({ title, content }, index) => {
                   return (
                     <LeadBlock.Card.Section key={`sidebar-item-${index}`}>

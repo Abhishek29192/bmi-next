@@ -19,6 +19,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-menuUtilitiesLinkLabel"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -509,6 +510,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -555,6 +557,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -601,6 +604,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -647,6 +651,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -855,6 +860,7 @@ exports[`Sitemap renders correctly 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-menuUtilitiesLinkLabel"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -1345,6 +1351,7 @@ exports[`Sitemap renders correctly 1`] = `
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1391,6 +1398,7 @@ exports[`Sitemap renders correctly 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1437,6 +1445,7 @@ exports[`Sitemap renders correctly 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1483,6 +1492,7 @@ exports[`Sitemap renders correctly 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1691,6 +1701,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-menuUtilitiesLinkLabel"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2181,6 +2192,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2227,6 +2239,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2273,6 +2286,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2465,6 +2479,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-menuUtilitiesLinkLabel"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2955,6 +2970,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3001,6 +3017,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3047,6 +3064,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3229,6 +3247,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3275,6 +3294,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3321,6 +3341,7 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3518,6 +3539,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
   >
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3564,6 +3586,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3610,6 +3633,7 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
     </div>
     <div
       class="Section-root css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"

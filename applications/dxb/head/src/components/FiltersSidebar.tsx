@@ -49,7 +49,11 @@ const FiltersSidebar = ({
         <Typography variant="h5">
           {getMicroCopy(microCopy.PLP_FILTERS_TITLE)}
         </Typography>
-        <Button variant="text" onClick={onClearFilters}>
+        <Button
+          variant="text"
+          onClick={onClearFilters}
+          data-testid="filter-sidebar-clear-all-button"
+        >
           {getMicroCopy(microCopy.PLP_FILTERS_CLEAR_ALL)}
         </Button>
       </div>

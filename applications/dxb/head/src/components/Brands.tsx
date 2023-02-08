@@ -83,6 +83,10 @@ const Brands = ({
                   name={brand.brandLogo}
                   logoIcon={logoIconMap[brand.brandLogo]}
                   description={brand.subtitle ? brand.subtitle : undefined}
+                  data-testid={`brand-intro-card-${brand.title.replace(
+                    / /g,
+                    "-"
+                  )}`}
                 />
               )}
             </Grid>

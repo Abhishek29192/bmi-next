@@ -19,6 +19,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -35,6 +36,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -51,6 +53,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -67,6 +70,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -83,6 +87,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -2469,6 +2474,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -2489,6 +2495,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -2524,6 +2531,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -2686,13 +2694,13 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -2781,6 +2789,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2947,6 +2956,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -3097,6 +3107,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -3184,6 +3195,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -3436,6 +3448,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -3549,6 +3562,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -3626,6 +3640,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -3646,6 +3661,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -4060,6 +4076,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -4076,6 +4093,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -4092,6 +4110,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -4108,6 +4127,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -4124,6 +4144,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -6510,6 +6531,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -6530,6 +6552,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -6565,6 +6588,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -6727,13 +6751,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -6794,6 +6818,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -6960,6 +6985,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -7110,6 +7136,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -7197,6 +7224,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -7449,6 +7477,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -7562,6 +7591,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -7639,6 +7669,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -7659,6 +7690,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -8073,6 +8105,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -8089,6 +8122,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -8105,6 +8139,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -8121,6 +8156,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -8137,6 +8173,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -10527,6 +10564,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
   >
     <div
       class="Section-root Section-pearl Section-slim css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -10547,6 +10585,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
@@ -10582,6 +10621,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-white Section-noSpacing css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -10744,13 +10784,13 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="LeadBlockSection Section-root Section-white css-cxq310"
+      data-testid="system-details-lead-block-section"
     >
       <div
         class=" css-ze8cyt"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-          data-testid="system-lead-block-section"
         >
           <div
             class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -10811,6 +10851,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+      data-testid="system-details-image-gallary-section"
     >
       <div
         class=" css-ze8cyt"
@@ -10977,6 +11018,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
+          data-testid="section"
         >
           <div
             class=" css-ze8cyt"
@@ -11127,6 +11169,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
+          data-testid="section"
         >
           <div
             class=" css-ze8cyt"
@@ -11214,6 +11257,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
       >
         <div
           class="section Section-root Section-white css-cxq310"
+          data-testid="section"
         >
           <div
             class=" css-ze8cyt"
@@ -11466,6 +11510,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                       <nav
                         aria-label="pagination navigation"
                         class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                        data-testid="pagination-root"
                       >
                         <ul
                           class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -11579,6 +11624,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -11656,6 +11702,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
     </div>
     <div
       class="Section-root Section-pearl Section-slim css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -11676,6 +11723,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 <a
                   class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                   data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  data-testid="bread-crumb-Home"
                   href="/en/"
                   tabindex="0"
                 >
@@ -12091,6 +12139,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -12107,6 +12156,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -12123,6 +12173,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -12139,6 +12190,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -12155,6 +12207,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -14541,6 +14594,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -14561,6 +14615,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -14596,6 +14651,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -14758,13 +14814,13 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -14825,6 +14881,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -14991,6 +15048,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -15141,6 +15199,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -15228,6 +15287,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -15480,6 +15540,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -15593,6 +15654,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -15670,6 +15732,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -15690,6 +15753,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -16104,6 +16168,7 @@ exports[`SystemDetailsPage template component should render without specificatio
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -16120,6 +16185,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -16136,6 +16202,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -16152,6 +16219,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -16168,6 +16236,7 @@ exports[`SystemDetailsPage template component should render without specificatio
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -18554,6 +18623,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -18574,6 +18644,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -18609,6 +18680,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -18771,13 +18843,13 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -18838,6 +18910,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -19004,6 +19077,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -19115,6 +19189,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -19202,6 +19277,7 @@ exports[`SystemDetailsPage template component should render without specificatio
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -19454,6 +19530,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -19567,6 +19644,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -19644,6 +19722,7 @@ exports[`SystemDetailsPage template component should render without specificatio
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -19664,6 +19743,7 @@ exports[`SystemDetailsPage template component should render without specificatio
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -20078,6 +20158,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -20094,6 +20175,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -20110,6 +20192,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -20126,6 +20209,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -20142,6 +20226,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -22528,6 +22613,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -22548,6 +22634,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -22583,6 +22670,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -22745,13 +22833,13 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -22812,6 +22900,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -22978,6 +23067,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -23128,6 +23218,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -23215,6 +23306,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -23467,6 +23559,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -23580,6 +23673,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -23657,6 +23751,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -23677,6 +23772,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -24091,6 +24187,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -24107,6 +24204,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -24123,6 +24221,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -24139,6 +24238,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -24155,6 +24255,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -26541,6 +26642,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -26561,6 +26663,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -26596,6 +26699,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -26758,13 +26862,13 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -26825,6 +26929,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -27117,6 +27222,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -27267,6 +27373,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -27354,6 +27461,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -27606,6 +27714,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -27719,6 +27828,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -27796,6 +27906,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -27816,6 +27927,7 @@ exports[`SystemDetailsPage template component systemLayers tests should NOT rend
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -28230,6 +28342,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
           <ul>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-dealer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -28246,6 +28359,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Find-a-roofer"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -28262,6 +28376,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Partner-portal"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -28278,6 +28393,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-News"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -28294,6 +28410,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
             </li>
             <li
               class="Header-navItem"
+              data-testid="utilities-link-Contact-Us"
             >
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Header-utilitiesButton css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
@@ -30680,6 +30797,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </header>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -30700,6 +30818,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >
@@ -30735,6 +30854,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-white Section-noSpacing css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -30897,13 +31017,13 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="LeadBlockSection Section-root Section-white css-cxq310"
+    data-testid="system-details-lead-block-section"
   >
     <div
       class=" css-ze8cyt"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl css-15p7r21-MuiContainer-root"
-        data-testid="system-lead-block-section"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ofnq7b-MuiGrid2-root"
@@ -30964,6 +31084,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="imageGallery-systemLayers-section Section-root Section-alabaster css-cxq310"
+    data-testid="system-details-image-gallary-section"
   >
     <div
       class=" css-ze8cyt"
@@ -31256,6 +31377,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -31406,6 +31528,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -31493,6 +31616,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
     >
       <div
         class="section Section-root Section-white css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -31745,6 +31869,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
                     <nav
                       aria-label="pagination navigation"
                       class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+                      data-testid="pagination-root"
                     >
                       <ul
                         class="MuiPagination-ul css-wjh20t-MuiPagination-ul"
@@ -31858,6 +31983,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-alabaster css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -31935,6 +32061,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
   </div>
   <div
     class="Section-root Section-pearl Section-slim css-cxq310"
+    data-testid="section"
   >
     <div
       class=" css-ze8cyt"
@@ -31955,6 +32082,7 @@ exports[`SystemDetailsPage template component systemLayers tests should render w
               <a
                 class="MuiButtonBase-root MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root Button-root MuiButton-text Button-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Breadcrumbs-button Breadcrumbs-link css-1r6mhvx-MuiButtonBase-root-MuiButton-root"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                data-testid="bread-crumb-Home"
                 href="/en/"
                 tabindex="0"
               >

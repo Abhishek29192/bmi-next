@@ -101,13 +101,14 @@ describe("Brand Landing Page Template", () => {
       </ThemeProvider>
     );
 
+    expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
     expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector("[data-test-class-name=Hero]")).toBeTruthy();
+    expect(getByTestId("hero")).toBeInTheDocument();
     expect(
       container.querySelector(
-        "[data-test-class-name=Hero] [aria-label=breadcrumbs]"
+        "[data-test-class-name=hero] [aria-label=breadcrumbs]"
       )
     ).toBeTruthy();
     expect(
@@ -123,7 +124,6 @@ describe("Brand Landing Page Template", () => {
         "[class*='Section'][class*='alabaster'][class*='slim'] [aria-label=breadcrumbs]"
       )
     ).toBeTruthy();
-    expect(container).toMatchSnapshot();
   });
 
   it("render overlapCards correctly", () => {
@@ -463,7 +463,9 @@ describe("Brand Landing Page Template", () => {
         </ThemeProvider>
       );
       expect(queryByText("firstSlideCTA")).not.toBeNull();
-      expect(getByTestId("hero-text").textContent.endsWith("...")).toBeFalsy();
+      expect(
+        getByTestId("hero-content-slide-text").textContent.endsWith("...")
+      ).toBeFalsy();
       expect(container).toMatchSnapshot();
     });
   });
@@ -501,9 +503,11 @@ describe("Brand Landing Page Template", () => {
           />
         </ThemeProvider>
       );
-      expect(queryByText("firstSlideCTA")).not.toBeNull();
-      expect(getByTestId("hero-text").textContent.endsWith("...")).toBeTruthy();
       expect(container).toMatchSnapshot();
+      expect(queryByText("firstSlideCTA")).not.toBeNull();
+      expect(
+        getByTestId("hero-content-slide-text").textContent.endsWith("...")
+      ).toBeTruthy();
     });
   });
 
@@ -513,7 +517,7 @@ describe("Brand Landing Page Template", () => {
         <BrandLandingPage data={data} pageContext={null} />
       </ThemeProvider>
     );
-
+    expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
     expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
@@ -521,6 +525,5 @@ describe("Brand Landing Page Template", () => {
     const formAction = getByTestId("brand-search-form").getAttribute("action");
     expect(formAction).toEqual(`/${data.contentfulSite.countryCode}/search/`);
     expect(getByTestId("brand-search-button")).toBeTruthy();
-    expect(container).toMatchSnapshot();
   });
 });

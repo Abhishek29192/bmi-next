@@ -57,11 +57,11 @@ import {
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { removePLPFilterPrefix } from "../../../utils/product-filters";
+import { ProductListWrapperGrid } from "../styles";
 import {
   renderProducts,
   resolveFilters
 } from "../utils/productListerPageUtils";
-import { ProductListWrapperGrid } from "../styles";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -398,7 +398,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 />
               </LeadBlock.Content>
               {isKeyFeatureBlockVisible ? (
-                <LeadBlock.Card color="pearl">
+                <LeadBlock.Card
+                  color="pearl"
+                  data-testid="key-features-post-it-card"
+                >
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading hasUnderline>
                       {getMicroCopy(microCopy.PLP_KEY_FEATURES_TITLE)}

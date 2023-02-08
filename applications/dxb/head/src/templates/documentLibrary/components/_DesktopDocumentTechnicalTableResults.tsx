@@ -195,7 +195,10 @@ const DesktopDocumentTechnicalTableResults = ({
                 </Table.Cell>
               );
             })}
-            <Table.Cell className={classes.allFilesHeader}>
+            <Table.Cell
+              className={classes.allFilesHeader}
+              data-testid="download-file"
+            >
               <span className={classes.allFilesHeaderWrapper}>
                 <Icon source={Download} className={classes.allFilesIcon} />
                 <span>
@@ -228,6 +231,7 @@ const DesktopDocumentTechnicalTableResults = ({
                       <Table.Cell
                         key={`${productName}-missing-asset-${index}`}
                         className={classes.alignCenter}
+                        data-testid={`file-does-not-exist-${productName}-missing-asset-${index}`}
                       >
                         <Icon
                           source={Cross}
@@ -241,6 +245,7 @@ const DesktopDocumentTechnicalTableResults = ({
                     <Table.Cell
                       key={`${productName}-asset-${assetType.code}`}
                       className={classes.alignCenter}
+                      data-testid={`download-file-icon-${productName}-asset-${assetType.code}`}
                     >
                       {filteredAssets.length === 1
                         ? singleDocument(filteredAssets[0])
@@ -265,6 +270,7 @@ const DesktopDocumentTechnicalTableResults = ({
                         }
                         return acc + (curr.fileSize || 0);
                       }, 0)}
+                      data-testid={`download-file-checkbox-${key}`}
                     />
                   )}
                 </Table.Cell>

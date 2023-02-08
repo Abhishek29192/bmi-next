@@ -126,6 +126,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
           <nav
             aria-label="pagination navigation"
             class="MuiPagination-root MuiPagination-text pagination docResultsFooterStyles-paginationRoot css-ys6i0r-MuiPagination-root"
+            data-testid="pagination-root"
           >
             <ul
               class="MuiPagination-ul css-wjh20t-MuiPagination-ul"

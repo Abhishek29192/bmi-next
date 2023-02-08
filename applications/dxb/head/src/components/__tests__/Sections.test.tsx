@@ -723,7 +723,8 @@ describe("Sections component", () => {
         type: "Tabs"
       },
       {
-        __typename: "ContentfulSyndicateSection"
+        __typename: "ContentfulSyndicateSection",
+        title: "string"
       }
     ] as Data;
 

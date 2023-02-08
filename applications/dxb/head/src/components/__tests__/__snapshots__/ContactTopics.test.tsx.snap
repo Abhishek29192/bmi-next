@@ -4,6 +4,7 @@ exports[`ContactTopics component renders correctly 1`] = `
 <div>
   <div
     class="ContactTopics css-j2p4rx"
+    data-testid="contact-topics"
   >
     <div
       class="ExpandableCard-expandableCardListCard"

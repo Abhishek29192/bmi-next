@@ -474,7 +474,11 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           <ProgressIndicator theme="light" />
         </Scrim>
       ) : null}
-      <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
+      <Section
+        backgroundColor="white"
+        className={styles["SystemConfigurator"]}
+        data-testid="system-config-section"
+      >
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
         {storedAnswers ? (

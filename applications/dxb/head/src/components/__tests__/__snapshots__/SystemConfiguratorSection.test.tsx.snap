@@ -4,6 +4,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -202,6 +203,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer h
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -297,6 +299,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -495,6 +498,7 @@ exports[`SystemConfiguratorSection component When returning from valid referer r
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -590,6 +594,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -788,6 +793,7 @@ exports[`SystemConfiguratorSection component redirect to 404 page if no matches 
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -832,6 +838,7 @@ exports[`SystemConfiguratorSection component renders System Configurator Block w
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -1027,6 +1034,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -1223,6 +1231,7 @@ exports[`SystemConfiguratorSection component renders a no result section when an
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1263,6 +1272,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -1461,6 +1471,7 @@ exports[`SystemConfiguratorSection component renders a result section when answe
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -1556,6 +1567,7 @@ exports[`SystemConfiguratorSection component renders an expanded panel when prev
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -1928,6 +1940,7 @@ exports[`SystemConfiguratorSection component renders correctly 1`] = `
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2123,6 +2136,7 @@ exports[`SystemConfiguratorSection component renders next question and answer bl
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2495,6 +2509,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2691,6 +2706,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2718,6 +2734,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -2914,6 +2931,7 @@ exports[`SystemConfiguratorSection component renders no result section while ign
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -2941,6 +2959,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -3137,6 +3156,7 @@ exports[`SystemConfiguratorSection component renders no result section with the 
   <div>
     <div
       class="Section-root Section-alabaster css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3170,6 +3190,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -3368,6 +3389,7 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3621,6 +3643,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -3819,6 +3842,7 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
   >
     <div
       class="SystemConfigurator-result Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -3970,6 +3994,7 @@ exports[`SystemConfiguratorSection component renders skipping a block with only 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -4466,6 +4491,7 @@ exports[`SystemConfiguratorSection component renders toggled closed configurator
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"
@@ -4838,6 +4864,7 @@ exports[`SystemConfiguratorSection component renders with description rich text 
 <div>
   <div
     class="SystemConfigurator Section-root Section-white css-cxq310"
+    data-testid="system-config-section"
   >
     <div
       class=" css-ze8cyt"

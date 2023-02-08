@@ -94,6 +94,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
       <Section
         backgroundColor="alabaster"
         className={styles["imageGallery-systemLayers-section"]}
+        data-testid="system-details-image-gallary-section"
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12} lg={8}>

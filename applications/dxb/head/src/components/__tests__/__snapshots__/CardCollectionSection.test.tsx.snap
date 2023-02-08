@@ -8,6 +8,7 @@ exports[`CardCollectionSection component Card label doesn't render button if car
   >
     <div
       class="Section-root Section-pearl css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -110,6 +111,7 @@ exports[`CardCollectionSection component Card label renders as name if title is 
   >
     <div
       class="Section-root Section-white css-cxq310"
+      data-testid="section"
     >
       <div
         class=" css-ze8cyt"
@@ -245,6 +247,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -330,7 +333,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                 data-testid="carousel"
               >
                 <div
-                  data-testid="carousel-component"
+                  data-testid="carousel-swipable-slide"
                   style="overflow-x: hidden;"
                 >
                   <div
@@ -424,6 +427,7 @@ exports[`CardCollectionSection component Renders correctly When dialogContent li
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -604,6 +608,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -751,6 +756,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -903,6 +909,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1055,6 +1062,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1207,6 +1215,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1359,6 +1368,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1511,6 +1521,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1663,6 +1674,7 @@ exports[`CardCollectionSection component Sorts correctly By default 1`] = `
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -1969,6 +1981,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -2275,6 +2288,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -2581,6 +2595,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -2887,6 +2902,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -3193,6 +3209,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
     >
       <div
         class="Section-root Section-pearl css-cxq310"
+        data-testid="section"
       >
         <div
           class=" css-ze8cyt"
@@ -3298,7 +3315,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
                 data-testid="carousel"
               >
                 <div
-                  data-testid="carousel-component"
+                  data-testid="carousel-swipable-slide"
                   style="overflow-x: hidden;"
                 >
                   <div
@@ -3377,6 +3394,7 @@ exports[`CardCollectionSection component single & multiple row display renders c
               <button
                 aria-label="Move right"
                 class="MuiButtonBase-root MuiIconButton-root Button-root iconButton Button-medium Button-contained MuiIconButton-sizeLarge ArrowControl-right css-1qhvx25-MuiButtonBase-root-MuiIconButton-root"
+                data-testid="carousel-controls-right"
                 tabindex="0"
                 type="button"
               >
